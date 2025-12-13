@@ -13,16 +13,9 @@ import {
   Cell,
   ReferenceLine,
   LabelList,
+  Rectangle,
+  Customized,
 } from "recharts";
-import {
-  createChart,
-  IChartApi,
-  CandlestickSeries,
-  HistogramSeries,
-  CandlestickData,
-  HistogramData,
-  Time,
-} from "lightweight-charts";
 import {
   classifyGapPattern,
   getVerdictCode,
@@ -60,6 +53,9 @@ interface OHLCVData {
   reversal_confirmed: string | null;
   verdict_10: string | null;
   verdict_20: string | null;
+  sma_20: number | null;
+  sma_50: number | null;
+  sma_200: number | null;
 }
 
 type ChartMode = "line" | "candle";
@@ -159,7 +155,169 @@ function CustomTooltip({
   );
 }
 
-// Candlestick Chart using TradingView Lightweight Charts
+// Candlestick Chart using Recharts (same as Analysis for consistency)
+// Calculate Simple Moving Average
+function calculateSMASimple(data: OHLCVData[], period: number): (number | null)[] {
+  return data.map((_, idx) => {
+    if (idx < period - 1) return null;
+    const sum = data.slice(idx - period + 1, idx + 1).reduce((acc, d) => acc + d.close, 0);
+    return sum / period;
+  });
+}
+
+// Candlestick renderer using Customized component for proper Y-axis mapping
+interface CandlestickRendererProps {
+  xAxisMap?: Record<string, { scale: (value: number) => number; bandSize?: number }>;
+  yAxisMap?: Record<string, { scale: (value: number) => number }>;
+  formattedGraphicalItems?: Array<{
+    props: { data: Array<{ payload: OHLCVData & { isUp: boolean; dateLabel: string } }> };
+  }>;
+  offset?: { left: number; top: number; width: number; height: number };
+}
+
+const CandlestickRenderer = (props: CandlestickRendererProps) => {
+  const { xAxisMap, yAxisMap, formattedGraphicalItems, offset } = props;
+
+  if (!xAxisMap || !yAxisMap || !formattedGraphicalItems || !offset) return null;
+
+  // Get the first (and only) formatted item which contains our data
+  const dataItem = formattedGraphicalItems[0];
+  if (!dataItem?.props?.data) return null;
+
+  const chartData = dataItem.props.data;
+  const xAxis = Object.values(xAxisMap)[0];
+  const yAxis = yAxisMap["price"];
+
+  if (!xAxis || !yAxis) return null;
+
+  const bandWidth = xAxis.bandSize || 30;
+  const barWidth = bandWidth * 0.7; // 70% of band width for candle body
+
+  return (
+    <g className="candlesticks">
+      {chartData.map((item, index) => {
+        const { payload } = item;
+        if (!payload) return null;
+
+        const { open, high, low, close, isUp } = payload;
+
+        // Get X position (center of band)
+        const xPos = xAxis.scale(index) + bandWidth / 2;
+
+        // Get Y positions using yAxis scale
+        const highY = yAxis.scale(high);
+        const lowY = yAxis.scale(low);
+        const openY = yAxis.scale(open);
+        const closeY = yAxis.scale(close);
+
+        const bodyTop = Math.min(openY, closeY);
+        const bodyBottom = Math.max(openY, closeY);
+        const bodyHeight = Math.max(bodyBottom - bodyTop, 1);
+        const bodyX = xPos - barWidth / 2;
+
+        const color = isUp ? "#22c55e" : "#ef4444";
+
+        return (
+          <g key={`candle-${index}`}>
+            {/* Upper wick */}
+            <line
+              x1={xPos}
+              y1={highY}
+              x2={xPos}
+              y2={bodyTop}
+              stroke={color}
+              strokeWidth={1}
+            />
+            {/* Lower wick */}
+            <line
+              x1={xPos}
+              y1={bodyBottom}
+              x2={xPos}
+              y2={lowY}
+              stroke={color}
+              strokeWidth={1}
+            />
+            {/* Body - filled for up, hollow for down */}
+            <rect
+              x={bodyX}
+              y={bodyTop}
+              width={barWidth}
+              height={bodyHeight}
+              fill={isUp ? color : "transparent"}
+              stroke={color}
+              strokeWidth={isUp ? 1 : 1.5}
+            />
+          </g>
+        );
+      })}
+    </g>
+  );
+};
+
+// Shared tooltip for both candlestick and volume charts
+function CandleTooltip({
+  active,
+  payload,
+}: {
+  active?: boolean;
+  payload?: Array<{
+    payload: {
+      date: string;
+      dateLabel: string;
+      open: number;
+      high: number;
+      low: number;
+      close: number;
+      volume: number;
+      isUp: boolean;
+      sma_20: number | null;
+      sma_50: number | null;
+      sma_200: number | null;
+    };
+  }>;
+}) {
+  if (!active || !payload?.length) return null;
+
+  const d = payload[0].payload;
+  const isBullish = d.close >= d.open;
+
+  return (
+    <div className="bg-card border border-border rounded-lg p-3 shadow-xl text-sm">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="font-semibold text-foreground">{d.date}</span>
+        <span className={`text-xs font-bold ${isBullish ? "text-green-500" : "text-red-500"}`}>
+          {isBullish ? "▲ Bullish" : "▼ Bearish"}
+        </span>
+      </div>
+      <div className="space-y-1 text-xs font-mono">
+        <p>
+          <span className="text-orange-400">O:</span>{" "}
+          <span className="text-foreground">{d.open.toFixed(2)}</span>
+          <span className="text-muted-foreground ml-2">H:</span>{" "}
+          <span className="text-green-400">{d.high.toFixed(2)}</span>
+        </p>
+        <p>
+          <span className="text-muted-foreground">L:</span>{" "}
+          <span className="text-red-400">{d.low.toFixed(2)}</span>
+          <span className="text-muted-foreground ml-2">C:</span>{" "}
+          <span className="text-foreground font-bold">{d.close.toFixed(2)}</span>
+        </p>
+        <p>
+          <span className="text-muted-foreground">Vol:</span>{" "}
+          <span className="text-cyan-400">{(d.volume / 1e6).toFixed(2)}M</span>
+        </p>
+        {(d.sma_20 || d.sma_50 || d.sma_200) && (
+          <p>
+            {d.sma_20 && <span className="text-green-400 mr-2">MA20:{d.sma_20.toFixed(0)}</span>}
+            {d.sma_50 && <span className="text-blue-400 mr-2">MA50:{d.sma_50.toFixed(0)}</span>}
+            {d.sma_200 && <span className="text-orange-400">MA200:{d.sma_200.toFixed(0)}</span>}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function CandlestickChart({
   data,
   height,
@@ -167,68 +325,234 @@ function CandlestickChart({
   data: OHLCVData[];
   height: number;
 }) {
-  const chartContainerRef = useRef<HTMLDivElement>(null);
-  const chartRef = useRef<IChartApi | null>(null);
-
-  useEffect(() => {
-    if (!chartContainerRef.current || data.length === 0) return;
-
-    const isDark = document.documentElement.classList.contains("dark");
-    const colors = isDark
-      ? { background: "#0a0a0a", text: "#d1d5db", grid: "#1f2937", border: "#374151" }
-      : { background: "#ffffff", text: "#374151", grid: "#e5e7eb", border: "#d1d5db" };
-
-    const chart = createChart(chartContainerRef.current, {
-      layout: { background: { color: colors.background }, textColor: colors.text },
-      grid: { vertLines: { color: colors.grid }, horzLines: { color: colors.grid } },
-      width: chartContainerRef.current.clientWidth,
-      height: height,
-      crosshair: { mode: 1 },
-      rightPriceScale: { borderColor: colors.border },
-      timeScale: { borderColor: colors.border, timeVisible: true },
-    });
-
-    chartRef.current = chart;
-
-    const candlestickSeries = chart.addSeries(CandlestickSeries, {
-      upColor: "#22c55e", downColor: "#ef4444",
-      borderUpColor: "#22c55e", borderDownColor: "#ef4444",
-      wickUpColor: "#22c55e", wickDownColor: "#ef4444",
-    });
-
-    const volumeSeries = chart.addSeries(HistogramSeries, {
-      color: "#6366f1",
-      priceFormat: { type: "volume" },
-      priceScaleId: "volume",
-    });
-    volumeSeries.priceScale().applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
-
-    const candleData: CandlestickData<Time>[] = data.map((d) => ({
-      time: d.date as Time, open: d.open, high: d.high, low: d.low, close: d.close,
+  // Prepare chart data with OHLC - use SMA from database
+  const chartData = useMemo(() => {
+    return data.map((d) => ({
+      ...d,
+      dateLabel: d.date.slice(5), // MM-DD
+      isUp: d.close >= d.open,
+      // For volume bar colors
+      volumeColor: d.close >= d.open ? "#22c55e" : "transparent",
+      volumeStroke: d.close >= d.open ? "#22c55e" : "#ef4444",
     }));
+  }, [data]);
 
-    const volumeData: HistogramData<Time>[] = data.map((d) => {
-      const isUp = d.close >= d.open;
-      const percentile = d.volume_10_ts ?? 50;
-      let color = percentile >= 75 ? (isUp ? "#166534" : "#991b1b")
-        : percentile >= 25 ? (isUp ? "#22c55e" : "#ef4444") : "#6b7280";
-      return { time: d.date as Time, value: d.volume, color };
-    });
+  // Get latest data for display
+  const latestData = chartData[chartData.length - 1];
+  const prevClose = chartData.length > 1 ? chartData[chartData.length - 2].close : latestData?.open;
 
-    candlestickSeries.setData(candleData);
-    volumeSeries.setData(volumeData);
-    chart.timeScale().fitContent();
-
-    const handleResize = () => {
-      if (chartContainerRef.current) {
-        chart.applyOptions({ width: chartContainerRef.current.clientWidth });
+  const displayInfo = latestData
+    ? {
+        open: latestData.open,
+        high: latestData.high,
+        low: latestData.low,
+        close: latestData.close,
+        change: latestData.close - (prevClose ?? latestData.open),
+        changePct: ((latestData.close - (prevClose ?? latestData.open)) / (prevClose ?? latestData.open)) * 100,
+        volume: latestData.volume,
+        sma_20: latestData.sma_20,
+        sma_50: latestData.sma_50,
+        sma_200: latestData.sma_200,
       }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => { window.removeEventListener("resize", handleResize); chart.remove(); };
-  }, [data, height]);
+    : null;
 
-  return <div ref={chartContainerRef} className="w-full rounded-lg overflow-hidden" />;
+  // Calculate price range for Y axis
+  const priceMin = Math.min(...data.map((d) => d.low));
+  const priceMax = Math.max(...data.map((d) => d.high));
+  const priceRange = priceMax - priceMin;
+  const pricePadding = priceRange * 0.1;
+  const volumeMax = Math.max(...data.map((d) => d.volume));
+
+  // Y domain for price
+  const priceDomain = [priceMin - pricePadding, priceMax + pricePadding];
+
+  if (data.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-[400px] bg-card rounded-lg">
+        <p className="text-muted-foreground">No chart data available</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full space-y-1">
+      {/* OHLC Info Bar - single row, no wrap */}
+      {displayInfo && (
+        <div className="flex items-center justify-between px-2 py-1 bg-muted/50 rounded text-[11px] font-mono overflow-hidden">
+          <div className="flex items-center gap-2">
+            <span className="text-orange-400">O {displayInfo.open.toFixed(2)}</span>
+            <span>H <span className="text-green-400">{displayInfo.high.toFixed(2)}</span></span>
+            <span>L <span className="text-red-400">{displayInfo.low.toFixed(2)}</span></span>
+            <span>C {displayInfo.close.toFixed(2)}</span>
+            <span className={displayInfo.changePct >= 0 ? "text-green-400" : "text-red-400"}>
+              {displayInfo.changePct >= 0 ? "+" : ""}{displayInfo.changePct.toFixed(1)}%
+            </span>
+          </div>
+          <div className="flex items-center gap-2 text-[10px]">
+            {displayInfo.sma_20 && <span className="text-green-400">MA20:{displayInfo.sma_20.toFixed(0)}</span>}
+            {displayInfo.sma_50 && <span className="text-blue-400">MA50:{displayInfo.sma_50.toFixed(0)}</span>}
+            {displayInfo.sma_200 && <span className="text-orange-400">MA200:{displayInfo.sma_200.toFixed(0)}</span>}
+          </div>
+        </div>
+      )}
+
+      {/* Combined Candlestick + Volume Chart */}
+      <ResponsiveContainer width="100%" height={height}>
+        <ComposedChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" className="stroke-border" strokeOpacity={0.5} />
+
+          <XAxis
+            dataKey="dateLabel"
+            axisLine={false}
+            tickLine={false}
+            tick={{ fill: "#9ca3af", fontSize: 10 }}
+            interval={0}
+          />
+
+          <YAxis
+            yAxisId="price"
+            orientation="left"
+            domain={priceDomain}
+            allowDataOverflow={true}
+            className="text-muted-foreground"
+            fontSize={10}
+            tickFormatter={(v) => `$${v.toFixed(0)}`}
+            axisLine={false}
+            tickLine={false}
+          />
+
+          <YAxis
+            yAxisId="volume"
+            orientation="right"
+            domain={[0, volumeMax * 3]}
+            className="text-muted-foreground"
+            fontSize={9}
+            tickFormatter={(v) => `${(v / 1e6).toFixed(0)}M`}
+            axisLine={false}
+            tickLine={false}
+          />
+
+          <Tooltip content={<CandleTooltip />} />
+
+          {/* Volume bars first (behind candles) */}
+          <Bar yAxisId="volume" dataKey="volume" barSize={32} radius={[2, 2, 0, 0]}>
+            {chartData.map((entry, index) => (
+              <Cell
+                key={`vol-${index}`}
+                fill={entry.isUp ? "#22c55e" : "#ef4444"}
+                fillOpacity={0.3}
+              />
+            ))}
+          </Bar>
+
+          {/* Candlesticks - render body using close-open range */}
+          <Bar
+            yAxisId="price"
+            dataKey={(d: typeof chartData[0]) => [Math.min(d.open, d.close), Math.max(d.open, d.close)]}
+            barSize={32}
+            shape={(props: any) => {
+              const { x, y, width, height, payload } = props;
+              if (!payload || !x || !width) return null;
+
+              const { open, high, low, close, isUp } = payload;
+              const color = isUp ? "#22c55e" : "#ef4444";
+              const centerX = x + width / 2;
+              const bodyWidth = width * 0.7;
+              const bodyX = x + (width - bodyWidth) / 2;
+
+              // Body height and position from props (already calculated by Recharts)
+              const bodyY = y || 0;
+              const bodyHeight = Math.max(height || 1, 1);
+
+              // Calculate wick positions - need to use price ratios
+              const priceRange = priceDomain[1] - priceDomain[0];
+              const chartHeight = bodyHeight / Math.abs(close - open) * priceRange || 200;
+              const pixelsPerDollar = chartHeight / priceRange;
+
+              const bodyTop = Math.min(y, y + (height || 0));
+              const bodyBottom = Math.max(y, y + (height || 0));
+
+              // Wick positions relative to body
+              const highY = bodyTop - (high - Math.max(open, close)) * pixelsPerDollar;
+              const lowY = bodyBottom + (Math.min(open, close) - low) * pixelsPerDollar;
+
+              return (
+                <g>
+                  {/* Upper wick */}
+                  <line x1={centerX} y1={highY} x2={centerX} y2={bodyTop} stroke={color} strokeWidth={1} />
+                  {/* Lower wick */}
+                  <line x1={centerX} y1={bodyBottom} x2={centerX} y2={lowY} stroke={color} strokeWidth={1} />
+                  {/* Body */}
+                  <rect
+                    x={bodyX}
+                    y={bodyTop}
+                    width={bodyWidth}
+                    height={Math.max(bodyBottom - bodyTop, 1)}
+                    fill={isUp ? color : "transparent"}
+                    stroke={color}
+                    strokeWidth={isUp ? 1 : 1.5}
+                  />
+                </g>
+              );
+            }}
+          />
+
+          {/* SMA Lines from database */}
+          <Line
+            yAxisId="price"
+            type="monotone"
+            dataKey="sma_20"
+            stroke="#22c55e"
+            strokeWidth={1.5}
+            dot={false}
+            connectNulls
+          />
+          <Line
+            yAxisId="price"
+            type="monotone"
+            dataKey="sma_50"
+            stroke="#3b82f6"
+            strokeWidth={1.5}
+            dot={false}
+            connectNulls
+          />
+          <Line
+            yAxisId="price"
+            type="monotone"
+            dataKey="sma_200"
+            stroke="#f59e0b"
+            strokeWidth={1.5}
+            dot={false}
+            connectNulls
+          />
+        </ComposedChart>
+      </ResponsiveContainer>
+
+      {/* Legend - same structure as Analysis */}
+      <div className="flex items-center justify-center gap-4 pt-1 text-[10px] text-muted-foreground">
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+          <span>Bullish</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 border border-red-500 rounded-sm"></div>
+          <span>Bearish</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-3 h-0.5 bg-green-500"></div>
+          <span>MA20</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-3 h-0.5 bg-blue-500"></div>
+          <span>MA50</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-3 h-0.5 bg-orange-500"></div>
+          <span>MA200</span>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // Custom label renderer for percentile INSIDE bars
@@ -350,28 +674,117 @@ const renderDateLabel = (props: {
 
 // Line Chart with improved layout - using Recharts native alignment
 function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
-  const chartData = useMemo(() => {
+  const [maPeriod, setMaPeriod] = useState<10 | 20>(10);
+
+  // Calculate volume MAs and percentiles for both 10d and 20d
+  const chartDataWithMAs = useMemo(() => {
     if (!data || data.length === 0) return [];
-    return data.map((d, idx) => {
-      const transformed = transformDataPoint(d, idx, data);
+
+    // First pass: calculate 20-day MA and collect volumes for percentile calculation
+    const withMAs = data.map((d, idx) => {
+      // Calculate 20MA
+      const start20 = Math.max(0, idx - 19);
+      const slice20 = data.slice(start20, idx + 1);
+      const volume_20ma = slice20.length > 0
+        ? slice20.reduce((sum, item) => sum + item.volume, 0) / slice20.length
+        : null;
+
+      return { ...d, volume_20ma };
+    });
+
+    // Second pass: calculate 20-day volume percentile
+    return withMAs.map((d, idx) => {
+      // Calculate 20-day percentile: rank current volume within last 20 days
+      const start20 = Math.max(0, idx - 19);
+      const slice20 = withMAs.slice(start20, idx + 1);
+      const sortedVolumes = slice20.map(item => item.volume).sort((a, b) => a - b);
+      const rank = sortedVolumes.findIndex(v => v >= d.volume);
+      const volume_20_ts = slice20.length > 1
+        ? (rank / (slice20.length - 1)) * 100
+        : 50;
+
+      return { ...d, volume_20_ts };
+    });
+  }, [data]);
+
+  const chartData = useMemo(() => {
+    if (!chartDataWithMAs || chartDataWithMAs.length === 0) return [];
+    return chartDataWithMAs.map((d, idx) => {
+      const transformed = transformDataPoint(d, idx, chartDataWithMAs as OHLCVData[]);
       // Add verdict code for XAxis
       const verdict = getVerdictCode(d.verdict_10, d.verdict_20);
-      // Calculate volume ratio for acceleration label
-      const volumeRatio = d.volume_10ma && d.volume_10ma > 0
-        ? d.volume / d.volume_10ma
+
+      // Use selected period's percentile for volume color
+      const selectedPercentile = maPeriod === 10 ? d.volume_10_ts : d.volume_20_ts;
+      const isUp = d.close >= d.open;
+      const volumeColorData = getVolumeBarColor(selectedPercentile, isUp);
+
+      // Calculate volume ratio based on selected MA period
+      const selectedMA = maPeriod === 10 ? d.volume_10ma : d.volume_20ma;
+      const volumeRatio = selectedMA && selectedMA > 0
+        ? d.volume / selectedMA
         : null;
       // Show acceleration label only for significant volume (>= 1.4x)
       const accelLabel = volumeRatio && volumeRatio >= 1.4
         ? `${volumeRatio.toFixed(1)}x`
         : null;
+
+      // Pattern annotation - check for key patterns
+      let patternAnnotation: { text: string; color: string; bg: string } | null = null;
+      const pattern = d.pattern;
+      const divergence = transformed.divergence;
+      const reversal = d.reversal_confirmed;
+
+      // Priority 1: Divergence
+      if (divergence?.hasDivergence) {
+        patternAnnotation = {
+          text: divergence.label,
+          color: "#ffffff",
+          bg: divergence.type === "rally" ? "#f87171" : "#f87171",
+        };
+      }
+      // Priority 2: Key reversal patterns
+      else if (pattern && ["HAMMER", "SHOOTING_STAR", "HANGING_MAN", "INV_HAMMER", "LONG_SHADOW"].includes(pattern)) {
+        if (reversal === "BULLISH_CONFIRMED" || reversal === "BEARISH_CONFIRMED") {
+          patternAnnotation = {
+            text: reversal === "BULLISH_CONFIRMED" ? "Confirmed" : "Confirmed",
+            color: "#ffffff",
+            bg: reversal === "BULLISH_CONFIRMED" ? "#166534" : "#991b1b",
+          };
+        } else if (pattern === "LONG_SHADOW") {
+          patternAnnotation = { text: "Shadow", color: "#1e3a8a", bg: "#bfdbfe" };
+        } else if (pattern === "HAMMER") {
+          patternAnnotation = { text: "Hammer", color: "#374151", bg: "#e5e7eb" };
+        } else if (pattern === "SHOOTING_STAR") {
+          patternAnnotation = { text: "Star", color: "#374151", bg: "#e5e7eb" };
+        } else if (pattern === "HANGING_MAN") {
+          patternAnnotation = { text: "Hanging", color: "#374151", bg: "#e5e7eb" };
+        } else if (pattern === "INV_HAMMER") {
+          patternAnnotation = { text: "InvHammer", color: "#374151", bg: "#e5e7eb" };
+        }
+      }
+      // Priority 3: Other meaningful conclusions (skip common ones)
+      else if (d.conclusion && !["Indecision", "Volatile", "High Volatility", "Doji", "Neutral", "Rally", "Decline"].includes(d.conclusion)) {
+        if (d.conclusion.includes("Resist") || d.conclusion.includes("Support") || d.conclusion.includes("Break")) {
+          patternAnnotation = { text: d.conclusion, color: "#1e3a8a", bg: "#fef9c3" };
+        }
+      }
+
       return {
         ...transformed,
         verdictCode: verdict.code,
         volumeRatio,
         accelLabel,
+        patternAnnotation,
+        volume_20ma: d.volume_20ma,
+        volume_20_ts: d.volume_20_ts,
+        // Override with selected period's color and percentile
+        volumeColor: volumeColorData.color,
+        volumeAlpha: volumeColorData.alpha,
+        volumePercentile: selectedPercentile,
       };
     });
-  }, [data]);
+  }, [chartDataWithMAs, maPeriod]);
 
   const signalIdx = chartData.length - 1;
   const signalData = chartData[signalIdx];
@@ -391,22 +804,26 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
 
   return (
     <div className="w-full space-y-1">
-      {/* TOP: Summary Bar */}
-      <div className="flex items-center justify-between px-2 py-2 bg-muted/50 rounded-lg text-xs font-mono">
-        <div className="flex items-center gap-4">
+      {/* TOP: Summary Bar - compact */}
+      <div className="flex items-center justify-between px-2 py-1 bg-muted/50 rounded text-[11px] font-mono">
+        <div className="flex items-center gap-3">
           {signalData && (
             <>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1">
+                <span className="text-muted-foreground">Close:</span>
+                <span className="text-foreground font-bold">${signalData.close.toFixed(2)}</span>
+              </div>
+              <div className="flex items-center gap-1">
                 <span className="text-muted-foreground">Vol:</span>
                 <span style={{ color: signalData.volumeRegime.color }} className="font-bold">
                   {signalData.volumeRegime.regime}
                 </span>
-                <span className="text-muted-foreground">
+                <span className="text-muted-foreground text-[10px]">
                   ({signalData.volumePercentile?.toFixed(0) ?? "-"}%ile)
                 </span>
               </div>
               {signalData.volume_10ma && signalData.volume_10ma > 0 && (
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-0.5">
                   <span className="text-muted-foreground">Ratio:</span>
                   <span className="text-foreground font-bold">
                     {(signalData.volume / signalData.volume_10ma).toFixed(2)}x
@@ -414,34 +831,64 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                 </div>
               )}
               {signalData.ofd_code && (
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-0.5">
                   <span className="text-muted-foreground">Candle:</span>
                   <span className="text-amber-600 dark:text-amber-400 font-bold">{signalData.ofd_code}</span>
                   {signalData.conclusion && (
-                    <span className="text-foreground">→ {signalData.conclusion}</span>
+                    <span className="text-foreground text-[10px]">→ {signalData.conclusion}</span>
                   )}
                 </div>
               )}
             </>
           )}
         </div>
-        {/* Bar Color Legend - compact */}
-        <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 bg-green-700 rounded-sm"></span>High
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 bg-green-500/60 rounded-sm"></span>Normal
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 bg-gray-500 rounded-sm"></span>Low
-          </span>
+        {/* Bar Color Legend + MA Toggle */}
+        <div className="flex items-center gap-4 text-[9px] text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span className="flex items-center gap-0.5">
+              <span className="w-2 h-2 bg-green-700 rounded-sm"></span>
+              <span className="w-2 h-2 bg-red-700 rounded-sm"></span>
+              <span>≥75%</span>
+            </span>
+            <span className="flex items-center gap-0.5">
+              <span className="w-2 h-2 bg-green-400 rounded-sm"></span>
+              <span className="w-2 h-2 bg-red-400 rounded-sm"></span>
+              <span>25-75%</span>
+            </span>
+            <span className="flex items-center gap-0.5">
+              <span className="w-2 h-2 bg-gray-500 rounded-sm"></span>
+              <span>&lt;25%</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-1 border-l border-border pl-3">
+            <span className="text-muted-foreground">Vol.%</span>
+            <button
+              onClick={() => setMaPeriod(10)}
+              className={`px-1.5 py-0.5 rounded text-[9px] font-medium transition-colors ${
+                maPeriod === 10
+                  ? "bg-blue-500 text-white"
+                  : "bg-muted hover:bg-muted/80 text-muted-foreground"
+              }`}
+            >
+              10d
+            </button>
+            <button
+              onClick={() => setMaPeriod(20)}
+              className={`px-1.5 py-0.5 rounded text-[9px] font-medium transition-colors ${
+                maPeriod === 20
+                  ? "bg-blue-500 text-white"
+                  : "bg-muted hover:bg-muted/80 text-muted-foreground"
+              }`}
+            >
+              20d
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* MAIN CHART with all labels using LabelList for perfect bar alignment */}
+      {/* MAIN CHART - tight margins for maximum info density */}
       <ResponsiveContainer width="100%" height={height}>
-        <ComposedChart data={chartData} margin={{ top: 25, right: 50, left: 60, bottom: 40 }}>
+        <ComposedChart data={chartData} margin={{ top: 18, right: 10, left: 10, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" className="stroke-border" strokeOpacity={0.5} />
 
           {/* Top XAxis for L3 Verdicts */}
@@ -456,30 +903,38 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
               const verdict = payload?.value;
               if (!verdict || verdict === "?|?") return null;
 
-              // Color based on verdict type
-              let color = "#9ca3af"; // gray for A
-              if (verdict.includes("B")) color = "#22c55e"; // green for BUY
-              else if (verdict.includes("H") && !verdict.includes("A")) color = "#22c55e"; // green for H|H
-              else if (verdict === "H|H") color = "#22c55e";
+              // Color per letter: B=green, A=red, H=gray
+              const getLetterColor = (letter: string) => {
+                if (letter === "B") return "#22c55e"; // green
+                if (letter === "A") return "#ef4444"; // red
+                return "#9ca3af"; // gray for H and others
+              };
+
+              const parts = verdict.split("|");
+              const letter1 = parts[0] || "?";
+              const letter2 = parts[1] || "?";
 
               return (
-                <text x={x} y={y - 5} fill={color} textAnchor="middle" fontSize={10} fontWeight="bold">
-                  {verdict}
+                <text x={x} y={y - 5} textAnchor="middle" fontSize={10} fontWeight="bold">
+                  <tspan fill={getLetterColor(letter1)}>{letter1}</tspan>
+                  <tspan fill="#6b7280">|</tspan>
+                  <tspan fill={getLetterColor(letter2)}>{letter2}</tspan>
                 </text>
               );
             }}
             interval={0}
           />
 
-          {/* Bottom XAxis for OFD codes */}
+          {/* Bottom XAxis for OFD codes - positioned just below bars */}
           <XAxis
             xAxisId="bottom"
             dataKey="ofd_code"
             orientation="bottom"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "#d97706", fontSize: 9, fontWeight: "bold" }}
+            tick={{ fill: "#d97706", fontSize: 9, fontWeight: "bold", dy: 2 }}
             interval={0}
+            height={16}
           />
 
           {/* Second bottom XAxis for dates */}
@@ -489,8 +944,9 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
             orientation="bottom"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "#9ca3af", fontSize: 8, dy: 15 }}
+            tick={{ fill: "#9ca3af", fontSize: 10, dy: 3 }}
             interval={0}
+            height={20}
           />
 
           <YAxis
@@ -517,12 +973,12 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
 
           <Tooltip content={<CustomTooltip />} />
 
-          {/* Volume Bars with percentile labels */}
+          {/* Volume Bars with percentile labels - wider bars for better visibility */}
           <Bar
             xAxisId="bottom"
             yAxisId="volume"
             dataKey="volume"
-            barSize={24}
+            barSize={32}
             radius={[2, 2, 0, 0]}
           >
             {chartData.map((entry, index) => (
@@ -532,91 +988,188 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                 fillOpacity={entry.volumeAlpha + 0.2}
               />
             ))}
-            {/* Percentile labels inside bars */}
+            {/* Percentile labels in center of bars */}
             <LabelList
               dataKey="volumePercentile"
-              position="insideBottom"
-              offset={8}
+              position="center"
               formatter={(value: number | null) => value !== null ? Math.round(value) : ""}
               fill="#ffffff"
-              fontSize={10}
+              fontSize={11}
               fontWeight="bold"
             />
-            {/* Volume acceleration labels (1.5x, 1.6x, etc.) */}
+            {/* Volume acceleration labels (1.5x, 1.6x, etc.) - above bars */}
             <LabelList
               dataKey="accelLabel"
               position="top"
-              offset={-5}
+              offset={8}
               fill="#06b6d4"
               fontSize={10}
               fontWeight="bold"
             />
           </Bar>
 
-          {/* Volume 10-day MA Line */}
+          {/* Volume MA Line with label - dynamic based on selected period */}
           <Line
             xAxisId="bottom"
             yAxisId="volume"
             type="monotone"
-            dataKey="volume_10ma"
+            dataKey={maPeriod === 10 ? "volume_10ma" : "volume_20ma"}
             stroke="#60a5fa"
             strokeWidth={1.5}
             strokeDasharray="4 4"
             dot={false}
             connectNulls
+            label={(props: { x: number; y: number; index: number }) => {
+              // Only show label at first point - box to the left, line starts at right edge
+              if (props.index !== 0) return null;
+              const labelText = `Vol ${maPeriod}d MA`;
+              const boxWidth = 68;
+              return (
+                <g key="vol-ma-label">
+                  <rect
+                    x={props.x - boxWidth}
+                    y={props.y - 10}
+                    width={boxWidth}
+                    height={20}
+                    rx={4}
+                    fill="#eff6ff"
+                    stroke="#3b82f6"
+                    strokeWidth={1.5}
+                  />
+                  <text
+                    x={props.x - boxWidth / 2}
+                    y={props.y}
+                    fill="#2563eb"
+                    fontSize={10}
+                    fontWeight="bold"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                  >
+                    {labelText}
+                  </text>
+                </g>
+              );
+            }}
           />
 
-          {/* Price Line */}
+          {/* Price Line - simple dots, gap badges rendered separately above bars */}
           <Line
             xAxisId="bottom"
             yAxisId="price"
             type="monotone"
             dataKey="close"
             stroke="#3b82f6"
-            strokeWidth={2.5}
+            strokeWidth={2}
             dot={(props: { cx: number; cy: number; index: number }) => {
-              if (props.index === signalIdx) {
+              const isSignal = props.index === signalIdx;
+
+              // Signal date - red circle
+              if (isSignal) {
                 return (
                   <circle
+                    key={`dot-${props.index}`}
                     cx={props.cx}
                     cy={props.cy}
-                    r={6}
+                    r={5}
                     fill="#ef4444"
                     stroke="#ffffff"
                     strokeWidth={2}
                   />
                 );
               }
-              return <circle cx={props.cx} cy={props.cy} r={2} fill="#3b82f6" />;
+
+              // Normal dot
+              return <circle key={`dot-${props.index}`} cx={props.cx} cy={props.cy} r={2} fill="#3b82f6" />;
             }}
-            activeDot={{ r: 5, fill: "#3b82f6", stroke: "#fff", strokeWidth: 2 }}
+            activeDot={{ r: 4, fill: "#3b82f6", stroke: "#fff", strokeWidth: 1 }}
+            label={(props: { x: number; y: number; index: number; value: number }) => {
+              const d = chartData[props.index];
+              if (!d) return null;
+
+              // Gap badges - placed at fixed height above price line
+              const gapPct = d.gap_pct;
+              const gapY = props.y - 25; // Fixed offset above price point
+
+              if (gapPct && gapPct > 1) {
+                return (
+                  <g key={`gap-badge-${props.index}`}>
+                    <polygon
+                      points={`${props.x},${gapY - 8} ${props.x - 6},${gapY + 4} ${props.x + 6},${gapY + 4}`}
+                      fill="#22c55e"
+                      stroke="#ffffff"
+                      strokeWidth={1}
+                    />
+                    <text x={props.x} y={gapY - 12} fill="#22c55e" textAnchor="middle" fontSize={8} fontWeight="bold">
+                      {gapPct > 0 ? `+${gapPct.toFixed(1)}%` : `${gapPct.toFixed(1)}%`}
+                    </text>
+                  </g>
+                );
+              }
+
+              if (gapPct && gapPct < -1) {
+                return (
+                  <g key={`gap-badge-${props.index}`}>
+                    <polygon
+                      points={`${props.x},${gapY + 8} ${props.x - 6},${gapY - 4} ${props.x + 6},${gapY - 4}`}
+                      fill="#ef4444"
+                      stroke="#ffffff"
+                      strokeWidth={1}
+                    />
+                    <text x={props.x} y={gapY - 12} fill="#ef4444" textAnchor="middle" fontSize={8} fontWeight="bold">
+                      {gapPct.toFixed(1)}%
+                    </text>
+                  </g>
+                );
+              }
+
+              // Pattern annotation badge
+              const annotation = d.patternAnnotation;
+              if (annotation) {
+                const labelY = props.y - 18;
+                return (
+                  <g key={`pattern-${props.index}`}>
+                    <rect
+                      x={props.x - 22}
+                      y={labelY - 8}
+                      width={44}
+                      height={14}
+                      rx={3}
+                      fill={annotation.bg}
+                      stroke={annotation.color}
+                      strokeWidth={0.5}
+                    />
+                    <text x={props.x} y={labelY} fill={annotation.color} textAnchor="middle" fontSize={8} fontWeight="bold" dominantBaseline="middle">
+                      {annotation.text}
+                    </text>
+                  </g>
+                );
+              }
+
+              return null;
+            }}
           />
 
           <ReferenceLine xAxisId="bottom" yAxisId="volume" y={0} stroke="transparent" />
         </ComposedChart>
       </ResponsiveContainer>
 
-      {/* LEGEND ROW */}
-      <div className="flex items-center justify-center gap-6 pt-2 text-xs text-muted-foreground">
-        <div className="flex items-center gap-1.5">
-          <div className="w-4 h-0.5 bg-blue-500 rounded"></div>
+      {/* LEGEND ROW - compact */}
+      <div className="flex items-center justify-center gap-4 pt-1 text-[10px] text-muted-foreground">
+        <div className="flex items-center gap-1">
+          <div className="w-3 h-0.5 bg-blue-500 rounded"></div>
           <span>Close</span>
         </div>
-        <div className="flex items-center gap-1.5">
-          <div className="w-4 h-0.5 bg-blue-400 rounded" style={{ borderStyle: "dashed" }}></div>
-          <span>Vol 10d MA</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-red-500 border-2 border-white"></div>
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 rounded-full bg-red-500"></div>
           <span>Signal</span>
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1">
           <span className="text-green-500">▲</span>
-          <span>Gap Up</span>
+          <span>Gap↑</span>
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1">
           <span className="text-red-500">▼</span>
-          <span>Gap Down</span>
+          <span>Gap↓</span>
         </div>
       </div>
     </div>
@@ -642,7 +1195,7 @@ export function PriceVolumeChart({
   return (
     <div className="w-full">
       {/* Mode Toggle */}
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-1 bg-muted rounded-lg p-1">
           <button
             onClick={() => setMode("line")}

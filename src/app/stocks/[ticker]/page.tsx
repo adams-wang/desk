@@ -334,12 +334,9 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
       )}
 
       {/* P1: Price + Volume Chart */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Price Action (20-Day)</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <PriceVolumeChart data={ohlcvExtended} height={400} />
+      <Card className="py-6 gap-0">
+        <CardContent className="pt-0">
+          <PriceVolumeChart data={ohlcvExtended} height={480} />
         </CardContent>
       </Card>
 

@@ -36,6 +36,10 @@ export interface StockOHLCVExtended extends StockOHLCV {
   // L3 verdicts
   verdict_10: string | null;
   verdict_20: string | null;
+  // SMAs from technicals
+  sma_20: number | null;
+  sma_50: number | null;
+  sma_200: number | null;
 }
 
 export interface MRSHistory {
@@ -240,12 +244,15 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
       c.body_size_pct, c.volume_ratio as candle_volume_ratio,
       c.upper_wick_ratio, c.lower_wick_ratio, c.reversal_confirmed,
       -- L3 verdicts
-      l10.verdict as verdict_10, l20.verdict as verdict_20
+      l10.verdict as verdict_10, l20.verdict as verdict_20,
+      -- SMAs from technicals
+      t.sma_20, t.sma_50, t.sma_200
     FROM stocks_ohlcv o
     LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
     LEFT JOIN candle_descriptors c ON o.ticker = c.ticker AND o.date = c.date
     LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
+    LEFT JOIN stocks_technicals t ON o.ticker = t.ticker AND o.date = t.date
     WHERE o.ticker = ? AND o.date <= ?
     ORDER BY o.date DESC
     LIMIT ?

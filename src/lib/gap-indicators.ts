@@ -206,10 +206,10 @@ export function getVolumeBarColor(
       alpha: 0.7,
     };
   } else if (pct >= 25) {
-    // Normal volume: regular green/red
+    // Normal volume: lighter green/red for dark theme visibility
     return {
-      color: isUp ? "#22c55e" : "#ef4444",
-      alpha: 0.4,
+      color: isUp ? "#4ade80" : "#f87171",
+      alpha: 0.7,
     };
   } else {
     // Low volume: gray
