@@ -1222,7 +1222,7 @@ export function PriceVolumeChart({
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            📊 Analysis
+            📊 Signals
           </button>
           <button
             onClick={() => setMode("candle")}
@@ -1232,11 +1232,8 @@ export function PriceVolumeChart({
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            🕯️ Candles
+            🕯️ OHLC
           </button>
-        </div>
-        <div className="text-xs text-muted-foreground">
-          {mode === "line" ? "Volume analysis with signals" : "OHLC candlesticks"}
         </div>
       </div>
 
