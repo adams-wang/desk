@@ -356,9 +356,19 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
       const transformed = transformDataPoint(d, idx, data);
       // Add verdict code for XAxis
       const verdict = getVerdictCode(d.verdict_10, d.verdict_20);
+      // Calculate volume ratio for acceleration label
+      const volumeRatio = d.volume_10ma && d.volume_10ma > 0
+        ? d.volume / d.volume_10ma
+        : null;
+      // Show acceleration label only for significant volume (>= 1.4x)
+      const accelLabel = volumeRatio && volumeRatio >= 1.4
+        ? `${volumeRatio.toFixed(1)}x`
+        : null;
       return {
         ...transformed,
         verdictCode: verdict.code,
+        volumeRatio,
+        accelLabel,
       };
     });
   }, [data]);
@@ -507,7 +517,7 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
 
           <Tooltip content={<CustomTooltip />} />
 
-          {/* Volume Bars */}
+          {/* Volume Bars with percentile labels */}
           <Bar
             xAxisId="bottom"
             yAxisId="volume"
@@ -522,6 +532,25 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                 fillOpacity={entry.volumeAlpha + 0.2}
               />
             ))}
+            {/* Percentile labels inside bars */}
+            <LabelList
+              dataKey="volumePercentile"
+              position="insideBottom"
+              offset={8}
+              formatter={(value: number | null) => value !== null ? Math.round(value) : ""}
+              fill="#ffffff"
+              fontSize={10}
+              fontWeight="bold"
+            />
+            {/* Volume acceleration labels (1.5x, 1.6x, etc.) */}
+            <LabelList
+              dataKey="accelLabel"
+              position="top"
+              offset={-5}
+              fill="#06b6d4"
+              fontSize={10}
+              fontWeight="bold"
+            />
           </Bar>
 
           {/* Volume 10-day MA Line */}
