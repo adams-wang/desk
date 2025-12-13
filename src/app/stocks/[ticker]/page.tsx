@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
-import { getStockDetail, getStockOHLCV } from "@/lib/queries/stocks";
+import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory } from "@/lib/queries/stocks";
+import { getSectorMRS, getStockSector } from "@/lib/queries/sectors";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { PriceVolumeChart, SectorMRSChart, MRSTrajectoryChart } from "@/components/charts";
 
 interface StockDetailPageProps {
   params: Promise<{ ticker: string }>;
@@ -38,6 +40,12 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
   const prevClose = ohlcv.length > 1 ? ohlcv[ohlcv.length - 2].close : stock.close;
   const change = stock.close - prevClose;
   const changePercent = prevClose > 0 ? (change / prevClose) * 100 : 0;
+
+  // Chart data
+  const ohlcvExtended = getStockOHLCVExtended(ticker, 20);
+  const mrsHistory = getMRSHistory(ticker, 20);
+  const sectors = getSectorMRS();
+  const stockSector = getStockSector(ticker);
 
   return (
     <div className="space-y-6">
@@ -325,19 +333,42 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
         </Card>
       )}
 
-      {/* Chart placeholder */}
+      {/* P1: Price + Volume Chart */}
       <Card>
         <CardHeader>
-          <CardTitle>Price Chart</CardTitle>
+          <CardTitle>Price Action (20-Day)</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex h-[400px] items-center justify-center rounded-lg border border-dashed">
-            <p className="text-muted-foreground">
-              TradingView Chart coming in Phase 2
-            </p>
-          </div>
+          <PriceVolumeChart data={ohlcvExtended} height={400} />
         </CardContent>
       </Card>
+
+      {/* P2 & P3: Side by side charts */}
+      <div className="grid gap-4 md:grid-cols-2">
+        {/* P2: Sector MRS Comparison */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Sector Relative Strength</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <SectorMRSChart
+              sectors={sectors}
+              currentSector={stockSector}
+              height={350}
+            />
+          </CardContent>
+        </Card>
+
+        {/* P3: MRS Trajectory */}
+        <Card>
+          <CardHeader>
+            <CardTitle>MRS Trajectory (20-Day)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <MRSTrajectoryChart data={mrsHistory} height={350} />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

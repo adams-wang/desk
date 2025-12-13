@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Header() {
   const [tradingDate, setTradingDate] = useState<string | null>(null);
@@ -20,6 +21,7 @@ export function Header() {
       </div>
 
       <div className="flex items-center gap-4">
+        <ThemeToggle />
         {tradingDate && (
           <Badge variant="outline" className="font-mono">
             {tradingDate}

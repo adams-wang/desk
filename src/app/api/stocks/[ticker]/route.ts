@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getStockDetail, getStockOHLCV } from "@/lib/queries/stocks";
+import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory } from "@/lib/queries/stocks";
+import { getSectorMRS, getStockSector } from "@/lib/queries/sectors";
 import { v4 as uuidv4 } from "uuid";
 import { withRequestContext, getLogger } from "@/lib/logger";
 
@@ -35,6 +36,16 @@ export async function GET(
       // Get OHLCV history for charts
       const ohlcv = getStockOHLCV(ticker, days);
 
+      // Get extended OHLCV for P1 chart (20-day with patterns)
+      const ohlcvExtended = getStockOHLCVExtended(ticker, 20);
+
+      // Get MRS history for P3 chart
+      const mrsHistory = getMRSHistory(ticker, 20);
+
+      // Get sector data for P2 chart
+      const stockSector = getStockSector(ticker);
+      const sectors = getSectorMRS();
+
       // Calculate change from previous close
       const prevClose = ohlcv.length > 1 ? ohlcv[ohlcv.length - 2].close : detail.close;
       const change = detail.close - prevClose;
@@ -45,6 +56,12 @@ export async function GET(
         change: parseFloat(change.toFixed(2)),
         changePercent: parseFloat(changePercent.toFixed(2)),
         ohlcv,
+        // Chart data for Phase 2
+        charts: {
+          priceVolume: ohlcvExtended,  // P1: 20-day OHLCV with patterns
+          sectorMRS: { sectors, currentSector: stockSector },  // P2: Sector comparison
+          mrsTrajectory: mrsHistory,  // P3: MRS history
+        },
       };
 
       log.info(
