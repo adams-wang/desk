@@ -396,17 +396,18 @@ function CandlestickChart({
         </div>
       )}
 
-      {/* Combined Candlestick + Volume Chart */}
-      <ResponsiveContainer width="100%" height={height}>
-        <ComposedChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 5 }}>
+      {/* Charts container - no gap between candlestick and volume */}
+      <div>
+      {/* Candlestick Chart - 61.8% (golden ratio) */}
+      <ResponsiveContainer width="100%" height={height * 0.618}>
+        <ComposedChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }} syncId="candle-sync">
           <CartesianGrid strokeDasharray="3 3" className="stroke-border" strokeOpacity={0.5} />
 
           <XAxis
             dataKey="dateLabel"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "#9ca3af", fontSize: 10 }}
-            interval={0}
+            tick={false}
           />
 
           <YAxis
@@ -421,29 +422,7 @@ function CandlestickChart({
             tickLine={false}
           />
 
-          <YAxis
-            yAxisId="volume"
-            orientation="right"
-            domain={[0, volumeMax * 3]}
-            className="text-muted-foreground"
-            fontSize={9}
-            tickFormatter={(v) => `${(v / 1e6).toFixed(0)}M`}
-            axisLine={false}
-            tickLine={false}
-          />
-
           <Tooltip content={<CandleTooltip />} />
-
-          {/* Volume bars first (behind candles) */}
-          <Bar yAxisId="volume" dataKey="volume" barSize={32} radius={[2, 2, 0, 0]}>
-            {chartData.map((entry, index) => (
-              <Cell
-                key={`vol-${index}`}
-                fill={entry.isUp ? "#22c55e" : "#ef4444"}
-                fillOpacity={0.3}
-              />
-            ))}
-          </Bar>
 
           {/* Candlesticks - render body using close-open range */}
           <Bar
@@ -457,7 +436,7 @@ function CandlestickChart({
               const { open, high, low, close, isUp } = payload;
               const color = isUp ? "#22c55e" : "#ef4444";
               const centerX = x + width / 2;
-              const bodyWidth = width * 0.7;
+              const bodyWidth = width * 0.95; // Match Analysis chart bar width
               const bodyX = x + (width - bodyWidth) / 2;
 
               // Body height and position from props (already calculated by Recharts)
@@ -465,6 +444,7 @@ function CandlestickChart({
               const bodyHeight = Math.max(height || 1, 1);
 
               // Calculate wick positions - need to use price ratios
+              // Y increases downward, so high price = lower Y value
               const priceRange = priceDomain[1] - priceDomain[0];
               const chartHeight = bodyHeight / Math.abs(close - open) * priceRange || 200;
               const pixelsPerDollar = chartHeight / priceRange;
@@ -472,7 +452,7 @@ function CandlestickChart({
               const bodyTop = Math.min(y, y + (height || 0));
               const bodyBottom = Math.max(y, y + (height || 0));
 
-              // Wick positions relative to body
+              // Wick positions relative to body (high >= max(open,close), low <= min(open,close))
               const highY = bodyTop - (high - Math.max(open, close)) * pixelsPerDollar;
               const lowY = bodyBottom + (Math.min(open, close) - low) * pixelsPerDollar;
 
@@ -527,6 +507,43 @@ function CandlestickChart({
           />
         </ComposedChart>
       </ResponsiveContainer>
+
+      {/* Volume Chart - 38.2% */}
+      <ResponsiveContainer width="100%" height={height * 0.382}>
+        <ComposedChart data={chartData} margin={{ top: 0, right: 10, left: 10, bottom: 5 }} syncId="candle-sync">
+          <XAxis
+            dataKey="dateLabel"
+            axisLine={false}
+            tickLine={false}
+            tick={{ fill: "#9ca3af", fontSize: 10 }}
+            interval={0}
+          />
+
+          <YAxis
+            orientation="left"
+            domain={[0, volumeMax * 1.2]}
+            className="text-muted-foreground"
+            fontSize={9}
+            tickFormatter={(v) => `${(v / 1e6).toFixed(0)}M`}
+            axisLine={false}
+            tickLine={false}
+          />
+
+          {/* Hidden tooltip to enable syncId hover detection */}
+          <Tooltip content={() => null} />
+
+          {/* Volume bars - solid for both up and down */}
+          <Bar dataKey="volume" barSize={32} radius={[2, 2, 0, 0]}>
+            {chartData.map((entry, index) => (
+              <Cell
+                key={`vol-${index}`}
+                fill={entry.isUp ? "#22c55e" : "#ef4444"}
+              />
+            ))}
+          </Bar>
+        </ComposedChart>
+      </ResponsiveContainer>
+      </div>
 
       {/* Legend - same structure as Analysis */}
       <div className="flex items-center justify-center gap-4 pt-1 text-[10px] text-muted-foreground">
