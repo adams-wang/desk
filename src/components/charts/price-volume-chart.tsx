@@ -1222,7 +1222,7 @@ export function PriceVolumeChart({
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            📊 Signals
+            📊 Insight
           </button>
           <button
             onClick={() => setMode("candle")}
@@ -1232,7 +1232,7 @@ export function PriceVolumeChart({
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            🕯️ OHLC
+            🕯️ OHLCV
           </button>
         </div>
       </div>
