@@ -21,7 +21,6 @@ import {
   getVerdictCode,
   getVolumeBarColor,
   getVolumeRegime,
-  checkDivergence,
   getPatternLabel,
   calculateVolumeAcceleration,
   VOLUME_CLIMAX_THRESHOLD,
@@ -44,8 +43,11 @@ interface OHLCVData {
   mrs_20: number | null;
   mrs_20_ts: number | null;
   ofd_code: string | null;
-  conclusion: string | null;
+  ofd_conclusion: string | null;
+  ofd_interpretation: string | null;
   pattern: string | null;
+  pattern_conclusion: string | null;
+  pattern_interpretation: string | null;
   body_size_pct: number | null;
   candle_volume_ratio: number | null;
   upper_wick_ratio: number | null;
@@ -81,7 +83,6 @@ function transformDataPoint(d: OHLCVData, idx: number, allData: OHLCVData[]) {
     d.gap_percentile,
     d.gap_filled
   );
-  const divergence = checkDivergence(d.open, d.close, prevClose);
   const patternLabel = getPatternLabel(d.pattern, d.reversal_confirmed);
 
   return {
@@ -97,7 +98,6 @@ function transformDataPoint(d: OHLCVData, idx: number, allData: OHLCVData[]) {
     volumeRegime,
     verdictInfo,
     gapPattern,
-    divergence,
     patternLabel,
   };
 }
@@ -136,19 +136,27 @@ function CustomTooltip({
             </span>
           )}
         </p>
-        {d.ofd_code && (
-          <p>
-            <span className="text-muted-foreground">OFD:</span>{" "}
-            <span className="text-amber-500 font-mono font-bold">{d.ofd_code}</span>
-          </p>
+        {d.pattern && d.pattern_conclusion && (
+          <div>
+            <p>
+              <span className="text-purple-500 font-mono font-bold">{d.pattern}</span>
+              <span className="text-foreground">: {d.pattern_conclusion}</span>
+            </p>
+            {d.pattern_interpretation && (
+              <p className="text-foreground">{d.pattern_interpretation}</p>
+            )}
+          </div>
         )}
-        {verdictInfo.code !== "?|?" && (
-          <p>
-            <span className="text-muted-foreground">L3:</span>{" "}
-            <span style={{ color: verdictInfo.color }} className="font-bold">
-              {verdictInfo.code}
-            </span>
-          </p>
+        {d.ofd_code && (
+          <div>
+            <p>
+              <span className="text-amber-500 font-mono font-bold">{d.ofd_code}</span>
+              <span className="text-foreground">: {d.ofd_conclusion || ''}</span>
+            </p>
+            {d.ofd_interpretation && (
+              <p className="text-foreground">{d.ofd_interpretation}</p>
+            )}
+          </div>
         )}
       </div>
     </div>
@@ -273,6 +281,13 @@ function CandleTooltip({
       sma_20: number | null;
       sma_50: number | null;
       sma_200: number | null;
+      // Pattern & OFD
+      pattern: string | null;
+      pattern_conclusion: string | null;
+      pattern_interpretation: string | null;
+      ofd_code: string | null;
+      ofd_conclusion: string | null;
+      ofd_interpretation: string | null;
     };
   }>;
 }) {
@@ -312,6 +327,30 @@ function CandleTooltip({
             {d.sma_50 && <span className="text-blue-400 mr-2">MA50:{d.sma_50.toFixed(0)}</span>}
             {d.sma_200 && <span className="text-orange-400">MA200:{d.sma_200.toFixed(0)}</span>}
           </p>
+        )}
+        {/* Pattern interpretation */}
+        {d.pattern && d.pattern_conclusion && (
+          <div>
+            <p>
+              <span className="text-purple-400 font-bold">{d.pattern}</span>
+              <span className="text-foreground">: {d.pattern_conclusion}</span>
+            </p>
+            {d.pattern_interpretation && (
+              <p className="text-foreground">{d.pattern_interpretation}</p>
+            )}
+          </div>
+        )}
+        {/* OFD interpretation */}
+        {d.ofd_code && (
+          <div>
+            <p>
+              <span className="text-amber-400 font-bold">{d.ofd_code}</span>
+              <span className="text-foreground">: {d.ofd_conclusion || ''}</span>
+            </p>
+            {d.ofd_interpretation && (
+              <p className="text-foreground">{d.ofd_interpretation}</p>
+            )}
+          </div>
         )}
       </div>
     </div>
@@ -748,42 +787,28 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
 
       // Pattern annotation - check for key patterns
       let patternAnnotation: { text: string; color: string; bg: string } | null = null;
-      const pattern = d.pattern;
-      const divergence = transformed.divergence;
-      const reversal = d.reversal_confirmed;
 
-      // Priority 1: Divergence
-      if (divergence?.hasDivergence) {
-        patternAnnotation = {
-          text: divergence.label,
-          color: "#ffffff",
-          bg: divergence.type === "rally" ? "#f87171" : "#f87171",
-        };
+      // Priority 1: Pattern PREFER/AVOID from pattern_interpretation
+      if (d.pattern_conclusion) {
+        patternAnnotation = d.pattern_conclusion === "PREFER"
+          ? { text: "PREFER", color: "#166534", bg: "#5CE18D" }
+          : { text: "AVOID", color: "#ffffff", bg: "#F97F7F" };
       }
-      // Priority 2: Key reversal patterns
-      else if (pattern && ["HAMMER", "SHOOTING_STAR", "HANGING_MAN", "INV_HAMMER", "LONG_SHADOW"].includes(pattern)) {
-        if (reversal === "BULLISH_CONFIRMED" || reversal === "BEARISH_CONFIRMED") {
-          patternAnnotation = {
-            text: reversal === "BULLISH_CONFIRMED" ? "Confirmed" : "Confirmed",
-            color: "#ffffff",
-            bg: reversal === "BULLISH_CONFIRMED" ? "#166534" : "#991b1b",
-          };
-        } else if (pattern === "LONG_SHADOW") {
-          patternAnnotation = { text: "Shadow", color: "#1e3a8a", bg: "#bfdbfe" };
-        } else if (pattern === "HAMMER") {
-          patternAnnotation = { text: "Hammer", color: "#374151", bg: "#e5e7eb" };
-        } else if (pattern === "SHOOTING_STAR") {
-          patternAnnotation = { text: "Star", color: "#374151", bg: "#e5e7eb" };
-        } else if (pattern === "HANGING_MAN") {
-          patternAnnotation = { text: "Hanging", color: "#374151", bg: "#e5e7eb" };
-        } else if (pattern === "INV_HAMMER") {
-          patternAnnotation = { text: "InvHammer", color: "#374151", bg: "#e5e7eb" };
-        }
-      }
-      // Priority 3: Other meaningful conclusions (skip common ones)
-      else if (d.conclusion && !["Indecision", "Volatile", "High Volatility", "Doji", "Neutral", "Rally", "Decline"].includes(d.conclusion)) {
-        if (d.conclusion.includes("Resist") || d.conclusion.includes("Support") || d.conclusion.includes("Break")) {
-          patternAnnotation = { text: d.conclusion, color: "#1e3a8a", bg: "#fef9c3" };
+      // Priority 2: OFD conclusions (skip common ones)
+      else if (d.ofd_conclusion && ["Breakout", "Breakdown", "Support", "Support test", "Resistance", "Resistance test"].includes(d.ofd_conclusion)) {
+        const displayText = d.ofd_conclusion === "Support test" ? "S↑ Test"
+          : d.ofd_conclusion === "Resistance test" ? "R↓ Test"
+          : d.ofd_conclusion;
+        // Bright green for Breakout, Coral for Breakdown, Light Pink for Resistance/S↑Test, Light Green for Support/R↓Test
+        if (d.ofd_conclusion === "Breakout") {
+          patternAnnotation = { text: displayText, color: "#166534", bg: "#5CE18D" };
+        } else if (d.ofd_conclusion === "Breakdown") {
+          patternAnnotation = { text: displayText, color: "#ffffff", bg: "#F97F7F" };
+        } else if (d.ofd_conclusion === "Resistance" || d.ofd_conclusion === "Support test") {
+          patternAnnotation = { text: displayText, color: "#b91c1c", bg: "#FFF0F0" };
+        } else {
+          // Support, Resistance test use light green
+          patternAnnotation = { text: displayText, color: "#166534", bg: "#DDFED5" };
         }
       }
 
@@ -851,9 +876,13 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                 <div className="flex items-center gap-0.5">
                   <span className="text-muted-foreground">Candle:</span>
                   <span className="text-amber-600 dark:text-amber-400 font-bold">{signalData.ofd_code}</span>
-                  {signalData.conclusion && (
-                    <span className="text-foreground text-[10px]">→ {signalData.conclusion}</span>
-                  )}
+                  {signalData.pattern_conclusion ? (
+                    <span className={`font-bold text-[10px] ${signalData.pattern_conclusion === "PREFER" ? "text-green-700" : "text-red-700"}`}>
+                      → {signalData.pattern_conclusion}
+                    </span>
+                  ) : signalData.ofd_conclusion && ["Breakout", "Breakdown", "Support", "Support test", "Resistance", "Resistance test"].includes(signalData.ofd_conclusion) ? (
+                    <span className="text-foreground text-[10px]">→ {signalData.ofd_conclusion === "Support test" ? "S↑ Test" : signalData.ofd_conclusion === "Resistance test" ? "R↓ Test" : signalData.ofd_conclusion}</span>
+                  ) : null}
                 </div>
               )}
             </>
@@ -1103,12 +1132,14 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
               const d = chartData[props.index];
               if (!d) return null;
 
+              const elements: React.ReactNode[] = [];
+
               // Gap badges - placed at fixed height above price line
               const gapPct = d.gap_pct;
               const gapY = props.y - 25; // Fixed offset above price point
 
               if (gapPct && gapPct > 1) {
-                return (
+                elements.push(
                   <g key={`gap-badge-${props.index}`}>
                     <polygon
                       points={`${props.x},${gapY - 8} ${props.x - 6},${gapY + 4} ${props.x + 6},${gapY + 4}`}
@@ -1121,10 +1152,8 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                     </text>
                   </g>
                 );
-              }
-
-              if (gapPct && gapPct < -1) {
-                return (
+              } else if (gapPct && gapPct < -1) {
+                elements.push(
                   <g key={`gap-badge-${props.index}`}>
                     <polygon
                       points={`${props.x},${gapY + 8} ${props.x - 6},${gapY - 4} ${props.x + 6},${gapY - 4}`}
@@ -1139,16 +1168,16 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                 );
               }
 
-              // Pattern annotation badge
+              // Pattern annotation badge - separate from gap badges
               const annotation = d.patternAnnotation;
               if (annotation) {
                 const labelY = props.y - 18;
-                return (
+                elements.push(
                   <g key={`pattern-${props.index}`}>
                     <rect
-                      x={props.x - 22}
+                      x={props.x - 26}
                       y={labelY - 8}
-                      width={44}
+                      width={52}
                       height={14}
                       rx={3}
                       fill={annotation.bg}
@@ -1162,7 +1191,7 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                 );
               }
 
-              return null;
+              return elements.length > 0 ? <>{elements}</> : null;
             }}
           />
 

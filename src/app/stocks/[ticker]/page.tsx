@@ -308,7 +308,36 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
       {stock.ofd_code && (
         <Card>
           <CardHeader>
-            <CardTitle>Candle Pattern</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              Candle Pattern
+              {/* Priority: Pattern PREFER/AVOID > OFD conclusion (filtered) */}
+              {stock.pattern_conclusion ? (
+                <Badge
+                  className={
+                    stock.pattern_conclusion === "PREFER"
+                      ? "bg-green-800 hover:bg-green-800"
+                      : "bg-red-800 hover:bg-red-800"
+                  }
+                >
+                  {stock.pattern_conclusion}
+                </Badge>
+              ) : stock.ofd_conclusion &&
+                ["Breakout", "Breakdown", "Support", "Support test", "Resistance", "Resistance test"].includes(stock.ofd_conclusion) ? (
+                <Badge
+                  variant={
+                    stock.ofd_conclusion === "Breakout"
+                      ? "default"
+                      : stock.ofd_conclusion === "Breakdown"
+                      ? "destructive"
+                      : "secondary"
+                  }
+                >
+                  {stock.ofd_conclusion === "Support test" ? "S↑ Test"
+                    : stock.ofd_conclusion === "Resistance test" ? "R↓ Test"
+                    : stock.ofd_conclusion}
+                </Badge>
+              ) : null}
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -320,12 +349,6 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Pattern</span>
                   <span>{stock.pattern}</span>
-                </div>
-              )}
-              {stock.conclusion && (
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Conclusion</span>
-                  <span>{stock.conclusion}</span>
                 </div>
               )}
             </div>

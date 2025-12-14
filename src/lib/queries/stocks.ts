@@ -24,10 +24,14 @@ export interface StockOHLCVExtended extends StockOHLCV {
   // MRS indicators
   mrs_20: number | null;
   mrs_20_ts: number | null;
-  // Candle descriptors
+  // OFD (from candle_descriptors + ofd_interpretation)
   ofd_code: string | null;
-  conclusion: string | null;
+  ofd_conclusion: string | null;
+  ofd_interpretation: string | null;
+  // Pattern (from candle_pattern + pattern_interpretation)
   pattern: string | null;
+  pattern_conclusion: string | null;  // PREFER or AVOID
+  pattern_interpretation: string | null;
   body_size_pct: number | null;
   candle_volume_ratio: number | null;  // volume_ratio from candle_descriptors
   upper_wick_ratio: number | null;
@@ -70,10 +74,12 @@ export interface StockDetail {
   rsi_14: number | null;
   macd: number | null;
   macd_signal: number | null;
-  // Candle descriptors
+  // OFD (from candle_descriptors + ofd_interpretation)
   ofd_code: string | null;
-  conclusion: string | null;
+  ofd_conclusion: string | null;
+  // Pattern (from candle_pattern + pattern_interpretation INNER JOIN)
   pattern: string | null;
+  pattern_conclusion: string | null;  // PREFER or AVOID
   // L3 verdicts
   verdict_10: string | null;
   conviction_10: string | null;
@@ -100,7 +106,10 @@ export function getStockDetail(ticker: string): StockDetail | null {
       o.ticker, o.date, o.open, o.high, o.low, o.close, o.volume,
       i.mrs_5, i.mrs_10, i.mrs_20, i.mrs_20_cs, i.gap_pct, i.gap_type,
       t.atr_14, t.rsi_14, t.macd_line as macd, t.macd_signal,
-      c.ofd_code, c.conclusion, c.pattern,
+      c.ofd_code,
+      oi.conclusion as ofd_conclusion,
+      CASE WHEN pi.conclusion IS NOT NULL THEN cp.pattern ELSE NULL END as pattern,
+      pi.conclusion as pattern_conclusion,
       l10.verdict as verdict_10, l10.conviction as conviction_10,
       l20.verdict as verdict_20, l20.conviction as conviction_20,
       m.name as company_name, m.sector, m.industry
@@ -108,6 +117,11 @@ export function getStockDetail(ticker: string): StockDetail | null {
     LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
     LEFT JOIN stocks_technicals t ON o.ticker = t.ticker AND o.date = t.date
     LEFT JOIN candle_descriptors c ON o.ticker = c.ticker AND o.date = c.date
+    LEFT JOIN ofd_interpretation oi ON c.ofd_code = oi.ofd_code
+    LEFT JOIN candle_pattern cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.type = '1-bar'
+    LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
+                                       AND cp.regime = pi.regime
+                                       AND cp.volume_code = pi.volume_code
     LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
@@ -239,8 +253,14 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
       i.gap_pct, i.gap_type, i.gap_filled, i.gap_volume_ratio, i.gap_percentile,
       -- MRS indicators
       i.mrs_20, i.mrs_20_ts,
-      -- Candle descriptors
-      c.ofd_code, c.conclusion, c.pattern,
+      -- OFD (from candle_descriptors + ofd_interpretation)
+      c.ofd_code,
+      oi.conclusion as ofd_conclusion,
+      oi.interpretation as ofd_interpretation,
+      -- Pattern (from candle_pattern + pattern_interpretation) - only retrieve pattern if interpretation exists
+      CASE WHEN pi.conclusion IS NOT NULL THEN cp.pattern ELSE NULL END as pattern,
+      pi.conclusion as pattern_conclusion,
+      pi.interpretation as pattern_interpretation,
       c.body_size_pct, c.volume_ratio as candle_volume_ratio,
       c.upper_wick_ratio, c.lower_wick_ratio, c.reversal_confirmed,
       -- L3 verdicts
@@ -250,6 +270,11 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
     FROM stocks_ohlcv o
     LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
     LEFT JOIN candle_descriptors c ON o.ticker = c.ticker AND o.date = c.date
+    LEFT JOIN ofd_interpretation oi ON c.ofd_code = oi.ofd_code
+    LEFT JOIN candle_pattern cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.type = '1-bar'
+    LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
+                                       AND cp.regime = pi.regime
+                                       AND cp.volume_code = pi.volume_code
     LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
     LEFT JOIN stocks_technicals t ON o.ticker = t.ticker AND o.date = t.date
