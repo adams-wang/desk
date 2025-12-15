@@ -50,3 +50,20 @@ export function getMarketRegime(date: string): MarketRegime | null {
     .get(date) as MarketRegime | undefined;
   return row || null;
 }
+
+/**
+ * Get VIX history for chart display
+ */
+export function getVIXHistory(days: number = 20): MarketRegime[] {
+  const date = getLatestTradingDate();
+  const rows = db
+    .prepare(`
+      SELECT date, vix_close, regime
+      FROM market_regime
+      WHERE date <= ?
+      ORDER BY date DESC
+      LIMIT ?
+    `)
+    .all(date, days) as MarketRegime[];
+  return rows.reverse(); // Chronological order
+}

@@ -60,10 +60,43 @@ interface OHLCVData {
 
 type ChartMode = "line" | "candle";
 
+interface VIXData {
+  date: string;
+  vix_close: number;
+  regime: "risk_on" | "normal" | "risk_off" | "crisis";
+}
+
+interface SectorRankData {
+  date: string;
+  rank: number;
+  total: number;
+}
+
 interface PriceVolumeChartProps {
   data: OHLCVData[];
+  vixHistory?: VIXData[];
+  sectorRankHistory?: SectorRankData[];
   height?: number;
   defaultMode?: ChartMode;
+}
+
+// Regime colors
+const regimeColors: Record<string, string> = {
+  risk_on: "#22c55e",  // green
+  normal: "#3b82f6",   // blue
+  risk_off: "#f59e0b", // amber
+  crisis: "#ef4444",   // red
+};
+
+// Get VIX trend arrow based on change
+function getVIXArrow(current: number, previous: number): string {
+  const change = current - previous;
+  const pctChange = (change / previous) * 100;
+  if (pctChange > 5) return "↗";      // Rising fast
+  if (pctChange > 1) return "→";      // Rising slow
+  if (pctChange < -5) return "↘";     // Falling fast
+  if (pctChange < -1) return "→";     // Falling slow
+  return "→";                          // Stable
 }
 
 // Transform data point for chart
@@ -116,13 +149,48 @@ function CustomTooltip({
   const d = payload[0].payload;
   const verdictInfo = getVerdictCode(d.verdict_10, d.verdict_20);
 
+  // Calculate price change from previous close
+  const priceChange = d.prevClose ? d.close - d.prevClose : null;
+  const priceChangePct = d.prevClose ? ((d.close - d.prevClose) / d.prevClose) * 100 : null;
+
+  // Regime display config
+  const regimeDisplay: Record<string, { label: string; color: string }> = {
+    risk_on: { label: "Risk On", color: "text-green-500" },
+    normal: { label: "Normal", color: "text-blue-500" },
+    risk_off: { label: "Risk Off", color: "text-amber-500" },
+    crisis: { label: "Crisis", color: "text-red-500" },
+  };
+  const vixInfo = d.vixRegime ? regimeDisplay[d.vixRegime] : null;
+
   return (
-    <div className="bg-card border border-border rounded-lg p-3 shadow-xl text-sm">
-      <p className="font-semibold text-foreground mb-2">{d.fullDate}</p>
+    <div className="bg-card border border-border rounded-lg p-3 shadow-xl text-sm min-w-[275px]">
+      <div className="flex items-start justify-between">
+        <span className="font-semibold text-foreground">{d.fullDate}</span>
+        <div className="flex flex-col items-end gap-0 text-xs font-mono">
+          {d.vixValue && vixInfo && (
+            <span>
+              <span className="text-muted-foreground">VIX:</span>{" "}
+              <span className="text-foreground">{d.vixValue.toFixed(1)}</span>{" "}
+              <span className={vixInfo.color}>{vixInfo.label}</span>
+            </span>
+          )}
+          {d.sectorRank && (
+            <span>
+              <span className="text-muted-foreground">Sector:</span>{" "}
+              <span className="text-foreground">#{d.sectorRank}/{d.sectorTotal}</span>
+            </span>
+          )}
+        </div>
+      </div>
       <div className="space-y-1 text-xs">
         <p>
           <span className="text-muted-foreground">Close:</span>{" "}
           <span className="text-foreground font-mono font-bold">${d.close.toFixed(2)}</span>
+          {priceChange !== null && priceChangePct !== null && (
+            <span className={`ml-2 font-mono ${priceChange >= 0 ? "text-green-500" : "text-red-500"}`}>
+              {priceChange >= 0 ? "+" : ""}{priceChange.toFixed(2)} ({priceChangePct >= 0 ? "+" : ""}{priceChangePct.toFixed(2)}%)
+            </span>
+          )}
         </p>
         <p>
           <span className="text-muted-foreground">Volume:</span>{" "}
@@ -755,7 +823,7 @@ const renderDateLabel = (props: {
 };
 
 // Line Chart with improved layout - using Recharts native alignment
-function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
+function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLCVData[]; height: number; vixHistory?: VIXData[]; sectorRankHistory?: SectorRankData[] }) {
   const [maPeriod, setMaPeriod] = useState<10 | 20>(10);
 
   // Calculate volume MAs and percentiles for both 10d and 20d
@@ -789,12 +857,36 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
     });
   }, [data]);
 
+  // Create VIX lookup map by date
+  const vixMap = useMemo(() => {
+    if (!vixHistory) return new Map<string, { vix: number; regime: string; arrow: string }>();
+    const map = new Map<string, { vix: number; regime: string; arrow: string }>();
+    vixHistory.forEach((v, idx) => {
+      const prev = idx > 0 ? vixHistory[idx - 1] : null;
+      const arrow = prev ? getVIXArrow(v.vix_close, prev.vix_close) : "→";
+      map.set(v.date, { vix: v.vix_close, regime: v.regime, arrow });
+    });
+    return map;
+  }, [vixHistory]);
+
+  // Create sector rank lookup map by date
+  const sectorRankMap = useMemo(() => {
+    if (!sectorRankHistory) return new Map<string, { rank: number; total: number }>();
+    const map = new Map<string, { rank: number; total: number }>();
+    sectorRankHistory.forEach((s) => {
+      map.set(s.date, { rank: s.rank, total: s.total });
+    });
+    return map;
+  }, [sectorRankHistory]);
+
   const chartData = useMemo(() => {
     if (!chartDataWithMAs || chartDataWithMAs.length === 0) return [];
     return chartDataWithMAs.map((d, idx) => {
       const transformed = transformDataPoint(d, idx, chartDataWithMAs as OHLCVData[]);
       // Add verdict code for XAxis
       const verdict = getVerdictCode(d.verdict_10, d.verdict_20);
+      // Add VIX data for this date
+      const vixData = vixMap.get(d.date);
 
       // Use selected period's percentile for volume color
       const selectedPercentile = maPeriod === 10 ? d.volume_10_ts : d.volume_20_ts;
@@ -850,9 +942,16 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
         volumeColor: volumeColorData.color,
         volumeAlpha: volumeColorData.alpha,
         volumePercentile: selectedPercentile,
+        // VIX data for this date
+        vixValue: vixData?.vix || null,
+        vixArrow: vixData?.arrow || null,
+        vixRegime: vixData?.regime || null,
+        // Sector rank for this date
+        sectorRank: sectorRankMap.get(d.date)?.rank || null,
+        sectorTotal: sectorRankMap.get(d.date)?.total || null,
       };
     });
-  }, [chartDataWithMAs, maPeriod]);
+  }, [chartDataWithMAs, maPeriod, vixMap, sectorRankMap]);
 
   const signalIdx = chartData.length - 1;
   const signalData = chartData[signalIdx];
@@ -890,14 +989,17 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                   ({signalData.volumePercentile?.toFixed(0) ?? "-"}%ile)
                 </span>
               </div>
-              {signalData.volume_10ma && signalData.volume_10ma > 0 && (
-                <div className="flex items-center gap-0.5">
-                  <span className="text-muted-foreground">Ratio:</span>
-                  <span className="text-foreground font-bold">
-                    {(signalData.volume / signalData.volume_10ma).toFixed(2)}x
-                  </span>
-                </div>
-              )}
+              {(() => {
+                const selectedMA = maPeriod === 10 ? signalData.volume_10ma : signalData.volume_20ma;
+                return selectedMA && selectedMA > 0 && (
+                  <div className="flex items-center gap-0.5">
+                    <span className="text-muted-foreground">Ratio:</span>
+                    <span className="text-foreground font-bold">
+                      {(signalData.volume / selectedMA).toFixed(2)}x
+                    </span>
+                  </div>
+                );
+              })()}
             </>
           )}
         </div>
@@ -947,8 +1049,36 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
 
       {/* MAIN CHART - tight margins for maximum info density */}
       <ResponsiveContainer width="100%" height={height}>
-        <ComposedChart data={chartData} margin={{ top: 18, right: 10, left: 10, bottom: 5 }}>
+        <ComposedChart data={chartData} margin={{ top: 0, right: 10, left: 10, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" className="stroke-border" strokeOpacity={0.5} />
+
+          {/* Top XAxis for VIX trend arrows */}
+          <XAxis
+            xAxisId="vix"
+            dataKey="vixArrow"
+            orientation="top"
+            axisLine={false}
+            tickLine={false}
+            tick={(props: { x: number; y: number; payload: { value: string }; index: number }) => {
+              const { x, y, index } = props;
+              const d = chartData[index];
+              if (!d?.vixArrow) return null;
+              const color = regimeColors[d.vixRegime] || "#9ca3af";
+              return (
+                <g>
+                  {index === 0 && (
+                    <text x={42} y={y - 5} textAnchor="start" fontSize={10} fill="#9ca3af" fontWeight="500">
+                      VIX
+                    </text>
+                  )}
+                  <text x={x} y={y - 5} textAnchor="middle" fontSize={12} fill={color} opacity={0.8}>
+                    {d.vixArrow}
+                  </text>
+                </g>
+              );
+            }}
+            interval={0}
+          />
 
           {/* Top XAxis for L3 Verdicts */}
           <XAxis
@@ -974,7 +1104,7 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
               const letter2 = parts[1] || "?";
 
               return (
-                <text x={x} y={y - 5} textAnchor="middle" fontSize={10} fontWeight="bold">
+                <text x={x} y={y - 18} textAnchor="middle" fontSize={10} fontWeight="bold">
                   <tspan fill={getLetterColor(letter1)}>{letter1}</tspan>
                   <tspan fill="#6b7280">|</tspan>
                   <tspan fill={getLetterColor(letter2)}>{letter2}</tspan>
@@ -1243,6 +1373,8 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
 // Main component with toggle
 export function PriceVolumeChart({
   data,
+  vixHistory,
+  sectorRankHistory,
   height = 400,
   defaultMode = "line",
 }: PriceVolumeChartProps) {
@@ -1285,7 +1417,7 @@ export function PriceVolumeChart({
       </div>
 
       {mode === "line" ? (
-        <LineChart data={data} height={height} />
+        <LineChart data={data} height={height} vixHistory={vixHistory} sectorRankHistory={sectorRankHistory} />
       ) : (
         <CandlestickChart data={data} height={height} />
       )}

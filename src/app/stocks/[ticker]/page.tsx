@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory } from "@/lib/queries/stocks";
-import { getSectorMRS, getStockSector } from "@/lib/queries/sectors";
+import { getSectorMRS, getStockSector, getSectorRankHistory } from "@/lib/queries/sectors";
+import { getVIXHistory } from "@/lib/queries/trading-days";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PriceVolumeChart, SectorMRSChart, MRSTrajectoryChart } from "@/components/charts";
@@ -46,30 +47,23 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
   const mrsHistory = getMRSHistory(ticker, 20);
   const sectors = getSectorMRS();
   const stockSector = getStockSector(ticker);
+  const vixHistory = getVIXHistory(20);
+  const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, 20) : [];
 
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <div className="flex items-center gap-3">
-            <h2 className="text-3xl font-bold tracking-tight">{stock.ticker}</h2>
-            {stock.verdict_10 && (
-              <Badge
-                variant={
-                  stock.verdict_10.toLowerCase().includes("buy")
-                    ? "default"
-                    : stock.verdict_10.toLowerCase().includes("sell")
-                    ? "destructive"
-                    : "secondary"
-                }
-              >
-                {stock.verdict_10}
-              </Badge>
-            )}
-          </div>
+          <h2 className="text-3xl font-bold tracking-tight">{stock.ticker}</h2>
           <p className="text-muted-foreground">
-            {stock.company_name || "Unknown Company"} • {stock.sector || "Unknown Sector"}
+            {stock.company_name || "Unknown Company"} •{" "}
+            {stock.sector || "Unknown Sector"}
+            {stockSector && sectors.length > 0 && (() => {
+              const sortedSectors = [...sectors].sort((a, b) => (b.mrs_20 || 0) - (a.mrs_20 || 0));
+              const rank = sortedSectors.findIndex(s => s.sector_name === stockSector) + 1;
+              return rank > 0 ? ` (#${rank} of ${sectors.length})` : "";
+            })()}
           </p>
         </div>
         <div className="text-right">
@@ -89,7 +83,12 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
       {/* P1: Price + Volume Chart */}
       <Card className="py-6 gap-0">
         <CardContent className="pt-0">
-          <PriceVolumeChart data={ohlcvExtended} height={480} />
+          <PriceVolumeChart
+            data={ohlcvExtended}
+            vixHistory={vixHistory}
+            sectorRankHistory={sectorRankHistory}
+            height={560}
+          />
         </CardContent>
       </Card>
 
