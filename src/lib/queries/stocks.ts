@@ -15,12 +15,11 @@ export interface StockOHLCVExtended extends StockOHLCV {
   // Volume indicators
   volume_10ma: number | null;
   volume_10_ts: number | null;
-  // Gap indicators
-  gap_pct: number | null;
-  gap_type: string | null;
-  gap_filled: number | null;  // 0 or 1
-  gap_volume_ratio: number | null;
-  gap_percentile: number | null;
+  // Gap indicators (from gap_signal + gap_interpretation)
+  gap_type: string | null;  // up_large, up_small, down_large, down_small
+  gap_filled: string | null;  // Y, N
+  gap_conclusion: string | null;  // PREFER, AVOID
+  gap_interpretation: string | null;
   // MRS indicators
   mrs_20: number | null;
   mrs_20_ts: number | null;
@@ -36,7 +35,6 @@ export interface StockOHLCVExtended extends StockOHLCV {
   candle_volume_ratio: number | null;  // volume_ratio from candle_descriptors
   upper_wick_ratio: number | null;
   lower_wick_ratio: number | null;
-  reversal_confirmed: string | null;
   // L3 verdicts
   verdict_10: string | null;
   verdict_20: string | null;
@@ -67,8 +65,9 @@ export interface StockDetail {
   mrs_10: number | null;
   mrs_20: number | null;
   mrs_20_cs: number | null;
-  gap_pct: number | null;
-  gap_type: string | null;
+  // Gap indicators (from gap_signal + gap_interpretation)
+  gap_type: string | null;  // up_large, up_small, down_large, down_small
+  gap_conclusion: string | null;  // PREFER, AVOID
   // Technicals
   atr_14: number | null;
   rsi_14: number | null;
@@ -104,7 +103,9 @@ export function getStockDetail(ticker: string): StockDetail | null {
       `
     SELECT
       o.ticker, o.date, o.open, o.high, o.low, o.close, o.volume,
-      i.mrs_5, i.mrs_10, i.mrs_20, i.mrs_20_cs, i.gap_pct, i.gap_type,
+      i.mrs_5, i.mrs_10, i.mrs_20, i.mrs_20_cs,
+      -- Gap (from gap_signal + gap_interpretation)
+      gs.gap_type, gi.conclusion as gap_conclusion,
       t.atr_14, t.rsi_14, t.macd_line as macd, t.macd_signal,
       c.ofd_code,
       oi.conclusion as ofd_conclusion,
@@ -120,11 +121,20 @@ export function getStockDetail(ticker: string): StockDetail | null {
     LEFT JOIN ofd_interpretation oi ON c.ofd_code = oi.ofd_code
     LEFT JOIN candle_pattern cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.type = '1-bar'
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
-                                       AND cp.regime = pi.regime
+                                       AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
     LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
+    LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
+    LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
+                                   AND gs.filled = gi.filled
+                                   AND gs.volume_code = gi.volume_code
+                                   AND gs.regime = gi.regime
+                                   AND (
+                                       gs.regime IN ('crisis', 'risk_off')
+                                       OR (gs.regime_mrs10 = gi.regime_mrs10 AND gs.regime_mrs20 = gi.regime_mrs20)
+                                   )
     WHERE o.ticker = ? AND o.date = ?
   `
     )
@@ -180,7 +190,8 @@ export function getStockList(limit: number = 500): StockDetail[] {
       `
     SELECT
       o.ticker, o.date, o.open, o.high, o.low, o.close, o.volume,
-      i.mrs_5, i.mrs_10, i.mrs_20, i.mrs_20_cs, i.gap_pct, i.gap_type,
+      i.mrs_5, i.mrs_10, i.mrs_20, i.mrs_20_cs,
+      gs.gap_type, gi.conclusion as gap_conclusion,
       t.atr_14, t.rsi_14,
       l10.verdict as verdict_10, l10.conviction as conviction_10,
       l20.verdict as verdict_20, l20.conviction as conviction_20,
@@ -191,6 +202,15 @@ export function getStockList(limit: number = 500): StockDetail[] {
     LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
+    LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
+    LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
+                                   AND gs.filled = gi.filled
+                                   AND gs.volume_code = gi.volume_code
+                                   AND gs.regime = gi.regime
+                                   AND (
+                                       gs.regime IN ('crisis', 'risk_off')
+                                       OR (gs.regime_mrs10 = gi.regime_mrs10 AND gs.regime_mrs20 = gi.regime_mrs20)
+                                   )
     WHERE o.date = ?
     ORDER BY o.volume DESC
     LIMIT ?
@@ -249,8 +269,9 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
       o.date, o.open, o.high, o.low, o.close, o.volume,
       -- Volume indicators
       i.volume_10ma, i.volume_10_ts,
-      -- Gap indicators
-      i.gap_pct, i.gap_type, i.gap_filled, i.gap_volume_ratio, i.gap_percentile,
+      -- Gap indicators (from gap_signal + gap_interpretation)
+      gs.gap_type, gs.filled as gap_filled,
+      gi.conclusion as gap_conclusion, gi.interpretation as gap_interpretation,
       -- MRS indicators
       i.mrs_20, i.mrs_20_ts,
       -- OFD (from candle_descriptors + ofd_interpretation)
@@ -262,7 +283,7 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
       pi.conclusion as pattern_conclusion,
       pi.interpretation as pattern_interpretation,
       c.body_size_pct, c.volume_ratio as candle_volume_ratio,
-      c.upper_wick_ratio, c.lower_wick_ratio, c.reversal_confirmed,
+      c.upper_wick_ratio, c.lower_wick_ratio,
       -- L3 verdicts
       l10.verdict as verdict_10, l20.verdict as verdict_20,
       -- SMAs from technicals
@@ -273,11 +294,20 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
     LEFT JOIN ofd_interpretation oi ON c.ofd_code = oi.ofd_code
     LEFT JOIN candle_pattern cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.type = '1-bar'
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
-                                       AND cp.regime = pi.regime
+                                       AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
     LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
     LEFT JOIN stocks_technicals t ON o.ticker = t.ticker AND o.date = t.date
+    LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
+    LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
+                                   AND gs.filled = gi.filled
+                                   AND gs.volume_code = gi.volume_code
+                                   AND gs.regime = gi.regime
+                                   AND (
+                                       gs.regime IN ('crisis', 'risk_off')
+                                       OR (gs.regime_mrs10 = gi.regime_mrs10 AND gs.regime_mrs20 = gi.regime_mrs20)
+                                   )
     WHERE o.ticker = ? AND o.date <= ?
     ORDER BY o.date DESC
     LIMIT ?

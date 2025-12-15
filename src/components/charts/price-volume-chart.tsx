@@ -17,7 +17,6 @@ import {
   Customized,
 } from "recharts";
 import {
-  classifyGapPattern,
   getVerdictCode,
   getVolumeBarColor,
   getVolumeRegime,
@@ -35,11 +34,11 @@ interface OHLCVData {
   volume: number;
   volume_10ma: number | null;
   volume_10_ts: number | null;
-  gap_pct: number | null;
-  gap_type: string | null;
-  gap_filled: number | null;
-  gap_volume_ratio: number | null;
-  gap_percentile: number | null;
+  // Gap indicators (from gap_signal + gap_interpretation)
+  gap_type: string | null;  // up_large, up_small, down_large, down_small
+  gap_filled: string | null;  // Y, N
+  gap_conclusion: string | null;  // PREFER, AVOID
+  gap_interpretation: string | null;
   mrs_20: number | null;
   mrs_20_ts: number | null;
   ofd_code: string | null;
@@ -52,7 +51,6 @@ interface OHLCVData {
   candle_volume_ratio: number | null;
   upper_wick_ratio: number | null;
   lower_wick_ratio: number | null;
-  reversal_confirmed: string | null;
   verdict_10: string | null;
   verdict_20: string | null;
   sma_20: number | null;
@@ -75,15 +73,16 @@ function transformDataPoint(d: OHLCVData, idx: number, allData: OHLCVData[]) {
   const volumeColor = getVolumeBarColor(d.volume_10_ts, isUp);
   const volumeRegime = getVolumeRegime(d.volume_10_ts);
   const verdictInfo = getVerdictCode(d.verdict_10, d.verdict_20);
-  const gapPattern = classifyGapPattern(
-    d.gap_pct,
-    d.mrs_20,
-    d.mrs_20_ts,
-    d.gap_volume_ratio,
-    d.gap_percentile,
-    d.gap_filled
-  );
-  const patternLabel = getPatternLabel(d.pattern, d.reversal_confirmed);
+  // Gap pattern from database (gap_signal + gap_interpretation)
+  const gapPattern = d.gap_type ? {
+    type: d.gap_type as "up_large" | "up_small" | "down_large" | "down_small",
+    label: d.gap_type.includes("up") ? "Gap↑" : "Gap↓",
+    conclusion: d.gap_conclusion as "PREFER" | "AVOID" | null,
+    interpretation: d.gap_interpretation,
+  } : null;
+  // For 3-bar patterns, pattern itself is BULLISH_CONFIRMED or BEARISH_CONFIRMED
+  const reversalConfirmed = d.pattern === "BULLISH_CONFIRMED" || d.pattern === "BEARISH_CONFIRMED" ? d.pattern : null;
+  const patternLabel = getPatternLabel(d.pattern, reversalConfirmed);
 
   return {
     ...d,
@@ -144,6 +143,19 @@ function CustomTooltip({
             </p>
             {d.pattern_interpretation && (
               <p className="text-foreground">{d.pattern_interpretation}</p>
+            )}
+          </div>
+        )}
+        {d.gap_type && d.gap_conclusion && (
+          <div>
+            <p>
+              <span className={d.gap_conclusion === "PREFER" ? "text-green-500" : "text-red-500"}>
+                Gap {d.gap_type.includes("up") ? "↑" : "↓"}
+              </span>
+              <span className="text-foreground font-bold">: {d.gap_conclusion}</span>
+            </p>
+            {d.gap_interpretation && (
+              <p className="text-foreground text-xs max-w-[280px] leading-relaxed">{d.gap_interpretation}</p>
             )}
           </div>
         )}
@@ -337,6 +349,20 @@ function CandleTooltip({
             </p>
             {d.pattern_interpretation && (
               <p className="text-foreground">{d.pattern_interpretation}</p>
+            )}
+          </div>
+        )}
+        {/* Gap interpretation */}
+        {d.gap_type && d.gap_conclusion && (
+          <div>
+            <p>
+              <span className={d.gap_conclusion === "PREFER" ? "text-green-400" : "text-red-400"}>
+                Gap {d.gap_type.includes("up") ? "↑" : "↓"}
+              </span>
+              <span className="text-foreground font-bold">: {d.gap_conclusion}</span>
+            </p>
+            {d.gap_interpretation && (
+              <p className="text-foreground text-xs max-w-[280px] leading-relaxed">{d.gap_interpretation}</p>
             )}
           </div>
         )}
@@ -1134,35 +1160,40 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
 
               const elements: React.ReactNode[] = [];
 
-              // Gap badges - placed at fixed height above price line
-              const gapPct = d.gap_pct;
-              const gapY = props.y - 25; // Fixed offset above price point
+              // Gap badges - only show if gap_conclusion exists (INNER JOIN result)
+              const gapType = d.gap_type;
+              const gapConclusion = d.gap_conclusion;
+              const gapY = 60; // Fixed position below verdict row
 
-              if (gapPct && gapPct > 1) {
+              if (gapType && gapConclusion) {
+                const isUp = gapType.includes("up");
+                const isPrefer = gapConclusion === "PREFER";
+                // Calculate gap percentage from OHLCV
+                const gapPct = d.prevClose ? ((d.open - d.prevClose) / d.prevClose * 100) : 0;
+                const arrow = isUp ? "↑" : "↓";
+                const gapPctStr = gapPct >= 0 ? `${arrow}+${gapPct.toFixed(1)}%` : `${arrow}${gapPct.toFixed(1)}%`;
+                // Colors: PREFER = green, AVOID = coral
+                const textColor = isUp ? "#22c55e" : "#ef4444";
+                const badgeBg = isPrefer ? "#5CE18D" : "#F97F7F";
+                const badgeText = isPrefer ? "#166534" : "#991b1b";
+
                 elements.push(
                   <g key={`gap-badge-${props.index}`}>
-                    <polygon
-                      points={`${props.x},${gapY - 8} ${props.x - 6},${gapY + 4} ${props.x + 6},${gapY + 4}`}
-                      fill="#22c55e"
-                      stroke="#ffffff"
-                      strokeWidth={1}
-                    />
-                    <text x={props.x} y={gapY - 12} fill="#22c55e" textAnchor="middle" fontSize={8} fontWeight="bold">
-                      {gapPct > 0 ? `+${gapPct.toFixed(1)}%` : `${gapPct.toFixed(1)}%`}
+                    {/* Gap percentage with arrow */}
+                    <text x={props.x} y={gapY - 2} fill={textColor} textAnchor="middle" fontSize={9} fontWeight="bold">
+                      {gapPctStr}
                     </text>
-                  </g>
-                );
-              } else if (gapPct && gapPct < -1) {
-                elements.push(
-                  <g key={`gap-badge-${props.index}`}>
-                    <polygon
-                      points={`${props.x},${gapY + 8} ${props.x - 6},${gapY - 4} ${props.x + 6},${gapY - 4}`}
-                      fill="#ef4444"
-                      stroke="#ffffff"
-                      strokeWidth={1}
+                    {/* P/A badge */}
+                    <rect
+                      x={props.x - 6}
+                      y={gapY + 2}
+                      width={12}
+                      height={10}
+                      rx={2}
+                      fill={badgeBg}
                     />
-                    <text x={props.x} y={gapY - 12} fill="#ef4444" textAnchor="middle" fontSize={8} fontWeight="bold">
-                      {gapPct.toFixed(1)}%
+                    <text x={props.x} y={gapY + 10} fill={badgeText} textAnchor="middle" fontSize={8} fontWeight="bold">
+                      {isPrefer ? "P" : "A"}
                     </text>
                   </g>
                 );
