@@ -34,3 +34,19 @@ export function getLastNTradingDates(n: number): string[] {
     .all(n) as TradingDayRow[];
   return rows.map((r) => r.date);
 }
+
+export interface MarketRegime {
+  date: string;
+  vix_close: number;
+  regime: "risk_on" | "normal" | "risk_off" | "crisis";
+}
+
+/**
+ * Get market regime data for a specific date
+ */
+export function getMarketRegime(date: string): MarketRegime | null {
+  const row = db
+    .prepare("SELECT date, vix_close, regime FROM market_regime WHERE date = ?")
+    .get(date) as MarketRegime | undefined;
+  return row || null;
+}

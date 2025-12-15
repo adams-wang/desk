@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getLatestTradingDate } from "@/lib/queries/trading-days";
+import { getLatestTradingDate, getMarketRegime } from "@/lib/queries/trading-days";
 import { v4 as uuidv4 } from "uuid";
 import { withRequestContext, getLogger } from "@/lib/logger";
 
@@ -11,10 +11,15 @@ export async function GET() {
 
     try {
       const date = getLatestTradingDate();
-      log.info({ date }, "Trading date fetched");
+      const marketRegime = getMarketRegime(date);
+      log.info({ date, marketRegime }, "Trading date fetched");
 
       return NextResponse.json(
-        { date },
+        {
+          date,
+          vix: marketRegime?.vix_close ?? null,
+          regime: marketRegime?.regime ?? null,
+        },
         {
           headers: {
             "X-Request-ID": requestId,
