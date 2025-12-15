@@ -222,13 +222,15 @@ function CustomTooltip({
             )}
           </div>
         )}
-        {d.gap_type && d.gap_conclusion && (
+        {d.gap_type && (
           <div>
             <p>
-              <span className={d.gap_conclusion === "PREFER" ? "text-green-500" : "text-red-500"}>
+              <span className={d.gap_conclusion === "PREFER" ? "text-green-500" : d.gap_conclusion === "AVOID" ? "text-red-500" : "text-blue-500"}>
                 Gap {d.gap_type.includes("up") ? "↑" : "↓"}
               </span>
-              <span className="text-foreground font-bold">: {d.gap_conclusion}</span>
+              {d.gap_conclusion && (
+                <span className="text-foreground font-bold">: {d.gap_conclusion}</span>
+              )}
             </p>
             {d.gap_interpretation && (
               <p className="text-foreground text-xs max-w-[280px] leading-relaxed">{d.gap_interpretation}</p>
@@ -433,13 +435,15 @@ function CandleTooltip({
           </div>
         )}
         {/* Gap interpretation */}
-        {d.gap_type && d.gap_conclusion && (
+        {d.gap_type && (
           <div>
             <p>
-              <span className={d.gap_conclusion === "PREFER" ? "text-green-400" : "text-red-400"}>
+              <span className={d.gap_conclusion === "PREFER" ? "text-green-400" : d.gap_conclusion === "AVOID" ? "text-red-400" : "text-blue-400"}>
                 Gap {d.gap_type.includes("up") ? "↑" : "↓"}
               </span>
-              <span className="text-foreground font-bold">: {d.gap_conclusion}</span>
+              {d.gap_conclusion && (
+                <span className="text-foreground font-bold">: {d.gap_conclusion}</span>
+              )}
             </p>
             {d.gap_interpretation && (
               <p className="text-foreground text-xs max-w-[280px] leading-relaxed">{d.gap_interpretation}</p>
@@ -1290,41 +1294,42 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
 
               const elements: React.ReactNode[] = [];
 
-              // Gap badges - only show if gap_conclusion exists (INNER JOIN result)
+              // Gap badges - show arrow always when gap exists, P/A badge only when interpretation exists
               const gapType = d.gap_type;
               const gapConclusion = d.gap_conclusion;
               const gapY = 60; // Fixed position below verdict row
 
-              if (gapType && gapConclusion) {
+              if (gapType) {
                 const isUp = gapType.includes("up");
-                const isPrefer = gapConclusion === "PREFER";
                 // Calculate gap percentage from OHLCV
                 const gapPct = d.prevClose ? ((d.open - d.prevClose) / d.prevClose * 100) : 0;
                 const arrow = isUp ? "↑" : "↓";
                 const gapPctStr = gapPct >= 0 ? `${arrow}+${gapPct.toFixed(1)}%` : `${arrow}${gapPct.toFixed(1)}%`;
-                // Colors: PREFER = green, AVOID = coral
+                // Colors: up = green, down = red
                 const textColor = isUp ? "#22c55e" : "#ef4444";
-                const badgeBg = isPrefer ? "#5CE18D" : "#F97F7F";
-                const badgeText = isPrefer ? "#166534" : "#991b1b";
 
                 elements.push(
                   <g key={`gap-badge-${props.index}`}>
-                    {/* Gap percentage with arrow */}
+                    {/* Gap percentage with arrow - always show */}
                     <text x={props.x} y={gapY - 2} fill={textColor} textAnchor="middle" fontSize={9} fontWeight="bold">
                       {gapPctStr}
                     </text>
-                    {/* P/A badge */}
-                    <rect
-                      x={props.x - 6}
-                      y={gapY + 2}
-                      width={12}
-                      height={10}
-                      rx={2}
-                      fill={badgeBg}
-                    />
-                    <text x={props.x} y={gapY + 10} fill={badgeText} textAnchor="middle" fontSize={8} fontWeight="bold">
-                      {isPrefer ? "P" : "A"}
-                    </text>
+                    {/* P/A badge - only show when interpretation exists */}
+                    {gapConclusion && (
+                      <>
+                        <rect
+                          x={props.x - 6}
+                          y={gapY + 2}
+                          width={12}
+                          height={10}
+                          rx={2}
+                          fill={gapConclusion === "PREFER" ? "#5CE18D" : "#F97F7F"}
+                        />
+                        <text x={props.x} y={gapY + 10} fill={gapConclusion === "PREFER" ? "#166534" : "#991b1b"} textAnchor="middle" fontSize={8} fontWeight="bold">
+                          {gapConclusion === "PREFER" ? "P" : "A"}
+                        </text>
+                      </>
+                    )}
                   </g>
                 );
               }
