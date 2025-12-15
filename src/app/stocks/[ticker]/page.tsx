@@ -86,42 +86,36 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
         </div>
       </div>
 
-      {/* Price Info */}
-      <div className="grid gap-4 md:grid-cols-4">
+      {/* P1: Price + Volume Chart */}
+      <Card className="py-6 gap-0">
+        <CardContent className="pt-0">
+          <PriceVolumeChart data={ohlcvExtended} height={480} />
+        </CardContent>
+      </Card>
+
+      {/* P2 & P3: Side by side charts */}
+      <div className="grid gap-4 md:grid-cols-2">
+        {/* P2: Sector MRS Comparison */}
         <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Open</CardTitle>
+          <CardHeader>
+            <CardTitle>Sector Relative Strength</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-xl font-bold tabular-nums">${formatNumber(stock.open)}</div>
+            <SectorMRSChart
+              sectors={sectors}
+              currentSector={stockSector}
+              height={350}
+            />
           </CardContent>
         </Card>
+
+        {/* P3: MRS Trajectory */}
         <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">High</CardTitle>
+          <CardHeader>
+            <CardTitle>MRS Trajectory (20-Day)</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-xl font-bold tabular-nums text-emerald-500">
-              ${formatNumber(stock.high)}
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Low</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-xl font-bold tabular-nums text-red-500">
-              ${formatNumber(stock.low)}
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Volume</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-xl font-bold tabular-nums">{formatVolume(stock.volume)}</div>
+            <MRSTrajectoryChart data={mrsHistory} height={350} />
           </CardContent>
         </Card>
       </div>
@@ -228,164 +222,7 @@ export default async function StockDetailPage({ params }: StockDetailPageProps) 
                   {formatNumber(stock.macd)}
                 </span>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Gap</span>
-                <span className="font-mono tabular-nums">
-                  {stock.gap_type || "-"} {stock.gap_pct ? `(${formatPercent(stock.gap_pct)})` : ""}
-                </span>
-              </div>
             </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* L3 Verdicts */}
-      <Card>
-        <CardHeader>
-          <CardTitle>L3 Analysis</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <div className="text-sm text-muted-foreground">MRS 10 Verdict</div>
-              <div className="mt-1 flex items-center gap-2">
-                {stock.verdict_10 ? (
-                  <>
-                    <Badge
-                      variant={
-                        stock.verdict_10.toLowerCase().includes("buy")
-                          ? "default"
-                          : stock.verdict_10.toLowerCase().includes("sell")
-                          ? "destructive"
-                          : "secondary"
-                      }
-                    >
-                      {stock.verdict_10}
-                    </Badge>
-                    {stock.conviction_10 && (
-                      <span className="text-sm text-muted-foreground">
-                        ({stock.conviction_10})
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  <span className="text-muted-foreground">No signal</span>
-                )}
-              </div>
-            </div>
-            <div>
-              <div className="text-sm text-muted-foreground">MRS 20 Verdict</div>
-              <div className="mt-1 flex items-center gap-2">
-                {stock.verdict_20 ? (
-                  <>
-                    <Badge
-                      variant={
-                        stock.verdict_20.toLowerCase().includes("buy")
-                          ? "default"
-                          : stock.verdict_20.toLowerCase().includes("sell")
-                          ? "destructive"
-                          : "secondary"
-                      }
-                    >
-                      {stock.verdict_20}
-                    </Badge>
-                    {stock.conviction_20 && (
-                      <span className="text-sm text-muted-foreground">
-                        ({stock.conviction_20})
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  <span className="text-muted-foreground">No signal</span>
-                )}
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Candle Pattern */}
-      {stock.ofd_code && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              Candle Pattern
-              {/* Priority: Pattern PREFER/AVOID > OFD conclusion (filtered) */}
-              {stock.pattern_conclusion ? (
-                <Badge
-                  className={
-                    stock.pattern_conclusion === "PREFER"
-                      ? "bg-green-800 hover:bg-green-800"
-                      : "bg-red-800 hover:bg-red-800"
-                  }
-                >
-                  {stock.pattern_conclusion}
-                </Badge>
-              ) : stock.ofd_conclusion &&
-                ["Breakout", "Breakdown", "Support", "Support test", "Resistance", "Resistance test"].includes(stock.ofd_conclusion) ? (
-                <Badge
-                  variant={
-                    stock.ofd_conclusion === "Breakout"
-                      ? "default"
-                      : stock.ofd_conclusion === "Breakdown"
-                      ? "destructive"
-                      : "secondary"
-                  }
-                >
-                  {stock.ofd_conclusion === "Support test" ? "S↑ Test"
-                    : stock.ofd_conclusion === "Resistance test" ? "R↓ Test"
-                    : stock.ofd_conclusion}
-                </Badge>
-              ) : null}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">OFD Code</span>
-                <span className="font-mono">{stock.ofd_code}</span>
-              </div>
-              {stock.pattern && (
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Pattern</span>
-                  <span>{stock.pattern}</span>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* P1: Price + Volume Chart */}
-      <Card className="py-6 gap-0">
-        <CardContent className="pt-0">
-          <PriceVolumeChart data={ohlcvExtended} height={480} />
-        </CardContent>
-      </Card>
-
-      {/* P2 & P3: Side by side charts */}
-      <div className="grid gap-4 md:grid-cols-2">
-        {/* P2: Sector MRS Comparison */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Sector Relative Strength</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <SectorMRSChart
-              sectors={sectors}
-              currentSector={stockSector}
-              height={350}
-            />
-          </CardContent>
-        </Card>
-
-        {/* P3: MRS Trajectory */}
-        <Card>
-          <CardHeader>
-            <CardTitle>MRS Trajectory (20-Day)</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <MRSTrajectoryChart data={mrsHistory} height={350} />
           </CardContent>
         </Card>
       </div>

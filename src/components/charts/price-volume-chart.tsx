@@ -898,19 +898,6 @@ function LineChart({ data, height }: { data: OHLCVData[]; height: number }) {
                   </span>
                 </div>
               )}
-              {signalData.ofd_code && (
-                <div className="flex items-center gap-0.5">
-                  <span className="text-muted-foreground">Candle:</span>
-                  <span className="text-amber-600 dark:text-amber-400 font-bold">{signalData.ofd_code}</span>
-                  {signalData.pattern_conclusion ? (
-                    <span className={`font-bold text-[10px] ${signalData.pattern_conclusion === "PREFER" ? "text-green-700" : "text-red-700"}`}>
-                      → {signalData.pattern_conclusion}
-                    </span>
-                  ) : signalData.ofd_conclusion && ["Breakout", "Breakdown", "Support", "Support test", "Resistance", "Resistance test"].includes(signalData.ofd_conclusion) ? (
-                    <span className="text-foreground text-[10px]">→ {signalData.ofd_conclusion === "Support test" ? "S↑ Test" : signalData.ofd_conclusion === "Resistance test" ? "R↓ Test" : signalData.ofd_conclusion}</span>
-                  ) : null}
-                </div>
-              )}
             </>
           )}
         </div>
