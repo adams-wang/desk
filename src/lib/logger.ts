@@ -8,12 +8,10 @@ export const requestContext = new AsyncLocalStorage<{
 }>();
 
 // Base logger - for service lifecycle events (no request context)
+// Note: Avoid using `transport` option as it spawns worker threads
+// that conflict with Next.js Turbopack bundling
 export const logger = pino({
   level: process.env.LOG_LEVEL || "info",
-  transport:
-    process.env.NODE_ENV === "development"
-      ? { target: "pino-pretty", options: { colorize: true } }
-      : undefined,
   formatters: {
     level: (label) => ({ level: label }),
   },

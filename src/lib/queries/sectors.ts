@@ -11,11 +11,11 @@ export interface SectorMRS {
 }
 
 /**
- * Get sector ETF MRS data for the latest trading date
+ * Get sector ETF MRS data for a specific trading date
  */
-export function getSectorMRS(): SectorMRS[] {
+export function getSectorMRS(endDate?: string): SectorMRS[] {
   const log = getLogger();
-  const date = getLatestTradingDate();
+  const date = endDate || getLatestTradingDate();
   const startTime = Date.now();
 
   const rows = db
@@ -62,8 +62,8 @@ export interface SectorRankHistory {
  * Get historical sector ranks for a specific sector
  * Ranks are based on MRS 20 (higher = better rank)
  */
-export function getSectorRankHistory(sectorName: string, days: number = 20): SectorRankHistory[] {
-  const date = getLatestTradingDate();
+export function getSectorRankHistory(sectorName: string, days: number = 20, endDate?: string): SectorRankHistory[] {
+  const date = endDate || getLatestTradingDate();
 
   // Get all dates we need
   const dates = db

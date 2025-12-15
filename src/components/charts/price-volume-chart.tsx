@@ -134,6 +134,14 @@ function transformDataPoint(d: OHLCVData, idx: number, allData: OHLCVData[]) {
   };
 }
 
+// Extended data point type for LineChart (includes VIX and sector data)
+type ExtendedDataPoint = ReturnType<typeof transformDataPoint> & {
+  vixValue: number | null;
+  vixRegime: string | null;
+  sectorRank: number | null;
+  sectorTotal: number | null;
+};
+
 // Custom tooltip component
 function CustomTooltip({
   active,
@@ -141,7 +149,7 @@ function CustomTooltip({
 }: {
   active?: boolean;
   payload?: Array<{
-    payload: ReturnType<typeof transformDataPoint>;
+    payload: ExtendedDataPoint;
   }>;
 }) {
   if (!active || !payload?.length) return null;
@@ -368,6 +376,10 @@ function CandleTooltip({
       ofd_code: string | null;
       ofd_conclusion: string | null;
       ofd_interpretation: string | null;
+      // Gap indicators
+      gap_type: string | null;
+      gap_conclusion: string | null;
+      gap_interpretation: string | null;
     };
   }>;
 }) {
@@ -564,7 +576,8 @@ function CandlestickChart({
             barSize={32}
             shape={(props: any) => {
               const { x, y, width, height, payload } = props;
-              if (!payload || !x || !width) return null;
+              if (!payload || !x || !width) return <></>;
+
 
               const { open, high, low, close, isUp } = payload;
               const color = isUp ? "#22c55e" : "#ef4444";
@@ -1063,7 +1076,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
               const { x, y, index } = props;
               const d = chartData[index];
               if (!d?.vixArrow) return null;
-              const color = regimeColors[d.vixRegime] || "#9ca3af";
+              const color = d.vixRegime ? regimeColors[d.vixRegime] || "#9ca3af" : "#9ca3af";
               return (
                 <g>
                   {index === 0 && (
@@ -1181,7 +1194,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
             <LabelList
               dataKey="volumePercentile"
               position="center"
-              formatter={(value: number | null) => value !== null ? Math.round(value) : ""}
+              formatter={(value: unknown) => typeof value === "number" ? Math.round(value) : ""}
               fill="#ffffff"
               fontSize={11}
               fontWeight="bold"
@@ -1208,7 +1221,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
             strokeDasharray="4 4"
             dot={false}
             connectNulls
-            label={(props: { x: number; y: number; index: number }) => {
+            label={(props: any) => {
               // Only show label at first point - box to the left, line starts at right edge
               if (props.index !== 0) return null;
               const labelText = `Vol ${maPeriod}d MA`;
@@ -1249,7 +1262,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
             dataKey="close"
             stroke="#3b82f6"
             strokeWidth={2}
-            dot={(props: { cx: number; cy: number; index: number }) => {
+            dot={(props: any) => {
               const isSignal = props.index === signalIdx;
 
               // Signal date - red circle
@@ -1271,7 +1284,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
               return <circle key={`dot-${props.index}`} cx={props.cx} cy={props.cy} r={2} fill="#3b82f6" />;
             }}
             activeDot={{ r: 4, fill: "#3b82f6", stroke: "#fff", strokeWidth: 1 }}
-            label={(props: { x: number; y: number; index: number; value: number }) => {
+            label={(props: any) => {
               const d = chartData[props.index];
               if (!d) return null;
 

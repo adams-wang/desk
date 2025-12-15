@@ -91,11 +91,11 @@ export interface StockDetail {
 }
 
 /**
- * Get detailed stock data for a single ticker on the latest trading date
+ * Get detailed stock data for a single ticker on a specific trading date
  */
-export function getStockDetail(ticker: string): StockDetail | null {
+export function getStockDetail(ticker: string, endDate?: string): StockDetail | null {
   const log = getLogger();
-  const date = getLatestTradingDate();
+  const date = endDate || getLatestTradingDate();
   const startTime = Date.now();
 
   const row = db
@@ -119,7 +119,11 @@ export function getStockDetail(ticker: string): StockDetail | null {
     LEFT JOIN stocks_technicals t ON o.ticker = t.ticker AND o.date = t.date
     LEFT JOIN candle_descriptors c ON o.ticker = c.ticker AND o.date = c.date
     LEFT JOIN ofd_interpretation oi ON c.ofd_code = oi.ofd_code
-    LEFT JOIN candle_pattern cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.type = '1-bar'
+    LEFT JOIN (
+      SELECT ticker, date, type, pattern, regime_mrs20, volume_code,
+             ROW_NUMBER() OVER (PARTITION BY ticker, date ORDER BY CASE type WHEN '3-bar' THEN 0 ELSE 1 END) as rn
+      FROM candle_pattern
+    ) cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.rn = 1
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
                                        AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
@@ -131,10 +135,14 @@ export function getStockDetail(ticker: string): StockDetail | null {
                                    AND gs.filled = gi.filled
                                    AND gs.volume_code = gi.volume_code
                                    AND gs.regime = gi.regime
-                                   AND (
-                                       gs.regime IN ('crisis', 'risk_off')
-                                       OR (gs.regime_mrs10 = gi.regime_mrs10 AND gs.regime_mrs20 = gi.regime_mrs20)
-                                   )
+                                   AND gi.regime_mrs10 = CASE
+                                       WHEN gs.regime IN ('crisis', 'risk_off') THEN ''
+                                       ELSE COALESCE(gs.regime_mrs10, '')
+                                   END
+                                   AND gi.regime_mrs20 = CASE
+                                       WHEN gs.regime IN ('crisis', 'risk_off') THEN ''
+                                       ELSE COALESCE(gs.regime_mrs20, '')
+                                   END
     WHERE o.ticker = ? AND o.date = ?
   `
     )
@@ -151,9 +159,9 @@ export function getStockDetail(ticker: string): StockDetail | null {
 /**
  * Get OHLCV history for a ticker (most recent first)
  */
-export function getStockOHLCV(ticker: string, days: number = 252): StockOHLCV[] {
+export function getStockOHLCV(ticker: string, days: number = 252, endDate?: string): StockOHLCV[] {
   const log = getLogger();
-  const date = getLatestTradingDate();
+  const date = endDate || getLatestTradingDate();
   const startTime = Date.now();
 
   const rows = db
@@ -207,10 +215,14 @@ export function getStockList(limit: number = 500): StockDetail[] {
                                    AND gs.filled = gi.filled
                                    AND gs.volume_code = gi.volume_code
                                    AND gs.regime = gi.regime
-                                   AND (
-                                       gs.regime IN ('crisis', 'risk_off')
-                                       OR (gs.regime_mrs10 = gi.regime_mrs10 AND gs.regime_mrs20 = gi.regime_mrs20)
-                                   )
+                                   AND gi.regime_mrs10 = CASE
+                                       WHEN gs.regime IN ('crisis', 'risk_off') THEN ''
+                                       ELSE COALESCE(gs.regime_mrs10, '')
+                                   END
+                                   AND gi.regime_mrs20 = CASE
+                                       WHEN gs.regime IN ('crisis', 'risk_off') THEN ''
+                                       ELSE COALESCE(gs.regime_mrs20, '')
+                                   END
     WHERE o.date = ?
     ORDER BY o.volume DESC
     LIMIT ?
@@ -257,9 +269,9 @@ export function searchStocks(query: string, limit: number = 20): { ticker: strin
  * Get extended OHLCV with indicators for P1 chart (price + volume with patterns)
  * Matches Python stock_summary.py query exactly
  */
-export function getStockOHLCVExtended(ticker: string, days: number = 20): StockOHLCVExtended[] {
+export function getStockOHLCVExtended(ticker: string, days: number = 20, endDate?: string): StockOHLCVExtended[] {
   const log = getLogger();
-  const date = getLatestTradingDate();
+  const date = endDate || getLatestTradingDate();
   const startTime = Date.now();
 
   const rows = db
@@ -292,7 +304,11 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
     LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
     LEFT JOIN candle_descriptors c ON o.ticker = c.ticker AND o.date = c.date
     LEFT JOIN ofd_interpretation oi ON c.ofd_code = oi.ofd_code
-    LEFT JOIN candle_pattern cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.type = '1-bar'
+    LEFT JOIN (
+      SELECT ticker, date, type, pattern, regime_mrs20, volume_code,
+             ROW_NUMBER() OVER (PARTITION BY ticker, date ORDER BY CASE type WHEN '3-bar' THEN 0 ELSE 1 END) as rn
+      FROM candle_pattern
+    ) cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.rn = 1
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
                                        AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
@@ -304,10 +320,14 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
                                    AND gs.filled = gi.filled
                                    AND gs.volume_code = gi.volume_code
                                    AND gs.regime = gi.regime
-                                   AND (
-                                       gs.regime IN ('crisis', 'risk_off')
-                                       OR (gs.regime_mrs10 = gi.regime_mrs10 AND gs.regime_mrs20 = gi.regime_mrs20)
-                                   )
+                                   AND gi.regime_mrs10 = CASE
+                                       WHEN gs.regime IN ('crisis', 'risk_off') THEN ''
+                                       ELSE COALESCE(gs.regime_mrs10, '')
+                                   END
+                                   AND gi.regime_mrs20 = CASE
+                                       WHEN gs.regime IN ('crisis', 'risk_off') THEN ''
+                                       ELSE COALESCE(gs.regime_mrs20, '')
+                                   END
     WHERE o.ticker = ? AND o.date <= ?
     ORDER BY o.date DESC
     LIMIT ?
@@ -327,9 +347,9 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20): StockO
 /**
  * Get MRS history for P3 chart (MRS trajectory)
  */
-export function getMRSHistory(ticker: string, days: number = 20): MRSHistory[] {
+export function getMRSHistory(ticker: string, days: number = 20, endDate?: string): MRSHistory[] {
   const log = getLogger();
-  const date = getLatestTradingDate();
+  const date = endDate || getLatestTradingDate();
   const startTime = Date.now();
 
   const rows = db

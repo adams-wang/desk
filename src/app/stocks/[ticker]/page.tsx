@@ -8,6 +8,7 @@ import { PriceVolumeChart, SectorMRSChart, MRSTrajectoryChart } from "@/componen
 
 interface StockDetailPageProps {
   params: Promise<{ ticker: string }>;
+  searchParams: Promise<{ date?: string }>;
 }
 
 function formatNumber(value: number | null, decimals: number = 2): string {
@@ -29,26 +30,28 @@ function formatVolume(value: number): string {
   return value.toString();
 }
 
-export default async function StockDetailPage({ params }: StockDetailPageProps) {
+export default async function StockDetailPage({ params, searchParams }: StockDetailPageProps) {
   const { ticker } = await params;
-  const stock = getStockDetail(ticker);
+  const { date } = await searchParams;
+
+  const stock = getStockDetail(ticker, date);
 
   if (!stock) {
     notFound();
   }
 
-  const ohlcv = getStockOHLCV(ticker, 20);
+  const ohlcv = getStockOHLCV(ticker, 20, date);
   const prevClose = ohlcv.length > 1 ? ohlcv[ohlcv.length - 2].close : stock.close;
   const change = stock.close - prevClose;
   const changePercent = prevClose > 0 ? (change / prevClose) * 100 : 0;
 
   // Chart data
-  const ohlcvExtended = getStockOHLCVExtended(ticker, 20);
-  const mrsHistory = getMRSHistory(ticker, 20);
-  const sectors = getSectorMRS();
+  const ohlcvExtended = getStockOHLCVExtended(ticker, 20, date);
+  const mrsHistory = getMRSHistory(ticker, 20, date);
+  const sectors = getSectorMRS(date);
   const stockSector = getStockSector(ticker);
-  const vixHistory = getVIXHistory(20);
-  const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, 20) : [];
+  const vixHistory = getVIXHistory(20, date);
+  const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, 20, date) : [];
 
   return (
     <div className="space-y-6">

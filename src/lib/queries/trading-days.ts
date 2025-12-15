@@ -54,8 +54,8 @@ export function getMarketRegime(date: string): MarketRegime | null {
 /**
  * Get VIX history for chart display
  */
-export function getVIXHistory(days: number = 20): MarketRegime[] {
-  const date = getLatestTradingDate();
+export function getVIXHistory(days: number = 20, endDate?: string): MarketRegime[] {
+  const date = endDate || getLatestTradingDate();
   const rows = db
     .prepare(`
       SELECT date, vix_close, regime
@@ -66,4 +66,45 @@ export function getVIXHistory(days: number = 20): MarketRegime[] {
     `)
     .all(date, days) as MarketRegime[];
   return rows.reverse(); // Chronological order
+}
+
+/**
+ * Get all available trading dates for calendar selection
+ */
+export function getAllTradingDates(): string[] {
+  const rows = db
+    .prepare("SELECT date FROM trading_days ORDER BY date DESC")
+    .all() as { date: string }[];
+  return rows.map((r) => r.date);
+}
+
+/**
+ * Get navigation info for a given trading date (prev/next dates)
+ */
+export function getTradingDateNavigation(date: string): { prevDate: string | null; nextDate: string | null } | null {
+  // Get the rank of the current date
+  const currentRow = db
+    .prepare("SELECT day_rank FROM trading_days WHERE date = ?")
+    .get(date) as { day_rank: number } | undefined;
+
+  if (!currentRow) {
+    return null;
+  }
+
+  const currentRank = currentRow.day_rank;
+
+  // Previous date = higher rank (older)
+  const prevRow = db
+    .prepare("SELECT date FROM trading_days WHERE day_rank = ?")
+    .get(currentRank + 1) as { date: string } | undefined;
+
+  // Next date = lower rank (newer), but not below 1
+  const nextRow = currentRank > 1
+    ? db.prepare("SELECT date FROM trading_days WHERE day_rank = ?").get(currentRank - 1) as { date: string } | undefined
+    : undefined;
+
+  return {
+    prevDate: prevRow?.date ?? null,
+    nextDate: nextRow?.date ?? null,
+  };
 }
