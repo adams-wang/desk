@@ -67,13 +67,13 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
     return null;
   };
 
-  // Get bar color based on MRS value - green for positive, coral/red for negative
+  // Get bar color based on MRS value - normal range is -2% to +3%
   const getBarColor = (mrs20: number, isCurrent: boolean): string => {
     if (isCurrent) return "#3b82f6"; // Blue for current sector
-    if (mrs20 >= 4) return "#16a34a"; // Strong green
-    if (mrs20 >= 0) return "#22c55e"; // Medium green
-    if (mrs20 >= -4) return "#f87171"; // Light red/coral
-    return "#dc2626"; // Strong red
+    if (mrs20 > 3) return "#16a34a"; // Strong green (above normal)
+    if (mrs20 >= 0) return "#22c55e"; // Positive normal (green)
+    if (mrs20 >= -2) return "#f87171"; // Negative normal (light coral)
+    return "#dc2626"; // Weak (below normal - red)
   };
 
   // Custom bar label renderer - show value and ETF at end of bar
@@ -96,7 +96,7 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
         textAnchor={textAnchor}
         dominantBaseline="middle"
         fontSize={11}
-        fill="var(--color-foreground)"
+        fill="var(--color-muted-foreground)"
         fontFamily="ui-monospace, monospace"
         fontWeight={600}
       >
@@ -129,8 +129,8 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
           <YAxis
             type="category"
             dataKey="name"
-            fontSize={12}
-            width={155}
+            fontSize={13}
+            width={165}
             axisLine={false}
             tickLine={false}
             interval={0}
@@ -140,7 +140,7 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
               return (
                 <g transform={`translate(${x},${y})`}>
                   {isCurrent && (
-                    <text x={-148} y={4} fill="#ef4444" fontSize={14} fontWeight="bold">
+                    <text x={-158} y={4} fill="#ef4444" fontSize={15} fontWeight="bold">
                       ★
                     </text>
                   )}
@@ -148,8 +148,8 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
                     x={-5}
                     y={4}
                     textAnchor="end"
-                    fill={isCurrent ? "#ef4444" : "var(--color-foreground)"}
-                    fontSize={12}
+                    fill={isCurrent ? "#ef4444" : "var(--color-muted-foreground)"}
+                    fontSize={13}
                     fontWeight={isCurrent ? 700 : 500}
                   >
                     {payload.value}
@@ -161,12 +161,12 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
 
           <Tooltip content={<CustomTooltip />} />
 
-          {/* Reference lines for zones */}
+          {/* Reference lines for zones: normal range -2% to +3%, strong/weak at ±4% */}
           <ReferenceLine x={0} stroke="var(--color-muted-foreground)" strokeWidth={1} strokeOpacity={0.5} />
           <ReferenceLine x={4} stroke="#22c55e" strokeDasharray="4 4" strokeOpacity={0.8} />
           <ReferenceLine x={-4} stroke="#ef4444" strokeDasharray="4 4" strokeOpacity={0.8} />
-          <ReferenceLine x={-2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.3} />
-          <ReferenceLine x={2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.3} />
+          <ReferenceLine x={3} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.4} />
+          <ReferenceLine x={-2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.4} />
 
           {/* MRS 20 bars - green for positive, red for negative, blue for current */}
           <Bar dataKey="mrs_20" name="MRS 20" radius={[0, 3, 3, 0]} maxBarSize={22}>
@@ -209,24 +209,20 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
 
       <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
         <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded bg-green-500"></span>
-          <span>Positive</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded bg-red-400"></span>
-          <span>Negative</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-orange-500"></span>
-          <span>MRS 5</span>
+          <span className="w-4 h-3 rounded bg-green-500"></span>
+          <span>MRS 20 (bar)</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-4 h-0.5 bg-green-600"></span>
-          <span>Strong (4%)</span>
+          <span>Strong (±4%)</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-4 h-0.5 bg-red-500"></span>
-          <span>Weak (-4%)</span>
+          <span className="w-4 h-[1px] bg-muted-foreground/50"></span>
+          <span>Normal (-2~+3%)</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-orange-500"></span>
+          <span>MRS 5 (normal: -1~+1%)</span>
         </div>
       </div>
     </div>
