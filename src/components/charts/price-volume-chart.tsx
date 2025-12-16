@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useEffect, useRef } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import {
   ComposedChart,
   Line,
@@ -36,6 +37,7 @@ interface OHLCVData {
   volume_10_ts: number | null;
   // Gap indicators (from gap_signal + gap_interpretation)
   gap_type: string | null;  // up_large, up_small, down_large, down_small
+  gap_pct: number | null;  // gap percentage from database
   gap_filled: string | null;  // Y, N
   gap_conclusion: string | null;  // PREFER, AVOID
   gap_interpretation: string | null;
@@ -78,6 +80,7 @@ interface PriceVolumeChartProps {
   sectorRankHistory?: SectorRankData[];
   height?: number;
   defaultMode?: ChartMode;
+  currentRange?: 20 | 40 | 60;
 }
 
 // Regime colors
@@ -840,7 +843,8 @@ const renderDateLabel = (props: {
 };
 
 // Line Chart with improved layout - using Recharts native alignment
-function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLCVData[]; height: number; vixHistory?: VIXData[]; sectorRankHistory?: SectorRankData[] }) {
+function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange = 20 }: { data: OHLCVData[]; height: number; vixHistory?: VIXData[]; sectorRankHistory?: SectorRankData[]; currentRange?: number }) {
+  const isCompactView = currentRange > 20;
   const [maPeriod, setMaPeriod] = useState<10 | 20>(10);
 
   // Calculate volume MAs and percentiles for both 10d and 20d
@@ -1131,28 +1135,30 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
             interval={0}
           />
 
-          {/* Bottom XAxis for OFD codes - positioned just below bars */}
+          {/* Bottom XAxis for OFD codes - hidden in compact view */}
           <XAxis
             xAxisId="bottom"
-            dataKey="ofd_code"
+            dataKey={isCompactView ? undefined : "ofd_code"}
             orientation="bottom"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "#d97706", fontSize: 9, fontWeight: "bold", dy: 2 }}
+            tick={isCompactView ? false : { fill: "#d97706", fontSize: 9, fontWeight: "bold", dy: 2 }}
             interval={0}
-            height={16}
+            height={isCompactView ? 0 : 16}
           />
 
-          {/* Second bottom XAxis for dates */}
+          {/* Second bottom XAxis for dates - vertical in compact view */}
           <XAxis
             xAxisId="dates"
             dataKey="dateLabel"
             orientation="bottom"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "#9ca3af", fontSize: 10, dy: 3 }}
+            tick={isCompactView
+              ? { fill: "var(--color-muted-foreground)", fontSize: 10, angle: -90, textAnchor: "end", dy: 4 }
+              : { fill: "var(--color-muted-foreground)", fontSize: 10, dy: 3 }}
             interval={0}
-            height={20}
+            height={isCompactView ? 50 : 20}
           />
 
           <YAxis
@@ -1179,12 +1185,12 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
 
           <Tooltip content={<CustomTooltip />} />
 
-          {/* Volume Bars with percentile labels - wider bars for better visibility */}
+          {/* Volume Bars with percentile labels - smaller bars for compact view */}
           <Bar
             xAxisId="bottom"
             yAxisId="volume"
             dataKey="volume"
-            barSize={32}
+            barSize={isCompactView ? 24 : 32}
             radius={[2, 2, 0, 0]}
           >
             {chartData.map((entry, index) => (
@@ -1301,37 +1307,66 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
 
               if (gapType) {
                 const isUp = gapType.includes("up");
-                // Calculate gap percentage from OHLCV
-                const gapPct = d.prevClose ? ((d.open - d.prevClose) / d.prevClose * 100) : 0;
-                const arrow = isUp ? "↑" : "↓";
-                const gapPctStr = gapPct >= 0 ? `${arrow}+${gapPct.toFixed(1)}%` : `${arrow}${gapPct.toFixed(1)}%`;
+                // Use gap percentage from database
+                const gapPct = d.gap_pct ?? 0;
                 // Colors: up = green, down = red
                 const textColor = isUp ? "#22c55e" : "#ef4444";
 
-                elements.push(
-                  <g key={`gap-badge-${props.index}`}>
-                    {/* Gap percentage with arrow - always show */}
-                    <text x={props.x} y={gapY - 2} fill={textColor} textAnchor="middle" fontSize={9} fontWeight="bold">
-                      {gapPctStr}
-                    </text>
-                    {/* P/A badge - only show when interpretation exists */}
-                    {gapConclusion && (
-                      <>
-                        <rect
-                          x={props.x - 6}
-                          y={gapY + 2}
-                          width={12}
-                          height={10}
-                          rx={2}
-                          fill={gapConclusion === "PREFER" ? "#5CE18D" : "#F97F7F"}
-                        />
-                        <text x={props.x} y={gapY + 10} fill={gapConclusion === "PREFER" ? "#166534" : "#991b1b"} textAnchor="middle" fontSize={8} fontWeight="bold">
-                          {gapConclusion === "PREFER" ? "P" : "A"}
-                        </text>
-                      </>
-                    )}
-                  </g>
-                );
+                // Compact view: arrow icon + P/A badge, normal view: arrow + percentage + P/A badge
+                if (isCompactView) {
+                  // Use text variation selector (U+FE0E) to force text rendering without emoji background
+                  const arrowIcon = isUp ? "⬆︎" : "⬇︎";
+                  elements.push(
+                    <g key={`gap-badge-${props.index}`}>
+                      <text x={props.x} y={gapY - 2} fill={textColor} textAnchor="middle" fontSize={13} fontWeight="bold">
+                        {arrowIcon}
+                      </text>
+                      {/* P/A badge underneath arrow */}
+                      {gapConclusion && (
+                        <>
+                          <rect
+                            x={props.x - 6}
+                            y={gapY + 2}
+                            width={12}
+                            height={10}
+                            rx={2}
+                            fill={gapConclusion === "PREFER" ? "#5CE18D" : "#F97F7F"}
+                          />
+                          <text x={props.x} y={gapY + 10} fill={gapConclusion === "PREFER" ? "#166534" : "#991b1b"} textAnchor="middle" fontSize={8} fontWeight="bold">
+                            {gapConclusion === "PREFER" ? "P" : "A"}
+                          </text>
+                        </>
+                      )}
+                    </g>
+                  );
+                } else {
+                  const arrow = isUp ? "↑" : "↓";
+                  const gapPctStr = gapPct >= 0 ? `${arrow}+${gapPct.toFixed(1)}%` : `${arrow}${gapPct.toFixed(1)}%`;
+                  elements.push(
+                    <g key={`gap-badge-${props.index}`}>
+                      {/* Gap percentage with arrow - always show */}
+                      <text x={props.x} y={gapY - 2} fill={textColor} textAnchor="middle" fontSize={9} fontWeight="bold">
+                        {gapPctStr}
+                      </text>
+                      {/* P/A badge - only show when interpretation exists */}
+                      {gapConclusion && (
+                        <>
+                          <rect
+                            x={props.x - 6}
+                            y={gapY + 2}
+                            width={12}
+                            height={10}
+                            rx={2}
+                            fill={gapConclusion === "PREFER" ? "#5CE18D" : "#F97F7F"}
+                          />
+                          <text x={props.x} y={gapY + 10} fill={gapConclusion === "PREFER" ? "#166534" : "#991b1b"} textAnchor="middle" fontSize={8} fontWeight="bold">
+                            {gapConclusion === "PREFER" ? "P" : "A"}
+                          </text>
+                        </>
+                      )}
+                    </g>
+                  );
+                }
               }
 
               // Pattern annotation badge - separate from gap badges
@@ -1376,8 +1411,23 @@ export function PriceVolumeChart({
   sectorRankHistory,
   height = 400,
   defaultMode = "line",
+  currentRange = 20,
 }: PriceVolumeChartProps) {
   const [mode, setMode] = useState<ChartMode>(defaultMode);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const handleRangeChange = (range: 20 | 40 | 60) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (range === 20) {
+      params.delete("range");
+    } else {
+      params.set("range", String(range));
+    }
+    const queryString = params.toString();
+    router.push(queryString ? `${pathname}?${queryString}` : pathname);
+  };
 
   if (data.length === 0) {
     return (
@@ -1389,7 +1439,7 @@ export function PriceVolumeChart({
 
   return (
     <div className="w-full">
-      {/* Mode Toggle */}
+      {/* Mode Toggle + Range Toggle */}
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-1 bg-muted rounded-lg p-1">
           <button
@@ -1413,10 +1463,30 @@ export function PriceVolumeChart({
             🕯️ OHLCV
           </button>
         </div>
+
+        {/* Range Toggle */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground">View:</span>
+          <div className="flex items-center gap-1 bg-muted rounded-lg p-1">
+            {([20, 40, 60] as const).map((range) => (
+              <button
+                key={range}
+                onClick={() => handleRangeChange(range)}
+                className={`px-2 py-1 text-xs font-medium rounded-md transition-colors ${
+                  currentRange === range
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {range / 20}M
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {mode === "line" ? (
-        <LineChart data={data} height={height} vixHistory={vixHistory} sectorRankHistory={sectorRankHistory} />
+        <LineChart data={data} height={height} vixHistory={vixHistory} sectorRankHistory={sectorRankHistory} currentRange={currentRange} />
       ) : (
         <CandlestickChart data={data} height={height} />
       )}

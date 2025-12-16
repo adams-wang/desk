@@ -17,6 +17,7 @@ export interface StockOHLCVExtended extends StockOHLCV {
   volume_10_ts: number | null;
   // Gap indicators (from gap_signal + gap_interpretation)
   gap_type: string | null;  // up_large, up_small, down_large, down_small
+  gap_pct: number | null;  // gap percentage from database
   gap_filled: string | null;  // Y, N
   gap_conclusion: string | null;  // PREFER, AVOID
   gap_interpretation: string | null;
@@ -282,7 +283,7 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20, endDate
       -- Volume indicators
       i.volume_10ma, i.volume_10_ts,
       -- Gap indicators (from gap_signal + gap_interpretation)
-      gs.gap_type, gs.filled as gap_filled,
+      gs.gap_type, gs.gap_pct, gs.filled as gap_filled,
       gi.conclusion as gap_conclusion, gi.interpretation as gap_interpretation,
       -- MRS indicators
       i.mrs_20, i.mrs_20_ts,

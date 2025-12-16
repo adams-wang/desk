@@ -8,8 +8,11 @@ import { PriceVolumeChart, SectorMRSChart, MRSTrajectoryChart } from "@/componen
 
 interface StockDetailPageProps {
   params: Promise<{ ticker: string }>;
-  searchParams: Promise<{ date?: string }>;
+  searchParams: Promise<{ date?: string; range?: string }>;
 }
+
+const VALID_RANGES = [20, 40, 60] as const;
+type ChartRange = typeof VALID_RANGES[number];
 
 function formatNumber(value: number | null, decimals: number = 2): string {
   if (value === null || value === undefined) return "-";
@@ -32,7 +35,11 @@ function formatVolume(value: number): string {
 
 export default async function StockDetailPage({ params, searchParams }: StockDetailPageProps) {
   const { ticker } = await params;
-  const { date } = await searchParams;
+  const { date, range: rangeParam } = await searchParams;
+
+  // Parse and validate range (default 20)
+  const parsedRange = rangeParam ? parseInt(rangeParam, 10) : 20;
+  const range: ChartRange = VALID_RANGES.includes(parsedRange as ChartRange) ? parsedRange as ChartRange : 20;
 
   const stock = getStockDetail(ticker, date);
 
@@ -40,18 +47,18 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
     notFound();
   }
 
-  const ohlcv = getStockOHLCV(ticker, 20, date);
+  const ohlcv = getStockOHLCV(ticker, range, date);
   const prevClose = ohlcv.length > 1 ? ohlcv[ohlcv.length - 2].close : stock.close;
   const change = stock.close - prevClose;
   const changePercent = prevClose > 0 ? (change / prevClose) * 100 : 0;
 
-  // Chart data
-  const ohlcvExtended = getStockOHLCVExtended(ticker, 20, date);
-  const mrsHistory = getMRSHistory(ticker, 20, date);
+  // Chart data - use range for all chart-related queries
+  const ohlcvExtended = getStockOHLCVExtended(ticker, range, date);
+  const mrsHistory = getMRSHistory(ticker, range, date);
   const sectors = getSectorMRS(date);
   const stockSector = getStockSector(ticker);
-  const vixHistory = getVIXHistory(20, date);
-  const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, 20, date) : [];
+  const vixHistory = getVIXHistory(range, date);
+  const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, range, date) : [];
 
   return (
     <div className="space-y-6">
@@ -91,6 +98,7 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
             vixHistory={vixHistory}
             sectorRankHistory={sectorRankHistory}
             height={560}
+            currentRange={range}
           />
         </CardContent>
       </Card>
