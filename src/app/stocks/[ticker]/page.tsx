@@ -109,7 +109,7 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
         {/* P2: Sector MRS Comparison */}
         <Card>
           <CardHeader>
-            <CardTitle>Sector Relative Strength</CardTitle>
+            <CardTitle>Sector Rotation</CardTitle>
           </CardHeader>
           <CardContent>
             <SectorMRSChart
