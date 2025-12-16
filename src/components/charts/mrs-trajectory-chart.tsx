@@ -9,7 +9,6 @@ import {
   Tooltip,
   ResponsiveContainer,
   ReferenceLine,
-  Legend,
 } from "recharts";
 
 interface MRSData {
@@ -19,139 +18,335 @@ interface MRSData {
   mrs_20: number | null;
 }
 
+interface NASDAQData {
+  date: string;
+  close: number;
+  pct_change: number;
+}
+
 interface MRSTrajectoryChartProps {
   data: MRSData[];
+  nasdaqData?: NASDAQData[];
   height?: number;
 }
 
-export function MRSTrajectoryChart({ data, height = 300 }: MRSTrajectoryChartProps) {
+export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350 }: MRSTrajectoryChartProps) {
   if (!data || data.length === 0) {
     return (
-      <div className="flex items-center justify-center h-[300px] bg-zinc-900 rounded-lg">
-        <p className="text-zinc-500">No MRS history available</p>
+      <div className="flex items-center justify-center h-[300px] bg-muted/50 rounded-lg">
+        <p className="text-muted-foreground">No MRS history available</p>
       </div>
     );
   }
 
-  // Transform data for chart
-  const chartData = data.map((d) => ({
+  // Transform data for chart - merge MRS and NASDAQ by date
+  const nasdaqMap = new Map(nasdaqData.map(d => [d.date, d.pct_change]));
+
+  const chartData = data.map((d, idx) => ({
     date: d.date.slice(5), // MM-DD format
     fullDate: d.date,
     mrs_5: d.mrs_5 ?? 0,
     mrs_10: d.mrs_10 ?? 0,
     mrs_20: d.mrs_20 ?? 0,
+    nasdaq: nasdaqMap.get(d.date) ?? null,
+    isLast: idx === data.length - 1,
   }));
 
   // Custom tooltip
-  const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number; dataKey: string; color: string }>; label?: string }) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+    label
+  }: {
+    active?: boolean;
+    payload?: Array<{ value: number; dataKey: string; color: string }>;
+    label?: string
+  }) => {
     if (active && payload && payload.length) {
       const item = chartData.find((d) => d.date === label);
       return (
-        <div className="bg-zinc-800 border border-zinc-700 rounded-lg p-3 shadow-lg">
-          <p className="font-semibold text-white mb-1">{item?.fullDate}</p>
-          {payload.map((p) => (
-            <p key={p.dataKey} style={{ color: p.color }}>
-              {p.dataKey.toUpperCase().replace("_", " ")}: {p.value.toFixed(2)}%
-            </p>
-          ))}
+        <div className="bg-card border border-border rounded-lg p-3 shadow-lg text-sm">
+          <p className="font-semibold text-foreground mb-2">{item?.fullDate}</p>
+          <div className="space-y-1">
+            {payload.map((p) => {
+              const name = p.dataKey === "nasdaq"
+                ? "NASDAQ"
+                : p.dataKey === "mrs_5"
+                  ? "MRS 5"
+                  : p.dataKey === "mrs_10"
+                    ? "MRS 10"
+                    : "MRS 20";
+              return (
+                <div key={p.dataKey} className="flex items-center gap-2">
+                  <span
+                    className="w-2.5 h-2.5 rounded-full"
+                    style={{ backgroundColor: p.color }}
+                  />
+                  <span className="text-muted-foreground">{name}:</span>
+                  <span className="font-mono font-medium" style={{ color: p.color }}>
+                    {p.value?.toFixed(2) ?? "-"}%
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
     }
     return null;
   };
 
-  // Find min/max for y-axis domain
-  const allValues = chartData.flatMap((d) => [d.mrs_5, d.mrs_10, d.mrs_20]);
-  const minVal = Math.min(...allValues);
-  const maxVal = Math.max(...allValues);
-  const yMin = Math.floor(minVal - 1);
-  const yMax = Math.ceil(maxVal + 1);
+  // Find min/max for MRS y-axis domain
+  const mrsValues = chartData.flatMap((d) => [d.mrs_5, d.mrs_10, d.mrs_20]);
+  const minMRS = Math.min(...mrsValues, -2);
+  const maxMRS = Math.max(...mrsValues, 9);
+  const yMinMRS = Math.floor(minMRS - 1);
+  const yMaxMRS = Math.ceil(maxMRS + 1);
+
+  // Find min/max for NASDAQ y-axis domain
+  const nasdaqValues = chartData.map(d => d.nasdaq).filter((v): v is number => v !== null);
+  const minNASDAQ = nasdaqValues.length > 0 ? Math.min(...nasdaqValues) : -5;
+  const maxNASDAQ = nasdaqValues.length > 0 ? Math.max(...nasdaqValues) : 5;
+  const yMinNASDAQ = Math.floor(minNASDAQ - 1);
+  const yMaxNASDAQ = Math.ceil(maxNASDAQ + 1);
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-3">
+      {/* Legend - top aligned */}
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-xs">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+          <div className="flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 12 12">
+              <circle cx="6" cy="6" r="5" fill="#f97316" stroke="#fff" strokeWidth="1" />
+            </svg>
+            <span className="text-muted-foreground">MRS 5</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 12 12">
+              <polygon points="6,1 11,10 1,10" fill="#22c55e" stroke="#fff" strokeWidth="1" />
+            </svg>
+            <span className="text-muted-foreground">MRS 10</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 12 12">
+              <rect x="1" y="1" width="10" height="10" fill="#3b82f6" stroke="#fff" strokeWidth="1" />
+            </svg>
+            <span className="text-muted-foreground">MRS 20</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-4 border-t-2 border-dashed" style={{ borderColor: "#9ca3af" }} />
+            <span className="text-muted-foreground">NASDAQ</span>
+          </div>
+        </div>
+        <div className="text-muted-foreground">
+          <span style={{ color: "#22c55e" }} className="font-medium">MRS 10</span> early: <span style={{ color: "#22c55e" }}>3~5%</span>
+          <span className="mx-1.5">|</span>
+          <span style={{ color: "#3b82f6" }} className="font-medium">MRS 20</span> confirm: <span style={{ color: "#3b82f6" }}>4~8.5%</span>
+          <span className="mx-1.5">|</span>
+          <span style={{ color: "#f97316" }} className="font-medium">&gt;8.5%</span> exhaustion
+        </div>
+      </div>
+
+      {/* Chart */}
       <ResponsiveContainer width="100%" height={height}>
-        <LineChart data={chartData} margin={{ top: 10, right: 30, left: 10, bottom: 10 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+        <LineChart data={chartData} margin={{ top: 15, right: 0, left: 0, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" className="stroke-border" strokeOpacity={0.3} />
+
           <XAxis
             dataKey="date"
-            stroke="#9ca3af"
             fontSize={11}
-            interval="preserveStartEnd"
-          />
-          <YAxis
-            stroke="#9ca3af"
-            fontSize={11}
-            tickFormatter={(v) => `${v}%`}
-            domain={[yMin, yMax]}
-          />
-          <Tooltip content={<CustomTooltip />} />
-          <Legend
-            wrapperStyle={{ fontSize: "12px" }}
-            formatter={(value) => value.toUpperCase().replace("_", " ")}
+            interval={1}
+            tick={{ fill: "var(--color-muted-foreground)" }}
+            axisLine={false}
+            tickLine={false}
+            padding={{ left: 15, right: 15 }}
           />
 
+          {/* Left Y-axis for MRS */}
+          <YAxis
+            yAxisId="mrs"
+            orientation="left"
+            fontSize={11}
+            tickFormatter={(v) => `${v}%`}
+            domain={[yMinMRS, yMaxMRS]}
+            tick={{ fill: "var(--color-muted-foreground)" }}
+            axisLine={false}
+            tickLine={false}
+            width={45}
+          />
+
+          {/* Right Y-axis for NASDAQ */}
+          <YAxis
+            yAxisId="nasdaq"
+            orientation="right"
+            fontSize={11}
+            tickFormatter={(v) => `${v}%`}
+            domain={[yMinNASDAQ, yMaxNASDAQ]}
+            ticks={[yMinNASDAQ, -4, 0, 2, yMaxNASDAQ]}
+            tick={{ fill: "#9ca3af", dx: 15 }}
+            axisLine={false}
+            tickLine={false}
+            width={50}
+          />
+
+          <Tooltip content={<CustomTooltip />} />
+
           {/* Reference lines for entry zones */}
-          <ReferenceLine y={0} stroke="#6b7280" strokeWidth={1} />
+          <ReferenceLine yAxisId="mrs" y={0} stroke="var(--color-muted-foreground)" strokeWidth={1} strokeOpacity={0.5} />
           <ReferenceLine
+            yAxisId="mrs"
             y={3}
             stroke="#22c55e"
             strokeDasharray="4 4"
-            strokeOpacity={0.7}
-            label={{ value: "MRS10 Entry", position: "right", fill: "#22c55e", fontSize: 10 }}
+            strokeOpacity={0.6}
+            label={(props) => {
+              const { viewBox } = props;
+              const vb = viewBox as { x?: number; y?: number; width?: number };
+              const x = (vb?.x ?? 0) - 42;
+              const y = (vb?.y ?? 0);
+              return (
+                <g>
+                  <rect x={x} y={y - 7} width={52} height={14} fill="#fff" stroke="#22c55e" strokeWidth={1} rx={2} />
+                  <text x={x + 26} y={y + 4} textAnchor="middle" fill="#22c55e" fontSize={10} fontWeight={500}>Entry 3%</text>
+                </g>
+              );
+            }}
           />
           <ReferenceLine
+            yAxisId="mrs"
             y={4}
             stroke="#3b82f6"
             strokeDasharray="4 4"
             strokeOpacity={0.6}
-            label={{ value: "MRS20 Entry", position: "right", fill: "#3b82f6", fontSize: 10 }}
+            label={(props) => {
+              const { viewBox } = props;
+              const vb = viewBox as { x?: number; y?: number; width?: number };
+              const centerX = (vb?.x ?? 0) + ((vb?.width ?? 0) / 2);
+              const y = (vb?.y ?? 0);
+              return (
+                <g>
+                  <rect x={centerX - 35} y={y - 7} width={70} height={14} fill="#fff" stroke="#3b82f6" strokeWidth={1} rx={2} />
+                  <text x={centerX} y={y + 4} textAnchor="middle" fill="#3b82f6" fontSize={10} fontWeight={500}>Confirm 4%</text>
+                </g>
+              );
+            }}
           />
           <ReferenceLine
+            yAxisId="mrs"
             y={8.5}
             stroke="#f97316"
             strokeDasharray="4 4"
             strokeOpacity={0.6}
-            label={{ value: "Exhaustion", position: "right", fill: "#f97316", fontSize: 10 }}
+            label={(props) => {
+              const { viewBox } = props;
+              const vb = viewBox as { x?: number; y?: number; width?: number };
+              const x = (vb?.x ?? 0) + (vb?.width ?? 0) - 45;
+              const y = (vb?.y ?? 0);
+              return (
+                <g>
+                  <rect x={x} y={y - 7} width={90} height={14} fill="#fff" stroke="#f97316" strokeWidth={1} rx={2} />
+                  <text x={x + 45} y={y + 4} textAnchor="middle" fill="#f97316" fontSize={10} fontWeight={500}>Exhaustion 8.5%</text>
+                </g>
+              );
+            }}
           />
 
-          {/* MRS lines */}
+          {/* NASDAQ line (right axis) - gray dashed */}
+          {nasdaqValues.length > 0 && (
+            <Line
+              yAxisId="nasdaq"
+              type="monotone"
+              dataKey="nasdaq"
+              name="NASDAQ"
+              stroke="#9ca3af"
+              strokeWidth={2}
+              strokeDasharray="5 5"
+              dot={false}
+              activeDot={{ r: 4 }}
+              connectNulls
+            />
+          )}
+
+          {/* MRS 5 - Orange with circles */}
           <Line
+            yAxisId="mrs"
             type="monotone"
             dataKey="mrs_5"
-            name="mrs_5"
+            name="MRS 5"
             stroke="#f97316"
             strokeWidth={2}
-            dot={{ r: 2 }}
+            dot={(props) => {
+              const { cx, cy, index } = props;
+              if (cx === undefined || cy === undefined) return null;
+              const isLast = index === chartData.length - 1;
+              if (isLast) {
+                return <circle cx={cx} cy={cy} r={7} fill="#f97316" stroke="#fff" strokeWidth={1.5} />;
+              }
+              return <circle cx={cx} cy={cy} r={3} fill="#f97316" stroke="#fff" strokeWidth={1.5} />;
+            }}
             activeDot={{ r: 5 }}
           />
+
+          {/* MRS 10 - Green with triangles */}
           <Line
+            yAxisId="mrs"
             type="monotone"
             dataKey="mrs_10"
-            name="mrs_10"
+            name="MRS 10"
             stroke="#22c55e"
             strokeWidth={2.5}
-            dot={{ r: 3, fill: "#22c55e" }}
+            dot={(props) => {
+              const { cx, cy, index } = props;
+              if (cx === undefined || cy === undefined) return null;
+              const isLast = index === chartData.length - 1;
+              const size = isLast ? 8 : 5;
+              const fill = "#22c55e";
+              const strokeColor = "#fff";
+              const strokeW = isLast ? 1.5 : 1;
+              return (
+                <polygon
+                  points={`${cx},${cy - size} ${cx - size},${cy + size * 0.6} ${cx + size},${cy + size * 0.6}`}
+                  fill={fill}
+                  stroke={strokeColor}
+                  strokeWidth={strokeW}
+                />
+              );
+            }}
             activeDot={{ r: 6 }}
           />
+
+          {/* MRS 20 - Blue with squares */}
           <Line
+            yAxisId="mrs"
             type="monotone"
             dataKey="mrs_20"
-            name="mrs_20"
+            name="MRS 20"
             stroke="#3b82f6"
             strokeWidth={2.5}
-            dot={{ r: 3, fill: "#3b82f6", strokeWidth: 1, stroke: "#0a0a0a" }}
+            dot={(props) => {
+              const { cx, cy, index } = props;
+              if (cx === undefined || cy === undefined) return null;
+              const isLast = index === chartData.length - 1;
+              const size = isLast ? 7 : 4;
+              const fill = "#3b82f6";
+              const strokeColor = "#fff";
+              const strokeW = isLast ? 1.5 : 1;
+              return (
+                <rect
+                  x={cx - size}
+                  y={cy - size}
+                  width={size * 2}
+                  height={size * 2}
+                  fill={fill}
+                  stroke={strokeColor}
+                  strokeWidth={strokeW}
+                />
+              );
+            }}
             activeDot={{ r: 6 }}
           />
         </LineChart>
       </ResponsiveContainer>
-
-      <div className="mt-2 text-xs text-zinc-500 space-y-1">
-        <p>
-          <span className="text-green-500">MRS 10 Entry:</span> 3-5% |
-          <span className="text-blue-500 ml-2">MRS 20 Entry:</span> 4-8.5% |
-          <span className="text-orange-500 ml-2">Exhaustion:</span> &gt;8.5%
-        </p>
-      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory } from "@/lib/queries/stocks";
 import { getSectorMRS, getSectorMRSHistory, getStockSector, getSectorRankHistory } from "@/lib/queries/sectors";
-import { getVIXHistory } from "@/lib/queries/trading-days";
+import { getVIXHistory, getNASDAQHistory } from "@/lib/queries/trading-days";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PriceVolumeChart, SectorMRSChart, MRSTrajectoryChart } from "@/components/charts";
@@ -59,6 +59,7 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
   const latestSectors = sectorHistory.length > 0 ? sectorHistory[sectorHistory.length - 1].sectors : [];
   const stockSector = getStockSector(ticker);
   const vixHistory = getVIXHistory(range, date);
+  const nasdaqHistory = getNASDAQHistory(range, date);
   const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, range, date) : [];
 
   return (
@@ -123,10 +124,10 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
         {/* P3: MRS Trajectory */}
         <Card>
           <CardHeader>
-            <CardTitle>MRS Trajectory (20-Day)</CardTitle>
+            <CardTitle>Relative Strength Trajectory</CardTitle>
           </CardHeader>
           <CardContent>
-            <MRSTrajectoryChart data={mrsHistory} height={350} />
+            <MRSTrajectoryChart data={mrsHistory} nasdaqData={nasdaqHistory} height={420} />
           </CardContent>
         </Card>
       </div>

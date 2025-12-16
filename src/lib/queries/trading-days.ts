@@ -80,6 +80,41 @@ export function getAllTradingDates(): string[] {
   return rows.map((r) => r.date);
 }
 
+export interface NASDAQData {
+  date: string;
+  close: number;
+  pct_change: number; // Cumulative % change from first day
+}
+
+/**
+ * Get NASDAQ (^IXIC) history for chart overlay
+ * Returns cumulative percentage change from the first day in the series
+ */
+export function getNASDAQHistory(days: number = 20, endDate?: string): NASDAQData[] {
+  const date = endDate || getLatestTradingDate();
+  const rows = db
+    .prepare(`
+      SELECT date, close
+      FROM indices_ohlcv
+      WHERE index_code = '^IXIC' AND date <= ?
+      ORDER BY date DESC
+      LIMIT ?
+    `)
+    .all(date, days + 5) as { date: string; close: number }[];
+
+  if (rows.length === 0) return [];
+
+  // Reverse to chronological order
+  const chronological = rows.reverse();
+  const firstClose = chronological[0].close;
+
+  return chronological.map(row => ({
+    date: row.date,
+    close: row.close,
+    pct_change: ((row.close / firstClose) - 1) * 100,
+  }));
+}
+
 /**
  * Get navigation info for a given trading date (prev/next dates)
  */
