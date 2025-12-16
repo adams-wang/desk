@@ -473,10 +473,13 @@ function CandleTooltip({
 function CandlestickChart({
   data,
   height,
+  currentRange = 20,
 }: {
   data: OHLCVData[];
   height: number;
+  currentRange?: number;
 }) {
+  const isCompactView = currentRange > 20;
   // Prepare chart data with OHLC - use SMA from database
   const chartData = useMemo(() => {
     return data.map((d) => ({
@@ -668,8 +671,11 @@ function CandlestickChart({
             dataKey="dateLabel"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "#9ca3af", fontSize: 10 }}
+            tick={isCompactView
+              ? { fill: "var(--color-muted-foreground)", fontSize: 10, angle: -90, textAnchor: "end", dy: 4 }
+              : { fill: "var(--color-muted-foreground)", fontSize: 10 }}
             interval={0}
+            height={isCompactView ? 50 : 20}
           />
 
           <YAxis
@@ -686,7 +692,7 @@ function CandlestickChart({
           <Tooltip content={() => null} />
 
           {/* Volume bars - solid for both up and down */}
-          <Bar dataKey="volume" barSize={32} radius={[2, 2, 0, 0]}>
+          <Bar dataKey="volume" barSize={isCompactView ? 24 : 32} radius={[2, 2, 0, 0]}>
             {chartData.map((entry, index) => (
               <Cell
                 key={`vol-${index}`}
@@ -1488,7 +1494,7 @@ export function PriceVolumeChart({
       {mode === "line" ? (
         <LineChart data={data} height={height} vixHistory={vixHistory} sectorRankHistory={sectorRankHistory} currentRange={currentRange} />
       ) : (
-        <CandlestickChart data={data} height={height} />
+        <CandlestickChart data={data} height={height} currentRange={currentRange} />
       )}
     </div>
   );
