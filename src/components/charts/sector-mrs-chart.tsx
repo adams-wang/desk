@@ -67,6 +67,15 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
     return null;
   };
 
+  // Get bar color based on MRS value - green for positive, coral/red for negative
+  const getBarColor = (mrs20: number, isCurrent: boolean): string => {
+    if (isCurrent) return "#3b82f6"; // Blue for current sector
+    if (mrs20 >= 4) return "#16a34a"; // Strong green
+    if (mrs20 >= 0) return "#22c55e"; // Medium green
+    if (mrs20 >= -4) return "#f87171"; // Light red/coral
+    return "#dc2626"; // Strong red
+  };
+
   // Custom bar label renderer - show value and ETF at end of bar
   const renderBarLabel = (props: { x?: number; y?: number; width?: number; height?: number; index?: number }) => {
     const { x, y, width, height, index } = props;
@@ -86,10 +95,10 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
         y={y + (height || 0) / 2}
         textAnchor={textAnchor}
         dominantBaseline="middle"
-        fontSize={10}
-        fill="var(--color-muted-foreground)"
+        fontSize={11}
+        fill="var(--color-foreground)"
         fontFamily="ui-monospace, monospace"
-        fontWeight={500}
+        fontWeight={600}
       >
         {mrs20.toFixed(1)} ({data.etf})
       </text>
@@ -102,7 +111,7 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
         <ComposedChart
           layout="vertical"
           data={chartData}
-          margin={{ top: 5, right: 75, left: 5, bottom: 5 }}
+          margin={{ top: 5, right: 80, left: 5, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" className="stroke-border" strokeOpacity={0.3} horizontal={false} />
 
@@ -120,8 +129,8 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
           <YAxis
             type="category"
             dataKey="name"
-            fontSize={11}
-            width={145}
+            fontSize={12}
+            width={155}
             axisLine={false}
             tickLine={false}
             interval={0}
@@ -131,7 +140,7 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
               return (
                 <g transform={`translate(${x},${y})`}>
                   {isCurrent && (
-                    <text x={-135} y={4} fill="#ef4444" fontSize={14} fontWeight="bold">
+                    <text x={-148} y={4} fill="#ef4444" fontSize={14} fontWeight="bold">
                       ★
                     </text>
                   )}
@@ -140,8 +149,8 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
                     y={4}
                     textAnchor="end"
                     fill={isCurrent ? "#ef4444" : "var(--color-foreground)"}
-                    fontSize={11}
-                    fontWeight={isCurrent ? 600 : 400}
+                    fontSize={12}
+                    fontWeight={isCurrent ? 700 : 500}
                   >
                     {payload.value}
                   </text>
@@ -159,12 +168,12 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
           <ReferenceLine x={-2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.3} />
           <ReferenceLine x={2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.3} />
 
-          {/* MRS 20 bars - blue theme matching app style */}
-          <Bar dataKey="mrs_20" name="MRS 20" radius={[0, 3, 3, 0]} maxBarSize={20}>
+          {/* MRS 20 bars - green for positive, red for negative, blue for current */}
+          <Bar dataKey="mrs_20" name="MRS 20" radius={[0, 3, 3, 0]} maxBarSize={22}>
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={entry.isCurrent ? "#3b82f6" : "#60a5fa"}
+                fill={getBarColor(entry.mrs_20, entry.isCurrent)}
                 stroke={entry.isCurrent ? "#ef4444" : "none"}
                 strokeWidth={entry.isCurrent ? 2 : 0}
               />
@@ -202,15 +211,19 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
 
       <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
         <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded bg-blue-400"></span>
-          <span>MRS 20</span>
+          <span className="w-3 h-3 rounded bg-green-500"></span>
+          <span>Positive</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded bg-red-400"></span>
+          <span>Negative</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-full bg-orange-500"></span>
           <span>MRS 5</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-4 h-0.5 bg-green-500"></span>
+          <span className="w-4 h-0.5 bg-green-600"></span>
           <span>Strong (4%)</span>
         </div>
         <div className="flex items-center gap-1.5">
