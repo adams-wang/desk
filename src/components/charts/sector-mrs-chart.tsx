@@ -146,12 +146,10 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
         textAnchor={textAnchor}
         dominantBaseline="middle"
         fontSize={11}
-        fill={isPositive ? "var(--color-muted-foreground)" : "#fff"}
+        fill="#1f2937"
         fontFamily="ui-monospace, monospace"
         fontWeight={600}
-        stroke={isPositive ? "none" : "rgba(0,0,0,0.5)"}
-        strokeWidth={isPositive ? 0 : 0.5}
-        paintOrder="stroke"
+        style={isPositive ? {} : { textShadow: "0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff" }}
       >
         {mrs20.toFixed(1)} ({data.etf})
       </text>
