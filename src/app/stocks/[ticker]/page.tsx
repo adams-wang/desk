@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory } from "@/lib/queries/stocks";
-import { getSectorMRS, getStockSector, getSectorRankHistory } from "@/lib/queries/sectors";
+import { getSectorMRS, getSectorMRSHistory, getStockSector, getSectorRankHistory } from "@/lib/queries/sectors";
 import { getVIXHistory } from "@/lib/queries/trading-days";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -55,7 +55,8 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
   // Chart data - use range for all chart-related queries
   const ohlcvExtended = getStockOHLCVExtended(ticker, range, date);
   const mrsHistory = getMRSHistory(ticker, range, date);
-  const sectors = getSectorMRS(date);
+  const sectorHistory = getSectorMRSHistory(5, date); // 5 days for sector animation
+  const latestSectors = sectorHistory.length > 0 ? sectorHistory[sectorHistory.length - 1].sectors : [];
   const stockSector = getStockSector(ticker);
   const vixHistory = getVIXHistory(range, date);
   const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, range, date) : [];
@@ -69,10 +70,10 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
           <p className="text-muted-foreground">
             {stock.company_name || "Unknown Company"} •{" "}
             {stock.sector || "Unknown Sector"}
-            {stockSector && sectors.length > 0 && (() => {
-              const sortedSectors = [...sectors].sort((a, b) => (b.mrs_20 || 0) - (a.mrs_20 || 0));
+            {stockSector && latestSectors.length > 0 && (() => {
+              const sortedSectors = [...latestSectors].sort((a, b) => (b.mrs_20 || 0) - (a.mrs_20 || 0));
               const rank = sortedSectors.findIndex(s => s.sector_name === stockSector) + 1;
-              return rank > 0 ? ` (#${rank} of ${sectors.length})` : "";
+              return rank > 0 ? ` (#${rank} of ${latestSectors.length})` : "";
             })()}
           </p>
         </div>
@@ -112,7 +113,7 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
           </CardHeader>
           <CardContent>
             <SectorMRSChart
-              sectors={sectors}
+              history={sectorHistory}
               currentSector={stockSector}
               height={380}
             />

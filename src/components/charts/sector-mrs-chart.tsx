@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useCallback, useMemo } from "react";
 import {
   Bar,
   XAxis,
@@ -13,6 +14,7 @@ import {
   ComposedChart,
   LabelList,
 } from "recharts";
+import { Play, Pause, RotateCcw } from "lucide-react";
 
 interface SectorData {
   sector_name: string;
@@ -22,14 +24,61 @@ interface SectorData {
   close: number | null;
 }
 
-interface SectorMRSChartProps {
+interface SectorHistoryDay {
+  date: string;
   sectors: SectorData[];
-  currentSector: string | null;
-  height?: number;
 }
 
-export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorMRSChartProps) {
-  if (!sectors || sectors.length === 0) {
+interface SectorMRSChartProps {
+  history: SectorHistoryDay[];
+  currentSector: string | null;
+  height?: number;
+  intervalMs?: number;
+}
+
+export function SectorMRSChart({ history, currentSector, height = 380, intervalMs = 1200 }: SectorMRSChartProps) {
+  const [currentDayIndex, setCurrentDayIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Auto-play logic
+  useEffect(() => {
+    if (!isPlaying || history.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentDayIndex((prev) => {
+        if (prev >= history.length - 1) {
+          setIsPlaying(false);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, intervalMs);
+
+    return () => clearInterval(interval);
+  }, [isPlaying, history.length, intervalMs]);
+
+  // Reset to first day when history changes
+  useEffect(() => {
+    setCurrentDayIndex(0);
+    setIsPlaying(false);
+  }, [history.length]);
+
+  const currentDay = history[currentDayIndex];
+
+  const togglePlay = useCallback(() => {
+    if (currentDayIndex >= history.length - 1) {
+      // Restart from beginning
+      setCurrentDayIndex(0);
+    }
+    setIsPlaying((prev) => !prev);
+  }, [currentDayIndex, history.length]);
+
+  const handleRestart = useCallback(() => {
+    setCurrentDayIndex(0);
+    setIsPlaying(false);
+  }, []);
+
+  if (!history || history.length === 0 || !currentDay?.sectors) {
     return (
       <div className="flex items-center justify-center h-[380px] bg-muted/50 rounded-lg">
         <p className="text-muted-foreground">No sector data available</p>
@@ -38,7 +87,7 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
   }
 
   // Transform and sort data - DESCENDING by MRS_20 (strongest at top)
-  const chartData = [...sectors]
+  const chartData = [...currentDay.sectors]
     .sort((a, b) => (b.mrs_20 ?? 0) - (a.mrs_20 ?? 0))
     .map((s) => ({
       name: s.sector_name,
@@ -77,7 +126,8 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
   };
 
   // Custom bar label renderer - show value and ETF at end of bar
-  const renderBarLabel = (props: { x?: number; y?: number; width?: number; height?: number; index?: number }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const renderBarLabel = (props: any) => {
     const { x, y, width, height, index } = props;
     if (x === undefined || y === undefined || width === undefined || height === undefined || index === undefined) return null;
 
@@ -106,7 +156,56 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-3">
+      {/* Controls */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={togglePlay}
+            className="p-1.5 rounded-md bg-blue-500 hover:bg-blue-600 text-white transition-colors"
+            title={isPlaying ? "Pause" : "Play"}
+          >
+            {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+          </button>
+          <button
+            onClick={handleRestart}
+            className="p-1.5 rounded-md bg-muted hover:bg-muted/80 transition-colors"
+            title="Restart"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* Date indicator */}
+        <div className="text-xs font-mono">
+          <span className="text-muted-foreground">{currentDay.date}</span>
+          <span className="text-muted-foreground/60 ml-2">
+            ({currentDayIndex + 1}/{history.length})
+          </span>
+        </div>
+      </div>
+
+      {/* Timeline */}
+      <div className="flex items-center gap-0.5">
+        {history.map((day, idx) => (
+          <button
+            key={day.date}
+            onClick={() => {
+              setCurrentDayIndex(idx);
+              setIsPlaying(false);
+            }}
+            className={`flex-1 h-1.5 rounded-full transition-all ${
+              idx === currentDayIndex
+                ? "bg-blue-500"
+                : idx < currentDayIndex
+                ? "bg-blue-500/50"
+                : "bg-muted"
+            }`}
+            title={day.date}
+          />
+        ))}
+      </div>
+
       <ResponsiveContainer width="100%" height={height}>
         <ComposedChart
           layout="vertical"
@@ -169,7 +268,7 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
           <ReferenceLine x={-2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.4} />
 
           {/* MRS 20 bars - green for positive, red for negative, blue for current */}
-          <Bar dataKey="mrs_20" name="MRS 20" radius={[0, 3, 3, 0]} maxBarSize={22}>
+          <Bar dataKey="mrs_20" name="MRS 20" radius={[0, 3, 3, 0]} maxBarSize={22} animationDuration={400}>
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
@@ -186,6 +285,7 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
             name="MRS 5"
             stroke="#f97316"
             strokeWidth={2.5}
+            animationDuration={400}
             dot={(props: { cx?: number; cy?: number; index?: number }) => {
               const { cx, cy, index } = props;
               if (cx === undefined || cy === undefined || index === undefined) return <></>;
