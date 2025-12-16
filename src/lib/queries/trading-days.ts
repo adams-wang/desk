@@ -53,6 +53,8 @@ export function getMarketRegime(date: string): MarketRegime | null {
 
 /**
  * Get VIX history for chart display
+ * Fetches extra days to account for potential date mismatches between VIX and stock data
+ * (e.g., VIX may have data for days when specific stocks don't trade)
  */
 export function getVIXHistory(days: number = 20, endDate?: string): MarketRegime[] {
   const date = endDate || getLatestTradingDate();
@@ -64,7 +66,7 @@ export function getVIXHistory(days: number = 20, endDate?: string): MarketRegime
       ORDER BY date DESC
       LIMIT ?
     `)
-    .all(date, days) as MarketRegime[];
+    .all(date, days + 5) as MarketRegime[]; // Fetch extra days for date alignment
   return rows.reverse(); // Chronological order
 }
 
