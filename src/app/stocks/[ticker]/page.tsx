@@ -114,7 +114,7 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
             <SectorMRSChart
               sectors={sectors}
               currentSector={stockSector}
-              height={350}
+              height={380}
             />
           </CardContent>
         </Card>
