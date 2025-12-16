@@ -78,6 +78,27 @@ export interface AnalystTarget {
   action_type: string | null;
 }
 
+export interface L3Contract {
+  ticker: string;
+  trading_date: string;
+  verdict: string;
+  thesis: string;
+  conviction: string;
+  conviction_score: number;
+  entry_price: number;
+  stop_loss: number;
+  stop_loss_pct: number;
+  target_price: number;
+  risk_reward: number;
+  shares: number;
+  position_value: number;
+  risk_dollars: number;
+  l1_position_modifier: number;
+  l2_sector_modifier: number;
+  combined_modifier: number;
+  final_position_pct: number;
+}
+
 export interface AnalystTargetsSummary {
   raises: number;
   lowers: number;
@@ -553,5 +574,42 @@ export function getAnalystTargets(ticker: string, endDate?: string, days: number
     big_raises: bigRaises,
     signal,
     recent: rows.slice(0, 10),
+  };
+}
+
+/**
+ * Get L3 contract for a ticker (both 10-day and 20-day variants)
+ */
+export function getL3Contracts(ticker: string, endDate?: string): { l3_10: L3Contract | null; l3_20: L3Contract | null } {
+  const log = getLogger();
+  const date = endDate || getLatestTradingDate();
+  const startTime = Date.now();
+
+  const query = `
+    SELECT
+      ticker, trading_date, verdict, thesis, conviction, conviction_score,
+      entry_price, stop_loss, stop_loss_pct, target_price, risk_reward,
+      shares, position_value, risk_dollars,
+      l1_position_modifier, l2_sector_modifier, combined_modifier, final_position_pct
+    FROM %TABLE%
+    WHERE ticker = ? AND trading_date = ?
+  `;
+
+  const l3_10 = db
+    .prepare(query.replace('%TABLE%', 'l3_contracts_10'))
+    .get(ticker.toUpperCase(), date) as L3Contract | undefined;
+
+  const l3_20 = db
+    .prepare(query.replace('%TABLE%', 'l3_contracts_20'))
+    .get(ticker.toUpperCase(), date) as L3Contract | undefined;
+
+  log.debug(
+    { ticker, date, has_10: !!l3_10, has_20: !!l3_20, latencyMs: Date.now() - startTime },
+    "L3 contracts query"
+  );
+
+  return {
+    l3_10: l3_10 || null,
+    l3_20: l3_20 || null,
   };
 }

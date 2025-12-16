@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
-import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory, getAnalystActions, getAnalystTargets } from "@/lib/queries/stocks";
+import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory, getAnalystActions, getAnalystTargets, getL3Contracts } from "@/lib/queries/stocks";
 import { getSectorMRS, getSectorMRSHistory, getStockSector, getSectorRankHistory } from "@/lib/queries/sectors";
 import { getVIXHistory, getNASDAQHistory } from "@/lib/queries/trading-days";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PriceVolumeChart, SectorMRSChart, MRSTrajectoryChart } from "@/components/charts";
+import { TradeSetupCard } from "@/components/trade-setup-card";
 
 interface StockDetailPageProps {
   params: Promise<{ ticker: string }>;
@@ -65,6 +66,9 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
   // Analyst data
   const analystActions = getAnalystActions(ticker, date);
   const analystTargets = getAnalystTargets(ticker, date);
+
+  // L3 contracts
+  const { l3_10, l3_20 } = getL3Contracts(ticker, date);
 
   return (
     <div className="space-y-6">
@@ -286,71 +290,8 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
 
       {/* Indicators */}
       <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>MRS Indicators</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">MRS 5</span>
-                <span
-                  className={`font-mono tabular-nums ${
-                    stock.mrs_5 && stock.mrs_5 > 0
-                      ? "text-emerald-500"
-                      : stock.mrs_5 && stock.mrs_5 < 0
-                      ? "text-red-500"
-                      : ""
-                  }`}
-                >
-                  {formatPercent(stock.mrs_5)}
-                </span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">MRS 10</span>
-                <span
-                  className={`font-mono tabular-nums ${
-                    stock.mrs_10 && stock.mrs_10 > 0
-                      ? "text-emerald-500"
-                      : stock.mrs_10 && stock.mrs_10 < 0
-                      ? "text-red-500"
-                      : ""
-                  }`}
-                >
-                  {formatPercent(stock.mrs_10)}
-                </span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">MRS 20</span>
-                <span
-                  className={`font-mono tabular-nums ${
-                    stock.mrs_20 && stock.mrs_20 > 0
-                      ? "text-emerald-500"
-                      : stock.mrs_20 && stock.mrs_20 < 0
-                      ? "text-red-500"
-                      : ""
-                  }`}
-                >
-                  {formatPercent(stock.mrs_20)}
-                </span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">MRS 20 CS</span>
-                <span
-                  className={`font-mono tabular-nums ${
-                    stock.mrs_20_cs && stock.mrs_20_cs > 0
-                      ? "text-emerald-500"
-                      : stock.mrs_20_cs && stock.mrs_20_cs < 0
-                      ? "text-red-500"
-                      : ""
-                  }`}
-                >
-                  {formatPercent(stock.mrs_20_cs)}
-                </span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Trade Setup Card */}
+        <TradeSetupCard l3_10={l3_10} l3_20={l3_20} />
 
         <Card>
           <CardHeader>
