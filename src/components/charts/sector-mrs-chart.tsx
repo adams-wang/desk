@@ -133,20 +133,25 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
 
     const data = chartData[index];
     const mrs20 = data.mrs_20;
+    const isPositive = mrs20 >= 0;
 
-    // Always position label to the right of the bar (outside for readability)
-    const labelX = x + width + 5;
+    // Position label outside the bar - right for positive, left for negative
+    const labelX = isPositive ? x + width + 5 : x - 5;
+    const textAnchor = isPositive ? "start" : "end";
 
     return (
       <text
         x={labelX}
         y={y + (height || 0) / 2}
-        textAnchor="start"
+        textAnchor={textAnchor}
         dominantBaseline="middle"
         fontSize={11}
-        fill="var(--color-muted-foreground)"
+        fill={isPositive ? "var(--color-muted-foreground)" : "#fff"}
         fontFamily="ui-monospace, monospace"
         fontWeight={600}
+        stroke={isPositive ? "none" : "rgba(0,0,0,0.5)"}
+        strokeWidth={isPositive ? 0 : 0.5}
+        paintOrder="stroke"
       >
         {mrs20.toFixed(1)} ({data.etf})
       </text>
