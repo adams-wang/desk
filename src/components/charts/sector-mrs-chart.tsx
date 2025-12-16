@@ -133,17 +133,15 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
 
     const data = chartData[index];
     const mrs20 = data.mrs_20;
-    const isPositive = mrs20 >= 0;
 
-    // Position label at end of bar
-    const labelX = isPositive ? x + width + 5 : x - 5;
-    const textAnchor = isPositive ? "start" : "end";
+    // Always position label to the right of the bar (outside for readability)
+    const labelX = x + width + 5;
 
     return (
       <text
         x={labelX}
         y={y + (height || 0) / 2}
-        textAnchor={textAnchor}
+        textAnchor="start"
         dominantBaseline="middle"
         fontSize={11}
         fill="var(--color-muted-foreground)"
