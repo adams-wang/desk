@@ -53,7 +53,7 @@ export function TradeSetupCard({ l3_10, l3_20 }: TradeSetupCardProps) {
   return (
     <Card className="gap-4 py-5">
       <CardHeader>
-        <div className="flex items-center justify-between -mt-2 h-6">
+        <div className="flex items-center justify-between -mt-1 h-6">
           <CardTitle>Trade Setup</CardTitle>
           <div className="flex items-center gap-1 bg-muted rounded-lg p-1">
             <button

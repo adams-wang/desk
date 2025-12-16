@@ -135,7 +135,7 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
             <CardTitle>Relative Strength Trajectory</CardTitle>
           </CardHeader>
           <CardContent>
-            <MRSTrajectoryChart data={mrsHistory} nasdaqData={nasdaqHistory} height={420} />
+            <MRSTrajectoryChart data={mrsHistory} nasdaqData={nasdaqHistory} height={420} currentRange={range} />
           </CardContent>
         </Card>
       </div>

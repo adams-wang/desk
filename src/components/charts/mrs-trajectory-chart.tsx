@@ -28,9 +28,12 @@ interface MRSTrajectoryChartProps {
   data: MRSData[];
   nasdaqData?: NASDAQData[];
   height?: number;
+  currentRange?: number;
 }
 
-export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350 }: MRSTrajectoryChartProps) {
+export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, currentRange = 20 }: MRSTrajectoryChartProps) {
+  // Compact view for 2M (40) or 3M (60) ranges - show vertical dates
+  const isCompactView = currentRange >= 40;
   if (!data || data.length === 0) {
     return (
       <div className="flex items-center justify-center h-[300px] bg-muted/50 rounded-lg">
@@ -157,12 +160,16 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350 }: MRST
 
           <XAxis
             dataKey="date"
-            fontSize={11}
-            interval={1}
-            tick={{ fill: "var(--color-muted-foreground)" }}
+            fontSize={isCompactView ? 10 : 11}
+            interval={isCompactView ? 1 : 1}
+            tick={isCompactView
+              ? { fill: "var(--color-muted-foreground)", fontSize: 10, angle: -90, textAnchor: "end", dy: 4 }
+              : { fill: "var(--color-muted-foreground)" }
+            }
             axisLine={false}
             tickLine={false}
             padding={{ left: 15, right: 15 }}
+            height={isCompactView ? 50 : 30}
           />
 
           {/* Left Y-axis for MRS */}
