@@ -82,7 +82,7 @@ export function StockTable({ stocks }: StockTableProps) {
                       : ""
                   }
                 >
-                  {formatNumber(stock.mrs_20 ? stock.mrs_20 * 100 : null, 1)}%
+                  {formatNumber(stock.mrs_20, 1)}%
                 </span>
               </TableCell>
               <TableCell className="text-right font-mono tabular-nums">
