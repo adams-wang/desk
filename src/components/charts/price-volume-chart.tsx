@@ -543,6 +543,29 @@ function CandlestickChart({
               {displayInfo.changePct >= 0 ? "+" : ""}{displayInfo.changePct.toFixed(1)}%
             </span>
           </div>
+          {/* Legend - center */}
+          <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+              <span>Bullish</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 border border-red-500 rounded-sm"></div>
+              <span>Bearish</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-0.5 bg-green-500"></div>
+              <span>MA20</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-0.5 bg-blue-500"></div>
+              <span>MA50</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-0.5 bg-orange-500"></div>
+              <span>MA200</span>
+            </div>
+          </div>
           <div className="flex items-center gap-2 text-[10px]">
             {displayInfo.sma_20 && <span className="text-green-400">MA20:{displayInfo.sma_20.toFixed(0)}</span>}
             {displayInfo.sma_50 && <span className="text-blue-400">MA50:{displayInfo.sma_50.toFixed(0)}</span>}
@@ -702,30 +725,6 @@ function CandlestickChart({
           </Bar>
         </ComposedChart>
       </ResponsiveContainer>
-      </div>
-
-      {/* Legend - same structure as Analysis */}
-      <div className="flex items-center justify-center gap-4 pt-1 text-[10px] text-muted-foreground">
-        <div className="flex items-center gap-1">
-          <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-          <span>Bullish</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-2 h-2 border border-red-500 rounded-sm"></div>
-          <span>Bearish</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-0.5 bg-green-500"></div>
-          <span>MA20</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-0.5 bg-blue-500"></div>
-          <span>MA50</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-0.5 bg-orange-500"></div>
-          <span>MA200</span>
-        </div>
       </div>
     </div>
   );
