@@ -174,8 +174,6 @@ export function SectorMRSChart({ sectors, currentSector, height = 380 }: SectorM
               <Cell
                 key={`cell-${index}`}
                 fill={getBarColor(entry.mrs_20, entry.isCurrent)}
-                stroke={entry.isCurrent ? "#ef4444" : "none"}
-                strokeWidth={entry.isCurrent ? 2 : 0}
               />
             ))}
             <LabelList content={renderBarLabel} />
