@@ -55,7 +55,7 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
   // Chart data - use range for all chart-related queries
   const ohlcvExtended = getStockOHLCVExtended(ticker, range, date);
   const mrsHistory = getMRSHistory(ticker, range, date);
-  const sectorHistory = getSectorMRSHistory(5, date); // 5 days for sector animation
+  const sectorHistory = getSectorMRSHistory(10, date); // 10 days for sector rotation analysis
   const latestSectors = sectorHistory.length > 0 ? sectorHistory[sectorHistory.length - 1].sectors : [];
   const stockSector = getStockSector(ticker);
   const vixHistory = getVIXHistory(range, date);

@@ -37,10 +37,10 @@ interface SectorMRSChartProps {
 }
 
 export function SectorMRSChart({ history, currentSector, height = 380, intervalMs = 1200 }: SectorMRSChartProps) {
-  const [currentDayIndex, setCurrentDayIndex] = useState(0);
+  const [currentDayIndex, setCurrentDayIndex] = useState(history.length - 1);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Auto-play logic
+  // Auto-play logic - plays from start to current position
   useEffect(() => {
     if (!isPlaying || history.length <= 1) return;
 
@@ -57,9 +57,9 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
     return () => clearInterval(interval);
   }, [isPlaying, history.length, intervalMs]);
 
-  // Reset to first day when history changes
+  // Reset to latest day when history changes
   useEffect(() => {
-    setCurrentDayIndex(0);
+    setCurrentDayIndex(history.length - 1);
     setIsPlaying(false);
   }, [history.length]);
 
