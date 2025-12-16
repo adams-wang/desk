@@ -52,6 +52,42 @@ export interface MRSHistory {
   mrs_20: number | null;
 }
 
+export interface AnalystAction {
+  action_date: string;
+  firm: string;
+  action: string;
+  from_grade: string | null;
+  to_grade: string | null;
+}
+
+export interface AnalystActionsSummary {
+  upgrades: number;
+  downgrades: number;
+  maintains: number;
+  trend: "BULLISH" | "BEARISH" | "NEUTRAL";
+  cluster: boolean;
+  recent: AnalystAction[];
+}
+
+export interface AnalystTarget {
+  action_date: string;
+  firm: string;
+  target_price: number;
+  prior_target: number | null;
+  target_change_pct: number | null;
+  action_type: string | null;
+}
+
+export interface AnalystTargetsSummary {
+  raises: number;
+  lowers: number;
+  avg_raise_pct: number;
+  avg_lower_pct: number;
+  big_raises: number;
+  signal: "VERY_BULLISH" | "BULLISH" | "BEARISH" | "VERY_BEARISH" | "NEUTRAL";
+  recent: AnalystTarget[];
+}
+
 export interface StockDetail {
   ticker: string;
   date: string;
@@ -372,4 +408,150 @@ export function getMRSHistory(ticker: string, days: number = 20, endDate?: strin
 
   // Return in chronological order (oldest first) for charts
   return rows.reverse();
+}
+
+/**
+ * Get analyst actions (upgrades/downgrades) for a ticker
+ * Lookback: 30 days, returns top 10 recent
+ */
+export function getAnalystActions(ticker: string, endDate?: string, days: number = 30): AnalystActionsSummary | null {
+  const log = getLogger();
+  const date = endDate || getLatestTradingDate();
+  const startTime = Date.now();
+
+  // Calculate cutoff date
+  const endDateObj = new Date(date);
+  const cutoffDate = new Date(endDateObj);
+  cutoffDate.setDate(cutoffDate.getDate() - days);
+  const cutoff = cutoffDate.toISOString().split('T')[0];
+
+  const rows = db
+    .prepare(
+      `
+    SELECT action_date, firm, action, from_grade, to_grade
+    FROM yfinance_analyst_actions
+    WHERE ticker = ?
+      AND action_date >= ?
+      AND action_date <= ?
+    ORDER BY action_date DESC
+  `
+    )
+    .all(ticker.toUpperCase(), cutoff, date) as AnalystAction[];
+
+  log.debug(
+    { ticker, days, rowCount: rows.length, latencyMs: Date.now() - startTime },
+    "Analyst actions query"
+  );
+
+  if (rows.length === 0) {
+    return null;
+  }
+
+  // Calculate summary
+  const upgrades = rows.filter(a => a.action === 'up').length;
+  const downgrades = rows.filter(a => a.action === 'down').length;
+  const initiations = rows.filter(a => a.action === 'init').length;
+  const maintains = rows.filter(a => a.action === 'main' || a.action === 'reit').length;
+
+  const net = upgrades + initiations - downgrades;
+  let trend: "BULLISH" | "BEARISH" | "NEUTRAL";
+  if (net >= 3) {
+    trend = "BULLISH";
+  } else if (net <= -3) {
+    trend = "BEARISH";
+  } else {
+    trend = "NEUTRAL";
+  }
+
+  // Cluster detection: 5+ actions in last 7 days
+  const cluster7dCutoff = new Date(endDateObj);
+  cluster7dCutoff.setDate(cluster7dCutoff.getDate() - 7);
+  const cluster7dStr = cluster7dCutoff.toISOString().split('T')[0];
+  const recent7d = rows.filter(a => a.action_date >= cluster7dStr);
+  const cluster = recent7d.length >= 5;
+
+  return {
+    upgrades,
+    downgrades,
+    maintains,
+    trend,
+    cluster,
+    recent: rows.slice(0, 10),
+  };
+}
+
+/**
+ * Get analyst price target changes for a ticker
+ * Lookback: 30 days, returns top 10 recent
+ */
+export function getAnalystTargets(ticker: string, endDate?: string, days: number = 30): AnalystTargetsSummary | null {
+  const log = getLogger();
+  const date = endDate || getLatestTradingDate();
+  const startTime = Date.now();
+
+  // Calculate cutoff date
+  const endDateObj = new Date(date);
+  const cutoffDate = new Date(endDateObj);
+  cutoffDate.setDate(cutoffDate.getDate() - days);
+  const cutoff = cutoffDate.toISOString().split('T')[0];
+
+  const rows = db
+    .prepare(
+      `
+    SELECT action_date, firm, target_price, prior_target, target_change_pct, action_type
+    FROM yfinance_analyst_targets
+    WHERE ticker = ?
+      AND action_date >= ?
+      AND action_date <= ?
+      AND target_price > 0
+    ORDER BY action_date DESC
+  `
+    )
+    .all(ticker.toUpperCase(), cutoff, date) as AnalystTarget[];
+
+  log.debug(
+    { ticker, days, rowCount: rows.length, latencyMs: Date.now() - startTime },
+    "Analyst targets query"
+  );
+
+  if (rows.length === 0) {
+    return null;
+  }
+
+  // Calculate summary
+  const raises = rows.filter(t => t.target_change_pct && t.target_change_pct > 0);
+  const lowers = rows.filter(t => t.target_change_pct && t.target_change_pct < 0);
+
+  const avgRaise = raises.length > 0
+    ? raises.reduce((sum, t) => sum + (t.target_change_pct || 0), 0) / raises.length
+    : 0;
+  const avgLower = lowers.length > 0
+    ? lowers.reduce((sum, t) => sum + (t.target_change_pct || 0), 0) / lowers.length
+    : 0;
+
+  const bigRaises = raises.filter(t => (t.target_change_pct || 0) > 20).length;
+
+  // Signal logic
+  let signal: "VERY_BULLISH" | "BULLISH" | "BEARISH" | "VERY_BEARISH" | "NEUTRAL";
+  if (avgRaise > 15 && raises.length > lowers.length * 2) {
+    signal = "VERY_BULLISH";
+  } else if (avgRaise > 10 && raises.length > lowers.length) {
+    signal = "BULLISH";
+  } else if (avgLower < -15 && lowers.length > raises.length * 2) {
+    signal = "VERY_BEARISH";
+  } else if (avgLower < -10 && lowers.length > raises.length) {
+    signal = "BEARISH";
+  } else {
+    signal = "NEUTRAL";
+  }
+
+  return {
+    raises: raises.length,
+    lowers: lowers.length,
+    avg_raise_pct: avgRaise,
+    avg_lower_pct: avgLower,
+    big_raises: bigRaises,
+    signal,
+    recent: rows.slice(0, 10),
+  };
 }

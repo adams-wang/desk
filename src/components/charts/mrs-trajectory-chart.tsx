@@ -110,6 +110,9 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350 }: MRST
   const yMinNASDAQ = Math.floor(minNASDAQ - 1);
   const yMaxNASDAQ = Math.ceil(maxNASDAQ + 1);
 
+  // Compute unique ticks for NASDAQ axis to avoid duplicate key errors
+  const nasdaqTicks = [...new Set([yMinNASDAQ, -4, 0, 2, yMaxNASDAQ])].sort((a, b) => a - b);
+
   return (
     <div className="w-full space-y-3">
       {/* Legend - top aligned */}
@@ -182,7 +185,7 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350 }: MRST
             fontSize={11}
             tickFormatter={(v) => `${v}%`}
             domain={[yMinNASDAQ, yMaxNASDAQ]}
-            ticks={[yMinNASDAQ, -4, 0, 2, yMaxNASDAQ]}
+            ticks={nasdaqTicks}
             tick={{ fill: "#9ca3af", dx: 15 }}
             axisLine={false}
             tickLine={false}

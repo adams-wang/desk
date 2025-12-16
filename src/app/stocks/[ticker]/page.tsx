@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory } from "@/lib/queries/stocks";
+import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory, getAnalystActions, getAnalystTargets } from "@/lib/queries/stocks";
 import { getSectorMRS, getSectorMRSHistory, getStockSector, getSectorRankHistory } from "@/lib/queries/sectors";
 import { getVIXHistory, getNASDAQHistory } from "@/lib/queries/trading-days";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -61,6 +61,10 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
   const vixHistory = getVIXHistory(range, date);
   const nasdaqHistory = getNASDAQHistory(range, date);
   const sectorRankHistory = stockSector ? getSectorRankHistory(stockSector, range, date) : [];
+
+  // Analyst data
+  const analystActions = getAnalystActions(ticker, date);
+  const analystTargets = getAnalystTargets(ticker, date);
 
   return (
     <div className="space-y-6">
@@ -128,6 +132,154 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
           </CardHeader>
           <CardContent>
             <MRSTrajectoryChart data={mrsHistory} nasdaqData={nasdaqHistory} height={420} />
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Analyst Cards */}
+      <div className="grid gap-4 md:grid-cols-2">
+        {/* Analyst Actions */}
+        <Card className="gap-4 py-5">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>Analyst Actions</CardTitle>
+              {analystActions && (
+                <Badge
+                  variant={
+                    analystActions.trend === "BULLISH"
+                      ? "default"
+                      : analystActions.trend === "BEARISH"
+                      ? "destructive"
+                      : "secondary"
+                  }
+                  className={analystActions.trend === "BULLISH" ? "bg-emerald-500" : ""}
+                >
+                  {analystActions.trend}
+                </Badge>
+              )}
+            </div>
+            {analystActions && (
+              <div className="flex gap-4 text-sm text-muted-foreground">
+                <span className="text-emerald-500">▲{analystActions.upgrades} Up</span>
+                <span className="text-red-500">▼{analystActions.downgrades} Down</span>
+                <span>{analystActions.maintains} Hold</span>
+                {analystActions.cluster && (
+                  <Badge variant="outline" className="text-xs">Cluster</Badge>
+                )}
+              </div>
+            )}
+          </CardHeader>
+          <CardContent>
+            {analystActions ? (
+              <div className="space-y-1.5">
+                {analystActions.recent.map((action, i) => (
+                  <div key={i} className="flex items-center justify-between text-sm gap-4">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="text-muted-foreground w-14 shrink-0">
+                        {new Date(action.action_date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                      </span>
+                      <span className="truncate" title={action.firm}>{action.firm}</span>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span
+                        className={`text-xs px-1.5 py-0.5 rounded ${
+                          action.action === "up"
+                            ? "bg-emerald-500/20 text-emerald-500"
+                            : action.action === "down"
+                            ? "bg-red-500/20 text-red-500"
+                            : "bg-muted text-muted-foreground"
+                        }`}
+                      >
+                        {action.action === "up" ? "▲" : action.action === "down" ? "▼" : "–"}
+                      </span>
+                      {action.action === "up" || action.action === "down" ? (
+                        <span className="text-muted-foreground">
+                          {action.from_grade || "?"} → <span className={action.action === "up" ? "text-emerald-500" : "text-red-500"}>{action.to_grade}</span>
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">{action.to_grade || "-"}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">No recent analyst actions</p>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Price Targets */}
+        <Card className="gap-4 py-5">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>Price Targets</CardTitle>
+              {analystTargets && (
+                <Badge
+                  variant={
+                    analystTargets.signal.includes("BULLISH")
+                      ? "default"
+                      : analystTargets.signal.includes("BEARISH")
+                      ? "destructive"
+                      : "secondary"
+                  }
+                  className={analystTargets.signal.includes("BULLISH") ? "bg-emerald-500" : ""}
+                >
+                  {analystTargets.signal.replace("VERY_", "")}
+                </Badge>
+              )}
+            </div>
+            {analystTargets && (
+              <div className="flex gap-4 text-sm text-muted-foreground">
+                <span className="text-emerald-500">▲{analystTargets.raises} Raises</span>
+                <span className="text-red-500">▼{analystTargets.lowers} Lowers</span>
+                {analystTargets.avg_raise_pct > 0 && (
+                  <span className="text-emerald-500">+{analystTargets.avg_raise_pct.toFixed(1)}% avg</span>
+                )}
+              </div>
+            )}
+          </CardHeader>
+          <CardContent>
+            {analystTargets ? (
+              <div className="space-y-1.5">
+                {analystTargets.recent.map((target, i) => (
+                  <div key={i} className="flex items-center justify-between text-sm gap-4">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="text-muted-foreground w-14 shrink-0">
+                        {new Date(target.action_date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                      </span>
+                      <span className="truncate" title={target.firm}>{target.firm}</span>
+                    </div>
+                    <div className="flex items-center font-mono tabular-nums shrink-0">
+                      <span className="w-14 text-right text-muted-foreground">
+                        {target.prior_target ? `$${target.prior_target.toFixed(0)}` : ""}
+                      </span>
+                      <span className="w-6 text-center text-muted-foreground">
+                        {target.prior_target ? "→" : ""}
+                      </span>
+                      <span className="w-14 text-right font-medium">
+                        ${target.target_price.toFixed(0)}
+                      </span>
+                      <span
+                        className={`w-16 text-right ${
+                          target.target_change_pct && target.target_change_pct > 0
+                            ? "text-emerald-500"
+                            : target.target_change_pct && target.target_change_pct < 0
+                            ? "text-red-500"
+                            : "text-muted-foreground"
+                        }`}
+                      >
+                        {target.target_change_pct
+                          ? `${target.target_change_pct > 0 ? "+" : ""}${target.target_change_pct.toFixed(1)}%`
+                          : "New"}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">No recent price targets</p>
+            )}
           </CardContent>
         </Card>
       </div>
