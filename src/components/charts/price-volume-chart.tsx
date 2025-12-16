@@ -58,6 +58,10 @@ interface OHLCVData {
   sma_20: number | null;
   sma_50: number | null;
   sma_200: number | null;
+  // Technical indicators
+  rsi_14: number | null;
+  macd_line: number | null;
+  macd_signal: number | null;
 }
 
 type ChartMode = "line" | "candle";
@@ -214,6 +218,24 @@ function CustomTooltip({
             </span>
           )}
         </p>
+        {d.rsi_14 !== null && (
+          <p className="font-mono">
+            <span className="text-muted-foreground">RSI:</span>{" "}
+            <span className="text-foreground">{d.rsi_14.toFixed(0)}</span>{" "}
+            <span className={d.rsi_14 > 70 ? "text-red-500" : d.rsi_14 < 30 ? "text-green-500" : "text-muted-foreground"}>
+              ({d.rsi_14 > 70 ? "overbought" : d.rsi_14 < 30 ? "oversold" : "neutral"})
+            </span>
+          </p>
+        )}
+        {d.macd_line !== null && d.macd_signal !== null && (
+          <p className="font-mono">
+            <span className="text-muted-foreground">MACD:</span>{" "}
+            <span className="text-foreground">{d.macd_line.toFixed(2)} vs {d.macd_signal.toFixed(2)}</span>{" "}
+            <span className={d.macd_line > d.macd_signal ? "text-green-500" : "text-red-500"}>
+              ({d.macd_line > d.macd_signal ? "bullish" : "bearish"})
+            </span>
+          </p>
+        )}
         {d.pattern && d.pattern_conclusion && (
           <div>
             <p>
@@ -385,6 +407,10 @@ function CandleTooltip({
       gap_type: string | null;
       gap_conclusion: string | null;
       gap_interpretation: string | null;
+      // Technical indicators
+      rsi_14: number | null;
+      macd_line: number | null;
+      macd_signal: number | null;
     };
   }>;
 }) {
@@ -1028,6 +1054,30 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
                   </div>
                 );
               })()}
+              <span className="text-muted-foreground/50">|</span>
+              {signalData.rsi_14 !== null && (
+                <div className="flex items-center gap-0.5">
+                  <span className="text-muted-foreground">RSI:</span>
+                  <span className="text-foreground">
+                    {signalData.rsi_14.toFixed(0)}
+                  </span>
+                  <span className={`text-[10px] ${
+                    signalData.rsi_14 > 70 ? "text-red-500"
+                    : signalData.rsi_14 < 30 ? "text-emerald-500"
+                    : "text-muted-foreground"
+                  }`}>
+                    ({signalData.rsi_14 > 70 ? "overbought" : signalData.rsi_14 < 30 ? "oversold" : "neutral"})
+                  </span>
+                </div>
+              )}
+              {signalData.macd_line !== null && signalData.macd_signal !== null && (
+                <div className="flex items-center gap-0.5">
+                  <span className="text-muted-foreground">MACD:</span>
+                  <span className={`font-bold ${signalData.macd_line > signalData.macd_signal ? "text-emerald-500" : "text-red-500"}`}>
+                    {signalData.macd_line > signalData.macd_signal ? "↑" : "↓"}
+                  </span>
+                </div>
+              )}
             </>
           )}
         </div>

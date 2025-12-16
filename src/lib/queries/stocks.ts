@@ -43,6 +43,10 @@ export interface StockOHLCVExtended extends StockOHLCV {
   sma_20: number | null;
   sma_50: number | null;
   sma_200: number | null;
+  // Technical indicators
+  rsi_14: number | null;
+  macd_line: number | null;
+  macd_signal: number | null;
 }
 
 export interface MRSHistory {
@@ -363,7 +367,9 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20, endDate
       -- L3 verdicts
       l10.verdict as verdict_10, l20.verdict as verdict_20,
       -- SMAs from technicals
-      t.sma_20, t.sma_50, t.sma_200
+      t.sma_20, t.sma_50, t.sma_200,
+      -- Technical indicators
+      t.rsi_14, t.macd_line, t.macd_signal
     FROM stocks_ohlcv o
     LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
     LEFT JOIN candle_descriptors c ON o.ticker = c.ticker AND o.date = c.date
