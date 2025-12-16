@@ -131,6 +131,11 @@ export interface StockDetail {
   rsi_14: number | null;
   macd: number | null;
   macd_signal: number | null;
+  // Risk Metrics
+  beta_60: number | null;
+  volatility_20: number | null;
+  sharpe_ratio_20: number | null;
+  alpha_20d: number | null;
   // OFD (from candle_descriptors + ofd_interpretation)
   ofd_code: string | null;
   ofd_conclusion: string | null;
@@ -165,6 +170,7 @@ export function getStockDetail(ticker: string, endDate?: string): StockDetail | 
       -- Gap (from gap_signal + gap_interpretation)
       gs.gap_type, gi.conclusion as gap_conclusion,
       t.atr_14, t.rsi_14, t.macd_line as macd, t.macd_signal,
+      i.beta_60, i.volatility_20, i.sharpe_ratio_20, i.alpha_20d,
       c.ofd_code,
       oi.conclusion as ofd_conclusion,
       CASE WHEN pi.conclusion IS NOT NULL THEN cp.pattern ELSE NULL END as pattern,

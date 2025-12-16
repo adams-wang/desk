@@ -255,17 +255,17 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
                       <span className="truncate" title={target.firm}>{target.firm}</span>
                     </div>
                     <div className="flex items-center font-mono tabular-nums shrink-0">
-                      <span className="w-14 text-right text-muted-foreground">
+                      <span className="w-10 text-right text-muted-foreground">
                         {target.prior_target ? `$${target.prior_target.toFixed(0)}` : ""}
                       </span>
                       <span className="w-6 text-center text-muted-foreground">
                         {target.prior_target ? "→" : ""}
                       </span>
-                      <span className="w-14 text-right font-medium">
+                      <span className="w-16 text-right font-medium">
                         ${target.target_price.toFixed(0)}
                       </span>
                       <span
-                        className={`w-16 text-right ${
+                        className={`w-24 text-right ${
                           target.target_change_pct && target.target_change_pct > 0
                             ? "text-emerald-500"
                             : target.target_change_pct && target.target_change_pct < 0
@@ -293,39 +293,127 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
         {/* Trade Setup Card */}
         <TradeSetupCard l3_10={l3_10} l3_20={l3_20} />
 
-        <Card>
+        <Card className="gap-4 py-5">
           <CardHeader>
-            <CardTitle>Technical Indicators</CardTitle>
+            <CardTitle>Risk Metrics</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-3">
+            <div className="space-y-2">
+              {/* Sharpe */}
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">RSI (14)</span>
-                <span
-                  className={`font-mono tabular-nums ${
-                    stock.rsi_14 && stock.rsi_14 > 70
-                      ? "text-red-500"
-                      : stock.rsi_14 && stock.rsi_14 < 30
-                      ? "text-emerald-500"
-                      : ""
-                  }`}
-                >
-                  {formatNumber(stock.rsi_14, 1)}
-                </span>
+                <span className="text-foreground font-medium">Sharpe (20d)</span>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono tabular-nums font-medium w-16 text-right">
+                    {formatNumber(stock.sharpe_ratio_20, 2)}
+                  </span>
+                  <span className="w-20 text-right text-muted-foreground">
+                    {stock.sharpe_ratio_20 !== null && (
+                      stock.sharpe_ratio_20 > 2 ? "Excellent"
+                      : stock.sharpe_ratio_20 > 1 ? "Good"
+                      : stock.sharpe_ratio_20 > 0.5 ? "Moderate"
+                      : stock.sharpe_ratio_20 > 0 ? "Poor"
+                      : "Losing"
+                    )}
+                  </span>
+                </div>
               </div>
+              {/* Volatility */}
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">ATR (14)</span>
-                <span className="font-mono tabular-nums">{formatNumber(stock.atr_14)}</span>
+                <span className="text-muted-foreground">Volatility (20d)</span>
+                <div className="flex items-center gap-4">
+                  <span
+                    className={`font-mono tabular-nums w-16 text-right ${
+                      stock.volatility_20 && stock.volatility_20 > 0.4
+                        ? "text-red-500"
+                        : stock.volatility_20 && stock.volatility_20 < 0.2
+                        ? "text-emerald-500"
+                        : ""
+                    }`}
+                  >
+                    {stock.volatility_20 ? `${(stock.volatility_20 * 100).toFixed(1)}%` : "-"}
+                  </span>
+                  <span
+                    className={`w-20 text-right ${
+                      stock.volatility_20 && stock.volatility_20 > 0.6
+                        ? "text-red-500"
+                        : stock.volatility_20 && stock.volatility_20 > 0.4
+                        ? "text-orange-500"
+                        : stock.volatility_20 && stock.volatility_20 > 0.25
+                        ? "text-muted-foreground"
+                        : stock.volatility_20 && stock.volatility_20 > 0.15
+                        ? "text-emerald-500"
+                        : "text-blue-500"
+                    }`}
+                  >
+                    {stock.volatility_20 && (
+                      stock.volatility_20 > 0.6 ? "Extreme"
+                      : stock.volatility_20 > 0.4 ? "High"
+                      : stock.volatility_20 > 0.25 ? "Normal"
+                      : stock.volatility_20 > 0.15 ? "Low"
+                      : "Compressed"
+                    )}
+                  </span>
+                </div>
               </div>
+              {/* Beta */}
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">MACD</span>
-                <span
-                  className={`font-mono tabular-nums ${
-                    stock.macd && stock.macd > 0 ? "text-emerald-500" : "text-red-500"
-                  }`}
-                >
-                  {formatNumber(stock.macd)}
-                </span>
+                <span className="text-foreground font-medium">Beta (60d)</span>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono tabular-nums font-medium w-16 text-right">
+                    {formatNumber(stock.beta_60, 2)}
+                  </span>
+                  <span
+                    className={`w-20 text-right ${
+                      stock.beta_60 && stock.beta_60 > 1.2
+                        ? "text-red-500"
+                        : stock.beta_60 && stock.beta_60 < 0.8
+                        ? "text-emerald-500"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {stock.beta_60 && stock.beta_60 > 1.2 ? "Aggressive"
+                      : stock.beta_60 && stock.beta_60 < 0.8 ? "Defensive"
+                      : "Average"}
+                  </span>
+                </div>
+              </div>
+              {/* Alpha */}
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Alpha (20d)</span>
+                <div className="flex items-center gap-4">
+                  <span
+                    className={`font-mono tabular-nums w-16 text-right ${
+                      stock.alpha_20d && stock.alpha_20d > 0
+                        ? "text-emerald-500"
+                        : stock.alpha_20d && stock.alpha_20d < 0
+                        ? "text-red-500"
+                        : ""
+                    }`}
+                  >
+                    {stock.alpha_20d ? `${stock.alpha_20d >= 0 ? "+" : ""}${stock.alpha_20d.toFixed(1)}%` : "-"}
+                  </span>
+                  <span
+                    className={`w-20 text-right ${
+                      stock.alpha_20d && stock.alpha_20d > 5
+                        ? "text-emerald-500"
+                        : stock.alpha_20d && stock.alpha_20d > 2
+                        ? "text-emerald-500"
+                        : stock.alpha_20d && stock.alpha_20d > -2
+                        ? "text-muted-foreground"
+                        : stock.alpha_20d && stock.alpha_20d > -5
+                        ? "text-orange-500"
+                        : "text-red-500"
+                    }`}
+                  >
+                    {stock.alpha_20d !== null && stock.alpha_20d !== undefined && (
+                      stock.alpha_20d > 5 ? "Strong"
+                      : stock.alpha_20d > 2 ? "Moderate+"
+                      : stock.alpha_20d > -2 ? "In Line"
+                      : stock.alpha_20d > -5 ? "Moderate-"
+                      : "Weak"
+                    )}
+                  </span>
+                </div>
               </div>
             </div>
           </CardContent>
