@@ -291,7 +291,11 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
       {/* Indicators */}
       <div className="grid gap-4 md:grid-cols-2">
         {/* Trade Setup Card */}
-        <TradeSetupCard l3_10={l3_10} l3_20={l3_20} />
+        <TradeSetupCard
+          l3_10={l3_10}
+          l3_20={l3_20}
+          fallback={stock.atr_14 ? { close: stock.close, atr_14: stock.atr_14 } : null}
+        />
 
         <Card className="gap-4 py-5">
           <CardHeader>
