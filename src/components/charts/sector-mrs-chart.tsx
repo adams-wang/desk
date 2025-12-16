@@ -74,9 +74,9 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
   }, [currentDayIndex, history.length]);
 
   const handleRestart = useCallback(() => {
-    setCurrentDayIndex(0);
+    setCurrentDayIndex(history.length - 1);
     setIsPlaying(false);
-  }, []);
+  }, [history.length]);
 
   if (!history || history.length === 0 || !currentDay?.sectors) {
     return (
