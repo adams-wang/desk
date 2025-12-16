@@ -1365,25 +1365,6 @@ function LineChart({ data, height, vixHistory, sectorRankHistory }: { data: OHLC
         </ComposedChart>
       </ResponsiveContainer>
 
-      {/* LEGEND ROW - compact */}
-      <div className="flex items-center justify-center gap-4 pt-1 text-[10px] text-muted-foreground">
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-0.5 bg-blue-500 rounded"></div>
-          <span>Close</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-2 h-2 rounded-full bg-red-500"></div>
-          <span>Signal</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <span className="text-green-500">▲</span>
-          <span>Gap↑</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <span className="text-red-500">▼</span>
-          <span>Gap↓</span>
-        </div>
-      </div>
     </div>
   );
 }
