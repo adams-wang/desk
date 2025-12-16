@@ -595,6 +595,7 @@ function CandlestickChart({
             allowDataOverflow={true}
             className="text-muted-foreground"
             fontSize={10}
+            width={45}
             tickFormatter={(v) => `$${v.toFixed(0)}`}
             axisLine={false}
             tickLine={false}
@@ -706,6 +707,7 @@ function CandlestickChart({
             domain={[0, volumeMax * 1.2]}
             className="text-muted-foreground"
             fontSize={9}
+            width={45}
             tickFormatter={(v) => `${(v / 1e6).toFixed(0)}M`}
             axisLine={false}
             tickLine={false}
@@ -1172,6 +1174,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
             domain={[priceMin - pricePadding, priceMax + pricePadding]}
             className="text-muted-foreground"
             fontSize={10}
+            width={45}
             tickFormatter={(v) => `$${v.toFixed(0)}`}
             axisLine={false}
             tickLine={false}
@@ -1183,6 +1186,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
             domain={[0, volumeMax * 1.2]}
             className="text-muted-foreground"
             fontSize={10}
+            width={45}
             tickFormatter={(v) => `${(v / 1e6).toFixed(0)}M`}
             axisLine={false}
             tickLine={false}
