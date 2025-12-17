@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 const QUANT_BASE_PATH = "/Volumes/Data/quant";
-const L10N_CONFIG_PATH = path.join(QUANT_BASE_PATH, "config", "l10n.json");
+const L10N_CONFIG_PATH = path.join(QUANT_BASE_PATH, "cli", "intel", "common", "l10n.json");
 const REPORTS_BASE_PATH = QUANT_BASE_PATH;
 
 // Types for l10n config
