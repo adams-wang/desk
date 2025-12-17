@@ -628,7 +628,7 @@ function CandlestickChart({
             tickLine={false}
           />
 
-          <Tooltip content={<CandleTooltip />} />
+          <Tooltip content={<CandleTooltip />} cursor={false} />
 
           {/* Candlesticks - render body using close-open range */}
           <Bar
@@ -1186,16 +1186,27 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
               const dataPoint = chartData[index];
               const hasReport = dataPoint && (dataPoint.verdict_10 || dataPoint.verdict_20);
 
-              const handleClick = () => {
+              const handleClick = (e: any) => {
                 if (onVerdictClick && dataPoint && hasReport) {
+                  e.stopPropagation();
+                  e.preventDefault();
                   onVerdictClick(dataPoint.date, dataPoint.verdict_10, dataPoint.verdict_20);
+                }
+              };
+
+              const handleMouseDown = (e: any) => {
+                if (hasReport) {
+                  e.stopPropagation();
+                  e.preventDefault();
                 }
               };
 
               return (
                 <g
                   onClick={handleClick}
-                  style={{ cursor: hasReport ? "pointer" : "default" }}
+                  onMouseDown={handleMouseDown}
+                  onPointerDown={handleMouseDown}
+                  style={{ cursor: hasReport ? "pointer" : "default", pointerEvents: hasReport ? "auto" : "none" }}
                   className={hasReport ? "hover:opacity-70" : ""}
                 >
                   <text x={x} y={y - 18} textAnchor="middle" fontSize={10} fontWeight="bold">
@@ -1259,7 +1270,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
             tickLine={false}
           />
 
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip />} cursor={false} />
 
           {/* Volume Bars with percentile labels - smaller bars for compact view */}
           <Bar
@@ -1491,6 +1502,7 @@ export function PriceVolumeChart({
   onVerdictClick,
 }: PriceVolumeChartProps) {
   const [mode, setMode] = useState<ChartMode>(defaultMode);
+  const [tooltipDisabled, setTooltipDisabled] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
