@@ -4,7 +4,8 @@ import { getSectorMRS, getSectorMRSHistory, getStockSector, getSectorRankHistory
 import { getVIXHistory, getNASDAQHistory } from "@/lib/queries/trading-days";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PriceVolumeChart, SectorMRSChart, MRSTrajectoryChart } from "@/components/charts";
+import { SectorMRSChart, MRSTrajectoryChart } from "@/components/charts";
+import { ChartWithReport } from "@/components/chart-with-report";
 import { TradeSetupCard } from "@/components/trade-setup-card";
 
 interface StockDetailPageProps {
@@ -103,12 +104,13 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
       {/* P1: Price + Volume Chart */}
       <Card className="py-6 gap-0">
         <CardContent className="pt-0">
-          <PriceVolumeChart
+          <ChartWithReport
             data={ohlcvExtended}
             vixHistory={vixHistory}
             sectorRankHistory={sectorRankHistory}
             height={560}
             currentRange={range}
+            ticker={stock.ticker}
           />
         </CardContent>
       </Card>
@@ -295,6 +297,8 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
           l3_10={l3_10}
           l3_20={l3_20}
           fallback={stock.atr_14 ? { close: stock.close, atr_14: stock.atr_14 } : null}
+          ticker={stock.ticker}
+          date={date}
         />
 
         <Card className="gap-4 py-5">

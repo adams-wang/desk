@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ReportSheet } from "@/components/report-sheet";
+import { FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface L3Contract {
@@ -26,10 +28,13 @@ interface TradeSetupCardProps {
   l3_10: L3Contract | null;
   l3_20: L3Contract | null;
   fallback?: ATRFallback | null;
+  ticker?: string;
+  date?: string;
 }
 
-export function TradeSetupCard({ l3_10, l3_20, fallback }: TradeSetupCardProps) {
+export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSetupCardProps) {
   const [activeVariant, setActiveVariant] = useState<"10d" | "20d">("10d");
+  const [reportOpen, setReportOpen] = useState(false);
 
   const contract = activeVariant === "10d" ? l3_10 : l3_20;
   const hasL3 = l3_10 || l3_20;
@@ -253,6 +258,20 @@ export function TradeSetupCard({ l3_10, l3_20, fallback }: TradeSetupCardProps) 
                 </span>
               </span>
             </div>
+
+            {/* View Report Link */}
+            {ticker && (
+              <div className="col-span-2 pt-3 mt-2 border-t">
+                <button
+                  onClick={() => setReportOpen(true)}
+                  className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+                >
+                  <FileText className="h-3.5 w-3.5" />
+                  <span>View Full Report</span>
+                  <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <p className="text-sm text-muted-foreground">
@@ -260,6 +279,19 @@ export function TradeSetupCard({ l3_10, l3_20, fallback }: TradeSetupCardProps) 
           </p>
         )}
       </CardContent>
+
+      {/* Report Sheet */}
+      {ticker && (
+        <ReportSheet
+          open={reportOpen}
+          onOpenChange={setReportOpen}
+          ticker={ticker}
+          date={date}
+          initialVariant={activeVariant === "10d" ? "10" : "20"}
+          hasL3_10={!!l3_10}
+          hasL3_20={!!l3_20}
+        />
+      )}
     </Card>
   );
 }

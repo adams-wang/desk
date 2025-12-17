@@ -85,6 +85,7 @@ interface PriceVolumeChartProps {
   height?: number;
   defaultMode?: ChartMode;
   currentRange?: 20 | 40 | 60;
+  onVerdictClick?: (date: string, verdict10: string | null, verdict20: string | null) => void;
 }
 
 // Regime colors
@@ -876,7 +877,7 @@ const renderDateLabel = (props: {
 };
 
 // Line Chart with improved layout - using Recharts native alignment
-function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange = 20 }: { data: OHLCVData[]; height: number; vixHistory?: VIXData[]; sectorRankHistory?: SectorRankData[]; currentRange?: number }) {
+function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange = 20, onVerdictClick }: { data: OHLCVData[]; height: number; vixHistory?: VIXData[]; sectorRankHistory?: SectorRankData[]; currentRange?: number; onVerdictClick?: (date: string, verdict10: string | null, verdict20: string | null) => void }) {
   const isCompactView = currentRange > 20;
   const [maPeriod, setMaPeriod] = useState<10 | 20>(10);
 
@@ -1165,8 +1166,8 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
             orientation="top"
             axisLine={false}
             tickLine={false}
-            tick={(props: { x: number; y: number; payload: { value: string } }) => {
-              const { x, y, payload } = props;
+            tick={(props: { x: number; y: number; payload: { value: string }; index: number }) => {
+              const { x, y, payload, index } = props;
               const verdict = payload?.value;
               if (!verdict || verdict === "?|?") return null;
 
@@ -1181,12 +1182,28 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
               const letter1 = parts[0] || "?";
               const letter2 = parts[1] || "?";
 
+              // Get data for this index to pass to click handler
+              const dataPoint = chartData[index];
+              const hasReport = dataPoint && (dataPoint.verdict_10 || dataPoint.verdict_20);
+
+              const handleClick = () => {
+                if (onVerdictClick && dataPoint && hasReport) {
+                  onVerdictClick(dataPoint.date, dataPoint.verdict_10, dataPoint.verdict_20);
+                }
+              };
+
               return (
-                <text x={x} y={y - 18} textAnchor="middle" fontSize={10} fontWeight="bold">
-                  <tspan fill={getLetterColor(letter1)}>{letter1}</tspan>
-                  <tspan fill="#6b7280">|</tspan>
-                  <tspan fill={getLetterColor(letter2)}>{letter2}</tspan>
-                </text>
+                <g
+                  onClick={handleClick}
+                  style={{ cursor: hasReport ? "pointer" : "default" }}
+                  className={hasReport ? "hover:opacity-70" : ""}
+                >
+                  <text x={x} y={y - 18} textAnchor="middle" fontSize={10} fontWeight="bold">
+                    <tspan fill={getLetterColor(letter1)}>{letter1}</tspan>
+                    <tspan fill="#6b7280">|</tspan>
+                    <tspan fill={getLetterColor(letter2)}>{letter2}</tspan>
+                  </text>
+                </g>
               );
             }}
             interval={0}
@@ -1471,6 +1488,7 @@ export function PriceVolumeChart({
   height = 400,
   defaultMode = "line",
   currentRange = 20,
+  onVerdictClick,
 }: PriceVolumeChartProps) {
   const [mode, setMode] = useState<ChartMode>(defaultMode);
   const router = useRouter();
@@ -1545,7 +1563,7 @@ export function PriceVolumeChart({
       </div>
 
       {mode === "line" ? (
-        <LineChart data={data} height={height} vixHistory={vixHistory} sectorRankHistory={sectorRankHistory} currentRange={currentRange} />
+        <LineChart data={data} height={height} vixHistory={vixHistory} sectorRankHistory={sectorRankHistory} currentRange={currentRange} onVerdictClick={onVerdictClick} />
       ) : (
         <CandlestickChart data={data} height={height} currentRange={currentRange} />
       )}
