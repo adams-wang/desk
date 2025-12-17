@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Markdown from "react-markdown";
-import { ChevronLeft, ChevronRight, Globe } from "lucide-react";
+import { ChevronLeft, ChevronRight, Globe, Languages, Loader2 } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -10,6 +10,12 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 
@@ -65,6 +71,7 @@ export function ReportSheet({
   const [currentDate, setCurrentDate] = useState<string | undefined>(date);
   const [currentLang, setCurrentLang] = useState<Language>("en");
   const [availableLanguages, setAvailableLanguages] = useState<Language[]>(["en"]);
+  const [translating, setTranslating] = useState<Language | null>(null);
 
   // Get verdict color matching chart badges
   const getVerdictColor = (verdict: string | null) => {
@@ -74,6 +81,39 @@ export function ReportSheet({
     if (upper.includes("AVOID") || upper.startsWith("A") || upper.includes("SELL")) return "#ef4444"; // red
     return "#9ca3af"; // gray for HOLD and others
   };
+
+  // Translate report to a language
+  const handleTranslate = useCallback(async (targetLang: Language) => {
+    if (!ticker || !currentDate || targetLang === "en") return;
+
+    setTranslating(targetLang);
+    try {
+      const response = await fetch("/api/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ticker,
+          variant: activeVariant,
+          date: currentDate,
+          lang: targetLang,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Translation failed");
+      }
+
+      // Translation successful - add to available languages and switch to it
+      setAvailableLanguages(prev => [...prev, targetLang]);
+      setCurrentLang(targetLang);
+    } catch (err) {
+      console.error("Translation error:", err);
+      setError(err instanceof Error ? err.message : "Translation failed");
+    } finally {
+      setTranslating(null);
+    }
+  }, [ticker, currentDate, activeVariant]);
 
   // Fetch available dates when sheet opens or variant changes
   useEffect(() => {
@@ -231,31 +271,64 @@ export function ReportSheet({
             </div>
 
             {/* Language Selector */}
-            <div className="flex items-center gap-1">
-              <Globe className="h-4 w-4 text-muted-foreground mr-1" />
-              {(Object.keys(LANGUAGES) as Language[]).map((lang) => {
-                const isAvailable = availableLanguages.includes(lang);
-                const isActive = currentLang === lang;
-                return (
-                  <button
-                    key={lang}
-                    onClick={() => isAvailable && setCurrentLang(lang)}
-                    disabled={!isAvailable}
-                    className={cn(
-                      "w-8 h-7 text-sm font-medium rounded transition-all flex items-center justify-center",
-                      isAvailable
-                        ? isActive
-                          ? "bg-foreground text-background"
-                          : "hover:bg-muted text-muted-foreground hover:text-foreground"
-                        : "opacity-25 cursor-not-allowed text-muted-foreground"
-                    )}
-                    title={LANGUAGES[lang].name}
-                  >
-                    {LANGUAGES[lang].label}
-                  </button>
-                );
-              })}
-            </div>
+            <TooltipProvider delayDuration={300}>
+              <div className="flex items-center gap-1">
+                <Globe className="h-4 w-4 text-muted-foreground mr-1" />
+                {(Object.keys(LANGUAGES) as Language[]).map((lang) => {
+                  const isAvailable = availableLanguages.includes(lang);
+                  const isActive = currentLang === lang;
+                  const isTranslating = translating === lang;
+                  const canTranslate = lang !== "en" && !isAvailable && !isTranslating && currentDate;
+
+                  const tooltipText = isTranslating
+                    ? "Translating..."
+                    : isAvailable
+                      ? LANGUAGES[lang].name
+                      : canTranslate
+                        ? `Double-click to translate`
+                        : LANGUAGES[lang].name;
+
+                  return (
+                    <Tooltip key={lang}>
+                      <TooltipTrigger asChild>
+                        <button
+                          onClick={() => {
+                            if (isAvailable) {
+                              setCurrentLang(lang);
+                            }
+                          }}
+                          onDoubleClick={() => {
+                            if (canTranslate) {
+                              handleTranslate(lang);
+                            }
+                          }}
+                          disabled={isTranslating}
+                          className={cn(
+                            "w-8 h-7 text-sm font-medium rounded transition-all flex items-center justify-center relative",
+                            isAvailable
+                              ? isActive
+                                ? "bg-foreground text-background"
+                                : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                              : canTranslate
+                                ? "hover:bg-muted text-muted-foreground hover:text-foreground border border-dashed border-muted-foreground/50 hover:border-foreground"
+                                : "opacity-25 cursor-not-allowed text-muted-foreground"
+                          )}
+                        >
+                          {isTranslating ? (
+                            <Loader2 className="h-3 w-3 animate-spin" />
+                          ) : (
+                            LANGUAGES[lang].label
+                          )}
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom" className="text-xs">
+                        {tooltipText}
+                      </TooltipContent>
+                    </Tooltip>
+                  );
+                })}
+              </div>
+            </TooltipProvider>
 
             <SheetDescription className="text-sm text-muted-foreground flex items-center gap-2">
               <button
