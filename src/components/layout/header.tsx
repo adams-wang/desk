@@ -8,6 +8,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 import { parseISO } from "date-fns";
+import { StockSearch } from "@/components/stock-search";
 
 interface MarketData {
   date: string;
@@ -89,7 +90,8 @@ export function Header() {
   const regime = marketData?.regime ? regimeConfig[marketData.regime] : null;
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-end border-b border-border bg-background/95 px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/95 px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <StockSearch />
       <div className="flex items-center gap-3">
         <ThemeToggle />
         {marketData?.vix !== null && marketData?.vix !== undefined && (
