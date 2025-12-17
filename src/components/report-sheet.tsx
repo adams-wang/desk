@@ -94,8 +94,7 @@ export function ReportSheet({
         className="flex flex-col p-0"
       >
         <SheetHeader className="px-6 pt-6 pb-4 border-b shrink-0">
-          <div className="flex items-start justify-between pr-8 mb-3">
-            <SheetTitle className="text-xl">{ticker} Analysis</SheetTitle>
+          <div className="flex items-center justify-end pr-8 mb-3">
             <SheetDescription className="text-sm text-muted-foreground">
               MRS {activeVariant} | {report?.date || date || ""}
             </SheetDescription>
