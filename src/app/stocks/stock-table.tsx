@@ -10,22 +10,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { formatNumber, formatVolume } from "@/lib/formatters";
 import type { StockDetail } from "@/lib/queries/stocks";
 
 interface StockTableProps {
   stocks: StockDetail[];
-}
-
-function formatNumber(value: number | null, decimals: number = 2): string {
-  if (value === null || value === undefined) return "-";
-  return value.toFixed(decimals);
-}
-
-function formatVolume(value: number): string {
-  if (value >= 1_000_000_000) return `${(value / 1_000_000_000).toFixed(2)}B`;
-  if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(2)}M`;
-  if (value >= 1_000) return `${(value / 1_000).toFixed(1)}K`;
-  return value.toString();
 }
 
 function getVerdictVariant(verdict: string | null): "default" | "secondary" | "destructive" | "outline" {

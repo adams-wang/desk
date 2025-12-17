@@ -1,7 +1,7 @@
 # Desk - Quant Trading Dashboard
 
 **Implementation Status Document**
-**Last Updated:** 2025-12-13
+**Last Updated:** 2025-12-17
 
 ---
 
@@ -13,12 +13,12 @@ Next.js 16 frontend for US equity quant trading visualization. Consumes data fro
 |------|-------|
 | **Backend** | `/Volumes/Data/quant/` |
 | **Database** | `/Volumes/Data/quant/data/stocks.db` (SQLite) |
-| **L3 Contracts** | `/Volumes/Data/quant/data/contracts/{date}/l3_10_{ticker}.json` |
+| **Reports** | `/Volumes/Data/quant/reports_10/` and `/Volumes/Data/quant/reports_20/` |
 | **Framework** | Next.js 16.0.10, React 19.2.1 |
 
 ---
 
-## Tech Stack (Installed)
+## Tech Stack
 
 ```json
 {
@@ -26,49 +26,17 @@ Next.js 16 frontend for US equity quant trading visualization. Consumes data fro
     "next": "16.0.10",
     "react": "19.2.1",
     "better-sqlite3": "^12.5.0",
-    "lightweight-charts": "^4.2.0",
-    "recharts": "^2.15.0",
-    "zustand": "^5.0.0",
-    "zod": "^3.24.0",
+    "recharts": "^3.5.1",
     "date-fns": "^4.1.0",
-    "pino": "^9.6.0",
-    "uuid": "^11.0.0",
-    "lucide-react": "latest"
+    "pino": "^10.1.0",
+    "uuid": "^13.0.0",
+    "lucide-react": "^0.561.0",
+    "react-markdown": "^10.1.0"
   }
 }
 ```
 
----
-
-## Database Schema (Corrected)
-
-### Trading Date (Single Source of Truth)
-```sql
-SELECT date FROM trading_days WHERE day_rank = 1
-```
-
-### Core Data Tables
-
-| Table | Purpose | Key Columns |
-|-------|---------|-------------|
-| `stocks_ohlcv` | Price data | ticker, date, open, high, low, close, volume |
-| `stocks_indicators` | MRS, momentum | mrs_5, mrs_10, mrs_20, mrs_20_cs, gap_pct, gap_type |
-| `stocks_technicals` | ATR, RSI, MACD | atr_14, rsi_14, **macd_line**, macd_signal |
-| `candle_descriptors` | OFD patterns | ofd_code, conclusion, pattern |
-| `stocks_metadata` | Stock info | ticker, **name**, sector, industry |
-| `l3_contracts_10` | L3 verdicts (MRS10) | ticker, trading_date, verdict, conviction |
-| `l3_contracts_20` | L3 verdicts (MRS20) | ticker, trading_date, verdict, conviction |
-
-**Note:** Table is `stocks_metadata` (not `stock_base`), column is `name` (not `company_name`), column is `macd_line` (not `macd`).
-
-### Portfolio Tables
-
-| Table | Purpose |
-|-------|---------|
-| `portfolio_positions` | Current holdings |
-| `portfolio_deals_history` | Trade history |
-
-**Portfolio Account ID:** `283445330105777479`
+**Removed (unused):** `lightweight-charts`, `zod`, `zustand`, `@opentelemetry/api`, `@vercel/otel`
 
 ---
 
@@ -78,99 +46,138 @@ SELECT date FROM trading_days WHERE day_rank = 1
 
 - [x] Create Next.js 16 project with React Compiler
 - [x] Install dependencies (better-sqlite3, charts, pino, shadcn/ui)
-- [x] Configure SQLite connection (read/write, WAL mode)
-- [x] Setup Pino logger with 2-logger pattern
+- [x] Configure SQLite connection (read-only)
+- [x] Setup Pino logger
 - [x] Create layout (sidebar, header with trading date)
 - [x] Implement `/api/trading-date` route
 - [x] Implement `/api/stocks` route (list + search)
 - [x] Implement `/api/stocks/[ticker]` route
-- [x] Dashboard page (placeholder metrics)
+- [x] Dashboard page (placeholder)
 - [x] Stock screener page with data table
-- [x] Stock detail page (OHLCV, MRS, technicals, L3 verdicts)
+- [x] Stock detail page (basic)
 - [x] Dark mode enabled
 
-### Phase 2: Charts & Visualization
+### Phase 2: Charts & Visualization ✅ COMPLETE
 
-- [ ] TradingView Lightweight Charts (candlestick + volume)
-- [ ] MRS trajectory chart (Recharts)
-- [ ] Sector MRS comparison chart
-- [ ] Real-time chart updates
+- [x] Price/Volume chart with Recharts (Line + Candlestick modes)
+- [x] Volume percentile coloring (high/normal/low)
+- [x] VIX regime indicators (top row)
+- [x] L3 verdict badges (clickable)
+- [x] Gap indicators with P/A badges
+- [x] OFD pattern codes
+- [x] MRS trajectory chart (MRS 5/10/20 + NASDAQ)
+- [x] Sector rotation chart (11 sectors)
+- [x] Sector rank history
+- [x] Chart range toggle (1M/2M/3M)
+- [x] Responsive chart sizing (compact mode for 3M)
 
-### Phase 3: Dashboard & Positions
+### Phase 3: Reports & Analysis ✅ COMPLETE
 
-- [ ] Dashboard with real market status (VIX regime)
+- [x] Report sheet (slide-out panel)
+- [x] L3 contract display (thesis, conviction, risk/reward)
+- [x] Report date navigation (prev/next arrows)
+- [x] Dynamic verdict sync with date
+- [x] Analyst actions summary (upgrades/downgrades)
+- [x] Price target summary
+- [x] Trade setup card (entry/stop/target)
+- [x] Risk metrics card (Sharpe, volatility, beta, alpha)
+
+### Phase 4: Dashboard & Polish 🔄 IN PROGRESS
+
+- [x] VIX regime display in header
+- [x] Date picker in header
+- [ ] Dashboard with market overview
 - [ ] Portfolio summary from database
-- [ ] Positions table with P&L calculation
-- [ ] Sector exposure pie chart
-
-### Phase 4: Search & Polish
-
+- [ ] Positions table with P&L
 - [ ] Stock search with autocomplete
-- [ ] Filter by sector, signal, verdict
 - [ ] Sectors heatmap page
-- [ ] AI chat integration
 
 ### Phase 5: Position Management (Future)
 
 - [ ] Create/update positions
 - [ ] Order entry
 - [ ] Trade journal
+- [ ] AI chat integration
 
 ---
 
-## Project Structure (Actual)
+## Project Structure
 
 ```
 desk/
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx                    # Dashboard
-│   │   ├── layout.tsx                  # Root layout (sidebar + header)
-│   │   ├── globals.css                 # Tailwind + shadcn styles
+│   │   ├── layout.tsx                  # Root layout
+│   │   ├── globals.css                 # Tailwind + OKLch colors
 │   │   ├── stocks/
 │   │   │   ├── page.tsx                # Stock screener
-│   │   │   ├── stock-table.tsx         # Client component
+│   │   │   ├── stock-table.tsx         # Client table component
 │   │   │   └── [ticker]/
-│   │   │       └── page.tsx            # Stock detail
+│   │   │       └── page.tsx            # Stock detail (SSR)
+│   │   ├── sectors/
+│   │   │   └── page.tsx                # Sector analysis
 │   │   └── api/
-│   │       ├── trading-date/
-│   │       │   └── route.ts            # GET /api/trading-date
-│   │       └── stocks/
-│   │           ├── route.ts            # GET /api/stocks
+│   │       ├── trading-date/route.ts
+│   │       ├── trading-dates/route.ts
+│   │       ├── stocks/
+│   │       │   ├── route.ts
+│   │       │   └── [ticker]/route.ts
+│   │       ├── sectors/route.ts
+│   │       └── reports/
 │   │           └── [ticker]/
-│   │               └── route.ts        # GET /api/stocks/[ticker]
+│   │               ├── route.ts        # GET report content
+│   │               └── dates/route.ts  # GET available dates
 │   │
 │   ├── components/
+│   │   ├── charts/
+│   │   │   ├── price-volume-chart.tsx  # Main chart (~1500 lines)
+│   │   │   ├── sector-mrs-chart.tsx    # Sector comparison
+│   │   │   ├── mrs-trajectory-chart.tsx # Momentum trajectory
+│   │   │   ├── sector-rotation-chart.tsx
+│   │   │   └── index.ts
 │   │   ├── ui/                         # shadcn components
+│   │   │   ├── badge.tsx
 │   │   │   ├── button.tsx
 │   │   │   ├── card.tsx
 │   │   │   ├── table.tsx
-│   │   │   ├── badge.tsx
-│   │   │   ├── tabs.tsx
-│   │   │   ├── skeleton.tsx
-│   │   │   ├── separator.tsx
+│   │   │   ├── sheet.tsx
 │   │   │   ├── scroll-area.tsx
-│   │   │   └── input.tsx
-│   │   └── layout/
-│   │       ├── sidebar.tsx             # Navigation sidebar
-│   │       └── header.tsx              # Header with trading date
+│   │   │   ├── popover.tsx
+│   │   │   └── calendar.tsx
+│   │   ├── layout/
+│   │   │   ├── sidebar.tsx
+│   │   │   └── header.tsx
+│   │   ├── chart-with-report.tsx       # Chart + report sheet wrapper
+│   │   ├── report-sheet.tsx            # L3 report panel
+│   │   ├── trade-setup-card.tsx
+│   │   ├── theme-provider.tsx
+│   │   └── theme-toggle.tsx
 │   │
 │   └── lib/
-│       ├── db.ts                       # SQLite singleton (WAL mode)
-│       ├── logger.ts                   # Pino + AsyncLocalStorage
-│       ├── utils.ts                    # shadcn utilities
+│       ├── db.ts                       # SQLite singleton
+│       ├── logger.ts                   # Pino logger
+│       ├── utils.ts                    # cn() utility
+│       ├── formatters.ts               # Number/volume formatting
+│       ├── gap-indicators.ts           # Gap/pattern helpers
 │       └── queries/
-│           ├── trading-days.ts         # Trading date queries
-│           └── stocks.ts               # Stock data queries
+│           ├── stocks.ts               # Stock data queries
+│           ├── sectors.ts              # Sector queries
+│           └── trading-days.ts         # Date/VIX/NASDAQ queries
 │
 ├── docs/
-│   └── 0.system-architecture.md        # Full architecture spec
+│   └── design/                         # Design documentation
+│       ├── README.md
+│       ├── ARCHITECTURE.md
+│       ├── foundations/
+│       │   ├── colors.md
+│       │   └── typography.md
+│       ├── pages/
+│       │   └── stock-detail.md
+│       └── components/
+│           └── price-volume-chart.md
 │
-├── .claude/
-│   └── context/
-│       └── design-principles.md        # UI guidelines
-│
-├── .env.local                          # Environment variables
+├── .env.local
 ├── CLAUDE.md                           # Project instructions
 ├── HANDOVER.md                         # This file
 └── package.json
@@ -178,26 +185,50 @@ desk/
 
 ---
 
-## Environment Variables
+## Database Schema
 
-```bash
-# .env.local
-DB_PATH="/Volumes/Data/quant/data/stocks.db"
-CONTRACTS_PATH="/Volumes/Data/quant/data/contracts"
-PORTFOLIO_ACCOUNT_ID="283445330105777479"
-LOG_LEVEL="debug"
+### Trading Date (Single Source of Truth)
+```sql
+SELECT date FROM trading_days WHERE day_rank = 1
 ```
+
+### Core Data Tables
+
+| Table | Purpose |
+|-------|---------|
+| `stocks_ohlcv` | Price data |
+| `stocks_indicators` | MRS, momentum, gaps |
+| `stocks_technicals` | RSI, MACD, ATR |
+| `stocks_metadata` | Ticker, name, sector |
+| `candle_descriptors` | OFD patterns |
+| `l3_contracts_10` | L3 verdicts (10-day) |
+| `l3_contracts_20` | L3 verdicts (20-day) |
+| `sector_etf_indicators` | Sector MRS scores |
+| `market_regime` | VIX, regime classification |
+
+**Portfolio Account ID:** `283445330105777479`
 
 ---
 
-## API Endpoints
+## Key Design Decisions
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/trading-date` | GET | Latest trading date |
-| `/api/stocks` | GET | Stock list (100 by volume) |
-| `/api/stocks?q=AAPL` | GET | Search stocks by ticker/name |
-| `/api/stocks/[ticker]` | GET | Stock detail + OHLCV history |
+### Chart Typography (Verdict Badges)
+| View | Font Size | Weight | Format |
+|------|-----------|--------|--------|
+| 1M (20d) | 10pt | bold | `A\|B` |
+| 2M (40d) | 10pt | bold | `A\|B` |
+| 3M (60d) | 9pt | bold | `AB` |
+
+### Color System
+- **Bullish/Buy**: `#22c55e` (green)
+- **Bearish/Avoid**: `#ef4444` (red)
+- **Neutral/Hold**: `#9ca3af` (gray)
+- **Info**: `#3b82f6` (blue)
+
+### Volume Percentile Colors
+- ≥75%: Full opacity
+- 25-75%: 60% opacity
+- <25%: 30% opacity
 
 ---
 
@@ -210,30 +241,9 @@ pnpm dev
 # Test database
 sqlite3 /Volumes/Data/quant/data/stocks.db "SELECT date FROM trading_days WHERE day_rank = 1"
 
-# Rebuild native modules (if needed)
-npm rebuild better-sqlite3
+# Type check
+pnpm exec tsc --noEmit
 ```
-
----
-
-## Key Documentation
-
-| Document | Location |
-|----------|----------|
-| System Architecture | `docs/0.system-architecture.md` |
-| Design Principles | `.claude/context/design-principles.md` |
-| Project Instructions | `CLAUDE.md` |
-| Full Planning Doc | `/Volumes/Data/quant/docs/frontend/FRONTEND_PLAN.md` |
-| L3 Contract Schema | `/Volumes/Data/quant/docs/intel/03_l3_stock.md` |
-
----
-
-## Observability
-
-- **Logging:** Pino with structured JSON, 2-logger pattern (base + request)
-- **Request Correlation:** UUID per request via AsyncLocalStorage
-- **Response Headers:** X-Request-ID, X-Response-Time
-- **OpenTelemetry:** Ready for integration (@vercel/otel installed)
 
 ---
 
@@ -247,4 +257,18 @@ npm rebuild better-sqlite3
 
 ---
 
-**Phase 1 Complete - Ready for Phase 2!**
+## Documentation
+
+| Document | Location |
+|----------|----------|
+| Architecture | `docs/design/ARCHITECTURE.md` |
+| Colors | `docs/design/foundations/colors.md` |
+| Typography | `docs/design/foundations/typography.md` |
+| Stock Detail Page | `docs/design/pages/stock-detail.md` |
+| PriceVolumeChart | `docs/design/components/price-volume-chart.md` |
+| Project Instructions | `CLAUDE.md` |
+| Full Planning Doc | `/Volumes/Data/quant/docs/frontend/FRONTEND_PLAN.md` |
+
+---
+
+**Phase 3 Complete - Charts, Reports, Analysis all working!**

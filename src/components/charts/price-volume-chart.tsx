@@ -14,8 +14,6 @@ import {
   Cell,
   ReferenceLine,
   LabelList,
-  Rectangle,
-  Customized,
 } from "recharts";
 import {
   getVerdictCode,
@@ -288,95 +286,6 @@ function calculateSMASimple(data: OHLCVData[], period: number): (number | null)[
     return sum / period;
   });
 }
-
-// Candlestick renderer using Customized component for proper Y-axis mapping
-interface CandlestickRendererProps {
-  xAxisMap?: Record<string, { scale: (value: number) => number; bandSize?: number }>;
-  yAxisMap?: Record<string, { scale: (value: number) => number }>;
-  formattedGraphicalItems?: Array<{
-    props: { data: Array<{ payload: OHLCVData & { isUp: boolean; dateLabel: string } }> };
-  }>;
-  offset?: { left: number; top: number; width: number; height: number };
-}
-
-const CandlestickRenderer = (props: CandlestickRendererProps) => {
-  const { xAxisMap, yAxisMap, formattedGraphicalItems, offset } = props;
-
-  if (!xAxisMap || !yAxisMap || !formattedGraphicalItems || !offset) return null;
-
-  // Get the first (and only) formatted item which contains our data
-  const dataItem = formattedGraphicalItems[0];
-  if (!dataItem?.props?.data) return null;
-
-  const chartData = dataItem.props.data;
-  const xAxis = Object.values(xAxisMap)[0];
-  const yAxis = yAxisMap["price"];
-
-  if (!xAxis || !yAxis) return null;
-
-  const bandWidth = xAxis.bandSize || 30;
-  const barWidth = bandWidth * 0.7; // 70% of band width for candle body
-
-  return (
-    <g className="candlesticks">
-      {chartData.map((item, index) => {
-        const { payload } = item;
-        if (!payload) return null;
-
-        const { open, high, low, close, isUp } = payload;
-
-        // Get X position (center of band)
-        const xPos = xAxis.scale(index) + bandWidth / 2;
-
-        // Get Y positions using yAxis scale
-        const highY = yAxis.scale(high);
-        const lowY = yAxis.scale(low);
-        const openY = yAxis.scale(open);
-        const closeY = yAxis.scale(close);
-
-        const bodyTop = Math.min(openY, closeY);
-        const bodyBottom = Math.max(openY, closeY);
-        const bodyHeight = Math.max(bodyBottom - bodyTop, 1);
-        const bodyX = xPos - barWidth / 2;
-
-        const color = isUp ? "#22c55e" : "#ef4444";
-
-        return (
-          <g key={`candle-${index}`}>
-            {/* Upper wick */}
-            <line
-              x1={xPos}
-              y1={highY}
-              x2={xPos}
-              y2={bodyTop}
-              stroke={color}
-              strokeWidth={1}
-            />
-            {/* Lower wick */}
-            <line
-              x1={xPos}
-              y1={bodyBottom}
-              x2={xPos}
-              y2={lowY}
-              stroke={color}
-              strokeWidth={1}
-            />
-            {/* Body - filled for up, hollow for down */}
-            <rect
-              x={bodyX}
-              y={bodyTop}
-              width={barWidth}
-              height={bodyHeight}
-              fill={isUp ? color : "transparent"}
-              stroke={color}
-              strokeWidth={isUp ? 1 : 1.5}
-            />
-          </g>
-        );
-      })}
-    </g>
-  );
-};
 
 // Shared tooltip for both candlestick and volume charts
 function CandleTooltip({
@@ -1201,6 +1110,11 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
                 }
               };
 
+              // 3M view: 9pt without pipe
+              const is3M = currentRange > 40;
+              const fontSize = is3M ? 9 : 10;
+              const showPipe = !is3M;
+
               return (
                 <g
                   onClick={handleClick}
@@ -1209,9 +1123,9 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
                   style={{ cursor: hasReport ? "pointer" : "default", pointerEvents: hasReport ? "auto" : "none" }}
                   className={hasReport ? "hover:opacity-70" : ""}
                 >
-                  <text x={x} y={y - 18} textAnchor="middle" fontSize={10} fontWeight="bold">
+                  <text x={x} y={y - 18} textAnchor="middle" fontSize={fontSize} fontWeight="bold">
                     <tspan fill={getLetterColor(letter1)}>{letter1}</tspan>
-                    <tspan fill="#6b7280">|</tspan>
+                    {showPipe && <tspan fill="#6b7280">|</tspan>}
                     <tspan fill={getLetterColor(letter2)}>{letter2}</tspan>
                   </text>
                 </g>

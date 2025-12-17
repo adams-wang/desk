@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getStockDetail, getStockOHLCV, getStockOHLCVExtended, getMRSHistory, getAnalystActions, getAnalystTargets, getL3Contracts } from "@/lib/queries/stocks";
 import { getSectorMRS, getSectorMRSHistory, getStockSector, getSectorRankHistory } from "@/lib/queries/sectors";
 import { getVIXHistory, getNASDAQHistory } from "@/lib/queries/trading-days";
+import { formatNumber, formatPercent, formatVolume } from "@/lib/formatters";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectorMRSChart, MRSTrajectoryChart } from "@/components/charts";
@@ -15,25 +16,6 @@ interface StockDetailPageProps {
 
 const VALID_RANGES = [20, 40, 60] as const;
 type ChartRange = typeof VALID_RANGES[number];
-
-function formatNumber(value: number | null, decimals: number = 2): string {
-  if (value === null || value === undefined) return "-";
-  return value.toFixed(decimals);
-}
-
-function formatPercent(value: number | null): string {
-  if (value === null || value === undefined) return "-";
-  const pct = value * 100;
-  const sign = pct >= 0 ? "+" : "";
-  return `${sign}${pct.toFixed(2)}%`;
-}
-
-function formatVolume(value: number): string {
-  if (value >= 1_000_000_000) return `${(value / 1_000_000_000).toFixed(2)}B`;
-  if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(2)}M`;
-  if (value >= 1_000) return `${(value / 1_000).toFixed(1)}K`;
-  return value.toString();
-}
 
 export default async function StockDetailPage({ params, searchParams }: StockDetailPageProps) {
   const { ticker } = await params;
