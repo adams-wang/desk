@@ -242,7 +242,7 @@ export function ReportSheet({
                     onClick={() => isAvailable && setCurrentLang(lang)}
                     disabled={!isAvailable}
                     className={cn(
-                      "px-2 py-1 text-sm font-medium rounded transition-all",
+                      "w-8 h-7 text-sm font-medium rounded transition-all flex items-center justify-center",
                       isAvailable
                         ? isActive
                           ? "bg-foreground text-background"
