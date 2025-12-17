@@ -21,10 +21,10 @@ import { cn } from "@/lib/utils";
 
 // Language configuration
 const LANGUAGES = {
-  en: { label: "EN", name: "English" },
-  zh: { label: "中", name: "中文" },
-  ko: { label: "한", name: "한국어" },
-  ja: { label: "日", name: "日本語" },
+  en: { label: "EN", name: "English", translateHint: "" },
+  zh: { label: "中", name: "中文", translateHint: "双击翻译" },
+  ko: { label: "한", name: "한국어", translateHint: "더블클릭하여 번역" },
+  ja: { label: "日", name: "日本語", translateHint: "ダブルクリックで翻訳" },
 } as const;
 
 type Language = keyof typeof LANGUAGES;
@@ -155,34 +155,54 @@ export function ReportSheet({
   useEffect(() => {
     if (!open || !ticker) return;
 
-    const fetchReport = async () => {
+    const fetchReport = async (lang: Language): Promise<boolean> => {
+      const params = new URLSearchParams({ variant: activeVariant, lang });
+      if (currentDate) params.append("date", currentDate);
+
+      const response = await fetch(`/api/reports/${ticker}?${params}`);
+
+      if (!response.ok) {
+        const data = await response.json();
+        // Update available languages from error response
+        if (data.availableLanguages) {
+          setAvailableLanguages(data.availableLanguages);
+        }
+        return false;
+      }
+
+      const data = await response.json();
+      setReport(data);
+      // Update available languages from response
+      if (data.availableLanguages) {
+        setAvailableLanguages(data.availableLanguages);
+      }
+      // Update currentDate from response if not set
+      if (!currentDate && data.date) {
+        setCurrentDate(data.date);
+      }
+      return true;
+    };
+
+    const loadReport = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const params = new URLSearchParams({ variant: activeVariant, lang: currentLang });
-        if (currentDate) params.append("date", currentDate);
+        // Try fetching in current language
+        const success = await fetchReport(currentLang);
 
-        const response = await fetch(`/api/reports/${ticker}?${params}`);
-
-        if (!response.ok) {
-          const data = await response.json();
-          // If language not available, show what's available
-          if (data.availableLanguages) {
-            setAvailableLanguages(data.availableLanguages);
+        if (!success && currentLang !== "en") {
+          // Fallback to English if current language not available
+          const fallbackSuccess = await fetchReport("en");
+          if (fallbackSuccess) {
+            setCurrentLang("en");
+          } else {
+            setError("Report not found");
+            setReport(null);
           }
-          throw new Error(data.error || "Failed to fetch report");
-        }
-
-        const data = await response.json();
-        setReport(data);
-        // Update available languages from response
-        if (data.availableLanguages) {
-          setAvailableLanguages(data.availableLanguages);
-        }
-        // Update currentDate from response if not set
-        if (!currentDate && data.date) {
-          setCurrentDate(data.date);
+        } else if (!success) {
+          setError("Report not found");
+          setReport(null);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to load report");
@@ -192,7 +212,7 @@ export function ReportSheet({
       }
     };
 
-    fetchReport();
+    loadReport();
   }, [open, ticker, activeVariant, currentDate, currentLang]);
 
   // Reset state when sheet closes or opens
@@ -285,7 +305,7 @@ export function ReportSheet({
                     : isAvailable
                       ? LANGUAGES[lang].name
                       : canTranslate
-                        ? `Double-click to translate`
+                        ? LANGUAGES[lang].translateHint
                         : LANGUAGES[lang].name;
 
                   return (
@@ -307,7 +327,7 @@ export function ReportSheet({
                             "w-8 h-7 text-sm font-medium rounded transition-all flex items-center justify-center relative",
                             isAvailable
                               ? isActive
-                                ? "bg-foreground text-background"
+                                ? "bg-muted text-foreground border border-foreground/30"
                                 : "hover:bg-muted text-muted-foreground hover:text-foreground"
                               : canTranslate
                                 ? "hover:bg-muted text-muted-foreground hover:text-foreground border border-dashed border-muted-foreground/50 hover:border-foreground"
