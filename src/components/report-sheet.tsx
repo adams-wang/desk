@@ -194,7 +194,7 @@ export function ReportSheet({
                         onClick={() => setActiveVariant("10")}
                         disabled={!has10}
                         className={cn(
-                          "px-4 py-1.5 text-lg font-bold rounded-md transition-all border-2",
+                          "w-20 h-9 text-lg font-bold rounded-md transition-all border-2 flex items-center justify-center",
                           !has10 && "opacity-30 cursor-not-allowed"
                         )}
                         style={{
@@ -212,7 +212,7 @@ export function ReportSheet({
                         onClick={() => setActiveVariant("20")}
                         disabled={!has20}
                         className={cn(
-                          "px-4 py-1.5 text-lg font-bold rounded-md transition-all border-2",
+                          "w-20 h-9 text-lg font-bold rounded-md transition-all border-2 flex items-center justify-center",
                           !has20 && "opacity-30 cursor-not-allowed"
                         )}
                         style={{
