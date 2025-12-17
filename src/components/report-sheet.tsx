@@ -47,6 +47,15 @@ export function ReportSheet({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Get verdict color matching chart badges
+  const getVerdictColor = (verdict: string | null) => {
+    if (!verdict) return "#9ca3af";
+    const upper = verdict.toUpperCase();
+    if (upper.includes("BUY") || upper.startsWith("B")) return "#22c55e"; // green
+    if (upper.includes("AVOID") || upper.startsWith("A") || upper.includes("SELL")) return "#ef4444"; // red
+    return "#9ca3af"; // gray for HOLD and others
+  };
+
   // Fetch report when sheet opens or variant changes
   useEffect(() => {
     if (!open || !ticker) return;
@@ -79,13 +88,16 @@ export function ReportSheet({
     fetchReport();
   }, [open, ticker, activeVariant, date]);
 
-  // Reset state when sheet closes
+  // Reset state when sheet closes or opens
   useEffect(() => {
     if (!open) {
       setReport(null);
       setError(null);
+    } else {
+      // Always reset to initialVariant when opening
+      setActiveVariant(initialVariant);
     }
-  }, [open]);
+  }, [open, initialVariant]);
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -93,9 +105,9 @@ export function ReportSheet({
         side="right"
         className="flex flex-col p-0"
       >
-        <SheetHeader className="px-6 pt-6 pb-4 border-b shrink-0">
+        <SheetHeader className="border-b shrink-0" style={{ height: 64 }}>
           <SheetTitle className="sr-only">{ticker} Analysis</SheetTitle>
-          <div className="flex items-center justify-between pr-8">
+          <div className="flex items-center justify-between h-full px-6 pr-14">
             {/* Verdict Toggle */}
             <div className="flex items-center gap-2">
               {verdict10 && (
@@ -103,12 +115,15 @@ export function ReportSheet({
                   onClick={() => setActiveVariant("10")}
                   disabled={!hasL3_10}
                   className={cn(
-                    "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
-                    activeVariant === "10"
-                      ? "border-foreground text-foreground"
-                      : "border-muted text-muted-foreground hover:border-foreground/50",
-                    !hasL3_10 && "opacity-50 cursor-not-allowed"
+                    "px-4 py-1.5 text-lg font-bold rounded-md transition-all border-2",
+                    !hasL3_10 && "opacity-30 cursor-not-allowed"
                   )}
+                  style={{
+                    borderColor: getVerdictColor(verdict10),
+                    color: getVerdictColor(verdict10),
+                    backgroundColor: activeVariant === "10" ? `${getVerdictColor(verdict10)}20` : "transparent",
+                    opacity: !hasL3_10 ? 0.3 : (activeVariant === "10" ? 1 : 0.5)
+                  }}
                 >
                   {verdict10}
                 </button>
@@ -118,12 +133,15 @@ export function ReportSheet({
                   onClick={() => setActiveVariant("20")}
                   disabled={!hasL3_20}
                   className={cn(
-                    "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
-                    activeVariant === "20"
-                      ? "border-foreground text-foreground"
-                      : "border-muted text-muted-foreground hover:border-foreground/50",
-                    !hasL3_20 && "opacity-50 cursor-not-allowed"
+                    "px-4 py-1.5 text-lg font-bold rounded-md transition-all border-2",
+                    !hasL3_20 && "opacity-30 cursor-not-allowed"
                   )}
+                  style={{
+                    borderColor: getVerdictColor(verdict20),
+                    color: getVerdictColor(verdict20),
+                    backgroundColor: activeVariant === "20" ? `${getVerdictColor(verdict20)}20` : "transparent",
+                    opacity: !hasL3_20 ? 0.3 : (activeVariant === "20" ? 1 : 0.5)
+                  }}
                 >
                   {verdict20}
                 </button>
