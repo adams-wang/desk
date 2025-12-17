@@ -102,7 +102,7 @@ export function ReportSheet({
                   onClick={() => setActiveVariant("10")}
                   disabled={!hasL3_10}
                   className={cn(
-                    "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
+                    "px-3 py-3 text-lg font-bold rounded-md transition-colors border-2",
                     activeVariant === "10"
                       ? "border-foreground text-foreground"
                       : "border-muted text-muted-foreground hover:border-foreground/50",
@@ -117,7 +117,7 @@ export function ReportSheet({
                   onClick={() => setActiveVariant("20")}
                   disabled={!hasL3_20}
                   className={cn(
-                    "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
+                    "px-3 py-3 text-lg font-bold rounded-md transition-colors border-2",
                     activeVariant === "20"
                       ? "border-foreground text-foreground"
                       : "border-muted text-muted-foreground hover:border-foreground/50",
