@@ -147,7 +147,7 @@ export function ReportSheet({
           )}
 
           {!loading && !error && report && (
-            <article className="prose prose-sm prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-h2:text-lg prose-h2:mt-6 prose-h2:mb-3 prose-h3:text-base prose-h3:mt-4 prose-h3:mb-2 prose-ul:my-2 prose-li:my-0.5 pb-8">
+            <article className="prose prose-invert max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-p:leading-relaxed prose-strong:text-foreground prose-strong:font-bold prose-ul:text-foreground prose-li:text-foreground prose-li:leading-relaxed prose-h1:text-2xl prose-h1:mb-4 prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:mb-4 prose-ul:my-4 prose-ul:ml-6 prose-li:my-2 prose-li:pl-2 pb-8">
               <Markdown>{report.content}</Markdown>
             </article>
           )}
