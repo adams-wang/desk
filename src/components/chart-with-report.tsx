@@ -72,15 +72,19 @@ export function ChartWithReport({
   const [reportOpen, setReportOpen] = useState(false);
   const [reportDate, setReportDate] = useState<string | undefined>();
   const [initialVariant, setInitialVariant] = useState<"10" | "20">("10");
+  const [verdict10, setVerdict10] = useState<string | null>(null);
+  const [verdict20, setVerdict20] = useState<string | null>(null);
 
   const handleVerdictClick = (
     date: string,
-    verdict10: string | null,
-    verdict20: string | null
+    v10: string | null,
+    v20: string | null
   ) => {
     setReportDate(date);
+    setVerdict10(v10);
+    setVerdict20(v20);
     // Default to MRS 10 if available, otherwise MRS 20
-    setInitialVariant(verdict10 ? "10" : "20");
+    setInitialVariant(v10 ? "10" : "20");
     setReportOpen(true);
   };
 
@@ -100,6 +104,8 @@ export function ChartWithReport({
         ticker={ticker}
         date={reportDate}
         initialVariant={initialVariant}
+        verdict10={verdict10}
+        verdict20={verdict20}
       />
     </>
   );
