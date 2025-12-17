@@ -94,44 +94,44 @@ export function ReportSheet({
         className="flex flex-col p-0"
       >
         <SheetHeader className="px-6 pt-6 pb-4 border-b shrink-0">
-          <div className="flex items-center justify-end pr-8 mb-3">
+          <div className="flex items-center justify-between pr-8">
+            {/* Verdict Toggle */}
+            <div className="flex items-center gap-2">
+              {verdict10 && (
+                <button
+                  onClick={() => setActiveVariant("10")}
+                  disabled={!hasL3_10}
+                  className={cn(
+                    "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
+                    activeVariant === "10"
+                      ? "border-foreground text-foreground"
+                      : "border-muted text-muted-foreground hover:border-foreground/50",
+                    !hasL3_10 && "opacity-50 cursor-not-allowed"
+                  )}
+                >
+                  {verdict10}
+                </button>
+              )}
+              {verdict20 && (
+                <button
+                  onClick={() => setActiveVariant("20")}
+                  disabled={!hasL3_20}
+                  className={cn(
+                    "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
+                    activeVariant === "20"
+                      ? "border-foreground text-foreground"
+                      : "border-muted text-muted-foreground hover:border-foreground/50",
+                    !hasL3_20 && "opacity-50 cursor-not-allowed"
+                  )}
+                >
+                  {verdict20}
+                </button>
+              )}
+            </div>
+
             <SheetDescription className="text-sm text-muted-foreground">
               MRS {activeVariant} | {report?.date || date || ""}
             </SheetDescription>
-          </div>
-
-          {/* Verdict Toggle */}
-          <div className="flex items-center gap-2">
-            {verdict10 && (
-              <button
-                onClick={() => setActiveVariant("10")}
-                disabled={!hasL3_10}
-                className={cn(
-                  "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
-                  activeVariant === "10"
-                    ? "border-foreground text-foreground"
-                    : "border-muted text-muted-foreground hover:border-foreground/50",
-                  !hasL3_10 && "opacity-50 cursor-not-allowed"
-                )}
-              >
-                {verdict10}
-              </button>
-            )}
-            {verdict20 && (
-              <button
-                onClick={() => setActiveVariant("20")}
-                disabled={!hasL3_20}
-                className={cn(
-                  "px-4 py-2 text-lg font-bold rounded-md transition-colors border-2",
-                  activeVariant === "20"
-                    ? "border-foreground text-foreground"
-                    : "border-muted text-muted-foreground hover:border-foreground/50",
-                  !hasL3_20 && "opacity-50 cursor-not-allowed"
-                )}
-              >
-                {verdict20}
-              </button>
-            )}
           </div>
         </SheetHeader>
 
