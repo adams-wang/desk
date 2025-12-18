@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -10,19 +10,30 @@ import {
   Search,
   PieChart,
   MessageSquare,
+  TrendingUp,
 } from "lucide-react";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
-  { name: "Stocks", href: "/stocks", icon: Search },
-  { name: "Sectors", href: "/sectors", icon: PieChart },
-  { name: "Positions", href: "/positions", icon: Briefcase },
-  { name: "Charts", href: "/charts", icon: BarChart3 },
-  { name: "Chat", href: "/chat", icon: MessageSquare },
+  { name: "Dashboard", href: "/", icon: LayoutDashboard, preserveDate: false },
+  { name: "Market", href: "/market", icon: TrendingUp, preserveDate: true },
+  { name: "Stocks", href: "/stocks", icon: Search, preserveDate: true },
+  { name: "Sectors", href: "/sectors", icon: PieChart, preserveDate: true },
+  { name: "Positions", href: "/positions", icon: Briefcase, preserveDate: false },
+  { name: "Charts", href: "/charts", icon: BarChart3, preserveDate: false },
+  { name: "Chat", href: "/chat", icon: MessageSquare, preserveDate: false },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentDate = searchParams.get("date");
+
+  const getHref = (item: typeof navigation[number]) => {
+    if (item.preserveDate && currentDate) {
+      return `${item.href}?date=${currentDate}`;
+    }
+    return item.href;
+  };
 
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-border bg-background">
@@ -44,7 +55,7 @@ export function Sidebar() {
           return (
             <Link
               key={item.name}
-              href={item.href}
+              href={getHref(item)}
               className={cn(
                 "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 isActive

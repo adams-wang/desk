@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { parseISO } from "date-fns";
 import { StockSearch } from "@/components/stock-search";
 
@@ -106,31 +106,49 @@ export function Header() {
           </Badge>
         )}
         {marketData?.date && (
-          <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
-            <PopoverTrigger asChild>
-              <button
-                className="flex items-center gap-1.5 px-2 py-1 rounded-md border border-border text-sm font-mono transition-colors hover:bg-muted"
-                title="Click to select date"
-              >
-                <CalendarIcon className="size-3.5" />
-                {marketData.date}
-              </button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="end">
-              <Calendar
-                mode="single"
-                selected={parseISO(marketData.date)}
-                onSelect={(date) => {
-                  if (date) {
-                    navigateToDate(formatDateLocal(date));
-                    setCalendarOpen(false);
-                  }
-                }}
-                disabled={isDateDisabled}
-                defaultMonth={parseISO(marketData.date)}
-              />
-            </PopoverContent>
-          </Popover>
+          <div className="flex items-center">
+            <button
+              className="p-1 rounded-md transition-colors hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed"
+              onClick={() => navigateToDate(marketData.prevDate)}
+              disabled={!marketData.prevDate}
+              title="Previous trading day"
+            >
+              <ChevronLeft className="size-4" />
+            </button>
+            <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+              <PopoverTrigger asChild>
+                <button
+                  className="flex items-center gap-1.5 px-2 py-1 rounded-md border border-border text-sm font-mono transition-colors hover:bg-muted"
+                  title="Click to select date"
+                >
+                  <CalendarIcon className="size-3.5" />
+                  {marketData.date}
+                </button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="end">
+                <Calendar
+                  mode="single"
+                  selected={parseISO(marketData.date)}
+                  onSelect={(date) => {
+                    if (date) {
+                      navigateToDate(formatDateLocal(date));
+                      setCalendarOpen(false);
+                    }
+                  }}
+                  disabled={isDateDisabled}
+                  defaultMonth={parseISO(marketData.date)}
+                />
+              </PopoverContent>
+            </Popover>
+            <button
+              className="p-1 rounded-md transition-colors hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed"
+              onClick={() => navigateToDate(marketData.nextDate)}
+              disabled={!marketData.nextDate}
+              title="Next trading day"
+            >
+              <ChevronRight className="size-4" />
+            </button>
+          </div>
         )}
       </div>
     </header>

@@ -1,7 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MarketWidget } from "@/components/market";
+import { getMarketOverview } from "@/lib/queries/market";
 import Link from "next/link";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const overview = getMarketOverview();
+
   return (
     <div className="space-y-6">
       <div>
@@ -60,6 +64,15 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent className="space-y-2">
             <Link
+              href="/market"
+              className="block rounded-lg border p-4 transition-colors hover:bg-muted"
+            >
+              <div className="font-medium">Market Overview</div>
+              <div className="text-sm text-muted-foreground">
+                L1 macro analysis and market conditions
+              </div>
+            </Link>
+            <Link
               href="/stocks"
               className="block rounded-lg border p-4 transition-colors hover:bg-muted"
             >
@@ -80,27 +93,28 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Market Status</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">VIX Regime</span>
-                <span className="font-medium text-emerald-500">Low Volatility</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Market Trend</span>
-                <span className="font-medium">Bullish</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Blockers</span>
-                <span className="font-medium text-muted-foreground">None</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Market Widget with real data */}
+        {overview ? (
+          <MarketWidget
+            regime={overview.regime}
+            positionPct={overview.positionPct}
+            transition={overview.regimeTransition}
+            vixValue={overview.vix.value}
+            vixBucket={overview.vix.bucket}
+            tradingDate={overview.tradingDate}
+          />
+        ) : (
+          <Card>
+            <CardHeader>
+              <CardTitle>Market Status</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Market data unavailable. Check L1 analysis.
+              </p>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );

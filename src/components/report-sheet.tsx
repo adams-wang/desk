@@ -70,8 +70,16 @@ export function ReportSheet({
   const [availableDates, setAvailableDates] = useState<string[]>([]);
   const [currentDate, setCurrentDate] = useState<string | undefined>(date);
   const [currentLang, setCurrentLang] = useState<Language>("en");
-  const [availableLanguages, setAvailableLanguages] = useState<Language[]>(["en"]);
-  const [translating, setTranslating] = useState<Language | null>(null);
+  // Track available languages per variant
+  const [availableLanguagesByVariant, setAvailableLanguagesByVariant] = useState<Record<"10" | "20", Language[]>>({
+    "10": ["en"],
+    "20": ["en"],
+  });
+  // Track which languages are currently translating (prevents race conditions)
+  const [translatingSet, setTranslatingSet] = useState<Set<string>>(new Set());
+
+  // Get available languages for current variant
+  const availableLanguages = availableLanguagesByVariant[activeVariant];
 
   // Get verdict color matching chart badges
   const getVerdictColor = (verdict: string | null) => {
@@ -86,7 +94,15 @@ export function ReportSheet({
   const handleTranslate = useCallback(async (targetLang: Language) => {
     if (!ticker || !currentDate || targetLang === "en") return;
 
-    setTranslating(targetLang);
+    // Create unique key for this translation (variant + language)
+    const translationKey = `${activeVariant}-${targetLang}`;
+
+    // Check if already translating this specific combination
+    if (translatingSet.has(translationKey)) return;
+
+    // Add to translating set
+    setTranslatingSet(prev => new Set(prev).add(translationKey));
+
     try {
       const response = await fetch("/api/translate", {
         method: "POST",
@@ -104,16 +120,24 @@ export function ReportSheet({
         throw new Error(data.error || "Translation failed");
       }
 
-      // Translation successful - add to available languages and switch to it
-      setAvailableLanguages(prev => [...prev, targetLang]);
+      // Translation successful - add to available languages for THIS variant and switch to it
+      setAvailableLanguagesByVariant(prev => ({
+        ...prev,
+        [activeVariant]: [...prev[activeVariant], targetLang],
+      }));
       setCurrentLang(targetLang);
     } catch (err) {
       console.error("Translation error:", err);
       setError(err instanceof Error ? err.message : "Translation failed");
     } finally {
-      setTranslating(null);
+      // Remove from translating set
+      setTranslatingSet(prev => {
+        const next = new Set(prev);
+        next.delete(translationKey);
+        return next;
+      });
     }
-  }, [ticker, currentDate, activeVariant]);
+  }, [ticker, currentDate, activeVariant, translatingSet]);
 
   // Fetch available dates when sheet opens or variant changes
   useEffect(() => {
@@ -163,18 +187,24 @@ export function ReportSheet({
 
       if (!response.ok) {
         const data = await response.json();
-        // Update available languages from error response
+        // Update available languages from error response for THIS variant
         if (data.availableLanguages) {
-          setAvailableLanguages(data.availableLanguages);
+          setAvailableLanguagesByVariant(prev => ({
+            ...prev,
+            [activeVariant]: data.availableLanguages,
+          }));
         }
         return false;
       }
 
       const data = await response.json();
       setReport(data);
-      // Update available languages from response
+      // Update available languages from response for THIS variant
       if (data.availableLanguages) {
-        setAvailableLanguages(data.availableLanguages);
+        setAvailableLanguagesByVariant(prev => ({
+          ...prev,
+          [activeVariant]: data.availableLanguages,
+        }));
       }
       // Update currentDate from response if not set
       if (!currentDate && data.date) {
@@ -215,20 +245,31 @@ export function ReportSheet({
     loadReport();
   }, [open, ticker, activeVariant, currentDate, currentLang]);
 
-  // Reset state when sheet closes or opens
+  // Reset state when sheet closes
   useEffect(() => {
     if (!open) {
       setReport(null);
       setError(null);
       setAvailableDates([]);
-    } else {
-      // Always reset to initialVariant, date, and English when opening
+      // Don't clear translatingSet - let translations continue in background
+    }
+  }, [open]);
+
+  // Reset to initial state when opening with new ticker/date
+  useEffect(() => {
+    if (open) {
       setActiveVariant(initialVariant);
       setCurrentDate(date);
       setCurrentLang("en");
-      setAvailableLanguages(["en"]);
+      // Only reset available languages when ticker/date changes, not on every open
     }
   }, [open, initialVariant, date]);
+
+  // Reset available languages when ticker changes (new stock = fresh start)
+  useEffect(() => {
+    setAvailableLanguagesByVariant({ "10": ["en"], "20": ["en"] });
+    setTranslatingSet(new Set());
+  }, [ticker]);
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -297,7 +338,8 @@ export function ReportSheet({
                 {(Object.keys(LANGUAGES) as Language[]).map((lang) => {
                   const isAvailable = availableLanguages.includes(lang);
                   const isActive = currentLang === lang;
-                  const isTranslating = translating === lang;
+                  const translationKey = `${activeVariant}-${lang}`;
+                  const isTranslating = translatingSet.has(translationKey);
                   const canTranslate = lang !== "en" && !isAvailable && !isTranslating && currentDate;
 
                   const tooltipText = isTranslating
