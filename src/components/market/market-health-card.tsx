@@ -47,7 +47,7 @@ export function MarketHealthCard({ vix, breadth, sentiment }: MarketHealthCardPr
           Market Health
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-4">
         {/* VIX Gauge */}
         <VixGauge value={vix.value} bucket={vix.bucket} />
 
@@ -59,7 +59,7 @@ export function MarketHealthCard({ vix, breadth, sentiment }: MarketHealthCardPr
         />
 
         {/* Sentiment Indicators */}
-        <div className="grid grid-cols-2 gap-4 pt-2 border-t">
+        <div className="grid grid-cols-2 gap-4 pt-1 border-t">
           {/* Put/Call Ratio */}
           <div className="space-y-1">
             <div className="flex items-center justify-between">

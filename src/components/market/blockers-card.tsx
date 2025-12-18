@@ -124,7 +124,7 @@ export function BlockersCard({
           )}
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-1.5">
         {blockers.map((blocker) => {
           const config = statusConfig[blocker.status];
           const Icon = config.icon;
@@ -133,7 +133,7 @@ export function BlockersCard({
             <div
               key={blocker.id}
               className={cn(
-                "flex items-start gap-3 rounded-md p-2",
+                "flex items-start gap-2 rounded-md px-2 py-1.5",
                 config.bgColor
               )}
             >

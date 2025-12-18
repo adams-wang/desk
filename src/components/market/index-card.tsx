@@ -92,36 +92,34 @@ export function IndexCard({
   return (
     <Card
       className={cn(
-        "transition-colors",
+        "transition-colors py-5",
         onClick && "cursor-pointer hover:bg-muted/50"
       )}
       onClick={onClick}
     >
-      <CardContent className="p-4">
+      <CardContent className="px-4">
         <div className="flex justify-between items-start">
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-3">
             <span className="text-sm font-medium text-muted-foreground">
               {name}
             </span>
-            <span className="text-2xl font-bold tabular-nums">{formattedPrice}</span>
-            <div className="flex items-center gap-2 text-sm">
+            <span className="text-4xl font-bold tabular-nums">{formattedPrice}</span>
+            <div className="flex items-center gap-2 text-base">
               <span className={cn("tabular-nums", changeColor)}>
                 {formattedChange} ({formattedPct})
               </span>
+              {formattedWeek && (
+                <span className={cn(
+                  "tabular-nums",
+                  isWeekPositive ? "text-emerald-500/70" : "text-red-500/70"
+                )}>
+                  · 7d: {formattedWeek}
+                </span>
+              )}
             </div>
-            {formattedWeek && (
-              <span className={cn(
-                "text-xs tabular-nums",
-                isWeekPositive ? "text-emerald-500/70" : "text-red-500/70"
-              )}>
-                7d: {formattedWeek}
-              </span>
-            )}
           </div>
           {sparkline && sparkline.length > 1 && (
-            <div className="mt-1">
-              <Sparkline data={sparkline} positive={isWeekPositive} />
-            </div>
+            <Sparkline data={sparkline} positive={isWeekPositive} />
           )}
         </div>
       </CardContent>
