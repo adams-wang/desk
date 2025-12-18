@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FileText, ArrowRight, TrendingUp, TrendingDown, Search } from "lucide-react";
 import {
   RegimeBanner,
@@ -26,6 +27,14 @@ interface MarketContentProps {
   sectorPerformance: SectorPerformance[];
 }
 
+// Map index codes to ETF tickers
+const indexToETF: Record<string, string> = {
+  "^GSPC": "SPY",
+  "^IXIC": "QQQ",
+  "^DJI": "DIA",
+  "^NDX": "QQQ",
+};
+
 export function MarketContent({
   overview,
   currentDate,
@@ -33,7 +42,16 @@ export function MarketContent({
   indicesWithSparklines,
   sectorPerformance,
 }: MarketContentProps) {
+  const router = useRouter();
   const [reportOpen, setReportOpen] = useState(false);
+
+  // Handle index card click - navigate to ETF stock page
+  const handleIndexClick = (code: string) => {
+    const etf = indexToETF[code];
+    if (etf) {
+      router.push(`/stocks/${etf}?date=${currentDate}`);
+    }
+  };
 
   // Determine stocks link based on regime
   const stocksLinkText = overview.regime === "RISK_ON" || overview.regime === "NORMAL"
@@ -77,7 +95,7 @@ export function MarketContent({
       />
 
       {/* Indices Grid with Sparklines */}
-      <IndicesGrid indices={indicesWithSparklines} />
+      <IndicesGrid indices={indicesWithSparklines} onIndexClick={handleIndexClick} />
 
       {/* Market Health + Blockers */}
       <div className="grid gap-4 md:grid-cols-2">
