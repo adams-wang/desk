@@ -1,28 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import Link from "next/link";
+import { FileText, ArrowRight, TrendingUp, TrendingDown, Search } from "lucide-react";
 import {
   RegimeBanner,
   IndicesGrid,
   MarketHealthCard,
   BlockersCard,
+  SectorStrip,
 } from "@/components/market";
 import { L1ReportSheet } from "./l1-report-sheet";
-import type { MarketOverview } from "@/lib/queries/market";
+import type {
+  MarketOverview,
+  RegimeHistoryItem,
+  IndexWithSparkline,
+  SectorPerformance,
+} from "@/lib/queries/market";
 
 interface MarketContentProps {
   overview: MarketOverview;
   currentDate: string;
+  regimeHistory: RegimeHistoryItem[];
+  indicesWithSparklines: IndexWithSparkline[];
+  sectorPerformance: SectorPerformance[];
 }
 
 export function MarketContent({
   overview,
   currentDate,
+  regimeHistory,
+  indicesWithSparklines,
+  sectorPerformance,
 }: MarketContentProps) {
   const [reportOpen, setReportOpen] = useState(false);
+
+  // Determine stocks link based on regime
+  const stocksLinkText = overview.regime === "RISK_ON" || overview.regime === "NORMAL"
+    ? "View Strong Stocks"
+    : "View Defensive Stocks";
+
+  const stocksLinkHref = overview.regime === "RISK_ON" || overview.regime === "NORMAL"
+    ? `/stocks?sort=mrs_20&order=desc&date=${currentDate}`
+    : `/stocks?sort=beta_60&order=asc&date=${currentDate}`;
 
   return (
     <div className="space-y-6">
@@ -30,12 +50,20 @@ export function MarketContent({
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-bold tracking-tight">Market Overview</h2>
         {overview.reportPath && (
-          <Button variant="outline" size="sm" onClick={() => setReportOpen(true)} className="gap-2">
+          <button
+            onClick={() => setReportOpen(true)}
+            className="group flex items-center gap-1.5 text-sm text-muted-foreground/70 hover:text-foreground transition-colors"
+          >
             <FileText className="h-4 w-4" />
-            View Report
-          </Button>
+            <span className="group-hover:underline underline-offset-4">View Report</span>
+          </button>
         )}
       </div>
+
+      {/* Sector Strip */}
+      {sectorPerformance.length > 0 && (
+        <SectorStrip sectors={sectorPerformance} />
+      )}
 
       {/* Regime Banner */}
       <RegimeBanner
@@ -44,10 +72,12 @@ export function MarketContent({
         transition={overview.regimeTransition}
         confidence={overview.confidence}
         tradingDate={overview.tradingDate}
+        regimeHistory={regimeHistory}
+        yields={overview.yields}
       />
 
-      {/* Indices Grid */}
-      <IndicesGrid indices={overview.indices} />
+      {/* Indices Grid with Sparklines */}
+      <IndicesGrid indices={indicesWithSparklines} />
 
       {/* Market Health + Blockers */}
       <div className="grid gap-4 md:grid-cols-2">
@@ -64,50 +94,29 @@ export function MarketContent({
         />
       </div>
 
-      {/* Yields Card (if available) */}
-      {overview.yields && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Treasury Yields</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
-              <div className="space-y-1">
-                <div className="text-sm text-muted-foreground">3-Month</div>
-                <div className="text-lg font-bold tabular-nums">
-                  {overview.yields.treasury3m.toFixed(2)}%
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-sm text-muted-foreground">5-Year</div>
-                <div className="text-lg font-bold tabular-nums">
-                  {overview.yields.treasury5y.toFixed(2)}%
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-sm text-muted-foreground">10-Year</div>
-                <div className="text-lg font-bold tabular-nums">
-                  {overview.yields.treasury10y.toFixed(2)}%
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-sm text-muted-foreground">5Y-10Y Spread</div>
-                <div className="text-lg font-bold tabular-nums">
-                  {overview.yields.spread5y10y > 0 ? "+" : ""}
-                  {overview.yields.spread5y10y.toFixed(0)} bps
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-sm text-muted-foreground">3M-10Y Spread</div>
-                <div className="text-lg font-bold tabular-nums">
-                  {overview.yields.spread3m10y > 0 ? "+" : ""}
-                  {overview.yields.spread3m10y.toFixed(0)} bps
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+      {/* Quick Action Links */}
+      <div className="flex items-center gap-4">
+        <Link
+          href={stocksLinkHref}
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {overview.regime === "RISK_ON" || overview.regime === "NORMAL" ? (
+            <TrendingUp className="h-4 w-4 text-emerald-500" />
+          ) : (
+            <TrendingDown className="h-4 w-4 text-amber-500" />
+          )}
+          {stocksLinkText}
+          <ArrowRight className="h-3 w-3" />
+        </Link>
+        <Link
+          href={`/stocks?date=${currentDate}`}
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Search className="h-4 w-4" />
+          Browse All Stocks
+          <ArrowRight className="h-3 w-3" />
+        </Link>
+      </div>
 
       {/* L1 Report Sheet */}
       <L1ReportSheet

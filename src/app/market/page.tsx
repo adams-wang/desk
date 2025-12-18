@@ -1,5 +1,10 @@
 import { Suspense } from "react";
-import { getMarketOverview } from "@/lib/queries/market";
+import {
+  getMarketOverview,
+  getRegimeHistory,
+  getIndicesWithSparklines,
+  getSectorPerformance,
+} from "@/lib/queries/market";
 import { getLatestTradingDate } from "@/lib/queries/trading-days";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MarketContent } from "./market-content";
@@ -31,6 +36,9 @@ export default async function MarketPage({ searchParams }: MarketPageProps) {
   const currentDate = date || latestDate;
 
   const overview = getMarketOverview(currentDate);
+  const regimeHistory = getRegimeHistory(20, currentDate);
+  const indicesWithSparklines = getIndicesWithSparklines(currentDate);
+  const sectorPerformance = getSectorPerformance(currentDate);
 
   if (!overview) {
     return (
@@ -54,7 +62,13 @@ export default async function MarketPage({ searchParams }: MarketPageProps) {
 
   return (
     <Suspense fallback={<LoadingSkeleton />}>
-      <MarketContent overview={overview} currentDate={currentDate} />
+      <MarketContent
+        overview={overview}
+        currentDate={currentDate}
+        regimeHistory={regimeHistory}
+        indicesWithSparklines={indicesWithSparklines}
+        sectorPerformance={sectorPerformance}
+      />
     </Suspense>
   );
 }

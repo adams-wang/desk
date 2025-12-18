@@ -2,10 +2,24 @@
 
 import { cn } from "@/lib/utils";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { RegimeHistoryStrip } from "./regime-history-strip";
+import { YieldCurve } from "./yield-curve";
 
 type Regime = "RISK_ON" | "NORMAL" | "RISK_OFF" | "CRISIS";
 type Transition = "IMPROVING" | "STABLE" | "DETERIORATING" | null;
 type Confidence = "HIGH" | "MEDIUM" | "LOW";
+
+interface RegimeHistoryItem {
+  date: string;
+  regime: Regime;
+}
+
+interface YieldsData {
+  treasury3m: number;
+  treasury5y: number;
+  treasury10y: number;
+  spread3m10y: number;
+}
 
 interface RegimeBannerProps {
   regime: Regime;
@@ -13,6 +27,8 @@ interface RegimeBannerProps {
   transition: Transition;
   confidence: Confidence;
   tradingDate: string;
+  regimeHistory?: RegimeHistoryItem[];
+  yields?: YieldsData | null;
 }
 
 const regimeConfig: Record<
@@ -78,6 +94,8 @@ export function RegimeBanner({
   transition,
   confidence,
   tradingDate,
+  regimeHistory,
+  yields,
 }: RegimeBannerProps) {
   const config = regimeConfig[regime];
   const transConfig = transition ? transitionConfig[transition] : null;
@@ -91,9 +109,9 @@ export function RegimeBanner({
         config.border
       )}
     >
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center">
         {/* Regime + Position + Direction */}
-        <div className="flex flex-wrap items-center gap-4 md:gap-8">
+        <div className="flex flex-wrap items-center gap-4 md:gap-8 flex-1">
           {/* Regime */}
           <div className="flex flex-col items-center gap-1 min-w-[100px]">
             <span className="text-xs font-medium uppercase text-muted-foreground">
@@ -137,9 +155,33 @@ export function RegimeBanner({
                 {transConfig?.label || "N/A"}
               </span>
             </div>
-            <span className="text-xs text-muted-foreground">{tradingDate}</span>
+            {regimeHistory && regimeHistory.length > 0 ? (
+              <RegimeHistoryStrip history={regimeHistory} currentDate={tradingDate} />
+            ) : (
+              <span className="text-xs text-muted-foreground">{tradingDate}</span>
+            )}
           </div>
         </div>
+
+        {/* Yield Curve - Right Side */}
+        {yields && (
+          <>
+            {/* Divider */}
+            <div className="hidden md:block h-16 w-px bg-border mx-4" />
+
+            <div className="hidden md:flex flex-col items-center gap-2 flex-1 justify-center">
+              <span className="text-xs font-medium uppercase text-muted-foreground">
+                Treasury Yields
+              </span>
+              <YieldCurve
+                treasury3m={yields.treasury3m}
+                treasury5y={yields.treasury5y}
+                treasury10y={yields.treasury10y}
+                spread3m10y={yields.spread3m10y}
+              />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

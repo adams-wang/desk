@@ -427,3 +427,216 @@ export function getIndexHistory(
 
   return rows.reverse(); // Chronological order
 }
+
+// ============================================================================
+// Regime History
+// ============================================================================
+
+export interface RegimeHistoryItem {
+  date: string;
+  regime: L1Contract["regime"];
+}
+
+interface RegimeHistoryRow {
+  trading_date: string;
+  regime: string;
+}
+
+/**
+ * Get regime history for the past N days
+ */
+export function getRegimeHistory(
+  days: number = 20,
+  endDate?: string
+): RegimeHistoryItem[] {
+  const date = endDate || getLatestTradingDate();
+
+  const rows = db
+    .prepare(
+      `
+      SELECT trading_date, regime
+      FROM l1_contracts
+      WHERE trading_date <= ?
+      ORDER BY trading_date DESC
+      LIMIT ?
+    `
+    )
+    .all(date, days) as RegimeHistoryRow[];
+
+  return rows.reverse().map((row) => ({
+    date: row.trading_date,
+    regime: row.regime.toUpperCase() as L1Contract["regime"],
+  }));
+}
+
+// ============================================================================
+// Indices with Sparkline Data
+// ============================================================================
+
+export interface IndexWithSparkline {
+  code: string;
+  name: string;
+  close: number;
+  prevClose: number;
+  change: number;
+  changePct: number;
+  sparkline: number[]; // 7-day close prices
+  weekChange: number; // 5-day change percentage
+}
+
+/**
+ * Get all indices with sparkline data (7 days)
+ */
+export function getIndicesWithSparklines(date?: string): IndexWithSparkline[] {
+  const tradingDate = date || getLatestTradingDate();
+
+  // Display name mapping
+  const displayNames: Record<string, string> = {
+    "^GSPC": "S&P 500",
+    "^DJI": "Dow Jones",
+    "^IXIC": "NASDAQ",
+    "^NDX": "NASDAQ 100",
+  };
+
+  const indexOrder = ["^GSPC", "^IXIC", "^DJI", "^NDX"];
+
+  const results: IndexWithSparkline[] = [];
+
+  for (const code of indexOrder) {
+    const rows = db
+      .prepare(
+        `
+        SELECT date, close
+        FROM indices_ohlcv
+        WHERE index_code = ? AND date <= ?
+        ORDER BY date DESC
+        LIMIT 7
+      `
+      )
+      .all(code, tradingDate) as { date: string; close: number }[];
+
+    if (rows.length === 0) continue;
+
+    const sparkline = rows.map((r) => r.close).reverse();
+    const today = rows[0].close;
+    const yesterday = rows[1]?.close ?? today;
+    const weekAgo = rows[rows.length - 1]?.close ?? today;
+
+    const change = today - yesterday;
+    const changePct = yesterday !== 0 ? (change / yesterday) * 100 : 0;
+    const weekChange = weekAgo !== 0 ? ((today - weekAgo) / weekAgo) * 100 : 0;
+
+    results.push({
+      code,
+      name: displayNames[code] || code,
+      close: today,
+      prevClose: yesterday,
+      change,
+      changePct,
+      sparkline,
+      weekChange,
+    });
+  }
+
+  return results;
+}
+
+// ============================================================================
+// Sector Rotation Data
+// ============================================================================
+
+export interface SectorPerformance {
+  sector: string;
+  dayChange: number;
+  weekChange: number;
+  mrs20: number | null;
+}
+
+/**
+ * Get sector performance for rotation indicator
+ */
+export function getSectorPerformance(date?: string): SectorPerformance[] {
+  const tradingDate = date || getLatestTradingDate();
+  const contractId = `l2_${tradingDate}`;
+
+  const rows = db
+    .prepare(
+      `
+      SELECT
+        sector_name as sector,
+        roc_3 as dayChange,
+        mrs_5 as weekChange,
+        mrs_20 as mrs20
+      FROM l2_sector_rankings
+      WHERE contract_id = ?
+      ORDER BY mrs_20 DESC NULLS LAST
+    `
+    )
+    .all(contractId) as SectorPerformance[];
+
+  return rows;
+}
+
+// ============================================================================
+// Market Status
+// ============================================================================
+
+export interface MarketStatus {
+  isOpen: boolean;
+  statusText: string;
+  lastUpdate: string;
+  nextEvent: string | null;
+}
+
+/**
+ * Get current market status
+ */
+export function getMarketStatus(date?: string): MarketStatus {
+  const tradingDate = date || getLatestTradingDate();
+
+  // Get the L1 contract generation time
+  const l1 = db
+    .prepare(`SELECT generated_at FROM l1_contracts WHERE trading_date = ?`)
+    .get(tradingDate) as { generated_at: string } | undefined;
+
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const day = now.getDay();
+
+  // Simple market hours check (9:30 AM - 4:00 PM ET, Mon-Fri)
+  // This is simplified - doesn't account for holidays
+  const isWeekday = day >= 1 && day <= 5;
+  const marketTime = hour * 60 + minute;
+  const marketOpen = 9 * 60 + 30; // 9:30 AM
+  const marketClose = 16 * 60; // 4:00 PM
+
+  const isOpen = isWeekday && marketTime >= marketOpen && marketTime < marketClose;
+
+  let statusText: string;
+  let nextEvent: string | null = null;
+
+  if (!isWeekday) {
+    statusText = "Weekend";
+    nextEvent = "Opens Monday 9:30 AM";
+  } else if (marketTime < marketOpen) {
+    statusText = "Pre-Market";
+    nextEvent = "Opens 9:30 AM";
+  } else if (marketTime >= marketClose) {
+    statusText = "After Hours";
+    nextEvent = "Opens tomorrow 9:30 AM";
+  } else {
+    statusText = "Market Open";
+    const minsToClose = marketClose - marketTime;
+    const hoursToClose = Math.floor(minsToClose / 60);
+    const minsRemaining = minsToClose % 60;
+    nextEvent = `Closes in ${hoursToClose}h ${minsRemaining}m`;
+  }
+
+  return {
+    isOpen,
+    statusText,
+    lastUpdate: l1?.generated_at || tradingDate,
+    nextEvent,
+  };
+}
