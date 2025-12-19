@@ -100,7 +100,7 @@ function SectorList({ sectors }: { sectors: SectorWithSignal[] }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <span className="text-[10px] text-muted-foreground cursor-help truncate max-w-full">
+        <span className="text-[10px] text-muted-foreground cursor-default truncate max-w-full">
           {sortedSectors.map(s => s.etf_ticker).join(", ")}
         </span>
       </TooltipTrigger>

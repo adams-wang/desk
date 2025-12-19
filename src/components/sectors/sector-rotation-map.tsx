@@ -36,8 +36,8 @@ const X_MAX = 5.5;
 const X_RANGE = X_MAX - X_MIN;
 
 // Y-axis range (MRS_5)
-const Y_MIN = -2.5;
-const Y_MAX = 2.5;
+const Y_MIN = -4;
+const Y_MAX = 4;
 const Y_RANGE = Y_MAX - Y_MIN;
 
 // Convert data coordinates to SVG coordinates
@@ -54,19 +54,46 @@ function toSvgY(mrs5: number): number {
 // Get signal color for sector dot
 function getSignalColor(signal: string): string {
   switch (signal) {
-    case "RECOVERY_STRONG":
-    case "RECOVERY_EARLY":
-    case "IGNITION":
-    case "TREND":
     case "MOMENTUM":
-      return "#22c55e"; // Green - bullish
+    case "TREND":
+      return "#22c55e"; // Green - strong bullish
+    case "IGNITION":
+      return "#f59e0b"; // Amber - opportunity with caution
+    case "WEAKENING":
+      return "#86efac"; // Light green - fading momentum
+    case "RECOVERY_STRONG":
+      return "#d97706"; // Dark amber - strong recovery
+    case "RECOVERY_EARLY":
+      return "#eab308"; // Yellow - early recovery
     case "TOXIC":
     case "AVOID":
-    case "WEAKENING":
       return "#ef4444"; // Red - bearish
     default:
       return "#71717a"; // Zinc-500 - neutral
   }
+}
+
+// Zone letter to full name mapping
+const ZONE_NAMES: Record<string, string> = {
+  C: "Toxic",
+  D: "Ignition",
+  E: "Noise",
+  A: "Trend",
+  B: "Weakening",
+  F: "Momentum",
+};
+
+// Signal win rates from L2 spec
+const SIGNAL_WIN_RATES: Record<string, number> = {
+  RECOVERY_STRONG: 89.5,
+  RECOVERY_EARLY: 61.8,
+  IGNITION: 61.5,
+  WEAKENING: 67.3,
+};
+
+// Format signal name (replace underscores with spaces)
+function formatSignal(signal: string): string {
+  return signal.replace(/_/g, " ");
 }
 
 // Zone labels for bottom annotation (matching L2 spec v6.1)
@@ -77,7 +104,7 @@ const ZONE_LABELS = [
 
 export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
   // Y-axis ticks
-  const yTicks = [-2, -1, 0, 1, 2];
+  const yTicks = [-3, -1, 0, 1, 3];
 
   // Calculate dynamic X range based on actual data
   const dataExtent = useMemo(() => {
@@ -115,6 +142,19 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
             viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}
             className="w-full h-auto"
           >
+            {/* Animation keyframes */}
+            <defs>
+              <style>{`
+                @keyframes pulse {
+                  0%, 100% { opacity: 0.4; r: 20; }
+                  50% { opacity: 0.15; r: 26; }
+                }
+                @keyframes fadeSlideIn {
+                  0% { opacity: 0; transform: translateY(10px) scale(0.8); }
+                  100% { opacity: 1; transform: translateY(0) scale(1); }
+                }
+              `}</style>
+            </defs>
             {/* Zone backgrounds - muted but distinguishable */}
             {/* TOXIC zone - muted red */}
             <rect
@@ -351,16 +391,37 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
             ))}
 
             {/* Sector dots */}
-            {sectors.map((sector) => {
+            {sectors.map((sector, index) => {
               const x = toSvgX(sector.mrs_20);
               const y = toSvgY(sector.mrs_5);
               const color = getSignalColor(sector.signal);
               const etf = sector.etf_ticker;
+              // Only pulse for strong bullish signals (not WEAKENING or recovery)
+              const shouldPulse = ['TREND', 'MOMENTUM'].includes(sector.signal);
 
               return (
                 <Tooltip key={etf}>
                   <TooltipTrigger asChild>
-                    <g className="cursor-pointer transition-transform hover:scale-110" style={{ transformOrigin: `${x}px ${y}px` }}>
+                    <g
+                      className="cursor-pointer transition-all duration-500 ease-out hover:scale-110"
+                      style={{
+                        transformOrigin: `${x}px ${y}px`,
+                        animation: `fadeSlideIn 0.4s ease-out ${index * 0.05}s both`
+                      }}
+                    >
+                      {/* Pulse ring for strong bullish signals */}
+                      {shouldPulse && (
+                        <circle
+                          cx={x}
+                          cy={y}
+                          r={20}
+                          fill="none"
+                          stroke={color}
+                          strokeWidth={2}
+                          opacity={0.4}
+                          style={{ animation: 'pulse 2s ease-in-out infinite' }}
+                        />
+                      )}
                       {/* Outer ring for emphasis */}
                       <circle
                         cx={x}
@@ -368,6 +429,7 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
                         r={18}
                         fill={color}
                         opacity={0.1}
+                        className="transition-all duration-500"
                       />
                       {/* Main dot */}
                       <circle
@@ -377,6 +439,7 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
                         fill={color}
                         stroke="hsl(var(--background))"
                         strokeWidth={2}
+                        className="transition-all duration-500"
                       />
                       {/* ETF label */}
                       <text
@@ -391,19 +454,34 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
                       </text>
                     </g>
                   </TooltipTrigger>
-                  <TooltipContent side="top" className="text-xs">
-                    <div className="font-semibold">{sector.sector_name} ({etf})</div>
-                    <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 mt-1">
-                      <span className="text-muted-foreground">MRS_20:</span>
-                      <span className="font-mono">{sector.mrs_20 >= 0 ? "+" : ""}{sector.mrs_20.toFixed(2)}%</span>
-                      <span className="text-muted-foreground">MRS_5:</span>
-                      <span className="font-mono">{sector.mrs_5 >= 0 ? "+" : ""}{sector.mrs_5.toFixed(2)}%</span>
-                      <span className="text-muted-foreground">Zone:</span>
-                      <span>{sector.zone}</span>
-                      <span className="text-muted-foreground">Signal:</span>
-                      <span className="font-semibold" style={{ color }}>{sector.signal}</span>
-                      <span className="text-muted-foreground">Modifier:</span>
-                      <span className="font-mono">{sector.modifier.toFixed(2)}x</span>
+                  <TooltipContent side="top" className="text-xs p-2">
+                    <div className="font-semibold mb-1.5">{sector.sector_name} ({etf})</div>
+                    <div className="flex flex-col gap-0.5">
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">MRS 20:</span>
+                        <span className="font-mono">{sector.mrs_20 >= 0 ? "+" : ""}{sector.mrs_20.toFixed(2)}%</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">MRS 5:</span>
+                        <span className="font-mono">{sector.mrs_5 >= 0 ? "+" : ""}{sector.mrs_5.toFixed(2)}%</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">Zone:</span>
+                        <span>{ZONE_NAMES[sector.zone] || sector.zone}</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">Signal:</span>
+                        <span className="font-semibold" style={{ color }}>
+                          {formatSignal(sector.signal)}
+                          {SIGNAL_WIN_RATES[sector.signal] && (
+                            <span className="font-normal text-muted-foreground ml-1">({SIGNAL_WIN_RATES[sector.signal]}%)</span>
+                          )}
+                        </span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">Modifier:</span>
+                        <span className="font-mono">{sector.modifier.toFixed(2)}x</span>
+                      </div>
                     </div>
                   </TooltipContent>
                 </Tooltip>

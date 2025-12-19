@@ -123,3 +123,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hide tooltip arrows globally */
+[data-radix-tooltip-arrow],
+[data-slot="tooltip-content"] > svg,
+[data-radix-popper-content-wrapper] svg,
+[role="tooltip"] > svg:last-child {
+  display: none !important;
+}

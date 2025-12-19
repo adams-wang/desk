@@ -105,7 +105,7 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-card border border-border rounded-lg p-3 shadow-lg text-sm">
+        <div className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-lg text-sm">
           <p className="font-semibold text-foreground">{data.name}</p>
           <p className="text-muted-foreground">ETF: {data.etf}</p>
           <p className="text-blue-400">MRS 20: {data.mrs_20.toFixed(2)}%</p>

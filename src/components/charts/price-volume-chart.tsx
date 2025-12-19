@@ -177,7 +177,7 @@ function CustomTooltip({
   const vixInfo = d.vixRegime ? regimeDisplay[d.vixRegime] : null;
 
   return (
-    <div className="bg-card border border-border rounded-lg p-3 shadow-xl text-sm min-w-[275px]">
+    <div className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm min-w-[275px]">
       <div className="flex items-start justify-between">
         <span className="font-semibold text-foreground">{d.fullDate}</span>
         <div className="flex flex-col items-end gap-0 text-xs font-mono">
@@ -287,10 +287,11 @@ function calculateSMASimple(data: OHLCVData[], period: number): (number | null)[
   });
 }
 
-// Shared tooltip for both candlestick and volume charts
+// Shared tooltip for both candlestick and volume charts - positioned above candle
 function CandleTooltip({
   active,
   payload,
+  coordinate,
 }: {
   active?: boolean;
   payload?: Array<{
@@ -323,14 +324,22 @@ function CandleTooltip({
       macd_signal: number | null;
     };
   }>;
+  coordinate?: { x: number; y: number };
 }) {
-  if (!active || !payload?.length) return null;
+  if (!active || !payload?.length || !coordinate) return null;
 
   const d = payload[0].payload;
   const isBullish = d.close >= d.open;
 
   return (
-    <div className="bg-card border border-border rounded-lg p-3 shadow-xl text-sm">
+    <div
+      className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm absolute pointer-events-none z-50"
+      style={{
+        left: coordinate.x,
+        top: coordinate.y - 50,
+        transform: 'translateX(-50%) translateY(-100%)',
+      }}
+    >
       <div className="flex items-center gap-2 mb-2">
         <span className="font-semibold text-foreground">{d.date}</span>
         <span className={`text-xs font-bold ${isBullish ? "text-green-500" : "text-red-500"}`}>
@@ -537,7 +546,12 @@ function CandlestickChart({
             tickLine={false}
           />
 
-          <Tooltip content={<CandleTooltip />} cursor={false} />
+          <Tooltip
+            content={<CandleTooltip />}
+            cursor={false}
+            allowEscapeViewBox={{ x: true, y: true }}
+            wrapperStyle={{ zIndex: 50, overflow: 'visible' }}
+          />
 
           {/* Candlesticks - render body using close-open range */}
           <Bar
@@ -545,7 +559,7 @@ function CandlestickChart({
             dataKey={(d: typeof chartData[0]) => [Math.min(d.open, d.close), Math.max(d.open, d.close)]}
             barSize={32}
             shape={(props: any) => {
-              const { x, y, width, height, payload } = props;
+              const { x, y, width, height: barHeight, payload } = props;
               if (!payload || !x || !width) return <></>;
 
 
@@ -557,13 +571,14 @@ function CandlestickChart({
 
               // Calculate pixels per price unit from actual chart dimensions
               // Chart height = height * 0.618, minus top margin (10)
+              // Note: 'height' here is the component prop, not barHeight from props
               const plotAreaHeight = height * 0.618 - 10;
               const priceRange = priceDomain[1] - priceDomain[0];
               const pixelsPerPrice = plotAreaHeight / priceRange;
 
               // Body position from Recharts
-              const bodyTop = Math.min(y, y + (props.height || 0));
-              const bodyBottom = Math.max(y, y + (props.height || 0));
+              const bodyTop = Math.min(y, y + (barHeight || 0));
+              const bodyBottom = Math.max(y, y + (barHeight || 0));
 
               // Calculate wick positions using consistent scale
               const highY = bodyTop - (high - Math.max(open, close)) * pixelsPerPrice;
@@ -1181,7 +1196,10 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
             tickLine={false}
           />
 
-          <Tooltip content={<CustomTooltip />} cursor={false} />
+          <Tooltip
+            content={<CustomTooltip />}
+            cursor={{ stroke: 'rgba(107, 114, 128, 0.5)', strokeWidth: 1, strokeDasharray: '4 4' }}
+          />
 
           {/* Volume Bars with percentile labels - smaller bars for compact view */}
           <Bar

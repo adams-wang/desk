@@ -39,56 +39,44 @@ function calculateSMA(data: IndexOHLCV[], period: number): (number | null)[] {
   });
 }
 
-// Custom tooltip for index charts
+// Custom tooltip positioned above candle - follows both X and Y
 function IndexTooltip({
   active,
   payload,
+  coordinate,
 }: {
   active?: boolean;
   payload?: Array<{ payload: ChartDataPoint }>;
+  coordinate?: { x: number; y: number };
 }) {
-  if (!active || !payload?.length) return null;
+  if (!active || !payload?.length || !coordinate) return null;
 
   const d = payload[0].payload;
 
   return (
-    <div className="bg-card border border-border rounded-lg p-2 shadow-xl text-xs">
+    <div
+      className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-2 shadow-xl text-xs absolute pointer-events-none z-50 whitespace-nowrap"
+      style={{
+        left: coordinate.x,
+        top: coordinate.y - 50,
+        transform: 'translateX(-50%) translateY(-100%)',
+      }}
+    >
       <div className="font-semibold text-foreground mb-1">{d.date}</div>
       <div className="space-y-0.5 font-mono">
-        <p>
-          <span className="text-orange-400">O:</span>{" "}
-          <span className="text-foreground">{d.open.toLocaleString()}</span>
-        </p>
-        <p>
-          <span className="text-muted-foreground">H:</span>{" "}
-          <span className="text-green-400">{d.high.toLocaleString()}</span>
-        </p>
-        <p>
-          <span className="text-muted-foreground">L:</span>{" "}
-          <span className="text-red-400">{d.low.toLocaleString()}</span>
-        </p>
-        <p>
-          <span className="text-muted-foreground">C:</span>{" "}
-          <span className="text-foreground font-bold">{d.close.toLocaleString()}</span>
-        </p>
-        {d.sma20 != null && (
-          <p>
-            <span className="text-blue-400">SMA20:</span>{" "}
-            <span className="text-foreground">{d.sma20.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
-          </p>
-        )}
-        {d.sma50 != null && (
-          <p>
-            <span className="text-purple-400">SMA50:</span>{" "}
-            <span className="text-foreground">{d.sma50.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
-          </p>
-        )}
-        {d.volume > 0 && (
-          <p>
-            <span className="text-muted-foreground">Vol:</span>{" "}
-            <span className="text-cyan-400">{(d.volume / 1e9).toFixed(2)}B</span>
-          </p>
-        )}
+        <div className="flex gap-3">
+          <span><span className="text-orange-400">O:</span> {d.open.toLocaleString()}</span>
+          <span><span className="text-green-400">H:</span> {d.high.toLocaleString()}</span>
+        </div>
+        <div className="flex gap-3">
+          <span><span className="text-red-400">L:</span> {d.low.toLocaleString()}</span>
+          <span><span className="font-bold">C:</span> {d.close.toLocaleString()}</span>
+        </div>
+        {d.volume > 0 && <div><span className="text-muted-foreground">Vol:</span> <span className="text-cyan-400">{(d.volume / 1e9).toFixed(2)}B</span></div>}
+        <div className="flex gap-3 text-muted-foreground">
+          {d.sma20 != null && <span><span className="text-blue-400">SMA20:</span> {d.sma20.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>}
+          {d.sma50 != null && <span><span className="text-purple-400">SMA50:</span> {d.sma50.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>}
+        </div>
       </div>
     </div>
   );
@@ -145,7 +133,7 @@ function IndexOHLCVChart({ name, data, displayDays = 42, height = 200 }: IndexOH
   }
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-visible">
       <CardHeader className="pb-0 pt-1.5 px-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-sm font-medium">{name}</CardTitle>
@@ -182,7 +170,12 @@ function IndexOHLCVChart({ name, data, displayDays = 42, height = 200 }: IndexOH
               tickLine={false}
             />
 
-            <Tooltip content={<IndexTooltip />} cursor={false} />
+            <Tooltip
+              content={<IndexTooltip />}
+              cursor={false}
+              allowEscapeViewBox={{ x: true, y: true }}
+              wrapperStyle={{ zIndex: 50, overflow: 'visible' }}
+            />
 
             {/* Candlesticks - using Bar with custom shape */}
             <Bar

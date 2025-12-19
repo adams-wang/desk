@@ -55,20 +55,29 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
     isLast: idx === data.length - 1,
   }));
 
-  // Custom tooltip
+  // Custom tooltip - positioned above lines
   const CustomTooltip = ({
     active,
     payload,
-    label
+    label,
+    coordinate
   }: {
     active?: boolean;
     payload?: Array<{ value: number; dataKey: string; color: string }>;
-    label?: string
+    label?: string;
+    coordinate?: { x: number; y: number };
   }) => {
-    if (active && payload && payload.length) {
+    if (active && payload && payload.length && coordinate) {
       const item = chartData.find((d) => d.date === label);
       return (
-        <div className="bg-card border border-border rounded-lg p-3 shadow-lg text-sm">
+        <div
+          className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-lg text-sm absolute pointer-events-none z-50 whitespace-nowrap"
+          style={{
+            left: coordinate.x,
+            top: coordinate.y - 50,
+            transform: 'translateX(-50%) translateY(-100%)',
+          }}
+        >
           <p className="font-semibold text-foreground mb-2">{item?.fullDate}</p>
           <div className="space-y-1">
             {payload.map((p) => {
@@ -199,7 +208,11 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             width={50}
           />
 
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip
+            content={<CustomTooltip />}
+            allowEscapeViewBox={{ x: true, y: true }}
+            wrapperStyle={{ zIndex: 50, overflow: 'visible' }}
+          />
 
           {/* Reference lines for entry zones */}
           <ReferenceLine yAxisId="mrs" y={0} stroke="var(--color-muted-foreground)" strokeWidth={1} strokeOpacity={0.5} />
