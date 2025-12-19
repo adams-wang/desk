@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FileText, ArrowRight, TrendingUp, TrendingDown, Search } from "lucide-react";
 import {
   RegimeBanner,
@@ -29,7 +30,13 @@ export function MarketContent({
   regimeHistory,
   indicesWithSparklines,
 }: MarketContentProps) {
+  const router = useRouter();
   const [reportOpen, setReportOpen] = useState(false);
+
+  // Navigate to indices detail page
+  const handleIndicesClick = () => {
+    router.push(`/indices?date=${currentDate}`);
+  };
 
   // Determine stocks link based on regime
   const stocksLinkText = overview.regime === "RISK_ON" || overview.regime === "NORMAL"
@@ -67,8 +74,8 @@ export function MarketContent({
         yields={overview.yields}
       />
 
-      {/* Indices Grid with Sparklines */}
-      <IndicesGrid indices={indicesWithSparklines} />
+      {/* Indices Grid with Sparklines - click any to drill down */}
+      <IndicesGrid indices={indicesWithSparklines} onIndexClick={handleIndicesClick} />
 
       {/* Market Health + Blockers */}
       <div className="grid gap-4 md:grid-cols-2">
