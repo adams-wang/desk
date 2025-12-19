@@ -2,21 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FileText, ArrowRight, TrendingUp, TrendingDown, Search } from "lucide-react";
 import {
   RegimeBanner,
   IndicesGrid,
   MarketHealthCard,
   BlockersCard,
-  SectorStrip,
 } from "@/components/market";
 import { L1ReportSheet } from "./l1-report-sheet";
 import type {
   MarketOverview,
   RegimeHistoryItem,
   IndexWithSparkline,
-  SectorPerformance,
 } from "@/lib/queries/market";
 
 interface MarketContentProps {
@@ -24,34 +21,15 @@ interface MarketContentProps {
   currentDate: string;
   regimeHistory: RegimeHistoryItem[];
   indicesWithSparklines: IndexWithSparkline[];
-  sectorPerformance: SectorPerformance[];
 }
-
-// Map index codes to ETF tickers
-const indexToETF: Record<string, string> = {
-  "^GSPC": "SPY",
-  "^IXIC": "QQQ",
-  "^DJI": "DIA",
-  "^NDX": "QQQ",
-};
 
 export function MarketContent({
   overview,
   currentDate,
   regimeHistory,
   indicesWithSparklines,
-  sectorPerformance,
 }: MarketContentProps) {
-  const router = useRouter();
   const [reportOpen, setReportOpen] = useState(false);
-
-  // Handle index card click - navigate to ETF stock page
-  const handleIndexClick = (code: string) => {
-    const etf = indexToETF[code];
-    if (etf) {
-      router.push(`/stocks/${etf}?date=${currentDate}`);
-    }
-  };
 
   // Determine stocks link based on regime
   const stocksLinkText = overview.regime === "RISK_ON" || overview.regime === "NORMAL"
@@ -78,11 +56,6 @@ export function MarketContent({
         )}
       </div>
 
-      {/* Sector Strip */}
-      {sectorPerformance.length > 0 && (
-        <SectorStrip sectors={sectorPerformance} />
-      )}
-
       {/* Regime Banner */}
       <RegimeBanner
         regime={overview.regime}
@@ -95,7 +68,7 @@ export function MarketContent({
       />
 
       {/* Indices Grid with Sparklines */}
-      <IndicesGrid indices={indicesWithSparklines} onIndexClick={handleIndexClick} />
+      <IndicesGrid indices={indicesWithSparklines} />
 
       {/* Market Health + Blockers */}
       <div className="grid gap-4 md:grid-cols-2">

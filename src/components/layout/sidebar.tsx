@@ -11,13 +11,15 @@ import {
   PieChart,
   MessageSquare,
   TrendingUp,
+  Activity,
 } from "lucide-react";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard, preserveDate: false },
   { name: "Market", href: "/market", icon: TrendingUp, preserveDate: true },
-  { name: "Stocks", href: "/stocks", icon: Search, preserveDate: true },
+  { name: "Indices", href: "/indices", icon: Activity, preserveDate: true },
   { name: "Sectors", href: "/sectors", icon: PieChart, preserveDate: true },
+  { name: "Stocks", href: "/stocks", icon: Search, preserveDate: true },
   { name: "Positions", href: "/positions", icon: Briefcase, preserveDate: false },
   { name: "Charts", href: "/charts", icon: BarChart3, preserveDate: false },
   { name: "Chat", href: "/chat", icon: MessageSquare, preserveDate: false },

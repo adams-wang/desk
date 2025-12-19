@@ -1,6 +1,7 @@
 export { RegimeBanner } from "./regime-banner";
 export { RegimeHistoryStrip } from "./regime-history-strip";
 export { IndexCard, IndicesGrid } from "./index-card";
+export { IndicesOHLCVGrid } from "./indices-ohlcv-grid";
 export { VixGauge } from "./vix-gauge";
 export { BreadthBar } from "./breadth-bar";
 export { BlockersCard } from "./blockers-card";

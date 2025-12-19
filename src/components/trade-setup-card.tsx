@@ -183,7 +183,7 @@ export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSe
             <div className="flex items-center" style={{ gap: "70px" }}>
               <span className="text-sm text-muted-foreground w-12">Entry</span>
               <span className="font-mono tabular-nums font-medium">
-                ${contract.entry_price.toFixed(2)}
+                ${contract.entry_price?.toFixed(2) ?? "-"}
               </span>
             </div>
 
@@ -191,9 +191,9 @@ export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSe
             <div className="flex items-center" style={{ gap: "70px" }}>
               <span className="text-sm text-muted-foreground w-12">Target</span>
               <span className="font-mono tabular-nums text-emerald-500">
-                ${contract.target_price.toFixed(2)}{" "}
+                ${contract.target_price?.toFixed(2) ?? "-"}{" "}
                 <span className="text-xs">
-                  (+{targetUpside.toFixed(1)}%)
+                  (+{targetUpside?.toFixed(1) ?? "-"}%)
                 </span>
               </span>
             </div>
@@ -202,7 +202,7 @@ export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSe
             <div className="flex items-center" style={{ gap: "70px" }}>
               <span className="text-sm text-muted-foreground w-12">Stop</span>
               <span className="font-mono tabular-nums text-red-500">
-                ${contract.stop_loss.toFixed(2)}
+                ${contract.stop_loss?.toFixed(2) ?? "-"}
               </span>
             </div>
 
@@ -212,14 +212,14 @@ export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSe
               <span
                 className={cn(
                   "font-mono tabular-nums font-medium",
-                  contract.risk_reward >= 2
+                  contract.risk_reward != null && contract.risk_reward >= 2
                     ? "text-emerald-500"
-                    : contract.risk_reward >= 1.5
+                    : contract.risk_reward != null && contract.risk_reward >= 1.5
                     ? "text-yellow-500"
                     : "text-red-500"
                 )}
               >
-                {contract.risk_reward.toFixed(2)}
+                {contract.risk_reward?.toFixed(2) ?? "-"}
               </span>
             </div>
 
@@ -227,7 +227,7 @@ export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSe
             <div className="flex items-center" style={{ gap: "70px" }}>
               <span className="text-sm text-muted-foreground w-12">Risk</span>
               <span className="font-mono tabular-nums text-red-500">
-                -{contract.stop_loss_pct.toFixed(1)}%
+                -{contract.stop_loss_pct?.toFixed(1) ?? "-"}%
               </span>
             </div>
 
@@ -240,8 +240,8 @@ export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSe
                   getConvictionColor(contract.conviction)
                 )}
               >
-                {contract.conviction_score.toFixed(0)}{" "}
-                <span className="text-xs">({contract.conviction})</span>
+                {contract.conviction_score?.toFixed(0) ?? "-"}{" "}
+                <span className="text-xs">({contract.conviction ?? "-"})</span>
               </span>
             </div>
 

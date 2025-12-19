@@ -588,6 +588,69 @@ export interface MarketStatus {
   nextEvent: string | null;
 }
 
+// ============================================================================
+// Indices OHLCV History for Charts
+// ============================================================================
+
+export interface IndexOHLCV {
+  date: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+}
+
+export interface IndicesOHLCVHistory {
+  code: string;
+  name: string;
+  data: IndexOHLCV[];
+}
+
+/**
+ * Get OHLCV history for all 4 indices (for quad chart view)
+ */
+export function getIndicesOHLCVHistory(
+  days: number = 20,
+  endDate?: string
+): IndicesOHLCVHistory[] {
+  const date = endDate || getLatestTradingDate();
+
+  const displayNames: Record<string, string> = {
+    "^GSPC": "S&P 500",
+    "^DJI": "Dow Jones",
+    "^IXIC": "NASDAQ",
+    "^NDX": "NASDAQ 100",
+  };
+
+  const indexOrder = ["^GSPC", "^IXIC", "^DJI", "^NDX"];
+  const results: IndicesOHLCVHistory[] = [];
+
+  for (const code of indexOrder) {
+    const rows = db
+      .prepare(
+        `
+        SELECT date, open, high, low, close, volume
+        FROM indices_ohlcv
+        WHERE index_code = ? AND date <= ?
+        ORDER BY date DESC
+        LIMIT ?
+      `
+      )
+      .all(code, date, days) as IndexOHLCV[];
+
+    if (rows.length > 0) {
+      results.push({
+        code,
+        name: displayNames[code] || code,
+        data: rows.reverse(), // Chronological order
+      });
+    }
+  }
+
+  return results;
+}
+
 /**
  * Get current market status
  */

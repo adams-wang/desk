@@ -118,19 +118,19 @@
 
 **Rules:**
 - [ ] Use `tabular-nums` for all prices (prevents layout shift)
-- [ ] Always prefix with currency symbol ($)
+- [ ] Always prefix with currency symbol ($) for stock prices
 - [ ] Show both absolute and percentage change
 - [ ] Color the change, not the price itself
-- [ ] Use parentheses for negative: `(-2.34%)` not `-2.34%`
+- [ ] Prefix positive with `+`, negative uses `-` directly (no parentheses)
 
 ### B. Percentage & Ratio Display
 
 | Type | Format | Example |
 |------|--------|---------|
-| Price change | `+X.XX%` / `(-X.XX%)` | `+1.67%`, `(-2.34%)` |
+| Price change | `+X.XX%` / `-X.XX%` | `+1.67%`, `-2.34%` |
 | MRS/Score | `XX.X%` | `78.5%` |
 | Ratio | `X.XX` | `1.45` |
-| Basis points | `+XXbps` | `+25bps` |
+| Basis points | `+XX bps` | `+25 bps` |
 
 ### C. Number Formatting
 
@@ -268,7 +268,8 @@ const candlestickOptions = {
 
 ## VII. Accessibility Checklist
 
-- [ ] Color is never the only indicator (add icons, text, patterns)
+- [ ] Primary data uses color + text/icons (not color alone)
+- [ ] Supplementary indicators (regime dots, heatmaps) may use color-only with tooltip fallback
 - [ ] All interactive elements keyboard accessible
 - [ ] Focus states visible
 - [ ] ARIA labels on icon-only buttons

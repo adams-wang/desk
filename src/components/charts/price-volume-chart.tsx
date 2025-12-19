@@ -555,22 +555,19 @@ function CandlestickChart({
               const bodyWidth = width * 0.95; // Match Analysis chart bar width
               const bodyX = x + (width - bodyWidth) / 2;
 
-              // Body height and position from props (already calculated by Recharts)
-              const bodyY = y || 0;
-              const bodyHeight = Math.max(height || 1, 1);
-
-              // Calculate wick positions - need to use price ratios
-              // Y increases downward, so high price = lower Y value
+              // Calculate pixels per price unit from actual chart dimensions
+              // Chart height = height * 0.618, minus top margin (10)
+              const plotAreaHeight = height * 0.618 - 10;
               const priceRange = priceDomain[1] - priceDomain[0];
-              const chartHeight = bodyHeight / Math.abs(close - open) * priceRange || 200;
-              const pixelsPerDollar = chartHeight / priceRange;
+              const pixelsPerPrice = plotAreaHeight / priceRange;
 
-              const bodyTop = Math.min(y, y + (height || 0));
-              const bodyBottom = Math.max(y, y + (height || 0));
+              // Body position from Recharts
+              const bodyTop = Math.min(y, y + (props.height || 0));
+              const bodyBottom = Math.max(y, y + (props.height || 0));
 
-              // Wick positions relative to body (high >= max(open,close), low <= min(open,close))
-              const highY = bodyTop - (high - Math.max(open, close)) * pixelsPerDollar;
-              const lowY = bodyBottom + (Math.min(open, close) - low) * pixelsPerDollar;
+              // Calculate wick positions using consistent scale
+              const highY = bodyTop - (high - Math.max(open, close)) * pixelsPerPrice;
+              const lowY = bodyBottom + (Math.min(open, close) - low) * pixelsPerPrice;
 
               return (
                 <g>
