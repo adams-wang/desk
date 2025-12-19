@@ -21,6 +21,7 @@ const zoneConfig: Record<Zone, { label: string; bg: string; text: string; descri
   D: { label: "Ignition", bg: "bg-amber-500/20", text: "text-amber-600", description: "-3.5% < MRS_20 < -0.5%" },
   E: { label: "Noise", bg: "bg-zinc-500/20", text: "text-zinc-500", description: "-0.5% ≤ MRS_20 ≤ 0.5%" },
   A: { label: "Trend", bg: "bg-blue-500/20", text: "text-blue-500", description: "0.5% < MRS_20 < 2.8%" },
+  B: { label: "Weakening", bg: "bg-orange-500/20", text: "text-orange-500", description: "MRS_5 < 0 (momentum fading)" },
   F: { label: "Momentum", bg: "bg-emerald-500/20", text: "text-emerald-600", description: "MRS_20 ≥ 2.8%" },
 };
 

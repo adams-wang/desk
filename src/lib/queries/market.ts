@@ -542,42 +542,6 @@ export function getIndicesWithSparklines(date?: string): IndexWithSparkline[] {
 }
 
 // ============================================================================
-// Sector Rotation Data
-// ============================================================================
-
-export interface SectorPerformance {
-  sector: string;
-  dayChange: number;
-  weekChange: number;
-  mrs20: number | null;
-}
-
-/**
- * Get sector performance for rotation indicator
- */
-export function getSectorPerformance(date?: string): SectorPerformance[] {
-  const tradingDate = date || getLatestTradingDate();
-  const contractId = `l2_${tradingDate}`;
-
-  const rows = db
-    .prepare(
-      `
-      SELECT
-        sector_name as sector,
-        roc_3 as dayChange,
-        mrs_5 as weekChange,
-        mrs_20 as mrs20
-      FROM l2_sector_rankings
-      WHERE contract_id = ?
-      ORDER BY mrs_20 DESC NULLS LAST
-    `
-    )
-    .all(contractId) as SectorPerformance[];
-
-  return rows;
-}
-
-// ============================================================================
 // Market Status
 // ============================================================================
 
