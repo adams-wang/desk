@@ -514,8 +514,8 @@ export function SectorRotationMap({ sectors, history }: SectorRotationMapProps) 
               const y = toSvgY(sector.mrs_5);
               const color = getSignalColor(sector.signal);
               const etf = sector.etf_ticker;
-              // Only pulse for strong bullish signals (not WEAKENING or recovery)
-              const shouldPulse = !hasHistory && ['TREND', 'MOMENTUM'].includes(sector.signal);
+              // Pulse for strong bullish signals when not playing
+              const shouldPulse = !isPlaying && ['TREND', 'MOMENTUM'].includes(sector.signal);
 
               // Use transform for smooth animation in playback mode
               const transformStyle = hasHistory
