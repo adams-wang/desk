@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Play, Pause, RotateCcw } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { SectorWithSignal, SectorRotationHistoryDay } from "@/lib/queries/sectors";
@@ -199,15 +199,6 @@ export function SectorRotationMap({ sectors, history }: SectorRotationMapProps) 
 
   // Y-axis ticks
   const yTicks = [-3, -1, 0, 1, 3];
-
-  // Calculate dynamic X range based on actual data
-  const dataExtent = useMemo(() => {
-    const mrs20Values = displaySectors.map(s => s.mrs_20);
-    return {
-      min: Math.min(...mrs20Values),
-      max: Math.max(...mrs20Values),
-    };
-  }, [displaySectors]);
 
   return (
     <Card className="py-0 gap-0">

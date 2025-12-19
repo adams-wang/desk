@@ -26,7 +26,6 @@ function RankSparkline({
   signals
 }: {
   ranks: number[];
-  currentRank: number;
   dates: string[];
   zones?: string[];
   signals?: string[];
@@ -381,7 +380,6 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
                           {rankHistory && (
                             <RankSparkline
                               ranks={rankHistory.ranks}
-                              currentRank={sector.rank}
                               dates={rankHistory.dates}
                               zones={rankHistory.zones}
                               signals={rankHistory.signals}
