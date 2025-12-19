@@ -136,11 +136,12 @@ export function getSectorRotationData(endDate?: string): SectorRotationData {
       SELECT etf, sector_name, rank, signal, zone, modifier, mrs_20, mrs_5, roc_3
       FROM l2_sector_rankings
       WHERE contract_id = ?
-      ORDER BY rank ASC
+      ORDER BY mrs_20 DESC
     `)
     .all(contractId) as L2SectorRankingRow[];
 
-  const sectors: SectorWithSignal[] = rows.map(row => ({
+  // Recalculate rank based on MRS20 (highest MRS20 = rank 1)
+  const sectors: SectorWithSignal[] = rows.map((row, index) => ({
     sector_name: row.sector_name,
     etf_ticker: row.etf,
     mrs_5: row.mrs_5,
@@ -150,7 +151,7 @@ export function getSectorRotationData(endDate?: string): SectorRotationData {
     zone: row.zone as Zone,
     signal: row.signal as Signal,
     modifier: row.modifier,
-    rank: row.rank,
+    rank: index + 1, // Rank by MRS20 descending
   }));
 
   // Derive aggregates
@@ -226,11 +227,12 @@ export function getSectorRotationHistory(days: number = 10, endDate?: string): S
         SELECT etf, sector_name, rank, signal, zone, modifier, mrs_20, mrs_5, roc_3
         FROM l2_sector_rankings
         WHERE contract_id = ?
-        ORDER BY rank ASC
+        ORDER BY mrs_20 DESC
       `)
       .all(contract_id) as L2SectorRankingRow[];
 
-    const sectors: SectorWithSignal[] = rows.map(row => ({
+    // Recalculate rank based on MRS20 (highest MRS20 = rank 1)
+    const sectors: SectorWithSignal[] = rows.map((row, index) => ({
       sector_name: row.sector_name,
       etf_ticker: row.etf,
       mrs_5: row.mrs_5,
@@ -240,7 +242,7 @@ export function getSectorRotationHistory(days: number = 10, endDate?: string): S
       zone: row.zone as Zone,
       signal: row.signal as Signal,
       modifier: row.modifier,
-      rank: row.rank,
+      rank: index + 1, // Rank by MRS20 descending
     }));
 
     const rotationBias = deriveRotationBias(sectors);

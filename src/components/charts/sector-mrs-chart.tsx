@@ -34,9 +34,10 @@ interface SectorMRSChartProps {
   currentSector: string | null;
   height?: number;
   intervalMs?: number;
+  showControls?: boolean; // Hide playback controls for static view
 }
 
-export function SectorMRSChart({ history, currentSector, height = 380, intervalMs = 1200 }: SectorMRSChartProps) {
+export function SectorMRSChart({ history, currentSector, height = 380, intervalMs = 1200, showControls = true }: SectorMRSChartProps) {
   const [currentDayIndex, setCurrentDayIndex] = useState(history.length - 1);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -158,54 +159,58 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
 
   return (
     <div className="w-full space-y-3">
-      {/* Controls */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={togglePlay}
-            className="p-1.5 rounded-md bg-blue-500 hover:bg-blue-600 text-white transition-colors"
-            title={isPlaying ? "Pause" : "Play"}
-          >
-            {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-          </button>
-          <button
-            onClick={handleRestart}
-            className="p-1.5 rounded-md bg-muted hover:bg-muted/80 transition-colors"
-            title="Restart"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-          </button>
-        </div>
+      {/* Controls - only show when showControls is true */}
+      {showControls && (
+        <>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={togglePlay}
+                className="p-1.5 rounded-md bg-blue-500 hover:bg-blue-600 text-white transition-colors"
+                title={isPlaying ? "Pause" : "Play"}
+              >
+                {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+              </button>
+              <button
+                onClick={handleRestart}
+                className="p-1.5 rounded-md bg-muted hover:bg-muted/80 transition-colors"
+                title="Restart"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+              </button>
+            </div>
 
-        {/* Date indicator */}
-        <div className="text-xs font-mono">
-          <span className="text-muted-foreground">{currentDay.date}</span>
-          <span className="text-muted-foreground/60 ml-2">
-            ({currentDayIndex + 1}/{history.length})
-          </span>
-        </div>
-      </div>
+            {/* Date indicator */}
+            <div className="text-xs font-mono">
+              <span className="text-muted-foreground">{currentDay.date}</span>
+              <span className="text-muted-foreground/60 ml-2">
+                ({currentDayIndex + 1}/{history.length})
+              </span>
+            </div>
+          </div>
 
-      {/* Timeline */}
-      <div className="flex items-center gap-0.5">
-        {history.map((day, idx) => (
-          <button
-            key={day.date}
-            onClick={() => {
-              setCurrentDayIndex(idx);
-              setIsPlaying(false);
-            }}
-            className={`flex-1 h-1.5 rounded-full transition-all ${
-              idx === currentDayIndex
-                ? "bg-blue-500"
-                : idx < currentDayIndex
-                ? "bg-blue-500/50"
-                : "bg-muted"
-            }`}
-            title={day.date}
-          />
-        ))}
-      </div>
+          {/* Timeline */}
+          <div className="flex items-center gap-0.5">
+            {history.map((day, idx) => (
+              <button
+                key={day.date}
+                onClick={() => {
+                  setCurrentDayIndex(idx);
+                  setIsPlaying(false);
+                }}
+                className={`flex-1 h-1.5 rounded-full transition-all ${
+                  idx === currentDayIndex
+                    ? "bg-blue-500"
+                    : idx < currentDayIndex
+                    ? "bg-blue-500/50"
+                    : "bg-muted"
+                }`}
+                title={day.date}
+              />
+            ))}
+          </div>
+        </>
+      )}
 
       <ResponsiveContainer width="100%" height={height}>
         <ComposedChart
