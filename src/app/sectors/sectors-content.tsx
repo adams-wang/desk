@@ -6,6 +6,7 @@ import {
   RotationBanner,
   SignalSummaryCards,
   SectorRankingsTable,
+  SectorRotationMap,
   L2ReportSheet,
 } from "@/components/sectors";
 import type { SectorRotationData } from "@/lib/queries/sectors";
@@ -47,6 +48,9 @@ export function SectorsContent({ data, currentDate }: SectorsContentProps) {
         bullishCount={data.bullishCount}
         bearishCount={data.bearishCount}
       />
+
+      {/* Sector Rotation Map Visualization */}
+      <SectorRotationMap sectors={data.sectors} />
 
       {/* Sector Rankings Table */}
       <SectorRankingsTable
