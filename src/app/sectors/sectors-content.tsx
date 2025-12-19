@@ -4,7 +4,6 @@ import { useState } from "react";
 import { FileText } from "lucide-react";
 import {
   RotationBanner,
-  SignalSummaryCards,
   SectorRankingsTable,
   SectorRotationMap,
   L2ReportSheet,
@@ -39,14 +38,7 @@ export function SectorsContent({ data, currentDate }: SectorsContentProps) {
       <RotationBanner
         rotationBias={data.rotationBias}
         cyclePhase={data.cyclePhase}
-        tradingDate={currentDate}
-      />
-
-      {/* Signal Summary Cards */}
-      <SignalSummaryCards
         sectors={data.sectors}
-        bullishCount={data.bullishCount}
-        bearishCount={data.bearishCount}
       />
 
       {/* Sector Rotation Map Visualization */}

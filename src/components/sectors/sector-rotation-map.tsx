@@ -69,14 +69,10 @@ function getSignalColor(signal: string): string {
   }
 }
 
-// Zone labels for bottom annotation
+// Zone labels for bottom annotation (matching L2 spec v6.1)
 const ZONE_LABELS = [
-  { min: X_MIN, max: ZONE_BOUNDS.toxic, label: "TOXIC", color: "#ef4444" },
-  { min: ZONE_BOUNDS.toxic, max: ZONE_BOUNDS.ignition, label: "IGNITION", color: "#f59e0b" },
-  { min: ZONE_BOUNDS.ignition, max: ZONE_BOUNDS.noise, label: "BUFFER", color: "#71717a" },
-  { min: ZONE_BOUNDS.noise, max: ZONE_BOUNDS.trend, label: "TREND", color: "#22c55e" },
-  { min: ZONE_BOUNDS.trend, max: ZONE_BOUNDS.extension, label: "EXTEND", color: "#f59e0b" },
-  { min: ZONE_BOUNDS.extension, max: X_MAX, label: "EXHAUST", color: "#ef4444" },
+  { min: X_MIN, max: ZONE_BOUNDS.toxic, label: "TOXIC / AVOID", color: "#ef4444" },
+  { min: ZONE_BOUNDS.ignition, max: ZONE_BOUNDS.noise, label: "NOISE / HOLD", color: "#71717a" },
 ];
 
 export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
@@ -158,7 +154,7 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
               opacity={0.08}
             />
 
-            {/* TREND zone - top half green (strong), bottom half muted green */}
+            {/* TREND zone - top half only (bottom is covered by WEAKENING) */}
             <rect
               x={toSvgX(ZONE_BOUNDS.noise)}
               y={PADDING.top}
@@ -167,45 +163,30 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
               fill="#22c55e"
               opacity={0.18}
             />
-            <rect
-              x={toSvgX(ZONE_BOUNDS.noise)}
-              y={toSvgY(0)}
-              width={toSvgX(ZONE_BOUNDS.trend) - toSvgX(ZONE_BOUNDS.noise)}
-              height={PADDING.top + PLOT_HEIGHT - toSvgY(0)}
-              fill="#22c55e"
-              opacity={0.08}
-            />
 
-            {/* EXTENSION zone - amber (caution) */}
+            {/* Zone F (MOMENTUM) - top half green (strong) */}
             <rect
               x={toSvgX(ZONE_BOUNDS.trend)}
               y={PADDING.top}
-              width={toSvgX(ZONE_BOUNDS.extension) - toSvgX(ZONE_BOUNDS.trend)}
+              width={toSvgX(X_MAX) - toSvgX(ZONE_BOUNDS.trend)}
               height={toSvgY(0) - PADDING.top}
-              fill="#f59e0b"
-              opacity={0.12}
-            />
-            <rect
-              x={toSvgX(ZONE_BOUNDS.trend)}
-              y={toSvgY(0)}
-              width={toSvgX(ZONE_BOUNDS.extension) - toSvgX(ZONE_BOUNDS.trend)}
-              height={PADDING.top + PLOT_HEIGHT - toSvgY(0)}
-              fill="#f59e0b"
+              fill="#22c55e"
               opacity={0.15}
             />
 
-            {/* EXHAUSTION zone - red (danger) */}
+            {/* Zone B (WEAKENING) - bottom half of S > 0 area (warning) */}
+            {/* This cuts across zones A and F when MRS_5 < 0 */}
             <rect
-              x={toSvgX(ZONE_BOUNDS.extension)}
-              y={PADDING.top}
-              width={toSvgX(X_MAX) - toSvgX(ZONE_BOUNDS.extension)}
-              height={PLOT_HEIGHT}
-              fill="#ef4444"
+              x={toSvgX(ZONE_BOUNDS.noise)}
+              y={toSvgY(0)}
+              width={toSvgX(X_MAX) - toSvgX(ZONE_BOUNDS.noise)}
+              height={PADDING.top + PLOT_HEIGHT - toSvgY(0)}
+              fill="#f59e0b"
               opacity={0.12}
             />
 
             {/* Vertical zone boundary lines */}
-            {[ZONE_BOUNDS.toxic, ZONE_BOUNDS.ignition, ZONE_BOUNDS.noise, ZONE_BOUNDS.trend, ZONE_BOUNDS.extension].map((val) => (
+            {[ZONE_BOUNDS.toxic, ZONE_BOUNDS.ignition, ZONE_BOUNDS.noise, ZONE_BOUNDS.trend].map((val) => (
               <line
                 key={`vline-${val}`}
                 x1={toSvgX(val)}
@@ -299,8 +280,64 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
               );
             })}
 
+            {/* Zone signal labels inside chart */}
+            {/* IGNITION zone top (V>0) */}
+            <text
+              x={(toSvgX(ZONE_BOUNDS.toxic) + toSvgX(ZONE_BOUNDS.ignition)) / 2}
+              y={toSvgY(1.5)}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              style={{ fontSize: "8px", fill: "#f59e0b", fontWeight: 500, opacity: 0.8 }}
+            >
+              IGNITION / BUY
+            </text>
+
+            {/* IGNITION zone bottom (V<0) */}
+            <text
+              x={(toSvgX(ZONE_BOUNDS.toxic) + toSvgX(ZONE_BOUNDS.ignition)) / 2}
+              y={toSvgY(-1.5)}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              style={{ fontSize: "8px", fill: "#ef4444", fontWeight: 500, opacity: 0.8 }}
+            >
+              AVOID / REDUCE
+            </text>
+
+            {/* TREND zone top (V>0) */}
+            <text
+              x={(toSvgX(ZONE_BOUNDS.noise) + toSvgX(ZONE_BOUNDS.trend)) / 2}
+              y={toSvgY(1.5)}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              style={{ fontSize: "8px", fill: "#22c55e", fontWeight: 500, opacity: 0.8 }}
+            >
+              TREND / ADD
+            </text>
+
+            {/* MOMENTUM zone top (V>0) */}
+            <text
+              x={(toSvgX(ZONE_BOUNDS.trend) + toSvgX(X_MAX)) / 2}
+              y={toSvgY(1.5)}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              style={{ fontSize: "8px", fill: "#22c55e", fontWeight: 500, opacity: 0.8 }}
+            >
+              MOMENTUM / HOLD STRONG
+            </text>
+
+            {/* WEAKENING - right zones bottom (V<0) */}
+            <text
+              x={(toSvgX(ZONE_BOUNDS.noise) + toSvgX(X_MAX)) / 2}
+              y={toSvgY(-1.5)}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              style={{ fontSize: "8px", fill: "#f59e0b", fontWeight: 500, opacity: 0.8 }}
+            >
+              WEAKENING / TRIM
+            </text>
+
             {/* X-axis threshold values */}
-            {[ZONE_BOUNDS.toxic, ZONE_BOUNDS.ignition, ZONE_BOUNDS.noise, ZONE_BOUNDS.trend, ZONE_BOUNDS.extension].map((val) => (
+            {[ZONE_BOUNDS.toxic, ZONE_BOUNDS.ignition, ZONE_BOUNDS.noise, ZONE_BOUNDS.trend].map((val) => (
               <text
                 key={`xlabel-${val}`}
                 x={toSvgX(val)}
