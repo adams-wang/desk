@@ -104,7 +104,7 @@ export function IndexCard({
               {name}
             </span>
             <span className="text-4xl font-bold tabular-nums">{formattedPrice}</span>
-            <div className="flex items-center gap-2 text-base">
+            <div className="flex flex-col gap-0.5 text-sm">
               <span className={cn("tabular-nums", changeColor)}>
                 {formattedChange} ({formattedPct})
               </span>
@@ -113,7 +113,7 @@ export function IndexCard({
                   "tabular-nums",
                   isWeekPositive ? "text-emerald-500/70" : "text-red-500/70"
                 )}>
-                  · 7d: {formattedWeek}
+                  7d: {formattedWeek}
                 </span>
               )}
             </div>

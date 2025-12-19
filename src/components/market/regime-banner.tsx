@@ -111,16 +111,16 @@ export function RegimeBanner({
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-center">
         {/* Regime + Position + Direction */}
-        <div className="flex flex-wrap items-center gap-4 md:gap-8 flex-1">
+        <div className="flex flex-wrap items-start gap-4 md:gap-8 flex-1">
           {/* Regime */}
-          <div className="flex flex-col items-center gap-1 min-w-[100px]">
-            <span className="text-xs font-medium uppercase text-muted-foreground">
+          <div className="flex flex-col items-center min-w-[100px]">
+            <span className="text-xs font-medium uppercase text-muted-foreground h-4">
               Regime
             </span>
-            <span className="text-2xl font-bold tracking-tight">
+            <span className="text-2xl font-bold tracking-tight h-9 flex items-center">
               {config.label}
             </span>
-            <span className={cn("text-xs font-medium", confidenceColors[confidence])}>
+            <span className={cn("text-xs font-medium h-5 flex items-center", confidenceColors[confidence])}>
               {confidence} confidence
             </span>
           </div>
@@ -129,12 +129,12 @@ export function RegimeBanner({
           <div className="hidden h-12 w-px bg-border md:block" />
 
           {/* Position */}
-          <div className="flex flex-col items-center gap-1 min-w-[100px]">
-            <span className="text-xs font-medium uppercase text-muted-foreground">
+          <div className="flex flex-col items-center min-w-[100px]">
+            <span className="text-xs font-medium uppercase text-muted-foreground h-4">
               Position Cap
             </span>
-            <span className="text-2xl font-bold tabular-nums">{positionPct}%</span>
-            <span className="text-xs text-muted-foreground">
+            <span className="text-2xl font-bold tabular-nums h-9 flex items-center">{positionPct}%</span>
+            <span className="text-xs text-muted-foreground h-5 flex items-center">
               {config.positionLabel}
             </span>
           </div>
@@ -143,11 +143,11 @@ export function RegimeBanner({
           <div className="hidden h-12 w-px bg-border md:block" />
 
           {/* Direction */}
-          <div className="flex flex-col items-center gap-1 min-w-[100px]">
-            <span className="text-xs font-medium uppercase text-muted-foreground">
+          <div className="flex flex-col items-center min-w-[100px]">
+            <span className="text-xs font-medium uppercase text-muted-foreground h-4">
               Direction
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 h-9">
               <TransitionIcon
                 className={cn("h-6 w-6", transConfig?.color || "text-zinc-400")}
               />
@@ -155,11 +155,13 @@ export function RegimeBanner({
                 {transConfig?.label || "N/A"}
               </span>
             </div>
-            {regimeHistory && regimeHistory.length > 0 ? (
-              <RegimeHistoryStrip history={regimeHistory} currentDate={tradingDate} />
-            ) : (
-              <span className="text-xs text-muted-foreground">{tradingDate}</span>
-            )}
+            <div className="h-5 flex items-center">
+              {regimeHistory && regimeHistory.length > 0 ? (
+                <RegimeHistoryStrip history={regimeHistory} currentDate={tradingDate} />
+              ) : (
+                <span className="text-xs text-muted-foreground">{tradingDate}</span>
+              )}
+            </div>
           </div>
         </div>
 

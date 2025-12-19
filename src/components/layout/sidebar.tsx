@@ -19,7 +19,6 @@ const navigation = [
   { name: "Sectors", href: "/sectors", icon: PieChart, preserveDate: true },
   { name: "Stocks", href: "/stocks", icon: Search, preserveDate: true },
   { name: "Positions", href: "/positions", icon: Briefcase, preserveDate: false },
-  { name: "Charts", href: "/charts", icon: BarChart3, preserveDate: false },
   { name: "Chat", href: "/chat", icon: MessageSquare, preserveDate: false },
 ];
 
