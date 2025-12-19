@@ -42,15 +42,15 @@ export function SectorsContent({ data, currentDate, history }: SectorsContentPro
         sectors={data.sectors}
       />
 
-      {/* Sector Rotation Map Visualization */}
-      <SectorRotationMap sectors={data.sectors} history={history} />
-
       {/* Sector Rankings Table (with integrated MRS chart) */}
       <SectorRankingsTable
         sectors={data.sectors}
         currentDate={currentDate}
         history={history}
       />
+
+      {/* Sector Rotation Map Visualization */}
+      <SectorRotationMap sectors={data.sectors} history={history} />
 
       {/* L2 Report Sheet */}
       <L2ReportSheet

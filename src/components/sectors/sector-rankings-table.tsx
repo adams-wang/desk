@@ -21,11 +21,15 @@ interface SectorRankingsTableProps {
 // Mini sparkline component for rank history with dots and numbers at bottom
 function RankSparkline({
   ranks,
-  dates
+  dates,
+  zones,
+  signals
 }: {
   ranks: number[];
   currentRank: number;
   dates: string[];
+  zones?: string[];
+  signals?: string[];
 }) {
   const totalSectors = 11;
   const chartHeight = 28;
@@ -100,18 +104,32 @@ function RankSparkline({
           ))}
         </svg>
       </TooltipTrigger>
-      <TooltipContent side="right" className="text-xs font-mono whitespace-pre">
-        <div className="flex flex-col gap-0.5">
-          {dates.map((date, i) => (
-            <div key={date} className="flex justify-between gap-2">
-              <span className="text-muted-foreground">{date.slice(5)}:</span>
-              <span className={cn(
-                ranks[i] <= 3 ? "text-emerald-500" :
-                ranks[i] >= 9 ? "text-red-500" : ""
-              )}>#{ranks[i]}</span>
-            </div>
-          ))}
-        </div>
+      <TooltipContent side="left" className="text-xs font-mono p-2">
+        <table className="border-collapse">
+          <tbody>
+            {[...dates].reverse().map((date, i) => {
+              const idx = dates.length - 1 - i;
+              return (
+                <tr key={date}>
+                  <td className="text-muted-foreground pr-2">{date.slice(5)}:</td>
+                  <td className={cn(
+                    "text-right pr-6",
+                    ranks[idx] <= 3 ? "text-emerald-500" :
+                    ranks[idx] >= 9 ? "text-red-500" : ""
+                  )}>#{ranks[idx]}</td>
+                  <td className="text-muted-foreground/70 pr-1 text-right">{zones?.[idx] || ''}</td>
+                  <td className="text-muted-foreground/30 px-1">|</td>
+                  <td className={cn(
+                    "text-left pl-1",
+                    signals?.[idx]?.includes("MOMENTUM") || signals?.[idx]?.includes("TREND") ? "text-blue-400" :
+                    signals?.[idx]?.includes("AVOID") || signals?.[idx]?.includes("TOXIC") ? "text-red-400" :
+                    signals?.[idx]?.includes("WEAKENING") ? "text-orange-400" : "text-muted-foreground"
+                  )}>{signals?.[idx] || ''}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </TooltipContent>
     </Tooltip>
   );
@@ -279,28 +297,32 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
 
   // Extract rank history for each sector from the history data
   const rankHistoryMap = useMemo(() => {
-    if (!history || history.length < 2) return new Map<string, { ranks: number[]; dates: string[] }>();
+    if (!history || history.length < 2) return new Map<string, { ranks: number[]; dates: string[]; zones: string[]; signals: string[] }>();
 
-    const map = new Map<string, { ranks: number[]; dates: string[] }>();
+    const map = new Map<string, { ranks: number[]; dates: string[]; zones: string[]; signals: string[] }>();
 
     // Get last 10 days (or less if not available)
     const recentHistory = history.slice(-10);
 
-    // For each sector, extract ranks across all days
+    // For each sector, extract ranks, zones, signals across all days
     for (const sector of sectors) {
       const ranks: number[] = [];
       const dates: string[] = [];
+      const zones: string[] = [];
+      const signals: string[] = [];
 
       for (const day of recentHistory) {
         const sectorData = day.sectors.find(s => s.etf_ticker === sector.etf_ticker);
         if (sectorData) {
           ranks.push(sectorData.rank);
           dates.push(day.date);
+          zones.push(zoneConfig[sectorData.zone]?.label || sectorData.zone);
+          signals.push(sectorData.signal.replace('_', ' '));
         }
       }
 
       if (ranks.length >= 2) {
-        map.set(sector.etf_ticker, { ranks, dates });
+        map.set(sector.etf_ticker, { ranks, dates, zones, signals });
       }
     }
 
@@ -320,7 +342,7 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
         <TooltipProvider delayDuration={100}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm table-fixed">
-              <colgroup><col style={{ width: '12%' }} /><col style={{ width: '5%' }} /><col style={{ width: '23.5%' }} /><col style={{ width: '8%' }} /><col style={{ width: '10%' }} /><col style={{ width: '41.5%' }} /></colgroup>
+              <colgroup><col style={{ width: '15.5%' }} /><col style={{ width: '5%' }} /><col style={{ width: '20%' }} /><col style={{ width: '8%' }} /><col style={{ width: '17.5%' }} /><col style={{ width: '34%' }} /></colgroup>
               <thead>
                 <tr className="border-b border-border">
                   <th className="text-left py-2 px-2 font-medium text-muted-foreground">#</th>
@@ -361,6 +383,8 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
                               ranks={rankHistory.ranks}
                               currentRank={sector.rank}
                               dates={rankHistory.dates}
+                              zones={rankHistory.zones}
+                              signals={rankHistory.signals}
                             />
                           )}
                         </span>
