@@ -1,7 +1,7 @@
 # Desk - Quant Trading Dashboard
 
 **Implementation Status Document**
-**Last Updated:** 2025-12-17
+**Last Updated:** 2025-12-19
 
 ---
 
@@ -86,11 +86,11 @@ Next.js 16 frontend for US equity quant trading visualization. Consumes data fro
 
 - [x] VIX regime display in header
 - [x] Date picker in header
+- [x] Sectors rotation page with L2 analysis
 - [ ] Dashboard with market overview
 - [ ] Portfolio summary from database
 - [ ] Positions table with P&L
 - [ ] Stock search with autocomplete
-- [ ] Sectors heatmap page
 
 ### Phase 5: Position Management (Future)
 
@@ -145,6 +145,12 @@ desk/
 │   │   │   ├── scroll-area.tsx
 │   │   │   ├── popover.tsx
 │   │   │   └── calendar.tsx
+│   │   ├── sectors/
+│   │   │   ├── rotation-banner.tsx     # Rotation bias + cycle phase
+│   │   │   ├── sector-rankings-table.tsx # Rankings + inline MRS bars
+│   │   │   ├── sector-rotation-map.tsx # Animated scatter plot
+│   │   │   ├── l2-report-sheet.tsx     # L2 report panel
+│   │   │   └── index.ts
 │   │   ├── layout/
 │   │   │   ├── sidebar.tsx
 │   │   │   └── header.tsx
@@ -203,7 +209,8 @@ SELECT date FROM trading_days WHERE day_rank = 1
 | `candle_descriptors` | OFD patterns |
 | `l3_contracts_10` | L3 verdicts (10-day) |
 | `l3_contracts_20` | L3 verdicts (20-day) |
-| `sector_etf_indicators` | Sector MRS scores |
+| `l2_sector_rankings` | L2 sector rotation (zone, signal, rank) |
+| `sector_etf_indicators` | Sector MRS scores (legacy) |
 | `market_regime` | VIX, regime classification |
 
 **Portfolio Account ID:** `283445330105777479`
@@ -265,6 +272,7 @@ pnpm exec tsc --noEmit
 | Colors | `docs/design/foundations/colors.md` |
 | Typography | `docs/design/foundations/typography.md` |
 | Stock Detail Page | `docs/design/pages/stock-detail.md` |
+| Sectors Page | `docs/design/pages/sectors.md` |
 | PriceVolumeChart | `docs/design/components/price-volume-chart.md` |
 | Project Instructions | `CLAUDE.md` |
 | Full Planning Doc | `/Volumes/Data/quant/docs/frontend/FRONTEND_PLAN.md` |
