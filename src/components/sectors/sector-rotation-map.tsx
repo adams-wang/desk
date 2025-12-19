@@ -23,21 +23,21 @@ const ZONE_BOUNDS = {
   extension: 4.3,
 };
 
-// Chart dimensions
-const CHART_WIDTH = 800;
-const CHART_HEIGHT = 400;
-const PADDING = { top: 30, right: 40, bottom: 50, left: 50 };
+// Chart dimensions - wider aspect ratio
+const CHART_WIDTH = 1000;
+const CHART_HEIGHT = 320;
+const PADDING = { top: 24, right: 24, bottom: 40, left: 44 };
 const PLOT_WIDTH = CHART_WIDTH - PADDING.left - PADDING.right;
 const PLOT_HEIGHT = CHART_HEIGHT - PADDING.top - PADDING.bottom;
 
 // X-axis range (MRS_20)
 const X_MIN = -5;
-const X_MAX = 5;
+const X_MAX = 5.5;
 const X_RANGE = X_MAX - X_MIN;
 
 // Y-axis range (MRS_5)
-const Y_MIN = -3;
-const Y_MAX = 3;
+const Y_MIN = -2.5;
+const Y_MAX = 2.5;
 const Y_RANGE = Y_MAX - Y_MIN;
 
 // Convert data coordinates to SVG coordinates
@@ -50,25 +50,6 @@ function toSvgY(mrs5: number): number {
   const clampedY = Math.max(Y_MIN, Math.min(Y_MAX, mrs5));
   return PADDING.top + ((Y_MAX - clampedY) / Y_RANGE) * PLOT_HEIGHT;
 }
-
-// Zone colors matching the physics map
-const ZONE_COLORS = {
-  // Top row (V > 0)
-  toxic_up: "#ef4444",      // Red - AVOID
-  ignition: "#fbbf24",      // Yellow - ACCUMULATE (sweet spot)
-  buffer_up: "#86efac",     // Light green - MAINTAIN
-  trend: "#22c55e",         // Green - BUY/ADD
-  extension: "#fbbf24",     // Yellow - HOLD
-  exhaustion_up: "#f97316", // Orange/Red - EXIT
-
-  // Bottom row (V < 0)
-  toxic_down: "#ef4444",    // Red - AVOID
-  lagging: "#fbbf24",       // Yellow - AVOID
-  buffer_down: "#86efac",   // Light green - MAINTAIN
-  weakening: "#86efac",     // Light green - HOLD/TRIM
-  weakening_high: "#f97316",// Orange - TRIM
-  exhaustion_down: "#ef4444",// Red - EXIT
-};
 
 // Get signal color for sector dot
 function getSignalColor(signal: string): string {
@@ -84,96 +65,146 @@ function getSignalColor(signal: string): string {
     case "WEAKENING":
       return "#ef4444"; // Red - bearish
     default:
-      return "#a1a1aa"; // Gray - neutral
+      return "#71717a"; // Zinc-500 - neutral
   }
 }
 
+// Zone labels for bottom annotation
+const ZONE_LABELS = [
+  { min: X_MIN, max: ZONE_BOUNDS.toxic, label: "TOXIC", color: "#ef4444" },
+  { min: ZONE_BOUNDS.toxic, max: ZONE_BOUNDS.ignition, label: "IGNITION", color: "#f59e0b" },
+  { min: ZONE_BOUNDS.ignition, max: ZONE_BOUNDS.noise, label: "BUFFER", color: "#71717a" },
+  { min: ZONE_BOUNDS.noise, max: ZONE_BOUNDS.trend, label: "TREND", color: "#22c55e" },
+  { min: ZONE_BOUNDS.trend, max: ZONE_BOUNDS.extension, label: "EXTEND", color: "#f59e0b" },
+  { min: ZONE_BOUNDS.extension, max: X_MAX, label: "EXHAUST", color: "#ef4444" },
+];
+
 export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
-  // Calculate zone rectangles
-  const zones = useMemo(() => {
-    const zoneX = (val: number) => toSvgX(Math.max(X_MIN, Math.min(X_MAX, val)));
-    const midY = toSvgY(0);
-    const topY = PADDING.top;
-    const botY = PADDING.top + PLOT_HEIGHT;
-
-    return [
-      // Top row (MRS_5 > 0)
-      { x: zoneX(X_MIN), y: topY, w: zoneX(ZONE_BOUNDS.toxic) - zoneX(X_MIN), h: midY - topY, color: ZONE_COLORS.toxic_up, label: "TOXIC", action: "AVOID", opacity: 0.6 },
-      { x: zoneX(ZONE_BOUNDS.toxic), y: topY, w: zoneX(ZONE_BOUNDS.ignition) - zoneX(ZONE_BOUNDS.toxic), h: midY - topY, color: ZONE_COLORS.ignition, label: "IGNITION", action: "ACCUMULATE", opacity: 0.6 },
-      { x: zoneX(ZONE_BOUNDS.ignition), y: topY, w: zoneX(ZONE_BOUNDS.noise) - zoneX(ZONE_BOUNDS.ignition), h: midY - topY, color: ZONE_COLORS.buffer_up, label: "BUFFER", action: "MAINTAIN", opacity: 0.4 },
-      { x: zoneX(ZONE_BOUNDS.noise), y: topY, w: zoneX(ZONE_BOUNDS.trend) - zoneX(ZONE_BOUNDS.noise), h: midY - topY, color: ZONE_COLORS.trend, label: "TREND", action: "BUY / ADD", opacity: 0.6 },
-      { x: zoneX(ZONE_BOUNDS.trend), y: topY, w: zoneX(ZONE_BOUNDS.extension) - zoneX(ZONE_BOUNDS.trend), h: midY - topY, color: ZONE_COLORS.extension, label: "EXTENSION", action: "HOLD", opacity: 0.5 },
-      { x: zoneX(ZONE_BOUNDS.extension), y: topY, w: zoneX(X_MAX) - zoneX(ZONE_BOUNDS.extension), h: midY - topY, color: ZONE_COLORS.exhaustion_up, label: "EXHAUSTION", action: "EXIT", opacity: 0.6 },
-
-      // Bottom row (MRS_5 < 0)
-      { x: zoneX(X_MIN), y: midY, w: zoneX(ZONE_BOUNDS.toxic) - zoneX(X_MIN), h: botY - midY, color: ZONE_COLORS.toxic_down, label: "TOXIC", action: "AVOID", opacity: 0.6 },
-      { x: zoneX(ZONE_BOUNDS.toxic), y: midY, w: zoneX(ZONE_BOUNDS.ignition) - zoneX(ZONE_BOUNDS.toxic), h: botY - midY, color: ZONE_COLORS.lagging, label: "LAGGING", action: "AVOID", opacity: 0.4 },
-      { x: zoneX(ZONE_BOUNDS.ignition), y: midY, w: zoneX(ZONE_BOUNDS.noise) - zoneX(ZONE_BOUNDS.ignition), h: botY - midY, color: ZONE_COLORS.buffer_down, label: "BUFFER", action: "MAINTAIN", opacity: 0.4 },
-      { x: zoneX(ZONE_BOUNDS.noise), y: midY, w: zoneX(ZONE_BOUNDS.trend) - zoneX(ZONE_BOUNDS.noise), h: botY - midY, color: ZONE_COLORS.weakening, label: "WEAKENING", action: "HOLD / TRIM", opacity: 0.4 },
-      { x: zoneX(ZONE_BOUNDS.trend), y: midY, w: zoneX(ZONE_BOUNDS.extension) - zoneX(ZONE_BOUNDS.trend), h: botY - midY, color: ZONE_COLORS.weakening_high, label: "WEAK HIGH", action: "TRIM", opacity: 0.5 },
-      { x: zoneX(ZONE_BOUNDS.extension), y: midY, w: zoneX(X_MAX) - zoneX(ZONE_BOUNDS.extension), h: botY - midY, color: ZONE_COLORS.exhaustion_down, label: "EXHAUSTION", action: "EXIT", opacity: 0.6 },
-    ];
-  }, []);
-
-  // X-axis ticks
-  const xTicks = [X_MIN, ZONE_BOUNDS.toxic, ZONE_BOUNDS.ignition, ZONE_BOUNDS.noise, ZONE_BOUNDS.trend, ZONE_BOUNDS.extension, X_MAX];
-
   // Y-axis ticks
   const yTicks = [-2, -1, 0, 1, 2];
 
+  // Calculate dynamic X range based on actual data
+  const dataExtent = useMemo(() => {
+    const mrs20Values = sectors.map(s => s.mrs_20);
+    return {
+      min: Math.min(...mrs20Values),
+      max: Math.max(...mrs20Values),
+    };
+  }, [sectors]);
+
   return (
     <Card>
-      <CardHeader className="pb-2">
-        <CardTitle className="text-base font-medium">Sector Rotation Map</CardTitle>
-        <p className="text-xs text-muted-foreground">
-          X: Inertia (MRS_20) | Y: Velocity (MRS_5) | Plot shows current sector positions
-        </p>
+      <CardHeader className="pb-1 pt-3 px-4">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-sm font-medium">Sector Rotation Map</CardTitle>
+          <div className="flex items-center gap-4 text-[10px] text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              Bullish
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-red-500" />
+              Bearish
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-zinc-500" />
+              Neutral
+            </span>
+          </div>
+        </div>
       </CardHeader>
-      <CardContent className="pt-0">
+      <CardContent className="pt-0 px-2 pb-2">
         <TooltipProvider delayDuration={0}>
           <svg
             viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}
             className="w-full h-auto"
-            style={{ maxHeight: "400px" }}
           >
-            {/* Zone backgrounds */}
-            {zones.map((zone, i) => (
-              <rect
-                key={i}
-                x={zone.x}
-                y={zone.y}
-                width={zone.w}
-                height={zone.h}
-                fill={zone.color}
-                opacity={zone.opacity}
-              />
-            ))}
+            {/* Zone backgrounds - muted but distinguishable */}
+            {/* TOXIC zone - muted red */}
+            <rect
+              x={toSvgX(X_MIN)}
+              y={PADDING.top}
+              width={toSvgX(ZONE_BOUNDS.toxic) - toSvgX(X_MIN)}
+              height={PLOT_HEIGHT}
+              fill="#ef4444"
+              opacity={0.12}
+            />
 
-            {/* Zone labels */}
-            {zones.slice(0, 6).map((zone, i) => (
-              <g key={`label-${i}`}>
-                <text
-                  x={zone.x + zone.w / 2}
-                  y={zone.y + 18}
-                  textAnchor="middle"
-                  className="fill-foreground text-[10px] font-semibold"
-                  style={{ fontSize: "10px" }}
-                >
-                  {zone.label}
-                </text>
-                <text
-                  x={zone.x + zone.w / 2}
-                  y={zone.y + 30}
-                  textAnchor="middle"
-                  className="fill-foreground/70 text-[8px]"
-                  style={{ fontSize: "8px" }}
-                >
-                  {zone.action}
-                </text>
-              </g>
-            ))}
+            {/* IGNITION zone - top half amber (opportunity), bottom half muted */}
+            <rect
+              x={toSvgX(ZONE_BOUNDS.toxic)}
+              y={PADDING.top}
+              width={toSvgX(ZONE_BOUNDS.ignition) - toSvgX(ZONE_BOUNDS.toxic)}
+              height={toSvgY(0) - PADDING.top}
+              fill="#f59e0b"
+              opacity={0.15}
+            />
+            <rect
+              x={toSvgX(ZONE_BOUNDS.toxic)}
+              y={toSvgY(0)}
+              width={toSvgX(ZONE_BOUNDS.ignition) - toSvgX(ZONE_BOUNDS.toxic)}
+              height={PADDING.top + PLOT_HEIGHT - toSvgY(0)}
+              fill="#f59e0b"
+              opacity={0.08}
+            />
 
-            {/* Grid lines at zone boundaries */}
+            {/* BUFFER zone - neutral */}
+            <rect
+              x={toSvgX(ZONE_BOUNDS.ignition)}
+              y={PADDING.top}
+              width={toSvgX(ZONE_BOUNDS.noise) - toSvgX(ZONE_BOUNDS.ignition)}
+              height={PLOT_HEIGHT}
+              fill="hsl(var(--muted-foreground))"
+              opacity={0.08}
+            />
+
+            {/* TREND zone - top half green (strong), bottom half muted green */}
+            <rect
+              x={toSvgX(ZONE_BOUNDS.noise)}
+              y={PADDING.top}
+              width={toSvgX(ZONE_BOUNDS.trend) - toSvgX(ZONE_BOUNDS.noise)}
+              height={toSvgY(0) - PADDING.top}
+              fill="#22c55e"
+              opacity={0.18}
+            />
+            <rect
+              x={toSvgX(ZONE_BOUNDS.noise)}
+              y={toSvgY(0)}
+              width={toSvgX(ZONE_BOUNDS.trend) - toSvgX(ZONE_BOUNDS.noise)}
+              height={PADDING.top + PLOT_HEIGHT - toSvgY(0)}
+              fill="#22c55e"
+              opacity={0.08}
+            />
+
+            {/* EXTENSION zone - amber (caution) */}
+            <rect
+              x={toSvgX(ZONE_BOUNDS.trend)}
+              y={PADDING.top}
+              width={toSvgX(ZONE_BOUNDS.extension) - toSvgX(ZONE_BOUNDS.trend)}
+              height={toSvgY(0) - PADDING.top}
+              fill="#f59e0b"
+              opacity={0.12}
+            />
+            <rect
+              x={toSvgX(ZONE_BOUNDS.trend)}
+              y={toSvgY(0)}
+              width={toSvgX(ZONE_BOUNDS.extension) - toSvgX(ZONE_BOUNDS.trend)}
+              height={PADDING.top + PLOT_HEIGHT - toSvgY(0)}
+              fill="#f59e0b"
+              opacity={0.15}
+            />
+
+            {/* EXHAUSTION zone - red (danger) */}
+            <rect
+              x={toSvgX(ZONE_BOUNDS.extension)}
+              y={PADDING.top}
+              width={toSvgX(X_MAX) - toSvgX(ZONE_BOUNDS.extension)}
+              height={PLOT_HEIGHT}
+              fill="#ef4444"
+              opacity={0.12}
+            />
+
+            {/* Vertical zone boundary lines */}
             {[ZONE_BOUNDS.toxic, ZONE_BOUNDS.ignition, ZONE_BOUNDS.noise, ZONE_BOUNDS.trend, ZONE_BOUNDS.extension].map((val) => (
               <line
                 key={`vline-${val}`}
@@ -183,98 +214,103 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
                 y2={PADDING.top + PLOT_HEIGHT}
                 stroke="hsl(var(--border))"
                 strokeWidth={1}
-                strokeDasharray="4,4"
+                strokeDasharray="3,3"
+                opacity={0.5}
               />
             ))}
 
-            {/* Zero line (horizontal) */}
+            {/* Horizontal zero line (V = 0) */}
             <line
               x1={PADDING.left}
               y1={toSvgY(0)}
               x2={PADDING.left + PLOT_WIDTH}
               y2={toSvgY(0)}
-              stroke="hsl(var(--foreground))"
-              strokeWidth={1.5}
-              opacity={0.5}
-            />
-
-            {/* Y-axis labels */}
-            <text
-              x={PADDING.left - 8}
-              y={PADDING.top + 12}
-              textAnchor="end"
-              className="fill-emerald-500 text-[9px] font-medium"
-              style={{ fontSize: "9px" }}
-            >
-              V &gt; 0
-            </text>
-            <text
-              x={PADDING.left - 8}
-              y={PADDING.top + PLOT_HEIGHT - 4}
-              textAnchor="end"
-              className="fill-red-500 text-[9px] font-medium"
-              style={{ fontSize: "9px" }}
-            >
-              V &lt; 0
-            </text>
-
-            {/* X-axis */}
-            <line
-              x1={PADDING.left}
-              y1={PADDING.top + PLOT_HEIGHT}
-              x2={PADDING.left + PLOT_WIDTH}
-              y2={PADDING.top + PLOT_HEIGHT}
               stroke="hsl(var(--border))"
               strokeWidth={1}
             />
 
-            {/* X-axis ticks and labels */}
-            {xTicks.map((val) => (
-              <g key={`xtick-${val}`}>
-                <line
-                  x1={toSvgX(val)}
-                  y1={PADDING.top + PLOT_HEIGHT}
-                  x2={toSvgX(val)}
-                  y2={PADDING.top + PLOT_HEIGHT + 5}
-                  stroke="hsl(var(--border))"
-                  strokeWidth={1}
-                />
-                <text
-                  x={toSvgX(val)}
-                  y={PADDING.top + PLOT_HEIGHT + 18}
-                  textAnchor="middle"
-                  className="fill-muted-foreground text-[10px]"
-                  style={{ fontSize: "10px" }}
-                >
-                  {val > 0 ? `+${val}%` : `${val}%`}
-                </text>
-              </g>
+            {/* Horizontal grid lines */}
+            {yTicks.filter(v => v !== 0).map((val) => (
+              <line
+                key={`hline-${val}`}
+                x1={PADDING.left}
+                y1={toSvgY(val)}
+                x2={PADDING.left + PLOT_WIDTH}
+                y2={toSvgY(val)}
+                stroke="hsl(var(--border))"
+                strokeWidth={0.5}
+                strokeDasharray="2,4"
+                opacity={0.3}
+              />
             ))}
 
-            {/* X-axis label */}
+            {/* Y-axis label: V > 0 */}
             <text
-              x={PADDING.left + PLOT_WIDTH / 2}
-              y={CHART_HEIGHT - 8}
-              textAnchor="middle"
-              className="fill-muted-foreground text-[11px] font-medium"
-              style={{ fontSize: "11px" }}
+              x={PADDING.left - 6}
+              y={PADDING.top + (toSvgY(0) - PADDING.top) / 2}
+              textAnchor="end"
+              dominantBaseline="middle"
+              className="fill-muted-foreground"
+              style={{ fontSize: "9px" }}
             >
-              Inertia (S = MRS_20)
+              V&gt;0
+            </text>
+
+            {/* Y-axis label: V < 0 */}
+            <text
+              x={PADDING.left - 6}
+              y={toSvgY(0) + (PADDING.top + PLOT_HEIGHT - toSvgY(0)) / 2}
+              textAnchor="end"
+              dominantBaseline="middle"
+              className="fill-muted-foreground"
+              style={{ fontSize: "9px" }}
+            >
+              V&lt;0
             </text>
 
             {/* Y-axis ticks */}
             {yTicks.map((val) => (
-              <g key={`ytick-${val}`}>
+              <text
+                key={`ytick-${val}`}
+                x={PADDING.left - 6}
+                y={toSvgY(val)}
+                textAnchor="end"
+                dominantBaseline="middle"
+                className="fill-muted-foreground"
+                style={{ fontSize: "9px" }}
+              >
+                {val === 0 ? "0" : val > 0 ? `+${val}` : val}
+              </text>
+            ))}
+
+            {/* Zone labels at bottom */}
+            {ZONE_LABELS.map((zone) => {
+              const centerX = (toSvgX(zone.min) + toSvgX(zone.max)) / 2;
+              return (
                 <text
-                  x={PADDING.left - 8}
-                  y={toSvgY(val) + 3}
-                  textAnchor="end"
-                  className="fill-muted-foreground text-[9px]"
-                  style={{ fontSize: "9px" }}
+                  key={zone.label}
+                  x={centerX}
+                  y={PADDING.top + PLOT_HEIGHT + 14}
+                  textAnchor="middle"
+                  style={{ fontSize: "9px", fill: zone.color, fontWeight: 500 }}
                 >
-                  {val > 0 ? `+${val}` : val}
+                  {zone.label}
                 </text>
-              </g>
+              );
+            })}
+
+            {/* X-axis threshold values */}
+            {[ZONE_BOUNDS.toxic, ZONE_BOUNDS.ignition, ZONE_BOUNDS.noise, ZONE_BOUNDS.trend, ZONE_BOUNDS.extension].map((val) => (
+              <text
+                key={`xlabel-${val}`}
+                x={toSvgX(val)}
+                y={PADDING.top + PLOT_HEIGHT + 28}
+                textAnchor="middle"
+                className="fill-muted-foreground"
+                style={{ fontSize: "8px" }}
+              >
+                {val > 0 ? `+${val}%` : `${val}%`}
+              </text>
             ))}
 
             {/* Sector dots */}
@@ -287,24 +323,23 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
               return (
                 <Tooltip key={etf}>
                   <TooltipTrigger asChild>
-                    <g className="cursor-pointer">
-                      {/* Outer glow */}
+                    <g className="cursor-pointer transition-transform hover:scale-110" style={{ transformOrigin: `${x}px ${y}px` }}>
+                      {/* Outer ring for emphasis */}
                       <circle
                         cx={x}
                         cy={y}
-                        r={16}
+                        r={18}
                         fill={color}
-                        opacity={0.15}
+                        opacity={0.1}
                       />
                       {/* Main dot */}
                       <circle
                         cx={x}
                         cy={y}
-                        r={10}
+                        r={14}
                         fill={color}
                         stroke="hsl(var(--background))"
                         strokeWidth={2}
-                        className="transition-all hover:r-12"
                       />
                       {/* ETF label */}
                       <text
@@ -312,8 +347,8 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
                         y={y + 1}
                         textAnchor="middle"
                         dominantBaseline="middle"
-                        className="fill-white text-[7px] font-bold pointer-events-none"
-                        style={{ fontSize: "7px" }}
+                        className="fill-white font-semibold pointer-events-none"
+                        style={{ fontSize: "9px" }}
                       >
                         {etf.replace("XL", "")}
                       </text>
@@ -326,6 +361,8 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
                       <span className="font-mono">{sector.mrs_20 >= 0 ? "+" : ""}{sector.mrs_20.toFixed(2)}%</span>
                       <span className="text-muted-foreground">MRS_5:</span>
                       <span className="font-mono">{sector.mrs_5 >= 0 ? "+" : ""}{sector.mrs_5.toFixed(2)}%</span>
+                      <span className="text-muted-foreground">Zone:</span>
+                      <span>{sector.zone}</span>
                       <span className="text-muted-foreground">Signal:</span>
                       <span className="font-semibold" style={{ color }}>{sector.signal}</span>
                       <span className="text-muted-foreground">Modifier:</span>
@@ -335,17 +372,6 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
                 </Tooltip>
               );
             })}
-
-            {/* Legend */}
-            <g transform={`translate(${PADDING.left + PLOT_WIDTH - 120}, ${PADDING.top + 5})`}>
-              <rect x={0} y={0} width={115} height={50} fill="hsl(var(--background))" opacity={0.8} rx={4} />
-              <circle cx={12} cy={14} r={5} fill="#22c55e" />
-              <text x={22} y={17} className="fill-foreground text-[9px]" style={{ fontSize: "9px" }}>Bullish Signal</text>
-              <circle cx={12} cy={30} r={5} fill="#ef4444" />
-              <text x={22} y={33} className="fill-foreground text-[9px]" style={{ fontSize: "9px" }}>Bearish Signal</text>
-              <circle cx={12} cy={46} r={5} fill="#a1a1aa" />
-              <text x={22} y={49} className="fill-foreground text-[9px]" style={{ fontSize: "9px" }}>Neutral</text>
-            </g>
           </svg>
         </TooltipProvider>
       </CardContent>
