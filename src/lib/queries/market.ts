@@ -542,17 +542,6 @@ export function getIndicesWithSparklines(date?: string): IndexWithSparkline[] {
 }
 
 // ============================================================================
-// Market Status
-// ============================================================================
-
-export interface MarketStatus {
-  isOpen: boolean;
-  statusText: string;
-  lastUpdate: string;
-  nextEvent: string | null;
-}
-
-// ============================================================================
 // Indices OHLCV History for Charts
 // ============================================================================
 
@@ -613,57 +602,4 @@ export function getIndicesOHLCVHistory(
   }
 
   return results;
-}
-
-/**
- * Get current market status
- */
-export function getMarketStatus(date?: string): MarketStatus {
-  const tradingDate = date || getLatestTradingDate();
-
-  // Get the L1 contract generation time
-  const l1 = db
-    .prepare(`SELECT generated_at FROM l1_contracts WHERE trading_date = ?`)
-    .get(tradingDate) as { generated_at: string } | undefined;
-
-  const now = new Date();
-  const hour = now.getHours();
-  const minute = now.getMinutes();
-  const day = now.getDay();
-
-  // Simple market hours check (9:30 AM - 4:00 PM ET, Mon-Fri)
-  // This is simplified - doesn't account for holidays
-  const isWeekday = day >= 1 && day <= 5;
-  const marketTime = hour * 60 + minute;
-  const marketOpen = 9 * 60 + 30; // 9:30 AM
-  const marketClose = 16 * 60; // 4:00 PM
-
-  const isOpen = isWeekday && marketTime >= marketOpen && marketTime < marketClose;
-
-  let statusText: string;
-  let nextEvent: string | null = null;
-
-  if (!isWeekday) {
-    statusText = "Weekend";
-    nextEvent = "Opens Monday 9:30 AM";
-  } else if (marketTime < marketOpen) {
-    statusText = "Pre-Market";
-    nextEvent = "Opens 9:30 AM";
-  } else if (marketTime >= marketClose) {
-    statusText = "After Hours";
-    nextEvent = "Opens tomorrow 9:30 AM";
-  } else {
-    statusText = "Market Open";
-    const minsToClose = marketClose - marketTime;
-    const hoursToClose = Math.floor(minsToClose / 60);
-    const minsRemaining = minsToClose % 60;
-    nextEvent = `Closes in ${hoursToClose}h ${minsRemaining}m`;
-  }
-
-  return {
-    isOpen,
-    statusText,
-    lastUpdate: l1?.generated_at || tradingDate,
-    nextEvent,
-  };
 }

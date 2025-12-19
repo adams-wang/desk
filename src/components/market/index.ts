@@ -7,5 +7,4 @@ export { BreadthBar } from "./breadth-bar";
 export { BlockersCard } from "./blockers-card";
 export { MarketHealthCard } from "./market-health-card";
 export { MarketWidget } from "./market-widget";
-export { SectorStrip } from "./sector-strip";
 export { YieldCurve } from "./yield-curve";
