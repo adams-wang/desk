@@ -243,6 +243,102 @@ export function getSectorMRSHistory(days: number = 5, endDate?: string): SectorM
   return result.reverse();
 }
 
+export interface SectorRotationHistoryDay {
+  date: string;
+  sectors: SectorWithSignal[];
+  rotationBias: RotationBias;
+  cyclePhase: CyclePhase;
+}
+
+/**
+ * Get sector rotation data with full signals for multiple days (for animation)
+ */
+export function getSectorRotationHistory(days: number = 10, endDate?: string): SectorRotationHistoryDay[] {
+  const log = getLogger();
+  const date = endDate || getLatestTradingDate();
+  const startTime = Date.now();
+
+  // Get the dates we need
+  const dates = db
+    .prepare(`
+      SELECT DISTINCT date FROM sector_etf_indicators
+      WHERE date <= ?
+      ORDER BY date DESC
+      LIMIT ?
+    `)
+    .all(date, days) as { date: string }[];
+
+  const result: SectorRotationHistoryDay[] = [];
+
+  for (const { date: d } of dates) {
+    // Get the date 3 trading days ago for ROC_3 calculation
+    const date3dAgo = db
+      .prepare(`
+        SELECT date FROM trading_days
+        WHERE date < ?
+        ORDER BY date DESC
+        LIMIT 1 OFFSET 2
+      `)
+      .get(d) as { date: string } | undefined;
+
+    // Fetch sector data with 3-day-ago MRS_20 for ROC_3
+    const rows = db
+      .prepare(`
+        SELECT
+          a.sector_name,
+          a.etf_ticker,
+          a.mrs_5,
+          a.mrs_20,
+          a.close,
+          b.mrs_20 as mrs_20_3d_ago
+        FROM sector_etf_indicators a
+        LEFT JOIN sector_etf_indicators b
+          ON a.etf_ticker = b.etf_ticker
+          AND b.date = ?
+        WHERE a.date = ?
+        ORDER BY a.mrs_20 DESC
+      `)
+      .all(date3dAgo?.date || d, d) as RawSectorRow[];
+
+    // Transform to SectorWithSignal with classifications
+    const sectors: SectorWithSignal[] = rows.map((row, idx) => {
+      const mrs20 = row.mrs_20 ?? 0;
+      const mrs5 = row.mrs_5 ?? 0;
+      const roc3 = row.mrs_20_3d_ago !== null ? mrs20 - row.mrs_20_3d_ago : 0;
+
+      const zone = classifyZone(mrs20);
+      const { signal, modifier } = classifySignal(mrs20, mrs5, roc3);
+
+      return {
+        sector_name: row.sector_name,
+        etf_ticker: row.etf_ticker,
+        mrs_5: mrs5,
+        mrs_20: mrs20,
+        roc_3: roc3,
+        close: row.close,
+        zone,
+        signal,
+        modifier,
+        rank: idx + 1,
+      };
+    });
+
+    // Derive aggregates
+    const rotationBias = deriveRotationBias(sectors);
+    const cyclePhase = deriveCyclePhase(sectors);
+
+    result.push({ date: d, sectors, rotationBias, cyclePhase });
+  }
+
+  log.debug(
+    { days, dates: result.length, latencyMs: Date.now() - startTime },
+    "Sector rotation history query"
+  );
+
+  // Return in chronological order (oldest first)
+  return result.reverse();
+}
+
 export function getSectorRankHistory(sectorName: string, days: number = 20, endDate?: string): SectorRankHistory[] {
   const date = endDate || getLatestTradingDate();
 

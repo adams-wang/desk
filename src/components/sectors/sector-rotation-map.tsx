@@ -1,17 +1,41 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect, useCallback, useRef } from "react";
+import { Play, Pause, RotateCcw } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import type { SectorWithSignal } from "@/lib/queries/sectors";
+import type { SectorWithSignal, SectorRotationHistoryDay } from "@/lib/queries/sectors";
+
+// Segmented Timeline Component
+interface SegmentedTimelineProps {
+  total: number;
+  current: number;
+  onChange: (index: number) => void;
+}
+
+function SegmentedTimeline({ total, current, onChange }: SegmentedTimelineProps) {
+  return (
+    <div className="flex items-center gap-1 w-[560px]">
+      {Array.from({ length: total }, (_, i) => (
+        <button
+          key={i}
+          onClick={() => onChange(i)}
+          className={`flex-1 h-1.5 rounded-full transition-all cursor-pointer hover:opacity-80 ${
+            i === current
+              ? "bg-blue-500"
+              : i < current
+              ? "bg-blue-500/50"
+              : "bg-muted"
+          }`}
+          aria-label={`Go to frame ${i + 1}`}
+        />
+      ))}
+    </div>
+  );
+}
 
 interface SectorRotationMapProps {
   sectors: SectorWithSignal[];
+  history?: SectorRotationHistoryDay[];
 }
 
 // Zone boundaries (MRS_20 / S axis)
@@ -25,8 +49,8 @@ const ZONE_BOUNDS = {
 
 // Chart dimensions - wider aspect ratio
 const CHART_WIDTH = 1000;
-const CHART_HEIGHT = 320;
-const PADDING = { top: 24, right: 24, bottom: 40, left: 44 };
+const CHART_HEIGHT = 375;
+const PADDING = { top: 6, right: 24, bottom: 40, left: 44 };
 const PLOT_WIDTH = CHART_WIDTH - PADDING.left - PADDING.right;
 const PLOT_HEIGHT = CHART_HEIGHT - PADDING.top - PADDING.bottom;
 
@@ -102,42 +126,136 @@ const ZONE_LABELS = [
   { min: ZONE_BOUNDS.ignition, max: ZONE_BOUNDS.noise, label: "NOISE / HOLD", color: "#71717a" },
 ];
 
-export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
+export function SectorRotationMap({ sectors, history }: SectorRotationMapProps) {
+  // Playback state
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(history ? history.length - 1 : 0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const PLAYBACK_INTERVAL = 1200; // ms per frame
+
+  // Tooltip state
+  const [hoveredSector, setHoveredSector] = useState<SectorWithSignal | null>(null);
+  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Get current data based on playback state
+  const hasHistory = history && history.length > 0;
+  const currentData = hasHistory ? history[currentIndex] : null;
+  const displaySectors = currentData?.sectors || sectors;
+  const displayDate = currentData?.date || null;
+
+  // Reset to latest when history changes
+  useEffect(() => {
+    if (history && history.length > 0) {
+      setCurrentIndex(history.length - 1);
+      setIsPlaying(false);
+    }
+  }, [history]);
+
+  // Playback logic
+  useEffect(() => {
+    if (isPlaying && hasHistory) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex(prev => {
+          if (prev >= history.length - 1) {
+            setIsPlaying(false);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, PLAYBACK_INTERVAL);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isPlaying, hasHistory, history?.length]);
+
+  const handlePlayPause = useCallback(() => {
+    if (!hasHistory) return;
+    if (currentIndex >= history.length - 1) {
+      // If at end, restart from beginning
+      setCurrentIndex(0);
+      setIsPlaying(true);
+    } else {
+      setIsPlaying(prev => !prev);
+    }
+  }, [hasHistory, currentIndex, history?.length]);
+
+  const handleReset = useCallback(() => {
+    setIsPlaying(false);
+    if (hasHistory) {
+      setCurrentIndex(history.length - 1);
+    }
+  }, [hasHistory, history?.length]);
+
+  const handleSegmentClick = useCallback((index: number) => {
+    setIsPlaying(false);
+    setCurrentIndex(index);
+  }, []);
+
   // Y-axis ticks
   const yTicks = [-3, -1, 0, 1, 3];
 
   // Calculate dynamic X range based on actual data
   const dataExtent = useMemo(() => {
-    const mrs20Values = sectors.map(s => s.mrs_20);
+    const mrs20Values = displaySectors.map(s => s.mrs_20);
     return {
       min: Math.min(...mrs20Values),
       max: Math.max(...mrs20Values),
     };
-  }, [sectors]);
+  }, [displaySectors]);
 
   return (
-    <Card>
+    <Card className="py-0 gap-0">
       <CardHeader className="pb-1 pt-3 px-4">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-sm font-medium">Sector Rotation Map</CardTitle>
-          <div className="flex items-center gap-4 text-[10px] text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              Bullish
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-red-500" />
-              Bearish
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-zinc-500" />
-              Neutral
-            </span>
+          <div className="flex items-center gap-3">
+            <CardTitle className="text-sm font-medium">Sector Rotation</CardTitle>
+            {/* Playback Controls */}
+            {hasHistory && (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handlePlayPause}
+                  className="p-1.5 rounded-md bg-blue-500 hover:bg-blue-600 text-white transition-colors"
+                  title={isPlaying ? "Pause" : "Play"}
+                >
+                  {isPlaying ? (
+                    <Pause className="h-3.5 w-3.5" />
+                  ) : (
+                    <Play className="h-3.5 w-3.5" />
+                  )}
+                </button>
+                <button
+                  onClick={handleReset}
+                  className="p-1.5 rounded-md bg-muted hover:bg-muted/80 transition-colors"
+                  title="Reset to latest"
+                >
+                  <RotateCcw className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            )}
           </div>
+          {/* Date and Progress */}
+          {hasHistory && (
+            <div className="flex items-center gap-3">
+              <SegmentedTimeline
+                total={history.length}
+                current={currentIndex}
+                onChange={handleSegmentClick}
+              />
+              <span className="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                {displayDate} ({currentIndex + 1}/{history.length})
+              </span>
+            </div>
+          )}
         </div>
       </CardHeader>
       <CardContent className="pt-0 px-2 pb-2">
-        <TooltipProvider delayDuration={0}>
+        <div ref={containerRef} className="relative">
           <svg
             viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}
             className="w-full h-auto"
@@ -391,104 +509,169 @@ export function SectorRotationMap({ sectors }: SectorRotationMapProps) {
             ))}
 
             {/* Sector dots */}
-            {sectors.map((sector, index) => {
+            {displaySectors.map((sector, index) => {
               const x = toSvgX(sector.mrs_20);
               const y = toSvgY(sector.mrs_5);
               const color = getSignalColor(sector.signal);
               const etf = sector.etf_ticker;
               // Only pulse for strong bullish signals (not WEAKENING or recovery)
-              const shouldPulse = ['TREND', 'MOMENTUM'].includes(sector.signal);
+              const shouldPulse = !hasHistory && ['TREND', 'MOMENTUM'].includes(sector.signal);
+
+              // Use transform for smooth animation in playback mode
+              const transformStyle = hasHistory
+                ? {
+                    transform: `translate(${x}px, ${y}px)`,
+                    transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }
+                : {
+                    transform: `translate(${x}px, ${y}px)`,
+                    animation: `fadeSlideIn 0.4s ease-out ${index * 0.05}s both`
+                  };
+
+              const isHovered = hoveredSector?.etf_ticker === etf;
 
               return (
-                <Tooltip key={etf}>
-                  <TooltipTrigger asChild>
-                    <g
-                      className="cursor-pointer transition-all duration-500 ease-out hover:scale-110"
-                      style={{
-                        transformOrigin: `${x}px ${y}px`,
-                        animation: `fadeSlideIn 0.4s ease-out ${index * 0.05}s both`
-                      }}
-                    >
-                      {/* Pulse ring for strong bullish signals */}
-                      {shouldPulse && (
-                        <circle
-                          cx={x}
-                          cy={y}
-                          r={20}
-                          fill="none"
-                          stroke={color}
-                          strokeWidth={2}
-                          opacity={0.4}
-                          style={{ animation: 'pulse 2s ease-in-out infinite' }}
-                        />
-                      )}
-                      {/* Outer ring for emphasis */}
-                      <circle
-                        cx={x}
-                        cy={y}
-                        r={18}
-                        fill={color}
-                        opacity={0.1}
-                        className="transition-all duration-500"
-                      />
-                      {/* Main dot */}
-                      <circle
-                        cx={x}
-                        cy={y}
-                        r={14}
-                        fill={color}
-                        stroke="hsl(var(--background))"
-                        strokeWidth={2}
-                        className="transition-all duration-500"
-                      />
-                      {/* ETF label */}
-                      <text
-                        x={x}
-                        y={y + 1}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        className="fill-white font-semibold pointer-events-none"
-                        style={{ fontSize: "9px" }}
-                      >
-                        {etf.replace("XL", "")}
-                      </text>
-                    </g>
-                  </TooltipTrigger>
-                  <TooltipContent side="top" className="text-xs p-2">
-                    <div className="font-semibold mb-1.5">{sector.sector_name} ({etf})</div>
-                    <div className="flex flex-col gap-0.5">
-                      <div className="flex justify-between gap-4">
-                        <span className="text-muted-foreground">MRS 20:</span>
-                        <span className="font-mono">{sector.mrs_20 >= 0 ? "+" : ""}{sector.mrs_20.toFixed(2)}%</span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span className="text-muted-foreground">MRS 5:</span>
-                        <span className="font-mono">{sector.mrs_5 >= 0 ? "+" : ""}{sector.mrs_5.toFixed(2)}%</span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span className="text-muted-foreground">Zone:</span>
-                        <span>{ZONE_NAMES[sector.zone] || sector.zone}</span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span className="text-muted-foreground">Signal:</span>
-                        <span className="font-semibold" style={{ color }}>
-                          {formatSignal(sector.signal)}
-                          {SIGNAL_WIN_RATES[sector.signal] && (
-                            <span className="font-normal text-muted-foreground ml-1">({SIGNAL_WIN_RATES[sector.signal]}%)</span>
-                          )}
-                        </span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span className="text-muted-foreground">Modifier:</span>
-                        <span className="font-mono">{sector.modifier.toFixed(2)}x</span>
-                      </div>
-                    </div>
-                  </TooltipContent>
-                </Tooltip>
+                <g
+                  key={etf}
+                  className="cursor-pointer"
+                  style={{
+                    ...transformStyle,
+                    transformOrigin: '0 0',
+                  }}
+                  onMouseEnter={() => {
+                    setHoveredSector(sector);
+                    setTooltipPos({ x, y });
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredSector(null);
+                    setTooltipPos(null);
+                  }}
+                >
+                  {/* Pulse ring for strong bullish signals */}
+                  {shouldPulse && (
+                    <circle
+                      cx={0}
+                      cy={0}
+                      r={20}
+                      fill="none"
+                      stroke={color}
+                      strokeWidth={2}
+                      opacity={0.4}
+                      style={{ animation: 'pulse 2s ease-in-out infinite' }}
+                    />
+                  )}
+                  {/* Hover ring - always rendered, opacity changes */}
+                  <circle
+                    cx={0}
+                    cy={0}
+                    r={22}
+                    fill="none"
+                    stroke={color}
+                    strokeWidth={2}
+                    opacity={isHovered ? 0.5 : 0}
+                    style={{ transition: 'opacity 0.15s ease' }}
+                  />
+                  {/* Outer ring for emphasis */}
+                  <circle
+                    cx={0}
+                    cy={0}
+                    r={18}
+                    fill={color}
+                    opacity={isHovered ? 0.2 : 0.1}
+                  />
+                  {/* Main dot */}
+                  <circle
+                    cx={0}
+                    cy={0}
+                    r={14}
+                    fill={color}
+                    stroke="hsl(var(--background))"
+                    strokeWidth={2}
+                  />
+                  {/* ETF label */}
+                  <text
+                    x={0}
+                    y={1}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    className="fill-white font-semibold pointer-events-none"
+                    style={{ fontSize: "9px" }}
+                  >
+                    {etf.replace("XL", "")}
+                  </text>
+                </g>
               );
             })}
           </svg>
-        </TooltipProvider>
+
+          {/* Custom Tooltip */}
+          {hoveredSector && tooltipPos && (() => {
+            // Get T-1 and T-2 zones from history
+            const t1Sector = hasHistory && currentIndex > 0
+              ? history[currentIndex - 1]?.sectors.find(s => s.etf_ticker === hoveredSector.etf_ticker)
+              : null;
+            const t2Sector = hasHistory && currentIndex > 1
+              ? history[currentIndex - 2]?.sectors.find(s => s.etf_ticker === hoveredSector.etf_ticker)
+              : null;
+
+            return (
+              <div
+                className="absolute z-50 pointer-events-none bg-popover/90 backdrop-blur-md border border-border rounded-lg p-2 shadow-lg text-xs"
+                style={{
+                  left: `${(tooltipPos.x / CHART_WIDTH) * 100}%`,
+                  top: `${(tooltipPos.y / CHART_HEIGHT) * 100}%`,
+                  transform: 'translate(-50%, calc(-100% - 20px))',
+                }}
+              >
+                <div className="font-semibold mb-1.5">{hoveredSector.sector_name} ({hoveredSector.etf_ticker})</div>
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex justify-between gap-4">
+                    <span className="text-muted-foreground">MRS 20:</span>
+                    <span className="font-mono">{hoveredSector.mrs_20 >= 0 ? "+" : ""}{hoveredSector.mrs_20.toFixed(2)}%</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-muted-foreground">MRS 5:</span>
+                    <span className="font-mono">{hoveredSector.mrs_5 >= 0 ? "+" : ""}{hoveredSector.mrs_5.toFixed(2)}%</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-muted-foreground">Zone:</span>
+                    <span>{ZONE_NAMES[hoveredSector.zone] || hoveredSector.zone}</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-muted-foreground">Signal:</span>
+                    <span className="font-semibold" style={{ color: getSignalColor(hoveredSector.signal) }}>
+                      {formatSignal(hoveredSector.signal)}
+                      {SIGNAL_WIN_RATES[hoveredSector.signal] && (
+                        <span className="font-normal text-muted-foreground ml-1">({SIGNAL_WIN_RATES[hoveredSector.signal]}%)</span>
+                      )}
+                    </span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-muted-foreground">Modifier:</span>
+                    <span className="font-mono">{hoveredSector.modifier.toFixed(2)}x</span>
+                  </div>
+                </div>
+                {/* T-1 and T-2 Zone History */}
+                {(t1Sector || t2Sector) && (
+                  <div className="mt-1.5 pt-1.5 border-t border-border/50 flex flex-col gap-0.5">
+                    {t1Sector && (
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">T-1:</span>
+                        <span>{ZONE_NAMES[t1Sector.zone] || t1Sector.zone}</span>
+                      </div>
+                    )}
+                    {t2Sector && (
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">T-2:</span>
+                        <span>{ZONE_NAMES[t2Sector.zone] || t2Sector.zone}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+        </div>
       </CardContent>
     </Card>
   );

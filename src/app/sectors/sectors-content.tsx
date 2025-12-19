@@ -8,18 +8,19 @@ import {
   SectorRotationMap,
   L2ReportSheet,
 } from "@/components/sectors";
-import type { SectorRotationData } from "@/lib/queries/sectors";
+import type { SectorRotationData, SectorRotationHistoryDay } from "@/lib/queries/sectors";
 
 interface SectorsContentProps {
   data: SectorRotationData;
   currentDate: string;
+  history?: SectorRotationHistoryDay[];
 }
 
-export function SectorsContent({ data, currentDate }: SectorsContentProps) {
+export function SectorsContent({ data, currentDate, history }: SectorsContentProps) {
   const [reportOpen, setReportOpen] = useState(false);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-bold tracking-tight">Sector Rotation</h2>
@@ -42,7 +43,7 @@ export function SectorsContent({ data, currentDate }: SectorsContentProps) {
       />
 
       {/* Sector Rotation Map Visualization */}
-      <SectorRotationMap sectors={data.sectors} />
+      <SectorRotationMap sectors={data.sectors} history={history} />
 
       {/* Sector Rankings Table */}
       <SectorRankingsTable
