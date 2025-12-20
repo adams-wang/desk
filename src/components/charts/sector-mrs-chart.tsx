@@ -273,8 +273,8 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
           <ReferenceLine x={3} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.4} />
           <ReferenceLine x={-2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.4} />
 
-          {/* MRS 20 bars - green for positive, red for negative, blue for current */}
-          <Bar dataKey="mrs_20" name="MRS 20" radius={[0, 3, 3, 0]} maxBarSize={22} animationDuration={400}>
+          {/* 20D Strength bars - green for positive, red for negative, blue for current */}
+          <Bar dataKey="mrs_20" name="20D Strength" radius={[0, 3, 3, 0]} maxBarSize={22} animationDuration={400}>
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
@@ -284,11 +284,11 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
             <LabelList content={renderBarLabel} />
           </Bar>
 
-          {/* MRS 5 line (momentum) - orange for contrast */}
+          {/* 5D Strength line (momentum) - orange for contrast */}
           <Line
             type="monotone"
             dataKey="mrs_5"
-            name="MRS 5"
+            name="5D Strength"
             stroke="#f97316"
             strokeWidth={2.5}
             animationDuration={400}

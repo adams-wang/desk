@@ -42,7 +42,7 @@ export function SectorsContent({ data, currentDate, history }: SectorsContentPro
         sectors={data.sectors}
       />
 
-      {/* Sector Rankings Table (with integrated MRS chart) */}
+      {/* Sector Rankings Table (with integrated Strength chart) */}
       <SectorRankingsTable
         sectors={data.sectors}
         currentDate={currentDate}

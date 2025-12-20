@@ -135,28 +135,28 @@ function RankSparkline({
 }
 
 const zoneConfig: Record<Zone, { label: string; bg: string; text: string; description: string }> = {
-  C: { label: "Toxic", bg: "bg-red-500/20", text: "text-red-500", description: "MRS_20 ≤ -3.5%" },
-  D: { label: "Ignition", bg: "bg-amber-500/20", text: "text-amber-600", description: "-3.5% < MRS_20 < -0.5%" },
-  E: { label: "Noise", bg: "bg-zinc-500/20", text: "text-zinc-500", description: "-0.5% ≤ MRS_20 ≤ 0.5%" },
-  A: { label: "Trend", bg: "bg-blue-500/20", text: "text-blue-500", description: "0.5% < MRS_20 < 2.8%" },
-  B: { label: "Weakening", bg: "bg-orange-500/20", text: "text-orange-500", description: "MRS_5 < 0 (momentum fading)" },
-  F: { label: "Momentum", bg: "bg-emerald-500/20", text: "text-emerald-600", description: "MRS_20 ≥ 2.8%" },
+  C: { label: "Toxic", bg: "bg-red-500/20", text: "text-red-500", description: "20D Strength ≤ -3.5%" },
+  D: { label: "Ignition", bg: "bg-amber-500/20", text: "text-amber-600", description: "-3.5% < 20D Strength < -0.5%" },
+  E: { label: "Noise", bg: "bg-zinc-500/20", text: "text-zinc-500", description: "-0.5% ≤ 20D Strength ≤ 0.5%" },
+  A: { label: "Trend", bg: "bg-blue-500/20", text: "text-blue-500", description: "0.5% < 20D Strength < 2.8%" },
+  B: { label: "Weakening", bg: "bg-orange-500/20", text: "text-orange-500", description: "5D Strength < 0 (momentum fading)" },
+  F: { label: "Momentum", bg: "bg-emerald-500/20", text: "text-emerald-600", description: "20D Strength ≥ 2.8%" },
 };
 
 const signalConfig: Record<Signal, { bg: string; text: string; description: string }> = {
-  RECOVERY_STRONG: { bg: "bg-emerald-500", text: "text-white", description: "Zone C with MRS_5 > 0 (89.5% win)" },
+  RECOVERY_STRONG: { bg: "bg-emerald-500", text: "text-white", description: "Zone C with 5D Strength > 0 (89.5% win)" },
   RECOVERY_EARLY: { bg: "bg-emerald-400", text: "text-white", description: "Zone C with ROC_3 > 0 (61.8% win)" },
   TOXIC: { bg: "bg-red-500", text: "text-white", description: "Zone C, no recovery signal" },
-  IGNITION: { bg: "bg-emerald-500", text: "text-white", description: "Zone D with MRS_5 > 0 (61.5% win)" },
-  AVOID: { bg: "bg-red-400", text: "text-white", description: "Zone D with MRS_5 ≤ 0" },
+  IGNITION: { bg: "bg-emerald-500", text: "text-white", description: "Zone D with 5D Strength > 0 (61.5% win)" },
+  AVOID: { bg: "bg-red-400", text: "text-white", description: "Zone D with 5D Strength ≤ 0" },
   NEUTRAL: { bg: "bg-zinc-400", text: "text-white", description: "Zone E, unclear direction" },
   TREND: { bg: "bg-blue-500", text: "text-white", description: "Zone A, positive momentum" },
   MOMENTUM: { bg: "bg-blue-600", text: "text-white", description: "Zone F, strong momentum" },
-  WEAKENING: { bg: "bg-orange-500", text: "text-white", description: "MRS_5 < 0 warning (67% win)" },
+  WEAKENING: { bg: "bg-orange-500", text: "text-white", description: "5D Strength < 0 warning (67% win)" },
 };
 
-// Inline MRS bar chart for each row
-function InlineMRSBar({ mrs20, mrs5 }: { mrs20: number; mrs5: number }) {
+// Inline Strength bar chart for each row
+function InlineStrengthBar({ mrs20, mrs5 }: { mrs20: number; mrs5: number }) {
   const width = 320;
   const height = 38;
   const barHeight = 18;
@@ -283,8 +283,8 @@ function InlineMRSBar({ mrs20, mrs5 }: { mrs20: number; mrs5: number }) {
       </TooltipTrigger>
       <TooltipContent side="top" className="text-xs">
         <div className="space-y-1">
-          <div>MRS 20: <span className={mrs20 >= 0 ? "text-emerald-400" : "text-red-400"}>{mrs20 >= 0 ? "+" : ""}{mrs20.toFixed(2)}%</span></div>
-          <div>MRS 5: <span className={mrs5 >= 0 ? "text-emerald-400" : "text-red-400"}>{mrs5 >= 0 ? "+" : ""}{mrs5.toFixed(2)}%</span></div>
+          <div>20D Strength: <span className={mrs20 >= 0 ? "text-emerald-400" : "text-red-400"}>{mrs20 >= 0 ? "+" : ""}{mrs20.toFixed(2)}%</span></div>
+          <div>5D Strength: <span className={mrs5 >= 0 ? "text-emerald-400" : "text-red-400"}>{mrs5 >= 0 ? "+" : ""}{mrs5.toFixed(2)}%</span></div>
         </div>
       </TooltipContent>
     </Tooltip>
@@ -351,12 +351,12 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
                   <th className="text-left py-2 pl-3 font-medium text-muted-foreground">Signal</th>
                   <th className="text-left py-2 px-2 font-medium text-muted-foreground">
                     <span className="inline-flex items-center gap-3">
-                      <span>MRS</span>
+                      <span>Strength</span>
                       <span className="inline-flex items-center gap-1 text-[10px] font-normal">
                         <span className="w-3 h-2 rounded bg-green-500"></span>
-                        <span>20</span>
+                        <span>20D</span>
                         <span className="w-2 h-2 rounded-full bg-orange-500 ml-1"></span>
-                        <span>5</span>
+                        <span>5D</span>
                       </span>
                     </span>
                   </th>
@@ -430,7 +430,7 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
                         </Tooltip>
                       </td>
                       <td className="py-1.5 px-2">
-                        <InlineMRSBar mrs20={sector.mrs_20} mrs5={sector.mrs_5} />
+                        <InlineStrengthBar mrs20={sector.mrs_20} mrs5={sector.mrs_5} />
                       </td>
                     </tr>
                   );

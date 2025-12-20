@@ -41,8 +41,8 @@ interface StockTableProps {
   stocks: StockDetail[];
 }
 
-// Inline MRS bar component
-function MRSBar({ value, maxValue = 5 }: { value: number | null; maxValue?: number }) {
+// Inline Strength bar component
+function StrengthBar({ value, maxValue = 5 }: { value: number | null; maxValue?: number }) {
   if (value === null) return <span className="text-muted-foreground">-</span>;
 
   const clampedValue = Math.max(-maxValue, Math.min(value, maxValue));
@@ -125,17 +125,17 @@ function VerdictBadge({
 
 // Combined L3 cell
 function L3Cell({
-  mrs,
+  strength,
   verdict,
   conviction
 }: {
-  mrs: number | null;
+  strength: number | null;
   verdict: string | null;
   conviction: string | null;
 }) {
   return (
     <div className="flex items-center gap-2">
-      <MRSBar value={mrs} />
+      <StrengthBar value={strength} />
       <VerdictBadge verdict={verdict} conviction={conviction} />
     </div>
   );
@@ -501,14 +501,14 @@ export function StockTable({ stocks }: StockTableProps) {
                     </TableCell>
                     <TableCell>
                       <L3Cell
-                        mrs={stock.mrs_10}
+                        strength={stock.mrs_10}
                         verdict={stock.verdict_10}
                         conviction={stock.conviction_10}
                       />
                     </TableCell>
                     <TableCell>
                       <L3Cell
-                        mrs={stock.mrs_20}
+                        strength={stock.mrs_20}
                         verdict={stock.verdict_20}
                         conviction={stock.conviction_20}
                       />

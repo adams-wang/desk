@@ -84,10 +84,10 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
               const name = p.dataKey === "nasdaq"
                 ? "NASDAQ"
                 : p.dataKey === "mrs_5"
-                  ? "MRS 5"
+                  ? "5D Strength"
                   : p.dataKey === "mrs_10"
-                    ? "MRS 10"
-                    : "MRS 20";
+                    ? "10D Strength"
+                    : "20D Strength";
               return (
                 <div key={p.dataKey} className="flex items-center gap-2">
                   <span
@@ -290,12 +290,12 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             />
           )}
 
-          {/* MRS 5 - Orange with circles */}
+          {/* 5D Strength - Orange with circles */}
           <Line
             yAxisId="mrs"
             type="monotone"
             dataKey="mrs_5"
-            name="MRS 5"
+            name="5D Strength"
             stroke="#f97316"
             strokeWidth={2}
             dot={(props) => {
@@ -310,12 +310,12 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             activeDot={{ r: 5 }}
           />
 
-          {/* MRS 10 - Green with triangles */}
+          {/* 10D Strength - Green with triangles */}
           <Line
             yAxisId="mrs"
             type="monotone"
             dataKey="mrs_10"
-            name="MRS 10"
+            name="10D Strength"
             stroke="#22c55e"
             strokeWidth={2.5}
             dot={(props) => {
@@ -338,12 +338,12 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             activeDot={{ r: 6 }}
           />
 
-          {/* MRS 20 - Blue with squares */}
+          {/* 20D Strength - Blue with squares */}
           <Line
             yAxisId="mrs"
             type="monotone"
             dataKey="mrs_20"
-            name="MRS 20"
+            name="20D Strength"
             stroke="#3b82f6"
             strokeWidth={2.5}
             dot={(props) => {
