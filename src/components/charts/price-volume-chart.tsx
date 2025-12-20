@@ -221,8 +221,8 @@ function CustomTooltip({
           <p className="font-mono">
             <span className="text-muted-foreground">RSI:</span>{" "}
             <span className="text-foreground">{d.rsi_14.toFixed(0)}</span>{" "}
-            <span className={d.rsi_14 > 70 ? "text-red-500" : d.rsi_14 < 30 ? "text-green-500" : "text-muted-foreground"}>
-              ({d.rsi_14 > 70 ? "overbought" : d.rsi_14 < 30 ? "oversold" : "neutral"})
+            <span className={d.rsi_14 > 70 ? "text-red-500" : d.rsi_14 < 30 ? "text-emerald-500" : "text-muted-foreground"}>
+              ({d.rsi_14 > 70 ? "Overbought" : d.rsi_14 < 30 ? "Oversold" : "Neutral"})
             </span>
           </p>
         )}
@@ -988,7 +988,7 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
                     : signalData.rsi_14 < 30 ? "text-emerald-500"
                     : "text-muted-foreground"
                   }`}>
-                    ({signalData.rsi_14 > 70 ? "overbought" : signalData.rsi_14 < 30 ? "oversold" : "neutral"})
+                    ({signalData.rsi_14 > 70 ? "Overbought" : signalData.rsi_14 < 30 ? "Oversold" : "Neutral"})
                   </span>
                 </div>
               )}

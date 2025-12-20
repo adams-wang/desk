@@ -122,14 +122,18 @@ export interface StockDetail {
   low: number;
   close: number;
   volume: number;
+  prev_close: number | null;
   // Indicators
   mrs_5: number | null;
   mrs_10: number | null;
   mrs_20: number | null;
   mrs_20_cs: number | null;
+  volume_10_ts: number | null; // Volume 10-day percentile
+  volume_20_ts: number | null; // Volume 20-day percentile
   // Gap indicators (from gap_signal + gap_interpretation)
   gap_type: string | null;  // up_large, up_small, down_large, down_small
   gap_conclusion: string | null;  // PREFER, AVOID
+  gap_interpretation: string | null;  // Historical win rate description
   // Technicals
   atr_14: number | null;
   rsi_14: number | null;
@@ -146,11 +150,15 @@ export interface StockDetail {
   // Pattern (from candle_pattern + pattern_interpretation INNER JOIN)
   pattern: string | null;
   pattern_conclusion: string | null;  // PREFER or AVOID
+  pattern_interpretation: string | null;  // Historical win rate description
   // L3 verdicts
   verdict_10: string | null;
   conviction_10: string | null;
   verdict_20: string | null;
   conviction_20: string | null;
+  // L3 verdict history (T-2, T-1)
+  verdict_10_t1: string | null;
+  verdict_10_t2: string | null;
   // Metadata
   company_name: string | null;
   sector: string | null;
@@ -256,27 +264,51 @@ export function getStockOHLCV(ticker: string, days: number = 252, endDate?: stri
 /**
  * Get list of all stocks with latest data for screener
  */
-export function getStockList(limit: number = 500): StockDetail[] {
+export function getStockList(limit: number = 500, endDate?: string): StockDetail[] {
   const log = getLogger();
-  const date = getLatestTradingDate();
+  const date = endDate || getLatestTradingDate();
   const startTime = Date.now();
+
+  // Get previous trading dates for verdict history (relative to selected date)
+  const prevDates = db
+    .prepare(`SELECT date FROM trading_days WHERE date < ? ORDER BY date DESC LIMIT 2`)
+    .all(date) as { date: string }[];
+  const dateT1 = prevDates[0]?.date ?? date;
+  const dateT2 = prevDates[1]?.date ?? date;
 
   const rows = db
     .prepare(
       `
     SELECT
       o.ticker, o.date, o.open, o.high, o.low, o.close, o.volume,
-      i.mrs_5, i.mrs_10, i.mrs_20, i.mrs_20_cs,
-      gs.gap_type, gi.conclusion as gap_conclusion,
-      t.atr_14, t.rsi_14,
+      prev.close as prev_close,
+      i.mrs_5, i.mrs_10, i.mrs_20, i.mrs_20_cs, i.volume_10_ts, i.volume_20_ts,
+      i.beta_60, i.volatility_20, i.sharpe_ratio_20, i.alpha_20d,
+      gs.gap_type, gi.conclusion as gap_conclusion, gi.interpretation as gap_interpretation,
+      t.atr_14, t.rsi_14, t.macd_line as macd, t.macd_signal,
+      CASE WHEN pi.conclusion IS NOT NULL THEN cp.pattern ELSE NULL END as pattern,
+      pi.conclusion as pattern_conclusion, pi.interpretation as pattern_interpretation,
       l10.verdict as verdict_10, l10.conviction as conviction_10,
       l20.verdict as verdict_20, l20.conviction as conviction_20,
+      l10_t1.verdict as verdict_10_t1,
+      l10_t2.verdict as verdict_10_t2,
       m.name as company_name, m.sector, m.industry
     FROM stocks_ohlcv o
+    LEFT JOIN stocks_ohlcv prev ON o.ticker = prev.ticker AND prev.date = ?
     LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
     LEFT JOIN stocks_technicals t ON o.ticker = t.ticker AND o.date = t.date
+    LEFT JOIN (
+      SELECT ticker, date, type, pattern, regime_mrs20, volume_code,
+             ROW_NUMBER() OVER (PARTITION BY ticker, date ORDER BY CASE type WHEN '3-bar' THEN 0 ELSE 1 END) as rn
+      FROM candle_pattern
+    ) cp ON o.ticker = cp.ticker AND o.date = cp.date AND cp.rn = 1
+    LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
+                                       AND cp.regime_mrs20 = pi.regime_mrs20
+                                       AND cp.volume_code = pi.volume_code
     LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
+    LEFT JOIN l3_contracts_10 l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ?
+    LEFT JOIN l3_contracts_10 l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ?
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
     LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
     LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
@@ -296,7 +328,7 @@ export function getStockList(limit: number = 500): StockDetail[] {
     LIMIT ?
   `
     )
-    .all(date, limit) as StockDetail[];
+    .all(dateT1, dateT1, dateT2, date, limit) as StockDetail[];
 
   log.debug(
     { date, limit, rowCount: rows.length, latencyMs: Date.now() - startTime },

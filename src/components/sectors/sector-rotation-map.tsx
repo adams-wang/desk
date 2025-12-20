@@ -617,11 +617,11 @@ export function SectorRotationMap({ sectors, history }: SectorRotationMapProps) 
                 <div className="font-semibold mb-1.5">{hoveredSector.sector_name} ({hoveredSector.etf_ticker})</div>
                 <div className="flex flex-col gap-0.5">
                   <div className="flex justify-between gap-4">
-                    <span className="text-muted-foreground">20D Strength:</span>
+                    <span className="text-muted-foreground">20d Strength:</span>
                     <span className="font-mono">{hoveredSector.mrs_20 >= 0 ? "+" : ""}{hoveredSector.mrs_20.toFixed(2)}%</span>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <span className="text-muted-foreground">5D Strength:</span>
+                    <span className="text-muted-foreground">5d Strength:</span>
                     <span className="font-mono">{hoveredSector.mrs_5 >= 0 ? "+" : ""}{hoveredSector.mrs_5.toFixed(2)}%</span>
                   </div>
                   <div className="flex justify-between gap-4">

@@ -84,10 +84,10 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
               const name = p.dataKey === "nasdaq"
                 ? "NASDAQ"
                 : p.dataKey === "mrs_5"
-                  ? "5D Strength"
+                  ? "5d Strength"
                   : p.dataKey === "mrs_10"
-                    ? "10D Strength"
-                    : "20D Strength";
+                    ? "10d Strength"
+                    : "20d Strength";
               return (
                 <div key={p.dataKey} className="flex items-center gap-2">
                   <span
@@ -134,19 +134,19 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             <svg width="12" height="12" viewBox="0 0 12 12">
               <circle cx="6" cy="6" r="5" fill="#f97316" stroke="#fff" strokeWidth="1" />
             </svg>
-            <span className="text-muted-foreground">5D Strength</span>
+            <span className="text-muted-foreground">5d Strength</span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 12 12">
               <polygon points="6,1 11,10 1,10" fill="#22c55e" stroke="#fff" strokeWidth="1" />
             </svg>
-            <span className="text-muted-foreground">10D Strength</span>
+            <span className="text-muted-foreground">10d Strength</span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 12 12">
               <rect x="1" y="1" width="10" height="10" fill="#3b82f6" stroke="#fff" strokeWidth="1" />
             </svg>
-            <span className="text-muted-foreground">20D Strength</span>
+            <span className="text-muted-foreground">20d Strength</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-4 border-t-2 border-dashed" style={{ borderColor: "#9ca3af" }} />
@@ -154,9 +154,9 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
           </div>
         </div>
         <div className="text-muted-foreground">
-          <span style={{ color: "#22c55e" }} className="font-medium">10D</span> early: <span style={{ color: "#22c55e" }}>3~5%</span>
+          <span style={{ color: "#22c55e" }} className="font-medium">10d</span> early: <span style={{ color: "#22c55e" }}>3~5%</span>
           <span className="mx-1.5">|</span>
-          <span style={{ color: "#3b82f6" }} className="font-medium">20D</span> confirm: <span style={{ color: "#3b82f6" }}>4~8.5%</span>
+          <span style={{ color: "#3b82f6" }} className="font-medium">20d</span> confirm: <span style={{ color: "#3b82f6" }}>4~8.5%</span>
           <span className="mx-1.5">|</span>
           <span style={{ color: "#f97316" }} className="font-medium">&gt;8.5%</span> exhaustion
         </div>
@@ -290,12 +290,12 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             />
           )}
 
-          {/* 5D Strength - Orange with circles */}
+          {/* 5d Strength - Orange with circles */}
           <Line
             yAxisId="mrs"
             type="monotone"
             dataKey="mrs_5"
-            name="5D Strength"
+            name="5d Strength"
             stroke="#f97316"
             strokeWidth={2}
             dot={(props) => {
@@ -310,12 +310,12 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             activeDot={{ r: 5 }}
           />
 
-          {/* 10D Strength - Green with triangles */}
+          {/* 10d Strength - Green with triangles */}
           <Line
             yAxisId="mrs"
             type="monotone"
             dataKey="mrs_10"
-            name="10D Strength"
+            name="10d Strength"
             stroke="#22c55e"
             strokeWidth={2.5}
             dot={(props) => {
@@ -338,12 +338,12 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             activeDot={{ r: 6 }}
           />
 
-          {/* 20D Strength - Blue with squares */}
+          {/* 20d Strength - Blue with squares */}
           <Line
             yAxisId="mrs"
             type="monotone"
             dataKey="mrs_20"
-            name="20D Strength"
+            name="20d Strength"
             stroke="#3b82f6"
             strokeWidth={2.5}
             dot={(props) => {

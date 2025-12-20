@@ -1,10 +1,20 @@
 import { getStockList } from "@/lib/queries/stocks";
-import { getLatestTradingDate } from "@/lib/queries/trading-days";
+import { getSectorRanks } from "@/lib/queries/sectors";
 import { StockTable } from "./stock-table";
 
-export default function StocksPage() {
-  const tradingDate = getLatestTradingDate();
-  const stocks = getStockList(1000);
+interface StocksPageProps {
+  searchParams: Promise<{ date?: string }>;
+}
+
+export default async function StocksPage({ searchParams }: StocksPageProps) {
+  const { date } = await searchParams;
+  const stocks = getStockList(1000, date);
+  const tradingDate = stocks[0]?.date ?? date ?? "N/A";
+
+  // Get official sector rankings from sector ETF data
+  const sectorRanksMap = getSectorRanks(date);
+  // Convert Map to plain object for serialization to client component
+  const sectorRanks = Object.fromEntries(sectorRanksMap);
 
   return (
     <div className="space-y-6">
@@ -15,7 +25,7 @@ export default function StocksPage() {
         </p>
       </div>
 
-      <StockTable stocks={stocks} />
+      <StockTable stocks={stocks} sectorRanks={sectorRanks} />
     </div>
   );
 }

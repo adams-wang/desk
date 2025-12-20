@@ -296,7 +296,13 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
                   <span className="font-mono tabular-nums font-medium w-16 text-right">
                     {formatNumber(stock.sharpe_ratio_20, 2)}
                   </span>
-                  <span className="w-20 text-right text-muted-foreground">
+                  <span className={`w-20 text-right ${
+                      stock.sharpe_ratio_20 !== null && stock.sharpe_ratio_20 > 2 ? "text-emerald-500"
+                      : stock.sharpe_ratio_20 !== null && stock.sharpe_ratio_20 > 1 ? "text-emerald-400"
+                      : stock.sharpe_ratio_20 !== null && stock.sharpe_ratio_20 > 0.5 ? "text-muted-foreground"
+                      : stock.sharpe_ratio_20 !== null && stock.sharpe_ratio_20 > 0 ? "text-orange-500"
+                      : "text-red-500"
+                    }`}>
                     {stock.sharpe_ratio_20 !== null && (
                       stock.sharpe_ratio_20 > 2 ? "Excellent"
                       : stock.sharpe_ratio_20 > 1 ? "Good"

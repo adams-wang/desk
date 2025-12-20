@@ -109,8 +109,8 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
         <div className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-lg text-sm">
           <p className="font-semibold text-foreground">{data.name}</p>
           <p className="text-muted-foreground">ETF: {data.etf}</p>
-          <p className="text-blue-400">20D Strength: {data.mrs_20.toFixed(2)}%</p>
-          <p className="text-orange-400">5D Strength: {data.mrs_5.toFixed(2)}%</p>
+          <p className="text-blue-400">20d Strength: {data.mrs_20.toFixed(2)}%</p>
+          <p className="text-orange-400">5d Strength: {data.mrs_5.toFixed(2)}%</p>
         </div>
       );
     }
@@ -273,8 +273,8 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
           <ReferenceLine x={3} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.4} />
           <ReferenceLine x={-2} stroke="var(--color-muted-foreground)" strokeDasharray="3 3" strokeOpacity={0.4} />
 
-          {/* 20D Strength bars - green for positive, red for negative, blue for current */}
-          <Bar dataKey="mrs_20" name="20D Strength" radius={[0, 3, 3, 0]} maxBarSize={22} animationDuration={400}>
+          {/* 20d Strength bars - green for positive, red for negative, blue for current */}
+          <Bar dataKey="mrs_20" name="20d Strength" radius={[0, 3, 3, 0]} maxBarSize={22} animationDuration={400}>
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
@@ -284,11 +284,11 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
             <LabelList content={renderBarLabel} />
           </Bar>
 
-          {/* 5D Strength line (momentum) - orange for contrast */}
+          {/* 5d Strength line (momentum) - orange for contrast */}
           <Line
             type="monotone"
             dataKey="mrs_5"
-            name="5D Strength"
+            name="5d Strength"
             stroke="#f97316"
             strokeWidth={2.5}
             animationDuration={400}
@@ -316,7 +316,7 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
       <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
         <div className="flex items-center gap-1.5">
           <span className="w-4 h-3 rounded bg-green-500"></span>
-          <span>20D Strength (bar)</span>
+          <span>20d Strength (bar)</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-4 h-0.5 bg-green-600"></span>
@@ -328,7 +328,7 @@ export function SectorMRSChart({ history, currentSector, height = 380, intervalM
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-full bg-orange-500"></span>
-          <span>5D Strength (normal: -1~+1%)</span>
+          <span>5d Strength (normal: -1~+1%)</span>
         </div>
       </div>
     </div>

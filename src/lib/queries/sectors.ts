@@ -387,3 +387,27 @@ export function getSectorRankHistory(sectorName: string, days: number = 20, endD
 
   return result.reverse();
 }
+
+/**
+ * Get all sector ranks for a specific date
+ * Returns a map of sector name -> { rank, total }
+ */
+export function getSectorRanks(endDate?: string): Map<string, { rank: number; total: number }> {
+  const date = endDate || getLatestTradingDate();
+
+  const sectors = db
+    .prepare(`
+      SELECT sector_name, mrs_20
+      FROM sector_etf_indicators
+      WHERE date = ?
+      ORDER BY mrs_20 DESC
+    `)
+    .all(date) as { sector_name: string; mrs_20: number }[];
+
+  const result = new Map<string, { rank: number; total: number }>();
+  sectors.forEach((s, idx) => {
+    result.set(s.sector_name, { rank: idx + 1, total: sectors.length });
+  });
+
+  return result;
+}
