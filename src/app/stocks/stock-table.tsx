@@ -695,7 +695,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                                   </span>
                                 </div>
                               </TooltipTrigger>
-                              <TooltipContent side="right" align="start" className="bg-card/95 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm max-w-[350px]">
+                              <TooltipContent side="right" align="start" className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm max-w-[350px]">
                                 <div className="space-y-2">
                                   <div className="flex items-center gap-2">
                                     <span className={cn(
