@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getLatestTradingDate, getMarketRegime, getTradingDateNavigation } from "@/lib/queries/trading-days";
+import { getLatestTradingDate, getTradingDateNavigation } from "@/lib/queries/trading-days";
+import { getL1ContractFull } from "@/lib/queries/market";
 import { v4 as uuidv4 } from "uuid";
 import { withRequestContext, getLogger } from "@/lib/logger";
 
@@ -15,16 +16,17 @@ export async function GET(request: NextRequest) {
 
       const latestDate = getLatestTradingDate();
       const date = requestedDate || latestDate;
-      const marketRegime = getMarketRegime(date);
+      // Use L1 JSON file as source of truth (not database table)
+      const l1 = getL1ContractFull(date);
       const nav = getTradingDateNavigation(date);
 
-      log.info({ date, marketRegime }, "Trading date fetched");
+      log.info({ date, regime: l1?.regime }, "Trading date fetched");
 
       return NextResponse.json(
         {
           date,
-          vix: marketRegime?.vix_close ?? null,
-          regime: marketRegime?.regime ?? null,
+          vix: l1?.signals?.vixValue ?? null,
+          regime: l1?.regime?.toLowerCase() ?? null,
           latestDate,
           prevDate: nav?.prevDate ?? null,
           nextDate: nav?.nextDate ?? null,

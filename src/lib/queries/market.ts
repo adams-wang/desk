@@ -1,9 +1,81 @@
 import db from "../db";
 import { getLatestTradingDate } from "./trading-days";
+import * as fs from "fs";
+import * as path from "path";
 
 // ============================================================================
 // Types
 // ============================================================================
+
+// Rich L1 data from JSON file (for AI Advisor)
+export interface L1NewsContext {
+  articleCount: number;
+  avgSentiment: number;
+  dominantTopic: string;
+  keyThemes: string[];
+  marketImplications: string;
+}
+
+export interface L1Signals {
+  vixValue: number;
+  vixDelta5dPct: number;
+  vixBucket: string;
+  vixInterpretation: string;
+  yieldSpreadBps: number;
+  yieldShape: string;
+  yieldInterpretation: string;
+  breadthPct: number;
+  breadthDelta5d: number;
+  breadthInterpretation: string;
+  putCallRatio: number;
+  putCallDelta5d: number;
+  economicInterpretation: string;
+  fedFunds: number;
+  cpiYoy: number;
+  unemployment: number;
+  sahmTriggered: boolean;
+  fomcDaysAway: number | null;
+}
+
+export interface L1Guidance {
+  positionBias: string;
+  positionSizeMaxPct: number;
+  keyAction: string;
+}
+
+export interface L1Triggers {
+  upgrade: string[];
+  downgrade: string[];
+}
+
+export interface L1ContractFull {
+  contractId: string;
+  tradingDate: string;
+  generatedAt: string;
+  model: string;
+
+  // Core fields
+  regime: "RISK_ON" | "NORMAL" | "RISK_OFF" | "CRISIS";
+  regimeTransition: "IMPROVING" | "STABLE" | "DETERIORATING" | null;
+  confidence: "HIGH" | "MEDIUM" | "LOW";
+  confidenceScore: number;
+
+  // PRIMARY for AI consumers
+  macroSummary: string;
+
+  // Rich context
+  newsContext: L1NewsContext | null;
+  newsRiskAdjustment: number;
+  newsRiskRationale: string;
+  signals: L1Signals | null;
+  conflicts: string[];
+  guidance: L1Guidance | null;
+  triggers: L1Triggers | null;
+  riskFactors: string[];
+
+  // Blockers
+  hardBlocks: string[];
+}
 
 export interface L1Contract {
   contractId: string;
@@ -132,7 +204,7 @@ interface L1ContractRow {
 }
 
 /**
- * Get the latest L1 contract
+ * Get the latest L1 contract (from database - basic fields)
  */
 export function getL1Contract(date?: string): L1Contract | null {
   const tradingDate = date || getLatestTradingDate();
@@ -181,6 +253,108 @@ export function getL1Contract(date?: string): L1Contract | null {
     sahmTriggered: row.sahm_triggered === 1,
     reportPath: row.report_path,
   };
+}
+
+/**
+ * Get the full L1 contract from JSON file (rich data for AI Advisor)
+ */
+export function getL1ContractFull(date?: string): L1ContractFull | null {
+  const tradingDate = date || getLatestTradingDate();
+  const contractsPath = process.env.CONTRACTS_PATH || "/Volumes/Data/quant/data/contracts";
+  const jsonPath = path.join(contractsPath, tradingDate, "l1.json");
+
+  try {
+    if (!fs.existsSync(jsonPath)) {
+      return null;
+    }
+
+    const content = fs.readFileSync(jsonPath, "utf-8");
+    const data = JSON.parse(content);
+
+    // Parse news_context
+    let newsContext: L1NewsContext | null = null;
+    if (data.news_context) {
+      newsContext = {
+        articleCount: data.news_context.article_count ?? 0,
+        avgSentiment: data.news_context.avg_sentiment ?? 0,
+        dominantTopic: data.news_context.dominant_topic ?? "",
+        keyThemes: data.news_context.key_themes ?? [],
+        marketImplications: data.news_context.market_implications ?? "",
+      };
+    }
+
+    // Parse signals
+    let signals: L1Signals | null = null;
+    if (data.signals) {
+      signals = {
+        vixValue: data.signals.vix_value ?? 0,
+        vixDelta5dPct: data.signals.vix_delta_5d_pct ?? 0,
+        vixBucket: data.signals.vix_bucket ?? "",
+        vixInterpretation: data.signals.vix_interpretation ?? "",
+        yieldSpreadBps: data.signals.yield_spread_bps ?? 0,
+        yieldShape: data.signals.yield_shape ?? "",
+        yieldInterpretation: data.signals.yield_interpretation ?? "",
+        breadthPct: data.signals.breadth_pct ?? 0,
+        breadthDelta5d: data.signals.breadth_delta_5d ?? 0,
+        breadthInterpretation: data.signals.breadth_interpretation ?? "",
+        putCallRatio: data.signals.put_call_ratio ?? 0,
+        putCallDelta5d: data.signals.put_call_delta_5d ?? 0,
+        economicInterpretation: data.signals.economic_interpretation ?? "",
+        fedFunds: data.signals.fed_funds ?? 0,
+        cpiYoy: data.signals.cpi_yoy ?? 0,
+        unemployment: data.signals.unemployment ?? 0,
+        sahmTriggered: data.signals.sahm_triggered ?? false,
+        fomcDaysAway: data.signals.fomc_days_away ?? null,
+      };
+    }
+
+    // Parse guidance
+    let guidance: L1Guidance | null = null;
+    if (data.guidance) {
+      guidance = {
+        positionBias: data.guidance.position_bias ?? "",
+        positionSizeMaxPct: data.guidance.position_size_max_pct ?? 100,
+        keyAction: data.guidance.key_action ?? "",
+      };
+    }
+
+    // Parse triggers
+    let triggers: L1Triggers | null = null;
+    if (data.triggers) {
+      triggers = {
+        upgrade: data.triggers.upgrade ?? [],
+        downgrade: data.triggers.downgrade ?? [],
+      };
+    }
+
+    return {
+      contractId: data.contract_id ?? "",
+      tradingDate: data.trading_date ?? tradingDate,
+      generatedAt: data.generated_at ?? "",
+      model: data.model ?? "",
+
+      regime: (data.regime?.toUpperCase() ?? "NORMAL") as L1ContractFull["regime"],
+      regimeTransition: data.regime_transition?.toUpperCase() as L1ContractFull["regimeTransition"],
+      confidence: (data.confidence?.toUpperCase() ?? "LOW") as L1ContractFull["confidence"],
+      confidenceScore: data.confidence_score ?? 0,
+
+      macroSummary: data.macro_summary ?? "",
+
+      newsContext,
+      newsRiskAdjustment: data.news_risk_adjustment ?? 0,
+      newsRiskRationale: data.news_risk_rationale ?? "",
+      signals,
+      conflicts: data.conflicts ?? [],
+      guidance,
+      triggers,
+      riskFactors: data.risk_factors ?? [],
+
+      hardBlocks: data.hard_blocks ?? [],
+    };
+  } catch (error) {
+    console.error(`Failed to read L1 contract JSON: ${error}`);
+    return null;
+  }
 }
 
 interface IndexOHLCVRow {
