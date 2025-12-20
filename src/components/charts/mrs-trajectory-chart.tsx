@@ -134,19 +134,19 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             <svg width="12" height="12" viewBox="0 0 12 12">
               <circle cx="6" cy="6" r="5" fill="#f97316" stroke="#fff" strokeWidth="1" />
             </svg>
-            <span className="text-muted-foreground">MRS 5</span>
+            <span className="text-muted-foreground">5D Strength</span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 12 12">
               <polygon points="6,1 11,10 1,10" fill="#22c55e" stroke="#fff" strokeWidth="1" />
             </svg>
-            <span className="text-muted-foreground">MRS 10</span>
+            <span className="text-muted-foreground">10D Strength</span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 12 12">
               <rect x="1" y="1" width="10" height="10" fill="#3b82f6" stroke="#fff" strokeWidth="1" />
             </svg>
-            <span className="text-muted-foreground">MRS 20</span>
+            <span className="text-muted-foreground">20D Strength</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-4 border-t-2 border-dashed" style={{ borderColor: "#9ca3af" }} />
@@ -154,9 +154,9 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
           </div>
         </div>
         <div className="text-muted-foreground">
-          <span style={{ color: "#22c55e" }} className="font-medium">MRS 10</span> early: <span style={{ color: "#22c55e" }}>3~5%</span>
+          <span style={{ color: "#22c55e" }} className="font-medium">10D</span> early: <span style={{ color: "#22c55e" }}>3~5%</span>
           <span className="mx-1.5">|</span>
-          <span style={{ color: "#3b82f6" }} className="font-medium">MRS 20</span> confirm: <span style={{ color: "#3b82f6" }}>4~8.5%</span>
+          <span style={{ color: "#3b82f6" }} className="font-medium">20D</span> confirm: <span style={{ color: "#3b82f6" }}>4~8.5%</span>
           <span className="mx-1.5">|</span>
           <span style={{ color: "#f97316" }} className="font-medium">&gt;8.5%</span> exhaustion
         </div>
