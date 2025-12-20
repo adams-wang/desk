@@ -8,8 +8,7 @@ interface StocksPageProps {
 
 export default async function StocksPage({ searchParams }: StocksPageProps) {
   const { date } = await searchParams;
-  const stocks = getStockList(1000, date);
-  const tradingDate = stocks[0]?.date ?? date ?? "N/A";
+  const stocks = getStockList(200, date);
 
   // Get official sector rankings from sector ETF data
   const sectorRanksMap = getSectorRanks(date);
@@ -18,13 +17,7 @@ export default async function StocksPage({ searchParams }: StocksPageProps) {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold tracking-tight">Stock Screener</h2>
-        <p className="text-muted-foreground">
-          Browse stocks with L3 signals • Data as of {tradingDate}
-        </p>
-      </div>
-
+      <h2 className="text-3xl font-bold tracking-tight">Stock Edge</h2>
       <StockTable stocks={stocks} sectorRanks={sectorRanks} />
     </div>
   );

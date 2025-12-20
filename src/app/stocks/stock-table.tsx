@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { useVirtualizer } from "@tanstack/react-virtual";
 import Link from "next/link";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { ReportSheet } from "@/components/report-sheet";
@@ -225,8 +226,11 @@ function SortableHeader({
   );
 }
 
+const ROW_HEIGHT = 52; // Approximate row height in pixels
+
 export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const searchParams = useSearchParams();
+  const parentRef = useRef<HTMLDivElement>(null);
 
   // Read initial filter/sort values from URL params
   const initialEdge = searchParams.get("edge") || "All";
@@ -431,6 +435,14 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     return { prefer, avoid };
   }, [stocks]);
 
+  // Virtual scrolling
+  const rowVirtualizer = useVirtualizer({
+    count: filteredStocks.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => ROW_HEIGHT,
+    overscan: 10,
+  });
+
   return (
     <div className="space-y-4">
       {/* Signal Summary */}
@@ -510,11 +522,15 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
         </span>
       </div>
 
-      {/* Table */}
+      {/* Table with virtual scrolling */}
       <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            <TableRow>
+        <div
+          ref={parentRef}
+          className="max-h-[calc(100vh-280px)] overflow-auto"
+        >
+          <Table>
+            <TableHeader className="sticky top-0 bg-background z-10">
+              <TableRow>
               <SortableHeader
                 label="Edge"
                 field="edge"
@@ -617,7 +633,12 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
               />
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody
+            style={{
+              height: `${rowVirtualizer.getTotalSize()}px`,
+              position: "relative",
+            }}
+          >
             {filteredStocks.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={21} className="h-24 text-center text-muted-foreground">
@@ -625,12 +646,24 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 </TableCell>
               </TableRow>
             ) : (
-              filteredStocks.map((stock) => {
+              rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                const stock = filteredStocks[virtualRow.index];
                 const { change, changePct } = getChange(stock);
                 const volRegime = getVolumeRegime(stock.volume_10_ts);
                 const isPositive = change >= 0;
                 return (
-                  <TableRow key={stock.ticker} className="hover:bg-muted/50">
+                  <TableRow
+                    key={stock.ticker}
+                    className="hover:bg-muted/50"
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: `${virtualRow.size}px`,
+                      transform: `translateY(${virtualRow.start}px)`,
+                    }}
+                  >
                     <TableCell className="text-center px-1">
                       {(() => {
                         const edge = getEdgeData(stock);
@@ -948,7 +981,8 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
               })
             )}
           </TableBody>
-        </Table>
+          </Table>
+        </div>
       </div>
 
       {/* Report Sheet */}
