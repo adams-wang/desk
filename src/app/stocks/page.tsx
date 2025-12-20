@@ -4,7 +4,7 @@ import { StockTable } from "./stock-table";
 
 export default function StocksPage() {
   const tradingDate = getLatestTradingDate();
-  const stocks = getStockList(100);
+  const stocks = getStockList(1000);
 
   return (
     <div className="space-y-6">
