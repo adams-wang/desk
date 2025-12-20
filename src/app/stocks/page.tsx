@@ -8,7 +8,7 @@ interface StocksPageProps {
 
 export default async function StocksPage({ searchParams }: StocksPageProps) {
   const { date } = await searchParams;
-  const stocks = getStockList(200, date);
+  const stocks = getStockList(1000, date);
 
   // Get official sector rankings from sector ETF data
   const sectorRanksMap = getSectorRanks(date);

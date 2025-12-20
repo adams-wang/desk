@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import Link from "next/link";
@@ -227,10 +227,15 @@ function SortableHeader({
 }
 
 const ROW_HEIGHT = 52; // Approximate row height in pixels
+const INITIAL_LOAD = 50; // Initial rows to render
+const LOAD_MORE = 50; // Rows to add on each scroll
 
 export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const searchParams = useSearchParams();
   const parentRef = useRef<HTMLDivElement>(null);
+
+  // Infinite scroll state
+  const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD);
 
   // Read initial filter/sort values from URL params
   const initialEdge = searchParams.get("edge") || "All";
@@ -435,13 +440,42 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     return { prefer, avoid };
   }, [stocks]);
 
+  // Reset visible count when filters/sort change
+  useEffect(() => {
+    setVisibleCount(INITIAL_LOAD);
+  }, [sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection]);
+
+  // Visible stocks (sliced for infinite scroll)
+  const visibleStocks = useMemo(
+    () => filteredStocks.slice(0, visibleCount),
+    [filteredStocks, visibleCount]
+  );
+
   // Virtual scrolling
   const rowVirtualizer = useVirtualizer({
-    count: filteredStocks.length,
+    count: visibleStocks.length,
     getScrollElement: () => parentRef.current,
     estimateSize: () => ROW_HEIGHT,
     overscan: 10,
   });
+
+  // Infinite scroll: load more when near bottom
+  useEffect(() => {
+    const container = parentRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      const nearBottom = scrollHeight - scrollTop - clientHeight < 200;
+
+      if (nearBottom && visibleCount < filteredStocks.length) {
+        setVisibleCount(prev => Math.min(prev + LOAD_MORE, filteredStocks.length));
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [visibleCount, filteredStocks.length]);
 
   return (
     <div className="space-y-4">
@@ -518,7 +552,8 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
 
         {/* Results count */}
         <span className="ml-auto text-sm text-muted-foreground">
-          {filteredStocks.length} of {stocks.length} stocks
+          {visibleStocks.length} of {filteredStocks.length} stocks
+          {visibleCount < filteredStocks.length && " (scroll for more)"}
         </span>
       </div>
 
@@ -639,7 +674,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
               position: "relative",
             }}
           >
-            {filteredStocks.length === 0 ? (
+            {visibleStocks.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={21} className="h-24 text-center text-muted-foreground">
                   No stocks match your filters
@@ -647,7 +682,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
               </TableRow>
             ) : (
               rowVirtualizer.getVirtualItems().map((virtualRow) => {
-                const stock = filteredStocks[virtualRow.index];
+                const stock = visibleStocks[virtualRow.index];
                 const { change, changePct } = getChange(stock);
                 const volRegime = getVolumeRegime(stock.volume_10_ts);
                 const isPositive = change >= 0;
