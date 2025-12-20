@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ChevronUp, ChevronDown, X } from "lucide-react";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { ReportSheet } from "@/components/report-sheet";
 import {
   Tooltip,
@@ -38,9 +39,18 @@ const SECTORS = [
 ];
 
 const VERDICTS = ["All", "BUY", "HOLD", "SELL", "AVOID"];
-const CONVICTIONS = ["All", "HIGH", "MEDIUM", "LOW"];
 
-type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank";
+const EDGE_CONCLUSIONS = ["All", "PREFER", "AVOID"];
+
+// REBOUND special case data (m10=+-+, m20=*)
+const REBOUND_DATA = {
+  conclusion: "PREFER",
+  win_pct: 64.6,
+  ret_pct: 3.55,
+  interpretation: "REBOUND ALPHA: V 10d lost signal then recovered. Strongest pattern with 64.6% win rate and +3.55% return. Trade regardless of V 20d state. Recovery signals often indicate genuine momentum resumption after weak hands shaken out."
+};
+
+type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank" | "edge" | "beta_60" | "sharpe_20";
 type SortDirection = "asc" | "desc";
 
 // Verdict sort order (for sorting)
@@ -51,6 +61,26 @@ const VERDICT_ORDER: Record<string, number> = {
   "SELL": 3,
   "AVOID": 4,
 };
+
+// Get edge data for a stock (handles REBOUND special case)
+function getEdgeData(stock: StockDetail): {
+  conclusion: string | null;
+  win_pct: number | null;
+  ret_pct: number | null;
+  interpretation: string | null;
+} {
+  // REBOUND special case: v10 = +-+ takes precedence
+  if (stock.v10_pattern === "+-+") {
+    return REBOUND_DATA;
+  }
+  // Use database interpretation if available
+  return {
+    conclusion: stock.dual_conclusion,
+    win_pct: stock.dual_win_pct_10d,
+    ret_pct: stock.dual_ret_pct_10d,
+    interpretation: stock.dual_interpretation,
+  };
+}
 
 // Volume regime helper
 function getVolumeRegime(percentile: number | null): { regime: string; color: string } {
@@ -144,6 +174,7 @@ function SortableHeader({
   currentDirection,
   onSort,
   align = "left",
+  className,
 }: {
   label: string;
   field: SortField;
@@ -151,15 +182,17 @@ function SortableHeader({
   currentDirection: SortDirection;
   onSort: (field: SortField) => void;
   align?: "left" | "right" | "center";
+  className?: string;
 }) {
   const isActive = currentSort === field;
 
   return (
     <TableHead
       className={cn(
-        "cursor-pointer hover:bg-muted/50 transition-colors select-none",
+        "cursor-pointer hover:bg-muted/50 transition-colors select-none text-sm font-medium",
         align === "right" && "text-right",
-        align === "center" && "text-center"
+        align === "center" && "text-center",
+        className
       )}
       onClick={() => onSort(field)}
     >
@@ -168,29 +201,49 @@ function SortableHeader({
         align === "right" && "justify-end",
         align === "center" && "justify-center"
       )}>
+        {align === "right" && (
+          <span className={cn("w-4", !isActive && "opacity-0")}>
+            {isActive && (currentDirection === "asc" ? (
+              <ChevronUp className="h-3 w-3" />
+            ) : (
+              <ChevronDown className="h-3 w-3" />
+            ))}
+          </span>
+        )}
         {label}
-        <span className={cn("w-4", !isActive && "opacity-0")}>
-          {isActive && (currentDirection === "asc" ? (
-            <ChevronUp className="h-3 w-3" />
-          ) : (
-            <ChevronDown className="h-3 w-3" />
-          ))}
-        </span>
+        {align !== "right" && (isActive || align === "left") && (
+          <span className={cn("w-4", !isActive && "opacity-0")}>
+            {isActive && (currentDirection === "asc" ? (
+              <ChevronUp className="h-3 w-3" />
+            ) : (
+              <ChevronDown className="h-3 w-3" />
+            ))}
+          </span>
+        )}
       </div>
     </TableHead>
   );
 }
 
 export function StockTable({ stocks, sectorRanks }: StockTableProps) {
+  const searchParams = useSearchParams();
+
+  // Read initial filter/sort values from URL params
+  const initialEdge = searchParams.get("edge") || "All";
+  const initialV10 = searchParams.get("v10")?.toUpperCase() || "All";
+  const initialV20 = searchParams.get("v20")?.toUpperCase() || "All";
+  const initialSort = (searchParams.get("sort") as SortField) || "edge";
+  const initialOrder = (searchParams.get("order") as SortDirection) || "desc";
+
   // Filter state (removed search - using header search instead)
   const [sectorFilter, setSectorFilter] = useState("All Sectors");
-  const [verdict10Filter, setVerdict10Filter] = useState("All");
-  const [verdict20Filter, setVerdict20Filter] = useState("All");
-  const [convictionFilter, setConvictionFilter] = useState("All");
+  const [verdict10Filter, setVerdict10Filter] = useState(initialV10);
+  const [verdict20Filter, setVerdict20Filter] = useState(initialV20);
+  const [edgeFilter, setEdgeFilter] = useState(initialEdge);
 
-  // Sort state - default to verdict_10 ascending (BUY first)
-  const [sortField, setSortField] = useState<SortField>("verdict_10");
-  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+  // Sort state - default to edge descending (highest win% first)
+  const [sortField, setSortField] = useState<SortField>(initialSort);
+  const [sortDirection, setSortDirection] = useState<SortDirection>(initialOrder);
 
   // Report sheet state
   const [reportOpen, setReportOpen] = useState(false);
@@ -265,13 +318,10 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
         return false;
       }
 
-      // Conviction filter (check both)
-      if (convictionFilter !== "All") {
-        const conv10 = stock.conviction_10?.toUpperCase();
-        const conv20 = stock.conviction_20?.toUpperCase();
-        if (conv10 !== convictionFilter && conv20 !== convictionFilter) {
-          return false;
-        }
+      // Edge filter
+      if (edgeFilter !== "All") {
+        const edge = getEdgeData(stock);
+        if (edge.conclusion !== edgeFilter) return false;
       }
 
       return true;
@@ -311,6 +361,37 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           aVal = sectorRankings.get(a.sector ?? "Unknown") ?? 999;
           bVal = sectorRankings.get(b.sector ?? "Unknown") ?? 999;
           break;
+        case "edge":
+          // Sort by win_pct DESC -> Sharpe DESC -> Beta ASC
+          const aEdge = getEdgeData(a);
+          const bEdge = getEdgeData(b);
+          const aWin = aEdge.win_pct ?? 0;
+          const bWin = bEdge.win_pct ?? 0;
+          if (aWin !== bWin) {
+            aVal = aWin;
+            bVal = bWin;
+          } else {
+            // Same win%, compare by Sharpe DESC
+            const aSharpe = a.sharpe_ratio_20 ?? -999;
+            const bSharpe = b.sharpe_ratio_20 ?? -999;
+            if (aSharpe !== bSharpe) {
+              aVal = aSharpe;
+              bVal = bSharpe;
+            } else {
+              // Same Sharpe, compare by Beta ASC (lower is better, so invert)
+              aVal = -(a.beta_60 ?? 999);
+              bVal = -(b.beta_60 ?? 999);
+            }
+          }
+          break;
+        case "beta_60":
+          aVal = a.beta_60 ?? 999;
+          bVal = b.beta_60 ?? 999;
+          break;
+        case "sharpe_20":
+          aVal = a.sharpe_ratio_20 ?? -999;
+          bVal = b.sharpe_ratio_20 ?? -999;
+          break;
       }
 
       if (typeof aVal === "string" && typeof bVal === "string") {
@@ -325,14 +406,14 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     });
 
     return result;
-  }, [stocks, sectorFilter, verdict10Filter, verdict20Filter, convictionFilter, sortField, sortDirection, sectorRankings]);
+  }, [stocks, sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection, sectorRankings]);
 
   // Count active filters
   const activeFilterCount = [
     sectorFilter !== "All Sectors",
     verdict10Filter !== "All",
     verdict20Filter !== "All",
-    convictionFilter !== "All",
+    edgeFilter !== "All",
   ].filter(Boolean).length;
 
   // Clear all filters
@@ -340,18 +421,14 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     setSectorFilter("All Sectors");
     setVerdict10Filter("All");
     setVerdict20Filter("All");
-    setConvictionFilter("All");
+    setEdgeFilter("All");
   };
 
   // Signal counts
   const signalCounts = useMemo(() => {
-    const buy10 = stocks.filter(s => s.verdict_10?.toUpperCase() === "BUY").length;
-    const buy20 = stocks.filter(s => s.verdict_20?.toUpperCase() === "BUY").length;
-    const aligned = stocks.filter(s =>
-      s.verdict_10?.toUpperCase() === "BUY" &&
-      s.verdict_20?.toUpperCase() === "BUY"
-    ).length;
-    return { buy10, buy20, aligned };
+    const prefer = stocks.filter(s => getEdgeData(s).conclusion === "PREFER").length;
+    const avoid = stocks.filter(s => getEdgeData(s).conclusion === "AVOID").length;
+    return { prefer, avoid };
   }, [stocks]);
 
   return (
@@ -359,21 +436,30 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
       {/* Signal Summary */}
       <div className="flex items-center gap-6 text-sm">
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">L3-10 BUY:</span>
-          <span className="font-semibold text-emerald-500">{signalCounts.buy10}</span>
+          <span className="text-muted-foreground">PREFER:</span>
+          <span className="font-semibold text-emerald-500">{signalCounts.prefer}</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">L3-20 BUY:</span>
-          <span className="font-semibold text-emerald-500">{signalCounts.buy20}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">Aligned BUY:</span>
-          <span className="font-semibold text-blue-500">{signalCounts.aligned}</span>
+          <span className="text-muted-foreground">AVOID:</span>
+          <span className="font-semibold text-red-500">{signalCounts.avoid}</span>
         </div>
       </div>
 
       {/* Filter Bar - removed search input (duplicate with header) */}
       <div className="flex flex-wrap items-center gap-3 p-3 bg-muted/30 rounded-lg">
+        {/* Edge Filter */}
+        <select
+          value={edgeFilter}
+          onChange={(e) => setEdgeFilter(e.target.value)}
+          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          {EDGE_CONCLUSIONS.map(e => (
+            <option key={e} value={e}>Edge: {e}</option>
+          ))}
+        </select>
+
+        <div className="h-6 w-px bg-border" />
+
         {/* Sector Filter */}
         <select
           value={sectorFilter}
@@ -385,36 +471,25 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           ))}
         </select>
 
-        {/* L3-10 Filter */}
+        {/* V 10d Filter */}
         <select
           value={verdict10Filter}
           onChange={(e) => setVerdict10Filter(e.target.value)}
           className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
         >
           {VERDICTS.map(v => (
-            <option key={v} value={v}>L3-10: {v}</option>
+            <option key={v} value={v}>V 10d: {v}</option>
           ))}
         </select>
 
-        {/* L3-20 Filter */}
+        {/* V 20d Filter */}
         <select
           value={verdict20Filter}
           onChange={(e) => setVerdict20Filter(e.target.value)}
           className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
         >
           {VERDICTS.map(v => (
-            <option key={v} value={v}>L3-20: {v}</option>
-          ))}
-        </select>
-
-        {/* Conviction Filter */}
-        <select
-          value={convictionFilter}
-          onChange={(e) => setConvictionFilter(e.target.value)}
-          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          {CONVICTIONS.map(c => (
-            <option key={c} value={c}>Conv: {c}</option>
+            <option key={v} value={v}>V 20d: {v}</option>
           ))}
         </select>
 
@@ -440,6 +515,17 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
         <Table>
           <TableHeader>
             <TableRow>
+              <SortableHeader
+                label="Edge"
+                field="edge"
+                currentSort={sortField}
+                currentDirection={sortDirection}
+                onSort={handleSort}
+                align="center"
+              />
+              <TableHead className="w-px px-0">
+                <div className="h-6 w-px bg-border mx-auto" />
+              </TableHead>
               <SortableHeader
                 label="Ticker"
                 field="ticker"
@@ -486,12 +572,10 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 currentDirection={sortDirection}
                 onSort={handleSort}
               />
-              <TableHead className="text-center text-xs text-muted-foreground px-1">Sig</TableHead>
-              <TableHead className="text-right text-xs text-muted-foreground px-0 w-10">
-                <span className="text-[9px]">T-2 T-1 T</span>
-              </TableHead>
+              <TableHead className="text-center text-[9px] text-muted-foreground px-1 align-middle">P/G</TableHead>
+              <TableHead className="text-center text-[9px] text-muted-foreground px-0 w-10 align-middle">3d</TableHead>
               <SortableHeader
-                label="Early"
+                label="V 10d"
                 field="verdict_10"
                 currentSort={sortField}
                 currentDirection={sortDirection}
@@ -502,37 +586,41 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 <div className="h-6 w-px bg-border mx-auto" />
               </TableHead>
               <SortableHeader
-                label="Confirm"
+                label="V 20d"
                 field="verdict_20"
                 currentSort={sortField}
                 currentDirection={sortDirection}
                 onSort={handleSort}
+                align="left"
               />
-              <TableHead className="text-xs text-muted-foreground text-center px-1">
-                <div className="flex flex-col items-center leading-tight">
-                  <span>RSI</span>
-                  <span className="text-[9px] text-muted-foreground/60">14</span>
-                </div>
+              <TableHead className="text-left text-[9px] text-muted-foreground px-0 w-10 align-middle">3d</TableHead>
+              <TableHead className="w-px px-0">
+                <div className="h-6 w-px bg-border mx-auto" />
               </TableHead>
-              <TableHead className="text-xs text-muted-foreground text-center px-1">MACD</TableHead>
-              <TableHead className="text-xs text-muted-foreground text-center px-1">
-                <div className="flex flex-col items-center leading-tight">
-                  <span>Sharpe</span>
-                  <span className="text-[9px] text-muted-foreground/60">20d</span>
-                </div>
-              </TableHead>
-              <TableHead className="text-xs text-muted-foreground text-center px-1">
-                <div className="flex flex-col items-center leading-tight">
-                  <span>Beta</span>
-                  <span className="text-[9px] text-muted-foreground/60">60d</span>
-                </div>
-              </TableHead>
+              <TableHead className="text-sm font-medium text-center px-1">RSI 14</TableHead>
+              <TableHead className="text-sm font-medium text-center px-1">MACD</TableHead>
+              <SortableHeader
+                label="Sharpe 20d"
+                field="sharpe_20"
+                currentSort={sortField}
+                currentDirection={sortDirection}
+                onSort={handleSort}
+                align="center"
+              />
+              <SortableHeader
+                label="Beta 60d"
+                field="beta_60"
+                currentSort={sortField}
+                currentDirection={sortDirection}
+                onSort={handleSort}
+                align="center"
+              />
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredStocks.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={15} className="h-24 text-center text-muted-foreground">
+                <TableCell colSpan={21} className="h-24 text-center text-muted-foreground">
                   No stocks match your filters
                 </TableCell>
               </TableRow>
@@ -543,105 +631,149 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 const isPositive = change >= 0;
                 return (
                   <TableRow key={stock.ticker} className="hover:bg-muted/50">
-                    <TableCell>
-                      <Link
-                        href={`/stocks/${stock.ticker}`}
-                        className="text-muted-foreground hover:text-primary hover:underline"
-                      >
-                        {stock.ticker}
-                      </Link>
+                    <TableCell className="text-center px-1">
+                      {(() => {
+                        const edge = getEdgeData(stock);
+                        if (!edge.conclusion) return <span className="text-muted-foreground text-[10px]">-</span>;
+                        const isPREFER = edge.conclusion === "PREFER";
+                        return (
+                          <TooltipProvider delayDuration={200}>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <div className="flex flex-col items-center gap-0.5 cursor-help">
+                                  <span className={cn(
+                                    "inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold rounded border",
+                                    isPREFER
+                                      ? "bg-emerald-100 text-emerald-700 border-emerald-200"
+                                      : "bg-red-50 text-red-500 border-red-200"
+                                  )}>
+                                    {edge.conclusion}
+                                  </span>
+                                  <span className="text-[9px] font-mono text-muted-foreground">
+                                    {edge.win_pct?.toFixed(1)}%
+                                  </span>
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent side="right" align="start" className="bg-card/95 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm max-w-[350px]">
+                                <div className="space-y-2">
+                                  <div className="flex items-center gap-2">
+                                    <span className={cn(
+                                      "font-semibold",
+                                      isPREFER ? "text-emerald-600" : "text-red-500"
+                                    )}>
+                                      {edge.conclusion}
+                                    </span>
+                                    <span className="text-muted-foreground">|</span>
+                                    <span className="font-mono text-xs">
+                                      10d - Win: {edge.win_pct?.toFixed(1)}% • Return: {edge.ret_pct && edge.ret_pct >= 0 ? "+" : ""}{edge.ret_pct?.toFixed(2)}%
+                                    </span>
+                                  </div>
+                                  <div className="text-xs text-muted-foreground leading-relaxed">
+                                    {edge.interpretation}
+                                  </div>
+                                  <div className="text-[10px] font-mono text-muted-foreground/70 pt-1 border-t border-border">
+                                    V 10d: {stock.v10_pattern} | V 20d: {stock.v20_pattern}
+                                  </div>
+                                </div>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        );
+                      })()}
                     </TableCell>
-                    <TableCell className="text-foreground text-sm font-medium !whitespace-normal w-[175px]">
+                    <TableCell className="w-px px-0 align-middle">
+                      <div className="h-4 w-px bg-border mx-auto" />
+                    </TableCell>
+                    <TableCell className="text-muted-foreground text-sm w-[30px]">
+                      {stock.ticker}
+                    </TableCell>
+                    <TableCell className="text-foreground text-sm font-medium !whitespace-normal w-[150px] text-left px-0">
                       <TooltipProvider delayDuration={200}>
                         <Tooltip>
                           <TooltipTrigger asChild>
-                            <span className="cursor-default">{stock.company_name ?? "-"}</span>
+                            <Link
+                              href={`/stocks/${stock.ticker}`}
+                              target="_blank"
+                              className="hover:text-primary hover:underline cursor-pointer"
+                            >
+                              {stock.company_name ?? "-"}
+                            </Link>
                           </TooltipTrigger>
-                          <TooltipContent side="right" align="start" className="max-w-sm p-3 space-y-2">
+                          <TooltipContent side="right" align="start" className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm min-w-[275px]">
                             {/* Header with date and sector */}
-                            <div className="flex justify-between items-start border-b pb-2 mb-2">
-                              <span className="font-bold">{stock.date}</span>
-                              <div className="text-right text-xs text-muted-foreground">
-                                Sector: #{sectorRankings.get(stock.sector ?? "Unknown") ?? 0}/{totalSectors}
+                            <div className="flex items-start justify-between">
+                              <span className="font-semibold text-foreground">{stock.date}</span>
+                              <div className="flex flex-col items-end gap-0 text-xs font-mono">
+                                <span>
+                                  <span className="text-muted-foreground">Sector:</span>{" "}
+                                  <span className="text-foreground">#{sectorRankings.get(stock.sector ?? "Unknown") ?? 0}/{totalSectors}</span>
+                                </span>
                               </div>
                             </div>
 
                             {/* Price info */}
-                            <div className="space-y-1 text-sm">
-                              <div className="flex justify-between gap-4">
-                                <span className="text-muted-foreground">Close:</span>
-                                <span className="font-mono">
-                                  <span className="font-medium">${stock.close?.toFixed(2)}</span>
-                                  <span className={cn("ml-2", change >= 0 ? "text-emerald-500" : "text-red-500")}>
-                                    {change >= 0 ? "+" : ""}{change.toFixed(2)} ({change >= 0 ? "+" : ""}{changePct.toFixed(2)}%)
+                            <div className="space-y-1 text-xs">
+                              <p>
+                                <span className="text-muted-foreground">Close:</span>{" "}
+                                <span className="text-foreground font-mono font-bold">${stock.close?.toFixed(2)}</span>
+                                <span className={cn("ml-2 font-mono", change >= 0 ? "text-green-500" : "text-red-500")}>
+                                  {change >= 0 ? "+" : ""}{change.toFixed(2)} ({change >= 0 ? "+" : ""}{changePct.toFixed(2)}%)
+                                </span>
+                              </p>
+                              <p>
+                                <span className="text-muted-foreground">Volume:</span>{" "}
+                                <span className="text-foreground font-mono">{(stock.volume / 1e6).toFixed(2)}M</span>
+                                {stock.volume_10_ts !== null && (
+                                  <span className="text-muted-foreground ml-1">({stock.volume_10_ts.toFixed(0)}%ile)</span>
+                                )}
+                              </p>
+                              {stock.rsi_14 !== null && (
+                                <p className="font-mono">
+                                  <span className="text-muted-foreground">RSI:</span>{" "}
+                                  <span className="text-foreground">{stock.rsi_14.toFixed(0)}</span>{" "}
+                                  <span className={stock.rsi_14 > 70 ? "text-red-500" : stock.rsi_14 < 30 ? "text-emerald-500" : "text-muted-foreground"}>
+                                    ({stock.rsi_14 > 70 ? "Overbought" : stock.rsi_14 < 30 ? "Oversold" : "Neutral"})
                                   </span>
-                                </span>
-                              </div>
-                              <div className="flex justify-between gap-4">
-                                <span className="text-muted-foreground">Volume:</span>
-                                <span className="font-mono">
-                                  {(stock.volume / 1e6).toFixed(2)}M ({stock.volume_10_ts?.toFixed(0)}%ile)
-                                </span>
-                              </div>
-                              <div className="flex justify-between gap-4">
-                                <span className="text-muted-foreground">RSI:</span>
-                                <span className="font-mono">
-                                  {stock.rsi_14?.toFixed(0) ?? "-"}
-                                  <span className={cn(
-                                    "ml-1",
-                                    stock.rsi_14 && stock.rsi_14 >= 70 ? "text-red-500" :
-                                    stock.rsi_14 && stock.rsi_14 <= 30 ? "text-emerald-500" : "text-muted-foreground"
-                                  )}>
-                                    ({stock.rsi_14 ? (stock.rsi_14 >= 70 ? "Overbought" : stock.rsi_14 <= 30 ? "Oversold" : "Neutral") : "-"})
+                                </p>
+                              )}
+                              {stock.macd !== null && stock.macd_signal !== null && (
+                                <p className="font-mono">
+                                  <span className="text-muted-foreground">MACD:</span>{" "}
+                                  <span className="text-foreground">{stock.macd.toFixed(2)} vs {stock.macd_signal.toFixed(2)}</span>{" "}
+                                  <span className={stock.macd > stock.macd_signal ? "text-green-500" : "text-red-500"}>
+                                    ({stock.macd > stock.macd_signal ? "bullish" : "bearish"})
                                   </span>
-                                </span>
-                              </div>
-                              <div className="flex justify-between gap-4">
-                                <span className="text-muted-foreground">MACD:</span>
-                                <span className="font-mono">
-                                  {stock.macd?.toFixed(2) ?? "-"} vs {stock.macd_signal?.toFixed(2) ?? "-"}
-                                  {stock.macd !== null && stock.macd_signal !== null && (
-                                    <span className={cn("ml-1", stock.macd > stock.macd_signal ? "text-emerald-500" : "text-red-500")}>
-                                      ({stock.macd > stock.macd_signal ? "bullish" : "bearish"})
-                                    </span>
+                                </p>
+                              )}
+                              {/* Pattern signal */}
+                              {stock.pattern && stock.pattern_conclusion && (
+                                <div>
+                                  <p>
+                                    <span className="text-purple-500 font-mono font-bold">{stock.pattern}</span>
+                                    <span className="text-foreground">: {stock.pattern_conclusion}</span>
+                                  </p>
+                                  {stock.pattern_interpretation && (
+                                    <p className="text-foreground">{stock.pattern_interpretation}</p>
                                   )}
-                                </span>
-                              </div>
+                                </div>
+                              )}
+                              {/* Gap signal */}
+                              {stock.gap_type && (
+                                <div>
+                                  <p>
+                                    <span className={stock.gap_conclusion === "PREFER" ? "text-green-500" : stock.gap_conclusion === "AVOID" ? "text-red-500" : "text-blue-500"}>
+                                      Gap {stock.gap_type.includes("up") ? "↑" : "↓"}
+                                    </span>
+                                    {stock.gap_conclusion && (
+                                      <span className="text-foreground font-bold">: {stock.gap_conclusion}</span>
+                                    )}
+                                  </p>
+                                  {stock.gap_interpretation && (
+                                    <p className="text-foreground text-xs max-w-[280px] leading-relaxed">{stock.gap_interpretation}</p>
+                                  )}
+                                </div>
+                              )}
                             </div>
-
-                            {/* Pattern signal */}
-                            {stock.pattern_conclusion && (
-                              <div className="pt-2 border-t space-y-0.5">
-                                <div className={cn(
-                                  "font-semibold",
-                                  stock.pattern_conclusion === "PREFER" ? "text-emerald-600" : "text-red-500"
-                                )}>
-                                  {stock.pattern}: {stock.pattern_conclusion}
-                                </div>
-                                {stock.pattern_interpretation && (
-                                  <div className="text-xs text-muted-foreground">
-                                    {stock.pattern_interpretation}
-                                  </div>
-                                )}
-                              </div>
-                            )}
-
-                            {/* Gap signal */}
-                            {stock.gap_conclusion && (
-                              <div className={cn("space-y-0.5", stock.pattern_conclusion ? "" : "pt-2 border-t")}>
-                                <div className={cn(
-                                  "font-semibold",
-                                  stock.gap_conclusion === "PREFER" ? "text-emerald-600" : "text-red-500"
-                                )}>
-                                  Gap {stock.gap_type?.replace("_", " ")}: {stock.gap_conclusion}
-                                </div>
-                                {stock.gap_interpretation && (
-                                  <div className="text-xs text-muted-foreground">
-                                    {stock.gap_interpretation}
-                                  </div>
-                                )}
-                              </div>
-                            )}
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
@@ -702,7 +834,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                         )}
                       </div>
                     </TableCell>
-                    <TableCell className="text-right font-mono text-xs px-0 w-10">
+                    <TableCell className="text-center font-mono text-xs px-0 w-10">
                       {[stock.verdict_10_t2, stock.verdict_10_t1, stock.verdict_10].map((v, i) => {
                         const upper = v?.toUpperCase();
                         const isBuy = upper === "BUY";
@@ -736,6 +868,23 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                       >
                         <VerdictBadge verdict={stock.verdict_20} conviction={stock.conviction_20} order="verdict-first" />
                       </button>
+                    </TableCell>
+                    <TableCell className="text-left font-mono text-xs px-0 w-10">
+                      {[stock.verdict_20_t2, stock.verdict_20_t1, stock.verdict_20].map((v, i) => {
+                        const upper = v?.toUpperCase();
+                        const isBuy = upper === "BUY";
+                        const isSell = upper === "SELL";
+                        // BUY = green, SELL = red, AVOID/HOLD = gray
+                        const colorClass = isBuy ? "text-emerald-500" : isSell ? "text-red-500" : "text-muted-foreground";
+                        return (
+                          <span key={i} className={colorClass}>
+                            {isBuy ? "+" : "-"}
+                          </span>
+                        );
+                      })}
+                    </TableCell>
+                    <TableCell className="w-px px-0 align-middle">
+                      <div className="h-4 w-px bg-border mx-auto" />
                     </TableCell>
                     <TableCell className="text-center text-xs px-1">
                       {stock.rsi_14 !== null ? (
