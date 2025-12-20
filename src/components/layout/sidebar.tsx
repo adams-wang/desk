@@ -4,22 +4,18 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
-  LayoutDashboard,
   BarChart3,
-  Briefcase,
   Search,
   PieChart,
-  MessageSquare,
+  Sparkles,
   TrendingUp,
 } from "lucide-react";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard, preserveDate: false },
-  { name: "Market", href: "/market", icon: TrendingUp, preserveDate: true },
+  { name: "Market", href: "/", icon: TrendingUp, preserveDate: true },
   { name: "Sectors", href: "/sectors", icon: PieChart, preserveDate: true },
   { name: "Stocks", href: "/stocks", icon: Search, preserveDate: true },
-  { name: "Positions", href: "/positions", icon: Briefcase, preserveDate: false },
-  { name: "Chat", href: "/chat", icon: MessageSquare, preserveDate: false },
+  { name: "AI Advisor", href: "/chat", icon: Sparkles, preserveDate: false },
 ];
 
 export function Sidebar() {
@@ -72,8 +68,7 @@ export function Sidebar() {
       {/* Footer */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-border p-4">
         <div className="text-xs text-muted-foreground">
-          <p>Trading Dashboard</p>
-          <p className="mt-1">Data: Quant Pipeline</p>
+          US Equity Trading
         </div>
       </div>
     </aside>
