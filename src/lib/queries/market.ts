@@ -716,6 +716,197 @@ export function getIndicesWithSparklines(date?: string): IndexWithSparkline[] {
 }
 
 // ============================================================================
+// L2 Sector Rotation
+// ============================================================================
+
+export interface L2SectorRanking {
+  etf: string;
+  sectorName: string;
+  rank: number;
+  signal: string;
+  zone: string;
+  modifier: number;
+  mrs20: number;
+  mrs5: number;
+  roc3: number;
+  rationale: string | null;
+  newsContext: {
+    sentiment: number;
+    articleCount: number;
+    themes: string;
+  } | null;
+}
+
+export interface L2Contract {
+  contractId: string;
+  tradingDate: string;
+  generatedAt: string;
+  cyclePhase: string;
+  cycleConfidence: string;
+  rotationBias: string;
+  rotationVelocity: string;
+  sectorSummary: string;
+  crossoverAlerts: string[];
+  sectorRankings: L2SectorRanking[];
+}
+
+interface L2ContractRow {
+  contract_id: string;
+  trading_date: string;
+  generated_at: string;
+  cycle_phase: string;
+  cycle_confidence: string;
+  rotation_bias: string;
+  rotation_velocity: string;
+  json_path: string;
+}
+
+/**
+ * Get L2 sector rotation contract with full rankings
+ * Reads from JSON file for rich data (rationale, news context)
+ */
+export function getL2Contract(date?: string): L2Contract | null {
+  const tradingDate = date || getLatestTradingDate();
+  const contractsPath = process.env.CONTRACTS_PATH || "/Volumes/Data/quant/data/contracts";
+  const jsonPath = path.join(contractsPath, tradingDate, "l2.json");
+
+  try {
+    if (!fs.existsSync(jsonPath)) {
+      // Fallback to database if JSON not available
+      return getL2ContractFromDB(tradingDate);
+    }
+
+    const content = fs.readFileSync(jsonPath, "utf-8");
+    const data = JSON.parse(content);
+
+    // Parse sector rankings from JSON
+    const sectorRankings: L2SectorRanking[] = (data.sector_rankings || []).map(
+      (sr: {
+        etf: string;
+        sector_name: string;
+        rank: number;
+        signal: string;
+        zone: string;
+        modifier: number;
+        mrs_20: number;
+        mrs_5: number;
+        roc_3: number;
+        rationale?: string;
+        news_context?: {
+          sentiment: number;
+          article_count: number;
+          themes: string;
+        };
+      }) => ({
+        etf: sr.etf,
+        sectorName: sr.sector_name,
+        rank: sr.rank,
+        signal: sr.signal,
+        zone: sr.zone,
+        modifier: sr.modifier,
+        mrs20: sr.mrs_20,
+        mrs5: sr.mrs_5,
+        roc3: sr.roc_3,
+        rationale: sr.rationale || null,
+        newsContext: sr.news_context
+          ? {
+              sentiment: sr.news_context.sentiment,
+              articleCount: sr.news_context.article_count,
+              themes: sr.news_context.themes,
+            }
+          : null,
+      })
+    );
+
+    return {
+      contractId: data.contract_id ?? "",
+      tradingDate: data.trading_date ?? tradingDate,
+      generatedAt: data.generated_at ?? "",
+      cyclePhase: data.cycle_phase ?? "UNKNOWN",
+      cycleConfidence: data.cycle_confidence ?? "LOW",
+      rotationBias: data.rotation_bias ?? "NEUTRAL",
+      rotationVelocity: data.rotation_velocity ?? "LOW",
+      sectorSummary: data.sector_summary ?? "",
+      crossoverAlerts: data.crossover_alerts ?? [],
+      sectorRankings,
+    };
+  } catch (error) {
+    console.error(`Failed to read L2 contract JSON: ${error}`);
+    return getL2ContractFromDB(tradingDate);
+  }
+}
+
+/**
+ * Fallback: Get L2 contract from database tables
+ */
+function getL2ContractFromDB(tradingDate: string): L2Contract | null {
+  // Get contract metadata
+  const contractRow = db
+    .prepare(
+      `
+      SELECT contract_id, trading_date, generated_at, cycle_phase,
+             cycle_confidence, rotation_bias, rotation_velocity
+      FROM l2_contracts
+      WHERE trading_date = ?
+    `
+    )
+    .get(tradingDate) as L2ContractRow | undefined;
+
+  if (!contractRow) return null;
+
+  // Get sector rankings
+  interface SectorRankingRow {
+    etf: string;
+    sector_name: string;
+    rank: number;
+    signal: string;
+    zone: string;
+    modifier: number;
+    mrs_20: number;
+    mrs_5: number;
+    roc_3: number;
+  }
+
+  const rankingRows = db
+    .prepare(
+      `
+      SELECT etf, sector_name, rank, signal, zone, modifier, mrs_20, mrs_5, roc_3
+      FROM l2_sector_rankings
+      WHERE contract_id = ?
+      ORDER BY rank
+    `
+    )
+    .all(contractRow.contract_id) as SectorRankingRow[];
+
+  const sectorRankings: L2SectorRanking[] = rankingRows.map((row) => ({
+    etf: row.etf,
+    sectorName: row.sector_name || row.etf,
+    rank: row.rank,
+    signal: row.signal,
+    zone: row.zone,
+    modifier: row.modifier,
+    mrs20: row.mrs_20,
+    mrs5: row.mrs_5,
+    roc3: row.roc_3,
+    rationale: null,
+    newsContext: null,
+  }));
+
+  return {
+    contractId: contractRow.contract_id,
+    tradingDate: contractRow.trading_date,
+    generatedAt: contractRow.generated_at,
+    cyclePhase: contractRow.cycle_phase,
+    cycleConfidence: contractRow.cycle_confidence,
+    rotationBias: contractRow.rotation_bias,
+    rotationVelocity: contractRow.rotation_velocity,
+    sectorSummary: "",
+    crossoverAlerts: [],
+    sectorRankings,
+  };
+}
+
+// ============================================================================
 // Indices OHLCV History for Charts
 // ============================================================================
 

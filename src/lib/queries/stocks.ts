@@ -159,6 +159,15 @@ export interface StockDetail {
   // L3 verdict history (T-2, T-1)
   verdict_10_t1: string | null;
   verdict_10_t2: string | null;
+  verdict_20_t1: string | null;
+  verdict_20_t2: string | null;
+  // Dual MRS interpretation (from backtest)
+  v10_pattern: string | null;
+  v20_pattern: string | null;
+  dual_conclusion: string | null;
+  dual_win_pct_10d: number | null;
+  dual_ret_pct_10d: number | null;
+  dual_interpretation: string | null;
   // Metadata
   company_name: string | null;
   sector: string | null;
@@ -292,6 +301,20 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
       l20.verdict as verdict_20, l20.conviction as conviction_20,
       l10_t1.verdict as verdict_10_t1,
       l10_t2.verdict as verdict_10_t2,
+      l20_t1.verdict as verdict_20_t1,
+      l20_t2.verdict as verdict_20_t2,
+      -- Build 3-day patterns
+      CASE WHEN UPPER(l10_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+      CASE WHEN UPPER(l10_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+      CASE WHEN UPPER(l10.verdict) = 'BUY' THEN '+' ELSE '-' END as v10_pattern,
+      CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+      CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+      CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END as v20_pattern,
+      -- Get dual MRS interpretation (exact match only, REBOUND handled in app)
+      di.conclusion as dual_conclusion,
+      di.win_pct_10d as dual_win_pct_10d,
+      di.ret_pct_10d as dual_ret_pct_10d,
+      di.interpretation as dual_interpretation,
       m.name as company_name, m.sector, m.industry
     FROM stocks_ohlcv o
     LEFT JOIN stocks_ohlcv prev ON o.ticker = prev.ticker AND prev.date = ?
@@ -309,7 +332,17 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
     LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
     LEFT JOIN l3_contracts_10 l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ?
     LEFT JOIN l3_contracts_10 l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ?
+    LEFT JOIN l3_contracts_20 l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ?
+    LEFT JOIN l3_contracts_20 l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ?
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
+    -- Dual MRS interpretation: exact match first, REBOUND (+-+/*) handled in app
+    LEFT JOIN dual_mrs_interpretation di
+      ON di.m10_pattern = (CASE WHEN UPPER(l10_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                          CASE WHEN UPPER(l10_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                          CASE WHEN UPPER(l10.verdict) = 'BUY' THEN '+' ELSE '-' END)
+      AND di.m20_pattern = (CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                           CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                           CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END)
     LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
     LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
                                    AND gs.filled = gi.filled
@@ -328,7 +361,7 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
     LIMIT ?
   `
     )
-    .all(dateT1, dateT1, dateT2, date, limit) as StockDetail[];
+    .all(dateT1, dateT1, dateT2, dateT1, dateT2, date, limit) as StockDetail[];
 
   log.debug(
     { date, limit, rowCount: rows.length, latencyMs: Date.now() - startTime },
@@ -619,6 +652,182 @@ export function getAnalystTargets(ticker: string, endDate?: string, days: number
     signal,
     recent: rows.slice(0, 10),
   };
+}
+
+export interface StockEdge {
+  ticker: string;
+  company_name: string | null;
+  sector: string | null;
+  close: number;
+  mrs_5: number | null;
+  mrs_20: number | null;
+  v10_pattern: string;
+  v20_pattern: string;
+  verdict_10: string | null;
+  verdict_20: string | null;
+  conviction_10: string | null;
+  conviction_20: string | null;
+  edge_conclusion: string | null;
+  win_rate_10d: number | null;
+  avg_return_10d: number | null;
+  edge_interpretation: string | null;
+}
+
+export type EdgeFilterType =
+  | "dual_buy"       // Both V10 and V20 are BUY today
+  | "rebound"        // +-+ pattern (highest edge at 64.6%)
+  | "early_entry"    // Fresh V10 BUY, V20 not BUY (--+ with v20=---)
+  | "high_conviction" // HIGH conviction on either timeframe
+  | "prefer"         // Any PREFER conclusion from dual_mrs_interpretation
+  | "strongest"      // Highest MRS_20 (legacy momentum sort)
+  | "weakest";       // Lowest MRS_20 (legacy momentum sort)
+
+/**
+ * Find stocks with proven trading edge based on backtested dual-signal patterns.
+ * Uses the dual_mrs_interpretation table which contains backtested win rates.
+ */
+export function findStockEdge(
+  filter: EdgeFilterType,
+  limit: number = 20,
+  endDate?: string
+): StockEdge[] {
+  const log = getLogger();
+  const date = endDate || getLatestTradingDate();
+  const startTime = Date.now();
+
+  // Get previous trading dates for pattern history
+  const prevDates = db
+    .prepare(`SELECT date FROM trading_days WHERE date < ? ORDER BY date DESC LIMIT 2`)
+    .all(date) as { date: string }[];
+  const dateT1 = prevDates[0]?.date ?? date;
+  const dateT2 = prevDates[1]?.date ?? date;
+
+  // Base query with 3-day pattern computation
+  let query = `
+    WITH pattern_data AS (
+      SELECT
+        o.ticker,
+        o.close,
+        i.mrs_5,
+        i.mrs_20,
+        l10.verdict as verdict_10,
+        l20.verdict as verdict_20,
+        l10.conviction as conviction_10,
+        l20.conviction as conviction_20,
+        -- Build 3-day patterns
+        CASE WHEN UPPER(l10_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+        CASE WHEN UPPER(l10_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+        CASE WHEN UPPER(l10.verdict) = 'BUY' THEN '+' ELSE '-' END as v10_pattern,
+        CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+        CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+        CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END as v20_pattern,
+        m.name as company_name,
+        m.sector
+      FROM stocks_ohlcv o
+      LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
+      LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
+      LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
+      LEFT JOIN l3_contracts_10 l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ?
+      LEFT JOIN l3_contracts_10 l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ?
+      LEFT JOIN l3_contracts_20 l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ?
+      LEFT JOIN l3_contracts_20 l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ?
+      LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
+      WHERE o.date = ?
+    )
+  `;
+
+  let filterClause = "";
+  let orderClause = "";
+
+  switch (filter) {
+    case "dual_buy":
+      // Both V10 and V20 are BUY today
+      filterClause = "WHERE UPPER(p.verdict_10) = 'BUY' AND UPPER(p.verdict_20) = 'BUY'";
+      orderClause = "ORDER BY COALESCE(di.win_pct_10d, 50) DESC, p.mrs_20 DESC";
+      break;
+
+    case "rebound":
+      // +-+ pattern on V10 (highest edge at 64.6%)
+      // Uses wildcard match for V20 (m20_pattern = '*')
+      filterClause = "WHERE p.v10_pattern = '+-+'";
+      orderClause = "ORDER BY p.mrs_20 DESC";
+      break;
+
+    case "early_entry":
+      // Fresh V10 BUY signal, V20 has no BUY in last 3 days
+      filterClause = "WHERE p.v10_pattern = '--+' AND p.v20_pattern = '---'";
+      orderClause = "ORDER BY p.mrs_20 DESC";
+      break;
+
+    case "high_conviction":
+      // HIGH conviction on either timeframe with BUY verdict
+      filterClause = `
+        WHERE (UPPER(p.verdict_10) = 'BUY' AND UPPER(p.conviction_10) = 'HIGH')
+           OR (UPPER(p.verdict_20) = 'BUY' AND UPPER(p.conviction_20) = 'HIGH')
+      `;
+      orderClause = "ORDER BY p.mrs_20 DESC";
+      break;
+
+    case "prefer":
+      // Any PREFER conclusion from dual_mrs_interpretation (proven 59%+ win rate)
+      filterClause = "WHERE di.conclusion = 'PREFER'";
+      orderClause = "ORDER BY di.win_pct_10d DESC, p.mrs_20 DESC";
+      break;
+
+    case "strongest":
+      // Legacy: highest MRS_20 with any BUY signal
+      filterClause = "WHERE UPPER(p.verdict_10) = 'BUY' AND p.mrs_20 IS NOT NULL";
+      orderClause = "ORDER BY p.mrs_20 DESC";
+      break;
+
+    case "weakest":
+      // Legacy: lowest MRS_20 with any BUY signal (contrarian)
+      filterClause = "WHERE UPPER(p.verdict_10) = 'BUY' AND p.mrs_20 IS NOT NULL";
+      orderClause = "ORDER BY p.mrs_20 ASC";
+      break;
+  }
+
+  // Complete query with edge interpretation join
+  // For REBOUND pattern, use wildcard match (m20_pattern = '*')
+  const joinClause = filter === "rebound"
+    ? `LEFT JOIN dual_mrs_interpretation di ON p.v10_pattern = di.m10_pattern AND di.m20_pattern = '*'`
+    : `LEFT JOIN dual_mrs_interpretation di ON p.v10_pattern = di.m10_pattern AND p.v20_pattern = di.m20_pattern`;
+
+  query += `
+    SELECT
+      p.ticker,
+      p.company_name,
+      p.sector,
+      p.close,
+      p.mrs_5,
+      p.mrs_20,
+      p.v10_pattern,
+      p.v20_pattern,
+      p.verdict_10,
+      p.verdict_20,
+      p.conviction_10,
+      p.conviction_20,
+      di.conclusion as edge_conclusion,
+      di.win_pct_10d as win_rate_10d,
+      di.ret_pct_10d as avg_return_10d,
+      di.interpretation as edge_interpretation
+    FROM pattern_data p
+    ${joinClause}
+    ${filterClause}
+    ${orderClause}
+    LIMIT ?
+  `;
+
+  const rows = db
+    .prepare(query)
+    .all(dateT1, dateT2, dateT1, dateT2, date, limit) as StockEdge[];
+
+  log.debug(
+    { filter, date, limit, rowCount: rows.length, latencyMs: Date.now() - startTime },
+    "Stock edge query"
+  );
+
+  return rows;
 }
 
 /**

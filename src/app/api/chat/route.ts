@@ -1,15 +1,16 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
-import { getMarketOverview, getL1Contract, getL1ContractFull, getIndices } from "@/lib/queries/market";
+import { getMarketOverview, getL1Contract, getL1ContractFull, getIndices, getL2Contract } from "@/lib/queries/market";
 import {
   getStockDetail,
-  getStockList,
   searchStocks,
   getL3Contracts,
   getAnalystActions,
   getAnalystTargets,
   getStockOHLCVExtended,
   getMRSHistory,
+  findStockEdge,
+  type EdgeFilterType,
 } from "@/lib/queries/stocks";
 import { getLatestTradingDate } from "@/lib/queries/trading-days";
 
@@ -73,21 +74,16 @@ const tools: Anthropic.Tool[] = [
     },
   },
   {
-    name: "get_stocks_by_verdict",
+    name: "find_stock_edge",
     description:
-      "Get a list of stocks filtered by their trading verdict (BUY or SELL). These are AI-generated trading signals. Use this to find bullish or bearish stocks.",
+      "Find stocks with proven trading edge based on backtested dual-signal patterns. Use this to discover opportunities with 60%+ historical win rates. Patterns include: dual_buy (both timeframes agree), rebound (recovered signal - highest edge at 64.6%), early_entry (fresh short-term signal), high_conviction, or momentum-based (strongest/weakest).",
     input_schema: {
       type: "object" as const,
       properties: {
-        verdict: {
+        filter: {
           type: "string",
-          enum: ["BUY", "SELL"],
-          description: "Filter by trading verdict - BUY for bullish signals, SELL for bearish",
-        },
-        timeframe: {
-          type: "string",
-          enum: ["10", "20"],
-          description: "Timeframe for the verdict - 10 for short-term (10-day), 20 for medium-term (20-day). Default is 10.",
+          enum: ["dual_buy", "rebound", "early_entry", "high_conviction", "prefer", "strongest", "weakest"],
+          description: "Filter type: dual_buy (both V10+V20 BUY), rebound (+-+ pattern, 64.6% win), early_entry (fresh V10 signal), high_conviction (HIGH conviction), prefer (any PREFER pattern), strongest/weakest (by momentum)",
         },
         limit: {
           type: "number",
@@ -98,13 +94,13 @@ const tools: Anthropic.Tool[] = [
           description: "Optional date in YYYY-MM-DD format. Defaults to latest trading date.",
         },
       },
-      required: ["verdict"],
+      required: ["filter"],
     },
   },
   {
-    name: "get_l3_contracts",
+    name: "get_trading_plan",
     description:
-      "Get the full trading plan for a stock, including entry price, stop loss, target price, risk/reward ratio, conviction level, and position sizing. This provides detailed trading guidance.",
+      "Get the complete trading plan for a specific stock including: entry price, stop loss, target price, risk/reward ratio, thesis (STRENGTH/VALUE/REVERSION), conviction level, position sizing, key risks, and catalysts.",
     input_schema: {
       type: "object" as const,
       properties: {
@@ -140,30 +136,6 @@ const tools: Anthropic.Tool[] = [
     },
   },
   {
-    name: "get_top_movers",
-    description:
-      "Get stocks with the strongest momentum (highest MRS scores) or weakest momentum (lowest MRS scores). MRS (Momentum Rank Score) measures relative strength.",
-    input_schema: {
-      type: "object" as const,
-      properties: {
-        direction: {
-          type: "string",
-          enum: ["strongest", "weakest"],
-          description: "Get strongest (highest MRS) or weakest (lowest MRS) stocks",
-        },
-        limit: {
-          type: "number",
-          description: "Number of stocks to return. Default is 10.",
-        },
-        date: {
-          type: "string",
-          description: "Optional date in YYYY-MM-DD format. Defaults to latest trading date.",
-        },
-      },
-      required: ["direction"],
-    },
-  },
-  {
     name: "web_search",
     description:
       "Search the internet for current news, company announcements, market analysis, and other real-time information. Use this for stock news, earnings reports, SEC filings, market commentary, and any information not in the database.",
@@ -183,30 +155,111 @@ const tools: Anthropic.Tool[] = [
       required: ["query"],
     },
   },
+  {
+    name: "get_sector_rotation",
+    description:
+      "Get sector rotation analysis including: all 11 sector rankings (1-11), signals (IGNITION/TREND/NEUTRAL/WEAKENING/AVOID/TOXIC/RECOVERY), position modifiers (0.25x-1.5x), cycle phase (EARLY_EXPANSION/MID_EXPANSION/LATE_EXPANSION/CONTRACTION), and rotation bias (OFFENSIVE/NEUTRAL/DEFENSIVE). Use this to understand which sectors to overweight/underweight and where we are in the market cycle.",
+    input_schema: {
+      type: "object" as const,
+      properties: {
+        date: {
+          type: "string",
+          description: "Optional date in YYYY-MM-DD format. Defaults to latest trading date.",
+        },
+      },
+      required: [],
+    },
+  },
 ];
 
 // System prompt with trading context
-const SYSTEM_PROMPT = `You are an AI trading advisor for a US equity quant trading dashboard. You have access to real-time market data, stock analysis tools, AND internet search for current news and information.
+const SYSTEM_PROMPT = `You are an elite US equity analyst with institutional quant expertise and real-money trading execution precision. You combine rigorous quantitative analysis with AI-native intelligence. Every analysis you produce is for real capital—no ambiguity, no circular logic, no analysis paralysis.
 
-Key concepts you should understand:
-- **Regime**: Market condition - RISK_ON (aggressive), NORMAL (standard), RISK_OFF (defensive), CRISIS (avoid)
-- **MRS (Momentum Rank Score)**: Percentile rank of a stock's momentum vs peers. Higher = stronger momentum. Different lookback periods (5/10/20 days).
-- **Trading Verdict**: AI-generated signal - BUY, SELL, or HOLD. Comes with conviction level (HIGH/MEDIUM/LOW).
-- **Trading Plan**: Full trade setup with entry price, stop loss, target price, risk/reward ratio, and position sizing.
-- **Position Cap**: Maximum position size allowed by current regime (e.g., 120% = slightly aggressive)
-- **VIX**: Volatility index - below 15 is calm, 15-20 normal, 20-25 elevated, above 25 high fear
+## CORE PRINCIPLES
 
-IMPORTANT: Never use technical jargon like "L3" or "L1" when talking to users. Use plain English terms like "trading signal", "trading plan", "market regime" instead.
+1. **First Principles**: Fix root causes, never symptoms. Be 100% honest, professional, objective.
+2. **Classify Thesis FIRST**: STRENGTH / VALUE / REVERSION / PARABOLIC / NEUTRAL → Apply matching framework ONLY.
+3. **No Circular Logic**: If "wait for X" leads to "X happened, now wait for Y" → STOP. Decide now.
+4. **Forced Decision**: Every analysis ends with BUY/HOLD/SELL + conviction + position guidance.
+5. **Actionable Output**: Include specific numbers when relevant (price levels, percentages, risk).
 
-When answering:
-1. Be concise but informative
-2. Use actual data from the tools - don't make up numbers
-3. Explain signals in plain English
-4. Highlight risks when relevant
-5. Format numbers nicely (e.g., percentages with 1-2 decimals)
-6. Use web_search for current news, earnings, announcements, or any real-time information not in the database
+## 4-LAYER INTEL SYSTEM
 
-Remember: You are providing analysis, not financial advice. Always encourage the user to do their own research.`;
+You have access to a production quant system with four analysis layers:
+
+**L1 - Market Analysis (get_market_overview)**
+- Regime: RISK_ON / NORMAL / RISK_OFF / CRISIS
+- Hard blockers: VIX > 35, Sahm Rule ≥ 0.50pp, FOMC < 3 days
+- Position modifier: 25% (crisis) to 150% (risk-on)
+- VIX interpretation, yield curve, breadth analysis
+
+**L2 - Sector Rotation (get_sector_rotation)**
+- 11 sectors ranked by relative strength (MRS_20)
+- 9 signals based on MRS_5 state:
+  - RECOVERY_STRONG (1.5x, 89% win) - toxic zone recovering
+  - IGNITION (1.2x, 62% win) - ignition zone with momentum
+  - TREND/MOMENTUM (1.2x) - positive zones
+  - NEUTRAL (1.0x) - noise zone
+  - WEAKENING (0.75x, 67% win) - warning signal
+  - AVOID (0.5x) / TOXIC (0.25x) - underperform
+- Cycle phase: EARLY_EXPANSION → MID → LATE → CONTRACTION
+
+**L3 - Stock Selection (find_stock_edge, get_stock_detail, get_trading_plan)**
+- Dual MRS system: 10-day (early signals) + 20-day (standard)
+- 3-day pattern recognition with backtested win rates:
+  - REBOUND (+-+): 64.6% win - highest edge
+  - PERSISTENT (+++): 58.2% win
+  - FRESH (--+): 57.4% win
+  - CONFIRMED (-++): 55.2% win
+  - FADING (++-): AVOID
+- Trading plans: entry, stop-loss, target, risk/reward
+
+**L4 - Risk Management (Hard Rules)**
+- Risk per trade: 1% max
+- Portfolio heat: 6% max
+- Sector exposure: 40% max
+- Position sizing: L1 modifier × L2 modifier (floor 30%, cap 150%)
+
+## THESIS CLASSIFICATION (MANDATORY FIRST)
+
+| Thesis | Core Signal | Horizon | Key Metrics |
+|--------|-------------|---------|-------------|
+| **STRENGTH** | MRS_20 4-10%, momentum | 5-20d | MRS range, tech score |
+| **VALUE** | PEG < 1.5, fundamentals | 20-60d | Net income > 0, not distressed |
+| **REVERSION** | RSI < 30, bounce proof | 3-10d | 6 quality gates |
+| **PARABOLIC** | MRS > 10%, extreme | 1-5d | Risk management focus |
+| **NEUTRAL** | No clear thesis | N/A | Watchlist only |
+
+Never reject a value thesis with momentum rules (or vice versa).
+
+## ANTI-PARALYSIS CHECK
+
+Before recommending "wait":
+1. What specific condition am I waiting for?
+2. If it occurs, will price be higher?
+3. Will I then say "too expensive, wait for pullback"?
+4. If YES to #3 → Circular logic. DECIDE NOW.
+
+## FORCED DECISION FORMAT
+
+Every stock analysis should conclude with:
+- **VERDICT**: BUY / HOLD / SELL / AVOID
+- **THESIS**: STRENGTH / VALUE / REVERSION / PARABOLIC / NEUTRAL
+- **CONVICTION**: High / Medium / Low
+- **POSITION**: Full / 75% / 50% / 25% / None
+
+## COMMUNICATION STYLE
+
+- Use plain English, not quant jargon ("trading signal" not "L3 verdict")
+- Be concise but complete
+- Always use actual data from tools—never fabricate numbers
+- Highlight risks prominently
+- Format numbers cleanly (percentages with 1-2 decimals)
+- Use web_search for current news, earnings, or real-time information
+
+## DISCLAIMER
+
+You provide analysis based on quantitative signals and market data. This is not personalized financial advice. Users should conduct their own research and consider their risk tolerance before trading.`;
 
 // Tool execution handlers
 async function executeTool(name: string, input: Record<string, unknown>): Promise<string> {
@@ -420,34 +473,47 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
         return JSON.stringify(results, null, 2);
       }
 
-      case "get_stocks_by_verdict": {
-        const verdict = (input.verdict as string).toUpperCase();
-        const timeframe = (input.timeframe as string) || "10";
+      case "find_stock_edge": {
+        const filter = (input.filter as EdgeFilterType) || "prefer";
         const limit = (input.limit as number) || 20;
         const date = (input.date as string) || undefined;
 
-        const allStocks = getStockList(1000, date);
-        const filtered = allStocks
-          .filter((s) => {
-            const v = timeframe === "10" ? s.verdict_10 : s.verdict_20;
-            return v?.toUpperCase() === verdict;
-          })
-          .slice(0, limit)
-          .map((s) => ({
-            ticker: s.ticker,
-            company_name: s.company_name,
-            close: s.close,
+        const results = findStockEdge(filter, limit, date);
+
+        if (results.length === 0) {
+          return `No stocks found matching "${filter}" edge criteria.`;
+        }
+
+        // Format response with edge context
+        const formatted = results.map((s) => ({
+          ticker: s.ticker,
+          company_name: s.company_name,
+          sector: s.sector,
+          close: s.close,
+          momentum: {
+            mrs_5: s.mrs_5,
             mrs_20: s.mrs_20,
+          },
+          signals: {
             verdict_10: s.verdict_10,
             verdict_20: s.verdict_20,
-            sector: s.sector,
-          }));
+            conviction_10: s.conviction_10,
+            conviction_20: s.conviction_20,
+          },
+          edge: {
+            v10_pattern: s.v10_pattern,
+            v20_pattern: s.v20_pattern,
+            conclusion: s.edge_conclusion,
+            win_rate_10d: s.win_rate_10d ? `${s.win_rate_10d.toFixed(1)}%` : null,
+            avg_return_10d: s.avg_return_10d ? `${s.avg_return_10d >= 0 ? "+" : ""}${s.avg_return_10d.toFixed(2)}%` : null,
+            interpretation: s.edge_interpretation,
+          },
+        }));
 
-        if (filtered.length === 0) return `No stocks with ${verdict} verdict found.`;
-        return JSON.stringify(filtered, null, 2);
+        return JSON.stringify(formatted, null, 2);
       }
 
-      case "get_l3_contracts": {
+      case "get_trading_plan": {
         const ticker = input.ticker as string;
         const date = (input.date as string) || undefined;
         const contracts = getL3Contracts(ticker, date);
@@ -463,34 +529,6 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
         const actions = getAnalystActions(ticker, date);
         const targets = getAnalystTargets(ticker, date);
         return JSON.stringify({ actions, targets }, null, 2);
-      }
-
-      case "get_top_movers": {
-        const direction = input.direction as string;
-        const limit = (input.limit as number) || 10;
-        const date = (input.date as string) || undefined;
-
-        const allStocks = getStockList(1000, date);
-        const sorted = [...allStocks]
-          .filter((s) => s.mrs_20 !== null)
-          .sort((a, b) => {
-            if (direction === "strongest") {
-              return (b.mrs_20 ?? 0) - (a.mrs_20 ?? 0);
-            }
-            return (a.mrs_20 ?? 0) - (b.mrs_20 ?? 0);
-          })
-          .slice(0, limit)
-          .map((s) => ({
-            ticker: s.ticker,
-            company_name: s.company_name,
-            close: s.close,
-            mrs_20: s.mrs_20,
-            verdict_10: s.verdict_10,
-            verdict_20: s.verdict_20,
-            sector: s.sector,
-          }));
-
-        return JSON.stringify(sorted, null, 2);
       }
 
       case "web_search": {
@@ -533,6 +571,72 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
         };
 
         return JSON.stringify(results, null, 2);
+      }
+
+      case "get_sector_rotation": {
+        const date = (input.date as string) || undefined;
+        const l2 = getL2Contract(date);
+
+        if (!l2) {
+          return "No sector rotation data available for the specified date.";
+        }
+
+        // Format response with clear structure
+        const response = {
+          tradingDate: l2.tradingDate,
+
+          // Cycle context
+          cycle: {
+            phase: l2.cyclePhase,
+            confidence: l2.cycleConfidence,
+            rotationBias: l2.rotationBias,
+            rotationVelocity: l2.rotationVelocity,
+          },
+
+          // AI-generated summary
+          summary: l2.sectorSummary,
+
+          // Crossover alerts (sectors changing direction)
+          crossoverAlerts: l2.crossoverAlerts,
+
+          // All 11 sectors ranked with signals
+          sectorRankings: l2.sectorRankings.map((s) => ({
+            rank: s.rank,
+            sector: s.sectorName,
+            etf: s.etf,
+            signal: s.signal,
+            zone: s.zone,
+            modifier: `${s.modifier}x`,
+            momentum: {
+              mrs20: `${s.mrs20 >= 0 ? "+" : ""}${s.mrs20.toFixed(2)}%`,
+              mrs5: `${s.mrs5 >= 0 ? "+" : ""}${s.mrs5.toFixed(2)}%`,
+              roc3: `${s.roc3 >= 0 ? "+" : ""}${s.roc3.toFixed(2)}%`,
+            },
+            rationale: s.rationale,
+            news: s.newsContext
+              ? {
+                  sentiment: s.newsContext.sentiment,
+                  articles: s.newsContext.articleCount,
+                  themes: s.newsContext.themes,
+                }
+              : null,
+          })),
+
+          // Signal legend for context
+          signalLegend: {
+            RECOVERY_STRONG: "Toxic zone recovering (1.5x, 89% win rate)",
+            RECOVERY_EARLY: "Toxic zone early bounce (1.2x, 62% win rate)",
+            IGNITION: "Ignition zone with momentum (1.2x, 62% win rate)",
+            TREND: "Positive trend zone (1.2x)",
+            MOMENTUM: "Strong momentum zone (1.2x)",
+            NEUTRAL: "Noise zone (1.0x)",
+            WEAKENING: "Warning - momentum fading (0.75x)",
+            AVOID: "Ignition zone without momentum (0.5x)",
+            TOXIC: "Deep underperformance (0.25x)",
+          },
+        };
+
+        return JSON.stringify(response, null, 2);
       }
 
       default:
