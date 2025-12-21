@@ -123,13 +123,13 @@ function VerdictBadge({
     return "border-muted-foreground/50 text-muted-foreground bg-muted/30";
   };
 
-  // Conviction dots
-  const getConvictionDots = (c: string | null) => {
+  // Conviction dots (vertical layout, filled from bottom)
+  const getConvictionDots = (c: string | null): [boolean, boolean, boolean] | null => {
     if (!c) return null;
     const level = c.toUpperCase();
-    if (level === "HIGH") return "●●●";
-    if (level === "MEDIUM") return "●●○";
-    if (level === "LOW") return "●○○";
+    if (level === "HIGH") return [true, true, true];      // ●●●
+    if (level === "MEDIUM") return [false, true, true];   // ○●●
+    if (level === "LOW") return [false, false, true];     // ○○●
     return null;
   };
 
@@ -144,14 +144,21 @@ function VerdictBadge({
     </span>
   );
 
+  const dotColor = conviction?.toUpperCase() === "HIGH" ? "bg-emerald-500" :
+    conviction?.toUpperCase() === "MEDIUM" ? "bg-amber-500" : "bg-muted-foreground";
+
   const convictionDots = dots && (
-    <span className={cn(
-      "text-[10px]",
-      conviction?.toUpperCase() === "HIGH" ? "text-emerald-500" :
-      conviction?.toUpperCase() === "MEDIUM" ? "text-amber-500" : "text-muted-foreground"
-    )}>
-      {dots}
-    </span>
+    <div className="flex flex-col gap-[2px]">
+      {dots.map((filled, i) => (
+        <span
+          key={i}
+          className={cn(
+            "w-[5px] h-[5px] rounded-full",
+            filled ? dotColor : "bg-muted-foreground/30"
+          )}
+        />
+      ))}
+    </div>
   );
 
   return (
@@ -243,6 +250,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const initialOrder = (searchParams.get("order") as SortDirection) || "desc";
 
   // Filter state (removed search - using header search instead)
+  const [tickerFilter, setTickerFilter] = useState("");
   const [sectorFilter, setSectorFilter] = useState("All Sectors");
   const [verdict10Filter, setVerdict10Filter] = useState(initialV10);
   const [verdict20Filter, setVerdict20Filter] = useState(initialV20);
@@ -310,6 +318,11 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   // Filter and sort stocks
   const filteredStocks = useMemo(() => {
     let result = stocks.filter(stock => {
+      // Ticker filter
+      if (tickerFilter && !stock.ticker.toUpperCase().includes(tickerFilter.toUpperCase())) {
+        return false;
+      }
+
       // Sector filter
       if (sectorFilter !== "All Sectors" && stock.sector !== sectorFilter) {
         return false;
@@ -413,10 +426,11 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     });
 
     return result;
-  }, [stocks, sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection, sectorRankings]);
+  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection, sectorRankings]);
 
   // Count active filters
   const activeFilterCount = [
+    tickerFilter !== "",
     sectorFilter !== "All Sectors",
     verdict10Filter !== "All",
     verdict20Filter !== "All",
@@ -425,6 +439,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
 
   // Clear all filters
   const clearFilters = () => {
+    setTickerFilter("");
     setSectorFilter("All Sectors");
     setVerdict10Filter("All");
     setVerdict20Filter("All");
@@ -441,7 +456,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   // Reset visible count when filters/sort change
   useEffect(() => {
     setVisibleCount(INITIAL_LOAD);
-  }, [sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection]);
+  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection]);
 
   // Visible stocks (sliced for infinite scroll)
   const visibleStocks = useMemo(
@@ -493,6 +508,15 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
             <option key={e} value={e}>Edge: {e}</option>
           ))}
         </select>
+
+        {/* Ticker Filter */}
+        <input
+          type="text"
+          value={tickerFilter}
+          onChange={(e) => setTickerFilter(e.target.value)}
+          placeholder="Ticker..."
+          className="h-9 w-24 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring placeholder:text-muted-foreground"
+        />
 
         <div className="h-6 w-px bg-border" />
 
