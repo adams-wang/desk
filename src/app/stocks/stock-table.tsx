@@ -87,7 +87,7 @@ function getVolumeRegime(percentile: number | null): { regime: string; color: st
   if (percentile === null) return { regime: "-", color: "text-muted-foreground" };
   if (percentile < 25) return { regime: "LOW", color: "text-muted-foreground" };
   if (percentile < 75) return { regime: "NORMAL", color: "text-blue-500" };
-  if (percentile < 90) return { regime: "HIGH", color: "text-orange-500" };
+  if (percentile < 90) return { regime: "HIGH", color: "text-amber-500" };
   return { regime: "EXTREME", color: "text-red-500" };
 }
 
@@ -695,7 +695,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 const volRegime = getVolumeRegime(stock.volume_10_ts);
                 const isPositive = change >= 0;
                 return (
-                  <TableRow key={stock.ticker} className="hover:bg-muted/50">
+                  <TableRow key={stock.ticker} className="hover:bg-muted/50 cursor-pointer">
                     <TableCell className="text-center px-1">
                       {(() => {
                         const edge = getEdgeData(stock);
@@ -983,7 +983,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                             stock.sharpe_ratio_20 > 2 ? "text-emerald-500" :
                             stock.sharpe_ratio_20 > 1 ? "text-emerald-400" :
                             stock.sharpe_ratio_20 > 0.5 ? "text-muted-foreground" :
-                            stock.sharpe_ratio_20 > 0 ? "text-orange-500" : "text-red-500"
+                            stock.sharpe_ratio_20 > 0 ? "text-amber-500" : "text-red-500"
                           )}>
                             {stock.sharpe_ratio_20 > 2 ? "Excellent" :
                              stock.sharpe_ratio_20 > 1 ? "Good" :

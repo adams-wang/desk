@@ -342,9 +342,9 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
           <div className="overflow-x-auto">
             <table className="w-full text-sm table-fixed">
               <colgroup><col style={{ width: '15.5%' }} /><col style={{ width: '5%' }} /><col style={{ width: '20%' }} /><col style={{ width: '8%' }} /><col style={{ width: '17.5%' }} /><col style={{ width: '34%' }} /></colgroup>
-              <thead>
+              <thead className="sticky top-0 bg-background z-10">
                 <tr className="border-b border-border">
-                  <th className="text-left py-2 px-2 font-medium text-muted-foreground">#</th>
+                  <th className="text-right py-2 px-2 font-medium text-muted-foreground">#</th>
                   <th className="text-left py-2 px-2 font-medium text-muted-foreground">ETF</th>
                   <th className="text-left py-2 px-2 font-medium text-muted-foreground">Sector</th>
                   <th className="text-right py-2 pr-3 font-medium text-muted-foreground border-r border-border/50">Zone</th>
@@ -374,9 +374,9 @@ export function SectorRankingsTable({ sectors, currentDate, history }: SectorRan
                       onClick={() => handleRowClick(sector.sector_name)}
                       className="border-b border-border/50 hover:bg-muted/50 cursor-pointer transition-colors"
                     >
-                      <td className="py-1.5 px-2 font-mono text-muted-foreground">
-                        <span className="inline-flex items-center">
-                          <span className="w-5">{sector.rank}</span>
+                      <td className="py-1.5 px-2 font-mono text-muted-foreground text-right">
+                        <span className="inline-flex items-center justify-end">
+                          <span className="w-5 text-right">{sector.rank}</span>
                           {rankHistory && (
                             <RankSparkline
                               ranks={rankHistory.ranks}

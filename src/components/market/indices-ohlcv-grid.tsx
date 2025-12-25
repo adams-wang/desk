@@ -66,7 +66,7 @@ function IndexTooltip({
       <div className="space-y-0.5 font-mono">
         <div className="flex gap-3">
           <span><span className="text-orange-400">O:</span> {d.open.toLocaleString()}</span>
-          <span><span className="text-green-400">H:</span> {d.high.toLocaleString()}</span>
+          <span><span className="text-emerald-500">H:</span> {d.high.toLocaleString()}</span>
         </div>
         <div className="flex gap-3">
           <span><span className="text-red-400">L:</span> {d.low.toLocaleString()}</span>
