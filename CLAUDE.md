@@ -1,4 +1,4 @@
-# Desk - Trading Dashboard
+# Desk - US Equity Trading
 
 ## Project Identity
 
@@ -17,12 +17,10 @@ Next.js frontend for US equity quant trading visualization. **Read-only** consum
 
 | Choice                  | Reason                            |
 | ----------------------- | --------------------------------- |
-| Next.js 16              | Turbopack, Cache Components, PPR  |
-| React 19.2.3            | Activity API, useEffectEvent      |
+| Next.js 16.0.10         | Turbopack, Cache Components, PPR  |
+| React 19.2.1            | Activity API, useEffectEvent      |
 | better-sqlite3          | Direct DB read, no API layer      |
-| TradingView Lightweight | Best candlestick charts           |
 | Recharts                | shadcn charts integration         |
-| Zustand                 | Simple state                      |
 
 ## Database Location
 
@@ -129,11 +127,8 @@ Invoke `@agent-ui-review` subagent for thorough validation when:
 
 ## Documentation
 
-- **Architecture**: `docs/tbd`
-- **Design decisions**: `docs/tbd`
-- **Test strategy**: `tests/tbd`
-- **UI guidelines**: `.claude/context/design-principles.md`
--
+- **Design principles**: `.claude/context/design-principles.md`
+- **Architecture**: `docs/design/ARCHITECTURE.md`
 
 ## Quick Commands
 

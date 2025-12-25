@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Desk - US Equity Trading Dashboard
+
+Next.js frontend for US equity quant trading visualization.
+
+## Features
+
+- **Market Overview** - VIX regime, market breadth, sector rotation analysis
+- **Stock Screener** - Filter by edge signals, verdicts, sectors with sortable columns
+- **Stock Detail** - Price/volume charts, L3 contract reports, technical indicators
+- **Sector Analysis** - L2 rotation map, sector rankings, MRS trajectories
+- **AI Advisor** - Claude-powered trading assistant with multi-day context
+
+## Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Next.js 16.0.10 | Framework with Turbopack |
+| React 19.2.1 | UI with React Compiler |
+| better-sqlite3 | Direct SQLite read access |
+| Recharts | Charts and visualizations |
+| shadcn/ui | Component library |
+| Tailwind CSS 4 | Styling with OKLCH colors |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Rebuild native modules
+pnpm rebuild better-sqlite3
+
+# Start dev server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── page.tsx           # Market Overview (home)
+│   ├── stocks/            # Stock screener & detail
+│   ├── sectors/           # Sector analysis
+│   ├── chat/              # AI Advisor
+│   └── api/               # API routes
+├── components/
+│   ├── charts/            # Recharts visualizations
+│   ├── market/            # Market overview components
+│   ├── sectors/           # Sector analysis components
+│   └── ui/                # shadcn components
+└── lib/
+    ├── db.ts              # SQLite connection
+    ├── queries/           # Database queries
+    └── formatters.ts      # Number formatting
+```
 
-## Learn More
+## Data Source
 
-To learn more about Next.js, take a look at the following resources:
+Reads from `/Volumes/Data/quant/data/stocks.db` (read-only).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `CLAUDE.md` - Project instructions for Claude Code
+- `.claude/context/design-principles.md` - UI/UX guidelines
