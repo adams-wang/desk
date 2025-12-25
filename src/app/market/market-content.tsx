@@ -43,9 +43,11 @@ export function MarketContent({
     ? "View Strong Stocks"
     : "View Defensive Stocks";
 
+  // Strong Stocks: Edge=PREFER + V10=BUY + V20=BUY, sorted by Sharpe DESC
+  // Defensive Stocks: Edge=PREFER + sort by beta (lowest first)
   const stocksLinkHref = overview.regime === "RISK_ON" || overview.regime === "NORMAL"
-    ? `/stocks?sort=mrs_20&order=desc&date=${currentDate}`
-    : `/stocks?sort=beta_60&order=asc&date=${currentDate}`;
+    ? `/stocks?edge=PREFER&v10=BUY&v20=BUY&sort=sharpe_20&order=desc&date=${currentDate}`
+    : `/stocks?edge=PREFER&sort=beta_60&order=asc&date=${currentDate}`;
 
   return (
     <div className="space-y-6">

@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Desk - Trading Dashboard",
+  title: "Desk - US Equity Trading",
   description: "US Equity Quant Trading Visualization",
 };
 

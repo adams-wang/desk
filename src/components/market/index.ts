@@ -6,5 +6,4 @@ export { VixGauge } from "./vix-gauge";
 export { BreadthBar } from "./breadth-bar";
 export { BlockersCard } from "./blockers-card";
 export { MarketHealthCard } from "./market-health-card";
-export { MarketWidget } from "./market-widget";
 export { YieldCurve } from "./yield-curve";

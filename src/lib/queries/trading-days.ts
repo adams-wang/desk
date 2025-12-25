@@ -22,16 +22,6 @@ export interface MarketRegime {
 }
 
 /**
- * Get market regime data for a specific date
- */
-export function getMarketRegime(date: string): MarketRegime | null {
-  const row = db
-    .prepare("SELECT date, vix_close, regime FROM market_regime WHERE date = ?")
-    .get(date) as MarketRegime | undefined;
-  return row || null;
-}
-
-/**
  * Get VIX history for chart display
  * Fetches extra days to account for potential date mismatches between VIX and stock data
  * (e.g., VIX may have data for days when specific stocks don't trade)
