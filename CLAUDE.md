@@ -128,7 +128,7 @@ Invoke `@agent-ui-review` subagent for thorough validation when:
 ## Documentation
 
 - **Design principles**: `.claude/context/design-principles.md`
-- **Architecture**: `docs/design/ARCHITECTURE.md`
+- **Architecture**: `docs/architecture.md`
 
 ## Quick Commands
 
