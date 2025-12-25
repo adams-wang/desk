@@ -109,15 +109,15 @@ function VerdictBadge({
 }) {
   if (!verdict) return <span className="text-muted-foreground">-</span>;
 
-  // Get color classes based on verdict - outlined style
+  // Get color classes based on verdict - outlined style with dark mode support
   // BUY = green, SELL = red, AVOID/HOLD = gray
   const getVerdictClasses = (v: string): string => {
     const lower = v.toLowerCase();
     if (lower === "buy" || lower === "strong buy") {
-      return "border-emerald-500/50 text-emerald-600 bg-emerald-50/50";
+      return "border-emerald-500/60 text-emerald-400 bg-emerald-500/20";
     }
     if (lower === "sell") {
-      return "border-red-400/50 text-red-500 bg-red-50/50";
+      return "border-red-500/60 text-red-400 bg-red-500/20";
     }
     // AVOID, HOLD = gray
     return "border-muted-foreground/50 text-muted-foreground bg-muted/30";
