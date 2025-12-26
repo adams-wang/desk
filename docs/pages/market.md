@@ -1,15 +1,14 @@
-# Market Page Design Specification
+# Market Overview (Homepage)
 
-**Version:** 1.0
-**Date:** 2025-12-18
-**Status:** Draft
-**Author:** Claude (AI Assistant)
+> **Route**: `/` (homepage) - also accessible via `/market` redirect
+> **File**: `src/app/page.tsx` with `src/app/market/market-content.tsx`
+> **Status**: Implemented
 
 ---
 
-## Executive Summary
+## Overview
 
-The Market page displays L1 macro-level analysis, providing users with market context before making individual stock decisions. It answers the fundamental question: **"Is the market environment favorable for equity investment?"**
+The Market Overview is the **homepage** of the application. It displays L1 macro-level analysis, providing users with market context before making individual stock decisions. It answers: **"Is the market environment favorable for equity investment?"**
 
 ### Design Philosophy
 

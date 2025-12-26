@@ -129,15 +129,22 @@ Desk is a **read-only** Next.js 16 frontend for US equity quant trading visualiz
 ```
 src/
 ├── app/                      # Next.js App Router
-│   ├── api/                  # Optional REST endpoints
-│   ├── stocks/[ticker]/      # Stock detail (main page)
+│   ├── api/                  # REST endpoints + AI chat
+│   ├── page.tsx              # Market Overview (homepage)
+│   ├── stocks/[ticker]/      # Stock detail
 │   ├── sectors/              # Sector analysis
+│   ├── chat/                 # AI Advisor
 │   └── layout.tsx            # Root layout with sidebar
 ├── components/
 │   ├── charts/               # Recharts-based visualizations
-│   │   ├── price-volume-chart.tsx   # P1: Main chart (1500+ lines)
-│   │   ├── sector-mrs-chart.tsx     # P2: Sector comparison
-│   │   └── mrs-trajectory-chart.tsx # P3: Momentum trajectory
+│   │   ├── price-volume-chart.tsx   # Main chart (1600+ lines)
+│   │   ├── sector-mrs-chart.tsx     # Sector comparison
+│   │   └── mrs-trajectory-chart.tsx # Momentum trajectory
+│   ├── market/               # Market overview components
+│   │   ├── regime-banner.tsx        # VIX regime display
+│   │   ├── index-card.tsx           # Index price cards
+│   │   └── vix-gauge.tsx            # VIX visualization
+│   ├── sectors/              # Sector analysis components
 │   ├── ui/                   # shadcn/ui primitives
 │   ├── layout/               # Sidebar, header
 │   └── report-sheet.tsx      # L3 verdict panel
@@ -244,12 +251,57 @@ interface StockOHLCVExtended {
 
 ---
 
+## AI Advisor Module
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Chat UI (React)                          │
+│                 /src/app/chat/page.tsx                      │
+└─────────────────────┬───────────────────────────────────────┘
+                      │ POST /api/chat
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  API Route                                  │
+│              /src/app/api/chat/route.ts                     │
+│                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
+│  │   Claude    │───▶│    Tools    │───▶│  Database   │     │
+│  │   Sonnet    │◀───│  Execution  │◀───│   Queries   │     │
+│  └─────────────┘    └─────────────┘    └─────────────┘     │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Available Tools
+
+Claude has access to 7 database query tools:
+
+| Tool | Purpose |
+|------|---------|
+| `get_market_overview` | Current regime, VIX, breadth, indices |
+| `get_stock_detail` | Single stock analysis |
+| `get_stock_list` | Filter/search stocks |
+| `get_sector_analysis` | L2 sector rotation |
+| `get_stock_history` | Multi-day OHLCV data |
+| `get_l3_contracts` | L3 verdict details |
+| `compare_stocks` | Side-by-side comparison |
+
+### Dependencies
+
+```json
+{
+  "@anthropic-ai/sdk": "0.71.2"
+}
+```
+
+---
+
 ## Future Considerations
 
 ### Planned Features
 - **Position Management**: Will require write access (separate connection)
 - **Real-time Updates**: WebSocket for live prices
-- **AI Chat**: LLM integration for analysis
 
 ### Scaling Path
 - Current: Single SQLite file, single server

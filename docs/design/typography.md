@@ -2,11 +2,19 @@
 
 ## Font Stack
 
-```css
-font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+**Primary Font:** Inter (Google Fonts)
+
+```typescript
+// src/app/layout.tsx
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 ```
 
-Uses system fonts for optimal rendering and zero font loading latency.
+Inter provides excellent tabular number support and readability for financial data. Loaded via `next/font` for automatic optimization.
 
 ---
 

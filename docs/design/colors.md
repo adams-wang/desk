@@ -77,6 +77,61 @@ const getVolumeBarColor = (percentile: number, isUp: boolean) => {
 | PREFER | — | Green background |
 | AVOID | — | Red background |
 
+### Financial Semantic Variables
+
+Added to `globals.css` for consistent financial UI:
+
+```css
+:root {
+  --positive: oklch(0.696 0.17 162.48);   /* emerald-500 - bullish */
+  --negative: oklch(0.637 0.237 25.331);  /* red-500 - bearish */
+  --warning: oklch(0.769 0.188 70.08);    /* amber-500 - alerts */
+  --neutral: oklch(0.552 0 0);            /* zinc-500 - unchanged */
+  --info: oklch(0.623 0.214 259.815);     /* blue-500 - informational */
+}
+```
+
+---
+
+## Chart Variables
+
+CSS variables for Recharts and data visualization:
+
+```css
+/* Light mode */
+--chart-1: oklch(0.646 0.222 41.116);   /* Orange-red */
+--chart-2: oklch(0.6 0.118 184.704);    /* Teal */
+--chart-3: oklch(0.398 0.07 227.392);   /* Dark blue */
+--chart-4: oklch(0.828 0.189 84.429);   /* Yellow */
+--chart-5: oklch(0.769 0.188 70.08);    /* Amber */
+
+/* Dark mode */
+--chart-1: oklch(0.488 0.243 264.376);  /* Blue-violet */
+--chart-2: oklch(0.696 0.17 162.48);    /* Emerald */
+--chart-3: oklch(0.769 0.188 70.08);    /* Amber */
+--chart-4: oklch(0.627 0.265 303.9);    /* Purple */
+--chart-5: oklch(0.645 0.246 16.439);   /* Red-orange */
+```
+
+---
+
+## Sidebar Variables
+
+```css
+--sidebar: oklch(0.985 0 0);            /* Light: near-white */
+--sidebar-foreground: oklch(0.145 0 0);
+--sidebar-primary: oklch(0.205 0 0);
+--sidebar-accent: oklch(0.97 0 0);
+--sidebar-border: oklch(0.922 0 0);
+
+/* Dark mode */
+--sidebar: oklch(0.205 0 0);            /* Dark gray */
+--sidebar-foreground: oklch(0.985 0 0);
+--sidebar-primary: oklch(0.488 0.243 264.376);
+--sidebar-accent: oklch(0.269 0 0);
+--sidebar-border: oklch(1 0 0 / 10%);
+```
+
 ---
 
 ## Chart-Specific Colors
