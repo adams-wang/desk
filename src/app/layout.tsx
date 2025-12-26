@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
-import { Sidebar } from "@/components/layout/sidebar";
+import { Sidebar, SidebarProvider, MainContent } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -22,15 +23,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider>
-          <div className="flex min-h-screen bg-background text-foreground">
-            <Sidebar />
-            <div className="flex-1 pl-64">
-              <Header />
-              <main className="p-6">{children}</main>
+          <SidebarProvider>
+            <div className="flex min-h-screen bg-background text-foreground">
+              <Suspense fallback={null}>
+                <Sidebar />
+              </Suspense>
+              <MainContent>
+                <Suspense fallback={null}>
+                  <Header />
+                </Suspense>
+                <main className="p-6">{children}</main>
+              </MainContent>
             </div>
-          </div>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>

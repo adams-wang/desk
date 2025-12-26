@@ -171,10 +171,9 @@ export function MRSTrajectoryChart({ data, nasdaqData = [], height = 350, curren
             dataKey="date"
             fontSize={isCompactView ? 10 : 11}
             interval={isCompactView ? 1 : 1}
-            tick={isCompactView
-              ? { fill: "var(--color-muted-foreground)", fontSize: 10, angle: -90, textAnchor: "end", dy: 4 }
-              : { fill: "var(--color-muted-foreground)" }
-            }
+            tick={{ fill: "var(--color-muted-foreground)", fontSize: isCompactView ? 10 : 11 }}
+            angle={isCompactView ? -45 : 0}
+            textAnchor={isCompactView ? "end" : "middle"}
             axisLine={false}
             tickLine={false}
             padding={{ left: 15, right: 15 }}

@@ -1,19 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme } from "./theme-provider";
 import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
-  const { theme, toggleTheme, mounted } = useTheme();
+  const { theme, toggleTheme } = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // Avoid hydration mismatch by showing placeholder until mounted
-  if (!mounted) {
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // Always render the same structure on server and initial client render
+  if (!hasMounted) {
     return (
       <button
         className="p-2 rounded-lg hover:bg-accent transition-colors"
         aria-label="Toggle theme"
       >
-        <div className="w-5 h-5" />
+        <span className="w-5 h-5 block" />
       </button>
     );
   }
@@ -22,7 +28,7 @@ export function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-lg hover:bg-accent transition-colors"
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-label="Toggle theme"
     >
       {theme === "dark" ? (
         <Sun className="w-5 h-5 text-amber-400" />

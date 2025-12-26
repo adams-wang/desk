@@ -643,9 +643,9 @@ function CandlestickChart({
             dataKey="dateLabel"
             axisLine={false}
             tickLine={false}
-            tick={isCompactView
-              ? { fill: "var(--color-muted-foreground)", fontSize: 10, angle: -90, textAnchor: "end", dy: 4 }
-              : { fill: "var(--color-muted-foreground)", fontSize: 10 }}
+            tick={{ fill: "var(--color-muted-foreground)", fontSize: 10 }}
+            angle={isCompactView ? -45 : 0}
+            textAnchor={isCompactView ? "end" : "middle"}
             interval={0}
             height={isCompactView ? 50 : 20}
           />
@@ -1165,9 +1165,9 @@ function LineChart({ data, height, vixHistory, sectorRankHistory, currentRange =
             orientation="bottom"
             axisLine={false}
             tickLine={false}
-            tick={isCompactView
-              ? { fill: "var(--color-muted-foreground)", fontSize: 10, angle: -90, textAnchor: "end", dy: 4 }
-              : { fill: "var(--color-muted-foreground)", fontSize: 10, dy: 3 }}
+            tick={{ fill: "var(--color-muted-foreground)", fontSize: 10 }}
+            angle={isCompactView ? -45 : 0}
+            textAnchor={isCompactView ? "end" : "middle"}
             interval={0}
             height={isCompactView ? 50 : 20}
           />

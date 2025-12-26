@@ -42,15 +42,9 @@ const VERDICTS = ["All", "BUY", "HOLD", "SELL", "AVOID"];
 
 const EDGE_CONCLUSIONS = ["All", "PREFER", "AVOID"];
 
-// REBOUND special case data (m10=+-+, m20=*)
-const REBOUND_DATA = {
-  conclusion: "PREFER",
-  win_pct: 64.6,
-  ret_pct: 3.55,
-  interpretation: "REBOUND ALPHA: V 10d lost signal then recovered. Strongest pattern with 64.6% win rate and +3.55% return. Trade regardless of V 20d state. Recovery signals often indicate genuine momentum resumption after weak hands shaken out."
-};
+// No special cases - all patterns looked up from dual_mrs_interpretation table
 
-type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank" | "edge" | "beta_60" | "sharpe_20";
+type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank" | "edge_combined" | "edge_5d" | "edge_10d" | "beta_60" | "sharpe_20";
 type SortDirection = "asc" | "desc";
 
 // Verdict sort order (for sorting)
@@ -62,24 +56,56 @@ const VERDICT_ORDER: Record<string, number> = {
   "AVOID": 4,
 };
 
-// Get edge data for a stock (handles REBOUND special case)
-function getEdgeData(stock: StockDetail): {
+// Get edge data for a stock from database (no special cases)
+function getEdge5d(stock: StockDetail): {
   conclusion: string | null;
   win_pct: number | null;
   ret_pct: number | null;
   interpretation: string | null;
 } {
-  // REBOUND special case: v10 = +-+ takes precedence
-  if (stock.v10_pattern === "+-+") {
-    return REBOUND_DATA;
-  }
-  // Use database interpretation if available
   return {
-    conclusion: stock.dual_conclusion,
-    win_pct: stock.dual_win_pct_10d,
-    ret_pct: stock.dual_ret_pct_10d,
-    interpretation: stock.dual_interpretation,
+    conclusion: stock.edge_5d_conclusion,
+    win_pct: stock.edge_5d_win_pct,
+    ret_pct: stock.edge_5d_ret_pct,
+    interpretation: stock.edge_5d_interpretation,
   };
+}
+
+function getEdge10d(stock: StockDetail): {
+  conclusion: string | null;
+  win_pct: number | null;
+  ret_pct: number | null;
+  interpretation: string | null;
+} {
+  return {
+    conclusion: stock.edge_10d_conclusion,
+    win_pct: stock.edge_10d_win_pct,
+    ret_pct: stock.edge_10d_ret_pct,
+    interpretation: stock.edge_10d_interpretation,
+  };
+}
+
+// Edge rank for combined sorting: PP > Single P > AA > Single A > No edge
+// Lower rank = better (sorted ASC)
+function getEdgeRank(stock: StockDetail): number {
+  const e5d = getEdge5d(stock).conclusion;
+  const e10d = getEdge10d(stock).conclusion;
+
+  const isP5 = e5d === "PREFER";
+  const isP10 = e10d === "PREFER";
+  const isA5 = e5d === "AVOID";
+  const isA10 = e10d === "AVOID";
+
+  // PP = 1 (best - double prefer)
+  if (isP5 && isP10) return 1;
+  // Single P = 2 (one prefer)
+  if (isP5 || isP10) return 2;
+  // AA = 3 (double avoid)
+  if (isA5 && isA10) return 3;
+  // Single A = 4 (one avoid)
+  if (isA5 || isA10) return 4;
+  // No edge = 5 (no signal)
+  return 5;
 }
 
 // Volume regime helper
@@ -246,15 +272,16 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const initialEdge = searchParams.get("edge") || "All";
   const initialV10 = searchParams.get("v10")?.toUpperCase() || "All";
   const initialV20 = searchParams.get("v20")?.toUpperCase() || "All";
-  const initialSort = (searchParams.get("sort") as SortField) || "edge";
-  const initialOrder = (searchParams.get("order") as SortDirection) || "desc";
+  const initialSort = (searchParams.get("sort") as SortField) || "edge_combined";
+  const initialOrder = (searchParams.get("order") as SortDirection) || "asc"; // asc for edge_combined (lower rank = better)
 
   // Filter state (removed search - using header search instead)
   const [tickerFilter, setTickerFilter] = useState("");
   const [sectorFilter, setSectorFilter] = useState("All Sectors");
   const [verdict10Filter, setVerdict10Filter] = useState(initialV10);
   const [verdict20Filter, setVerdict20Filter] = useState(initialV20);
-  const [edgeFilter, setEdgeFilter] = useState(initialEdge);
+  const [edge5dFilter, setEdge5dFilter] = useState(initialEdge);
+  const [edge10dFilter, setEdge10dFilter] = useState(initialEdge);
 
   // Sort state - default to edge descending (highest win% first)
   const [sortField, setSortField] = useState<SortField>(initialSort);
@@ -338,10 +365,16 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
         return false;
       }
 
-      // Edge filter
-      if (edgeFilter !== "All") {
-        const edge = getEdgeData(stock);
-        if (edge.conclusion !== edgeFilter) return false;
+      // Edge 5d filter
+      if (edge5dFilter !== "All") {
+        const edge5d = getEdge5d(stock);
+        if (edge5d.conclusion !== edge5dFilter) return false;
+      }
+
+      // Edge 10d filter
+      if (edge10dFilter !== "All") {
+        const edge10d = getEdge10d(stock);
+        if (edge10d.conclusion !== edge10dFilter) return false;
       }
 
       return true;
@@ -381,24 +414,65 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           aVal = sectorRankings.get(a.sector ?? "Unknown") ?? 999;
           bVal = sectorRankings.get(b.sector ?? "Unknown") ?? 999;
           break;
-        case "edge":
-          // Sort by win_pct DESC -> Sharpe DESC -> Beta ASC
-          const aEdge = getEdgeData(a);
-          const bEdge = getEdgeData(b);
-          const aWin = aEdge.win_pct ?? 0;
-          const bWin = bEdge.win_pct ?? 0;
-          if (aWin !== bWin) {
-            aVal = aWin;
-            bVal = bWin;
+        case "edge_combined":
+          // Sort by edge rank (PP > P- > -- > -A > AA), then Sharpe DESC, then Beta ASC
+          const aRank = getEdgeRank(a);
+          const bRank = getEdgeRank(b);
+          if (aRank !== bRank) {
+            aVal = aRank;
+            bVal = bRank;
           } else {
-            // Same win%, compare by Sharpe DESC
-            const aSharpe = a.sharpe_ratio_20 ?? -999;
-            const bSharpe = b.sharpe_ratio_20 ?? -999;
-            if (aSharpe !== bSharpe) {
-              aVal = aSharpe;
-              bVal = bSharpe;
+            // Same rank, compare by Sharpe DESC
+            const aSharpeComb = a.sharpe_ratio_20 ?? -999;
+            const bSharpeComb = b.sharpe_ratio_20 ?? -999;
+            if (aSharpeComb !== bSharpeComb) {
+              // For ASC sort direction, we want higher Sharpe first, so negate
+              aVal = -aSharpeComb;
+              bVal = -bSharpeComb;
             } else {
-              // Same Sharpe, compare by Beta ASC (lower is better, so invert)
+              // Same Sharpe, compare by Beta ASC (lower is better)
+              aVal = a.beta_60 ?? 999;
+              bVal = b.beta_60 ?? 999;
+            }
+          }
+          break;
+        case "edge_5d":
+          // Sort by 5d win_pct DESC -> Sharpe DESC -> Beta ASC
+          const aEdge5d = getEdge5d(a);
+          const bEdge5d = getEdge5d(b);
+          const aWin5d = aEdge5d.win_pct ?? 0;
+          const bWin5d = bEdge5d.win_pct ?? 0;
+          if (aWin5d !== bWin5d) {
+            aVal = aWin5d;
+            bVal = bWin5d;
+          } else {
+            const aSharpe5 = a.sharpe_ratio_20 ?? -999;
+            const bSharpe5 = b.sharpe_ratio_20 ?? -999;
+            if (aSharpe5 !== bSharpe5) {
+              aVal = aSharpe5;
+              bVal = bSharpe5;
+            } else {
+              aVal = -(a.beta_60 ?? 999);
+              bVal = -(b.beta_60 ?? 999);
+            }
+          }
+          break;
+        case "edge_10d":
+          // Sort by 10d win_pct DESC -> Sharpe DESC -> Beta ASC
+          const aEdge10d = getEdge10d(a);
+          const bEdge10d = getEdge10d(b);
+          const aWin10d = aEdge10d.win_pct ?? 0;
+          const bWin10d = bEdge10d.win_pct ?? 0;
+          if (aWin10d !== bWin10d) {
+            aVal = aWin10d;
+            bVal = bWin10d;
+          } else {
+            const aSharpe10 = a.sharpe_ratio_20 ?? -999;
+            const bSharpe10 = b.sharpe_ratio_20 ?? -999;
+            if (aSharpe10 !== bSharpe10) {
+              aVal = aSharpe10;
+              bVal = bSharpe10;
+            } else {
               aVal = -(a.beta_60 ?? 999);
               bVal = -(b.beta_60 ?? 999);
             }
@@ -426,7 +500,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     });
 
     return result;
-  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection, sectorRankings]);
+  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edge5dFilter, edge10dFilter, sortField, sortDirection, sectorRankings]);
 
   // Count active filters
   const activeFilterCount = [
@@ -434,7 +508,8 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     sectorFilter !== "All Sectors",
     verdict10Filter !== "All",
     verdict20Filter !== "All",
-    edgeFilter !== "All",
+    edge5dFilter !== "All",
+    edge10dFilter !== "All",
   ].filter(Boolean).length;
 
   // Clear all filters
@@ -443,20 +518,26 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     setSectorFilter("All Sectors");
     setVerdict10Filter("All");
     setVerdict20Filter("All");
-    setEdgeFilter("All");
+    setEdge5dFilter("All");
+    setEdge10dFilter("All");
   };
 
-  // Signal counts
+  // Signal counts - count stocks with PREFER/AVOID in either horizon
   const signalCounts = useMemo(() => {
-    const prefer = stocks.filter(s => getEdgeData(s).conclusion === "PREFER").length;
-    const avoid = stocks.filter(s => getEdgeData(s).conclusion === "AVOID").length;
-    return { prefer, avoid };
+    const prefer5d = stocks.filter(s => getEdge5d(s).conclusion === "PREFER").length;
+    const avoid5d = stocks.filter(s => getEdge5d(s).conclusion === "AVOID").length;
+    const prefer10d = stocks.filter(s => getEdge10d(s).conclusion === "PREFER").length;
+    const avoid10d = stocks.filter(s => getEdge10d(s).conclusion === "AVOID").length;
+    // Count stocks with either horizon showing signal
+    const preferAny = stocks.filter(s => getEdge5d(s).conclusion === "PREFER" || getEdge10d(s).conclusion === "PREFER").length;
+    const avoidAny = stocks.filter(s => getEdge5d(s).conclusion === "AVOID" || getEdge10d(s).conclusion === "AVOID").length;
+    return { prefer5d, avoid5d, prefer10d, avoid10d, preferAny, avoidAny };
   }, [stocks]);
 
   // Reset visible count when filters/sort change
   useEffect(() => {
     setVisibleCount(INITIAL_LOAD);
-  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edgeFilter, sortField, sortDirection]);
+  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edge5dFilter, edge10dFilter, sortField, sortDirection]);
 
   // Visible stocks (sliced for infinite scroll)
   const visibleStocks = useMemo(
@@ -486,26 +567,48 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     <div className="space-y-4">
       {/* Signal Summary */}
       <div className="flex items-center gap-6 text-sm">
+        <span className="text-muted-foreground font-medium">Horizon</span>
+        <div className="h-4 w-px bg-border" />
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">PREFER:</span>
-          <span className="font-semibold text-emerald-500">{signalCounts.prefer}</span>
+          <span className="text-muted-foreground">5d PREFER:</span>
+          <span className="font-semibold text-emerald-500">{signalCounts.prefer5d}</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">AVOID:</span>
-          <span className="font-semibold text-red-500">{signalCounts.avoid}</span>
+          <span className="text-muted-foreground">5d AVOID:</span>
+          <span className="font-semibold text-red-500">{signalCounts.avoid5d}</span>
+        </div>
+        <div className="h-4 w-px bg-border" />
+        <div className="flex items-center gap-2">
+          <span className="text-muted-foreground">10d PREFER:</span>
+          <span className="font-semibold text-emerald-500">{signalCounts.prefer10d}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-muted-foreground">10d AVOID:</span>
+          <span className="font-semibold text-red-500">{signalCounts.avoid10d}</span>
         </div>
       </div>
 
       {/* Filter Bar - removed search input (duplicate with header) */}
       <div className="flex flex-wrap items-center gap-3 p-3 bg-muted/30 rounded-lg">
-        {/* Edge Filter */}
+        {/* Edge 5d Filter */}
         <select
-          value={edgeFilter}
-          onChange={(e) => setEdgeFilter(e.target.value)}
+          value={edge5dFilter}
+          onChange={(e) => setEdge5dFilter(e.target.value)}
           className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
         >
           {EDGE_CONCLUSIONS.map(e => (
-            <option key={e} value={e}>Edge: {e}</option>
+            <option key={e} value={e}>5d: {e}</option>
+          ))}
+        </select>
+
+        {/* Edge 10d Filter */}
+        <select
+          value={edge10dFilter}
+          onChange={(e) => setEdge10dFilter(e.target.value)}
+          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          {EDGE_CONCLUSIONS.map(e => (
+            <option key={e} value={e}>10d: {e}</option>
           ))}
         </select>
 
@@ -566,7 +669,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
 
         {/* Results count */}
         <span className="ml-auto text-sm text-muted-foreground">
-          {visibleStocks.length} of {filteredStocks.length} stocks
+          {visibleStocks.length} of {filteredStocks.length}
           {visibleCount < filteredStocks.length && " (scroll for more)"}
         </span>
       </div>
@@ -581,8 +684,16 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
             <TableHeader className="sticky top-0 bg-background z-10">
               <TableRow>
               <SortableHeader
-                label="Edge"
-                field="edge"
+                label="5d"
+                field="edge_5d"
+                currentSort={sortField}
+                currentDirection={sortDirection}
+                onSort={handleSort}
+                align="center"
+              />
+              <SortableHeader
+                label="10d"
+                field="edge_10d"
                 currentSort={sortField}
                 currentDirection={sortDirection}
                 onSort={handleSort}
@@ -685,7 +796,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           <TableBody>
             {visibleStocks.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={21} className="h-24 text-center text-muted-foreground">
+                <TableCell colSpan={22} className="h-24 text-center text-muted-foreground">
                   No stocks match your filters
                 </TableCell>
               </TableRow>
@@ -696,9 +807,10 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 const isPositive = change >= 0;
                 return (
                   <TableRow key={stock.ticker} className="hover:bg-muted/50 cursor-pointer">
+                    {/* Edge 5d Column */}
                     <TableCell className="text-center px-1">
                       {(() => {
-                        const edge = getEdgeData(stock);
+                        const edge = getEdge5d(stock);
                         if (!edge.conclusion) return <span className="text-muted-foreground text-[10px]">-</span>;
                         const isPREFER = edge.conclusion === "PREFER";
                         return (
@@ -707,15 +819,66 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                               <TooltipTrigger asChild>
                                 <div className="flex flex-col items-center gap-0.5 cursor-help">
                                   <span className={cn(
-                                    "inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold rounded border",
+                                    "inline-flex items-center px-1 py-0.5 text-[9px] font-semibold rounded border",
                                     isPREFER
                                       ? "bg-emerald-100 text-emerald-700 border-emerald-200"
                                       : "bg-red-50 text-red-500 border-red-200"
                                   )}>
-                                    {edge.conclusion}
+                                    {isPREFER ? "P" : "A"}
                                   </span>
-                                  <span className="text-[9px] font-mono text-muted-foreground">
-                                    {edge.win_pct?.toFixed(1)}%
+                                  <span className="text-[8px] font-mono text-muted-foreground">
+                                    {edge.win_pct?.toFixed(0)}%
+                                  </span>
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent side="right" align="start" className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm max-w-[350px]">
+                                <div className="space-y-2">
+                                  <div className="flex items-center gap-2">
+                                    <span className={cn(
+                                      "font-semibold",
+                                      isPREFER ? "text-emerald-600" : "text-red-500"
+                                    )}>
+                                      {edge.conclusion}
+                                    </span>
+                                    <span className="text-muted-foreground">|</span>
+                                    <span className="font-mono text-xs">
+                                      5d - Win: {edge.win_pct?.toFixed(1)}% • Return: {edge.ret_pct && edge.ret_pct >= 0 ? "+" : ""}{edge.ret_pct?.toFixed(2)}%
+                                    </span>
+                                  </div>
+                                  <div className="text-xs text-muted-foreground leading-relaxed">
+                                    {edge.interpretation}
+                                  </div>
+                                  <div className="text-[10px] font-mono text-muted-foreground/70 pt-1 border-t border-border">
+                                    V 10d: {stock.v10_pattern} | V 20d: {stock.v20_pattern}
+                                  </div>
+                                </div>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        );
+                      })()}
+                    </TableCell>
+                    {/* Edge 10d Column */}
+                    <TableCell className="text-center px-1">
+                      {(() => {
+                        const edge = getEdge10d(stock);
+                        if (!edge.conclusion) return <span className="text-muted-foreground text-[10px]">-</span>;
+                        const isPREFER = edge.conclusion === "PREFER";
+                        return (
+                          <TooltipProvider delayDuration={200}>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <div className="flex flex-col items-center gap-0.5 cursor-help">
+                                  <span className={cn(
+                                    "inline-flex items-center px-1 py-0.5 text-[9px] font-semibold rounded border",
+                                    isPREFER
+                                      ? "bg-emerald-100 text-emerald-700 border-emerald-200"
+                                      : "bg-red-50 text-red-500 border-red-200"
+                                  )}>
+                                    {isPREFER ? "P" : "A"}
+                                  </span>
+                                  <span className="text-[8px] font-mono text-muted-foreground">
+                                    {edge.win_pct?.toFixed(0)}%
                                   </span>
                                 </div>
                               </TooltipTrigger>

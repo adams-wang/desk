@@ -161,9 +161,20 @@ export interface StockDetail {
   verdict_10_t2: string | null;
   verdict_20_t1: string | null;
   verdict_20_t2: string | null;
-  // Dual MRS interpretation (from backtest)
+  // Dual MRS interpretation (from backtest) - both 5d and 10d horizons
   v10_pattern: string | null;
   v20_pattern: string | null;
+  // Edge 5d horizon
+  edge_5d_conclusion: string | null;
+  edge_5d_win_pct: number | null;
+  edge_5d_ret_pct: number | null;
+  edge_5d_interpretation: string | null;
+  // Edge 10d horizon
+  edge_10d_conclusion: string | null;
+  edge_10d_win_pct: number | null;
+  edge_10d_ret_pct: number | null;
+  edge_10d_interpretation: string | null;
+  // Legacy fields for backward compatibility
   dual_conclusion: string | null;
   dual_win_pct_10d: number | null;
   dual_ret_pct_10d: number | null;
@@ -310,11 +321,21 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
       CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
       CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
       CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END as v20_pattern,
-      -- Get dual MRS interpretation (exact match only, REBOUND handled in app)
-      di.conclusion as dual_conclusion,
-      di.win_pct_10d as dual_win_pct_10d,
-      di.ret_pct_10d as dual_ret_pct_10d,
-      di.interpretation as dual_interpretation,
+      -- Edge 5d horizon
+      di5.conclusion as edge_5d_conclusion,
+      di5.win_pct as edge_5d_win_pct,
+      di5.ret_pct as edge_5d_ret_pct,
+      di5.interpretation as edge_5d_interpretation,
+      -- Edge 10d horizon
+      di10.conclusion as edge_10d_conclusion,
+      di10.win_pct as edge_10d_win_pct,
+      di10.ret_pct as edge_10d_ret_pct,
+      di10.interpretation as edge_10d_interpretation,
+      -- Legacy fields (use 10d as default for backward compatibility)
+      COALESCE(di10.conclusion, di5.conclusion) as dual_conclusion,
+      COALESCE(di10.win_pct, di5.win_pct) as dual_win_pct_10d,
+      COALESCE(di10.ret_pct, di5.ret_pct) as dual_ret_pct_10d,
+      COALESCE(di10.interpretation, di5.interpretation) as dual_interpretation,
       m.name as company_name, m.sector, m.industry
     FROM stocks_ohlcv o
     LEFT JOIN stocks_ohlcv prev ON o.ticker = prev.ticker AND prev.date = ?
@@ -335,14 +356,28 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
     LEFT JOIN l3_contracts_20 l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ?
     LEFT JOIN l3_contracts_20 l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ?
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
-    -- Dual MRS interpretation: exact match first, REBOUND (+-+/*) handled in app
-    LEFT JOIN dual_mrs_interpretation di
-      ON di.m10_pattern = (CASE WHEN UPPER(l10_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
-                          CASE WHEN UPPER(l10_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
-                          CASE WHEN UPPER(l10.verdict) = 'BUY' THEN '+' ELSE '-' END)
-      AND di.m20_pattern = (CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
-                           CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
-                           CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END)
+    -- Get L1 regime for current date
+    LEFT JOIN l1_contracts l1 ON l1.trading_date = o.date
+    -- Dual MRS interpretation for 5d horizon (REBOUND handled in app)
+    LEFT JOIN dual_mrs_interpretation di5
+      ON di5.horizon = 5
+      AND di5.l1_regime = CASE WHEN UPPER(l1.regime) = 'RISK_OFF' THEN 'RISK_OFF' ELSE 'NORMAL' END
+      AND di5.m10_pattern = (CASE WHEN UPPER(l10_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                            CASE WHEN UPPER(l10_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                            CASE WHEN UPPER(l10.verdict) = 'BUY' THEN '+' ELSE '-' END)
+      AND di5.m20_pattern = (CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                            CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                            CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END)
+    -- Dual MRS interpretation for 10d horizon (REBOUND handled in app)
+    LEFT JOIN dual_mrs_interpretation di10
+      ON di10.horizon = 10
+      AND di10.l1_regime = CASE WHEN UPPER(l1.regime) = 'RISK_OFF' THEN 'RISK_OFF' ELSE 'NORMAL' END
+      AND di10.m10_pattern = (CASE WHEN UPPER(l10_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                             CASE WHEN UPPER(l10_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                             CASE WHEN UPPER(l10.verdict) = 'BUY' THEN '+' ELSE '-' END)
+      AND di10.m20_pattern = (CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                             CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
+                             CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END)
     LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
     LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
                                    AND gs.filled = gi.filled
