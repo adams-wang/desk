@@ -44,10 +44,6 @@ l3_contracts_10, l3_contracts_20
 portfolio_positions WHERE acc_id = '283445330105777479'
 ```
 
-## Implementation Status
-
-Check `HANDOVER.md` for phase checklist.
-
 ## Reference Docs
 
 - Full spec: `/Volumes/Data/quant/docs/frontend/FRONTEND_PLAN.md`
