@@ -11,7 +11,6 @@ import {
   Sparkles,
   TrendingUp,
   PanelLeftClose,
-  PanelLeft,
 } from "lucide-react";
 
 const navigation = [
@@ -31,28 +30,24 @@ export function useSidebar() {
   return useContext(SidebarContext);
 }
 
-export function SidebarProvider({ children }: { children: React.ReactNode }) {
-  const [collapsed, setCollapsed] = useState(false);
-  const [mounted, setMounted] = useState(false);
+export function SidebarProvider({
+  children,
+  initialCollapsed = false
+}: {
+  children: React.ReactNode;
+  initialCollapsed?: boolean;
+}) {
+  // Initialize with server-provided value - same on server and client
+  const [collapsed, setCollapsedState] = useState(initialCollapsed);
 
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("sidebar-collapsed");
-    if (stored === "true") {
-      setCollapsed(true);
-    }
-  }, []);
-
-  const handleSetCollapsed = (value: boolean) => {
-    setCollapsed(value);
-    localStorage.setItem("sidebar-collapsed", String(value));
+  const setCollapsed = (value: boolean) => {
+    setCollapsedState(value);
+    // Store in cookie (accessible by server on next request)
+    document.cookie = `sidebar-collapsed=${value}; path=/; max-age=31536000; SameSite=Lax`;
   };
 
-  // Use default state until mounted to avoid hydration mismatch
-  const effectiveCollapsed = mounted ? collapsed : false;
-
   return (
-    <SidebarContext.Provider value={{ collapsed: effectiveCollapsed, setCollapsed: handleSetCollapsed }}>
+    <SidebarContext.Provider value={{ collapsed, setCollapsed }}>
       {children}
     </SidebarContext.Provider>
   );
@@ -79,21 +74,22 @@ export function Sidebar() {
       )}
     >
       {/* Logo */}
-      <div className="flex h-16 items-center justify-between border-b border-border px-4">
-        <Link href="/" className="flex items-center gap-2">
-          <BarChart3 className="h-6 w-6 text-primary flex-shrink-0" />
-          {!collapsed && <span className="text-xl font-semibold">Desk</span>}
-        </Link>
+      <div className={cn(
+        "flex h-16 items-center border-b border-border",
+        collapsed ? "justify-center px-2" : "justify-between px-4"
+      )}>
+        {!collapsed && (
+          <Link href="/" className="flex items-center gap-2">
+            <BarChart3 className="h-6 w-6 text-primary flex-shrink-0" />
+            <span className="text-xl font-semibold">Desk</span>
+          </Link>
+        )}
         <button
           onClick={() => setCollapsed(!collapsed)}
           className="p-1.5 rounded-md hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-label="Toggle sidebar"
         >
-          {collapsed ? (
-            <PanelLeft className="h-4 w-4" />
-          ) : (
-            <PanelLeftClose className="h-4 w-4" />
-          )}
+          <PanelLeftClose className={cn("h-4 w-4 transition-transform", collapsed && "rotate-180")} />
         </button>
       </div>
 
@@ -118,7 +114,7 @@ export function Sidebar() {
               )}
             >
               <item.icon className="h-5 w-5 flex-shrink-0" />
-              {!collapsed && item.name}
+              <span className={cn("transition-opacity", collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100")}>{item.name}</span>
             </Link>
           );
         })}
@@ -126,9 +122,7 @@ export function Sidebar() {
 
       {/* Footer */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-border p-4">
-        {!collapsed && (
-          <div className="text-xs text-muted-foreground">US Equity Trading</div>
-        )}
+        <div className={cn("text-xs text-muted-foreground transition-opacity", collapsed ? "opacity-0" : "opacity-100")}>US Equity Trading</div>
       </div>
     </aside>
   );

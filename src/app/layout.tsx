@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { Sidebar, SidebarProvider, MainContent } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
@@ -16,16 +17,19 @@ export const metadata: Metadata = {
   description: "US Equity Quant Trading Visualization",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const sidebarCollapsed = cookieStore.get("sidebar-collapsed")?.value === "true";
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider>
-          <SidebarProvider>
+          <SidebarProvider initialCollapsed={sidebarCollapsed}>
             <div className="flex min-h-screen bg-background text-foreground">
               <Suspense fallback={null}>
                 <Sidebar />
