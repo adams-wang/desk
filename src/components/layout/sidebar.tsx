@@ -11,6 +11,7 @@ import {
   Sparkles,
   TrendingUp,
   PanelLeftClose,
+  Scale,
 } from "lucide-react";
 
 const navigation = [
@@ -121,8 +122,21 @@ export function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-border p-4">
-        <div className={cn("text-xs text-muted-foreground transition-opacity", collapsed ? "opacity-0" : "opacity-100")}>US Equity Trading</div>
+      <div className={cn(
+        "absolute bottom-0 left-0 right-0 border-t border-border",
+        collapsed ? "p-2" : "p-4"
+      )}>
+        <Link
+          href="/terms"
+          title={collapsed ? "Terms & Disclaimers" : undefined}
+          className={cn(
+            "flex items-center text-muted-foreground hover:text-foreground transition-colors",
+            collapsed ? "justify-center p-3 rounded-lg hover:bg-muted" : "text-xs"
+          )}
+        >
+          <Scale className={cn("h-5 w-5 flex-shrink-0", !collapsed && "hidden")} />
+          <span className={cn(collapsed && "hidden")}>Terms & Disclaimers</span>
+        </Link>
       </div>
     </aside>
   );

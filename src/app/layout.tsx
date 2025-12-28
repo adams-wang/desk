@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import "./globals.css";
 import { Sidebar, SidebarProvider, MainContent } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
+import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
@@ -38,6 +39,7 @@ export default async function RootLayout({
                 <Suspense fallback={null}>
                   <Header />
                 </Suspense>
+                <DisclaimerBanner />
                 <main className="p-6">{children}</main>
               </MainContent>
             </div>
