@@ -40,6 +40,8 @@ const SECTORS = [
 
 const VERDICTS = ["All", "BUY", "HOLD", "SELL", "AVOID"];
 
+const THESIS = ["All", "STRENGTH", "VALUE", "PARABOLIC", "REVERSION", "NEUTRAL"];
+
 const EDGE_CONCLUSIONS = ["All", "PREFER", "AVOID"];
 
 // No special cases - all patterns looked up from dual_mrs_interpretation table
@@ -280,6 +282,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const [sectorFilter, setSectorFilter] = useState("All Sectors");
   const [verdict10Filter, setVerdict10Filter] = useState(initialV10);
   const [verdict20Filter, setVerdict20Filter] = useState(initialV20);
+  const [thesisFilter, setThesisFilter] = useState("All");
   const [edge5dFilter, setEdge5dFilter] = useState(initialEdge);
   const [edge10dFilter, setEdge10dFilter] = useState(initialEdge);
 
@@ -362,6 +365,11 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
 
       // Verdict 20 filter
       if (verdict20Filter !== "All" && stock.verdict_20?.toUpperCase() !== verdict20Filter) {
+        return false;
+      }
+
+      // Thesis filter (using 20d thesis)
+      if (thesisFilter !== "All" && stock.thesis_20?.toUpperCase() !== thesisFilter) {
         return false;
       }
 
@@ -500,7 +508,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     });
 
     return result;
-  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edge5dFilter, edge10dFilter, sortField, sortDirection, sectorRankings]);
+  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, edge5dFilter, edge10dFilter, sortField, sortDirection, sectorRankings]);
 
   // Count active filters
   const activeFilterCount = [
@@ -508,6 +516,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     sectorFilter !== "All Sectors",
     verdict10Filter !== "All",
     verdict20Filter !== "All",
+    thesisFilter !== "All",
     edge5dFilter !== "All",
     edge10dFilter !== "All",
   ].filter(Boolean).length;
@@ -518,6 +527,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     setSectorFilter("All Sectors");
     setVerdict10Filter("All");
     setVerdict20Filter("All");
+    setThesisFilter("All");
     setEdge5dFilter("All");
     setEdge10dFilter("All");
   };
@@ -537,7 +547,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   // Reset visible count when filters/sort change
   useEffect(() => {
     setVisibleCount(INITIAL_LOAD);
-  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, edge5dFilter, edge10dFilter, sortField, sortDirection]);
+  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, edge5dFilter, edge10dFilter, sortField, sortDirection]);
 
   // Visible stocks (sliced for infinite scroll)
   const visibleStocks = useMemo(
@@ -564,7 +574,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   }, [visibleCount, filteredStocks.length]);
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-2">
       {/* Signal Summary */}
       <div className="flex items-center gap-6 text-sm">
         <span className="text-muted-foreground font-medium">Horizon</span>
@@ -586,10 +596,14 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           <span className="text-muted-foreground">10d AVOID:</span>
           <span className="font-semibold text-red-500">{signalCounts.avoid10d}</span>
         </div>
+        <span className="ml-auto text-muted-foreground">
+          {visibleStocks.length} of {filteredStocks.length}
+          {visibleCount < filteredStocks.length && " (scroll for more)"}
+        </span>
       </div>
 
       {/* Filter Bar - removed search input (duplicate with header) */}
-      <div className="flex flex-wrap items-center gap-3 p-3 bg-muted/30 rounded-lg">
+      <div className="flex flex-wrap items-center gap-3 px-3 py-2 bg-muted/30 rounded-lg">
         {/* Edge 5d Filter */}
         <select
           value={edge5dFilter}
@@ -656,6 +670,17 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           ))}
         </select>
 
+        {/* Thesis Filter */}
+        <select
+          value={thesisFilter}
+          onChange={(e) => setThesisFilter(e.target.value)}
+          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          {THESIS.map(t => (
+            <option key={t} value={t}>Thesis: {t}</option>
+          ))}
+        </select>
+
         {/* Clear Filters */}
         {activeFilterCount > 0 && (
           <button
@@ -666,12 +691,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
             Clear ({activeFilterCount})
           </button>
         )}
-
-        {/* Results count */}
-        <span className="ml-auto text-sm text-muted-foreground">
-          {visibleStocks.length} of {filteredStocks.length}
-          {visibleCount < filteredStocks.length && " (scroll for more)"}
-        </span>
       </div>
 
       {/* Table with virtual scrolling */}

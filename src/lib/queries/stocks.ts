@@ -156,6 +156,7 @@ export interface StockDetail {
   conviction_10: string | null;
   verdict_20: string | null;
   conviction_20: string | null;
+  thesis_20: string | null;
   // L3 verdict history (T-2, T-1)
   verdict_10_t1: string | null;
   verdict_10_t2: string | null;
@@ -223,8 +224,8 @@ export function getStockDetail(ticker: string, endDate?: string): StockDetail | 
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
                                        AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
-    LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
-    LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
+    LEFT JOIN l3_contracts l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date AND l10.mrs = 10
+    LEFT JOIN l3_contracts l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date AND l20.mrs = 20
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
     LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
     LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
@@ -309,7 +310,7 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
       CASE WHEN pi.conclusion IS NOT NULL THEN cp.pattern ELSE NULL END as pattern,
       pi.conclusion as pattern_conclusion, pi.interpretation as pattern_interpretation,
       l10.verdict as verdict_10, l10.conviction as conviction_10,
-      l20.verdict as verdict_20, l20.conviction as conviction_20,
+      l20.verdict as verdict_20, l20.conviction as conviction_20, l20.thesis as thesis_20,
       l10_t1.verdict as verdict_10_t1,
       l10_t2.verdict as verdict_10_t2,
       l20_t1.verdict as verdict_20_t1,
@@ -349,12 +350,12 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
                                        AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
-    LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
-    LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
-    LEFT JOIN l3_contracts_10 l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ?
-    LEFT JOIN l3_contracts_10 l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ?
-    LEFT JOIN l3_contracts_20 l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ?
-    LEFT JOIN l3_contracts_20 l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ?
+    LEFT JOIN l3_contracts l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date AND l10.mrs = 10
+    LEFT JOIN l3_contracts l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date AND l20.mrs = 20
+    LEFT JOIN l3_contracts l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ? AND l10_t1.mrs = 10
+    LEFT JOIN l3_contracts l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ? AND l10_t2.mrs = 10
+    LEFT JOIN l3_contracts l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ? AND l20_t1.mrs = 20
+    LEFT JOIN l3_contracts l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ? AND l20_t2.mrs = 20
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
     -- Get L1 regime for current date
     LEFT JOIN l1_contracts l1 ON l1.trading_date = o.date
@@ -482,8 +483,8 @@ export function getStockOHLCVExtended(ticker: string, days: number = 20, endDate
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
                                        AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
-    LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
-    LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
+    LEFT JOIN l3_contracts l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date AND l10.mrs = 10
+    LEFT JOIN l3_contracts l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date AND l20.mrs = 20
     LEFT JOIN stocks_technicals t ON o.ticker = t.ticker AND o.date = t.date
     LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
     LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
@@ -760,12 +761,12 @@ export function findStockEdge(
         m.sector
       FROM stocks_ohlcv o
       LEFT JOIN stocks_indicators i ON o.ticker = i.ticker AND o.date = i.date
-      LEFT JOIN l3_contracts_10 l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
-      LEFT JOIN l3_contracts_20 l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
-      LEFT JOIN l3_contracts_10 l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ?
-      LEFT JOIN l3_contracts_10 l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ?
-      LEFT JOIN l3_contracts_20 l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ?
-      LEFT JOIN l3_contracts_20 l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ?
+      LEFT JOIN l3_contracts l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date AND l10.mrs = 10
+      LEFT JOIN l3_contracts l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date AND l20.mrs = 20
+      LEFT JOIN l3_contracts l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ? AND l10_t1.mrs = 10
+      LEFT JOIN l3_contracts l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ? AND l10_t2.mrs = 10
+      LEFT JOIN l3_contracts l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ? AND l20_t1.mrs = 20
+      LEFT JOIN l3_contracts l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ? AND l20_t2.mrs = 20
       LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
       WHERE o.date = ?
     )
@@ -879,17 +880,17 @@ export function getL3Contracts(ticker: string, endDate?: string): { l3_10: L3Con
       entry_price, stop_loss, stop_loss_pct, target_price, risk_reward,
       shares, position_value, risk_dollars,
       l1_position_modifier, l2_sector_modifier, combined_modifier, final_position_pct
-    FROM %TABLE%
-    WHERE ticker = ? AND trading_date = ?
+    FROM l3_contracts
+    WHERE ticker = ? AND trading_date = ? AND mrs = ?
   `;
 
   const l3_10 = db
-    .prepare(query.replace('%TABLE%', 'l3_contracts_10'))
-    .get(ticker.toUpperCase(), date) as L3Contract | undefined;
+    .prepare(query)
+    .get(ticker.toUpperCase(), date, 10) as L3Contract | undefined;
 
   const l3_20 = db
-    .prepare(query.replace('%TABLE%', 'l3_contracts_20'))
-    .get(ticker.toUpperCase(), date) as L3Contract | undefined;
+    .prepare(query)
+    .get(ticker.toUpperCase(), date, 20) as L3Contract | undefined;
 
   log.debug(
     { ticker, date, has_10: !!l3_10, has_20: !!l3_20, latencyMs: Date.now() - startTime },

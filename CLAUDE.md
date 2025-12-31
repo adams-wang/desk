@@ -37,8 +37,8 @@ SELECT date FROM trading_days WHERE day_rank = 1
 -- Stock data join
 stocks_ohlcv + stocks_indicators + stocks_technicals + candle_descriptors
 
--- L3 verdicts
-l3_contracts_10, l3_contracts_20
+-- L3 verdicts (unified view with mrs=10|20 and method=RULE|LLM)
+l3_contracts
 
 -- Portfolio
 portfolio_positions WHERE acc_id = '283445330105777479'

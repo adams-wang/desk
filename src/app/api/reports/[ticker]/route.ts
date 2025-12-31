@@ -37,12 +37,11 @@ function getAvailableLanguages(ticker: string, variant: string, date: string): L
 function getVerdicts(ticker: string, date: string): { verdict10: string | null; verdict20: string | null } {
   const result = db.prepare(`
     SELECT
-      l10.verdict as verdict_10,
-      l20.verdict as verdict_20
-    FROM (SELECT 1) dummy
-    LEFT JOIN l3_contracts_10 l10 ON l10.ticker = ? AND l10.trading_date = ?
-    LEFT JOIN l3_contracts_20 l20 ON l20.ticker = ? AND l20.trading_date = ?
-  `).get(ticker.toUpperCase(), date, ticker.toUpperCase(), date) as { verdict_10: string | null; verdict_20: string | null } | undefined;
+      MAX(CASE WHEN mrs = 10 THEN verdict END) as verdict_10,
+      MAX(CASE WHEN mrs = 20 THEN verdict END) as verdict_20
+    FROM l3_contracts
+    WHERE ticker = ? AND trading_date = ?
+  `).get(ticker.toUpperCase(), date) as { verdict_10: string | null; verdict_20: string | null } | undefined;
 
   return {
     verdict10: result?.verdict_10 || null,

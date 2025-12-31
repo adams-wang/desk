@@ -3,19 +3,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-
-interface L3Contract {
-  verdict: string;
-  conviction: string;
-  conviction_score: number;
-  entry_price: number;
-  stop_loss: number;
-  stop_loss_pct: number;
-  target_price: number;
-  risk_reward: number;
-  shares: number;
-  position_value: number;
-}
+import type { L3Contract } from "@/lib/queries/stocks";
 
 interface ATRFallback {
   close: number;
@@ -251,7 +239,7 @@ export function TradeSetupCard({ l3_10, l3_20, fallback, ticker, date }: TradeSe
               <span className="font-mono tabular-nums">
                 {contract.shares} shares{" "}
                 <span className="text-muted-foreground">
-                  (${contract.position_value.toLocaleString(undefined, { maximumFractionDigits: 0 })})
+                  (${contract.position_value?.toLocaleString(undefined, { maximumFractionDigits: 0 }) ?? "-"})
                 </span>
               </span>
             </div>
