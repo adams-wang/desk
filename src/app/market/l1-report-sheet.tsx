@@ -17,6 +17,8 @@ import { cn } from "@/lib/utils";
 const LANGUAGES = {
   en: { label: "EN", name: "English" },
   zh: { label: "中", name: "中文" },
+  ko: { label: "한", name: "한국어" },
+  ja: { label: "日", name: "日本語" },
 } as const;
 
 type Language = keyof typeof LANGUAGES;
@@ -94,32 +96,26 @@ export function L1ReportSheet({
         <SheetHeader className="border-b shrink-0" style={{ height: 64 }}>
           <SheetTitle className="sr-only">L1 Market Analysis</SheetTitle>
           <div className="flex items-center justify-between h-full px-6 pr-14">
-            {/* Language Selector */}
+            {/* Language Selector - only show available languages */}
             <div className="flex items-center gap-1">
               <Globe className="h-4 w-4 text-muted-foreground mr-1" />
-              {(Object.keys(LANGUAGES) as Language[]).map((lang) => {
-                const isAvailable = availableLanguages.includes(lang);
+              {availableLanguages.map((lang) => {
                 const isActive = currentLang === lang;
+                const langConfig = LANGUAGES[lang];
+                if (!langConfig) return null;
 
                 return (
                   <button
                     key={lang}
-                    onClick={() => {
-                      if (isAvailable) {
-                        setCurrentLang(lang);
-                      }
-                    }}
-                    disabled={!isAvailable}
+                    onClick={() => setCurrentLang(lang)}
                     className={cn(
                       "w-8 h-7 text-sm font-medium rounded transition-all flex items-center justify-center",
-                      isAvailable
-                        ? isActive
-                          ? "bg-muted text-foreground border border-foreground/30"
-                          : "hover:bg-muted text-muted-foreground hover:text-foreground"
-                        : "opacity-25 cursor-not-allowed text-muted-foreground"
+                      isActive
+                        ? "bg-muted text-foreground border border-foreground/30"
+                        : "hover:bg-muted text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    {LANGUAGES[lang].label}
+                    {langConfig.label}
                   </button>
                 );
               })}

@@ -69,14 +69,21 @@ export function ReportSheet({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [availableDates, setAvailableDates] = useState<string[]>([]);
-  const [currentDate, setCurrentDate] = useState<string | undefined>(date);
   const [currentLang, setCurrentLang] = useState<Language>("en");
+
+  // Navigation state: only set when user explicitly navigates via prev/next
+  // null = use date prop, string = user navigated to this date
+  const [navigatedDate, setNavigatedDate] = useState<string | null>(null);
+
+  // The effective date: navigation overrides prop
+  const effectiveDate = navigatedDate ?? date;
+
   // Track available languages per variant
   const [availableLanguagesByVariant, setAvailableLanguagesByVariant] = useState<Record<"10" | "20", Language[]>>({
     "10": ["en"],
     "20": ["en"],
   });
-  // Track which languages are currently translating (prevents race conditions)
+  // Track which languages are currently translating
   const [translatingSet, setTranslatingSet] = useState<Set<string>>(new Set());
 
   // Get available languages for current variant
@@ -86,22 +93,18 @@ export function ReportSheet({
   const getVerdictColor = (verdict: string | null) => {
     if (!verdict) return "#9ca3af";
     const upper = verdict.toUpperCase();
-    if (upper.includes("BUY") || upper.startsWith("B")) return "#22c55e"; // green
-    if (upper.includes("AVOID") || upper.startsWith("A") || upper.includes("SELL")) return "#ef4444"; // red
-    return "#9ca3af"; // gray for HOLD and others
+    if (upper.includes("BUY") || upper.startsWith("B")) return "#22c55e";
+    if (upper.includes("AVOID") || upper.startsWith("A") || upper.includes("SELL")) return "#ef4444";
+    return "#9ca3af";
   };
 
   // Translate report to a language
   const handleTranslate = useCallback(async (targetLang: Language) => {
-    if (!ticker || !currentDate || targetLang === "en") return;
+    if (!ticker || !effectiveDate || targetLang === "en") return;
 
-    // Create unique key for this translation (variant + language)
     const translationKey = `${activeVariant}-${targetLang}`;
-
-    // Check if already translating this specific combination
     if (translatingSet.has(translationKey)) return;
 
-    // Add to translating set
     setTranslatingSet(prev => new Set(prev).add(translationKey));
 
     try {
@@ -111,7 +114,7 @@ export function ReportSheet({
         body: JSON.stringify({
           ticker,
           variant: activeVariant,
-          date: currentDate,
+          date: effectiveDate,
           lang: targetLang,
         }),
       });
@@ -121,7 +124,6 @@ export function ReportSheet({
         throw new Error(data.error || "Translation failed");
       }
 
-      // Translation successful - add to available languages for THIS variant and switch to it
       setAvailableLanguagesByVariant(prev => ({
         ...prev,
         [activeVariant]: [...prev[activeVariant], targetLang],
@@ -131,14 +133,13 @@ export function ReportSheet({
       console.error("Translation error:", err);
       setError(err instanceof Error ? err.message : "Translation failed");
     } finally {
-      // Remove from translating set
       setTranslatingSet(prev => {
         const next = new Set(prev);
         next.delete(translationKey);
         return next;
       });
     }
-  }, [ticker, currentDate, activeVariant, translatingSet]);
+  }, [ticker, effectiveDate, activeVariant, translatingSet]);
 
   // Fetch available dates when sheet opens or variant changes
   useEffect(() => {
@@ -159,36 +160,35 @@ export function ReportSheet({
     fetchDates();
   }, [open, ticker, activeVariant]);
 
-  // Get current date index and navigation state
-  const currentDateIndex = currentDate ? availableDates.indexOf(currentDate) : -1;
+  // Navigation helpers
+  const currentDateIndex = effectiveDate ? availableDates.indexOf(effectiveDate) : -1;
   const hasPrevious = currentDateIndex > 0;
   const hasNext = currentDateIndex >= 0 && currentDateIndex < availableDates.length - 1;
 
   const goToPrevious = () => {
     if (hasPrevious) {
-      setCurrentDate(availableDates[currentDateIndex - 1]);
+      setNavigatedDate(availableDates[currentDateIndex - 1]);
     }
   };
 
   const goToNext = () => {
     if (hasNext) {
-      setCurrentDate(availableDates[currentDateIndex + 1]);
+      setNavigatedDate(availableDates[currentDateIndex + 1]);
     }
   };
 
   // Fetch report when sheet opens or variant/date/language changes
   useEffect(() => {
-    if (!open || !ticker) return;
+    if (!open || !ticker || !effectiveDate) return;
 
     const fetchReport = async (lang: Language): Promise<boolean> => {
       const params = new URLSearchParams({ variant: activeVariant, lang });
-      if (currentDate) params.append("date", currentDate);
+      params.append("date", effectiveDate);
 
       const response = await fetch(`/api/reports/${ticker}?${params}`);
 
       if (!response.ok) {
         const data = await response.json();
-        // Update available languages from error response for THIS variant
         if (data.availableLanguages) {
           setAvailableLanguagesByVariant(prev => ({
             ...prev,
@@ -200,16 +200,11 @@ export function ReportSheet({
 
       const data = await response.json();
       setReport(data);
-      // Update available languages from response for THIS variant
       if (data.availableLanguages) {
         setAvailableLanguagesByVariant(prev => ({
           ...prev,
           [activeVariant]: data.availableLanguages,
         }));
-      }
-      // Update currentDate from response if not set
-      if (!currentDate && data.date) {
-        setCurrentDate(data.date);
       }
       return true;
     };
@@ -219,11 +214,9 @@ export function ReportSheet({
       setError(null);
 
       try {
-        // Try fetching in current language
         const success = await fetchReport(currentLang);
 
         if (!success && currentLang !== "en") {
-          // Fallback to English if current language not available
           const fallbackSuccess = await fetchReport("en");
           if (fallbackSuccess) {
             setCurrentLang("en");
@@ -244,29 +237,27 @@ export function ReportSheet({
     };
 
     loadReport();
-  }, [open, ticker, activeVariant, currentDate, currentLang]);
+  }, [open, ticker, activeVariant, effectiveDate, currentLang]);
 
-  // Reset state when sheet closes
+  // Reset all state when sheet closes
   useEffect(() => {
     if (!open) {
       setReport(null);
       setError(null);
       setAvailableDates([]);
-      // Don't clear translatingSet - let translations continue in background
+      setNavigatedDate(null);
+      setCurrentLang("en");
     }
   }, [open]);
 
-  // Reset to initial state when opening with new ticker/date
+  // Reset variant when initialVariant prop changes (new click)
   useEffect(() => {
     if (open) {
       setActiveVariant(initialVariant);
-      setCurrentDate(date);
-      setCurrentLang("en");
-      // Only reset available languages when ticker/date changes, not on every open
     }
-  }, [open, initialVariant, date]);
+  }, [open, initialVariant]);
 
-  // Reset available languages when ticker changes (new stock = fresh start)
+  // Reset available languages when ticker changes
   useEffect(() => {
     setAvailableLanguagesByVariant({ "10": ["en"], "20": ["en"] });
     setTranslatingSet(new Set());
@@ -281,7 +272,7 @@ export function ReportSheet({
         <SheetHeader className="border-b shrink-0" style={{ height: 64 }}>
           <SheetTitle className="sr-only">{ticker} Analysis</SheetTitle>
           <div className="flex items-center justify-between h-full px-6 pr-14">
-            {/* Verdict Toggle - use dynamic verdicts from report when available */}
+            {/* Verdict Toggle */}
             <div className="flex items-center gap-2">
               {(() => {
                 const displayVerdict10 = report?.verdict10 ?? verdict10;
@@ -341,7 +332,7 @@ export function ReportSheet({
                   const isActive = currentLang === lang;
                   const translationKey = `${activeVariant}-${lang}`;
                   const isTranslating = translatingSet.has(translationKey);
-                  const canTranslate = lang !== "en" && !isAvailable && !isTranslating && currentDate;
+                  const canTranslate = lang !== "en" && !isAvailable && !isTranslating && effectiveDate;
 
                   const tooltipText = isTranslating
                     ? "Translating..."
@@ -408,7 +399,7 @@ export function ReportSheet({
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <span className="min-w-[120px] text-center font-medium">
-                {report?.date || currentDate || ""}
+                {report?.date || effectiveDate || ""}
               </span>
               <button
                 onClick={goToNext}
