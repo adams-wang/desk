@@ -1,36 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { spawn } from "child_process";
 import fs from "fs";
 import path from "path";
 
 const QUANT_BASE_PATH = "/Volumes/Data/quant";
-const L10N_CONFIG_PATH = path.join(QUANT_BASE_PATH, "cli", "intel", "common", "l10n.json");
 const REPORTS_BASE_PATH = QUANT_BASE_PATH;
-
-// Types for l10n config
-interface L10nConfig {
-  prompt_template: string;
-  models: Record<string, {
-    name: string;
-    api_name: string;
-    desc: string;
-    timeout: number;
-  }>;
-  default_model: string;
-  api_endpoint: string;
-  languages: Record<string, {
-    name: string;
-    terms: Record<string, string>;
-  }>;
-}
-
-// Load l10n config
-function loadL10nConfig(): L10nConfig {
-  if (!fs.existsSync(L10N_CONFIG_PATH)) {
-    throw new Error(`L10n config not found: ${L10N_CONFIG_PATH}`);
-  }
-  const content = fs.readFileSync(L10N_CONFIG_PATH, "utf-8");
-  return JSON.parse(content);
-}
 
 // Get English report path
 function getEnglishReportPath(ticker: string, variant: string, date: string): string {
@@ -42,84 +16,66 @@ function getTranslatedReportPath(ticker: string, variant: string, date: string, 
   return path.join(REPORTS_BASE_PATH, "reports", date, `${ticker.toUpperCase()}_${variant}_${lang}.md`);
 }
 
-// Generate translation prompt
-function getTranslationPrompt(config: L10nConfig, lang: string): string {
-  const langConfig = config.languages[lang];
-  if (!langConfig) {
-    throw new Error(`Unsupported language: ${lang}`);
-  }
-
-  const termsList = Object.entries(langConfig.terms)
-    .map(([en, local]) => `   - ${en} → ${local}`)
-    .join("\n");
-
-  return config.prompt_template
-    .replace("{language_name}", langConfig.name)
-    .replace("{terms_list}", termsList);
-}
-
-// Call Zhipu GLM API
-async function translateWithGLM(
-  config: L10nConfig,
+// Call quant's Python l10n module directly
+async function translateWithQuant(
   text: string,
-  targetLang: string,
-  model: string = config.default_model
+  targetLang: string
 ): Promise<{ status: "success" | "error"; translation?: string; error?: string; latency_sec?: number }> {
-  const apiKey = process.env.GLM_API_KEY;
-  if (!apiKey) {
-    return { status: "error", error: "GLM_API_KEY not configured" };
-  }
+  return new Promise((resolve) => {
+    const pythonScript = `
+import sys
+import json
+sys.path.insert(0, "${QUANT_BASE_PATH}")
+from cli.intel.common.l10n import translate_report_stream
 
-  const modelConfig = config.models[model] || config.models[config.default_model];
-  const systemPrompt = getTranslationPrompt(config, targetLang);
+result = translate_report_stream(sys.stdin.read(), "${targetLang}")
+print(json.dumps(result))
+`;
 
-  const startTime = Date.now();
-
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), modelConfig.timeout * 1000);
-
-    const response = await fetch(config.api_endpoint, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: modelConfig.api_name,
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: text },
-        ],
-        max_tokens: 4096,
-        temperature: 0.3,
-      }),
-      signal: controller.signal,
+    const startTime = Date.now();
+    const python = spawn("python3", ["-c", pythonScript], {
+      cwd: QUANT_BASE_PATH,
+      env: { ...process.env, PYTHONPATH: QUANT_BASE_PATH },
     });
 
-    clearTimeout(timeoutId);
-    const latency = (Date.now() - startTime) / 1000;
+    let stdout = "";
+    let stderr = "";
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      const errorMsg = errorData?.error?.message || `HTTP ${response.status}`;
-      return { status: "error", error: errorMsg };
-    }
+    python.stdout.on("data", (data) => {
+      stdout += data.toString();
+    });
 
-    const data = await response.json();
-    const content = data?.choices?.[0]?.message?.content || "";
+    python.stderr.on("data", (data) => {
+      stderr += data.toString();
+    });
 
-    return {
-      status: "success",
-      translation: content,
-      latency_sec: Math.round(latency * 100) / 100,
-    };
-  } catch (error) {
-    if (error instanceof Error && error.name === "AbortError") {
-      return { status: "error", error: `Request timed out after ${modelConfig.timeout}s` };
-    }
-    return { status: "error", error: String(error) };
-  }
+    python.on("close", (code) => {
+      const latency = (Date.now() - startTime) / 1000;
+
+      if (code !== 0) {
+        resolve({ status: "error", error: stderr || `Python exited with code ${code}` });
+        return;
+      }
+
+      try {
+        const result = JSON.parse(stdout.trim());
+        resolve({
+          ...result,
+          latency_sec: result.latency_sec || Math.round(latency * 100) / 100,
+        });
+      } catch {
+        resolve({ status: "error", error: `Failed to parse Python output: ${stdout}` });
+      }
+    });
+
+    python.on("error", (err) => {
+      resolve({ status: "error", error: `Failed to spawn Python: ${err.message}` });
+    });
+
+    // Send the text to translate via stdin
+    python.stdin.write(text);
+    python.stdin.end();
+  });
 }
 
 export async function POST(request: NextRequest) {
@@ -139,17 +95,6 @@ export async function POST(request: NextRequest) {
     if (variant !== "10" && variant !== "20") {
       return NextResponse.json(
         { error: "Invalid variant. Must be '10' or '20'" },
-        { status: 400 }
-      );
-    }
-
-    // Load config
-    const config = loadL10nConfig();
-
-    // Validate language
-    if (!config.languages[lang]) {
-      return NextResponse.json(
-        { error: `Invalid language. Must be one of: ${Object.keys(config.languages).join(", ")}` },
         { status: 400 }
       );
     }
@@ -174,8 +119,8 @@ export async function POST(request: NextRequest) {
 
     const englishContent = fs.readFileSync(englishPath, "utf-8");
 
-    // Translate using GLM API
-    const result = await translateWithGLM(config, englishContent, lang);
+    // Translate using quant's Python module (streaming mode)
+    const result = await translateWithQuant(englishContent, lang);
 
     if (result.status === "error") {
       return NextResponse.json(
