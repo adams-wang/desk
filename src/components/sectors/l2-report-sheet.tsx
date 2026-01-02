@@ -125,33 +125,46 @@ export function L2ReportSheet({
           </div>
         </SheetHeader>
 
-        <ScrollArea className="flex-1 overflow-auto px-6 py-4">
-          {loading && (
-            <div className="flex items-center justify-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground" />
-            </div>
-          )}
+        <ScrollArea className="flex-1">
+          <div className="px-6 py-4">
+            {loading && (
+              <div className="flex items-center justify-center py-12">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground" />
+              </div>
+            )}
 
-          {error && (
-            <div className="text-center py-12">
-              <p className="text-red-500 mb-2">{error}</p>
-              <p className="text-sm text-muted-foreground">
-                Report may not be available for this date
-              </p>
-            </div>
-          )}
+            {error && (
+              <div className="text-center py-12">
+                <p className="text-red-500 mb-2">{error}</p>
+                <p className="text-sm text-muted-foreground">
+                  Report may not be available for this date
+                </p>
+              </div>
+            )}
 
-          {!loading && !error && !content && (
-            <div className="text-center py-12 text-muted-foreground">
-              No report available for this date.
-            </div>
-          )}
+            {!loading && !error && !content && (
+              <div className="text-center py-12 text-muted-foreground">
+                No report available for this date.
+              </div>
+            )}
 
-          {!loading && !error && content && (
-            <article className="text-foreground pb-12 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-8 [&_h2]:mb-4 [&>h2:first-child]:mt-2 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed [&_p]:text-base [&_strong]:font-semibold [&_ul]:my-4 [&_ul]:space-y-2 [&_ul]:pl-6 [&_ul>li]:relative [&_ul>li]:pl-2 [&_ul>li]:leading-normal [&_ul>li:before]:content-['•'] [&_ul>li:before]:absolute [&_ul>li:before]:left-[-1.5rem] [&_ul>li:before]:text-foreground [&_ol]:my-4 [&_ol]:space-y-2 [&_ol]:pl-6 [&_ol]:list-decimal [&_ol>li]:relative [&_ol>li]:pl-2 [&_ol>li]:leading-normal [&_table]:w-full [&_table]:my-4 [&_table]:border-collapse [&_th]:border [&_th]:border-border [&_th]:bg-muted [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-medium [&_td]:border [&_td]:border-border [&_td]:px-3 [&_td]:py-2 [&_tr:hover]:bg-muted/50">
-              <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
-            </article>
-          )}
+            {!loading && !error && content && (
+              <article className="text-foreground pb-12 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-8 [&_h2]:mb-4 [&>h2:first-child]:mt-2 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_p]:leading-relaxed [&_p]:text-base [&_strong]:font-semibold [&_ul]:my-4 [&_ul]:space-y-2 [&_ul]:pl-6 [&_ul>li]:relative [&_ul>li]:pl-2 [&_ul>li]:leading-normal [&_ul>li:before]:content-['•'] [&_ul>li:before]:absolute [&_ul>li:before]:left-[-1.5rem] [&_ul>li:before]:text-foreground [&_ol]:my-4 [&_ol]:space-y-2 [&_ol]:pl-6 [&_ol]:list-decimal [&_ol>li]:relative [&_ol>li]:pl-2 [&_ol>li]:leading-normal [&_table]:w-full [&_table]:my-4 [&_table]:border-collapse [&_th]:border [&_th]:border-border [&_th]:bg-muted [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-medium [&_td]:border [&_td]:border-border [&_td]:px-3 [&_td]:py-2 [&_tr:hover]:bg-muted/50 [&_a]:text-primary [&_a]:underline [&_a]:break-all">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    table: ({ children }) => (
+                      <div className="overflow-x-auto -mx-6 px-6">
+                        <table>{children}</table>
+                      </div>
+                    ),
+                  }}
+                >
+                  {content}
+                </Markdown>
+              </article>
+            )}
+          </div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
