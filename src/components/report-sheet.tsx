@@ -418,8 +418,9 @@ export function ReportSheet({
           </div>
         </SheetHeader>
 
-        <ScrollArea className="flex-1 overflow-auto px-6 py-4">
-          {loading && (
+        <ScrollArea className="flex-1 min-h-0">
+          <div className="px-6 py-4">
+            {loading && (
             <div className="flex items-center justify-center py-12">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground" />
             </div>
@@ -439,6 +440,7 @@ export function ReportSheet({
               <Markdown remarkPlugins={[remarkGfm]}>{report.content}</Markdown>
             </article>
           )}
+          </div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
