@@ -14,7 +14,7 @@ export interface SectorMRS {
   close: number | null;
 }
 
-export type Zone = 'C' | 'D' | 'E' | 'A' | 'B' | 'F';
+export type Zone = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
 export type Signal =
   | 'RECOVERY_STRONG' | 'RECOVERY_EARLY' | 'TOXIC'
   | 'IGNITION' | 'AVOID'

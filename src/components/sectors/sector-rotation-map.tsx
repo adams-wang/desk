@@ -97,14 +97,15 @@ function getSignalColor(signal: string): string {
   }
 }
 
-// Zone letter to full name mapping
+// Zone letter to full name mapping (Zone v7.0)
 const ZONE_NAMES: Record<string, string> = {
-  C: "Toxic",
-  D: "Ignition",
-  E: "Noise",
   A: "Trend",
   B: "Weakening",
+  C: "Avoid",
+  D: "Ignition",
+  E: "Neutral",
   F: "Momentum",
+  G: "Extreme",
 };
 
 // Signal win rates from L2 spec
@@ -120,10 +121,10 @@ function formatSignal(signal: string): string {
   return signal.replace(/_/g, " ");
 }
 
-// Zone labels for bottom annotation (matching L2 spec v6.1)
+// Zone labels for bottom annotation (Zone v7.0)
 const ZONE_LABELS = [
-  { min: X_MIN, max: ZONE_BOUNDS.toxic, label: "TOXIC / AVOID", color: "#ef4444" },
-  { min: ZONE_BOUNDS.ignition, max: ZONE_BOUNDS.noise, label: "NOISE / HOLD", color: "#71717a" },
+  { min: X_MIN, max: ZONE_BOUNDS.toxic, label: "EXTREME", color: "#ef4444" },
+  { min: ZONE_BOUNDS.ignition, max: ZONE_BOUNDS.noise, label: "NEUTRAL", color: "#71717a" },
 ];
 
 export function SectorRotationMap({ sectors, history }: SectorRotationMapProps) {

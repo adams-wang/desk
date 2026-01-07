@@ -134,25 +134,28 @@ function RankSparkline({
   );
 }
 
+// Zone v7.0 configuration
 const zoneConfig: Record<Zone, { label: string; bg: string; text: string; description: string }> = {
-  C: { label: "Toxic", bg: "bg-red-500/20", text: "text-red-500", description: "20d Strength ≤ -3.5%" },
-  D: { label: "Ignition", bg: "bg-amber-500/20", text: "text-amber-600", description: "-3.5% < 20d Strength < -0.5%" },
-  E: { label: "Noise", bg: "bg-zinc-500/20", text: "text-zinc-500", description: "-0.5% ≤ 20d Strength ≤ 0.5%" },
-  A: { label: "Trend", bg: "bg-blue-500/20", text: "text-blue-500", description: "0.5% < 20d Strength < 2.8%" },
+  A: { label: "Trend", bg: "bg-blue-500/20", text: "text-blue-500", description: "0.5% < 20d Strength < 2.8%, 5d > 0" },
   B: { label: "Weakening", bg: "bg-orange-500/20", text: "text-orange-500", description: "5d Strength < 0 (momentum fading)" },
+  C: { label: "Avoid", bg: "bg-red-400/20", text: "text-red-400", description: "-3.5% < 20d Strength < -0.5%, 5d ≤ 0" },
+  D: { label: "Ignition", bg: "bg-amber-500/20", text: "text-amber-600", description: "-3.5% < 20d Strength < -0.5%, 5d > 0" },
+  E: { label: "Neutral", bg: "bg-zinc-500/20", text: "text-zinc-500", description: "-0.5% ≤ 20d Strength ≤ 0.5%" },
   F: { label: "Momentum", bg: "bg-emerald-500/20", text: "text-emerald-600", description: "20d Strength ≥ 2.8%" },
+  G: { label: "Extreme", bg: "bg-red-600/20", text: "text-red-600", description: "20d Strength ≤ -3.5% (toxic or recovery)" },
 };
 
+// Signal v7.0 configuration
 const signalConfig: Record<Signal, { bg: string; text: string; description: string }> = {
-  RECOVERY_STRONG: { bg: "bg-emerald-500", text: "text-white", description: "Zone C with 5d Strength > 0 (89.5% win)" },
-  RECOVERY_EARLY: { bg: "bg-emerald-400", text: "text-white", description: "Zone C with ROC_3 > 0 (61.8% win)" },
-  TOXIC: { bg: "bg-red-500", text: "text-white", description: "Zone C, no recovery signal" },
+  RECOVERY_STRONG: { bg: "bg-emerald-500", text: "text-white", description: "Zone G with 5d Strength > 0 (89.5% win)" },
+  RECOVERY_EARLY: { bg: "bg-emerald-400", text: "text-white", description: "Zone G with ROC_3 > 0 (61.8% win)" },
+  TOXIC: { bg: "bg-red-500", text: "text-white", description: "Zone G, no recovery signal" },
   IGNITION: { bg: "bg-emerald-500", text: "text-white", description: "Zone D with 5d Strength > 0 (61.5% win)" },
-  AVOID: { bg: "bg-red-400", text: "text-white", description: "Zone D with 5d Strength ≤ 0" },
+  AVOID: { bg: "bg-red-400", text: "text-white", description: "Zone C with 5d Strength ≤ 0" },
   NEUTRAL: { bg: "bg-zinc-400", text: "text-white", description: "Zone E, unclear direction" },
   TREND: { bg: "bg-blue-500", text: "text-white", description: "Zone A, positive momentum" },
   MOMENTUM: { bg: "bg-blue-600", text: "text-white", description: "Zone F, strong momentum" },
-  WEAKENING: { bg: "bg-orange-500", text: "text-white", description: "5d Strength < 0 warning (67% win)" },
+  WEAKENING: { bg: "bg-orange-500", text: "text-white", description: "Zone B, 5d Strength < 0 warning (67% win)" },
 };
 
 // Inline Strength bar chart for each row

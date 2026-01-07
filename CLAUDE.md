@@ -97,7 +97,7 @@ export function PriceChart({ data }: { data: OHLCV[] }) {
 1. **better-sqlite3 is sync** - use in API routes only, not client
 2. **TradingView charts need client component** - 'use client' directive
 3. **Date format in DB is YYYY-MM-DD** - parse with date-fns if needed
-4. **MRS values are percentages** - multiply by 100 for display
+4. **MRS values are z-scores** - display as-is (e.g., +1.5, -2.3); >0 = positive momentum, <0 = negative
 
 ## Visual Development
 

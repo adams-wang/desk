@@ -181,9 +181,9 @@ export function RotationBanner({
 
         {/* Right Half - 4 Signal Zones (equal width grid) */}
         <div className="grid grid-cols-4 gap-4 pl-6">
-          {/* Zone 1: Toxic, Avoid */}
+          {/* Zone 1: Extreme, Avoid (Zone G + Zone C signals) */}
           <div className="flex flex-col gap-0.5 items-center text-center">
-            <span className="text-xs font-medium text-red-500">Toxic, Avoid</span>
+            <span className="text-xs font-medium text-red-500">Extreme, Avoid</span>
             <span className="text-2xl font-bold text-red-500 tabular-nums">
               {toxicAvoidSectors.length}
             </span>
