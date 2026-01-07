@@ -201,7 +201,18 @@ export default async function StockDetailPage({ params, searchParams }: StockDet
         <Card className="gap-4 py-5">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle>Price Targets</CardTitle>
+              <div className="flex items-center gap-3">
+                <CardTitle>Price Targets</CardTitle>
+                {l3_20?.upside_60d_pct != null && (
+                  <span className="text-sm font-mono tabular-nums">
+                    <span className="text-muted-foreground">(60d mean:</span>{" "}
+                    <span className={l3_20.upside_60d_pct >= 0 ? "text-emerald-500" : "text-red-500"}>
+                      ${l3_20.upside_60d_mean?.toFixed(0)}, {l3_20.upside_60d_pct >= 0 ? "+" : ""}{l3_20.upside_60d_pct.toFixed(1)}%
+                    </span>
+                    <span className="text-muted-foreground">)</span>
+                  </span>
+                )}
+              </div>
               {analystTargets && (
                 <Badge
                   variant={

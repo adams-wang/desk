@@ -19,6 +19,11 @@ interface MarketData {
   nextDate: string | null;
 }
 
+interface TradingDateWithRegime {
+  date: string;
+  regime: "risk_on" | "normal" | "risk_off" | "crisis" | null;
+}
+
 const regimeConfig: Record<string, { label: string; color: string; bg: string }> = {
   risk_on: { label: "Risk On", color: "text-green-700 dark:text-green-400", bg: "bg-green-100 dark:bg-green-900/30" },
   normal: { label: "Normal", color: "text-blue-700 dark:text-blue-400", bg: "bg-blue-100 dark:bg-blue-900/30" },
@@ -29,6 +34,7 @@ const regimeConfig: Record<string, { label: string; color: string; bg: string }>
 export function Header() {
   const [marketData, setMarketData] = useState<MarketData | null>(null);
   const [tradingDates, setTradingDates] = useState<string[]>([]);
+  const [dateRegimes, setDateRegimes] = useState<Map<string, string | null>>(new Map());
   const [calendarOpen, setCalendarOpen] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -48,11 +54,21 @@ export function Header() {
     fetchMarketData(currentDate);
   }, [currentDate, fetchMarketData]);
 
-  // Fetch all trading dates for calendar
+  // Fetch all trading dates with regimes for calendar
   useEffect(() => {
-    fetch("/api/trading-dates")
+    fetch("/api/trading-dates", { cache: "no-store" })
       .then((res) => res.json())
-      .then((data) => setTradingDates(data.dates || []))
+      .then((data) => {
+        setTradingDates(data.dates || []);
+        // Build regime map
+        if (data.datesWithRegime) {
+          const regimeMap = new Map<string, string | null>();
+          data.datesWithRegime.forEach((d: TradingDateWithRegime) => {
+            regimeMap.set(d.date, d.regime);
+          });
+          setDateRegimes(regimeMap);
+        }
+      })
       .catch(console.error);
   }, []);
 
@@ -137,6 +153,7 @@ export function Header() {
                   }}
                   disabled={isDateDisabled}
                   defaultMonth={parseISO(marketData.date)}
+                  dateRegimes={dateRegimes}
                 />
               </PopoverContent>
             </Popover>

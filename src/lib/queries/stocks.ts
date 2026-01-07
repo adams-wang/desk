@@ -101,6 +101,8 @@ export interface L3Contract {
   l2_sector_modifier: number;
   combined_modifier: number;
   final_position_pct: number;
+  upside_60d_mean: number | null;
+  upside_60d_pct: number | null;
 }
 
 export interface AnalystTargetsSummary {
@@ -362,12 +364,12 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
     LEFT JOIN pattern_interpretation pi ON cp.pattern = pi.pattern
                                        AND cp.regime_mrs20 = pi.regime_mrs20
                                        AND cp.volume_code = pi.volume_code
-    LEFT JOIN l3_contracts l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date AND l10.mrs = 10
-    LEFT JOIN l3_contracts l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date AND l20.mrs = 20
-    LEFT JOIN l3_contracts l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ? AND l10_t1.mrs = 10
-    LEFT JOIN l3_contracts l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ? AND l10_t2.mrs = 10
-    LEFT JOIN l3_contracts l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ? AND l20_t1.mrs = 20
-    LEFT JOIN l3_contracts l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ? AND l20_t2.mrs = 20
+    LEFT JOIN l3_contracts_10_rule l10 ON o.ticker = l10.ticker AND o.date = l10.trading_date
+    LEFT JOIN l3_contracts_20_rule l20 ON o.ticker = l20.ticker AND o.date = l20.trading_date
+    LEFT JOIN l3_contracts_10_rule l10_t1 ON o.ticker = l10_t1.ticker AND l10_t1.trading_date = ?
+    LEFT JOIN l3_contracts_10_rule l10_t2 ON o.ticker = l10_t2.ticker AND l10_t2.trading_date = ?
+    LEFT JOIN l3_contracts_20_rule l20_t1 ON o.ticker = l20_t1.ticker AND l20_t1.trading_date = ?
+    LEFT JOIN l3_contracts_20_rule l20_t2 ON o.ticker = l20_t2.ticker AND l20_t2.trading_date = ?
     LEFT JOIN stocks_metadata m ON o.ticker = m.ticker
     -- Get L1 regime for current date
     LEFT JOIN l1_contracts l1 ON l1.trading_date = o.date
@@ -896,7 +898,8 @@ export function getL3Contracts(ticker: string, endDate?: string): { l3_10: L3Con
       ticker, trading_date, verdict, thesis, conviction, conviction_score,
       entry_price, stop_loss, stop_loss_pct, target_price, risk_reward,
       shares, position_value, risk_dollars,
-      l1_position_modifier, l2_sector_modifier, combined_modifier, final_position_pct
+      l1_position_modifier, l2_sector_modifier, combined_modifier, final_position_pct,
+      upside_60d_mean, upside_60d_pct
     FROM l3_contracts
     WHERE ticker = ? AND trading_date = ? AND mrs = ?
   `;

@@ -2,23 +2,59 @@
 
 import * as React from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { DayPicker } from "react-day-picker"
+import { DayPicker, Matcher } from "react-day-picker"
+import { parseISO } from "date-fns"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>
+export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
+  dateRegimes?: Map<string, string | null>
+}
 
 function Calendar({
   className,
   classNames,
   showOutsideDays = true,
+  dateRegimes,
+  modifiers: externalModifiers,
+  modifiersClassNames: externalModifiersClassNames,
   ...props
 }: CalendarProps) {
+  // Build modifiers from dateRegimes (no dot for "normal" regime)
+  const regimeModifiers = React.useMemo(() => {
+    if (!dateRegimes || dateRegimes.size === 0) return {}
+
+    const riskOn: Date[] = []
+    const riskOff: Date[] = []
+    const crisis: Date[] = []
+
+    dateRegimes.forEach((regime, dateStr) => {
+      const date = parseISO(dateStr)
+      if (regime === "risk_on") riskOn.push(date)
+      else if (regime === "risk_off") riskOff.push(date)
+      else if (regime === "crisis") crisis.push(date)
+      // "normal" regime gets no dot
+    })
+
+    return {
+      regime_risk_on: riskOn as Matcher,
+      regime_risk_off: riskOff as Matcher,
+      regime_crisis: crisis as Matcher,
+    }
+  }, [dateRegimes])
+
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn("p-3 relative", className)}
+      modifiers={{ ...externalModifiers, ...regimeModifiers }}
+      modifiersClassNames={{
+        regime_risk_on: "regime-dot-green",
+        regime_risk_off: "regime-dot-amber",
+        regime_crisis: "regime-dot-red",
+        ...externalModifiersClassNames,
+      }}
       classNames={{
         months: "flex flex-col",
         month: "space-y-4",

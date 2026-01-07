@@ -50,6 +50,27 @@ export function getAllTradingDates(): string[] {
   return rows.map((r) => r.date);
 }
 
+export interface TradingDateWithRegime {
+  date: string;
+  regime: "risk_on" | "normal" | "risk_off" | "crisis" | null;
+}
+
+/**
+ * Get all trading dates with their market regime for calendar display
+ * Uses l1_contracts table as source of truth (matches header badge)
+ */
+export function getAllTradingDatesWithRegime(): TradingDateWithRegime[] {
+  const rows = db
+    .prepare(`
+      SELECT td.date, LOWER(l1.regime) as regime
+      FROM trading_days td
+      LEFT JOIN l1_contracts l1 ON td.date = l1.trading_date
+      ORDER BY td.date DESC
+    `)
+    .all() as TradingDateWithRegime[];
+  return rows;
+}
+
 export interface NASDAQData {
   date: string;
   close: number;

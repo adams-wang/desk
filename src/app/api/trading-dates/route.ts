@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllTradingDates } from "@/lib/queries/trading-days";
+import { getAllTradingDatesWithRegime } from "@/lib/queries/trading-days";
 import { v4 as uuidv4 } from "uuid";
 import { withRequestContext, getLogger } from "@/lib/logger";
 
@@ -10,15 +10,19 @@ export async function GET() {
     const log = getLogger();
 
     try {
-      const dates = getAllTradingDates();
-      log.info({ count: dates.length }, "Trading dates fetched");
+      const datesWithRegime = getAllTradingDatesWithRegime();
+      log.info({ count: datesWithRegime.length }, "Trading dates with regime fetched");
 
+      // Return both formats for backward compatibility
       return NextResponse.json(
-        { dates },
+        {
+          dates: datesWithRegime.map(d => d.date),
+          datesWithRegime,
+        },
         {
           headers: {
             "X-Request-ID": requestId,
-            "Cache-Control": "public, max-age=3600", // Cache for 1 hour
+            "Cache-Control": "public, max-age=300", // Cache for 5 minutes
           },
         }
       );

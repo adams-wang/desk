@@ -623,7 +623,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
 
         {/* Stock count - absolutely positioned in the space before separator */}
         <span
-          className="absolute text-sm text-muted-foreground"
+          className="absolute text-sm text-muted-foreground text-right"
           style={{ left: 140, right: separatorLeft > 0 ? `calc(100% - ${separatorLeft - 16}px)` : '50%' }}
         >
           {visibleStocks.length} of {filteredStocks.length} stocks

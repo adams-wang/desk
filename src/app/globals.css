@@ -142,3 +142,37 @@
 [role="tooltip"] > svg:last-child {
   display: none !important;
 }
+
+/* Calendar regime dots - matches Market page regime badge colors */
+.regime-dot-green,
+.regime-dot-amber,
+.regime-dot-red {
+  position: relative;
+}
+
+.regime-dot-green::after,
+.regime-dot-amber::after,
+.regime-dot-red::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.regime-dot-green::after {
+  background-color: oklch(0.696 0.17 162.48); /* emerald-500 - Risk On */
+}
+
+.regime-dot-amber::after {
+  background-color: oklch(0.769 0.188 70.08); /* amber-500 - Risk Off */
+}
+
+.regime-dot-red::after {
+  background-color: oklch(0.637 0.237 25.331); /* red-500 - Crisis */
+}
