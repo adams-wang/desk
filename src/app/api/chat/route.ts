@@ -76,14 +76,14 @@ const tools: Anthropic.Tool[] = [
   {
     name: "find_stock_edge",
     description:
-      "Find stocks with proven trading edge based on backtested dual-signal patterns. Use this to discover opportunities with 60%+ historical win rates. Patterns include: dual_buy (both timeframes agree), rebound (recovered signal - highest edge at 64.6%), early_entry (fresh short-term signal), high_conviction, or momentum-based (strongest/weakest).",
+      "Find stocks with proven trading edge based on dual verdict combinations (V10 × V20). Uses backtested win rates from 320K+ trades. Key insight: M20 BUY alone (62-80%) often outperforms dual BUY. Best filters: m20_leading (highest edge: 63-83%), dual_buy (confirmation), prefer (any edge signal).",
     input_schema: {
       type: "object" as const,
       properties: {
         filter: {
           type: "string",
-          enum: ["dual_buy", "rebound", "early_entry", "high_conviction", "prefer", "strongest", "weakest"],
-          description: "Filter type: dual_buy (both V10+V20 BUY), rebound (+-+ pattern, 64.6% win), early_entry (fresh V10 signal), high_conviction (HIGH conviction), prefer (any PREFER pattern), strongest/weakest (by momentum)",
+          enum: ["dual_buy", "m20_leading", "m10_early", "high_conviction", "prefer", "strongest", "weakest"],
+          description: "Filter type: dual_buy (both V10+V20 BUY, 85% RISK_OFF), m20_leading (M20 BUY alone, highest edge 63-83%), m10_early (M10 BUY only, early signal), high_conviction (HIGH conviction), prefer (any PREFER signal), strongest/weakest (by momentum)",
         },
         limit: {
           type: "number",
@@ -205,13 +205,17 @@ You have access to a production quant system with four analysis layers:
 - Cycle phase: EARLY_EXPANSION → MID → LATE → CONTRACTION
 
 **L3 - Stock Selection (find_stock_edge, get_stock_detail, get_trading_plan)**
-- Dual MRS system: 10-day (early signals) + 20-day (standard)
-- 3-day pattern recognition with backtested win rates:
-  - REBOUND (+-+): 64.6% win - highest edge
-  - PERSISTENT (+++): 58.2% win
-  - FRESH (--+): 57.4% win
-  - CONFIRMED (-++): 55.2% win
-  - FADING (++-): AVOID
+- Dual verdict system: 10-day (early signals) + 20-day (primary signal)
+- Verdict combinations with backtested win rates (320K trades):
+  - **NORMAL regime** (baseline 50.1%):
+    - M20 BUY alone: 62-63% win (highest edge)
+    - Both BUY: 59% win
+    - M10 BUY only: 59.5% win (early signal)
+  - **RISK_OFF regime** (baseline 55.5%):
+    - Both BUY: 85% win (strong confirmation)
+    - M20 BUY alone: 78-83% win (highest edge)
+    - M10 BUY only: 61% win
+- Key insight: M20 is the primary signal; M10 provides early/confirming signals
 - Trading plans: entry, stop-loss, target, risk/reward
 
 **L4 - Risk Management (Hard Rules)**
@@ -451,14 +455,14 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
             })),
           },
 
-          // Dual MRS interpretation (3-day verdict pattern)
-          dualMrs: detail.dual_conclusion ? {
-            v10Pattern: detail.v10_pattern,
-            v20Pattern: detail.v20_pattern,
-            conclusion: detail.dual_conclusion,
-            winRate10d: detail.dual_win_pct_10d,
-            avgReturn10d: detail.dual_ret_pct_10d,
-            interpretation: detail.dual_interpretation,
+          // Dual verdict interpretation (M10 × M20 verdict combination)
+          dualVerdict: detail.dv_signal ? {
+            verdict10: detail.verdict_10,
+            verdict20: detail.verdict_20,
+            signal: detail.dv_signal,         // PREFER or AVOID
+            winRate: detail.dv_win_pct,       // Historical win rate
+            avgReturn: detail.dv_ret_pct,     // Historical avg return
+            interpretation: detail.dv_interpretation,
           } : null,
         };
 
