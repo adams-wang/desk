@@ -211,7 +211,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   // Read initial filter/sort values from URL params
   const initialV10 = searchParams.get("v10")?.toUpperCase() || "All";
   const initialV20 = searchParams.get("v20")?.toUpperCase() || "All";
-  const initialDV = searchParams.get("dv")?.toUpperCase() || "All";
   const initialSort = (searchParams.get("sort") as SortField) || "dv_default";
   const initialOrder = (searchParams.get("order") as SortDirection) || "desc";
 
@@ -220,7 +219,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const [sectorFilter, setSectorFilter] = useState("All Sectors");
   const [verdict10Filter, setVerdict10Filter] = useState(initialV10);
   const [verdict20Filter, setVerdict20Filter] = useState(initialV20);
-  const [dvFilter, setDvFilter] = useState(initialDV);
   const [thesisFilter, setThesisFilter] = useState("All");
 
   // Sort state - default to edge descending (highest win% first)
@@ -303,17 +301,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
       // Verdict 20 filter
       if (verdict20Filter !== "All" && stock.verdict_20?.toUpperCase() !== verdict20Filter) {
         return false;
-      }
-
-      // DV filter (P = PREFER, A = AVOID)
-      if (dvFilter !== "All") {
-        const dvSignal = stock.dv_signal?.toUpperCase();
-        if (dvFilter === "P" && dvSignal !== "PREFER") {
-          return false;
-        }
-        if (dvFilter === "A" && dvSignal !== "AVOID") {
-          return false;
-        }
       }
 
       // Thesis filter (using 20d thesis)
@@ -417,7 +404,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     });
 
     return result;
-  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, dvFilter, thesisFilter, sortField, sortDirection, sectorRankings]);
+  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, sortField, sortDirection, sectorRankings]);
 
   // Count active filters
   const activeFilterCount = [
@@ -425,7 +412,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     sectorFilter !== "All Sectors",
     verdict10Filter !== "All",
     verdict20Filter !== "All",
-    dvFilter !== "All",
     thesisFilter !== "All",
   ].filter(Boolean).length;
 
@@ -435,14 +421,13 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     setSectorFilter("All Sectors");
     setVerdict10Filter("All");
     setVerdict20Filter("All");
-    setDvFilter("All");
     setThesisFilter("All");
   };
 
   // Reset visible count when filters/sort change
   useEffect(() => {
     setVisibleCount(INITIAL_LOAD);
-  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, dvFilter, thesisFilter, sortField, sortDirection]);
+  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, sortField, sortDirection]);
 
   // Visible stocks (sliced for infinite scroll)
   const visibleStocks = useMemo(
@@ -559,17 +544,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           {VERDICTS.map(v => (
             <option key={v} value={v}>V 20d: {v}</option>
           ))}
-        </select>
-
-        {/* DV Filter */}
-        <select
-          value={dvFilter}
-          onChange={(e) => setDvFilter(e.target.value)}
-          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          <option value="All">DV: All</option>
-          <option value="P">DV: Prefer</option>
-          <option value="A">DV: Avoid</option>
         </select>
 
         {/* Thesis Filter */}
