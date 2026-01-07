@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import { cookies } from "next/headers";
+import Script from "next/script";
 import "./globals.css";
 import { Sidebar, SidebarProvider, MainContent } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
@@ -28,6 +29,20 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HLHRCWKV1M"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HLHRCWKV1M');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider>
           <SidebarProvider initialCollapsed={sidebarCollapsed}>
