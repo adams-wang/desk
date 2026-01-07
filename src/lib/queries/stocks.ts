@@ -162,6 +162,8 @@ export interface StockDetail {
   verdict_10_t2: string | null;
   verdict_20_t1: string | null;
   verdict_20_t2: string | null;
+  // L3 upside projection (60-day) - only for MRS 20
+  upside_60d_pct_20: number | null;
   // Dual MRS interpretation (from backtest) - both 5d and 10d horizons
   v10_pattern: string | null;
   v20_pattern: string | null;
@@ -180,6 +182,11 @@ export interface StockDetail {
   dual_win_pct_10d: number | null;
   dual_ret_pct_10d: number | null;
   dual_interpretation: string | null;
+  // Dual verdict interpretation (from dual_verdict_interpretation table)
+  dv_signal: string | null;        // PREFER or AVOID
+  dv_win_pct: number | null;
+  dv_ret_pct: number | null;
+  dv_interpretation: string | null;
   // Metadata
   company_name: string | null;
   sector: string | null;
@@ -310,7 +317,7 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
       CASE WHEN pi.conclusion IS NOT NULL THEN cp.pattern ELSE NULL END as pattern,
       pi.conclusion as pattern_conclusion, pi.interpretation as pattern_interpretation,
       l10.verdict as verdict_10, l10.conviction as conviction_10,
-      l20.verdict as verdict_20, l20.conviction as conviction_20, l20.thesis as thesis_20,
+      l20.verdict as verdict_20, l20.conviction as conviction_20, l20.thesis as thesis_20, l20.upside_60d_pct as upside_60d_pct_20,
       l10_t1.verdict as verdict_10_t1,
       l10_t2.verdict as verdict_10_t2,
       l20_t1.verdict as verdict_20_t1,
@@ -337,6 +344,11 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
       COALESCE(di10.win_pct, di5.win_pct) as dual_win_pct_10d,
       COALESCE(di10.ret_pct, di5.ret_pct) as dual_ret_pct_10d,
       COALESCE(di10.interpretation, di5.interpretation) as dual_interpretation,
+      -- Dual verdict interpretation (M10 x M20 verdict combination)
+      dvi.signal as dv_signal,
+      dvi.win_pct as dv_win_pct,
+      dvi.ret_pct as dv_ret_pct,
+      dvi.interpretation as dv_interpretation,
       m.name as company_name, m.sector, m.industry
     FROM stocks_ohlcv o
     LEFT JOIN stocks_ohlcv prev ON o.ticker = prev.ticker AND prev.date = ?
@@ -379,6 +391,11 @@ export function getStockList(limit: number = 500, endDate?: string): StockDetail
       AND di10.m20_pattern = (CASE WHEN UPPER(l20_t2.verdict) = 'BUY' THEN '+' ELSE '-' END ||
                              CASE WHEN UPPER(l20_t1.verdict) = 'BUY' THEN '+' ELSE '-' END ||
                              CASE WHEN UPPER(l20.verdict) = 'BUY' THEN '+' ELSE '-' END)
+    -- Dual verdict interpretation (M10 x M20 verdict combination)
+    LEFT JOIN dual_verdict_interpretation dvi
+      ON dvi.l1_regime = CASE WHEN UPPER(l1.regime) = 'RISK_OFF' THEN 'RISK_OFF' ELSE 'NORMAL' END
+      AND dvi.m10_verdict = UPPER(COALESCE(l10.verdict, 'AVOID'))
+      AND dvi.m20_verdict = UPPER(COALESCE(l20.verdict, 'AVOID'))
     LEFT JOIN gap_signal gs ON o.ticker = gs.ticker AND o.date = gs.date
     LEFT JOIN gap_interpretation gi ON gs.gap_type = gi.gap_type
                                    AND gs.filled = gi.filled

@@ -42,11 +42,9 @@ const VERDICTS = ["All", "BUY", "HOLD", "SELL", "AVOID"];
 
 const THESIS = ["All", "STRENGTH", "VALUE", "PARABOLIC", "REVERSION", "NEUTRAL"];
 
-const EDGE_CONCLUSIONS = ["All", "PREFER", "AVOID"];
-
 // No special cases - all patterns looked up from dual_mrs_interpretation table
 
-type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank" | "edge_combined" | "edge_5d" | "edge_10d" | "beta_60" | "sharpe_20";
+type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank" | "edge_combined" | "edge_5d" | "edge_10d" | "beta_60" | "sharpe_20" | "dv_default";
 type SortDirection = "asc" | "desc";
 
 // Verdict sort order (for sorting)
@@ -124,16 +122,15 @@ interface StockTableProps {
   sectorRanks: Record<string, { rank: number; total: number }>;
 }
 
-// Verdict badge with conviction indicator - outlined style consistent with individual stock page
-// order: "conviction-first" for V-10 (●●● SELL), "verdict-first" for V-20 (SELL ●●●)
+// Verdict badge with upside indicator - outlined style consistent with individual stock page
+// Upside indicator (V 20d only): GREEN dots for positive upside_60d_pct, RED dots for negative
+// Thresholds: 0-10% = 1 dot, 10-20% = 2 dots, 20%+ = 3 dots
 function VerdictBadge({
   verdict,
-  conviction,
-  order = "verdict-first"
+  upside,
 }: {
   verdict: string | null;
-  conviction: string | null;
-  order?: "conviction-first" | "verdict-first";
+  upside?: number | null;
 }) {
   if (!verdict) return <span className="text-muted-foreground">-</span>;
 
@@ -151,50 +148,38 @@ function VerdictBadge({
     return "border-muted-foreground/50 text-muted-foreground bg-muted/30";
   };
 
-  // Conviction dots (vertical layout, filled from bottom)
-  const getConvictionDots = (c: string | null): [boolean, boolean, boolean] | null => {
-    if (!c) return null;
-    const level = c.toUpperCase();
-    if (level === "HIGH") return [true, true, true];      // ●●●
-    if (level === "MEDIUM") return [false, true, true];   // ○●●
-    if (level === "LOW") return [false, false, true];     // ○○●
-    return null;
+  // Upside dots based on upside_60d_pct thresholds
+  const getUpsideDots = (u: number | null | undefined): [boolean, boolean, boolean] | null => {
+    if (u === null || u === undefined) return null;
+    const absValue = Math.abs(u);
+    if (absValue >= 20) return [true, true, true];      // ●●● (high)
+    if (absValue >= 10) return [false, true, true];     // ○●● (medium)
+    return [false, false, true];                         // ○○● (low)
   };
 
-  const dots = getConvictionDots(conviction);
-
-  const verdictBadge = (
-    <span className={cn(
-      "inline-flex items-center px-2 py-0.5 text-xs font-medium rounded border",
-      getVerdictClasses(verdict)
-    )}>
-      {verdict}
-    </span>
-  );
-
-  const dotColor = conviction?.toUpperCase() === "HIGH" ? "bg-emerald-500" :
-    conviction?.toUpperCase() === "MEDIUM" ? "bg-amber-500" : "bg-muted-foreground";
-
-  const convictionDots = dots && (
-    <div className="flex flex-col gap-[2px]">
-      {dots.map((filled, i) => (
-        <span
-          key={i}
-          className={cn(
-            "w-[5px] h-[5px] rounded-full",
-            filled ? dotColor : "bg-muted-foreground/30"
-          )}
-        />
-      ))}
-    </div>
-  );
+  const dots = getUpsideDots(upside);
+  const dotColor = upside !== null && upside !== undefined && upside >= 0 ? "bg-emerald-500" : "bg-red-500";
 
   return (
     <div className="flex items-center gap-1.5">
-      {order === "conviction-first" ? (
-        <>{convictionDots}{verdictBadge}</>
-      ) : (
-        <>{verdictBadge}{convictionDots}</>
+      <span className={cn(
+        "inline-flex items-center px-2 py-0.5 text-xs font-medium rounded border",
+        getVerdictClasses(verdict)
+      )}>
+        {verdict}
+      </span>
+      {dots && (
+        <div className="flex flex-col gap-[2px]">
+          {dots.map((filled, i) => (
+            <span
+              key={i}
+              className={cn(
+                "w-[5px] h-[5px] rounded-full",
+                filled ? dotColor : "bg-muted-foreground/30"
+              )}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
@@ -266,16 +251,20 @@ const LOAD_MORE = 50; // Rows to add on each scroll
 export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const searchParams = useSearchParams();
   const parentRef = useRef<HTMLDivElement>(null);
+  const tableSeparatorRef = useRef<HTMLDivElement>(null);
+  const filterBarRef = useRef<HTMLDivElement>(null);
+
+  // Track separator position for filter bar alignment
+  const [separatorLeft, setSeparatorLeft] = useState(0);
 
   // Infinite scroll state
   const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD);
 
   // Read initial filter/sort values from URL params
-  const initialEdge = searchParams.get("edge") || "All";
   const initialV10 = searchParams.get("v10")?.toUpperCase() || "All";
   const initialV20 = searchParams.get("v20")?.toUpperCase() || "All";
-  const initialSort = (searchParams.get("sort") as SortField) || "edge_combined";
-  const initialOrder = (searchParams.get("order") as SortDirection) || "asc"; // asc for edge_combined (lower rank = better)
+  const initialSort = (searchParams.get("sort") as SortField) || "dv_default";
+  const initialOrder = (searchParams.get("order") as SortDirection) || "desc";
 
   // Filter state (removed search - using header search instead)
   const [tickerFilter, setTickerFilter] = useState("");
@@ -283,8 +272,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const [verdict10Filter, setVerdict10Filter] = useState(initialV10);
   const [verdict20Filter, setVerdict20Filter] = useState(initialV20);
   const [thesisFilter, setThesisFilter] = useState("All");
-  const [edge5dFilter, setEdge5dFilter] = useState(initialEdge);
-  const [edge10dFilter, setEdge10dFilter] = useState(initialEdge);
 
   // Sort state - default to edge descending (highest win% first)
   const [sortField, setSortField] = useState<SortField>(initialSort);
@@ -373,18 +360,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
         return false;
       }
 
-      // Edge 5d filter
-      if (edge5dFilter !== "All") {
-        const edge5d = getEdge5d(stock);
-        if (edge5d.conclusion !== edge5dFilter) return false;
-      }
-
-      // Edge 10d filter
-      if (edge10dFilter !== "All") {
-        const edge10d = getEdge10d(stock);
-        if (edge10d.conclusion !== edge10dFilter) return false;
-      }
-
       return true;
     });
 
@@ -403,8 +378,11 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           bVal = b.company_name ?? "";
           break;
         case "close":
-          aVal = a.close ?? 0;
-          bVal = b.close ?? 0;
+          // Sort by percent change, not absolute price
+          const aChangePct = a.prev_close && a.close ? ((a.close - a.prev_close) / a.prev_close) * 100 : 0;
+          const bChangePct = b.prev_close && b.close ? ((b.close - b.prev_close) / b.prev_close) * 100 : 0;
+          aVal = aChangePct;
+          bVal = bChangePct;
           break;
         case "verdict_10":
           aVal = VERDICT_ORDER[a.verdict_10?.toUpperCase() ?? ""] ?? 99;
@@ -494,6 +472,40 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           aVal = a.sharpe_ratio_20 ?? -999;
           bVal = b.sharpe_ratio_20 ?? -999;
           break;
+        case "dv_default":
+          // Sort: 1) DV exists by win_pct DESC, 2) V20=HOLD, 3) others - all by price change % DESC within group
+          const aHasDV = a.dv_signal !== null;
+          const bHasDV = b.dv_signal !== null;
+          const aIsHold = !aHasDV && a.verdict_20?.toUpperCase() === "HOLD";
+          const bIsHold = !bHasDV && b.verdict_20?.toUpperCase() === "HOLD";
+          const aChangePctDV = a.prev_close && a.close ? ((a.close - a.prev_close) / a.prev_close) * 100 : 0;
+          const bChangePctDV = b.prev_close && b.close ? ((b.close - b.prev_close) / b.prev_close) * 100 : 0;
+
+          // Priority: DV (2) > HOLD (1) > Others (0) - higher is better (for DESC sort)
+          const aPriority = aHasDV ? 2 : aIsHold ? 1 : 0;
+          const bPriority = bHasDV ? 2 : bIsHold ? 1 : 0;
+
+          if (aPriority !== bPriority) {
+            // Different priority groups - higher priority value comes first (DESC)
+            aVal = aPriority;
+            bVal = bPriority;
+          } else if (aHasDV && bHasDV) {
+            // Both have DV - sort by win_pct DESC, then price change % DESC
+            const aWin = a.dv_win_pct ?? 0;
+            const bWin = b.dv_win_pct ?? 0;
+            if (aWin !== bWin) {
+              aVal = aWin;
+              bVal = bWin;
+            } else {
+              aVal = aChangePctDV;
+              bVal = bChangePctDV;
+            }
+          } else {
+            // Same priority (both HOLD or both others) - sort by price change % DESC
+            aVal = aChangePctDV;
+            bVal = bChangePctDV;
+          }
+          break;
       }
 
       if (typeof aVal === "string" && typeof bVal === "string") {
@@ -508,7 +520,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     });
 
     return result;
-  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, edge5dFilter, edge10dFilter, sortField, sortDirection, sectorRankings]);
+  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, sortField, sortDirection, sectorRankings]);
 
   // Count active filters
   const activeFilterCount = [
@@ -517,8 +529,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     verdict10Filter !== "All",
     verdict20Filter !== "All",
     thesisFilter !== "All",
-    edge5dFilter !== "All",
-    edge10dFilter !== "All",
   ].filter(Boolean).length;
 
   // Clear all filters
@@ -528,8 +538,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     setVerdict10Filter("All");
     setVerdict20Filter("All");
     setThesisFilter("All");
-    setEdge5dFilter("All");
-    setEdge10dFilter("All");
   };
 
   // Signal counts - count stocks with PREFER/AVOID in either horizon
@@ -547,7 +555,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   // Reset visible count when filters/sort change
   useEffect(() => {
     setVisibleCount(INITIAL_LOAD);
-  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, edge5dFilter, edge10dFilter, sortField, sortDirection]);
+  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, sortField, sortDirection]);
 
   // Visible stocks (sliced for infinite scroll)
   const visibleStocks = useMemo(
@@ -573,59 +581,37 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     return () => container.removeEventListener("scroll", handleScroll);
   }, [visibleCount, filteredStocks.length]);
 
+  // Measure table separator position for filter bar alignment
+  useEffect(() => {
+    const updateSeparatorPosition = () => {
+      if (tableSeparatorRef.current && filterBarRef.current) {
+        const separatorRect = tableSeparatorRef.current.getBoundingClientRect();
+        const filterBarRect = filterBarRef.current.getBoundingClientRect();
+        setSeparatorLeft(separatorRect.left - filterBarRect.left);
+      }
+    };
+
+    // Initial measurement after render
+    const timer = setTimeout(updateSeparatorPosition, 100);
+    window.addEventListener("resize", updateSeparatorPosition);
+
+    // Use ResizeObserver to detect table layout changes
+    const observer = new ResizeObserver(updateSeparatorPosition);
+    if (parentRef.current) {
+      observer.observe(parentRef.current);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", updateSeparatorPosition);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div className="flex flex-col gap-2">
-      {/* Signal Summary */}
-      <div className="flex items-center gap-6 text-sm">
-        <span className="text-muted-foreground font-medium">Horizon</span>
-        <div className="h-4 w-px bg-border" />
-        <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">5d PREFER:</span>
-          <span className="font-semibold text-emerald-500">{signalCounts.prefer5d}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">5d AVOID:</span>
-          <span className="font-semibold text-red-500">{signalCounts.avoid5d}</span>
-        </div>
-        <div className="h-4 w-px bg-border" />
-        <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">10d PREFER:</span>
-          <span className="font-semibold text-emerald-500">{signalCounts.prefer10d}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">10d AVOID:</span>
-          <span className="font-semibold text-red-500">{signalCounts.avoid10d}</span>
-        </div>
-        <span className="ml-auto text-muted-foreground">
-          {visibleStocks.length} of {filteredStocks.length}
-          {visibleCount < filteredStocks.length && " (scroll for more)"}
-        </span>
-      </div>
-
-      {/* Filter Bar - removed search input (duplicate with header) */}
-      <div className="flex flex-wrap items-center gap-3 px-3 py-2 bg-muted/30 rounded-lg">
-        {/* Edge 5d Filter */}
-        <select
-          value={edge5dFilter}
-          onChange={(e) => setEdge5dFilter(e.target.value)}
-          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          {EDGE_CONCLUSIONS.map(e => (
-            <option key={e} value={e}>5d: {e}</option>
-          ))}
-        </select>
-
-        {/* Edge 10d Filter */}
-        <select
-          value={edge10dFilter}
-          onChange={(e) => setEdge10dFilter(e.target.value)}
-          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          {EDGE_CONCLUSIONS.map(e => (
-            <option key={e} value={e}>10d: {e}</option>
-          ))}
-        </select>
-
+      {/* Filter Bar */}
+      <div ref={filterBarRef} className="relative flex items-center gap-3 px-3 py-2 bg-muted/30 rounded-lg">
         {/* Ticker Filter */}
         <input
           type="text"
@@ -635,7 +621,25 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           className="h-9 w-24 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring placeholder:text-muted-foreground"
         />
 
-        <div className="h-6 w-px bg-border" />
+        {/* Stock count - absolutely positioned in the space before separator */}
+        <span
+          className="absolute text-sm text-muted-foreground"
+          style={{ left: 140, right: separatorLeft > 0 ? `calc(100% - ${separatorLeft - 16}px)` : '50%' }}
+        >
+          {visibleStocks.length} of {filteredStocks.length} stocks
+          {visibleCount < filteredStocks.length && " (scroll for more)"}
+        </span>
+
+        {/* Separator aligned with table */}
+        {separatorLeft > 0 && (
+          <div
+            className="absolute top-1/2 -translate-y-1/2 h-6 w-px bg-border"
+            style={{ left: separatorLeft }}
+          />
+        )}
+
+        {/* Spacer to push filters to align after separator */}
+        <div className="shrink-0" style={{ width: Math.max(0, separatorLeft - 120) }} />
 
         {/* Sector Filter */}
         <select
@@ -691,6 +695,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
             Clear ({activeFilterCount})
           </button>
         )}
+
       </div>
 
       {/* Table with virtual scrolling */}
@@ -702,25 +707,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           <Table>
             <TableHeader className="sticky top-0 bg-background z-10">
               <TableRow>
-              <SortableHeader
-                label="5d"
-                field="edge_5d"
-                currentSort={sortField}
-                currentDirection={sortDirection}
-                onSort={handleSort}
-                align="center"
-              />
-              <SortableHeader
-                label="10d"
-                field="edge_10d"
-                currentSort={sortField}
-                currentDirection={sortDirection}
-                onSort={handleSort}
-                align="center"
-              />
-              <TableHead className="w-px px-0">
-                <div className="h-6 w-px bg-border mx-auto" />
-              </TableHead>
               <SortableHeader
                 label="Ticker"
                 field="ticker"
@@ -750,7 +736,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 </div>
               </TableHead>
               <TableHead className="w-8 px-0 align-middle">
-                <div className="h-4 w-px bg-border mx-auto" />
+                <div ref={tableSeparatorRef} className="h-4 w-px bg-border mx-auto" />
               </TableHead>
               <SortableHeader
                 label="#"
@@ -768,7 +754,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 onSort={handleSort}
               />
               <TableHead className="text-center text-[9px] text-muted-foreground px-1 align-middle">P/G</TableHead>
-              <TableHead className="text-center text-[9px] text-muted-foreground px-0 w-10 align-middle">3d</TableHead>
+              <TableHead className="text-center text-[9px] text-muted-foreground px-1 align-middle">DV</TableHead>
               <SortableHeader
                 label="V 10d"
                 field="verdict_10"
@@ -788,7 +774,8 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 onSort={handleSort}
                 align="left"
               />
-              <TableHead className="text-left text-[9px] text-muted-foreground px-0 w-10 align-middle">3d</TableHead>
+              <TableHead className="text-left text-[9px] text-muted-foreground px-0 w-6 align-middle">3d</TableHead>
+              <TableHead className="text-center text-[9px] text-muted-foreground px-0 w-4 align-middle">T</TableHead>
               <TableHead className="w-px px-0">
                 <div className="h-6 w-px bg-border mx-auto" />
               </TableHead>
@@ -815,7 +802,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           <TableBody>
             {visibleStocks.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={22} className="h-24 text-center text-muted-foreground">
+                <TableCell colSpan={20} className="h-24 text-center text-muted-foreground">
                   No stocks match your filters
                 </TableCell>
               </TableRow>
@@ -826,111 +813,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                 const isPositive = change >= 0;
                 return (
                   <TableRow key={stock.ticker} className="hover:bg-muted/50 cursor-pointer">
-                    {/* Edge 5d Column */}
-                    <TableCell className="text-center px-1">
-                      {(() => {
-                        const edge = getEdge5d(stock);
-                        if (!edge.conclusion) return <span className="text-muted-foreground text-[10px]">-</span>;
-                        const isPREFER = edge.conclusion === "PREFER";
-                        return (
-                          <TooltipProvider delayDuration={200}>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <div className="flex flex-col items-center gap-0.5 cursor-help">
-                                  <span className={cn(
-                                    "inline-flex items-center px-1 py-0.5 text-[9px] font-semibold rounded border",
-                                    isPREFER
-                                      ? "bg-emerald-100 text-emerald-700 border-emerald-200"
-                                      : "bg-red-50 text-red-500 border-red-200"
-                                  )}>
-                                    {isPREFER ? "P" : "A"}
-                                  </span>
-                                  <span className="text-[8px] font-mono text-muted-foreground">
-                                    {edge.win_pct?.toFixed(0)}%
-                                  </span>
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent side="right" align="start" className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm max-w-[350px]">
-                                <div className="space-y-2">
-                                  <div className="flex items-center gap-2">
-                                    <span className={cn(
-                                      "font-semibold",
-                                      isPREFER ? "text-emerald-600" : "text-red-500"
-                                    )}>
-                                      {edge.conclusion}
-                                    </span>
-                                    <span className="text-muted-foreground">|</span>
-                                    <span className="font-mono text-xs">
-                                      5d - Win: {edge.win_pct?.toFixed(1)}% • Return: {edge.ret_pct && edge.ret_pct >= 0 ? "+" : ""}{edge.ret_pct?.toFixed(2)}%
-                                    </span>
-                                  </div>
-                                  <div className="text-xs text-muted-foreground leading-relaxed">
-                                    {edge.interpretation}
-                                  </div>
-                                  <div className="text-[10px] font-mono text-muted-foreground/70 pt-1 border-t border-border">
-                                    V 10d: {stock.v10_pattern} | V 20d: {stock.v20_pattern}
-                                  </div>
-                                </div>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        );
-                      })()}
-                    </TableCell>
-                    {/* Edge 10d Column */}
-                    <TableCell className="text-center px-1">
-                      {(() => {
-                        const edge = getEdge10d(stock);
-                        if (!edge.conclusion) return <span className="text-muted-foreground text-[10px]">-</span>;
-                        const isPREFER = edge.conclusion === "PREFER";
-                        return (
-                          <TooltipProvider delayDuration={200}>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <div className="flex flex-col items-center gap-0.5 cursor-help">
-                                  <span className={cn(
-                                    "inline-flex items-center px-1 py-0.5 text-[9px] font-semibold rounded border",
-                                    isPREFER
-                                      ? "bg-emerald-100 text-emerald-700 border-emerald-200"
-                                      : "bg-red-50 text-red-500 border-red-200"
-                                  )}>
-                                    {isPREFER ? "P" : "A"}
-                                  </span>
-                                  <span className="text-[8px] font-mono text-muted-foreground">
-                                    {edge.win_pct?.toFixed(0)}%
-                                  </span>
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent side="right" align="start" className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm max-w-[350px]">
-                                <div className="space-y-2">
-                                  <div className="flex items-center gap-2">
-                                    <span className={cn(
-                                      "font-semibold",
-                                      isPREFER ? "text-emerald-600" : "text-red-500"
-                                    )}>
-                                      {edge.conclusion}
-                                    </span>
-                                    <span className="text-muted-foreground">|</span>
-                                    <span className="font-mono text-xs">
-                                      10d - Win: {edge.win_pct?.toFixed(1)}% • Return: {edge.ret_pct && edge.ret_pct >= 0 ? "+" : ""}{edge.ret_pct?.toFixed(2)}%
-                                    </span>
-                                  </div>
-                                  <div className="text-xs text-muted-foreground leading-relaxed">
-                                    {edge.interpretation}
-                                  </div>
-                                  <div className="text-[10px] font-mono text-muted-foreground/70 pt-1 border-t border-border">
-                                    V 10d: {stock.v10_pattern} | V 20d: {stock.v20_pattern}
-                                  </div>
-                                </div>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        );
-                      })()}
-                    </TableCell>
-                    <TableCell className="w-px px-0 align-middle">
-                      <div className="h-4 w-px bg-border mx-auto" />
-                    </TableCell>
                     <TableCell className="text-muted-foreground text-sm w-[30px]">
                       {stock.ticker}
                     </TableCell>
@@ -1081,19 +963,53 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                         )}
                       </div>
                     </TableCell>
-                    <TableCell className="text-center font-mono text-xs px-0 w-10">
-                      {[stock.verdict_10_t2, stock.verdict_10_t1, stock.verdict_10].map((v, i) => {
-                        const upper = v?.toUpperCase();
-                        const isBuy = upper === "BUY";
-                        const isSell = upper === "SELL";
-                        // BUY = green, SELL = red, AVOID/HOLD = gray
-                        const colorClass = isBuy ? "text-emerald-500" : isSell ? "text-red-500" : "text-muted-foreground";
-                        return (
-                          <span key={i} className={colorClass}>
-                            {isBuy ? "+" : "-"}
-                          </span>
-                        );
-                      })}
+                    {/* Dual Verdict Column */}
+                    <TableCell className="text-center px-1">
+                      {stock.dv_signal ? (
+                        <TooltipProvider delayDuration={200}>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="flex flex-col items-center gap-0.5 cursor-help">
+                                <span className={cn(
+                                  "inline-flex items-center px-1 py-0.5 text-[9px] font-semibold rounded border",
+                                  stock.dv_signal === "PREFER"
+                                    ? "bg-emerald-100 text-emerald-700 border-emerald-200"
+                                    : "bg-red-50 text-red-500 border-red-200"
+                                )}>
+                                  {stock.dv_signal === "PREFER" ? "P" : "A"}
+                                </span>
+                                <span className="text-[8px] font-mono text-muted-foreground">
+                                  {stock.dv_win_pct?.toFixed(0)}%
+                                </span>
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent side="right" align="start" className="bg-card/75 backdrop-blur-md border border-border rounded-lg p-3 shadow-xl text-sm max-w-[350px]">
+                              <div className="space-y-2">
+                                <div className="flex items-center gap-2">
+                                  <span className={cn(
+                                    "font-semibold",
+                                    stock.dv_signal === "PREFER" ? "text-emerald-600" : "text-red-500"
+                                  )}>
+                                    {stock.dv_signal}
+                                  </span>
+                                  <span className="text-muted-foreground">|</span>
+                                  <span className="font-mono text-xs">
+                                    Win: {stock.dv_win_pct?.toFixed(1)}% · Return: {stock.dv_ret_pct && stock.dv_ret_pct >= 0 ? "+" : ""}{stock.dv_ret_pct?.toFixed(2)}%
+                                  </span>
+                                </div>
+                                <div className="text-xs text-muted-foreground leading-relaxed">
+                                  {stock.dv_interpretation}
+                                </div>
+                                <div className="text-[10px] font-mono text-muted-foreground/70 pt-1 border-t border-border">
+                                  V 10d: {stock.verdict_10 ?? '-'} | V 20d: {stock.verdict_20 ?? '-'}
+                                </div>
+                              </div>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      ) : (
+                        <span className="text-muted-foreground text-[10px]">-</span>
+                      )}
                     </TableCell>
                     <TableCell className="text-right pl-1">
                       <button
@@ -1101,7 +1017,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                         onClick={() => handleVerdictClick(stock.ticker, stock.date, "10", stock.verdict_10, stock.verdict_20)}
                         disabled={!stock.verdict_10}
                       >
-                        <VerdictBadge verdict={stock.verdict_10} conviction={stock.conviction_10} order="conviction-first" />
+                        <VerdictBadge verdict={stock.verdict_10} />
                       </button>
                     </TableCell>
                     <TableCell className="w-px px-0 align-middle">
@@ -1113,10 +1029,10 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                         onClick={() => handleVerdictClick(stock.ticker, stock.date, "20", stock.verdict_10, stock.verdict_20)}
                         disabled={!stock.verdict_20}
                       >
-                        <VerdictBadge verdict={stock.verdict_20} conviction={stock.conviction_20} order="verdict-first" />
+                        <VerdictBadge verdict={stock.verdict_20} upside={stock.upside_60d_pct_20} />
                       </button>
                     </TableCell>
-                    <TableCell className="text-left font-mono text-xs px-0 w-10">
+                    <TableCell className="text-left font-mono text-xs px-0 w-6">
                       {[stock.verdict_20_t2, stock.verdict_20_t1, stock.verdict_20].map((v, i) => {
                         const upper = v?.toUpperCase();
                         const isBuy = upper === "BUY";
@@ -1129,6 +1045,9 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
                           </span>
                         );
                       })}
+                    </TableCell>
+                    <TableCell className="text-center text-[10px] font-medium px-0 w-4">
+                      {stock.thesis_20 ? stock.thesis_20.charAt(0) : "-"}
                     </TableCell>
                     <TableCell className="w-px px-0 align-middle">
                       <div className="h-4 w-px bg-border mx-auto" />
