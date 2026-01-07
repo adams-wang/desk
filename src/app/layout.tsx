@@ -39,9 +39,7 @@ export default async function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            if (window.location.hostname === 'desk.teea.ai') {
-              gtag('config', 'G-HLHRCWKV1M');
-            }
+            gtag('config', 'G-HLHRCWKV1M');
           `}
         </Script>
       </head>
