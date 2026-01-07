@@ -1,7 +1,7 @@
 # PriceVolumeChart Component
 
 > **File**: `src/components/charts/price-volume-chart.tsx`
-> **Lines**: ~1600
+> **Lines**: ~1500
 > **Type**: Client Component (`"use client"`)
 
 ## Overview

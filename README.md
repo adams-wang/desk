@@ -1,40 +1,71 @@
-# Desk - US Equity Trading Dashboard
+# Desk
 
-Next.js frontend for US equity quant trading visualization.
+Modern trading dashboard built with Next.js 16, React 19, and Recharts.
+
+![Market Overview](./images/market.jpg)
+
+## Live Demo
+
+**[desk.teea.ai](https://desk.teea.ai)**
 
 ## Features
 
-- **Market Overview** - VIX regime, market breadth, sector rotation analysis
-- **Stock Screener** - Filter by edge signals, verdicts, sectors with sortable columns
-- **Stock Detail** - Price/volume charts, L3 contract reports, technical indicators
-- **Sector Analysis** - L2 rotation map, sector rankings, MRS trajectories
-- **AI Advisor** - Claude-powered trading assistant with multi-day context
+### Market Overview
+Real-time market regime analysis with VIX gauge, breadth indicators, and treasury yields.
+
+### Sector Rotation
+Interactive sector rotation map with zone classification and historical playback.
+
+![Sector Rotation](./images/sector.jpg)
+
+### Stock Screener
+Filter stocks by signals, verdicts, and sectors with sortable columns and sparkline charts.
+
+![Stock List](./images/stock_list.jpg)
+
+### Stock Detail
+Candlestick charts with volume, MRS indicators, gap analysis, and pattern recognition.
+
+![Stock Detail](./images/stock.jpg)
+
+### AI Advisor
+Claude-powered trading assistant with multi-day context and tool integration.
+
+![AI Advisor](./images/ai_advisor.jpg)
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Next.js 16.0.10 | Framework with Turbopack |
-| React 19.2.1 | UI with React Compiler |
-| better-sqlite3 | Direct SQLite read access |
-| Recharts | Charts and visualizations |
-| shadcn/ui | Component library |
-| Tailwind CSS 4 | Styling with OKLCH colors |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Next.js | 16.0.10 | Framework with Turbopack |
+| React | 19.2.1 | UI with React Compiler |
+| Recharts | 3.5.1 | Charts and visualizations |
+| shadcn/ui | latest | Component library |
+| Tailwind CSS | 4.0 | Styling with OKLCH colors |
+| better-sqlite3 | 11.8.1 | Direct SQLite read access |
 
 ## Getting Started
 
 ```bash
+# Clone the repo
+git clone https://github.com/adams-wang/desk.git
+cd desk
+
 # Install dependencies
 pnpm install
 
 # Rebuild native modules
 pnpm rebuild better-sqlite3
 
+# Set up environment
+cp .env.example .env.local
+# Edit .env.local with your database path
+
 # Start dev server
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
+Open [http://localhost:3000](http://localhost:3000)
 
 ## Project Structure
 
@@ -42,26 +73,46 @@ Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 src/
 ├── app/                    # Next.js App Router
 │   ├── page.tsx           # Market Overview (home)
+│   ├── market/            # Market dashboard
 │   ├── stocks/            # Stock screener & detail
-│   ├── sectors/           # Sector analysis
+│   ├── sectors/           # Sector rotation
 │   ├── chat/              # AI Advisor
 │   └── api/               # API routes
 ├── components/
 │   ├── charts/            # Recharts visualizations
-│   ├── market/            # Market overview components
-│   ├── sectors/           # Sector analysis components
+│   ├── market/            # Market components
+│   ├── sectors/           # Sector components
 │   └── ui/                # shadcn components
 └── lib/
     ├── db.ts              # SQLite connection
-    ├── queries/           # Database queries
-    └── formatters.ts      # Number formatting
+    └── queries/           # Database queries
 ```
 
-## Data Source
+## Configuration
 
-Reads from `/Volumes/Data/quant/data/stocks.db` (read-only).
+Create `.env.local`:
 
-## Documentation
+```bash
+DB_PATH=/path/to/your/stocks.db
+CONTRACTS_PATH=/path/to/your/contracts
+```
 
-- `CLAUDE.md` - Project instructions for Claude Code
-- `.claude/context/design-principles.md` - UI/UX guidelines
+## Database Schema
+
+The dashboard reads from a SQLite database with these key tables:
+
+- `trading_days` - Trading calendar
+- `stocks_ohlcv` - Stock price data
+- `l1_contracts` - Market regime data
+- `l2_sector_rankings` - Sector rotation signals
+- `l3_contracts_*` - Stock verdicts
+
+See `docs/architecture.md` for full schema documentation.
+
+## License
+
+MIT
+
+## Author
+
+adams.wangy@gmail.com

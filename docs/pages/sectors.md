@@ -140,16 +140,17 @@ Surface L2 sector rotation intelligence in an actionable format. Transform raw M
 | MRS_20 | Right | 72px | `+2.45%` | tabular-nums |
 | MRS_5 | Right | 72px | `-0.32%` | tabular-nums |
 
-**Zone Badge Colors:**
+**Zone Badge Colors (v7.0):**
 
 | Zone | Label | Background | Text |
 |------|-------|------------|------|
-| C | Toxic | `red-500/20` | `red-500` |
-| D | Ignition | `amber-500/20` | `amber-600` |
-| E | Noise | `zinc-500/20` | `zinc-500` |
 | A | Trend | `blue-500/20` | `blue-500` |
-| F | Momentum | `emerald-500/20` | `emerald-600` |
 | B | Weakening | `orange-500/20` | `orange-500` |
+| C | Extreme | `red-500/20` | `red-500` |
+| D | Ignition | `amber-500/20` | `amber-600` |
+| E | Neutral | `zinc-500/20` | `zinc-500` |
+| F | Momentum | `emerald-500/20` | `emerald-600` |
+| G | Extreme | `red-600/20` | `red-600` |
 
 **Signal Badge Colors:**
 
@@ -185,52 +186,17 @@ Surface L2 sector rotation intelligence in an actionable format. Transform raw M
 
 ## 4. Data Requirements
 
-### 4.1 Computed Fields (Client-Side)
+### 4.1 Data Source
 
-Since `l2_sector_rankings` may not be populated daily, compute zones/signals from raw indicators:
-
-```typescript
-function classifyZone(mrs20: number): Zone {
-  if (mrs20 <= -3.5) return 'C';  // Toxic
-  if (mrs20 < -0.5) return 'D';   // Ignition
-  if (mrs20 <= 0.5) return 'E';   // Noise
-  if (mrs20 < 2.8) return 'A';    // Trend
-  return 'F';                      // Momentum
-}
-
-function classifySignal(mrs20: number, mrs5: number, roc3: number): Signal {
-  // Zone C (Toxic)
-  if (mrs20 <= -3.5) {
-    if (mrs5 > 0) return { signal: 'RECOVERY_STRONG', modifier: 1.5 };
-    if (roc3 > 0) return { signal: 'RECOVERY_EARLY', modifier: 1.2 };
-    return { signal: 'TOXIC', modifier: 0.25 };
-  }
-
-  // Zone D (Ignition)
-  if (mrs20 < -0.5) {
-    if (mrs5 > 0) return { signal: 'IGNITION', modifier: 1.2 };
-    return { signal: 'AVOID', modifier: 0.5 };
-  }
-
-  // Zone E (Noise)
-  if (mrs20 <= 0.5) return { signal: 'NEUTRAL', modifier: 1.0 };
-
-  // Zone B (Weakening) - cuts across A and F
-  if (mrs20 > 0 && mrs5 < 0) return { signal: 'WEAKENING', modifier: 0.75 };
-
-  // Zone A (Trend)
-  if (mrs20 < 2.8) return { signal: 'TREND', modifier: 1.2 };
-
-  // Zone F (Momentum)
-  return { signal: 'MOMENTUM', modifier: 1.2 };
-}
-```
+Frontend reads pre-computed zone, signal, and modifier values from `l2_sector_rankings` table via `getSectorRotationData()` query in `src/lib/queries/sectors.ts`.
 
 ### 4.2 Database Queries
 
-**Primary:** `sector_etf_indicators` (has MRS_5, MRS_20, close)
+**Primary:** `l2_sector_rankings` (pre-computed zone, signal, modifier, mrs_20, mrs_5, roc_3)
 
-**Missing:** ROC_3 - needs calculation:
+**Fallback:** `sector_etf_indicators` (raw MRS_5, MRS_20, close)
+
+**ROC_3 calculation** (done in backend):
 ```sql
 -- ROC_3 = MRS_20[today] - MRS_20[3 days ago]
 SELECT
@@ -292,27 +258,8 @@ On mobile, hide lower-priority columns:
 
 ---
 
-## 8. Implementation Checklist
+## 8. Future Enhancements
 
-### Data Layer
-- [ ] Add `getSectorDataWithROC3()` query - fetch MRS_20, MRS_5, ROC_3 for all sectors
-- [ ] Add `classifySignal()` utility - Zone + Signal + Modifier from raw data
-- [ ] Add `deriveRotationBias()` utility - OFFENSIVE/NEUTRAL/DEFENSIVE
-- [ ] Add `deriveCyclePhase()` utility - economic cycle position
-
-### Components
-- [ ] `RotationBanner` - bias + cycle phase + View Report button
-- [ ] `SignalSummaryCards` - bullish/bearish/velocity counts
-- [ ] `SectorRankingsTable` - enhanced with Zone, Signal, Modifier columns
-- [ ] `L2ReportSheet` - same pattern as L1 (EN/ZH toggle, 61.8vw)
-
-### Page Assembly
-- [ ] Rotation Banner at top
-- [ ] Signal Summary Cards (3 columns)
-- [ ] Rankings Table (clickable rows → /stocks?sector=X)
-- [ ] L2 Report Sheet integration
-
-### Future (Not in scope)
 - Visual zone field (scatter plot)
 - Sector correlation matrix
 - Historical signal performance tracking
@@ -321,60 +268,43 @@ On mobile, hide lower-priority columns:
 
 ## 9. Complete Algorithms
 
-### 9.1 Zone Classification
+### 9.1 Zone Classification (v7.0)
 
 ```typescript
-type Zone = 'C' | 'D' | 'E' | 'A' | 'F';
+// Zone classification is computed in backend (l2_sector_rankings table)
+// Frontend reads pre-computed zones from database
+type Zone = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
 
-function classifyZone(mrs20: number): Zone {
-  if (mrs20 <= -3.5) return 'C';  // Toxic
-  if (mrs20 < -0.5) return 'D';   // Ignition
-  if (mrs20 <= 0.5) return 'E';   // Noise
-  if (mrs20 < 2.8) return 'A';    // Trend
-  return 'F';                      // Momentum
-}
+// Zone meanings (from L2 spec v7.0):
+// A: Trend (0.5% < MRS_20 < 2.8%)
+// B: Weakening (MRS_20 > 0% AND MRS_5 < 0)
+// C: Extreme (MRS_20 <= -3.5%)
+// D: Ignition (-3.5% < MRS_20 < -0.5%)
+// E: Neutral (-0.5% <= MRS_20 <= 0.5%)
+// F: Momentum (MRS_20 >= 2.8%)
+// G: Extended (MRS_20 > 4%)
 ```
 
 ### 9.2 Signal Classification
 
 ```typescript
+// Signal classification is computed in backend (l2_sector_rankings table)
+// Frontend reads pre-computed signals from database via getSectorRotationData()
 type Signal =
-  | 'RECOVERY_STRONG' | 'RECOVERY_EARLY' | 'TOXIC'      // Zone C
+  | 'RECOVERY_STRONG' | 'RECOVERY_EARLY' | 'TOXIC'      // Zone C (Extreme)
   | 'IGNITION' | 'AVOID'                                 // Zone D
   | 'NEUTRAL'                                            // Zone E
   | 'TREND' | 'MOMENTUM' | 'WEAKENING';                  // Zone A/F/B
 
-interface SignalResult {
-  signal: Signal;
-  modifier: number;
-}
-
-function classifySignal(mrs20: number, mrs5: number, roc3: number): SignalResult {
-  // Zone C (Toxic): S <= -3.5%
-  if (mrs20 <= -3.5) {
-    if (mrs5 > 0) return { signal: 'RECOVERY_STRONG', modifier: 1.5 };
-    if (roc3 > 0) return { signal: 'RECOVERY_EARLY', modifier: 1.2 };
-    return { signal: 'TOXIC', modifier: 0.25 };
-  }
-
-  // Zone D (Ignition): -3.5% < S < -0.5%
-  if (mrs20 < -0.5) {
-    if (mrs5 > 0) return { signal: 'IGNITION', modifier: 1.2 };
-    return { signal: 'AVOID', modifier: 0.5 };
-  }
-
-  // Zone E (Noise): -0.5% <= S <= 0.5%
-  if (mrs20 <= 0.5) return { signal: 'NEUTRAL', modifier: 1.0 };
-
-  // Zone B (Weakening): S > 0% AND MRS_5 < 0 (cuts across A and F)
-  if (mrs5 < 0) return { signal: 'WEAKENING', modifier: 0.75 };
-
-  // Zone A (Trend): 0.5% < S < 2.8%
-  if (mrs20 < 2.8) return { signal: 'TREND', modifier: 1.2 };
-
-  // Zone F (Momentum): S >= 2.8%
-  return { signal: 'MOMENTUM', modifier: 1.2 };
-}
+// Signal → Modifier mapping:
+// RECOVERY_STRONG: 1.5x (89% win rate)
+// RECOVERY_EARLY: 1.2x (62% win rate)
+// IGNITION: 1.2x (62% win rate)
+// TREND/MOMENTUM: 1.2x
+// NEUTRAL: 1.0x
+// WEAKENING: 0.75x (67% win rate)
+// AVOID: 0.5x
+// TOXIC: 0.25x
 ```
 
 ### 9.3 ROC_3 Calculation

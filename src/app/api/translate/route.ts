@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
-const QUANT_BASE_PATH = "/Volumes/Data/quant";
-const REPORTS_BASE_PATH = QUANT_BASE_PATH;
-const L10N_CONFIG_PATH = path.join(QUANT_BASE_PATH, "cli/intel/common/l10n.json");
+const QUANT_BASE_PATH = process.env.QUANT_BASE_PATH || "/Volumes/Data/quant";
+const REPORTS_BASE_PATH = process.env.REPORTS_PATH || QUANT_BASE_PATH;
+const L10N_CONFIG_PATH = process.env.L10N_CONFIG_PATH || path.join(QUANT_BASE_PATH, "cli/intel/common/l10n.json");
 
 // GLM API Configuration
 const GLM_API_KEY = process.env.GLM_API_KEY || process.env.ZHIPU_API_KEY;

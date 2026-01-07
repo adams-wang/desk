@@ -162,12 +162,13 @@ export function getSectorRotationData(endDate?: string): SectorRotationData {
 
   // Check for L2 report
   const fs = require('fs');
+  const reportsPath = process.env.REPORTS_PATH || "/Volumes/Data/quant/reports";
   const reportNames = ['L2_Sector_Analysis.md', 'L2_Sector_Rotation.md', 'l2.md'];
   let reportPath: string | null = null;
   for (const name of reportNames) {
-    const path = `/Volumes/Data/quant/reports/${date}/${name}`;
-    if (fs.existsSync(path)) {
-      reportPath = path;
+    const fullPath = `${reportsPath}/${date}/${name}`;
+    if (fs.existsSync(fullPath)) {
+      reportPath = fullPath;
       break;
     }
   }

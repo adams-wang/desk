@@ -106,7 +106,7 @@ Desk is a **read-only** Next.js 16 frontend for US equity quant trading visualiz
 │                           ▼                                          │
 │  ┌──────────────────────────────────────────────────────────────┐   │
 │  │                   Query Functions                             │   │
-│  │  stocks.ts │ sectors.ts │ trading-days.ts                    │   │
+│  │  stocks.ts │ sectors.ts │ market.ts │ trading-days.ts        │   │
 │  └──────────────────────────────────────────────────────────────┘   │
 │                           │                                          │
 │                           ▼                                          │
@@ -130,20 +130,26 @@ Desk is a **read-only** Next.js 16 frontend for US equity quant trading visualiz
 src/
 ├── app/                      # Next.js App Router
 │   ├── api/                  # REST endpoints + AI chat
-│   ├── page.tsx              # Market Overview (homepage)
-│   ├── stocks/[ticker]/      # Stock detail
-│   ├── sectors/              # Sector analysis
+│   ├── page.tsx              # Homepage (redirects to /market)
+│   ├── market/               # Market overview dashboard
+│   ├── stocks/               # Stock list + [ticker] detail
+│   ├── sectors/              # Sector rotation analysis
+│   ├── indices/              # Index OHLCV charts
 │   ├── chat/                 # AI Advisor
+│   ├── terms/                # Terms of service
 │   └── layout.tsx            # Root layout with sidebar
 ├── components/
 │   ├── charts/               # Recharts-based visualizations
-│   │   ├── price-volume-chart.tsx   # Main chart (1600+ lines)
+│   │   ├── price-volume-chart.tsx   # Main chart (~1500 lines)
 │   │   ├── sector-mrs-chart.tsx     # Sector comparison
 │   │   └── mrs-trajectory-chart.tsx # Momentum trajectory
 │   ├── market/               # Market overview components
-│   │   ├── regime-banner.tsx        # VIX regime display
+│   │   ├── regime-banner.tsx        # Regime display with transition
 │   │   ├── index-card.tsx           # Index price cards
-│   │   └── vix-gauge.tsx            # VIX visualization
+│   │   ├── vix-gauge.tsx            # VIX visualization
+│   │   ├── breadth-bar.tsx          # Market breadth indicator
+│   │   ├── yield-curve.tsx          # Treasury yield curve
+│   │   └── indices-ohlcv-grid.tsx   # 4-index chart grid
 │   ├── sectors/              # Sector analysis components
 │   ├── ui/                   # shadcn/ui primitives
 │   ├── layout/               # Sidebar, header
@@ -151,6 +157,10 @@ src/
 └── lib/
     ├── db.ts                 # SQLite singleton
     ├── queries/              # Type-safe query functions
+    │   ├── stocks.ts         # Stock queries + StockOHLCVExtended
+    │   ├── sectors.ts        # Sector rotation queries
+    │   ├── market.ts         # L1/L2 contracts, indices, sentiment
+    │   └── trading-days.ts   # Trading date helpers
     └── utils.ts              # Tailwind cn() helper
 ```
 
@@ -168,7 +178,7 @@ src/
    ├── getStockOHLCVExtended(NVDA, 40, 2025-12-15)
    ├── getMRSHistory(NVDA, 40, 2025-12-15)
    ├── getSectorMRSHistory(40, 2025-12-15)
-   ├── getVIXHistory(40, 2025-12-15)
+   ├── getRegimeHistory(40, 2025-12-15)
    ├── getAnalystActions(NVDA, 2025-12-15)
    ├── getAnalystTargets(NVDA, 2025-12-15)
    └── getL3Contracts(NVDA, 2025-12-15)
@@ -187,39 +197,49 @@ src/
 ### StockOHLCVExtended (Chart Data Point)
 
 ```typescript
-interface StockOHLCVExtended {
-  // Price
-  date: string;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  volume: number;
-  prevClose: number | null;
-
-  // Volume Analysis
+interface StockOHLCVExtended extends StockOHLCV {
+  // Volume indicators
   volume_10ma: number | null;
-  volume_10_ts: number | null;      // Percentile 0-100
+  volume_10_ts: number | null;       // Percentile 0-100
+
+  // Gap indicators
+  gap_type: string | null;           // "up_large" | "down_small" | etc
+  gap_pct: number | null;
+  gap_filled: string | null;         // "Y" | "N"
+  gap_conclusion: string | null;     // "PREFER" | "AVOID"
+  gap_interpretation: string | null;
+
+  // MRS indicators
+  mrs_20: number | null;
+  mrs_20_ts: number | null;
+
+  // OFD (Open-First-Day patterns)
+  ofd_code: string | null;           // "+SLN" | "-DBH" | etc
+  ofd_conclusion: string | null;
+  ofd_interpretation: string | null;
+
+  // Candle patterns
+  pattern: string | null;            // "bullish_engulfing" | etc
+  pattern_conclusion: string | null; // "PREFER" | "AVOID"
+  pattern_interpretation: string | null;
+  body_size_pct: number | null;
   candle_volume_ratio: number | null;
+  upper_wick_ratio: number | null;
+  lower_wick_ratio: number | null;
 
   // L3 Verdicts
-  verdict_10: string | null;        // "BUY" | "AVOID" | "HOLD"
+  verdict_10: string | null;         // "BUY" | "AVOID" | "HOLD"
   verdict_20: string | null;
-
-  // Gap Analysis
-  gap_type: string | null;          // "up_large" | "down_small" | etc
-  gap_conclusion: string | null;    // "PREFER" | "AVOID" | null
-
-  // Pattern Analysis
-  ofd_code: string | null;          // "+SLN" | "-DBH" | etc
-  ofd_conclusion: string | null;    // "Support" | "Breakdown" | etc
-  pattern_code: string | null;
-  pattern_conclusion: string | null;
 
   // Moving Averages
   sma_20: number | null;
   sma_50: number | null;
   sma_200: number | null;
+
+  // Technical indicators
+  rsi_14: number | null;
+  macd_line: number | null;
+  macd_signal: number | null;
 }
 ```
 
@@ -275,17 +295,30 @@ interface StockOHLCVExtended {
 
 ### Available Tools
 
-Claude has access to 7 database query tools:
+Claude has access to 8 tools:
 
 | Tool | Purpose |
 |------|---------|
-| `get_market_overview` | Current regime, VIX, breadth, indices |
-| `get_stock_detail` | Single stock analysis |
-| `get_stock_list` | Filter/search stocks |
-| `get_sector_analysis` | L2 sector rotation |
-| `get_stock_history` | Multi-day OHLCV data |
-| `get_l3_contracts` | L3 verdict details |
-| `compare_stocks` | Side-by-side comparison |
+| `get_market_overview` | L1 regime, VIX, breadth, macro summary, conflicts, guidance |
+| `get_stock_detail` | 5-day trajectory with MRS, technicals, patterns, dual verdict |
+| `search_stocks` | Find stocks by ticker prefix or company name |
+| `find_stock_edge` | Filter by dual verdict combinations (m20_leading, dual_buy, etc.) |
+| `get_trading_plan` | L3 contracts: entry, stop-loss, target, risk/reward |
+| `get_analyst_sentiment` | Recent upgrades, downgrades, price target changes |
+| `get_sector_rotation` | L2 sector rankings with signals and cycle phase |
+| `web_search` | Tavily search for news, earnings, real-time info |
+
+### Dual Verdict System (v6.0)
+
+Stock selection uses backtested M10 × M20 verdict combinations (320K+ trades):
+
+| Combination | NORMAL Win Rate | RISK_OFF Win Rate |
+|-------------|-----------------|-------------------|
+| M20 BUY alone | 62-63% | 78-83% |
+| Both BUY | 59% | 85% |
+| M10 BUY only | 59.5% | 61% |
+
+Key insight: M20 is the primary signal; M10 provides early/confirming signals.
 
 ### Dependencies
 

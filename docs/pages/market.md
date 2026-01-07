@@ -279,14 +279,14 @@ interface BlockerItemProps {
 
 **Purpose:** Price action context for market trend
 
-**Implementation:** TradingView Lightweight Charts (consistent with stock pages)
+**Implementation:** Recharts (consistent with stock pages)
 
 **Config:**
 - Default timeframe: 20 trading days (1 month)
 - Chart type: Area chart (simpler than candlestick for index)
 - Height: 300px
-- Show crosshair with price tooltip
-- Timeframe selector: 1W, 1M, 3M
+- Show tooltip with price on hover
+- Range selector via query params
 
 ---
 
@@ -531,48 +531,11 @@ If `generatedAt` is > 24 hours old:
 
 ---
 
-## 11. Implementation Checklist
+## 11. Future Enhancements
 
-### Phase 1: Core Page
-- [ ] Create `/src/app/market/page.tsx`
-- [ ] Create `GET /api/market/overview` route
-- [ ] Implement `RegimeBanner` component
-- [ ] Implement `IndexCard` component
-- [ ] Add to sidebar navigation
-
-### Phase 2: Health Indicators
-- [ ] Implement `VixGauge` component
-- [ ] Implement `BreadthBar` component
-- [ ] Implement `BlockersCard` component
-- [ ] Add market sentiment display
-
-### Phase 3: Chart & Detail
-- [ ] Implement S&P 500 area chart
-- [ ] Create `GET /api/market/indices/history` route
-- [ ] Add timeframe selector
-- [ ] Integrate Report Sheet
-
-### Phase 4: Homepage Integration
-- [ ] Create `MarketStatusWidget` (compact version)
-- [ ] Replace static "Market Status" card on homepage
-- [ ] Link widget to `/market` page
-
-### Phase 5: Polish
-- [ ] Add loading skeletons
-- [ ] Implement auto-refresh
-- [ ] Add error states
-- [ ] Accessibility audit
-- [ ] Mobile responsive testing
-
----
-
-## 12. Future Enhancements
-
-1. **Yield Curve Visualization** - Show 3M/5Y/10Y spread graphically
-2. **Historical Regime Timeline** - Show regime changes over time
-3. **News Themes** - Display key themes from L1 contract
-4. **Sector Heat Map** - Quick L2 overview on market page
-5. **Position Sizing Calculator** - Interactive tool showing L1 × L2 impact
+1. **News Themes** - Display key themes from L1 contract in UI
+2. **Sector Heat Map** - Quick L2 overview on market page
+3. **Position Sizing Calculator** - Interactive tool showing L1 × L2 impact
 
 ---
 
