@@ -44,7 +44,7 @@ const THESIS = ["All", "STRENGTH", "VALUE", "PARABOLIC", "REVERSION", "NEUTRAL"]
 
 // No special cases - all patterns looked up from dual_mrs_interpretation table
 
-type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank" | "edge_combined" | "edge_5d" | "edge_10d" | "beta_60" | "sharpe_20" | "dv_default";
+type SortField = "ticker" | "company" | "close" | "verdict_10" | "verdict_20" | "sector" | "sector_rank" | "beta_60" | "sharpe_20" | "dv_default";
 type SortDirection = "asc" | "desc";
 
 // Verdict sort order (for sorting)
@@ -55,58 +55,6 @@ const VERDICT_ORDER: Record<string, number> = {
   "SELL": 3,
   "AVOID": 4,
 };
-
-// Get edge data for a stock from database (no special cases)
-function getEdge5d(stock: StockDetail): {
-  conclusion: string | null;
-  win_pct: number | null;
-  ret_pct: number | null;
-  interpretation: string | null;
-} {
-  return {
-    conclusion: stock.edge_5d_conclusion,
-    win_pct: stock.edge_5d_win_pct,
-    ret_pct: stock.edge_5d_ret_pct,
-    interpretation: stock.edge_5d_interpretation,
-  };
-}
-
-function getEdge10d(stock: StockDetail): {
-  conclusion: string | null;
-  win_pct: number | null;
-  ret_pct: number | null;
-  interpretation: string | null;
-} {
-  return {
-    conclusion: stock.edge_10d_conclusion,
-    win_pct: stock.edge_10d_win_pct,
-    ret_pct: stock.edge_10d_ret_pct,
-    interpretation: stock.edge_10d_interpretation,
-  };
-}
-
-// Edge rank for combined sorting: PP > Single P > AA > Single A > No edge
-// Lower rank = better (sorted ASC)
-function getEdgeRank(stock: StockDetail): number {
-  const e5d = getEdge5d(stock).conclusion;
-  const e10d = getEdge10d(stock).conclusion;
-
-  const isP5 = e5d === "PREFER";
-  const isP10 = e10d === "PREFER";
-  const isA5 = e5d === "AVOID";
-  const isA10 = e10d === "AVOID";
-
-  // PP = 1 (best - double prefer)
-  if (isP5 && isP10) return 1;
-  // Single P = 2 (one prefer)
-  if (isP5 || isP10) return 2;
-  // AA = 3 (double avoid)
-  if (isA5 && isA10) return 3;
-  // Single A = 4 (one avoid)
-  if (isA5 || isA10) return 4;
-  // No edge = 5 (no signal)
-  return 5;
-}
 
 // Volume regime helper
 function getVolumeRegime(percentile: number | null): { regime: string; color: string } {
@@ -263,6 +211,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   // Read initial filter/sort values from URL params
   const initialV10 = searchParams.get("v10")?.toUpperCase() || "All";
   const initialV20 = searchParams.get("v20")?.toUpperCase() || "All";
+  const initialDV = searchParams.get("dv")?.toUpperCase() || "All";
   const initialSort = (searchParams.get("sort") as SortField) || "dv_default";
   const initialOrder = (searchParams.get("order") as SortDirection) || "desc";
 
@@ -271,6 +220,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
   const [sectorFilter, setSectorFilter] = useState("All Sectors");
   const [verdict10Filter, setVerdict10Filter] = useState(initialV10);
   const [verdict20Filter, setVerdict20Filter] = useState(initialV20);
+  const [dvFilter, setDvFilter] = useState(initialDV);
   const [thesisFilter, setThesisFilter] = useState("All");
 
   // Sort state - default to edge descending (highest win% first)
@@ -355,6 +305,17 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
         return false;
       }
 
+      // DV filter (P = PREFER, A = AVOID)
+      if (dvFilter !== "All") {
+        const dvSignal = stock.dv_signal?.toUpperCase();
+        if (dvFilter === "P" && dvSignal !== "PREFER") {
+          return false;
+        }
+        if (dvFilter === "A" && dvSignal !== "AVOID") {
+          return false;
+        }
+      }
+
       // Thesis filter (using 20d thesis)
       if (thesisFilter !== "All" && stock.thesis_20?.toUpperCase() !== thesisFilter) {
         return false;
@@ -399,70 +360,6 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
         case "sector_rank":
           aVal = sectorRankings.get(a.sector ?? "Unknown") ?? 999;
           bVal = sectorRankings.get(b.sector ?? "Unknown") ?? 999;
-          break;
-        case "edge_combined":
-          // Sort by edge rank (PP > P- > -- > -A > AA), then Sharpe DESC, then Beta ASC
-          const aRank = getEdgeRank(a);
-          const bRank = getEdgeRank(b);
-          if (aRank !== bRank) {
-            aVal = aRank;
-            bVal = bRank;
-          } else {
-            // Same rank, compare by Sharpe DESC
-            const aSharpeComb = a.sharpe_ratio_20 ?? -999;
-            const bSharpeComb = b.sharpe_ratio_20 ?? -999;
-            if (aSharpeComb !== bSharpeComb) {
-              // For ASC sort direction, we want higher Sharpe first, so negate
-              aVal = -aSharpeComb;
-              bVal = -bSharpeComb;
-            } else {
-              // Same Sharpe, compare by Beta ASC (lower is better)
-              aVal = a.beta_60 ?? 999;
-              bVal = b.beta_60 ?? 999;
-            }
-          }
-          break;
-        case "edge_5d":
-          // Sort by 5d win_pct DESC -> Sharpe DESC -> Beta ASC
-          const aEdge5d = getEdge5d(a);
-          const bEdge5d = getEdge5d(b);
-          const aWin5d = aEdge5d.win_pct ?? 0;
-          const bWin5d = bEdge5d.win_pct ?? 0;
-          if (aWin5d !== bWin5d) {
-            aVal = aWin5d;
-            bVal = bWin5d;
-          } else {
-            const aSharpe5 = a.sharpe_ratio_20 ?? -999;
-            const bSharpe5 = b.sharpe_ratio_20 ?? -999;
-            if (aSharpe5 !== bSharpe5) {
-              aVal = aSharpe5;
-              bVal = bSharpe5;
-            } else {
-              aVal = -(a.beta_60 ?? 999);
-              bVal = -(b.beta_60 ?? 999);
-            }
-          }
-          break;
-        case "edge_10d":
-          // Sort by 10d win_pct DESC -> Sharpe DESC -> Beta ASC
-          const aEdge10d = getEdge10d(a);
-          const bEdge10d = getEdge10d(b);
-          const aWin10d = aEdge10d.win_pct ?? 0;
-          const bWin10d = bEdge10d.win_pct ?? 0;
-          if (aWin10d !== bWin10d) {
-            aVal = aWin10d;
-            bVal = bWin10d;
-          } else {
-            const aSharpe10 = a.sharpe_ratio_20 ?? -999;
-            const bSharpe10 = b.sharpe_ratio_20 ?? -999;
-            if (aSharpe10 !== bSharpe10) {
-              aVal = aSharpe10;
-              bVal = bSharpe10;
-            } else {
-              aVal = -(a.beta_60 ?? 999);
-              bVal = -(b.beta_60 ?? 999);
-            }
-          }
           break;
         case "beta_60":
           aVal = a.beta_60 ?? 999;
@@ -520,7 +417,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     });
 
     return result;
-  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, sortField, sortDirection, sectorRankings]);
+  }, [stocks, tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, dvFilter, thesisFilter, sortField, sortDirection, sectorRankings]);
 
   // Count active filters
   const activeFilterCount = [
@@ -528,6 +425,7 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     sectorFilter !== "All Sectors",
     verdict10Filter !== "All",
     verdict20Filter !== "All",
+    dvFilter !== "All",
     thesisFilter !== "All",
   ].filter(Boolean).length;
 
@@ -537,25 +435,14 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
     setSectorFilter("All Sectors");
     setVerdict10Filter("All");
     setVerdict20Filter("All");
+    setDvFilter("All");
     setThesisFilter("All");
   };
-
-  // Signal counts - count stocks with PREFER/AVOID in either horizon
-  const signalCounts = useMemo(() => {
-    const prefer5d = stocks.filter(s => getEdge5d(s).conclusion === "PREFER").length;
-    const avoid5d = stocks.filter(s => getEdge5d(s).conclusion === "AVOID").length;
-    const prefer10d = stocks.filter(s => getEdge10d(s).conclusion === "PREFER").length;
-    const avoid10d = stocks.filter(s => getEdge10d(s).conclusion === "AVOID").length;
-    // Count stocks with either horizon showing signal
-    const preferAny = stocks.filter(s => getEdge5d(s).conclusion === "PREFER" || getEdge10d(s).conclusion === "PREFER").length;
-    const avoidAny = stocks.filter(s => getEdge5d(s).conclusion === "AVOID" || getEdge10d(s).conclusion === "AVOID").length;
-    return { prefer5d, avoid5d, prefer10d, avoid10d, preferAny, avoidAny };
-  }, [stocks]);
 
   // Reset visible count when filters/sort change
   useEffect(() => {
     setVisibleCount(INITIAL_LOAD);
-  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, thesisFilter, sortField, sortDirection]);
+  }, [tickerFilter, sectorFilter, verdict10Filter, verdict20Filter, dvFilter, thesisFilter, sortField, sortDirection]);
 
   // Visible stocks (sliced for infinite scroll)
   const visibleStocks = useMemo(
@@ -672,6 +559,17 @@ export function StockTable({ stocks, sectorRanks }: StockTableProps) {
           {VERDICTS.map(v => (
             <option key={v} value={v}>V 20d: {v}</option>
           ))}
+        </select>
+
+        {/* DV Filter */}
+        <select
+          value={dvFilter}
+          onChange={(e) => setDvFilter(e.target.value)}
+          className="h-9 px-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          <option value="All">DV: All</option>
+          <option value="P">DV: Prefer</option>
+          <option value="A">DV: Avoid</option>
         </select>
 
         {/* Thesis Filter */}
