@@ -42,7 +42,7 @@ Claude-powered trading assistant with multi-day context and tool integration.
 | Recharts | 3.5.1 | Charts and visualizations |
 | shadcn/ui | latest | Component library |
 | Tailwind CSS | 4.0 | Styling with OKLCH colors |
-| better-sqlite3 | 11.8.1 | Direct SQLite read access |
+| better-sqlite3 | 12.5.0 | Direct SQLite read access |
 
 ## Getting Started
 
@@ -54,7 +54,7 @@ cd desk
 # Install dependencies
 pnpm install
 
-# Rebuild native modules
+# Rebuild native modules (see Troubleshooting if this fails silently)
 pnpm rebuild better-sqlite3
 
 # Set up environment
@@ -108,6 +108,19 @@ The dashboard reads from a SQLite database with these key tables:
 - `l3_contracts_*` - Stock verdicts
 
 See `docs/architecture.md` for full schema documentation.
+
+## Troubleshooting
+
+### better-sqlite3 bindings not found
+
+If you see "Could not locate the bindings file" after `pnpm rebuild`, rebuild manually:
+
+```bash
+cd node_modules/.pnpm/better-sqlite3@12.5.0/node_modules/better-sqlite3
+npx node-gyp rebuild
+```
+
+This typically happens when Node.js version changes or switching between architectures (x86 vs arm64).
 
 ## License
 
