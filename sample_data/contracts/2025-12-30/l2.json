@@ -1,0 +1,934 @@
+{
+  "contract_id": "l2_2025-12-30",
+  "trading_date": "2025-12-30",
+  "generated_at": "2026-01-01T21:49:14.853457",
+  "valid_until": "2026-01-02T21:49:14.853457",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-30",
+  "sector_news": {
+    "total_articles": 112,
+    "avg_sentiment": 0.232,
+    "bullish_sectors": [
+      "XLRE",
+      "XLC",
+      "XLV",
+      "XLB",
+      "XLI",
+      "XLE",
+      "XLU",
+      "XLP",
+      "XLK",
+      "XLY"
+    ],
+    "bearish_sectors": [],
+    "sector_sentiment": {
+      "XLRE": {
+        "avg_sentiment": 0.186,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.227,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": 0.282,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.219,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLI": {
+        "avg_sentiment": 0.219,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLE": {
+        "avg_sentiment": 0.278,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLU": {
+        "avg_sentiment": 0.278,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLP": {
+        "avg_sentiment": 0.255,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLK": {
+        "avg_sentiment": 0.204,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": 0.255,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLF": {
+        "avg_sentiment": 0.145,
+        "article_count": 10,
+        "label": "Neutral"
+      }
+    },
+    "top_headlines": {
+      "XLRE": [
+        {
+          "title": "The Truth About CubeSmart: Why Everyone Is Suddenly Talking About This Storage Stock",
+          "summary": "CubeSmart (CUBE) is gaining traction online for its \"boring but rich\" business model in the self-storage REIT sector, attracting investors seeking passive income and stability. The article examines whether this buzz is justified, comparing CubeSmart to competitors, and offering a verdict on its suitability for long-term, income-focused portfolios.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/ueberblick/the-truth-about-cubesmart-why-everyone-is-suddenly-talking-about-this/68442408",
+          "time_published": "20251230T232812",
+          "relevance": 1.0,
+          "sentiment": 0.253033,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Ellington Financial reports $13.17 estimated book value per share",
+          "summary": "Ellington Financial Inc. announced an estimated book value per share of $13.17 as of November 30, 2025, with its stock trading slightly above this at $13.75. The company maintains an impressive 11.31% dividend yield, having paid dividends for 16 consecutive years, and reported strong third-quarter 2025 earnings which exceeded analyst expectations. Ellington Financial has also expanded its at-the-market stock offering program to $500 million.",
+          "source": "Investing.com India",
+          "url": "https://in.investing.com/news/company-news/ellington-financial-reports-1317-estimated-book-value-per-share-93CH-5168565",
+          "time_published": "20251230T230833",
+          "relevance": 1.0,
+          "sentiment": 0.034287,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "EPR PROPERTIES 5.75% CONV PREF SER 'C' To Go Ex-Dividend On December 31st, 2025 With 0.35938 USD Dividend Per Share",
+          "summary": "EPR PROPERTIES (EPR.PRC.US) will trade ex-dividend on December 31st, 2025, with a dividend payment of 0.35938 USD per share to shareholders of record on the same date. The payment will be disbursed on January 15th, 2026. The article also provides general information on cash and stock dividends, noting tax implications and potential share price adjustments.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66753615/epr-properties-5-75-conv-pref-ser-c-to-go",
+          "time_published": "20251230T221003",
+          "relevance": 1.0,
+          "sentiment": 0.023152,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Four Corners Property Trust Acquires Two Net-Lease Properties for $5.4 Million",
+          "summary": "Four Corners Property Trust (FCPT) recently acquired two net-lease properties, totaling $5.4 million. The acquisition involves a United Rentals property and a Buffalo Wild Wings property, expanding FCPT's portfolio of restaurant and retail properties. This move aligns with FCPT's strategy of owning and leasing such properties under net lease arrangements.",
+          "source": "marketscreener.com",
+          "url": "https://www.marketscreener.com/news/four-corners-property-trust-acquires-two-net-lease-properties-for-5-4-million-ce7e59d8dd89f026",
+          "time_published": "20251230T220935",
+          "relevance": 1.0,
+          "sentiment": 0.406068,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Eastern International Secures First RMB 42.5 Million Photovoltaic Construction Contract",
+          "summary": "Eastern International Ltd. (ELOG) announced that its subsidiary, Guizhou Tianrun Zhicheng Construction Engineering Co., Ltd., secured a RMB 42.5 million (US$6.04 million) subcontract for a 50 MW photovoltaic power generation project. This marks the company's first venture into the new energy sector, diversifying its revenue beyond logistics. The project is scheduled to begin construction by December 31, 2025.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/ELOG-Q/pressreleases/36827327/eastern-international-secures-first-rmb-42-5-million-photovoltaic-construction-contract/",
+          "time_published": "20251230T220935",
+          "relevance": 1.0,
+          "sentiment": 0.418287,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "Sector Rotation: 2 Smart Money Moves for 2026",
+          "summary": "With the Federal Reserve lowering interest rates in mid-December 2025, the market is undergoing a significant sector rotation from hardware and semiconductors to sectors with more reasonable valuations and steady cash flow. Investors are shifting capital into Communication Services and Healthcare, driven by lower borrowing costs and the attractiveness of dividend-paying stocks. By investing in ETFs like the Communication Services Select Sector SPDR Fund (XLC) and the Health Care Select Sector SPDR Fund (XLV), investors can build a diversified portfolio that balances growth potential with defensive stability for 2026.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/DIS/pressreleases/36801139/sector-rotation-2-smart-money-moves-for-2026/",
+          "time_published": "20251226T170926",
+          "relevance": 1.0,
+          "sentiment": 0.288349,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Sector Rotation: 2 Smart Money Moves for 2026",
+          "summary": "As the Federal Reserve lowers interest rates in late 2025, the market is undergoing a sector rotation away from hardware and semiconductor investments. Smart money is now targeting sectors with reasonable valuations, steady cash flow, and defensive stability, with Communication Services and Healthcare emerging as key beneficiaries. Investors can leverage the Communication Services Select Sector SPDR Fund (XLC) for growth and the Health Care Select Sector SPDR Fund (XLV) for defensive stability and income, employing a \"barbell strategy\" to balance risk and reward in 2026.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/UNH-N/pressreleases/36801142/sector-rotation-2-smart-money-moves-for-2026/",
+          "time_published": "20251226T061500",
+          "relevance": 1.0,
+          "sentiment": 0.398271,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Prime Medicine, Inc. (PRME) Announces NEJM Publication Of PM359 Data",
+          "summary": "Prime Medicine, Inc. announced the publication of Phase 1/2 clinical results for PM359 in the New England Journal of Medicine, an experimental autologous hematopoietic stem cell therapy for p47phox chronic granulomatous condition. Preliminary data from two patients showed fast neutrophil engraftment and no new CGD-related problems or adverse events linked to PM359. LifeSci Capital initiated coverage on Prime Medicine with an Outperform rating and a $6 price target, citing the company's potential in gene editing treatments for various diseases.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/prime-medicine-inc-prme-announces-nejm-publication-of-pm359-data-1668110/?amp=1",
+          "time_published": "20251230T234500",
+          "relevance": 1.0,
+          "sentiment": 0.518556,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "(DHS) Movement Within Algorithmic Entry Frameworks",
+          "summary": "Stock Traders Daily presents an AI-driven analysis for Wisdomtree U.s. High Dividend Fund (NYSE: DHS), indicating a neutral sentiment across all time horizons with a mid-channel oscillation pattern. The analysis identifies a 9.6:1 risk-reward setup targeting a 2.7% gain. Three distinct trading strategies\u2014Position, Momentum Breakout, and Risk Hedging\u2014are detailed, offering entry, target, and stop-loss levels for different risk profiles.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/43/DHS_Movement_Within_Algorithmic_Entry_Frameworks_123025113401_1767155641.html",
+          "time_published": "20251230T233400",
+          "relevance": 1.0,
+          "sentiment": 0.02838,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "2 Mid-Cap Stocks to Own for Decades and 1 That Underwhelm",
+          "summary": "This article evaluates three mid-cap stocks, identifying two with significant upside potential and one recommended for divestment. It highlights Super Micro Computer (SMCI) and Insulet (PODD) as strong buys due to their market share growth, revenue expansion, and improving financials, while advising against C.H. Robinson Worldwide (CHRW) due to declining sales, low margins, and waning returns on capital. The analysis underscores the importance of solid fundamentals for long-term investment in mid-cap companies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/265151/2-mid-cap-stocks-to-own-for-decades-and-1-that-underwhelm",
+          "time_published": "20251230T233200",
+          "relevance": 1.0,
+          "sentiment": 0.252541,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "Barclays Analyst Is Bullish On Pacific Biosciences of California, Inc. (PACB)",
+          "summary": "Barclays analyst Luke Sergott raised the price target for Pacific Biosciences of California, Inc. (NASDAQ:PACB) from $1.50 to $2, maintaining an Equal Weight rating. The analyst believes factors like improving end markets and the undervaluation of the life sciences and diagnostics tools sector create a favorable environment for the group in 2026. Despite a slight revenue miss last quarter, the company anticipates sequential revenue growth in Q4, driven by increased Revio placements and strong consumables sales.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/barclays-analyst-is-bullish-on-pacific-biosciences-of-california-inc-pacb-1668104/",
+          "time_published": "20251230T234900",
+          "relevance": 1.0,
+          "sentiment": 0.018096,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Beam Therapeutics Inc. (BEAM) Reports Updated Data From BEACON Phase 1/2 trial Of Ristoglogene",
+          "summary": "Beam Therapeutics Inc. (BEAM) released updated safety and effectiveness data from its BEACON Phase 1/2 clinical trial for ristoglogene autogetemcel, an investigational gene-editing cell therapy for sickle cell disease. The data, presented at the 67th Annual Meeting of the American Society of Hematology, showed positive results in 31 treated adults and adolescents, including a significant decline in hemoglobin S, anemia remission, and fetal hemoglobin induction. An analyst from Evercore ISI also covered Beam Therapeutics, mentioning BEAM-302's potential for alpha-1 antitrypsin insufficiency.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/264796/beam-therapeutics-inc-beam-reports-updated-data-from-beacon-phase-12-trial-of-ristoglogene",
+          "time_published": "20251230T234600",
+          "relevance": 1.0,
+          "sentiment": 0.460212,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Prime Medicine, Inc. (PRME) Announces NEJM Publication Of PM359 Data",
+          "summary": "Prime Medicine, Inc. announced the publication of Phase 1/2 clinical results for PM359 in the New England Journal of Medicine, an experimental autologous hematopoietic stem cell therapy for p47phox chronic granulomatous condition. Preliminary data from two patients showed fast neutrophil engraftment and no new CGD-related problems or adverse events linked to PM359. LifeSci Capital initiated coverage on Prime Medicine with an Outperform rating and a $6 price target, citing the company's potential in gene editing treatments for various diseases.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/prime-medicine-inc-prme-announces-nejm-publication-of-pm359-data-1668110/?amp=1",
+          "time_published": "20251230T234500",
+          "relevance": 1.0,
+          "sentiment": 0.518556,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "2 Mid-Cap Stocks to Own for Decades and 1 That Underwhelm",
+          "summary": "This article evaluates three mid-cap stocks, identifying two with significant upside potential and one recommended for divestment. It highlights Super Micro Computer (SMCI) and Insulet (PODD) as strong buys due to their market share growth, revenue expansion, and improving financials, while advising against C.H. Robinson Worldwide (CHRW) due to declining sales, low margins, and waning returns on capital. The analysis underscores the importance of solid fundamentals for long-term investment in mid-cap companies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/265151/2-mid-cap-stocks-to-own-for-decades-and-1-that-underwhelm",
+          "time_published": "20251230T233200",
+          "relevance": 1.0,
+          "sentiment": 0.252541,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "FDA Fast-Tracks Two Merck (MRK) Drugs With Blockbuster Potential",
+          "summary": "The FDA has fast-tracked two experimental Merck drugs, enlicitide decanoate for cholesterol and sacituzumab tirumotecan for cancer, through its Commissioner\u2019s National Priority Voucher program. This initiative accelerates FDA decisions for drugs of major public health importance, potentially reducing review times from 10-12 months to one to two months. The move aims to strengthen Merck's pipeline as its top-selling cancer drug Keytruda faces impending biosimilar competition.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/264725/fda-fast-tracks-two-merck-mrk-drugs-with-blockbuster-potential",
+          "time_published": "20251230T232457",
+          "relevance": 1.0,
+          "sentiment": 0.250112,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Kimberly-Clark (KMB) Target Lowered as Citi Rebalances Household Care View",
+          "summary": "Citi has lowered its price target for Kimberly-Clark (KMB) to $95 from $100, maintaining a Sell rating, as it shifts its focus to household and personal care companies for 2026. The firm anticipates improved conditions in this sector as inventory destocking concludes and consumption comparisons ease. Kimberly-Clark is expanding its portfolio through the acquisition of Kenvue and increasing its manufacturing footprint in Vietnam, aiming for significant cost synergies and production boosts.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/kimberly-clark-kmb-target-lowered-as-citi-rebalances-household-care-view-1668249/",
+          "time_published": "20251230T230759",
+          "relevance": 1.0,
+          "sentiment": 0.025863,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "WW Grainger Inc Stock Price Live, Charts & News",
+          "summary": "This article provides a comprehensive overview of WW Grainger Inc. (GWW) stock, including its live price, charts, news, and fundamental data. It details the company's financial performance through balance sheets, income statements, and cash flow statements, alongside historical returns and key financial ratios. The report also includes recent US market news and information about W.W. Grainger as a leading industrial supply company.",
+          "source": "The Economic Times",
+          "url": "https://m.economictimes.com/markets/us-stocks/ww-grainger-inc/gww",
+          "time_published": "20251230T230756",
+          "relevance": 1.0,
+          "sentiment": 0.023869,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Archer-Daniels-Midland Q3 2025 Earnings Report: Revenue $20.37B - News and Statistics",
+          "summary": "Archer-Daniels-Midland (NYSE:ADM) reported its Q3 2025 earnings with revenue of $20.37 billion, a 2.2% year-on-year increase, but missed analyst estimates. Despite the revenue miss, the company beat adjusted EPS estimates, achieving $0.92 per share, and saw an improved free cash flow margin. CEO Juan Luciano highlighted the company's strong quarter in dynamic market conditions and strategic adjustments to meet customer needs.",
+          "source": "IndexBox",
+          "url": "https://www.indexbox.io/blog/adm-q3-2025-earnings-revenue-miss-adjusted-eps-beats-estimates/",
+          "time_published": "20251230T230736",
+          "relevance": 1.0,
+          "sentiment": 0.144443,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "AXT raises $100 million in public offering to expand indium phosphide production",
+          "summary": "AXT, Inc. announced the closing of an underwritten public offering, raising approximately $100 million in gross proceeds through the sale of 8,163,265 shares of common stock at $12.25 per share. The company plans to use the net proceeds to increase manufacturing capacity for indium phosphide substrates at its Beijing subsidiary, support R&D, and for general corporate purposes. This capital raise, supported by positive Q3 2025 earnings results, is strategically aimed at meeting growing industry demand and strengthening AXT's financial position.",
+          "source": "Investing.com Nigeria",
+          "url": "https://ng.investing.com/news/company-news/axt-raises-100-million-in-public-offering-to-expand-indium-phosphide-production-93CH-2270222",
+          "time_published": "20251230T220847",
+          "relevance": 1.0,
+          "sentiment": 0.645969,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Can Parker-Hannifin Sustain Growth as Aerospace Demand Surges?",
+          "summary": "Parker-Hannifin Corporation is experiencing significant growth in its Aerospace Systems segment, driven by strong demand in both commercial and military markets. This segment's robust performance, along with other market trends like clean technologies and automation, has led to a bullish fiscal 2026 outlook. However, the company's stock trades at a premium valuation compared to its industry peers.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/PH/pressreleases/36828235/can-parker-hannifin-sustain-growth-as-aerospace-demand-surges/",
+          "time_published": "20251230T220832",
+          "relevance": 1.0,
+          "sentiment": 0.409835,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Kimberly-Clark (KMB) Target Lowered as Citi Rebalances Household Care View",
+          "summary": "Citi has lowered its price target for Kimberly-Clark (KMB) to $95 from $100, maintaining a Sell rating, as it shifts its focus to household and personal care companies for 2026. The firm anticipates improved conditions in this sector as inventory destocking concludes and consumption comparisons ease. Kimberly-Clark is expanding its portfolio through the acquisition of Kenvue and increasing its manufacturing footprint in Vietnam, aiming for significant cost synergies and production boosts.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/kimberly-clark-kmb-target-lowered-as-citi-rebalances-household-care-view-1668249/",
+          "time_published": "20251230T230759",
+          "relevance": 1.0,
+          "sentiment": 0.025863,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "WW Grainger Inc Stock Price Live, Charts & News",
+          "summary": "This article provides a comprehensive overview of WW Grainger Inc. (GWW) stock, including its live price, charts, news, and fundamental data. It details the company's financial performance through balance sheets, income statements, and cash flow statements, alongside historical returns and key financial ratios. The report also includes recent US market news and information about W.W. Grainger as a leading industrial supply company.",
+          "source": "The Economic Times",
+          "url": "https://m.economictimes.com/markets/us-stocks/ww-grainger-inc/gww",
+          "time_published": "20251230T230756",
+          "relevance": 1.0,
+          "sentiment": 0.023869,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Archer-Daniels-Midland Q3 2025 Earnings Report: Revenue $20.37B - News and Statistics",
+          "summary": "Archer-Daniels-Midland (NYSE:ADM) reported its Q3 2025 earnings with revenue of $20.37 billion, a 2.2% year-on-year increase, but missed analyst estimates. Despite the revenue miss, the company beat adjusted EPS estimates, achieving $0.92 per share, and saw an improved free cash flow margin. CEO Juan Luciano highlighted the company's strong quarter in dynamic market conditions and strategic adjustments to meet customer needs.",
+          "source": "IndexBox",
+          "url": "https://www.indexbox.io/blog/adm-q3-2025-earnings-revenue-miss-adjusted-eps-beats-estimates/",
+          "time_published": "20251230T230736",
+          "relevance": 1.0,
+          "sentiment": 0.144443,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "AXT raises $100 million in public offering to expand indium phosphide production",
+          "summary": "AXT, Inc. announced the closing of an underwritten public offering, raising approximately $100 million in gross proceeds through the sale of 8,163,265 shares of common stock at $12.25 per share. The company plans to use the net proceeds to increase manufacturing capacity for indium phosphide substrates at its Beijing subsidiary, support R&D, and for general corporate purposes. This capital raise, supported by positive Q3 2025 earnings results, is strategically aimed at meeting growing industry demand and strengthening AXT's financial position.",
+          "source": "Investing.com Nigeria",
+          "url": "https://ng.investing.com/news/company-news/axt-raises-100-million-in-public-offering-to-expand-indium-phosphide-production-93CH-2270222",
+          "time_published": "20251230T220847",
+          "relevance": 1.0,
+          "sentiment": 0.645969,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Can Parker-Hannifin Sustain Growth as Aerospace Demand Surges?",
+          "summary": "Parker-Hannifin Corporation is experiencing significant growth in its Aerospace Systems segment, driven by strong demand in both commercial and military markets. This segment's robust performance, along with other market trends like clean technologies and automation, has led to a bullish fiscal 2026 outlook. However, the company's stock trades at a premium valuation compared to its industry peers.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/PH/pressreleases/36828235/can-parker-hannifin-sustain-growth-as-aerospace-demand-surges/",
+          "time_published": "20251230T220832",
+          "relevance": 1.0,
+          "sentiment": 0.409835,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "2 Mid-Cap Stocks to Own for Decades and 1 That Underwhelm",
+          "summary": "This article evaluates three mid-cap stocks, identifying two with significant upside potential and one recommended for divestment. It highlights Super Micro Computer (SMCI) and Insulet (PODD) as strong buys due to their market share growth, revenue expansion, and improving financials, while advising against C.H. Robinson Worldwide (CHRW) due to declining sales, low margins, and waning returns on capital. The analysis underscores the importance of solid fundamentals for long-term investment in mid-cap companies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/265151/2-mid-cap-stocks-to-own-for-decades-and-1-that-underwhelm",
+          "time_published": "20251230T233200",
+          "relevance": 1.0,
+          "sentiment": 0.235804,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The Truth About Portland General Electric: Quiet Utility Stock That Might Actually Be a Cheat Code",
+          "summary": "Portland General Electric (POR) is presented as a \"boring\" utility stock with hidden potential due to its steady cash flow, consistent dividends, and a significant clean-energy pivot. While not a flashy \"meme stock,\" its focus on renewables and grid modernization in a climate-conscious region could make it a solid long-term investment for stability and income, rather than quick gains. The article argues that its quiet nature might be its strength in a volatile market.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/the-truth-about-portland-general-electric-quiet-utility-stock-that-might/68442513",
+          "time_published": "20251230T230938",
+          "relevance": 1.0,
+          "sentiment": 0.199929,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "PG&E announces meager electrical, gas rate cuts starting Jan. 1. How much?",
+          "summary": "PG&E is implementing rate cuts for electricity and natural gas customers starting January 1st, marking the fourth such reduction in two years. Residential electric rates will decrease by 5%, leading to an estimated monthly saving of $7, and natural gas rates will fall by 3%, saving customers about $1 per month. These reductions are attributed to completed safety projects, lower power costs, and decreased greenhouse gas compliance costs.",
+          "source": "Sacramento Bee",
+          "url": "https://www.sacbee.com/news/california/article314065703.html",
+          "time_published": "20251230T230830",
+          "relevance": 1.0,
+          "sentiment": -0.074012,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Eastern International Secures First RMB 42.5 Million Photovoltaic Construction Contract",
+          "summary": "Eastern International Ltd. (ELOG) announced that its subsidiary, Guizhou Tianrun Zhicheng Construction Engineering Co., Ltd., secured a RMB 42.5 million (US$6.04 million) subcontract for a 50 MW photovoltaic power generation project. This marks the company's first venture into the new energy sector, diversifying its revenue beyond logistics. The project is scheduled to begin construction by December 31, 2025.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/ELOG-Q/pressreleases/36827327/eastern-international-secures-first-rmb-42-5-million-photovoltaic-construction-contract/",
+          "time_published": "20251230T220935",
+          "relevance": 1.0,
+          "sentiment": 0.403874,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Can Parker-Hannifin Sustain Growth as Aerospace Demand Surges?",
+          "summary": "Parker-Hannifin Corporation is experiencing significant growth in its Aerospace Systems segment, driven by strong demand in both commercial and military markets. This segment's robust performance, along with other market trends like clean technologies and automation, has led to a bullish fiscal 2026 outlook. However, the company's stock trades at a premium valuation compared to its industry peers.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/PH/pressreleases/36828235/can-parker-hannifin-sustain-growth-as-aerospace-demand-surges/",
+          "time_published": "20251230T220832",
+          "relevance": 1.0,
+          "sentiment": 0.421759,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "2 Mid-Cap Stocks to Own for Decades and 1 That Underwhelm",
+          "summary": "This article evaluates three mid-cap stocks, identifying two with significant upside potential and one recommended for divestment. It highlights Super Micro Computer (SMCI) and Insulet (PODD) as strong buys due to their market share growth, revenue expansion, and improving financials, while advising against C.H. Robinson Worldwide (CHRW) due to declining sales, low margins, and waning returns on capital. The analysis underscores the importance of solid fundamentals for long-term investment in mid-cap companies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/265151/2-mid-cap-stocks-to-own-for-decades-and-1-that-underwhelm",
+          "time_published": "20251230T233200",
+          "relevance": 1.0,
+          "sentiment": 0.235804,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The Truth About Portland General Electric: Quiet Utility Stock That Might Actually Be a Cheat Code",
+          "summary": "Portland General Electric (POR) is presented as a \"boring\" utility stock with hidden potential due to its steady cash flow, consistent dividends, and a significant clean-energy pivot. While not a flashy \"meme stock,\" its focus on renewables and grid modernization in a climate-conscious region could make it a solid long-term investment for stability and income, rather than quick gains. The article argues that its quiet nature might be its strength in a volatile market.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/the-truth-about-portland-general-electric-quiet-utility-stock-that-might/68442513",
+          "time_published": "20251230T230938",
+          "relevance": 1.0,
+          "sentiment": 0.199929,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "PG&E announces meager electrical, gas rate cuts starting Jan. 1. How much?",
+          "summary": "PG&E is implementing rate cuts for electricity and natural gas customers starting January 1st, marking the fourth such reduction in two years. Residential electric rates will decrease by 5%, leading to an estimated monthly saving of $7, and natural gas rates will fall by 3%, saving customers about $1 per month. These reductions are attributed to completed safety projects, lower power costs, and decreased greenhouse gas compliance costs.",
+          "source": "Sacramento Bee",
+          "url": "https://www.sacbee.com/news/california/article314065703.html",
+          "time_published": "20251230T230830",
+          "relevance": 1.0,
+          "sentiment": -0.074012,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Eastern International Secures First RMB 42.5 Million Photovoltaic Construction Contract",
+          "summary": "Eastern International Ltd. (ELOG) announced that its subsidiary, Guizhou Tianrun Zhicheng Construction Engineering Co., Ltd., secured a RMB 42.5 million (US$6.04 million) subcontract for a 50 MW photovoltaic power generation project. This marks the company's first venture into the new energy sector, diversifying its revenue beyond logistics. The project is scheduled to begin construction by December 31, 2025.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/ELOG-Q/pressreleases/36827327/eastern-international-secures-first-rmb-42-5-million-photovoltaic-construction-contract/",
+          "time_published": "20251230T220935",
+          "relevance": 1.0,
+          "sentiment": 0.403874,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Can Parker-Hannifin Sustain Growth as Aerospace Demand Surges?",
+          "summary": "Parker-Hannifin Corporation is experiencing significant growth in its Aerospace Systems segment, driven by strong demand in both commercial and military markets. This segment's robust performance, along with other market trends like clean technologies and automation, has led to a bullish fiscal 2026 outlook. However, the company's stock trades at a premium valuation compared to its industry peers.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/PH/pressreleases/36828235/can-parker-hannifin-sustain-growth-as-aerospace-demand-surges/",
+          "time_published": "20251230T220832",
+          "relevance": 1.0,
+          "sentiment": 0.421759,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "JD.com and Huawei forge technology collaboration",
+          "summary": "JD.com and Huawei Technologies have announced a deep technical cooperation aimed at optimizing advertising services through joint innovation projects. This collaboration will focus on low-latency inference for advertising, intelligent AI models, and cloud computing infrastructure to enhance stability and efficiency during peak traffic periods. The partnership could also accelerate AI-driven personalized marketing and serve as a blueprint for leveraging advanced AI in e-commerce.",
+          "source": "AzerNews",
+          "url": "https://www.azernews.az/region/252381.html",
+          "time_published": "20251230T232300",
+          "relevance": 1.0,
+          "sentiment": 0.478258,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Visa updates class B stock conversion rates following $500 million escrow deposit By Investing.com",
+          "summary": "Visa Inc. announced new conversion rates for its class B-1 and B-2 common stock after depositing $500 million into its U.S. litigation escrow account as part of its retrospective responsibility plan. This action, effective December 23, resulted in a decrease in conversion rates for both stock classes, effectively reducing their as-converted share counts. The change, which Visa states has a similar effect on earnings per share as repurchasing class A common stock, aligns with the company's strong financial performance and history of dividend payments.",
+          "source": "Investing.com Australia",
+          "url": "https://m.au.investing.com/news/sec-filings/visa-updates-class-b-stock-conversion-rates-following-500-million-escrow-deposit-93CH-4187252?ampMode=1",
+          "time_published": "20251230T230923",
+          "relevance": 1.0,
+          "sentiment": 0.320274,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Sports bar and equipment rental sites get new landlord in $5.4M deal",
+          "summary": "Four Corners Property Trust (FCPT) has acquired a United Rentals property and a Buffalo Wild Wings property for $5.4 million. Both properties are located in high-traffic areas in Alabama and Kentucky, respectively, and are corporate-operated under long-term, net leases with a weighted average of nine years remaining. This transaction was priced at a 6.9% cap rate on rent.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/FCPT/fcpt-announces-acquisition-of-a-united-rentals-and-a-buffalo-wild-3rppp1gwpwa8.html",
+          "time_published": "20251230T220934",
+          "relevance": 1.0,
+          "sentiment": 0.031535,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Osaic Holdings Inc. Purchases 13,639 Shares of Coca-Cola Consolidated, Inc. $COKE",
+          "summary": "Osaic Holdings Inc. significantly increased its stake in Coca-Cola Consolidated, Inc. (NASDAQ:COKE), purchasing an additional 13,639 shares in the second quarter, bringing its total holdings to 15,501 shares valued at $1.808 million. This acquisition reflects a 732.5% boost in its position. Other institutional investors also adjusted their holdings, contributing to the 48.24% institutional ownership of the company.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-osaic-holdings-inc-purchases-13639-shares-of-coca-cola-consolidated-inc-coke-2025-12-30/",
+          "time_published": "20251230T220845",
+          "relevance": 1.0,
+          "sentiment": 0.291195,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "[Form 4] NIKE, Inc. Insider Trading Activity",
+          "summary": "NIKE, Inc. (NKE) has reported that its Chairman Emeritus acquired 4,500,000 shares of Class A Common Stock, convertible into Class B Common Stock, through a private distribution. This transaction, dated December 29, 2025, significantly increased the reporting person's beneficial ownership in the company. The filing also details indirect holdings through a spouse, though beneficial ownership of those shares is disclaimed.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/NKE/form-4-nike-inc-insider-trading-activity-d7737096bb40.html",
+          "time_published": "20251230T220815",
+          "relevance": 1.0,
+          "sentiment": 0.051751,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLK": [
+        {
+          "title": "Prime Medicine, Inc. (PRME) Announces NEJM Publication Of PM359 Data",
+          "summary": "Prime Medicine, Inc. announced the publication of Phase 1/2 clinical results for PM359 in the New England Journal of Medicine, an experimental autologous hematopoietic stem cell therapy for p47phox chronic granulomatous condition. Preliminary data from two patients showed fast neutrophil engraftment and no new CGD-related problems or adverse events linked to PM359. LifeSci Capital initiated coverage on Prime Medicine with an Outperform rating and a $6 price target, citing the company's potential in gene editing treatments for various diseases.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/prime-medicine-inc-prme-announces-nejm-publication-of-pm359-data-1668110/?amp=1",
+          "time_published": "20251230T234500",
+          "relevance": 1.0,
+          "sentiment": 0.518556,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "(DHS) Movement Within Algorithmic Entry Frameworks",
+          "summary": "Stock Traders Daily presents an AI-driven analysis for Wisdomtree U.s. High Dividend Fund (NYSE: DHS), indicating a neutral sentiment across all time horizons with a mid-channel oscillation pattern. The analysis identifies a 9.6:1 risk-reward setup targeting a 2.7% gain. Three distinct trading strategies\u2014Position, Momentum Breakout, and Risk Hedging\u2014are detailed, offering entry, target, and stop-loss levels for different risk profiles.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/43/DHS_Movement_Within_Algorithmic_Entry_Frameworks_123025113401_1767155641.html",
+          "time_published": "20251230T233400",
+          "relevance": 1.0,
+          "sentiment": 0.02838,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "2 Mid-Cap Stocks to Own for Decades and 1 That Underwhelm",
+          "summary": "This article evaluates three mid-cap stocks, identifying two with significant upside potential and one recommended for divestment. It highlights Super Micro Computer (SMCI) and Insulet (PODD) as strong buys due to their market share growth, revenue expansion, and improving financials, while advising against C.H. Robinson Worldwide (CHRW) due to declining sales, low margins, and waning returns on capital. The analysis underscores the importance of solid fundamentals for long-term investment in mid-cap companies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/265151/2-mid-cap-stocks-to-own-for-decades-and-1-that-underwhelm",
+          "time_published": "20251230T233200",
+          "relevance": 1.0,
+          "sentiment": 0.252541,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "JD.com and Huawei forge technology collaboration",
+          "summary": "JD.com and Huawei Technologies have announced a deep technical cooperation aimed at optimizing advertising services through joint innovation projects. This collaboration will focus on low-latency inference for advertising, intelligent AI models, and cloud computing infrastructure to enhance stability and efficiency during peak traffic periods. The partnership could also accelerate AI-driven personalized marketing and serve as a blueprint for leveraging advanced AI in e-commerce.",
+          "source": "AzerNews",
+          "url": "https://www.azernews.az/region/252381.html",
+          "time_published": "20251230T232300",
+          "relevance": 1.0,
+          "sentiment": 0.494688,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Visa updates class B stock conversion rates following $500 million escrow deposit By Investing.com",
+          "summary": "Visa Inc. announced new conversion rates for its class B-1 and B-2 common stock after depositing $500 million into its U.S. litigation escrow account as part of its retrospective responsibility plan. This action, effective December 23, resulted in a decrease in conversion rates for both stock classes, effectively reducing their as-converted share counts. The change, which Visa states has a similar effect on earnings per share as repurchasing class A common stock, aligns with the company's strong financial performance and history of dividend payments.",
+          "source": "Investing.com Australia",
+          "url": "https://m.au.investing.com/news/sec-filings/visa-updates-class-b-stock-conversion-rates-following-500-million-escrow-deposit-93CH-4187252?ampMode=1",
+          "time_published": "20251230T230923",
+          "relevance": 1.0,
+          "sentiment": 0.306947,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "JD.com and Huawei forge technology collaboration",
+          "summary": "JD.com and Huawei Technologies have announced a deep technical cooperation aimed at optimizing advertising services through joint innovation projects. This collaboration will focus on low-latency inference for advertising, intelligent AI models, and cloud computing infrastructure to enhance stability and efficiency during peak traffic periods. The partnership could also accelerate AI-driven personalized marketing and serve as a blueprint for leveraging advanced AI in e-commerce.",
+          "source": "AzerNews",
+          "url": "https://www.azernews.az/region/252381.html",
+          "time_published": "20251230T232300",
+          "relevance": 1.0,
+          "sentiment": 0.478258,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Visa updates class B stock conversion rates following $500 million escrow deposit By Investing.com",
+          "summary": "Visa Inc. announced new conversion rates for its class B-1 and B-2 common stock after depositing $500 million into its U.S. litigation escrow account as part of its retrospective responsibility plan. This action, effective December 23, resulted in a decrease in conversion rates for both stock classes, effectively reducing their as-converted share counts. The change, which Visa states has a similar effect on earnings per share as repurchasing class A common stock, aligns with the company's strong financial performance and history of dividend payments.",
+          "source": "Investing.com Australia",
+          "url": "https://m.au.investing.com/news/sec-filings/visa-updates-class-b-stock-conversion-rates-following-500-million-escrow-deposit-93CH-4187252?ampMode=1",
+          "time_published": "20251230T230923",
+          "relevance": 1.0,
+          "sentiment": 0.320274,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Sports bar and equipment rental sites get new landlord in $5.4M deal",
+          "summary": "Four Corners Property Trust (FCPT) has acquired a United Rentals property and a Buffalo Wild Wings property for $5.4 million. Both properties are located in high-traffic areas in Alabama and Kentucky, respectively, and are corporate-operated under long-term, net leases with a weighted average of nine years remaining. This transaction was priced at a 6.9% cap rate on rent.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/FCPT/fcpt-announces-acquisition-of-a-united-rentals-and-a-buffalo-wild-3rppp1gwpwa8.html",
+          "time_published": "20251230T220934",
+          "relevance": 1.0,
+          "sentiment": 0.031535,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Osaic Holdings Inc. Purchases 13,639 Shares of Coca-Cola Consolidated, Inc. $COKE",
+          "summary": "Osaic Holdings Inc. significantly increased its stake in Coca-Cola Consolidated, Inc. (NASDAQ:COKE), purchasing an additional 13,639 shares in the second quarter, bringing its total holdings to 15,501 shares valued at $1.808 million. This acquisition reflects a 732.5% boost in its position. Other institutional investors also adjusted their holdings, contributing to the 48.24% institutional ownership of the company.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-osaic-holdings-inc-purchases-13639-shares-of-coca-cola-consolidated-inc-coke-2025-12-30/",
+          "time_published": "20251230T220845",
+          "relevance": 1.0,
+          "sentiment": 0.291195,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "[Form 4] NIKE, Inc. Insider Trading Activity",
+          "summary": "NIKE, Inc. (NKE) has reported that its Chairman Emeritus acquired 4,500,000 shares of Class A Common Stock, convertible into Class B Common Stock, through a private distribution. This transaction, dated December 29, 2025, significantly increased the reporting person's beneficial ownership in the company. The filing also details indirect holdings through a spouse, though beneficial ownership of those shares is disclaimed.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/NKE/form-4-nike-inc-insider-trading-activity-d7737096bb40.html",
+          "time_published": "20251230T220815",
+          "relevance": 1.0,
+          "sentiment": 0.051751,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "Prime Medicine, Inc. (PRME) Announces NEJM Publication Of PM359 Data",
+          "summary": "Prime Medicine, Inc. announced the publication of Phase 1/2 clinical results for PM359 in the New England Journal of Medicine, an experimental autologous hematopoietic stem cell therapy for p47phox chronic granulomatous condition. Preliminary data from two patients showed fast neutrophil engraftment and no new CGD-related problems or adverse events linked to PM359. LifeSci Capital initiated coverage on Prime Medicine with an Outperform rating and a $6 price target, citing the company's potential in gene editing treatments for various diseases.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/prime-medicine-inc-prme-announces-nejm-publication-of-pm359-data-1668110/?amp=1",
+          "time_published": "20251230T234500",
+          "relevance": 1.0,
+          "sentiment": 0.533774,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Why (DIAX) Price Action Is Critical for Tactical Trading",
+          "summary": "This article analyzes the price action of Nuveen Dow 30sm Dynamic Overwrite Fund Of Beneficial Interest (NASDAQ: DIAX), highlighting a mid-channel oscillation pattern and a favorable risk-reward short setup. It details three institutional trading strategies\u2014Position Trading, Momentum Breakout, and Risk Hedging\u2014along with a multi-timeframe signal analysis, all suggesting a neutral sentiment across various horizons. The author recommends a wait-and-see approach for tactical trading given the current market signals.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/81/Why_DIAX_Price_Action_Is_Critical_for_Tactical_Trading_123025114002_1767156002.html",
+          "time_published": "20251230T234000",
+          "relevance": 1.0,
+          "sentiment": 0.011174,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "The Truth About CubeSmart: Why Everyone Is Suddenly Talking About This Storage Stock",
+          "summary": "CubeSmart (CUBE) is gaining traction online for its \"boring but rich\" business model in the self-storage REIT sector, attracting investors seeking passive income and stability. The article examines whether this buzz is justified, comparing CubeSmart to competitors, and offering a verdict on its suitability for long-term, income-focused portfolios.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/ueberblick/the-truth-about-cubesmart-why-everyone-is-suddenly-talking-about-this/68442408",
+          "time_published": "20251230T232812",
+          "relevance": 1.0,
+          "sentiment": 0.261953,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "(DGS) Movement as an Input in Quant Signal Sets",
+          "summary": "This article analyzes Wisdomtree Emerging Markets Smallcap Dividend Fund (NYSE: DGS), highlighting a neutral near- and mid-term outlook with a long-term positive bias. It presents three AI-generated trading strategies\u2014Position Trading, Momentum Breakout, and Risk Hedging\u2014tailored for different risk profiles. The analysis also details multi-timeframe signal strengths, support, and resistance levels for DGS.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/34/DGS_Movement_as_an_Input_in_Quant_Signal_Sets_123025112401_1767155041.html",
+          "time_published": "20251230T232400",
+          "relevance": 1.0,
+          "sentiment": 0.109248,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "The Truth About Portland General Electric: Quiet Utility Stock That Might Actually Be a Cheat Code",
+          "summary": "Portland General Electric (POR) is presented as a \"boring\" utility stock with hidden potential due to its steady cash flow, consistent dividends, and a significant clean-energy pivot. While not a flashy \"meme stock,\" its focus on renewables and grid modernization in a climate-conscious region could make it a solid long-term investment for stability and income, rather than quick gains. The article argues that its quiet nature might be its strength in a volatile market.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/the-truth-about-portland-general-electric-quiet-utility-stock-that-might/68442513",
+          "time_published": "20251230T230938",
+          "relevance": 1.0,
+          "sentiment": 0.167234,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "key_themes": [
+      "Smart money rotation from tech hardware into defensive sectors with steady cash flows",
+      "Biotech breakthroughs and FDA fast-track approvals driving Healthcare outperformance",
+      "Industrial capacity investments and aerospace demand supporting cyclical strength",
+      "Fed policy uncertainty creating headwinds for interest-sensitive Financial sector",
+      "Clean energy transition benefiting Utilities and Energy infrastructure investments"
+    ],
+    "sector_implications": "News themes support the defensive rotation with Healthcare innovation, Real Estate stability, and industrial resilience offsetting Financial sector concerns from hawkish Fed policy."
+  },
+  "sector_summary": "Market exhibits CONTRACTION phase with NEUTRAL rotation bias as sectors consolidate year-end gains. Favor defensive leaders Real Estate (XLRE), Healthcare (XLV), and Communication Services (XLC) which benefit from rate cut expectations, while Materials (XLB) and Industrials (XLI) maintain cyclical strength. Avoid Financials (XLF) showing WEAKENING signals amid hawkish Fed concerns. No crossover alerts indicate stable trends heading into 2026.",
+  "cycle_phase": "CONTRACTION",
+  "cycle_confidence": "MEDIUM",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 1,
+      "mrs_20": 0.78,
+      "mrs_5": 1.03,
+      "roc_3": 1.78,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.78%, MRS_5=1.03%). Strong positive momentum with both short and long-term relative strength showing consistent outperformance. News sentiment at +0.186 supports the technical picture with CubeSmart gaining attention for its stable business model and Four Corners Property Trust expanding acquisitions.",
+      "news_context": {
+        "sentiment": 0.186,
+        "article_count": 10,
+        "themes": "REIT acquisitions, self-storage demand, property trust expansion, stable income models"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 2,
+      "mrs_20": 1.42,
+      "mrs_5": 0.79,
+      "roc_3": 0.68,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.42%, MRS_5=0.79%). Strong 20-day relative strength with positive 5-day momentum. News sentiment at +0.227 reflects smart money rotation into communication services as highlighted by sector rotation articles emphasizing steady cash flow and reasonable valuations.",
+      "news_context": {
+        "sentiment": 0.227,
+        "article_count": 12,
+        "themes": "Smart money rotation, Fed rate cuts benefiting sector, steady cash flow focus, defensive stability"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 3,
+      "mrs_20": 1.11,
+      "mrs_5": 0.49,
+      "roc_3": 0.95,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.11%, MRS_5=0.49%). Solid relative performance with positive momentum across timeframes. Strong news sentiment at +0.282 driven by biotech advances including Prime Medicine's NEJM publication, Beam Therapeutics trial data, and FDA fast-tracking Merck drugs.",
+      "news_context": {
+        "sentiment": 0.282,
+        "article_count": 10,
+        "themes": "Gene editing breakthroughs, FDA fast-track approvals, biotech trial success, defensive rotation beneficiary"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 4,
+      "mrs_20": 1.94,
+      "mrs_5": 0.26,
+      "roc_3": 0.22,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.94%, MRS_5=0.26%). Strongest 20-day relative performance among all sectors with positive short-term momentum. News sentiment at +0.219 supported by AXT's $100M capital raise for indium phosphide expansion and ADM's earnings beat despite revenue miss.",
+      "news_context": {
+        "sentiment": 0.219,
+        "article_count": 10,
+        "themes": "Semiconductor substrate expansion, agricultural earnings resilience, industrial supply strength, capacity investments"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 5,
+      "mrs_20": 0.57,
+      "mrs_5": 0.11,
+      "roc_3": -0.18,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.57%, MRS_5=0.11%). Maintaining positive relative strength despite slight recent weakness in ROC_3. News sentiment at +0.219 with Parker-Hannifin benefiting from aerospace demand surge and industrial supply companies showing resilience.",
+      "news_context": {
+        "sentiment": 0.219,
+        "article_count": 10,
+        "themes": "Aerospace demand surge, industrial supply resilience, automation trends, clean technology adoption"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 6,
+      "mrs_20": 0.29,
+      "mrs_5": 1.45,
+      "roc_3": 2.33,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.29%). Despite strong recent momentum (MRS_5=1.45%), the sector remains in neutral territory. News sentiment at +0.278 reflects mixed signals with renewable energy investments offsetting traditional energy concerns.",
+      "news_context": {
+        "sentiment": 0.278,
+        "article_count": 10,
+        "themes": "Renewable energy investments, photovoltaic projects, utility rate adjustments, clean energy transition"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 7,
+      "mrs_20": 0.27,
+      "mrs_5": 0.84,
+      "roc_3": 1.88,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.27%). Strong recent momentum with MRS_5 at 0.84% but overall performance remains neutral. News sentiment at +0.278 supported by Portland General Electric's clean energy pivot and PG&E rate cuts improving customer relations.",
+      "news_context": {
+        "sentiment": 0.278,
+        "article_count": 10,
+        "themes": "Clean energy transition, utility rate cuts, grid modernization, renewable energy focus"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 8,
+      "mrs_20": -0.12,
+      "mrs_5": 0.6,
+      "roc_3": 1.06,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.12%). Slight underperformance over 20 days but showing positive momentum with MRS_5 at 0.60%. News sentiment at +0.255 reflects institutional interest in Coca-Cola Consolidated and Nike insider activity.",
+      "news_context": {
+        "sentiment": 0.255,
+        "article_count": 10,
+        "themes": "Institutional ownership increases, insider activity, stable dividend models, defensive positioning"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 9,
+      "mrs_20": 0.15,
+      "mrs_5": 0.07,
+      "roc_3": -0.0,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.15%). Minimal relative performance with weak momentum signals. News sentiment at +0.204 driven by JD.com-Huawei collaboration and Visa's financial engineering, but overall sector showing consolidation phase.",
+      "news_context": {
+        "sentiment": 0.204,
+        "article_count": 10,
+        "themes": "AI collaboration projects, cloud computing partnerships, payment system optimization, tech consolidation"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 10,
+      "mrs_20": -0.2,
+      "mrs_5": -0.54,
+      "roc_3": -1.29,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.20%). Showing weakness across all timeframes with negative momentum. News sentiment at +0.255 supported by JD.com partnerships and Visa updates, but technical signals suggest caution.",
+      "news_context": {
+        "sentiment": 0.255,
+        "article_count": 10,
+        "themes": "E-commerce partnerships, payment system updates, retail technology adoption, consumer spending patterns"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 11,
+      "mrs_20": 1.31,
+      "mrs_5": -0.02,
+      "roc_3": -0.73,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=1.31%, MRS_5=-0.02%). Despite strong 20-day performance, recent momentum has turned negative with declining ROC_3. Lowest news sentiment at +0.145 reflects sector headwinds as markets process hawkish Fed minutes.",
+      "news_context": {
+        "sentiment": 0.145,
+        "article_count": 10,
+        "themes": "Fed policy uncertainty, interest rate sensitivity, financial engineering activities, sector rotation away from banks"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLRE": 1.2,
+    "XLC": 1.2,
+    "XLV": 1.2,
+    "XLB": 1.2,
+    "XLI": 1.2,
+    "XLE": 1.0,
+    "XLU": 1.0,
+    "XLP": 1.0,
+    "XLK": 1.0,
+    "XLY": 1.0,
+    "XLF": 0.75
+  },
+  "cycle_reasoning": "CONTRACTION phase identified due to mixed sector leadership with no clear cyclical or defensive dominance. While 5 sectors show TREND signals, they span both defensive (Real Estate, Healthcare, Communication) and cyclical (Materials, Industrials) categories. The absence of Technology and Consumer Cyclical leadership, combined with Financial weakness, suggests economic uncertainty. The LOW rotation velocity indicates stable but cautious positioning as markets process Fed policy implications.",
+  "rotation_analysis": "The sector rotation pattern reveals a market in transition, with both defensive and cyclical sectors showing strength while traditional growth areas consolidate. Real Estate leads with 1.03% 5-day momentum, benefiting from REIT acquisition activity and stable income models. Healthcare maintains strong positioning with biotech breakthroughs and FDA approvals driving sentiment. Basic Materials shows the strongest 20-day performance at 1.94%, supported by industrial capacity investments. Communication Services benefits from smart money flows seeking steady cash flows. The notable weakness in Financials (-0.02% 5-day momentum) reflects hawkish Fed concerns, while Technology and Consumer sectors remain range-bound. This mixed rotation suggests market uncertainty as investors balance growth and defensive positioning heading into 2026.",
+  "l1_alignment": "L1's NORMAL regime with defensive tilt recommendation aligns well with the mixed sector rotation showing both defensive leaders (XLRE, XLV, XLC) and cyclical strength (XLB, XLI). The AGGRESSIVE position bias supports the 5 TREND sectors, while the defensive tilt matches the underperformance in rate-sensitive Financials and consolidation in growth sectors like Technology.",
+  "key_insight": "The market is exhibiting a rare balanced rotation where both defensive and cyclical sectors are leading simultaneously, suggesting investors are positioning for multiple scenarios as they process hawkish Fed signals while maintaining exposure to economic growth themes - this creates opportunity in quality names across sectors rather than concentrated bets.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: CONTRACTION (MEDIUM confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 shows NORMAL regime with AGGRESSIVE bias but defensive tilt recommended. Sector rotation shows mixed signals with 5 TREND sectors (Real Estate, Communication, Healthcare, Materials, Industrials) and 1 WEAKENING (Financials). The defensive tilt in L1 aligns with Healthcare and Real Estate leadership, while the AGGRESSIVE bias supports Materials and Industrials strength.\n\nStep 2 - Signal Validation:\nAll v6.1 signals validated against thresholds. 5 sectors in Zone A (TREND), 5 in Zone E (NEUTRAL), 1 in Zone B (WEAKENING). No anomalies detected. Signal distribution shows balanced rotation with no extreme concentrations. MRS_20 ranges from -0.20% to 1.94%, MRS_5 from -0.54% to 1.45%, all within normal ranges.\n\nStep 3 - Zone Analysis:\nActive zones: Zone A (5 sectors - XLRE, XLC, XLV, XLB, XLI), Zone E (5 sectors - XLE, XLU, XLP, XLK, XLY), Zone B (1 sector - XLF). No sectors in toxic Zone C or momentum Zone F. Rotation direction is mixed with both defensive (XLRE, XLV) and cyclical (XLB, XLI) sectors leading, suggesting market uncertainty.\n\nStep 4 - Conflict Resolution:\nL1 NORMAL regime with defensive tilt aligns well with mixed sector rotation. The presence of both defensive leaders (Real Estate, Healthcare) and cyclical strength (Materials, Industrials) reflects the balanced risk sentiment described in L1. Financial weakness (XLF WEAKENING) supports the hawkish Fed narrative driving defensive positioning.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nCONTRACTION phase identified due to mixed sector leadership with no clear cyclical or defensive dominance. While 5 sectors show TREND signals, they span both defensive (Real Estate, Healthcare, Communication) and cyclical (Materials, Industrials) categories. The absence of Technology and Consumer Cyclical leadership, combined with Financial weakness, suggests economic uncertainty. The LOW rotation velocity indicates stable but cautious positioning as markets process Fed policy implications.\n\nKey Insight: The market is exhibiting a rare balanced rotation where both defensive and cyclical sectors are leading simultaneously, suggesting investors are positioning for multiple scenarios as they process hawkish Fed signals while maintaining exposure to economic growth themes - this creates opportunity in quality names across sectors rather than concentrated bets."
+}

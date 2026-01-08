@@ -42,7 +42,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .playwright-mcp/
-reports/
+# Ignore root-level reports (not src/app/api/reports/)
+/reports/
 
 # Claude Code local files
 CLAUDE.md

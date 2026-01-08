@@ -1,0 +1,929 @@
+{
+  "contract_id": "l2_2025-12-31",
+  "trading_date": "2025-12-31",
+  "generated_at": "2026-01-01T23:29:49.182138",
+  "valid_until": "2026-01-02T23:29:49.182138",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-31",
+  "sector_news": {
+    "total_articles": 112,
+    "avg_sentiment": 0.201,
+    "bullish_sectors": [
+      "XLC",
+      "XLB",
+      "XLI",
+      "XLK",
+      "XLF"
+    ],
+    "bearish_sectors": [],
+    "sector_sentiment": {
+      "XLC": {
+        "avg_sentiment": 0.295,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.082,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLV": {
+        "avg_sentiment": 0.131,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLB": {
+        "avg_sentiment": 0.414,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLE": {
+        "avg_sentiment": 0.114,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLU": {
+        "avg_sentiment": 0.114,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLP": {
+        "avg_sentiment": 0.106,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLI": {
+        "avg_sentiment": 0.414,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLK": {
+        "avg_sentiment": 0.283,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": 0.106,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLF": {
+        "avg_sentiment": 0.155,
+        "article_count": 10,
+        "label": "Bullish"
+      }
+    },
+    "top_headlines": {
+      "XLC": [
+        {
+          "title": "Sector Rotation: 2 Smart Money Moves for 2026",
+          "summary": "With the Federal Reserve lowering interest rates in mid-December 2025, the market is undergoing a significant sector rotation from hardware and semiconductors to sectors with more reasonable valuations and steady cash flow. Investors are shifting capital into Communication Services and Healthcare, driven by lower borrowing costs and the attractiveness of dividend-paying stocks. By investing in ETFs like the Communication Services Select Sector SPDR Fund (XLC) and the Health Care Select Sector SPDR Fund (XLV), investors can build a diversified portfolio that balances growth potential with defensive stability for 2026.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/DIS/pressreleases/36801139/sector-rotation-2-smart-money-moves-for-2026/",
+          "time_published": "20251226T170926",
+          "relevance": 1.0,
+          "sentiment": 0.299878,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Sector Rotation: 2 Smart Money Moves for 2026",
+          "summary": "As the Federal Reserve lowers interest rates in late 2025, the market is undergoing a sector rotation away from hardware and semiconductor investments. Smart money is now targeting sectors with reasonable valuations, steady cash flow, and defensive stability, with Communication Services and Healthcare emerging as key beneficiaries. Investors can leverage the Communication Services Select Sector SPDR Fund (XLC) for growth and the Health Care Select Sector SPDR Fund (XLV) for defensive stability and income, employing a \"barbell strategy\" to balance risk and reward in 2026.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/UNH-N/pressreleases/36801142/sector-rotation-2-smart-money-moves-for-2026/",
+          "time_published": "20251226T061500",
+          "relevance": 1.0,
+          "sentiment": 0.40246,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Cummins announces $50m investment in Daventry manufacturing facility",
+          "summary": "Cummins is investing $50 million in its Daventry manufacturing facility to strengthen the UK's role in delivering reliable back-up power for critical global infrastructure, particularly for data centers, healthcare, and marine applications. This investment is part of a larger $200 million package aimed at increasing manufacturing capacity and refurbishing test facilities. The move is expected to secure skilled jobs, bolster local communities, and support the growing demand for power generation products worldwide.",
+          "source": "The Manufacturer",
+          "url": "https://www.themanufacturer.com/articles/cummins-announces-50m-investment-in-daventry-manufacturing-facility/",
+          "time_published": "20260101T135836",
+          "relevance": 1.0,
+          "sentiment": 0.409292,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "VIRGINIA RETIREMENT SYSTEMS ET Al Sells 190,400 Shares of Cisco Systems, Inc. $CSCO",
+          "summary": "Virginia Retirement Systems significantly reduced its stake in Cisco Systems, Inc. (NASDAQ:CSCO) by 65.4% in the third quarter, selling 190,400 shares. This move leaves them with 100,511 shares valued at approximately $6.88 million. The report also highlights recent insider selling from Cisco's CEO Charles Robbins and Director Michael D. Capellas, contributing to over $81 million in insider sales over the last 90 days, despite the company exceeding Q3 EPS and revenue estimates and maintaining a \"Moderate Buy\" consensus rating from analysts.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-virginia-retirement-systems-et-al-sells-190400-shares-of-cisco-systems-inc-csco-2026-01-01/",
+          "time_published": "20260101T121110",
+          "relevance": 1.0,
+          "sentiment": 0.038297,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Sandisk stock dips after-hours as SNDK tees up Jan. 29 earnings: what investors watch next",
+          "summary": "Sandisk's stock dipped in after-hours trading as the company prepares for its fiscal second-quarter earnings report on January 29. Investors are closely watching for signs that NAND flash memory chips can maintain pricing momentum into 2026, especially given the company's significant 2025 growth fueled by AI-driven demand. The upcoming report will also provide updates on margins, inventory, supply discipline, and engagement with hyperscaler cloud customers.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/sandisk-stock-dips-after-hours-as-sndk-tees-up-jan-29-earnings-what-investors-watch-next/",
+          "time_published": "20260101T120934",
+          "relevance": 1.0,
+          "sentiment": -0.32271,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "SITE Centers Announces Sale of Perimeter Pointe",
+          "summary": "SITE Centers Corp. announced the sale of Perimeter Pointe in Atlanta, GA, for approximately $48.0 million. The company repaid its existing mortgage facility in full on December 18, 2025, and no proceeds from this sale were used for debt repayment. SITE Centers is a self-administered and self-managed REIT operating open-air shopping centers.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251230641259/en/SITE-Centers-Announces-Sale-of-Perimeter-Pointe",
+          "time_published": "20260101T141006",
+          "relevance": 1.0,
+          "sentiment": 0.232691,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Vanderbilt University Boosts Stock Position in Prologis, Inc. $PLD",
+          "summary": "Vanderbilt University increased its stake in Prologis, Inc. by 24.5% during the third quarter, bringing its total holdings to 67,661 shares valued at $7.75 million, making it the 15th largest position in the university's portfolio. Institutional investors collectively own 93.5% of Prologis, with major shareholders including Vanguard and State Street. Prologis recently paid a quarterly dividend of $1.01, but has a high payout ratio, and analysts have a \"Moderate Buy\" consensus rating with an average price target of $128.24.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-vanderbilt-university-boosts-stock-position-in-prologis-inc-pld-2026-01-01/",
+          "time_published": "20260101T123242",
+          "relevance": 1.0,
+          "sentiment": 0.313553,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "VIRGINIA RETIREMENT SYSTEMS ET Al Sells 52,000 Shares of Ventas, Inc. $VTR",
+          "summary": "VIRGINIA RETIREMENT SYSTEMS ET Al reduced its stake in Ventas, Inc. by 23.6%, selling 52,000 shares and retaining 167,970 shares valued at $11.76 million. Institutional investors now hold approximately 94.18% of the company, while insiders sold a combined 673,268 shares worth about $49.68 million in the past three months. Analysts maintain a \"Moderate Buy\" rating for Ventas with a target price of $79.31, following strong Q3 results and a set FY2025 EPS guidance.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-virginia-retirement-systems-et-al-sells-52000-shares-of-ventas-inc-vtr-2026-01-01/",
+          "time_published": "20260101T113708",
+          "relevance": 1.0,
+          "sentiment": 0.108684,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "NETSTREIT Corp Achieves BBB- Credit Rating From Fitch Ratings",
+          "summary": "NETSTREIT Corp announced on December 30, 2025, that it has received a BBB- issuer credit rating with a stable outlook from Fitch Ratings. This rating reflects the company's solid property portfolio, high occupancy rates, and minimal credit losses, which are expected to lead to substantial interest expense savings and improved access to debt markets.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/tradingview:fb3a5ba7029ff:0-netstreit-corp-achieves-bbb-credit-rating-from-fitch-ratings/",
+          "time_published": "20260101T110924",
+          "relevance": 1.0,
+          "sentiment": 0.891904,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "OneConstruction Group's (NASDAQ:ONEG) Returns On Capital Not Reflecting Well On The Business",
+          "summary": "OneConstruction Group's (NASDAQ:ONEG) Return on Capital Employed (ROCE) has decreased significantly over the last two years, now standing at a low 5.0%, which is below the industry average. This decline is concerning as the business is employing more capital while revenue has slipped, suggesting potential market share loss and inefficient reinvestment. Investors have reacted negatively, with the stock declining 57% in the past year.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/capital-goods/nasdaq-oneg/oneconstruction-group/news/oneconstruction-groups-nasdaqoneg-returns-on-capital-not-ref/amp",
+          "time_published": "20260101T110845",
+          "relevance": 1.0,
+          "sentiment": -0.452879,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "Modular Medical receives nasdaq extension to regain compliance",
+          "summary": "Modular Medical Inc. (NASDAQ:MODD) has been granted a 180-day extension by Nasdaq to meet the minimum bid price requirement of $1.00 per share, giving the company until June 29, 2026. Currently trading at $0.36, MODD faces significant challenges, as failure to comply could lead to delisting. The company, focused on insulin delivery technology, recently announced a $4.68 million public offering and is progressing with its Pivot tubeless insulin patch pump, pending FDA clearance.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/modular-medical-receives-nasdaq-extension-to-regain-compliance-93CH-4426530",
+          "time_published": "20260101T140934",
+          "relevance": 1.0,
+          "sentiment": -0.200818,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Fingerprint drug tests scale up as maker cuts costs by over 40%",
+          "summary": "Intelligent Bio Solutions (INBS) announced a strategic manufacturing partnership with Syrma Johari MedTech, aiming to reduce production costs by over 40% and improve gross margins by approximately 20 percentage points. This collaboration quadruples manufacturing capacity in preparation for the planned 2026 U.S. market entry of their fingerprint drug screening reader. The partnership leverages Syrma Johari's extensive global facilities and regulatory certifications to strengthen INBS's supply chain and support future growth.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/INBS/intelligent-bio-solutions-announces-new-manufacturing-partnership-to-8rinqikiiu8r.html",
+          "time_published": "20260101T140919",
+          "relevance": 1.0,
+          "sentiment": 0.873349,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "What Moolec Science\u2019s 15-for-1 share consolidation means for holders",
+          "summary": "Moolec Science (NASDAQ: MLEC) has announced a 15-for-1 share consolidation, effective January 5, 2026, aimed at regaining compliance with Nasdaq's minimum bid price rule. This consolidation will reduce the number of issued and outstanding shares from 10,891,761 to approximately 726,118 and change the par value from US$0.10 to US$1.50 per share. The company's stock experienced a 4.18% decline following the announcement, reflecting a moderate negative market reaction.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/MLEC/moolec-science-sa-announces-the-implementation-of-a-share-nn2x9xyyar81.html",
+          "time_published": "20260101T140909",
+          "relevance": 1.0,
+          "sentiment": -0.250383,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Experimental cell therapy for hard-to-treat psoriasis moves to FDA review",
+          "summary": "FibroBiologics has filed a Phase 1/2 Investigational New Drug (IND) application with the FDA for CYPS317, an allogeneic fibroblast spheroid therapy for moderate to severe psoriasis. Preclinical studies showed CYPS317 was effective in reducing disease recurrence, matching or exceeding the therapeutic effects of anti-IL-23 monoclonal antibodies. The company aims to advance this and its other three product candidates through IND clearance in 2026, marking a significant step towards clinical development.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/FBLG/fibro-biologics-files-ind-application-with-the-u-s-fda-to-advance-4jkwr07hkses.html",
+          "time_published": "20260101T130958",
+          "relevance": 1.0,
+          "sentiment": 0.329796,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Abivax stock drops today as ABVX traders trim Eli Lilly takeover bets into year-end",
+          "summary": "Abivax's U.S.-listed shares saw a drop today as traders trimmed their bets on an Eli Lilly takeover by year-end, following a month of significant stock swings driven by takeover rumors and index-related flows. Investors are closely monitoring for new comments on strategic interest and upcoming obefazimod data updates. The pullback could be attributed to year-end positioning intersecting with headline risk after a prior surge fueled by deal talk.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/abivax-stock-drops-today-as-abvx-traders-trim-eli-lilly-takeover-bets-into-year-end/",
+          "time_published": "20260101T130942",
+          "relevance": 1.0,
+          "sentiment": -0.087788,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Fingerprint drug tests scale up as maker cuts costs by over 40%",
+          "summary": "Intelligent Bio Solutions (INBS) announced a strategic manufacturing partnership with Syrma Johari MedTech, aiming to reduce production costs by over 40% and improve gross margins by approximately 20 percentage points. This collaboration quadruples manufacturing capacity in preparation for the planned 2026 U.S. market entry of their fingerprint drug screening reader. The partnership leverages Syrma Johari's extensive global facilities and regulatory certifications to strengthen INBS's supply chain and support future growth.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/INBS/intelligent-bio-solutions-announces-new-manufacturing-partnership-to-8rinqikiiu8r.html",
+          "time_published": "20260101T140919",
+          "relevance": 1.0,
+          "sentiment": 0.876645,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Cummins announces $50m investment in Daventry manufacturing facility",
+          "summary": "Cummins is investing $50 million in its Daventry manufacturing facility to strengthen the UK's role in delivering reliable back-up power for critical global infrastructure, particularly for data centers, healthcare, and marine applications. This investment is part of a larger $200 million package aimed at increasing manufacturing capacity and refurbishing test facilities. The move is expected to secure skilled jobs, bolster local communities, and support the growing demand for power generation products worldwide.",
+          "source": "The Manufacturer",
+          "url": "https://www.themanufacturer.com/articles/cummins-announces-50m-investment-in-daventry-manufacturing-facility/",
+          "time_published": "20260101T135836",
+          "relevance": 1.0,
+          "sentiment": 0.426345,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Here's Why You Should Retain Harley Davidson in Your Portfolio Now",
+          "summary": "Harley-Davidson (HOG) is a leading motorcycle manufacturer that has implemented a multi-year productivity and cost program, strategic partnerships for its financial services, and a revamped operating model. These initiatives, along with the performance of its LiveWire unit, support efforts to enhance efficiency, reduce debt, and improve long-term profitability. Despite challenges from tariffs, cost inflation, and inventory issues, HOG is considered worth retaining due to its strategic optimizations and cost regulation successes.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/zacks:22ed746dc094b:0-here-s-why-you-should-retain-harley-davidson-in-your-portfolio-now/",
+          "time_published": "20260101T130952",
+          "relevance": 1.0,
+          "sentiment": 0.172402,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Stifel Nicolaus Sticks to Its Buy Rating for IDEX (IEX)",
+          "summary": "Stifel Nicolaus analyst Nathan Jones has reiterated a Buy rating on IDEX (IEX) with a $200.00 price target. This re-affirms a \"Strong Buy\" consensus for the company, supported by positive insider sentiment and strong financial performance with increased quarterly revenue and net profit.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/36851275/stifel-nicolaus-sticks-to-its-buy-rating-for-idex-iex/",
+          "time_published": "20260101T124325",
+          "relevance": 1.0,
+          "sentiment": 0.371314,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Miracle Mile Advisors LLC Buys 13,388 Shares of Johnson Controls International plc $JCI",
+          "summary": "Miracle Mile Advisors LLC increased its stake in Johnson Controls International plc (NYSE:JCI) by 21.6%, acquiring an additional 13,388 shares, bringing their total holdings to 75,491 shares valued at $8.3 million. Institutional investors now own approximately 90.05% of the company's stock. Recent financial results for Johnson Controls showed beats on quarterly EPS and revenue, with FY-2026 guidance set at $4.55 EPS, and the company declared a $0.40 quarterly dividend.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-miracle-mile-advisors-llc-buys-13388-shares-of-johnson-controls-international-plc-jci-2026-01-01/",
+          "time_published": "20260101T121127",
+          "relevance": 1.0,
+          "sentiment": 0.30591,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "Reflecting On Marine Transportation Stocks\u2019 Q3 Earnings: Scorpio Tankers (NYSE:STNG)",
+          "summary": "This article reviews the Q3 earnings season for marine transportation stocks, focusing on Scorpio Tankers (STNG) and its peers. While Scorpio Tankers reported a revenue decrease, its EBITDA and EPS beat analysts' estimates. The report also highlights Pangaea (PANL) as the best Q3 performer and Genco (GNK) as the weakest, alongside results for Matson (MATX) and Kirby (KEX).",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/stockstory:79da2aaf6094b:0-reflecting-on-marine-transportation-stocks-q3-earnings-scorpio-tankers-nyse-stng/",
+          "time_published": "20260101T140944",
+          "relevance": 1.0,
+          "sentiment": -0.241567,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Cummins announces $50m investment in Daventry manufacturing facility",
+          "summary": "Cummins is investing $50 million in its Daventry manufacturing facility to strengthen the UK's role in delivering reliable back-up power for critical global infrastructure, particularly for data centers, healthcare, and marine applications. This investment is part of a larger $200 million package aimed at increasing manufacturing capacity and refurbishing test facilities. The move is expected to secure skilled jobs, bolster local communities, and support the growing demand for power generation products worldwide.",
+          "source": "The Manufacturer",
+          "url": "https://www.themanufacturer.com/articles/cummins-announces-50m-investment-in-daventry-manufacturing-facility/",
+          "time_published": "20260101T135836",
+          "relevance": 1.0,
+          "sentiment": 0.43824,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Here's Why You Should Retain Harley Davidson in Your Portfolio Now",
+          "summary": "Harley-Davidson (HOG) is a leading motorcycle manufacturer that has implemented a multi-year productivity and cost program, strategic partnerships for its financial services, and a revamped operating model. These initiatives, along with the performance of its LiveWire unit, support efforts to enhance efficiency, reduce debt, and improve long-term profitability. Despite challenges from tariffs, cost inflation, and inventory issues, HOG is considered worth retaining due to its strategic optimizations and cost regulation successes.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/zacks:22ed746dc094b:0-here-s-why-you-should-retain-harley-davidson-in-your-portfolio-now/",
+          "time_published": "20260101T130952",
+          "relevance": 1.0,
+          "sentiment": 0.169407,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "FirstEnergy Corp. stock: Quiet chart, loud questions as investors weigh yield against regulatory ris",
+          "summary": "FirstEnergy Corp. stock has seen sideways trading recently, presenting a dilemma for investors balancing its strong dividend yield against persistent legal and regulatory issues. While the company has shown modest positive total returns over the last year due to dividends and has received cautiously constructive ratings from Wall Street, its future hinges on successful grid modernization, regulatory approvals, and sustained governance reforms. The stock remains in a holding pattern, not collapsing nor breaking out, as the market awaits clearer signals on its long-term stability and growth trajectory.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/firstenergy-corp-stock-quiet-chart-loud-questions-as-investors-weigh/68448398",
+          "time_published": "20260101T124919",
+          "relevance": 1.0,
+          "sentiment": 0.062876,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Duke Energy Corporation $DUK Shares Sold by Hennessy Advisors Inc.",
+          "summary": "Hennessy Advisors Inc. reduced its stake in Duke Energy (NYSE:DUK) by 13.0% in Q3, selling 14,900 shares and leaving it with 99,487 shares valued at approximately $12.31 million. Despite this, Duke Energy beat Q3 earnings estimates with $1.81 EPS and $8.54 billion revenue, and analysts maintain a \"Moderate Buy\" consensus rating with an average price target of $136.50. The company also recently announced a quarterly dividend of $1.065 per share, representing an annualized dividend of $4.26 and a 3.6% yield.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-duke-energy-corporation-duk-shares-sold-by-hennessy-advisors-inc-2026-01-01/",
+          "time_published": "20260101T121914",
+          "relevance": 1.0,
+          "sentiment": 0.278322,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "Reflecting On Marine Transportation Stocks\u2019 Q3 Earnings: Scorpio Tankers (NYSE:STNG)",
+          "summary": "This article reviews the Q3 earnings season for marine transportation stocks, focusing on Scorpio Tankers (STNG) and its peers. While Scorpio Tankers reported a revenue decrease, its EBITDA and EPS beat analysts' estimates. The report also highlights Pangaea (PANL) as the best Q3 performer and Genco (GNK) as the weakest, alongside results for Matson (MATX) and Kirby (KEX).",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/stockstory:79da2aaf6094b:0-reflecting-on-marine-transportation-stocks-q3-earnings-scorpio-tankers-nyse-stng/",
+          "time_published": "20260101T140944",
+          "relevance": 1.0,
+          "sentiment": -0.241567,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Cummins announces $50m investment in Daventry manufacturing facility",
+          "summary": "Cummins is investing $50 million in its Daventry manufacturing facility to strengthen the UK's role in delivering reliable back-up power for critical global infrastructure, particularly for data centers, healthcare, and marine applications. This investment is part of a larger $200 million package aimed at increasing manufacturing capacity and refurbishing test facilities. The move is expected to secure skilled jobs, bolster local communities, and support the growing demand for power generation products worldwide.",
+          "source": "The Manufacturer",
+          "url": "https://www.themanufacturer.com/articles/cummins-announces-50m-investment-in-daventry-manufacturing-facility/",
+          "time_published": "20260101T135836",
+          "relevance": 1.0,
+          "sentiment": 0.43824,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Here's Why You Should Retain Harley Davidson in Your Portfolio Now",
+          "summary": "Harley-Davidson (HOG) is a leading motorcycle manufacturer that has implemented a multi-year productivity and cost program, strategic partnerships for its financial services, and a revamped operating model. These initiatives, along with the performance of its LiveWire unit, support efforts to enhance efficiency, reduce debt, and improve long-term profitability. Despite challenges from tariffs, cost inflation, and inventory issues, HOG is considered worth retaining due to its strategic optimizations and cost regulation successes.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/zacks:22ed746dc094b:0-here-s-why-you-should-retain-harley-davidson-in-your-portfolio-now/",
+          "time_published": "20260101T130952",
+          "relevance": 1.0,
+          "sentiment": 0.169407,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "FirstEnergy Corp. stock: Quiet chart, loud questions as investors weigh yield against regulatory ris",
+          "summary": "FirstEnergy Corp. stock has seen sideways trading recently, presenting a dilemma for investors balancing its strong dividend yield against persistent legal and regulatory issues. While the company has shown modest positive total returns over the last year due to dividends and has received cautiously constructive ratings from Wall Street, its future hinges on successful grid modernization, regulatory approvals, and sustained governance reforms. The stock remains in a holding pattern, not collapsing nor breaking out, as the market awaits clearer signals on its long-term stability and growth trajectory.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/firstenergy-corp-stock-quiet-chart-loud-questions-as-investors-weigh/68448398",
+          "time_published": "20260101T124919",
+          "relevance": 1.0,
+          "sentiment": 0.062876,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Duke Energy Corporation $DUK Shares Sold by Hennessy Advisors Inc.",
+          "summary": "Hennessy Advisors Inc. reduced its stake in Duke Energy (NYSE:DUK) by 13.0% in Q3, selling 14,900 shares and leaving it with 99,487 shares valued at approximately $12.31 million. Despite this, Duke Energy beat Q3 earnings estimates with $1.81 EPS and $8.54 billion revenue, and analysts maintain a \"Moderate Buy\" consensus rating with an average price target of $136.50. The company also recently announced a quarterly dividend of $1.065 per share, representing an annualized dividend of $4.26 and a 3.6% yield.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-duke-energy-corporation-duk-shares-sold-by-hennessy-advisors-inc-2026-01-01/",
+          "time_published": "20260101T121914",
+          "relevance": 1.0,
+          "sentiment": 0.278322,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "SITE Centers Announces Sale of Perimeter Pointe",
+          "summary": "SITE Centers Corp. announced the sale of Perimeter Pointe in Atlanta, GA, for approximately $48.0 million. The company repaid its existing mortgage facility in full on December 18, 2025, and no proceeds from this sale were used for debt repayment. SITE Centers is a self-administered and self-managed REIT operating open-air shopping centers.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251230641259/en/SITE-Centers-Announces-Sale-of-Perimeter-Pointe",
+          "time_published": "20260101T141006",
+          "relevance": 1.0,
+          "sentiment": 0.210765,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Check out TJX Companies's stock price (TJX-CA) in real time",
+          "summary": "This article provides real-time stock information for TJX Companies Inc. (TJX-CA) on the Toronto Stock Exchange, including its current trading price, volume, and 52-week range. It also lists key financial stats, ratios, profitability metrics, and details about the company's profile and executive leadership.",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/quotes/TJX-CA",
+          "time_published": "20260101T140929",
+          "relevance": 1.0,
+          "sentiment": 0.008121,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "VIRGINIA RETIREMENT SYSTEMS ET Al Sells 56,600 Shares of Deckers Outdoor Corporation $DECK",
+          "summary": "VIRGINIA RETIREMENT SYSTEMS ET Al reduced its stake in Deckers Outdoor Corporation by 24.0%, selling 56,600 shares but still owning 179,200 shares valued at approximately $18.17 million. Despite institutional selling, Deckers Outdoor reported strong Q3 earnings, beating EPS and revenue estimates, and provided an optimistic FY2026 guidance. Analysts currently rate the stock as a \"Hold\" with an average price target of $117.58.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-virginia-retirement-systems-et-al-sells-56600-shares-of-deckers-outdoor-corporation-deck-2026-01-01/",
+          "time_published": "20260101T121112",
+          "relevance": 1.0,
+          "sentiment": 0.127909,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Shum Financial Group Inc. Invests $2.26 Million in Walmart Inc. $WMT",
+          "summary": "Shum Financial Group Inc. has acquired a new stake in Walmart Inc. valued at approximately $2.26 million, representing 1.7% of its holdings. Despite insider selling activity by Walmart's CEO and other executives totaling over $13 million, the company reported strong Q3 earnings, beating analyst expectations, and maintains a \"Moderate Buy\" consensus rating from analysts with a target price of $120.69. Other institutional investors have also shown increased interest in Walmart, with hedge funds and institutional investors collectively owning 26.76% of the stock.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-shum-financial-group-inc-invests-226-million-in-walmart-inc-wmt-2026-01-01/",
+          "time_published": "20260101T114710",
+          "relevance": 1.0,
+          "sentiment": 0.45658,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "VIRGINIA RETIREMENT SYSTEMS ET Al Buys 95,900 Shares of Best Buy Co., Inc. $BBY",
+          "summary": "VIRGINIA RETIREMENT SYSTEMS ET Al increased its stake in Best Buy Co., Inc. (NYSE:BBY) by 155.9% in the 3rd quarter, purchasing an additional 95,900 shares and now owning 157,400 shares valued at $11,903,000. Other institutional investors like Vanguard Group Inc., State Street Corp, and Charles Schwab Investment Management Inc. also adjusted their positions in the technology retailer. Best Buy recently announced a quarterly dividend of $0.95 per share, payable on January 6th.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-virginia-retirement-systems-et-al-buys-95900-shares-of-best-buy-co-inc-bby-2026-01-01/",
+          "time_published": "20260101T114310",
+          "relevance": 1.0,
+          "sentiment": 0.255083,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Fingerprint drug tests scale up as maker cuts costs by over 40%",
+          "summary": "Intelligent Bio Solutions (INBS) announced a strategic manufacturing partnership with Syrma Johari MedTech, aiming to reduce production costs by over 40% and improve gross margins by approximately 20 percentage points. This collaboration quadruples manufacturing capacity in preparation for the planned 2026 U.S. market entry of their fingerprint drug screening reader. The partnership leverages Syrma Johari's extensive global facilities and regulatory certifications to strengthen INBS's supply chain and support future growth.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/INBS/intelligent-bio-solutions-announces-new-manufacturing-partnership-to-8rinqikiiu8r.html",
+          "time_published": "20260101T140919",
+          "relevance": 1.0,
+          "sentiment": 0.876645,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Cummins announces $50m investment in Daventry manufacturing facility",
+          "summary": "Cummins is investing $50 million in its Daventry manufacturing facility to strengthen the UK's role in delivering reliable back-up power for critical global infrastructure, particularly for data centers, healthcare, and marine applications. This investment is part of a larger $200 million package aimed at increasing manufacturing capacity and refurbishing test facilities. The move is expected to secure skilled jobs, bolster local communities, and support the growing demand for power generation products worldwide.",
+          "source": "The Manufacturer",
+          "url": "https://www.themanufacturer.com/articles/cummins-announces-50m-investment-in-daventry-manufacturing-facility/",
+          "time_published": "20260101T135836",
+          "relevance": 1.0,
+          "sentiment": 0.426345,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Here's Why You Should Retain Harley Davidson in Your Portfolio Now",
+          "summary": "Harley-Davidson (HOG) is a leading motorcycle manufacturer that has implemented a multi-year productivity and cost program, strategic partnerships for its financial services, and a revamped operating model. These initiatives, along with the performance of its LiveWire unit, support efforts to enhance efficiency, reduce debt, and improve long-term profitability. Despite challenges from tariffs, cost inflation, and inventory issues, HOG is considered worth retaining due to its strategic optimizations and cost regulation successes.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/zacks:22ed746dc094b:0-here-s-why-you-should-retain-harley-davidson-in-your-portfolio-now/",
+          "time_published": "20260101T130952",
+          "relevance": 1.0,
+          "sentiment": 0.172402,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Stifel Nicolaus Sticks to Its Buy Rating for IDEX (IEX)",
+          "summary": "Stifel Nicolaus analyst Nathan Jones has reiterated a Buy rating on IDEX (IEX) with a $200.00 price target. This re-affirms a \"Strong Buy\" consensus for the company, supported by positive insider sentiment and strong financial performance with increased quarterly revenue and net profit.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/36851275/stifel-nicolaus-sticks-to-its-buy-rating-for-idex-iex/",
+          "time_published": "20260101T124325",
+          "relevance": 1.0,
+          "sentiment": 0.371314,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Miracle Mile Advisors LLC Buys 13,388 Shares of Johnson Controls International plc $JCI",
+          "summary": "Miracle Mile Advisors LLC increased its stake in Johnson Controls International plc (NYSE:JCI) by 21.6%, acquiring an additional 13,388 shares, bringing their total holdings to 75,491 shares valued at $8.3 million. Institutional investors now own approximately 90.05% of the company's stock. Recent financial results for Johnson Controls showed beats on quarterly EPS and revenue, with FY-2026 guidance set at $4.55 EPS, and the company declared a $0.40 quarterly dividend.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-miracle-mile-advisors-llc-buys-13388-shares-of-johnson-controls-international-plc-jci-2026-01-01/",
+          "time_published": "20260101T121127",
+          "relevance": 1.0,
+          "sentiment": 0.30591,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLK": [
+        {
+          "title": "Cummins announces $50m investment in Daventry manufacturing facility",
+          "summary": "Cummins is investing $50 million in its Daventry manufacturing facility to strengthen the UK's role in delivering reliable back-up power for critical global infrastructure, particularly for data centers, healthcare, and marine applications. This investment is part of a larger $200 million package aimed at increasing manufacturing capacity and refurbishing test facilities. The move is expected to secure skilled jobs, bolster local communities, and support the growing demand for power generation products worldwide.",
+          "source": "The Manufacturer",
+          "url": "https://www.themanufacturer.com/articles/cummins-announces-50m-investment-in-daventry-manufacturing-facility/",
+          "time_published": "20260101T135836",
+          "relevance": 1.0,
+          "sentiment": 0.409292,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "VIRGINIA RETIREMENT SYSTEMS ET Al Sells 190,400 Shares of Cisco Systems, Inc. $CSCO",
+          "summary": "Virginia Retirement Systems significantly reduced its stake in Cisco Systems, Inc. (NASDAQ:CSCO) by 65.4% in the third quarter, selling 190,400 shares. This move leaves them with 100,511 shares valued at approximately $6.88 million. The report also highlights recent insider selling from Cisco's CEO Charles Robbins and Director Michael D. Capellas, contributing to over $81 million in insider sales over the last 90 days, despite the company exceeding Q3 EPS and revenue estimates and maintaining a \"Moderate Buy\" consensus rating from analysts.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-virginia-retirement-systems-et-al-sells-190400-shares-of-cisco-systems-inc-csco-2026-01-01/",
+          "time_published": "20260101T121110",
+          "relevance": 1.0,
+          "sentiment": 0.038297,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Sandisk stock dips after-hours as SNDK tees up Jan. 29 earnings: what investors watch next",
+          "summary": "Sandisk's stock dipped in after-hours trading as the company prepares for its fiscal second-quarter earnings report on January 29. Investors are closely watching for signs that NAND flash memory chips can maintain pricing momentum into 2026, especially given the company's significant 2025 growth fueled by AI-driven demand. The upcoming report will also provide updates on margins, inventory, supply discipline, and engagement with hyperscaler cloud customers.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/sandisk-stock-dips-after-hours-as-sndk-tees-up-jan-29-earnings-what-investors-watch-next/",
+          "time_published": "20260101T120934",
+          "relevance": 1.0,
+          "sentiment": -0.32271,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Sonim Technologies Stockholders Approve Asset Sale to NEXA, Clearing Path for Strategic Transition",
+          "summary": "Sonim Technologies' stockholders have approved the sale of its rugged mobile phone and hotspot business assets to NEXA, anticipating the transaction's closure in January 2026. This strategic move allows Sonim to retire debt and provides working capital for its new focus on DNA X, a crypto trading platform it acquired in December 2025. Following the sale, Sonim will rebrand to \"DNA X, Inc.\" and change its Nasdaq ticker symbol to \"DNAX\", pivoting to the decentralized finance ecosystem.",
+          "source": "TMX Newsfile",
+          "url": "https://www.newsfilecorp.com/release/279273/Sonim-Technologies-Stockholders-Approve-Asset-Sale-to-NEXA-Clearing-Path-for-Strategic-Transition",
+          "time_published": "20260101T120930",
+          "relevance": 1.0,
+          "sentiment": 0.425911,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Rugged phone maker Sonim shifts from devices to crypto trading",
+          "summary": "Sonim Technologies (NASDAQ: SONM) stockholders have approved the sale of its rugged mobile phone and hotspot business assets to NEXA, completing a strategic shift for the company. Following the sale, Sonim will rebrand as DNA X, Inc. (DNAX) and focus entirely on its newly acquired crypto trading platform, DNA X, which operates a decentralized finance (DeFi) protocol. The proceeds from the asset sale will be used to retire debt and provide working capital for the new crypto venture.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/SONM/sonim-technologies-stockholders-approve-asset-sale-to-nexa-clearing-j2zyly55yfkg.html",
+          "time_published": "20260101T120930",
+          "relevance": 1.0,
+          "sentiment": 0.310713,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "SITE Centers Announces Sale of Perimeter Pointe",
+          "summary": "SITE Centers Corp. announced the sale of Perimeter Pointe in Atlanta, GA, for approximately $48.0 million. The company repaid its existing mortgage facility in full on December 18, 2025, and no proceeds from this sale were used for debt repayment. SITE Centers is a self-administered and self-managed REIT operating open-air shopping centers.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251230641259/en/SITE-Centers-Announces-Sale-of-Perimeter-Pointe",
+          "time_published": "20260101T141006",
+          "relevance": 1.0,
+          "sentiment": 0.210765,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Check out TJX Companies's stock price (TJX-CA) in real time",
+          "summary": "This article provides real-time stock information for TJX Companies Inc. (TJX-CA) on the Toronto Stock Exchange, including its current trading price, volume, and 52-week range. It also lists key financial stats, ratios, profitability metrics, and details about the company's profile and executive leadership.",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/quotes/TJX-CA",
+          "time_published": "20260101T140929",
+          "relevance": 1.0,
+          "sentiment": 0.008121,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "VIRGINIA RETIREMENT SYSTEMS ET Al Sells 56,600 Shares of Deckers Outdoor Corporation $DECK",
+          "summary": "VIRGINIA RETIREMENT SYSTEMS ET Al reduced its stake in Deckers Outdoor Corporation by 24.0%, selling 56,600 shares but still owning 179,200 shares valued at approximately $18.17 million. Despite institutional selling, Deckers Outdoor reported strong Q3 earnings, beating EPS and revenue estimates, and provided an optimistic FY2026 guidance. Analysts currently rate the stock as a \"Hold\" with an average price target of $117.58.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-virginia-retirement-systems-et-al-sells-56600-shares-of-deckers-outdoor-corporation-deck-2026-01-01/",
+          "time_published": "20260101T121112",
+          "relevance": 1.0,
+          "sentiment": 0.127909,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Shum Financial Group Inc. Invests $2.26 Million in Walmart Inc. $WMT",
+          "summary": "Shum Financial Group Inc. has acquired a new stake in Walmart Inc. valued at approximately $2.26 million, representing 1.7% of its holdings. Despite insider selling activity by Walmart's CEO and other executives totaling over $13 million, the company reported strong Q3 earnings, beating analyst expectations, and maintains a \"Moderate Buy\" consensus rating from analysts with a target price of $120.69. Other institutional investors have also shown increased interest in Walmart, with hedge funds and institutional investors collectively owning 26.76% of the stock.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-shum-financial-group-inc-invests-226-million-in-walmart-inc-wmt-2026-01-01/",
+          "time_published": "20260101T114710",
+          "relevance": 1.0,
+          "sentiment": 0.45658,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "VIRGINIA RETIREMENT SYSTEMS ET Al Buys 95,900 Shares of Best Buy Co., Inc. $BBY",
+          "summary": "VIRGINIA RETIREMENT SYSTEMS ET Al increased its stake in Best Buy Co., Inc. (NYSE:BBY) by 155.9% in the 3rd quarter, purchasing an additional 95,900 shares and now owning 157,400 shares valued at $11,903,000. Other institutional investors like Vanguard Group Inc., State Street Corp, and Charles Schwab Investment Management Inc. also adjusted their positions in the technology retailer. Best Buy recently announced a quarterly dividend of $0.95 per share, payable on January 6th.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-virginia-retirement-systems-et-al-buys-95900-shares-of-best-buy-co-inc-bby-2026-01-01/",
+          "time_published": "20260101T114310",
+          "relevance": 1.0,
+          "sentiment": 0.255083,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "Knorex Ltd. Replaces Kreit & Chiu With Assentsure PAC as Independent Auditor",
+          "summary": "Knorex Ltd.'s audit committee replaced Kreit & Chiu CPA LLP with Assentsure PAC as its independent auditor on November 26, 2025. The company stated there were no disagreements or reportable events with the former auditor, and no prior consultations with the new auditor, indicating a routine change. This transition for the Singapore-headquartered foreign private issuer was reported in a Form 6-K on December 31, 2025.",
+          "source": "TipRanks",
+          "url": "https://www.tipranks.com/news/company-announcements/knorex-ltd-replaces-kreit-chiu-with-assentsure-pac-as-independent-auditor",
+          "time_published": "20260101T150826",
+          "relevance": 1.0,
+          "sentiment": 5.1e-05,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Form FWP TORONTO DOMINION BANK Filed by: TORONTO DOMINION BANK",
+          "summary": "Toronto-Dominion Bank (TD) has filed a Form FWP for Trigger Performance Leveraged Upside Securities (Trigger PLUS) based on the S&P 500 Index. These principal-at-risk senior debt securities mature on February 4, 2032, and offer a leveraged upside payment if the final index value is greater than the initial value, with a potential loss of up to the entire investment if the final index value falls below the trigger level. Investors are advised to review the preliminary pricing supplement and other SEC filings due to various risks, including the credit risk of TD and the potential for significant loss.",
+          "source": "StreetInsider",
+          "url": "https://www.streetinsider.com/SEC+Filings/Form+FWP+TORONTO+DOMINION+BANK+Filed+by%3A+TORONTO+DOMINION+BANK/25793147.html",
+          "time_published": "20260101T141004",
+          "relevance": 1.0,
+          "sentiment": 0.108472,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Eightco Holdings Inc Releases Year-End Chairman\u2019s Message",
+          "summary": "Eightco Holdings Inc released its year-end Chairman's Message, detailing significant strategic updates and financial holdings, including over 10% of the current WLD supply. The company reported substantial holdings in WLD, ETH, and cash/stablecoins, and announced a $125 million share buyback program. The Chairman and CEO will attend CES to present \"Infinity by ORBS,\" with support from strategic investors like Bitmine, Wedbush, and Kraken.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/tradingview:8c4b1bf8b92b7:0-eightco-holdings-inc-releases-year-end-chairman-s-message/",
+          "time_published": "20260101T140946",
+          "relevance": 1.0,
+          "sentiment": 0.26102,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Modular Medical receives nasdaq extension to regain compliance",
+          "summary": "Modular Medical Inc. (NASDAQ:MODD) has been granted a 180-day extension by Nasdaq to meet the minimum bid price requirement of $1.00 per share, giving the company until June 29, 2026. Currently trading at $0.36, MODD faces significant challenges, as failure to comply could lead to delisting. The company, focused on insulin delivery technology, recently announced a $4.68 million public offering and is progressing with its Pivot tubeless insulin patch pump, pending FDA clearance.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/modular-medical-receives-nasdaq-extension-to-regain-compliance-93CH-4426530",
+          "time_published": "20260101T140934",
+          "relevance": 1.0,
+          "sentiment": -0.246261,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Do Options Traders Know Something About MercadoLibre Stock We Don't?",
+          "summary": "Options traders are showing significant interest in MercadoLibre (MELI) stock, indicated by the high implied volatility of its Jan. 16, 2026 $580.00 Call options. This suggests expectations of a big price movement, possibly due to an upcoming event, despite recent downward revisions in analyst earnings estimates for the company. Seasoned traders often use such high implied volatility to sell premium, betting that the stock's movement will be less dramatic than anticipated.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/zacks:aeee8be66094b:0-do-options-traders-know-something-about-mercadolibre-stock-we-don-t/",
+          "time_published": "20260101T140927",
+          "relevance": 1.0,
+          "sentiment": 0.030263,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ]
+    },
+    "key_themes": [
+      "Fed rate cuts driving smart money rotation from semiconductors to defensive sectors",
+      "Manufacturing capacity investments and cost reduction initiatives across multiple sectors",
+      "Real estate asset sales at premium valuations with improved credit access",
+      "Healthcare innovation advancing with FDA approvals and cell therapy developments",
+      "Financial sector showing mixed signals with compliance challenges emerging"
+    ],
+    "sector_implications": "News supports defensive rotation with Communication Services and Healthcare benefiting from rate cut environment while Technology faces headwinds from sector rotation away from semiconductors."
+  },
+  "sector_summary": "Market in CONTRACTION phase with high confidence as defensive sectors (Communication Services, Healthcare, Real Estate) lead while cyclicals lag. Favor XLC, XLRE, XLV, and XLB in trend zones with 1.2x modifiers. Avoid XLF showing weakening signals despite strong 20-day performance. No crossover alerts suggest stable but defensive rotation.",
+  "cycle_phase": "CONTRACTION",
+  "cycle_confidence": "HIGH",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 1,
+      "mrs_20": 1.56,
+      "mrs_5": 0.75,
+      "roc_3": 0.92,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.56%, MRS_5=0.75%). Sector benefits from Fed rate cuts driving smart money rotation into communication services with reasonable valuations and steady cash flow. News sentiment strongly positive at +0.295 with sector rotation themes and data center investment supporting the trend.",
+      "news_context": {
+        "sentiment": 0.295,
+        "article_count": 12,
+        "themes": "Fed rate cuts driving sector rotation, data center infrastructure investment, defensive stability with growth potential"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 2,
+      "mrs_20": 0.64,
+      "mrs_5": 0.54,
+      "roc_3": 1.21,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.64%, MRS_5=0.54%). Strong momentum with ROC_3 at 1.21% showing accelerating relative performance. SITE Centers asset sales and NETSTREIT credit rating upgrade to BBB- demonstrate sector strength and improved access to debt markets.",
+      "news_context": {
+        "sentiment": 0.082,
+        "article_count": 10,
+        "themes": "Asset sales at premium valuations, credit rating upgrades, improved debt market access"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 3,
+      "mrs_20": 1.24,
+      "mrs_5": 0.44,
+      "roc_3": 0.69,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.24%, MRS_5=0.44%). Benefiting from smart money rotation seeking defensive stability and dividend income as Fed cuts rates. Despite mixed news sentiment, sector fundamentals remain strong with innovation in cell therapy and drug testing advancing.",
+      "news_context": {
+        "sentiment": 0.131,
+        "article_count": 10,
+        "themes": "FDA approvals advancing, cell therapy innovation, manufacturing cost reductions, defensive dividend appeal"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 4,
+      "mrs_20": 1.65,
+      "mrs_5": 0.06,
+      "roc_3": -0.63,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.65%, MRS_5=0.06%). Strong 20-day performance despite recent momentum slowing. Manufacturing investments by companies like Cummins and cost reduction initiatives support the sector, though ROC_3 negative suggests some near-term headwinds.",
+      "news_context": {
+        "sentiment": 0.414,
+        "article_count": 10,
+        "themes": "Manufacturing capacity investments, cost reduction programs, supply chain partnerships, productivity improvements"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 5,
+      "mrs_20": 0.48,
+      "mrs_5": 1.3,
+      "roc_3": 2.72,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.48%). Strong recent momentum with MRS_5 at 1.30% and accelerating ROC_3 at 2.72%, but overall positioning remains in neutral zone. Manufacturing investments in power generation and marine transportation showing mixed results.",
+      "news_context": {
+        "sentiment": 0.114,
+        "article_count": 10,
+        "themes": "Power generation infrastructure investment, marine transportation earnings mixed, regulatory challenges persist"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 6,
+      "mrs_20": 0.48,
+      "mrs_5": 0.67,
+      "roc_3": 1.78,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.48%). Positive momentum with MRS_5 at 0.67% and strong ROC_3 at 1.78%. Duke Energy and FirstEnergy showing mixed signals with dividend appeal offset by regulatory uncertainties and grid modernization challenges.",
+      "news_context": {
+        "sentiment": 0.114,
+        "article_count": 10,
+        "themes": "Dividend yields attractive, grid modernization investments, regulatory approval challenges, governance reforms ongoing"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 7,
+      "mrs_20": 0.04,
+      "mrs_5": 0.45,
+      "roc_3": 0.91,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.04%). Showing improving momentum with MRS_5 at 0.45% and positive ROC_3. Walmart investment and Best Buy institutional buying suggest defensive positioning, though overall sector remains range-bound.",
+      "news_context": {
+        "sentiment": 0.106,
+        "article_count": 10,
+        "themes": "Institutional buying in retail, defensive positioning, strong earnings from major retailers, dividend sustainability"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 8,
+      "mrs_20": 0.35,
+      "mrs_5": -0.01,
+      "roc_3": -0.23,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.35%). Momentum turning slightly negative with MRS_5 at -0.01%. Manufacturing partnerships and cost reduction initiatives show promise, but recent performance suggests consolidation phase. IDEX maintains buy ratings despite sector headwinds.",
+      "news_context": {
+        "sentiment": 0.414,
+        "article_count": 10,
+        "themes": "Manufacturing partnerships expanding, cost reduction initiatives, analyst upgrades on select names, capacity investments"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 9,
+      "mrs_20": -0.12,
+      "mrs_5": -0.17,
+      "roc_3": -0.42,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.12%). Slight underperformance with negative momentum across all timeframes. Smart money rotating away from hardware/semiconductors as noted in sector rotation themes. Cisco insider selling and SanDisk concerns reflect sector headwinds.",
+      "news_context": {
+        "sentiment": 0.283,
+        "article_count": 10,
+        "themes": "Sector rotation away from semiconductors, insider selling at major names, AI demand sustainability questions, data center investments"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 10,
+      "mrs_20": -0.33,
+      "mrs_5": -0.4,
+      "roc_3": -0.95,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.33%). Consistent underperformance with negative momentum accelerating (ROC_3=-0.95%). Mixed retail performance with some institutional buying in select names like Best Buy, but overall sector facing headwinds in current environment.",
+      "news_context": {
+        "sentiment": 0.106,
+        "article_count": 10,
+        "themes": "Mixed retail performance, institutional buying in select names, real estate asset sales, consumer spending concerns"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 11,
+      "mrs_20": 1.09,
+      "mrs_5": -0.04,
+      "roc_3": -0.65,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=1.09%, MRS_5=-0.04%). Despite strong 20-day performance, recent momentum has turned negative with accelerating weakness (ROC_3=-0.65%). Mixed corporate actions and compliance issues suggest sector facing near-term headwinds.",
+      "news_context": {
+        "sentiment": 0.155,
+        "article_count": 10,
+        "themes": "Auditor changes, compliance challenges, mixed corporate actions, structured product launches"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLC": 1.2,
+    "XLRE": 1.2,
+    "XLV": 1.2,
+    "XLB": 1.2,
+    "XLE": 1.0,
+    "XLU": 1.0,
+    "XLP": 1.0,
+    "XLI": 1.0,
+    "XLK": 1.0,
+    "XLY": 1.0,
+    "XLF": 0.75
+  },
+  "cycle_reasoning": "CONTRACTION phase identified with high confidence as defensive sectors (XLC, XLV, XLRE) dominate leadership while cyclicals (XLY, XLK) underperform. Financial Services weakening despite previous strength is classic late-cycle behavior. Four sectors in trend zones but led by defensives rather than cyclicals confirms contractionary environment.",
+  "rotation_analysis": "Clear defensive rotation pattern with Communication Services leading (+1.56% MRS_20) followed by Real Estate and Healthcare in trend zones. Technology showing relative weakness (-0.12% MRS_20) as smart money rotates away from hardware/semiconductors per news themes. Financial Services concerning with momentum turning negative despite strong 20-day performance, suggesting potential sector leadership change. Energy and Utilities showing improving short-term momentum but remaining in neutral zones, indicating potential rotation candidates if risk appetite improves.",
+  "l1_alignment": "Sector rotation aligns well with L1's NORMAL regime and AGGRESSIVE bias. While defensive sectors lead, the presence of Basic Materials in trend zone and improving Energy/Utilities momentum suggests market isn't in full risk-off mode. The NEUTRAL rotation bias from L2 balances L1's aggressive stance, reflecting mixed signals in current environment.",
+  "key_insight": "Smart money is executing a defensive rotation driven by Fed rate cuts, moving capital from overvalued semiconductors/hardware into Communication Services and Healthcare sectors that offer reasonable valuations, steady cash flows, and dividend appeal - a classic late-cycle positioning strategy.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: CONTRACTION (HIGH confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 shows NORMAL regime with AGGRESSIVE bias. Sector rotation shows defensive leadership (XLC, XLV, XLRE) which creates some tension but is resolved by Fed rate cut environment driving smart money into defensive sectors with attractive valuations.\n\nStep 2 - Signal Validation:\nAll signals validate correctly: 4 TREND sectors in Zone A with positive MRS_5, 6 NEUTRAL in Zone E, 1 WEAKENING in Zone B with negative MRS_5. No anomalies detected vs thresholds.\n\nStep 3 - Zone Analysis:\nActive zones: A (4 sectors - defensive-led), E (6 sectors - mixed), B (1 sector - financials weakening). Rotation direction is defensive with Communication Services, Healthcare, Real Estate leading while Technology and Consumer Cyclical lag.\n\nStep 4 - Conflict Resolution:\nL1 AGGRESSIVE vs L2 defensive rotation resolved by Fed rate cut context. Smart money rotating into defensive sectors with reasonable valuations rather than pure risk-off. News confirms this with sector rotation themes away from semiconductors into steady cash flow sectors.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nCONTRACTION phase identified with high confidence as defensive sectors (XLC, XLV, XLRE) dominate leadership while cyclicals (XLY, XLK) underperform. Financial Services weakening despite previous strength is classic late-cycle behavior. Four sectors in trend zones but led by defensives rather than cyclicals confirms contractionary environment.\n\nKey Insight: Smart money is executing a defensive rotation driven by Fed rate cuts, moving capital from overvalued semiconductors/hardware into Communication Services and Healthcare sectors that offer reasonable valuations, steady cash flows, and dividend appeal - a classic late-cycle positioning strategy."
+}

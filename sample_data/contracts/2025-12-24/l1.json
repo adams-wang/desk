@@ -1,0 +1,248 @@
+{
+  "contract_id": "l1_2025-12-24",
+  "trading_date": "2025-12-24",
+  "generated_at": "2025-12-25T07:31:22.296910",
+  "valid_until": "2025-12-26T07:31:22.296910",
+  "agent": "L1 Macro Strategist",
+  "model": "claude-sonnet-4-20250514",
+  "news_context": {
+    "article_count": 15,
+    "avg_sentiment": 0.173,
+    "dominant_topic": "financial_markets",
+    "key_themes": [
+      "Year-end Santa rally driving multiple stocks to 52-week highs",
+      "Banking sector strength with major banks hitting new highs on rate cut expectations",
+      "Industrial sector showing signs of cyclical bottoming",
+      "Holiday-shortened trading creating light volume conditions"
+    ],
+    "market_implications": "Positive momentum into year-end with broad sector participation, though light volume may amplify moves.",
+    "headlines": [
+      {
+        "title": "The Fortress Strategy: Why Investors are Anchoring 2026 Portfolios with Procter & Gamble",
+        "summary": "As 2025 ends, investors are shifting capital from high-flying tech stocks to consumer staples like Procter & Gamble (PG), embracing a \"Fortress Strategy\" due to predicted economic fragmentation and persistent inflation. P&G is seen as a stable investment for 2026, driven by its essential goods, pricing power, and strategic initiatives like \"Supply Chain 3.0\" which promise earnings growth even in a challenging economic climate. The company's consistent dividends and focus on value-through-performance essentials position it as a \"sleep-well-at-night\" stock amidst market uncertainties.",
+        "url": "https://markets.financialcontent.com/stocks/article/marketminute-2025-12-24-the-fortress-strategy-why-investors-are-anchoring-2026-portfolios-with-procter-and-gamble",
+        "source": "FinancialContent",
+        "time_published": "20251224T222300",
+        "sentiment": 0.214593,
+        "sentiment_label": "Somewhat-Bullish",
+        "relevance": 0.824721,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "economy_monetary"
+        ]
+      },
+      {
+        "title": "Wyoming Awards $100 Million To BWXT For Nuclear Fuel Plant In Gillette",
+        "summary": "Wyoming has awarded $100 million in matching funds to BWXT to build a nuclear fuel plant in Gillette, which will convert raw uranium into fuel for nuclear power plants. This initiative aims to make Wyoming competitive in the nuclear sector, create 200 high-paying jobs, and contribute significantly to the state's economy. The plant will produce TRISO fuel, known for its safety features and long-term operational capabilities.",
+        "url": "https://cowboystatedaily.com/2025/12/19/wyoming-awards-100-million-to-bwxt-for-nuclear-fuel-plant-in-gillette/",
+        "source": "Cowboy State Daily",
+        "time_published": "20251224T230853",
+        "sentiment": 0.433025,
+        "sentiment_label": "Bullish",
+        "relevance": 0.818173,
+        "topics": [
+          "energy_transportation",
+          "economy_macro",
+          "manufacturing"
+        ]
+      },
+      {
+        "title": "Adobe Stock After Hours (ADBE): Shares Slip to $352 on Dec. 23\u2014What to Watch Before the Dec. 24 Early-Close Session",
+        "summary": "Adobe Inc. (ADBE) shares slipped to $352.42 on Tuesday, December 23, 2025, during a session where the S&P 500 reached record highs, raising questions about whether the decline is year-end volatility or a reflection of Adobe's 2026 growth narrative. The article examines the stock's after-hours performance, key macroeconomic factors, recent analyses, and what to monitor before the early-close session on December 24, 2025. Investors are focused on Adobe\u2019s FY2026 targets, its AI monetization strategy, and potential impacts from the Semrush acquisition and AI-related litigation risks.",
+        "url": "https://ts2.tech/en/adobe-stock-after-hours-adbe-shares-slip-to-352-on-dec-23-what-to-watch-before-the-dec-24-early-close-session/",
+        "source": "ts2.tech",
+        "time_published": "20251224T230733",
+        "sentiment": -0.118831,
+        "sentiment_label": "Neutral",
+        "relevance": 0.80675,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "economy_macro"
+        ]
+      },
+      {
+        "title": "Spotting Winners: Northwest Bancshares (NASDAQ:NWBI) And Thrifts & Mortgage Finance Stocks In Q3",
+        "summary": "This article analyzes the Q3 performance of Northwest Bancshares (NASDAQ:NWBI) and other Thrifts & Mortgage Finance stocks. While NWBI reported mixed results with revenue exceeding expectations but EPS missing, Ellington Financial (NYSE:EFC) had an exceptional quarter, and WaFd Bank (NASDAQ:WAFD) and Arbor Realty Trust (NYSE:ABR) faced challenges. The sector overall saw revenues beat consensus estimates, with recent rate cuts and market shifts influencing stock performance.",
+        "url": "https://finviz.com/news/262272/spotting-winners-northwest-bancshares-nasdaq-nwbi-and-thrifts-mortgage-finance-stocks-in-q3",
+        "source": "Finviz",
+        "time_published": "20251224T223100",
+        "sentiment": 0.060091,
+        "sentiment_label": "Neutral",
+        "relevance": 0.747769,
+        "topics": [
+          "earnings",
+          "finance",
+          "economy_monetary"
+        ]
+      },
+      {
+        "title": "Semiconductor Manufacturing Stocks Q3 In Review: Photronics (NASDAQ:PLAB) Vs Peers",
+        "summary": "This article reviews the Q3 earnings season for semiconductor manufacturing stocks, highlighting Photronics (NASDAQ:PLAB) which saw an exceptional quarter with revenues exceeding expectations. It also examines the performances of peers like Teradyne (NASDAQ:TER), Entegris (NASDAQ:ENTG), Semtech (NASDAQ:SMTC), and Applied Materials (NASDAQ:AMAT), detailing their financial results and market reactions. The broader market context, including inflation and recent rate cuts impacting the economy, is also discussed.",
+        "url": "https://finviz.com/news/262312/semiconductor-manufacturing-stocks-q3-in-review-photronics-nasdaq-plab-vs-peers",
+        "source": "Finviz",
+        "time_published": "20251224T223500",
+        "sentiment": 0.374146,
+        "sentiment_label": "Bullish",
+        "relevance": 0.736566,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "technology"
+        ]
+      },
+      {
+        "title": "Q3 Inspection Instruments Earnings Review: First Prize Goes to Keysight (NYSE:KEYS)",
+        "summary": "Keysight (NYSE:KEYS) led the inspection instruments sector in Q3 with strong revenue growth and exceeding analyst expectations, leading to a 15.5% stock increase. Other companies like Badger Meter (NYSE:BMI) also performed well in revenue, while Itron (NASDAQ:ITRI) had the weakest relative performance but still beat some estimates. The article reviews the performance of four key players in the inspection instruments market and touches on broader economic factors.",
+        "url": "https://finviz.com/news/262285/q3-inspection-instruments-earnings-review-first-prize-goes-to-keysight-nyse-keys",
+        "source": "Finviz",
+        "time_published": "20251224T223800",
+        "sentiment": 0.325814,
+        "sentiment_label": "Somewhat-Bullish",
+        "relevance": 0.715842,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "economy_monetary"
+        ]
+      },
+      {
+        "title": "Liquidity Mapping Around (APMU) Price Events",
+        "summary": "This article from Stock Traders Daily provides a detailed AI-driven analysis for the Activepassive Intermediate Municipal Bond Etf (NASDAQ: APMU). It highlights a neutral sentiment favoring a wait-and-see approach, with resistance being tested. The analysis includes institutional trading strategies with specific entry, target, and stop-loss zones for position, momentum breakout, and risk hedging.",
+        "url": "https://news.stocktradersdaily.com/news_release/35/Liquidity_Mapping_Around_APMU_Price_Events_122425115602_1766638562.html",
+        "source": "Stock Traders Daily",
+        "time_published": "20251224T235600",
+        "sentiment": 0.035836,
+        "sentiment_label": "Neutral",
+        "relevance": 0.712413,
+        "topics": [
+          "financial_markets",
+          "economy_macro",
+          "finance"
+        ]
+      },
+      {
+        "title": "PACCAR Q4 2025 Earnings Preview: Analyst Estimates & Dividend Details - News and Statistics",
+        "summary": "PACCAR is projected to report a significant 36.8% year-over-year drop in Q4 2025 earnings to $1.05 per share, with full fiscal year 2025 earnings expected to decline by 36.6% to $5.01 per share. Despite this, analysts anticipate a recovery in fiscal 2026 with a nearly 10% earnings growth. The company recently declared a regular quarterly dividend of $0.33 per share and an extra cash dividend of $1.40 per share, leading to a 4.2% increase in share price, and maintains a \"Moderate Buy\" consensus rating among analysts.",
+        "url": "https://www.indexbox.io/blog/paccar-q4-2025-earnings-expected-to-drop-368-year-over-year/",
+        "source": "IndexBox",
+        "time_published": "20251224T230820",
+        "sentiment": 0.064623,
+        "sentiment_label": "Neutral",
+        "relevance": 0.706638,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "economy_macro"
+        ]
+      },
+      {
+        "title": "Q3 Earnings Highs And Lows: FormFactor (NASDAQ:FORM) Vs The Rest Of The Semiconductor Manufacturing Stocks",
+        "summary": "This article analyzes FormFactor's Q3 2025 earnings in comparison to other semiconductor manufacturing stocks. It highlights FormFactor's strong performance, exceeding analysts' expectations for revenue and operating income, and discusses the best (Teradyne) and weakest (Entegris) performers in the sector for Q3. The article also provides a brief market update on the general economic climate and stock market performance.",
+        "url": "https://markets.financialcontent.com/wral/article/stockstory-2025-12-24-q3-earnings-highs-and-lows-formfactor-nasdaqform-vs-the-rest-of-the-semiconductor-manufacturing-stocks",
+        "source": "FinancialContent",
+        "time_published": "20251224T230904",
+        "sentiment": 0.425002,
+        "sentiment_label": "Bullish",
+        "relevance": 0.703003,
+        "topics": [
+          "earnings",
+          "technology",
+          "economy_monetary"
+        ]
+      },
+      {
+        "title": "Wells Fargo (WFC) Stock After Hours Today, Dec. 24, 2025: Where It Closed, What\u2019s Driving the Move, and What to Watch Before the Next Market Open",
+        "summary": "Wells Fargo (WFC) stock closed in positive territory on a shortened Christmas Eve trading session, continuing to trade modestly higher after hours and nearing new 52-week highs. The positive movement is attributed to a broad market rally, a bank-friendly macroeconomic environment with expectations of rate cuts in 2026, and Wells Fargo's strategic expansion into options clearing. Investors are watching for Q4 2025 earnings on January 14, 2026, as the next major catalyst.",
+        "url": "https://ts2.tech/en/wells-fargo-wfc-stock-after-hours-today-dec-24-2025-where-it-closed-whats-driving-the-move-and-what-to-watch-before-the-next-market-open/",
+        "source": "ts2.tech",
+        "time_published": "20251224T223855",
+        "sentiment": 0.439173,
+        "sentiment_label": "Bullish",
+        "relevance": 0.641584,
+        "topics": [
+          "financial_markets",
+          "finance",
+          "earnings"
+        ]
+      }
+    ]
+  },
+  "macro_summary": "NORMAL regime with moderate risk appetite supported by year-end positioning. VIX at cycle lows (13.47) and multiple sectors hitting 52-week highs indicate constructive sentiment, though breadth at 57.9% suggests selectivity remains important. Fed pause expectations and stable macro backdrop support risk assets.",
+  "regime": "NORMAL",
+  "regime_transition": "STABLE",
+  "confidence": "MEDIUM",
+  "confidence_score": 0.65,
+  "news_risk_adjustment": 0,
+  "news_risk_rationale": "News themes align with current low VIX environment - no forward-looking risks identified.",
+  "signals": {
+    "vix_value": 13.47,
+    "vix_delta_5d_pct": -23.6,
+    "vix_bucket": "CALM",
+    "vix_interpretation": "At 52-week lows (0th percentile), indicating extreme complacency. Sharp 5-day decline suggests fear premium completely removed.",
+    "yield_spread_bps": 58.0,
+    "yield_spread_10y_3m_bps": 58.0,
+    "yield_shape": "NORMAL",
+    "yield_interpretation": "Healthy curve shape with 58bp 10Y-3M spread. No recession signal, supportive of risk assets.",
+    "breadth_pct": 57.9,
+    "breadth_delta_5d": 5.3,
+    "breadth_interpretation": "Moderate participation at upper end of recent range. Decent but not exceptional breadth suggests selective market.",
+    "put_call_ratio": 0.825,
+    "put_call_delta_5d": -0.2,
+    "put_call_interpretation": null,
+    "fed_funds": 3.88,
+    "cpi_yoy": 2.74,
+    "unemployment": 4.6,
+    "sahm_triggered": false,
+    "fomc_days_away": 34,
+    "economic_interpretation": "Stable macro backdrop with falling Fed funds, contained inflation, and healthy labor market. No recession signals.",
+    "gdp_yoy": 2.34,
+    "gdp_trend": "stable",
+    "retail_sales_mom": 5.51,
+    "retail_sales_trend": "stable"
+  },
+  "conflicts": [
+    "VIX at extreme lows (13.47, 0th percentile) vs moderate breadth (57.9%) - suggests narrow leadership despite low fear",
+    "Multiple 52-week highs in news vs only moderate breadth reading - quality over quantity rally"
+  ],
+  "position_sizing": {
+    "vix_value": 13.47,
+    "vix_bucket": "CALM",
+    "base_position_pct": 120,
+    "soft_blockers_applied": [],
+    "soft_blocker_multiplier": 1.0,
+    "after_soft_pct": 120,
+    "news_adjustment_pct": 0,
+    "news_adjustment_rationale": "News themes align with current low VIX environment - no forward-looking risks identified.",
+    "pre_cap_position_pct": 120,
+    "hard_blocks_applied": [],
+    "final_position_pct": 120
+  },
+  "guidance": {
+    "position_bias": "AGGRESSIVE",
+    "position_size_max_pct": 120,
+    "key_action": "Maintain positions in quality names, use any volatility spikes as entry opportunities given stable macro backdrop."
+  },
+  "triggers": {
+    "upgrade": [
+      "VIX spike above 18 creating better entry points",
+      "Breadth expansion above 65% confirming broader participation",
+      "Fed dovish surprise at January 28 FOMC"
+    ],
+    "downgrade": [
+      "VIX remaining below 15 for extended period (complacency risk)",
+      "Breadth deterioration below 50% despite low VIX",
+      "Unexpected hawkish Fed pivot or economic data deterioration"
+    ]
+  },
+  "risk_factors": [
+    "Extreme complacency with VIX at 52-week lows",
+    "Holiday-shortened trading creating artificial calm",
+    "Narrow market leadership despite positive headlines",
+    "34 days until next FOMC - policy uncertainty window"
+  ],
+  "full_analysis": "Market Assessment: NORMAL regime with stable conditions\n\nThe market is exhibiting classic year-end dynamics with VIX at extreme lows (13.47, 0th percentile of 52-week range) and multiple stocks hitting 52-week highs across banking, industrial, and healthcare sectors. This represents a \"Santa rally\" environment with constructive sentiment.\n\nKey Observations:\n1. VIX Complacency: At 13.47 with a massive -23.6% decline over 5 days, fear premium has been completely removed. This is the lowest VIX reading in the 52-week range.\n\n2. Yield Curve Health: 10Y-3M spread at 58bps indicates normal economic conditions with no recession signal. The curve shape is supportive of risk assets.\n\n3. Moderate Breadth: At 57.9%, breadth is decent but not exceptional, suggesting this is more of a quality rally than broad-based euphoria.\n\n4. Economic Stability: Fed funds falling (3.88%), inflation contained (2.74%), unemployment stable (4.6%) - all supportive of continued expansion.\n\nCritical Conflicts:\n- VIX at extreme lows vs only moderate breadth suggests narrow leadership\n- Multiple 52-week high headlines vs 57.9% breadth reading indicates selectivity\n\nNews Context:\nYear-end positioning is driving strength across quality names, with banks benefiting from rate cut expectations and industrials showing cyclical bottoming signals. However, holiday-shortened trading may be creating artificial calm.\n\nRisk Assessment:\nPrimary risk is complacency with VIX at cycle lows. While macro backdrop is stable, extreme low volatility readings often precede corrections. The 34-day gap until next FOMC creates a policy uncertainty window.\n\nPositioning Recommendation:\nMaintain quality positions but remain selective. Use any volatility spikes as opportunities given stable fundamentals. Avoid chasing momentum in this low-volume environment.",
+  "markdown_report": "",
+  "hard_blocks": []
+}

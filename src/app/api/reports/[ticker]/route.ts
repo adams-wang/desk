@@ -4,7 +4,7 @@ import db from "@/lib/db";
 import fs from "fs";
 import path from "path";
 
-const REPORTS_BASE_PATH = "/Volumes/Data/quant";
+const REPORTS_BASE_PATH = process.env.QUANT_BASE_PATH || "./sample_data";
 
 // Supported languages
 const SUPPORTED_LANGUAGES = ["en", "zh", "ko", "ja"] as const;

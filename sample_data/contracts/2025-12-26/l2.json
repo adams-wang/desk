@@ -1,0 +1,930 @@
+{
+  "contract_id": "l2_2025-12-26",
+  "trading_date": "2025-12-26",
+  "generated_at": "2026-01-01T13:10:14.128997",
+  "valid_until": "2026-01-02T13:10:14.128997",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-26",
+  "sector_news": {
+    "total_articles": 114,
+    "avg_sentiment": 0.185,
+    "bullish_sectors": [
+      "XLU",
+      "XLB",
+      "XLC",
+      "XLK",
+      "XLI",
+      "XLE"
+    ],
+    "bearish_sectors": [],
+    "sector_sentiment": {
+      "XLRE": {
+        "avg_sentiment": 0.087,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLU": {
+        "avg_sentiment": 0.242,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.293,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.323,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": -0.052,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLF": {
+        "avg_sentiment": 0.139,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLK": {
+        "avg_sentiment": 0.323,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLI": {
+        "avg_sentiment": 0.293,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": 0.063,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLP": {
+        "avg_sentiment": 0.084,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLE": {
+        "avg_sentiment": 0.242,
+        "article_count": 10,
+        "label": "Bullish"
+      }
+    },
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "GOOG Stock Today: Alphabet Class C Holds Near $315 After Holiday Session as AI Power Deals and Antitrust Risks Shape the 2026 Outlook",
+          "summary": "Alphabet's Class C shares (NASDAQ: GOOG) closed near $314.96 after the post-Christmas session, influenced by a mix of AI-driven capital expenditure, cloud momentum, and ongoing regulatory/antitrust headlines. Key developments include a $4.75 billion acquisition of Intersect to support AI infrastructure, a significant security partnership with Palo Alto Networks for Google Cloud, and the clearance of the Wiz acquisition by the U.S. Justice Department. Investors are also weighing AI copyright litigation and the impact of antitrust rulings, while looking ahead to the Q4 earnings report in early February 2026 for further insights into monetization and capex guidance.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/goog-stock-today-alphabet-class-c-holds-near-315-after-holiday-session-as-ai-power-deals-and-antitrust-risks-shape-the-2026-outlook/",
+          "time_published": "20251226T234724",
+          "relevance": 1.0,
+          "sentiment": 0.276806,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The Technical Signals Behind (NDOW) That Institutions Follow",
+          "summary": "This article analyzes the technical signals for Anydrus Advantage Etf (NASDAQ: NDOW), revealing a breakout underway with higher levels anticipated if sustained. It outlines three institutional trading strategies\u2014Position Trading, Momentum Breakout, and Risk Hedging\u2014tailored to different risk profiles. The analysis also provides multi-timeframe signal strength, support, and resistance levels based on AI-generated data.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/24/The_Technical_Signals_Behind_NDOW_That_Institutions_Follow_122625114202_1766810522.html",
+          "time_published": "20251226T234200",
+          "relevance": 1.0,
+          "sentiment": 0.422756,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "How (MEMS) Movements Inform Risk Allocation Models",
+          "summary": "This article analyzes the Matthews Emerging Markets Discovery Active Etf (NASDAQ: MEMS) using AI models to inform risk allocation. It identifies near-term strong sentiment transitioning to mid-term neutrality and then long-term positive bias, with specific support and resistance levels. The analysis also provides exceptional risk-reward setups and outlines three distinct institutional trading strategies.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/23/How_MEMS_Movements_Inform_Risk_Allocation_Models_122625114002_1766810402.html",
+          "time_published": "20251226T234000",
+          "relevance": 1.0,
+          "sentiment": 0.453976,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "C aesars Sportsbook Opening 2026 in Rampart Casino Las Vegas",
+          "summary": "C aesars Entertainment and Rampart Casino are partnering to open a new Caesars Sportsbook at The Resort at Summerlin in 2026, pending regulatory approval. The new sportsbook will replace the existing one and feature state-of-the-art technology, including a 360-degree LED video wall and 20 self-service betting kiosks. This expansion aims to meet the demand for high-quality sports betting in the Summerlin community, leveraging Caesars' proprietary technology and its Universal Digital Wallet.",
+          "source": "Play USA",
+          "url": "https://www.playusa.com/news/new-360-degree-caesars-sportsbook-coming-to-rampart-casino-in-las-vegas/",
+          "time_published": "20251226T233113",
+          "relevance": 1.0,
+          "sentiment": 0.422857,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "(NSTS) Movement as an Input in Quant Signal Sets",
+          "summary": "This article analyzes Nsts Bancorp Inc. (NASDAQ: NSTS) using AI models, identifying a potential short setup with a high risk-reward ratio. It details institutional trading strategies, including position trading, momentum breakout, and risk hedging, along with multi-timeframe signal analysis, and invites users to access real-time signals and personalized analysis.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/11/NSTS_Movement_as_an_Input_in_Quant_Signal_Sets_122625112202_1766809322.html",
+          "time_published": "20251226T232200",
+          "relevance": 1.0,
+          "sentiment": 0.480471,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "Omeros Announces New Date for YARTEMLEA\u00ae Approval Conference Call",
+          "summary": "Omeros Corporation has rescheduled its conference call to discuss the FDA approval of YARTEMLEA\u00ae (narsoplimab-wuug), the first and only therapy for hematopoietic stem cell transplant-associated thrombotic microangiopathy (TA-TMA). The call will now occur on Wednesday, January 7, 2026, at 4:30 p.m. Eastern Time, to accommodate holiday schedules and allow for broader participation. YARTEMLEA\u00ae is also under review by the European Medicines Agency, with a decision expected in mid-2026.",
+          "source": "The Joplin Globe",
+          "url": "https://www.joplinglobe.com/region/national_business/omeros-announces-new-date-for-yartemlea-approval-conference-call/article_7d6c5465-4d6d-50b9-be44-2962b85eb482.html",
+          "time_published": "20251226T230850",
+          "relevance": 1.0,
+          "sentiment": 0.407241,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Behavioral Patterns of VSTM and Institutional Flows",
+          "summary": "This article analyzes the behavioral patterns and institutional flows for Verastem Inc. (NASDAQ: VSTM), identifying a mid-channel oscillation pattern. It highlights weak near and mid-term sentiment but a strong long-term outlook, proposing three distinct AI-generated trading strategies with an exceptional risk-reward setup.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/38/Behavioral_Patterns_of_VSTM_and_Institutional_Flows_122625103802_1766806682.html",
+          "time_published": "20251226T223800",
+          "relevance": 1.0,
+          "sentiment": 0.32341,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "How Coeptis Therapeutics Holdings Inc. (COEP) Affects Rotational Strategy Timing",
+          "summary": "This article analyzes Coeptis Therapeutics Holdings Inc. (COEP) through a rotational strategy timing lens, highlighting positive near-term sentiment while noting a mid-channel oscillation pattern. It presents an exceptional risk-reward short setup and outlines institutional trading strategies based on AI models, including position trading, momentum breakout, and risk hedging with multi-timeframe signal analysis.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/20/How_Coeptis_Therapeutics_Holdings_Inc._COEP_Affects_Rotational_Strategy_Timing_122625102401_1766805841.html",
+          "time_published": "20251226T222400",
+          "relevance": 1.0,
+          "sentiment": 0.219858,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "(NVCT) Price Dynamics and Execution-Aware Positioning",
+          "summary": "This article provides an analysis of Nuvectis Pharma Inc. (NASDAQ: NVCT), highlighting near and mid-term strong sentiment despite a weak long-term outlook. It details an exceptional risk-reward short setup and offers three distinct trading strategies with sophisticated risk management parameters. The analysis also includes multi-timeframe signal analysis and AI-generated signals for informed positioning.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/11/NVCT_Price_Dynamics_and_Execution-Aware_Positioning_122625101201_1766805121.html",
+          "time_published": "20251226T221200",
+          "relevance": 1.0,
+          "sentiment": 0.464429,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Stocks Stall Despite Healthy Christmas Week Wins",
+          "summary": "Despite a daily loss for the Dow, S&P 500, and Nasdaq, which snapped five-day win streaks due to low-volume profit-taking, all three indices secured weekly gains, with the S&P 500 even hitting an intraday record. Safe-haven assets like gold and silver (which climbed above $75 per ounce for the first time ever) saw significant gains, while oil prices dipped amid geopolitical discussions regarding a potential ceasefire in Ukraine. The article highlights market movements including Micron's erratic trading and focuses on biotech stocks, set against a backdrop of the Cboe Volatility Index remaining in annual low territory.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/262717/stocks-stall-despite-healthy-christmas-week-wins",
+          "time_published": "20251226T221111",
+          "relevance": 1.0,
+          "sentiment": 0.148502,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "How (MEMS) Movements Inform Risk Allocation Models",
+          "summary": "This article analyzes the Matthews Emerging Markets Discovery Active Etf (NASDAQ: MEMS) using AI models to inform risk allocation. It identifies near-term strong sentiment transitioning to mid-term neutrality and then long-term positive bias, with specific support and resistance levels. The analysis also provides exceptional risk-reward setups and outlines three distinct institutional trading strategies.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/23/How_MEMS_Movements_Inform_Risk_Allocation_Models_122625114002_1766810402.html",
+          "time_published": "20251226T234000",
+          "relevance": 1.0,
+          "sentiment": 0.484621,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "C aesars Sportsbook Opening 2026 in Rampart Casino Las Vegas",
+          "summary": "C aesars Entertainment and Rampart Casino are partnering to open a new Caesars Sportsbook at The Resort at Summerlin in 2026, pending regulatory approval. The new sportsbook will replace the existing one and feature state-of-the-art technology, including a 360-degree LED video wall and 20 self-service betting kiosks. This expansion aims to meet the demand for high-quality sports betting in the Summerlin community, leveraging Caesars' proprietary technology and its Universal Digital Wallet.",
+          "source": "Play USA",
+          "url": "https://www.playusa.com/news/new-360-degree-caesars-sportsbook-coming-to-rampart-casino-in-las-vegas/",
+          "time_published": "20251226T233113",
+          "relevance": 1.0,
+          "sentiment": 0.411293,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Responsive Playbooks and the MGYR Inflection",
+          "summary": "This article details a strong \"overweight bias\" for Magyar Bancorp Inc. (NASDAQ: MGYR) based on AI models across all time horizons, showcasing an exceptional 17.6:1 risk-reward short setup. It outlines specific institutional trading strategies including position, momentum breakout, and risk hedging, along with multi-timeframe signal analysis. The report highlights strong sentiment signals across near-term, mid-term, and long-term horizons, providing entry, target, and stop-loss levels for various strategies.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/14/Responsive_Playbooks_and_the_MGYR_Inflection_122625112602_1766809562.html",
+          "time_published": "20251226T232600",
+          "relevance": 1.0,
+          "sentiment": 0.408751,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Amcon Distributing Co To Go Ex-Dividend On December 29th, 2025 With 0.28 USD Special Dividend Per Share",
+          "summary": "Amcon Distributing Co (DIT.US) is scheduled to trade ex-dividend on December 29th, 2025, offering a special dividend of 0.28 USD per share. Shareholders on record by December 29th, 2025, will receive this dividend on January 30th, 2026. The article also provides general information about cash and stock dividends.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66652716/amcon-distributing-co-to-go-ex-dividend-on-december-29th",
+          "time_published": "20251226T230827",
+          "relevance": 1.0,
+          "sentiment": 0.404469,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Canoe Financial LP Sells 13,252 Shares of Adobe Inc. $ADBE",
+          "summary": "Canoe Financial LP reduced its stake in Adobe Inc. by 39.5% during the third quarter, selling 13,252 shares and retaining 20,266 shares valued at approximately $7.15 million. Adobe recently surpassed quarterly earnings estimates with an EPS of $5.50 and revenue of $6.19 billion, and provided optimistic guidance for Q1 and FY 2026. Despite varied analyst sentiment, institutional investors own a significant 81.79% of Adobe, while insider selling activity was also reported.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-canoe-financial-lp-sells-13252-shares-of-adobe-inc-adbe-2025-12-26/",
+          "time_published": "20251226T230731",
+          "relevance": 1.0,
+          "sentiment": 0.257212,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Arrive AI: Indiana Governor Mike Braun Creates Indiana Initiative for Drone Dominance Task Force",
+          "summary": "Indiana Governor Mike Braun has established a task force aimed at positioning Indiana as a leader in drone technology, aligning with federal initiatives for American drone dominance. Arrive AI (NASDAQ:ARAI) applauds this executive order, highlighting the state's unique attributes\u2014such as its manufacturing industry, military facilities, and academic programs\u2014that are conducive to developing drone infrastructure and applications. The company believes this task force will create a blueprint for secure, efficient, and autonomous delivery systems, particularly in healthcare, public safety, and rural logistics, which Arrive AI is poised to leverage.",
+          "source": "Lubbock Avalanche-Journal",
+          "url": "https://www.lubbockonline.com/press-release/story/110876/arrive-ai-indiana-governor-mike-braun-creates-indiana-initiative-for-drone-dominance-task-force/",
+          "time_published": "20251226T220940",
+          "relevance": 1.0,
+          "sentiment": 0.481135,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Highway Holdings\u2019 Bold Strategy: Acquiring 51% of Regent-Feinbau to Enter Chinese Auto Market",
+          "summary": "Highway Holdings Limited announced its plan to acquire a 51% stake in Germany-based Regent-Feinbau Adermann GmbH, a move that sent its stock up by 7.14%. This strategic acquisition aims to facilitate Highway Holdings' entry into China's automotive market by March 2026, leveraging Regent-Feinbau's precision sheet metal manufacturing expertise. The deal, pending due diligence, is expected to enhance Highway Holdings' manufacturing capabilities and market footprint in the growing Chinese auto sector.",
+          "source": "StocksToTrade",
+          "url": "https://stockstotrade.com/news/highway-holdings-limited-hiho-news-2025_12_26-2/",
+          "time_published": "20251226T220937",
+          "relevance": 1.0,
+          "sentiment": 0.49834,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "What to Expect From Textron's Next Quarterly Earnings Report",
+          "summary": "Textron Inc. (TXT) is expected to announce strong fiscal Q4 earnings for 2025, with analysts forecasting a 32.8% rise in profit per share to $1.78. The company has consistently surpassed Wall Street's bottom-line estimates and its shares have outperformed the S&P 500. Despite missing revenue expectations in Q3 due to weaker industrial sales, adjusted EPS exceeded consensus estimates.",
+          "source": "Palmetto Grain Brokerage",
+          "url": "https://www.palmettograin.com/news/story/36793795/what-to-expect-from-textron-s-next-quarterly-earnings-report",
+          "time_published": "20251226T220850",
+          "relevance": 1.0,
+          "sentiment": 0.414069,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Caterpillar Stock (CAT) Today: Year-End Trading, AI Power Demand, Tariffs, and What Investors Should Watch Next",
+          "summary": "Caterpillar Inc. (NYSE: CAT) shares were trading slightly lower on a holiday-thinned session, reflecting mixed trading in the broader market. The company's stock is increasingly tied to the growing demand for electric power and data center infrastructure due to AI, a narrative that has become a significant driver in recent quarters. Despite risks from tariffs and construction-cycle sensitivity, analysts are re-evaluating CAT as more than just a cyclical industrial bellwether, recognizing its durable aftermarket and power-system tailwinds.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/caterpillar-stock-cat-today-year-end-trading-ai-power-demand-tariffs-and-what-investors-should-watch-next/",
+          "time_published": "20251226T211451",
+          "relevance": 1.0,
+          "sentiment": 0.229151,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "RBC Bearings' Aerospace & Defense Growth Picks Up: A Sign of More Upside?",
+          "summary": "RBC Bearings Incorporated (RBC) is experiencing significant growth in its aerospace and defense segment, with revenues surging by 38.8% in fiscal Q2 2026. This growth is fueled by strong demand from commercial aerospace original equipment manufacturers and the aftermarket, as well as an increase in defense market orders. Despite trading above the industry average with a forward price-to-earnings ratio of 35.51X, the company maintains a Zacks Rank #3 (Hold), with its fiscal 2026 earnings estimates trending upwards.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/PH/pressreleases/36796805/rbc-bearings-aerospace-defense-growth-picks-up-a-sign-of-more-upside/",
+          "time_published": "20251226T210919",
+          "relevance": 1.0,
+          "sentiment": 0.371838,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "NVR Inc.\u2019s Q4 2025 Earnings: What to Expect",
+          "summary": "NVR, Inc. (NVR), a premier U.S. homebuilder, is expected to report a 24.7% year-over-year decline in Q4 2025 profit to $105.42 per diluted share, with full-year profit projected to decrease by 16.8% to $421.69. The company's stock has underperformed the broader market, dropping 10.8% over the past 52 weeks due to squeezed margins and affordability challenges. Despite a consensus \"Hold\" rating from analysts, the mean price target suggests an 18.3% upside.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/stocks/article/barchart-2025-12-24-nvr-incs-q4-2025-earnings-what-to-expect",
+          "time_published": "20251224T093000",
+          "relevance": 1.0,
+          "sentiment": -0.163823,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 2
+        },
+        {
+          "title": "Is FGI Industries (FGI) Stock Outpacing Its Retail-Wholesale Peers This Year?",
+          "summary": "FGI Industries Ltd. (FGI) has significantly outperformed its Retail-Wholesale sector peers and its specific Retail - Home Furnishings industry this year, returning 80.4% year-to-date compared to the sector's 7.2% average. The company currently holds a Zacks Rank of #1 (Strong Buy), with its full-year earnings consensus estimate increasing by 37.5% over the past three months, indicating strong analyst sentiment. Investors interested in Retail-Wholesale stocks should monitor FGI and Expedia (EXPE), another strong performer in the sector.",
+          "source": "www.sharewise.com",
+          "url": "https://www.sharewise.com/us/news_articles/Is_FGI_Industries_FGI_Stock_Outpacing_Its_RetailWholesale_Peers_This_Year_Zacks_20251226_1540",
+          "time_published": "20251226T232941",
+          "relevance": 1.0,
+          "sentiment": 0.365024,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Wells Fargo Trims Costco (COST) Target Amid Mixed Retail Backdrop",
+          "summary": "Wells Fargo analyst Edward Kelly lowered the price target for Costco Wholesale Corporation (COST) to $900 from $1,000 while maintaining an Equal Weight rating, citing a mixed retail environment for 2026. Despite this, Costco's membership model, with high renewal rates in the US and Canada and growth in executive memberships, continues to show stability and future earnings visibility, supporting its expansion plans. The firm is constructive on broadlines and food service, but suggests food retail faces more challenges, making company-specific drivers crucial.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/262786/wells-fargo-trims-costco-cost-target-amid-mixed-retail-backdrop",
+          "time_published": "20251226T232600",
+          "relevance": 1.0,
+          "sentiment": 0.079491,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Coupang Stock Jumps After Company Clears Air On Massive Data Leak Probe",
+          "summary": "Coupang Inc. shares rose after the company clarified that its investigation into a massive data leak, which affected nearly 34 million accounts, was conducted in close coordination with government authorities. The incident led to a 5% stock drop earlier in December and the resignation of CEO Park Dae-jun amidst a country-wide investigation and potential fines. The company asserts that despite the large number of affected accounts, data from only about 3,000 accounts was saved and subsequently deleted by the former employee responsible.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/coupang-stock-jumps-after-company-clears-air-on-massive-data-leak-probe-2025-12-26",
+          "time_published": "20251226T230925",
+          "relevance": 1.0,
+          "sentiment": 0.302133,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Amcon Distributing Co To Go Ex-Dividend On December 29th, 2025 With 0.28 USD Special Dividend Per Share",
+          "summary": "Amcon Distributing Co (DIT.US) is scheduled to trade ex-dividend on December 29th, 2025, offering a special dividend of 0.28 USD per share. Shareholders on record by December 29th, 2025, will receive this dividend on January 30th, 2026. The article also provides general information about cash and stock dividends.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66652716/amcon-distributing-co-to-go-ex-dividend-on-december-29th",
+          "time_published": "20251226T230827",
+          "relevance": 1.0,
+          "sentiment": 0.383335,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "Is FGI Industries (FGI) Stock Outpacing Its Retail-Wholesale Peers This Year?",
+          "summary": "FGI Industries Ltd. (FGI) has significantly outperformed its Retail-Wholesale sector peers and its specific Retail - Home Furnishings industry this year, returning 80.4% year-to-date compared to the sector's 7.2% average. The company currently holds a Zacks Rank of #1 (Strong Buy), with its full-year earnings consensus estimate increasing by 37.5% over the past three months, indicating strong analyst sentiment. Investors interested in Retail-Wholesale stocks should monitor FGI and Expedia (EXPE), another strong performer in the sector.",
+          "source": "www.sharewise.com",
+          "url": "https://www.sharewise.com/us/news_articles/Is_FGI_Industries_FGI_Stock_Outpacing_Its_RetailWholesale_Peers_This_Year_Zacks_20251226_1540",
+          "time_published": "20251226T232941",
+          "relevance": 1.0,
+          "sentiment": 0.365024,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Wells Fargo Trims Costco (COST) Target Amid Mixed Retail Backdrop",
+          "summary": "Wells Fargo analyst Edward Kelly lowered the price target for Costco Wholesale Corporation (COST) to $900 from $1,000 while maintaining an Equal Weight rating, citing a mixed retail environment for 2026. Despite this, Costco's membership model, with high renewal rates in the US and Canada and growth in executive memberships, continues to show stability and future earnings visibility, supporting its expansion plans. The firm is constructive on broadlines and food service, but suggests food retail faces more challenges, making company-specific drivers crucial.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/262786/wells-fargo-trims-costco-cost-target-amid-mixed-retail-backdrop",
+          "time_published": "20251226T232600",
+          "relevance": 1.0,
+          "sentiment": 0.079491,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Coupang Stock Jumps After Company Clears Air On Massive Data Leak Probe",
+          "summary": "Coupang Inc. shares rose after the company clarified that its investigation into a massive data leak, which affected nearly 34 million accounts, was conducted in close coordination with government authorities. The incident led to a 5% stock drop earlier in December and the resignation of CEO Park Dae-jun amidst a country-wide investigation and potential fines. The company asserts that despite the large number of affected accounts, data from only about 3,000 accounts was saved and subsequently deleted by the former employee responsible.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/coupang-stock-jumps-after-company-clears-air-on-massive-data-leak-probe-2025-12-26",
+          "time_published": "20251226T230925",
+          "relevance": 1.0,
+          "sentiment": 0.302133,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Amcon Distributing Co To Go Ex-Dividend On December 29th, 2025 With 0.28 USD Special Dividend Per Share",
+          "summary": "Amcon Distributing Co (DIT.US) is scheduled to trade ex-dividend on December 29th, 2025, offering a special dividend of 0.28 USD per share. Shareholders on record by December 29th, 2025, will receive this dividend on January 30th, 2026. The article also provides general information about cash and stock dividends.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66652716/amcon-distributing-co-to-go-ex-dividend-on-december-29th",
+          "time_published": "20251226T230827",
+          "relevance": 1.0,
+          "sentiment": 0.383335,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "KMX DEADLINE NOTICE: ROSEN, TOP-RANKED INVESTOR COUNSEL, Encourages CarMax, Inc. Investors to Secure Counsel Before Important January 2 Deadline in Securities Class Action First Filed by the Firm - KMX",
+          "summary": "Rosen Law Firm is reminding CarMax, Inc. investors who purchased securities between June 20, 2025, and November 5, 2025, of an important January 2, 2026, deadline to serve as lead plaintiff in a securities class action. The lawsuit alleges that CarMax overstated its growth prospects, which were temporarily boosted by customer speculation regarding tariffs. Investors are encouraged to contact Rosen Law Firm to join the class action if they suffered damages.",
+          "source": "FOX40 News",
+          "url": "https://fox40.com/business/press-releases/accesswire/1121612/kmx-deadline-notice-rosen-top-ranked-investor-counsel-encourages-carmax-inc-investors-to-secure-counsel-before-important-january-2-deadline-in-securities-class-action-first-filed-by-the-firm-km",
+          "time_published": "20251226T230826",
+          "relevance": 1.0,
+          "sentiment": 0.037102,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "Arrive AI: Indiana Governor Mike Braun Creates Indiana Initiative for Drone Dominance Task Force",
+          "summary": "Indiana Governor Mike Braun has established a task force aimed at positioning Indiana as a leader in drone technology, aligning with federal initiatives for American drone dominance. Arrive AI (NASDAQ:ARAI) applauds this executive order, highlighting the state's unique attributes\u2014such as its manufacturing industry, military facilities, and academic programs\u2014that are conducive to developing drone infrastructure and applications. The company believes this task force will create a blueprint for secure, efficient, and autonomous delivery systems, particularly in healthcare, public safety, and rural logistics, which Arrive AI is poised to leverage.",
+          "source": "Lubbock Avalanche-Journal",
+          "url": "https://www.lubbockonline.com/press-release/story/110876/arrive-ai-indiana-governor-mike-braun-creates-indiana-initiative-for-drone-dominance-task-force/",
+          "time_published": "20251226T220940",
+          "relevance": 1.0,
+          "sentiment": 0.456968,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Highway Holdings\u2019 Bold Strategy: Acquiring 51% of Regent-Feinbau to Enter Chinese Auto Market",
+          "summary": "Highway Holdings Limited announced its plan to acquire a 51% stake in Germany-based Regent-Feinbau Adermann GmbH, a move that sent its stock up by 7.14%. This strategic acquisition aims to facilitate Highway Holdings' entry into China's automotive market by March 2026, leveraging Regent-Feinbau's precision sheet metal manufacturing expertise. The deal, pending due diligence, is expected to enhance Highway Holdings' manufacturing capabilities and market footprint in the growing Chinese auto sector.",
+          "source": "StocksToTrade",
+          "url": "https://stockstotrade.com/news/highway-holdings-limited-hiho-news-2025_12_26-2/",
+          "time_published": "20251226T220937",
+          "relevance": 1.0,
+          "sentiment": 0.458927,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Dominion Energy Inc Stock Price Live, Charts & News",
+          "summary": "This article provides real-time stock information for Dominion Energy Inc. (D), including its current price, market data, financial fundamentals, balance sheet, income statement, and cash flow details. It also offers a company overview and links to recent US market news and popular US stocks.",
+          "source": "The Economic Times",
+          "url": "https://economictimes.indiatimes.com/markets/us-stocks/dominion-energy-inc/d",
+          "time_published": "20251226T220757",
+          "relevance": 1.0,
+          "sentiment": 0.119036,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "CMS Energy Poised to Gain From Renewable Expansion & Investments",
+          "summary": "CMS Energy (CMS) is strategically investing in infrastructure modernization and renewable energy, with plans for significant solar and wind capacity expansion in Michigan. While over 95% of its earnings come from regulated utilities, providing a stable revenue base, the company faces risks including a weak solvency position due to high debt and costs associated with coal-ash disposal and carbon emission regulations. Despite these challenges, its long-term strategy focuses on clean energy transition and customer satisfaction.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/NGG/pressreleases/36795371/cms-energy-poised-to-gain-from-renewable-expansion-investments/",
+          "time_published": "20251226T220734",
+          "relevance": 1.0,
+          "sentiment": 0.286747,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Nio's battery asset operator Mirattery completes expanded Series C funding",
+          "summary": "Mirattery, Nio's battery asset operator, has completed an expanded Series C funding round, raising nearly RMB 1 billion ($140 million). This expansion includes a new state-owned enterprise investor from Meishan, Sichuan, in addition to previous investors. The funds will support battery asset deployment, R&D, and other areas to advance battery asset management services, with Mirattery now managing over 35 GWh of battery assets for over 500,000 users.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2025/12/26/mirattery-completes-expanded-series-c-funding/",
+          "time_published": "20251226T213500",
+          "relevance": 1.0,
+          "sentiment": 0.430654,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "Arrive AI: Indiana Governor Mike Braun Creates Indiana Initiative for Drone Dominance Task Force",
+          "summary": "Indiana Governor Mike Braun has established a task force aimed at positioning Indiana as a leader in drone technology, aligning with federal initiatives for American drone dominance. Arrive AI (NASDAQ:ARAI) applauds this executive order, highlighting the state's unique attributes\u2014such as its manufacturing industry, military facilities, and academic programs\u2014that are conducive to developing drone infrastructure and applications. The company believes this task force will create a blueprint for secure, efficient, and autonomous delivery systems, particularly in healthcare, public safety, and rural logistics, which Arrive AI is poised to leverage.",
+          "source": "Lubbock Avalanche-Journal",
+          "url": "https://www.lubbockonline.com/press-release/story/110876/arrive-ai-indiana-governor-mike-braun-creates-indiana-initiative-for-drone-dominance-task-force/",
+          "time_published": "20251226T220940",
+          "relevance": 1.0,
+          "sentiment": 0.456968,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Highway Holdings\u2019 Bold Strategy: Acquiring 51% of Regent-Feinbau to Enter Chinese Auto Market",
+          "summary": "Highway Holdings Limited announced its plan to acquire a 51% stake in Germany-based Regent-Feinbau Adermann GmbH, a move that sent its stock up by 7.14%. This strategic acquisition aims to facilitate Highway Holdings' entry into China's automotive market by March 2026, leveraging Regent-Feinbau's precision sheet metal manufacturing expertise. The deal, pending due diligence, is expected to enhance Highway Holdings' manufacturing capabilities and market footprint in the growing Chinese auto sector.",
+          "source": "StocksToTrade",
+          "url": "https://stockstotrade.com/news/highway-holdings-limited-hiho-news-2025_12_26-2/",
+          "time_published": "20251226T220937",
+          "relevance": 1.0,
+          "sentiment": 0.458927,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Dominion Energy Inc Stock Price Live, Charts & News",
+          "summary": "This article provides real-time stock information for Dominion Energy Inc. (D), including its current price, market data, financial fundamentals, balance sheet, income statement, and cash flow details. It also offers a company overview and links to recent US market news and popular US stocks.",
+          "source": "The Economic Times",
+          "url": "https://economictimes.indiatimes.com/markets/us-stocks/dominion-energy-inc/d",
+          "time_published": "20251226T220757",
+          "relevance": 1.0,
+          "sentiment": 0.119036,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "CMS Energy Poised to Gain From Renewable Expansion & Investments",
+          "summary": "CMS Energy (CMS) is strategically investing in infrastructure modernization and renewable energy, with plans for significant solar and wind capacity expansion in Michigan. While over 95% of its earnings come from regulated utilities, providing a stable revenue base, the company faces risks including a weak solvency position due to high debt and costs associated with coal-ash disposal and carbon emission regulations. Despite these challenges, its long-term strategy focuses on clean energy transition and customer satisfaction.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/NGG/pressreleases/36795371/cms-energy-poised-to-gain-from-renewable-expansion-investments/",
+          "time_published": "20251226T220734",
+          "relevance": 1.0,
+          "sentiment": 0.286747,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Nio's battery asset operator Mirattery completes expanded Series C funding",
+          "summary": "Mirattery, Nio's battery asset operator, has completed an expanded Series C funding round, raising nearly RMB 1 billion ($140 million). This expansion includes a new state-owned enterprise investor from Meishan, Sichuan, in addition to previous investors. The funds will support battery asset deployment, R&D, and other areas to advance battery asset management services, with Mirattery now managing over 35 GWh of battery assets for over 500,000 users.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2025/12/26/mirattery-completes-expanded-series-c-funding/",
+          "time_published": "20251226T213500",
+          "relevance": 1.0,
+          "sentiment": 0.430654,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "Real Estate ETF Poised For Breakout As Treasury Yields Drop And Cap Rates Compress",
+          "summary": "The Real Estate Select Sector SPDR Fund (XLRE) is anticipated for a potential breakout in 2026, driven by declining Treasury yields and subsequent cap rate compression, which enhances property valuations. The ETF's holdings in data center REITs like Equinix and Digital Realty provide a unique advantage due to ongoing AI infrastructure spending, offering predictable contractual income. Investors should monitor the Federal Reserve's rate path and XLRE's data center exposure for signals of expansion.",
+          "source": "24/7 Wall St.",
+          "url": "https://247wallst.com/investing/2025/12/22/real-estate-etf-poised-for-breakout-as-treasury-yields-drop-and-cap-rates-compress/",
+          "time_published": "20251222T160945",
+          "relevance": 1.0,
+          "sentiment": 0.403187,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "SL Green (SLG) Faces Dual Target Cuts as Office REIT Outlook Stays Neutral",
+          "summary": "SL Green Realty Corp. (NYSE: SLG) recently experienced dual price target cuts from Ladenburg and Mizuho, with both firms maintaining a Neutral rating on the office REIT. Despite these cuts reflecting a neutral outlook for the office sector due to limited earnings growth, SL Green achieved a significant win by acquiring full ownership of 800 Third Avenue and improving its Manhattan office occupancy rates. The article also suggests that certain AI stocks may offer greater upside potential than SLG.",
+          "source": "Yahoo! Finance Canada",
+          "url": "https://ca.finance.yahoo.com/news/sl-green-slg-faces-dual-054917335.html",
+          "time_published": "20251226T214900",
+          "relevance": 1.0,
+          "sentiment": 0.04734,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "3 Reasons to Buy Realty Income Stock Like There's No Tomorrow",
+          "summary": "Realty Income (NYSE: O) is presented as a strong buy for dividend investors due to its industry-leading size and financial strength, evidenced by its large portfolio and investment-grade balance sheet. The company boasts a reliable, growing dividend, having increased its payout for three decades and trademarked \"The Monthly Dividend Company.\" Furthermore, Realty Income is actively pursuing new growth avenues, including international expansion, industry consolidation, and an asset management business, ensuring future potential beyond its core net lease operations.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/262776/3-reasons-to-buy-realty-income-stock-like-theres-no-tomorrow",
+          "time_published": "20251226T214000",
+          "relevance": 1.0,
+          "sentiment": 0.40104,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Realty Income Corp (O) Stock Price History & Data",
+          "summary": "This article provides historical stock price data for Realty Income Corp (O), including its 52-week high and low, and annual performance from 2013 to 2025. It also includes market capitalization history and recent news headlines related to various other stocks. The data indicates Realty Income Corp's stock performance and market cap changes over the years.",
+          "source": "Traders Union",
+          "url": "https://tradersunion.com/currencies/price-history/o-usd/",
+          "time_published": "20251226T210827",
+          "relevance": 1.0,
+          "sentiment": -0.092516,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Home Depot Stock Today (NYSE: HD): Shares Hover Near $349 as Thin Post\u2011Christmas Trading Collides With a Cautious 2026 Outlook",
+          "summary": "Home Depot (NYSE: HD) shares are trading around $349 in thin post-Christmas volume, influenced by year-end market dynamics and the company's cautious fiscal 2026 outlook. The revised outlook, presented on December 9, suggests limited growth expectations, particularly for comparable sales and EPS, due to a subdued housing market. Investors are closely watching for signs of housing normalization and the impact of Home Depot's acquisitions like GMS Inc. to drive future growth.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/home-depot-stock-today-nyse-hd-shares-hover-near-349-as-thin-post-christmas-trading-collides-with-a-cautious-2026-outlook/",
+          "time_published": "20251226T204729",
+          "relevance": 1.0,
+          "sentiment": -0.158819,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "Sector Rotation: 2 Smart Money Moves for 2026",
+          "summary": "With the Federal Reserve lowering interest rates in mid-December 2025, the market is undergoing a significant sector rotation from hardware and semiconductors to sectors with more reasonable valuations and steady cash flow. Investors are shifting capital into Communication Services and Healthcare, driven by lower borrowing costs and the attractiveness of dividend-paying stocks. By investing in ETFs like the Communication Services Select Sector SPDR Fund (XLC) and the Health Care Select Sector SPDR Fund (XLV), investors can build a diversified portfolio that balances growth potential with defensive stability for 2026.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/DIS/pressreleases/36801139/sector-rotation-2-smart-money-moves-for-2026/",
+          "time_published": "20251226T170926",
+          "relevance": 1.0,
+          "sentiment": 0.323015,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Sector Rotation: 2 Smart Money Moves for 2026",
+          "summary": "As the Federal Reserve lowers interest rates in late 2025, the market is undergoing a sector rotation away from hardware and semiconductor investments. Smart money is now targeting sectors with reasonable valuations, steady cash flow, and defensive stability, with Communication Services and Healthcare emerging as key beneficiaries. Investors can leverage the Communication Services Select Sector SPDR Fund (XLC) for growth and the Health Care Select Sector SPDR Fund (XLV) for defensive stability and income, employing a \"barbell strategy\" to balance risk and reward in 2026.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/UNH-N/pressreleases/36801142/sector-rotation-2-smart-money-moves-for-2026/",
+          "time_published": "20251226T061500",
+          "relevance": 1.0,
+          "sentiment": 0.389103,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "GOOG Stock Today: Alphabet Class C Holds Near $315 After Holiday Session as AI Power Deals and Antitrust Risks Shape the 2026 Outlook",
+          "summary": "Alphabet's Class C shares (NASDAQ: GOOG) closed near $314.96 after the post-Christmas session, influenced by a mix of AI-driven capital expenditure, cloud momentum, and ongoing regulatory/antitrust headlines. Key developments include a $4.75 billion acquisition of Intersect to support AI infrastructure, a significant security partnership with Palo Alto Networks for Google Cloud, and the clearance of the Wiz acquisition by the U.S. Justice Department. Investors are also weighing AI copyright litigation and the impact of antitrust rulings, while looking ahead to the Q4 earnings report in early February 2026 for further insights into monetization and capex guidance.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/goog-stock-today-alphabet-class-c-holds-near-315-after-holiday-session-as-ai-power-deals-and-antitrust-risks-shape-the-2026-outlook/",
+          "time_published": "20251226T234724",
+          "relevance": 1.0,
+          "sentiment": 0.276806,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The Technical Signals Behind (NDOW) That Institutions Follow",
+          "summary": "This article analyzes the technical signals for Anydrus Advantage Etf (NASDAQ: NDOW), revealing a breakout underway with higher levels anticipated if sustained. It outlines three institutional trading strategies\u2014Position Trading, Momentum Breakout, and Risk Hedging\u2014tailored to different risk profiles. The analysis also provides multi-timeframe signal strength, support, and resistance levels based on AI-generated data.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/24/The_Technical_Signals_Behind_NDOW_That_Institutions_Follow_122625114202_1766810522.html",
+          "time_published": "20251226T234200",
+          "relevance": 1.0,
+          "sentiment": 0.422756,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "How (MEMS) Movements Inform Risk Allocation Models",
+          "summary": "This article analyzes the Matthews Emerging Markets Discovery Active Etf (NASDAQ: MEMS) using AI models to inform risk allocation. It identifies near-term strong sentiment transitioning to mid-term neutrality and then long-term positive bias, with specific support and resistance levels. The analysis also provides exceptional risk-reward setups and outlines three distinct institutional trading strategies.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/23/How_MEMS_Movements_Inform_Risk_Allocation_Models_122625114002_1766810402.html",
+          "time_published": "20251226T234000",
+          "relevance": 1.0,
+          "sentiment": 0.453976,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Arrive AI: Indiana Governor Mike Braun Creates Indiana Initiative for Drone Dominance Task Force",
+          "summary": "Indiana Governor Mike Braun has established a task force aimed at positioning Indiana as a leader in drone technology, aligning with federal initiatives for American drone dominance. Arrive AI (NASDAQ:ARAI) applauds this executive order, highlighting the state's unique attributes\u2014such as its manufacturing industry, military facilities, and academic programs\u2014that are conducive to developing drone infrastructure and applications. The company believes this task force will create a blueprint for secure, efficient, and autonomous delivery systems, particularly in healthcare, public safety, and rural logistics, which Arrive AI is poised to leverage.",
+          "source": "Lubbock Avalanche-Journal",
+          "url": "https://www.lubbockonline.com/press-release/story/110876/arrive-ai-indiana-governor-mike-braun-creates-indiana-initiative-for-drone-dominance-task-force/",
+          "time_published": "20251226T220940",
+          "relevance": 1.0,
+          "sentiment": 0.481135,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Highway Holdings\u2019 Bold Strategy: Acquiring 51% of Regent-Feinbau to Enter Chinese Auto Market",
+          "summary": "Highway Holdings Limited announced its plan to acquire a 51% stake in Germany-based Regent-Feinbau Adermann GmbH, a move that sent its stock up by 7.14%. This strategic acquisition aims to facilitate Highway Holdings' entry into China's automotive market by March 2026, leveraging Regent-Feinbau's precision sheet metal manufacturing expertise. The deal, pending due diligence, is expected to enhance Highway Holdings' manufacturing capabilities and market footprint in the growing Chinese auto sector.",
+          "source": "StocksToTrade",
+          "url": "https://stockstotrade.com/news/highway-holdings-limited-hiho-news-2025_12_26-2/",
+          "time_published": "20251226T220937",
+          "relevance": 1.0,
+          "sentiment": 0.49834,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "What to Expect From Textron's Next Quarterly Earnings Report",
+          "summary": "Textron Inc. (TXT) is expected to announce strong fiscal Q4 earnings for 2025, with analysts forecasting a 32.8% rise in profit per share to $1.78. The company has consistently surpassed Wall Street's bottom-line estimates and its shares have outperformed the S&P 500. Despite missing revenue expectations in Q3 due to weaker industrial sales, adjusted EPS exceeded consensus estimates.",
+          "source": "Palmetto Grain Brokerage",
+          "url": "https://www.palmettograin.com/news/story/36793795/what-to-expect-from-textron-s-next-quarterly-earnings-report",
+          "time_published": "20251226T220850",
+          "relevance": 1.0,
+          "sentiment": 0.414069,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Caterpillar Stock (CAT) Today: Year-End Trading, AI Power Demand, Tariffs, and What Investors Should Watch Next",
+          "summary": "Caterpillar Inc. (NYSE: CAT) shares were trading slightly lower on a holiday-thinned session, reflecting mixed trading in the broader market. The company's stock is increasingly tied to the growing demand for electric power and data center infrastructure due to AI, a narrative that has become a significant driver in recent quarters. Despite risks from tariffs and construction-cycle sensitivity, analysts are re-evaluating CAT as more than just a cyclical industrial bellwether, recognizing its durable aftermarket and power-system tailwinds.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/caterpillar-stock-cat-today-year-end-trading-ai-power-demand-tariffs-and-what-investors-should-watch-next/",
+          "time_published": "20251226T211451",
+          "relevance": 1.0,
+          "sentiment": 0.229151,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "RBC Bearings' Aerospace & Defense Growth Picks Up: A Sign of More Upside?",
+          "summary": "RBC Bearings Incorporated (RBC) is experiencing significant growth in its aerospace and defense segment, with revenues surging by 38.8% in fiscal Q2 2026. This growth is fueled by strong demand from commercial aerospace original equipment manufacturers and the aftermarket, as well as an increase in defense market orders. Despite trading above the industry average with a forward price-to-earnings ratio of 35.51X, the company maintains a Zacks Rank #3 (Hold), with its fiscal 2026 earnings estimates trending upwards.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/PH/pressreleases/36796805/rbc-bearings-aerospace-defense-growth-picks-up-a-sign-of-more-upside/",
+          "time_published": "20251226T210919",
+          "relevance": 1.0,
+          "sentiment": 0.371838,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "key_themes": [
+      "AI infrastructure spending driving Real Estate (data centers) and Utilities (power demand)",
+      "Federal Reserve rate cuts benefiting rate-sensitive sectors like REITs and Utilities",
+      "Manufacturing and aerospace strength supporting Basic Materials demand",
+      "Sector rotation from hardware/semiconductors into Communication Services and Healthcare",
+      "Mixed retail environment with housing weakness weighing on Consumer sectors"
+    ],
+    "sector_implications": "News supports defensive sector outperformance with AI infrastructure themes providing growth catalysts for traditionally defensive sectors while cyclical sectors face headwinds from economic uncertainty."
+  },
+  "sector_summary": "Currently in CONTRACTION cycle phase with NEUTRAL rotation bias as defensive sectors (Real Estate, Utilities) ignite while cyclicals (Industrials, Consumer Cyclical) weaken. Favor XLRE, XLU for ignition plays and XLB, XLC, XLV, XLF for trend continuation. Avoid XLE and XLP due to persistent weakness. No crossover alerts indicate stable positioning.",
+  "cycle_phase": "CONTRACTION",
+  "cycle_confidence": "MEDIUM",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "MODERATE",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 1,
+      "mrs_20": -0.57,
+      "mrs_5": 0.29,
+      "roc_3": 0.63,
+      "zone": "D",
+      "signal": "IGNITION",
+      "modifier": 1.2,
+      "rationale": "Zone D ignition with MRS_5 positive (MRS_20=-0.57%, MRS_5=0.29%). Sector benefits from declining Treasury yields and cap rate compression, with data center REITs providing AI infrastructure exposure. News highlights potential breakout driven by Fed rate cuts and strong REIT fundamentals.",
+      "news_context": {
+        "sentiment": 0.087,
+        "article_count": 11,
+        "themes": "Treasury yield decline, cap rate compression, data center REIT exposure, AI infrastructure spending"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 2,
+      "mrs_20": -1.29,
+      "mrs_5": 0.03,
+      "roc_3": 0.93,
+      "zone": "D",
+      "signal": "IGNITION",
+      "modifier": 1.2,
+      "rationale": "Zone D ignition with MRS_5 positive (MRS_20=-1.29%, MRS_5=0.03%). Strong ROC_3 momentum (+0.93%) indicates recovery acceleration. Renewable energy expansion and AI power demand themes support utility infrastructure investments, with CMS Energy highlighting clean energy transition.",
+      "news_context": {
+        "sentiment": 0.242,
+        "article_count": 10,
+        "themes": "Renewable energy expansion, AI power demand, infrastructure modernization, clean energy transition"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 3,
+      "mrs_20": 2.28,
+      "mrs_5": 0.5,
+      "roc_3": -0.15,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=2.28%, MRS_5=0.50%). Strong relative performance with positive momentum despite slight ROC_3 decline. Manufacturing and automotive market expansion themes support materials demand, with precision manufacturing and aerospace/defense growth driving sector strength.",
+      "news_context": {
+        "sentiment": 0.293,
+        "article_count": 10,
+        "themes": "Manufacturing expansion, automotive market growth, aerospace demand, precision manufacturing"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 4,
+      "mrs_20": 0.64,
+      "mrs_5": 0.22,
+      "roc_3": 0.22,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.64%, MRS_5=0.22%). Positive momentum with accelerating ROC_3. Sector rotation into communication services driven by rate cuts and attractive valuations. AI infrastructure investments and cloud partnerships support growth narrative.",
+      "news_context": {
+        "sentiment": 0.323,
+        "article_count": 12,
+        "themes": "AI infrastructure investments, cloud partnerships, sector rotation beneficiary, attractive valuations"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 5,
+      "mrs_20": 0.54,
+      "mrs_5": 0.1,
+      "roc_3": 0.26,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.54%, MRS_5=0.10%). Defensive characteristics with improving momentum. FDA approvals and biotech developments support sector fundamentals. Smart money rotation into healthcare for defensive stability and income generation.",
+      "news_context": {
+        "sentiment": -0.052,
+        "article_count": 10,
+        "themes": "FDA approvals, biotech developments, defensive stability, smart money rotation"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 6,
+      "mrs_20": 1.74,
+      "mrs_5": 0.1,
+      "roc_3": -0.74,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.74%, MRS_5=0.10%). Strong zone position despite slowing momentum and negative ROC_3. Financial sector benefits from stable yield curve environment and expanding business opportunities in gaming/entertainment sectors.",
+      "news_context": {
+        "sentiment": 0.139,
+        "article_count": 10,
+        "themes": "Stable yield curve, gaming expansion, business opportunities, institutional strength"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 7,
+      "mrs_20": 0.31,
+      "mrs_5": 0.2,
+      "roc_3": -0.01,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.31%). Sector experiencing consolidation after strong run, with mixed signals from AI capex spending and antitrust concerns. Google's AI infrastructure investments balanced against regulatory headwinds create neutral positioning.",
+      "news_context": {
+        "sentiment": 0.323,
+        "article_count": 10,
+        "themes": "AI infrastructure investments, antitrust concerns, sector consolidation, mixed capex signals"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 8,
+      "mrs_20": 0.58,
+      "mrs_5": -0.14,
+      "roc_3": -0.85,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=0.58%, MRS_5=-0.14%). Despite positive zone position, momentum deteriorating with negative ROC_3. Mixed signals from AI power demand growth offset by tariff concerns and construction cycle sensitivity.",
+      "news_context": {
+        "sentiment": 0.293,
+        "article_count": 10,
+        "themes": "AI power demand, tariff concerns, construction sensitivity, mixed industrial signals"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 9,
+      "mrs_20": 0.62,
+      "mrs_5": -0.48,
+      "roc_3": -1.4,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=0.62%, MRS_5=-0.48%). Significant momentum deterioration with steep ROC_3 decline. Mixed retail environment with housing weakness and consumer spending uncertainty offsetting selective strength in retail segments.",
+      "news_context": {
+        "sentiment": 0.063,
+        "article_count": 11,
+        "themes": "Mixed retail environment, housing weakness, consumer uncertainty, selective retail strength"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 10,
+      "mrs_20": -0.87,
+      "mrs_5": -0.07,
+      "roc_3": -0.01,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with negative momentum - avoid signal despite ignition zone. MRS_5 negative (MRS_20=-0.87%, MRS_5=-0.07%) indicates lack of recovery catalyst. Consumer staples underperforming in current environment despite defensive characteristics.",
+      "news_context": {
+        "sentiment": 0.084,
+        "article_count": 10,
+        "themes": "Consumer staples underperformance, defensive characteristics, lack of catalysts"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 11,
+      "mrs_20": -2.24,
+      "mrs_5": -0.41,
+      "roc_3": -0.43,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with persistent negative momentum - avoid signal. Deep underperformance (MRS_20=-2.24%, MRS_5=-0.41%) with continued weakness. Energy sector faces headwinds from oil oversupply concerns and transition to renewable energy infrastructure.",
+      "news_context": {
+        "sentiment": 0.242,
+        "article_count": 10,
+        "themes": "Oil oversupply concerns, renewable transition, persistent weakness, sector headwinds"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLRE": 1.2,
+    "XLU": 1.2,
+    "XLB": 1.2,
+    "XLC": 1.2,
+    "XLV": 1.2,
+    "XLF": 1.2,
+    "XLK": 1.0,
+    "XLI": 0.75,
+    "XLY": 0.75,
+    "XLP": 0.5,
+    "XLE": 0.5
+  },
+  "cycle_reasoning": "CONTRACTION phase identified by defensive sector leadership (Utilities, Real Estate) outperforming cyclicals (Industrials, Consumer Cyclical weakening). Traditional late-cycle pattern with rate-sensitive sectors benefiting from Fed cuts while growth sectors consolidate. Energy weakness and Consumer Defensive underperformance typical of economic transition periods.",
+  "rotation_analysis": "The market is experiencing a defensive rotation with Real Estate and Utilities leading from ignition zones, benefiting from declining yields and AI power demand. Traditional growth sectors like Technology are consolidating in neutral territory while cyclicals (Industrials, Consumer Cyclical) show momentum deterioration. This rotation pattern suggests investors are positioning for potential economic slowdown while maintaining exposure to AI infrastructure themes through defensive sectors. The 6 bullish vs 4 bearish sector split with moderate velocity indicates a measured rotation rather than panic-driven moves.",
+  "l1_alignment": "L1's NORMAL regime with AGGRESSIVE bias aligns well with selective sector rotation. The defensive outperformance doesn't contradict risk-on positioning as it's driven by AI infrastructure themes and rate sensitivity rather than fear. Quality defensive sectors with growth catalysts (XLRE data centers, XLU power demand) support aggressive positioning within a stable macro framework.",
+  "key_insight": "The market is experiencing a unique \"defensive growth\" rotation where traditional defensive sectors (Real Estate, Utilities) are leading due to AI infrastructure demand, creating opportunities for aggressive positioning in historically defensive sectors while cyclicals face pressure from economic uncertainty.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: CONTRACTION (MEDIUM confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 NORMAL regime with AGGRESSIVE bias aligns with sector rotation showing defensive leadership (Real Estate, Utilities igniting) while growth sectors (Tech, Industrials) consolidate. VIX at extreme lows supports selective risk-taking in quality names.\n\nStep 2 - Signal Validation:\nAll signals validated against v6.1 thresholds. IGNITION signals (XLRE, XLU) show positive MRS_5 from negative MRS_20 zones. TREND signals (XLB, XLC, XLV, XLF) maintain positive momentum in positive zones. WEAKENING signals (XLI, XLY) show negative MRS_5 despite positive MRS_20.\n\nStep 3 - Zone Analysis:\nActive zones: D (4 sectors - XLRE, XLU igniting; XLP, XLE avoiding), A (4 sectors trending), B (2 sectors weakening), E (1 sector neutral). Rotation direction shows defensive sectors gaining momentum while cyclicals weaken.\n\nStep 4 - Conflict Resolution:\nNo major L1 vs L2 conflict. NORMAL regime supports selective positioning, which aligns with mixed sector performance. Defensive outperformance justified by holiday season positioning and January volatility concerns despite overall risk-on environment.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nCONTRACTION phase identified by defensive sector leadership (Utilities, Real Estate) outperforming cyclicals (Industrials, Consumer Cyclical weakening). Traditional late-cycle pattern with rate-sensitive sectors benefiting from Fed cuts while growth sectors consolidate. Energy weakness and Consumer Defensive underperformance typical of economic transition periods.\n\nKey Insight: The market is experiencing a unique \"defensive growth\" rotation where traditional defensive sectors (Real Estate, Utilities) are leading due to AI infrastructure demand, creating opportunities for aggressive positioning in historically defensive sectors while cyclicals face pressure from economic uncertainty."
+}
