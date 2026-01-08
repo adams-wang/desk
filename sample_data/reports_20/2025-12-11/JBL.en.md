@@ -1,0 +1,162 @@
+## JBL: Jabil Inc. - XLK: Technology
+
+### Executive Summary
+
+VALUE thesis: PEG 0.91 indicates fundamental undervaluation. Quality metrics strong (ROE 40%). Consistent execution (4/4 quarters beat estimates). Caution: overbought RSI (72).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($218.25)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 6, Bearish: 0)
+
+**1. AI Hardware Leader Rallies Into Buy Zone As Earnings Approach**
+- Source: Investor's Business Daily | 20251211T190813 | Bullish | Relevance: 99%
+- Jabil (JBL), an artificial intelligence hardware provider, has entered a buy zone as its stock rallies, setting up for its fiscal first-quarter earnings report next week. The company is poised for its eighth consecutive win on Thursday, thrusting Jabil stock into the spotlight of IBD 50 Growth Stocks To Watch. This positive movement comes amid a strong performance and rising composite rating for Jabil.
+
+**2. BofA Securities raises Jabil stock price target to $262 on AI strength**
+- Source: Investing.com | 20251210T100852 | Bullish | Relevance: 99%
+-  BofA Securities has increased its price target for Jabil (NYSE:JBL) to $262.00 from $255.00, maintaining a Buy rating amidst strong anticipated AI revenues for the company's fiscal first quarter 2026 earnings. Jabil is also reportedly acquiring Hanley Energy Group for $725 million and expanding its operations and partnerships in AI-driven cybersecurity and battery energy storage. Despite capacity limitations due to retrofitting factories for liquid cooling, BofA projects a potential upside to Jabil's fiscal 2026 earnings per share guidance.
+
+**3. Stock of the Week – Jabil Inc (11.12.2025)**
+- Source: XTB.com | 20251211T180834 | Bullish | Relevance: 99%
+- Jabil Inc. is highlighted as a key, understated player in the technology sector, specializing in contract electronics manufacturing for AI servers, iPhones, and Tesla electronics. Despite its significant role and impressive stock performance in 2025 (up 59%), its valuation suggests it remains underestimated by Wall Street. The company leverages megatrends like AI, EVs, and 5G, boasting strong financials and a positive outlook for continued growth.
+
+**4. Has Jabil’s 469.9% Five Year Surge Left Any Value on the Table in 2025?**
+- Source: Simply Wall Street | 20251209T000815 | Somewhat-Bullish | Relevance: 99%
+- Jabil (NYSE: JBL) has seen significant growth, up 469.9% over five years, leading investors to question its current valuation at around $225. A Discounted Cash Flow analysis suggests it's undervalued by 12.8% at $258.47 per share, while its Price-to-Earnings ratio of 36.7x, compared to a calculated 'Fair Ratio' of 31.2x, indicates it might be somewhat overvalued based on its fundamentals. The article suggests using "Narratives" for a personalized valuation, incorporating individual beliefs about the company's future performance.
+
+**5. Can Jabil (JBL) Turn New Cooling Investments Into a Durable High-Value Manufacturing Edge?**
+- Source: Simply Wall Street | 20251211T234548 | Bullish | Relevance: 98%
+- Analysts maintain positive views on Jabil (JBL) due to new investments in liquid cooling, a North Carolina factory, and the proposed Hanley Energy acquisition, which are expected to boost high-value manufacturing. While these developments reinforce Jabil's push into advanced solutions like AI infrastructure, they also introduce short-term risks such as capacity constraints and inventory pressures. The company aims for significant revenue growth, with the North Carolina facility projected to contribute $1 billion annually, but must navigate production headwinds.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-10 | B of A Securiti | $262 | $255 | +3% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-10 | B of A Securiti | main | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 7 ($0.00M) |
+| Sells | 50 ($12.50M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 48.6% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 6 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.3% (-0.1%)
+- Blackrock Inc.: 9.0% (+2.1%)
+- Texas Yale Capital C: 6.0% (-0.1%)
+- State Street Corpora: 4.9% (+0.7%)
+- Wellington Managemen: 4.1% (-30.7%)
+
+### Key Risks
+
+1. Heavy insider selling: $13M sold (50 transactions in 90 days).
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_20 improving +5.3% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 0.91 indicates undervaluation relative to growth. Quality metrics strong (ROE 40%). Insider selling cluster ($12.5M in 90 days), potential headwind. Institutional flow bullish (4 buying vs 6 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $25.1B |
+| Beta | 1.26 |
+| 52W Range | $108.66 - $237.14 |
+| Short Interest | 4.0% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.91 |
+| Forward P/E | 18.2 |
+| Current P/E | 21.1 |
+| YoY Growth | 16.0% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 strengthening from 3.9% to 9.2% (+5.3% in 5 days), confirming momentum buildup. Currently in upper STRENGTH zone (4.0-10.0%), cross-sectional ranking at 92nd percentile. MRS_5 at 2.9% confirms short-term momentum alignment. AM_20 at 11.4% shows strong absolute momentum above own 20MA. Outperforming sector by 8.0pp, stock-specific strength. Full SMA alignment bullish (above 20/50/200 SMAs). MACD histogram positive (3.19), confirming momentum. RSI overbought at 72, risk of mean reversion.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 9.16% (CS: 92) | Strong |
+| RSI_14 | 71.8 | Overbought |
+| MACD Histogram | 3.19 | Bullish |
+| vs SMA20 | 1.114x | Above |
+| vs SMA50 | 1.116x | Above |
+| vs SMA200 | 1.235x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $234.25
+- **Stop Loss:** $218.25 (6.8% risk)
+- **Target:** $266.25 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 86
+- **Position Value:** $20,145.50
+- **Portfolio %:** 20.15%
+- **Risk Dollars:** $1,380.00
+- **Risk Per Trade:** 1.38%
+- **Modifiers:** L1 115% | L2 120% | Combined 1.38x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.15x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*NORMAL regime with moderate risk appetite ahead of Fed decision. VIX at low 8th percentile signals complacency, but decent breadth and positive yield curve support selective positioning. Focus on quality names with earnings visibility.*
+
+### Earnings
+
+**Next:** 2025-12-17 (Est: $2.72)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.95 | $3.29 | +11.7% |
+| 2025Q2 | $2.32 | $2.55 | +9.8% |
+| 2025Q1 | $1.83 | $1.94 | +6.2% |
+| 2024Q4 | $1.88 | $2.00 | +6.5% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

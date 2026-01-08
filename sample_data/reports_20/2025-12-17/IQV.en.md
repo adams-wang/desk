@@ -1,0 +1,154 @@
+## IQV: IQVIA Holdings, Inc. - XLV: Healthcare
+
+### Executive Summary
+
+VALUE thesis: PEG 0.96 indicates fundamental undervaluation. Quality metrics strong (ROE 19%). Consistent execution (4/4 quarters beat estimates).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($210.65)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 3
+- **Sentiment:** Bullish (Bullish: 2, Bearish: 0)
+
+**1. Stifel raises IQVIA Holdings stock price target to $273 on recovery outlook**
+- Source: Investing.com Canada | 20251217T200922 | Bullish | Relevance: 98%
+- Stifel has increased its price target for IQVIA Holdings (NYSE:IQV) stock to $273.00 from $254.00, maintaining a Buy rating based on insights from recent investor meetings and the industry's recovery trajectory extending into 2026. The firm expressed confidence in IQVIA's market positioning as a "best-in-class player" and expects the company to return to medium-term revenue growth of 6%-9%. This adjusted target suggests significant upside from the current price, with the stock trading near its 52-week high.
+
+**2. Stifel raises IQVIA Holdings stock price target to $273 on recovery outlook**
+- Source: Investing.com UK | 20251217T193355 | Bullish | Relevance: 97%
+- Stifel has increased its price target for IQVIA Holdings (NYSE:IQV) stock to $273.00 from $254.00, maintaining a Buy rating based on an anticipated industry recovery extending into 2026. This adjustment follows investor meetings yielding insights into the company's strong market positioning and expected medium-term revenue growth of 6%-9%. The company has also recently undertaken strategic initiatives, including an amended credit agreement and a collaboration with Amazon Web Services.
+
+**3. Agilent Technologies (NYSE:A) - Stock Analysis**
+- Source: Simply Wall Street | 20251215T190736 | Neutral | Relevance: 63%
+- This report provides a comprehensive stock analysis of Agilent Technologies (NYSE:A), highlighting its strong position in life sciences, diagnostics, and applied chemical markets. The company shows sustained growth driven by healthcare demand and innovative technologies, with analysts forecasting a stock price increase of 21.7%. Financials indicate a healthy balance sheet and consistent dividend payouts.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-02 | Morgan Stanley | $265 | $250 | +6% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-02 | Morgan Stanley | main | Overweight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 5 ($1.46M) |
+| Sells | 1 ($5.78M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 46.4% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 6 / 4 |
+
+**Top Holders:**
+- Vanguard Group Inc: 11.4% (-0.9%)
+- Blackrock Inc.: 8.7% (+4.5%)
+- Harris Associates L.: 6.7% (-3.1%)
+- State Street Corpora: 4.4% (-1.0%)
+- JPMORGAN CHASE & CO: 3.9% (+110.0%)
+
+### Key Risks
+
+1. Insider selling cluster: $5.8M in recent transactions.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_20 improving +1.9% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 0.96 indicates undervaluation relative to growth. Analyst sentiment positive (1 raises, avg +6%). Insider selling cluster ($5.8M in 90 days), potential headwind. Institutional flow bullish (6 buying vs 4 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $37.7B |
+| Beta | 1.37 |
+| 52W Range | $134.65 - $234.30 |
+| Short Interest | 3.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.96 |
+| Forward P/E | 17.1 |
+| Current P/E | 18.6 |
+| YoY Growth | 8.8% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 strengthening from -1.3% to 0.6% (+1.9% in 5 days), confirming momentum buildup. Below STRENGTH zone by 3.4pp (needs >4.0% for momentum thesis). MRS_5 at 1.2% confirms short-term momentum alignment. Long-term uptrend intact (above SMA200 at 1.22x) but short-term weakness (below SMA20). MACD histogram bearish (-1.09), momentum weakening. RSI neutral at 50. OFD pattern: +SUN (Resistance test).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 0.59% (CS: 35) | Neutral |
+| RSI_14 | 50.0 | Neutral |
+| MACD Histogram | -1.09 | Bearish |
+| vs SMA20 | 0.986x | Below |
+| vs SMA50 | 1.018x | Above |
+| vs SMA200 | 1.218x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $221.55
+- **Stop Loss:** $210.65 (4.9% risk)
+- **Target:** $243.35 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 99
+- **Position Value:** $21,933.45
+- **Portfolio %:** 21.93%
+- **Risk Dollars:** $1,080.00
+- **Risk Per Trade:** 1.08%
+- **Modifiers:** L1 90% | L2 120% | Combined 1.08x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | RISK_OFF (HIGH) | 0.90x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*RISK_OFF regime with deteriorating conditions. VIX rising to 17.6 (+11.7% over 5 days) signals increasing anxiety, while narrow breadth at 52.6% indicates selective participation. AI infrastructure cost concerns are pressuring tech leadership, creating sector rotation challenges in a late-cycle environment.*
+
+### Earnings
+
+**Next:** 2026-02-05 (Est: $3.40)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.98 | $3.00 | +0.8% |
+| 2025Q2 | $2.77 | $2.81 | +1.4% |
+| 2025Q1 | $2.63 | $2.70 | +2.6% |
+| 2024Q4 | $3.11 | $3.12 | +0.4% |
+
+---
+*RULE-based L3 | 2026-01-07 01:41 | MRS_20*

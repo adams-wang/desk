@@ -1,0 +1,162 @@
+## CSX: CSX Corporation - XLI: Industrials
+
+### Executive Summary
+
+No thesis match: MRS_20 -0.0% below STRENGTH zone (4.0-10.0%); PEG 2.63 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge. Caution: momentum weakening (-4.3% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($35.49)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_20 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 8
+- **Sentiment:** Bullish (Bullish: 2, Bearish: 0)
+
+**1. CSX Corp. Announces Date for Fourth Quarter Earnings Release and Earnings Call**
+- Source: Sahm | 20251223T083057 | Neutral | Relevance: 100%
+- CSX Corp. (NASDAQ: CSX) will release its fourth quarter financial and operating results after market close on Thursday, January 22, 2026. This will be followed by a conference call and live webcast hosted by the company’s management team at 4:30 p.m. Eastern Time. Investors interested in participating can find dial-in information and webcast access on the company's website.
+
+**2. CSX (CSX) Valuation Check as Shares Quietly Rebound on Improving Freight Demand Sentiment**
+- Source: Simply Wall Street | 20251223T010757 | Bullish | Relevance: 100%
+- CSX shares have seen a quiet rebound, gaining 7% in three months and 15% over the past year, driven by improving freight demand sentiment and earnings resilience. The stock is currently deemed 8% undervalued with a narrative fair value near $39.54, suggesting potential upside due to operational initiatives. However, on earnings multiples, CSX appears less obviously cheap compared to its industry and peers.
+
+**3. CSX Corp. Announces Date for Fourth Quarter Earnings Release and Earnings Call**
+- Source: GlobeNewswire | 20251222T140206 | Neutral | Relevance: 100%
+- CSX Corp. announced it will release its fourth-quarter financial results after the market closes on Thursday, January 22, 2026. A conference call and live webcast hosted by management will follow at 4:30 p.m. Eastern Time, with details provided for participation. Presentation materials and the webcast will be available on the company's investor relations website.
+
+**4. Railcrew Xpress cutting jobs in Jacksonville after losing contract with CSX**
+- Source: Jacksonville Daily Record | 20251223T170757 | Somewhat-Bullish | Relevance: 99%
+- Railcrew Xpress, a Missouri-based company providing transportation for railroad crews, is closing six facilities in Florida, including one in Jacksonville, resulting in 34 job losses in Jacksonville. This action follows CSX Corp.'s cancellation of their contract, effective February 27. The company stated this closure impacts 48 employees across the additional five Florida locations.
+
+**5. BNSF Urges Federal Scrutiny of Union Pacific–Norfolk Southern Rail Merger**
+- Source: Fort Worth Inc. | 20251222T120600 | Neutral | Relevance: 64%
+- BNSF Railway is calling for federal regulators to implement heightened scrutiny on the proposed merger between Union Pacific and Norfolk Southern, asserting that the deal would undermine competition, harm shippers, and ultimately lead to higher prices for American consumers. BNSF President and CEO Katie Farmer stated that the transaction poses a significant threat and fails to meet new, tougher merger standards. Union Pacific and Norfolk Southern, however, claim the merger would create America's first transcontinental railroad, strengthen the U.S. supply chain, and offer significant operational benefits.
+
+### Analyst Activity
+
+**Target Signal:** BULLISH (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-08 | Morgan Stanley | $30 | $27 | +11% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-08 | Morgan Stanley | main | Equal-Weight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 7 ($2.36M) |
+| Sells | 3 ($1.78M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 35.1% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 6 |
+
+**Top Holders:**
+- Vanguard Group Inc: 9.3% (-0.4%)
+- Blackrock Inc.: 7.6% (-0.8%)
+- State Street Corpora: 4.6% (-2.2%)
+- Bank of America Corp: 2.3% (+165.7%)
+- Geode Capital Manage: 2.3% (-0.2%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_20 falling (-4.3% 5d) with bearish MACD, trend may be turning.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 2.63 signals overvaluation risk, limited margin of safety. Quality metrics strong (ROE 23%, margin 20%). Analyst sentiment positive (1 raises, avg +11%). Institutional flow bullish (4 buying vs 6 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $68.2B |
+| Beta | 1.30 |
+| 52W Range | $26.22 - $37.54 |
+| Short Interest | 1.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 2.63 |
+| Forward P/E | 19.3 |
+| Current P/E | 22.8 |
+| YoY Growth | 18.2% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 deteriorating from 4.3% to -0.0% (-4.3% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 4.0pp (needs >4.0% for momentum thesis). Full SMA alignment bullish (above 20/50/200 SMAs). RSI neutral at 58. OFD pattern: +SLL (Support).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -0.02% (CS: 56) | Neutral |
+| RSI_14 | 57.9 | Neutral |
+| MACD Histogram | -0.02 | Bearish |
+| vs SMA20 | 1.010x | Above |
+| vs SMA50 | 1.025x | Above |
+| vs SMA200 | 1.108x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $36.59
+- **Stop Loss:** $35.49 (3.0% risk)
+- **Target:** $37.69 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 818
+- **Position Value:** $29,930.62
+- **Portfolio %:** 29.93%
+- **Risk Dollars:** $900.00
+- **Risk Per Trade:** 0.90%
+- **Modifiers:** L1 120% | L2 75% | Combined 0.90x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | WEAKENING (Zone B) | 0.75x |
+
+*NORMAL regime with moderate risk appetite in holiday-thinned conditions. VIX at 52-week lows suggests complacency, but modest breadth improvement and stable yields indicate underlying stability. Focus on quality positioning ahead of 2026 catalysts.*
+
+### Earnings
+
+**Next:** 2026-01-22 (Est: $0.44)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.42 | $0.37 | -12.9% |
+| 2025Q2 | $0.42 | $0.44 | +5.4% |
+| 2025Q1 | $0.37 | $0.34 | -6.9% |
+| 2024Q4 | $0.42 | $0.38 | -9.4% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

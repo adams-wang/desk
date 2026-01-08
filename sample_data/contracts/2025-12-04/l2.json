@@ -1,0 +1,867 @@
+{
+  "contract_id": "l2_2025-12-04",
+  "trading_date": "2025-12-04",
+  "generated_at": "2025-12-17T11:04:26.830158",
+  "valid_until": "2025-12-18T11:04:26.830158",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-04",
+  "sector_news": {
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "The Technology Select Sector SPDR Fund To Carry Out 2-for-1 Stock Split On December 5th, 2025",
+          "summary": "The Technology Select Sector SPDR Fund (XLK.US) is set to perform a 2-for-1 stock split, with shares trading on a split-adjusted basis starting December 5th, 2025. This stock split aims to increase the stock's liquidity without altering the company's fundamental value. On December 2nd, the fund closed at $289.3, rising 1.03%.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/65765654/the-technology-select-sector-spdr-fund-to-carry-out-2",
+          "time_published": "20251204T190922",
+          "relevance": 1.0,
+          "sentiment": 0.215867,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "If You'd Invested $1,000 in the Technology Select Sector SPDR Fund (XLK) 10 Years Ago, Here's How Much You'd Have Today",
+          "summary": "This article examines the performance of the Technology Select Sector SPDR Fund (XLK) over the past decade, highlighting its significant outperformance compared to the broader S&P 500. It calculates that a $1,000 investment in XLK ten years ago would now be worth close to $6,500, driven by its holdings in major tech companies like Nvidia and Microsoft. The article also touches on the impact of \"Magnificent Seven\" stocks and artificial intelligence on market growth.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242017/if-youd-invested-1000-in-the-technology-select-sector-spdr-fund-xlk-10-years-ago-heres-how-much-youd-have-today",
+          "time_published": "20251201T081400",
+          "relevance": 1.0,
+          "sentiment": 0.012644,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Constl & Ciena Achieve Breakthrough 1 Tbps Transmission Across 1,450 km Long-Haul Network Using WaveLogic 6 Extreme",
+          "summary": "Constl, a subsidiary of Space World Group, in collaboration with Ciena, has successfully achieved a 1 Tbps line rate over a 1,450 km long-haul network using Ciena's WaveLogic 6 Extreme (WL6e) solution. This breakthrough was demonstrated on the Mumbai\u2013Chennai route, making Constl India's first digital infrastructure provider to achieve such a feat. The upgrade doubles fiber wavelength capacity, reduces cost per bit, and strengthens Constl's position as a network provider for hyperscalers in India's burgeoning digital economy.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251204937993/en/Constl-Ciena-Achieve-Breakthrough-1-Tbps-Transmission-Across-1450-km-Long-Haul-Network-Using-WaveLogic-6-Extreme",
+          "time_published": "20251204T231009",
+          "relevance": 1.0,
+          "sentiment": 0.485083,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "HII Partners with University of Maryland's School of Engineering to Accelerate Defense Technologies",
+          "summary": "HII's Mission Technologies division has joined the Corporate Partners Program at the University of Maryland's A. James Clark School of Engineering, fostering collaboration in defense technology. This partnership aims to bridge industry and academia, leveraging the MATRIX Lab for advancements in autonomy and uncrewed systems. HII will also establish a lecture series to convene thought leaders on emerging technologies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246180/hii-partners-with-university-of-marylands-school-of-engineering-to-accelerate-defense-technologies",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.402562,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Salesforce Inc (CRM) Q3 2026 Earnings Call Highlights: Strong Revenue Growth and AI-Driven Expansion",
+          "summary": "Salesforce Inc. (CRM) reported robust Q3 2026 earnings, featuring 9% year-over-year revenue growth to $10.26 billion and a 35.5% non-GAAP operating margin. The company saw significant expansion in its AI-driven products, with Agentforce and Data ARR nearly doubling, and addressed investor concerns regarding generative AI's impact on SaaS applications by emphasizing its comprehensive platform and data infrastructure. Despite strong growth in North America and EMEA, the Asia Pacific region showed constrained performance, and the company is navigating complexities in pricing and packaging for its AI solutions.",
+          "source": "Yahoo Finance",
+          "url": "https://finance.yahoo.com/news/salesforce-inc-crm-q3-2026-230437678.html",
+          "time_published": "20251204T230937",
+          "relevance": 1.0,
+          "sentiment": 0.463612,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "XLV ETF Rises to $155.29 as LLY Stock, JNJ, and ABBV Drive Healthcare Sector Gains",
+          "summary": "The Health Care Select Sector SPDR Fund (XLV) has risen to $155.29, supported by its top holdings: Eli Lilly, Johnson & Johnson, and AbbVie. Eli Lilly's GLP-1 drugs and the stability provided by J&J and AbbVie's products are driving performance, making XLV a defensive yet growth-oriented investment for 2026. The ETF is rated a \"Buy\" with price targets between $165 and $172 for 2026, benefiting from low costs, strong dividends, and mega-cap leadership.",
+          "source": "TradingNEWS",
+          "url": "https://www.tradingnews.com/news/healthcare-xlv-etf-nysearca-xlv-hits-155-usd",
+          "time_published": "20251204T050942",
+          "relevance": 1.0,
+          "sentiment": 0.383026,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "5 Healthcare Names to Watch as Sector Rotation Is in Full Swing",
+          "summary": "As investor capital shifts from technology to healthcare, driven by stabilizing interest rates and strong Q3 earnings, the healthcare sector is experiencing a significant rotation. This article highlights five healthcare-related investments\u2014ranging from stable options to high-growth biotech\u2014that warrant attention as the year concludes. These include established giants like Eli Lilly and Johnson & Johnson, as well as diversified options like Gilead Sciences and the Health Care Select Sector SPDR Fund and iShares Biotechnology ETF.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/JNJ/pressreleases/36412515/5-healthcare-names-to-watch-as-sector-rotation-is-in-full-swing/",
+          "time_published": "20251202T050942",
+          "relevance": 1.0,
+          "sentiment": 0.382277,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Urges DexCom and Wildermuth Investors to Contact the Firm Regarding Their Rights Before Upcoming Deadlines",
+          "summary": "Bragar Eagel & Squire, P.C., a shareholder rights law firm, reminds investors of DexCom, Inc. and Wildermuth Fund about upcoming deadlines to serve as lead plaintiff in class action lawsuits. The DexCom lawsuit alleges false and misleading statements about the G6 and G7 devices, while the Wildermuth Fund lawsuit claims miscalculation of investment fair value and intentional inflation of net asset value. Investors in both companies are encouraged to contact the firm regarding their rights.",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2025/12/04/3200405/0/en/Bragar-Eagel-Squire-P-C-Urges-DexCom-and-Wildermuth-Investors-to-Contact-the-Firm-Regarding-Their-Rights-Before-Upcoming-Deadlines.html",
+          "time_published": "20251204T231311",
+          "relevance": 1.0,
+          "sentiment": -0.422096,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Adial Pharmaceuticals Secures $2.86M Through Warrant Agreement",
+          "summary": "Adial Pharmaceuticals has secured $2.86 million through a warrant agreement, leveraging a previous unregistered direct offering. This financing is intended to support the company's clinical development and operational goals.",
+          "source": "MSN",
+          "url": "https://www.msn.com/en-us/money/top-stocks/adial-pharmaceuticals-secures-2-86m-through-warrant-agreement/ar-AA1RwcUA",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.437026,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "BioCryst (Nasdaq: BCRX) issues 57,100 options, 46,400 RSUs as $7.13 inducement grants",
+          "summary": "BioCryst Pharmaceuticals, Inc. announced that its compensation committee granted inducement equity to four new employees effective December 1, 2025. These grants include stock options for 57,100 shares and restricted stock units (RSUs) for 46,400 shares, with options having an exercise price of $7.13 per share. The awards were made under BioCryst\u2019s Inducement Equity Incentive Plan in accordance with Nasdaq Listing Rule 5635(c)(4).",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/BCRX/bio-cryst-reports-inducement-grants-under-nasdaq-listing-rule-5635-c-so0twq5reetj.html",
+          "time_published": "20251204T230933",
+          "relevance": 1.0,
+          "sentiment": 0.00964,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "Bank of New York Mellon Stock: Is BK Outperforming the Financial Sector?",
+          "summary": "The Bank of New York Mellon Corporation (BK) is a large-cap financial services company whose stock has seen significant growth, outperforming the Financial Select Sector SPDR Fund (XLF) and even JPMorgan Chase (JPM) over various periods. Despite strong performance and a \"Moderate Buy\" consensus rating from analysts, the stock dipped after Q3 2025 results due to concerns over rising non-interest expenses. Analysts currently project a modest premium for BK shares.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-bank-of-new-york-mellon-stock-is-bk-outperforming-the-financial-sector",
+          "time_published": "20251203T085900",
+          "relevance": 1.0,
+          "sentiment": 0.44576,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "XLF ETF: 3 Reasons Why I Am Not A Buyer (NYSEARCA:XLF)",
+          "summary": "The Financial Select Sector SPDR Fund (XLF) offers exposure to U.S. financial services companies, but the author is not a buyer due to several factors. XLF has underperformed the S&P 500 since its inception, exhibiting higher volatility and lower risk-adjusted returns. Intense competition within the financial and insurance sectors also limits pricing power for its top holdings, making it difficult for the ETF to deliver above-market returns despite trading at a valuation discount.",
+          "source": "Seeking Alpha",
+          "url": "https://seekingalpha.com/article/4848673-xlf-3-reasons-why-i-am-not-a-buyer",
+          "time_published": "20251201T052137",
+          "relevance": 1.0,
+          "sentiment": -0.145647,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "(TAFL) Movement as an Input in Quant Signal Sets",
+          "summary": "This article analyzes Ab Tax-aware Long Municipal Etf (NASDAQ: TAFL), noting a neutral sentiment across all time horizons and an oscillation pattern. It highlights an exceptional 8.1:1 risk-reward short setup and outlines three AI-generated trading strategies: Position Trading, Momentum Breakout, and Risk Hedging, each with specific entry, target, and stop-loss parameters. The analysis is supported by real-time signals, multi-timeframe analysis, and risk management guidelines.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/40/TAFL_Movement_as_an_Input_in_Quant_Signal_Sets_120425115401_1764910441.html",
+          "time_published": "20251204T235400",
+          "relevance": 1.0,
+          "sentiment": 0.027128,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "WEC Energy Group plans 6.7% dividend increase for Q1 2026 By Investing.com",
+          "summary": "WEC Energy Group announced its plan to increase its quarterly dividend to 95.25 cents per share in the first quarter of 2026, marking a 6.7% rise. This move aligns with the company's historical dividend growth and objective to maintain a payout ratio of 65-70% of earnings. The utility company also forecasted 2026 earnings per share between $5.51 and $5.61, affirming its consistent performance and attractive dividend yield for income-focused investors.",
+          "source": "Investing.com Nigeria",
+          "url": "https://ng.investing.com/news/company-news/wec-energy-group-plans-67-dividend-increase-for-q1-2026-93CH-2240153",
+          "time_published": "20251204T233814",
+          "relevance": 1.0,
+          "sentiment": 0.499557,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Urges DexCom and Wildermuth Investors to Contact the Firm Regarding Their Rights Before Upcoming Deadlines",
+          "summary": "Bragar Eagel & Squire, P.C., a shareholder rights law firm, reminds investors of DexCom, Inc. and Wildermuth Fund about upcoming deadlines to serve as lead plaintiff in class action lawsuits. The DexCom lawsuit alleges false and misleading statements about the G6 and G7 devices, while the Wildermuth Fund lawsuit claims miscalculation of investment fair value and intentional inflation of net asset value. Investors in both companies are encouraged to contact the firm regarding their rights.",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2025/12/04/3200405/0/en/Bragar-Eagel-Squire-P-C-Urges-DexCom-and-Wildermuth-Investors-to-Contact-the-Firm-Regarding-Their-Rights-Before-Upcoming-Deadlines.html",
+          "time_published": "20251204T231311",
+          "relevance": 1.0,
+          "sentiment": -0.436576,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "3 Industrials Stocks We Approach with Caution",
+          "summary": "This article cautions investors about three industrial stocks: Tecnoglass (TGLS), 3M (MMM), and Ball (BLL), despite the sector's recent strong performance. The author highlights concerns such as slow revenue growth, shrinking free cash flow, and declining earnings per share for these companies. It suggests a cautious approach given the cyclical nature of the industrials sector and recommends exploring other high-quality stocks for better returns.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246554/3-industrials-stocks-we-approach-with-caution",
+          "time_published": "20251204T233800",
+          "relevance": 1.0,
+          "sentiment": -0.122477,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Boise Cascade CEO Nate Jorgensen to retire; Jeff Strom appointed successor",
+          "summary": "Boise Cascade announced that CEO Nate Jorgensen plans to retire on March 2, 2026, and the board has unanimously appointed Jeff Strom, currently Chief Operating Officer, as his successor. Jorgensen will remain on the Company\u2019s board of directors after his retirement. The company does not intend to fill the Chief Operating Officer role after this transition.",
+          "source": "Tree Frog creative",
+          "url": "https://treefrogcreative.ca/boise-cascade-ceo-nate-jorgensen-to-retire-jeff-strom-appointed-successor/",
+          "time_published": "20251204T231006",
+          "relevance": 1.0,
+          "sentiment": 0.048145,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "HII Partners with University of Maryland's School of Engineering to Accelerate Defense Technologies",
+          "summary": "HII's Mission Technologies division has joined the Corporate Partners Program at the University of Maryland's A. James Clark School of Engineering, fostering collaboration in defense technology. This partnership aims to bridge industry and academia, leveraging the MATRIX Lab for advancements in autonomy and uncrewed systems. HII will also establish a lecture series to convene thought leaders on emerging technologies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246180/hii-partners-with-university-of-marylands-school-of-engineering-to-accelerate-defense-technologies",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.442396,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Media Advisory - Newport News Shipbuilding to Host Barb (SSN 804) Keel Laying",
+          "summary": "HII's Newport News Shipbuilding division will host the keel laying ceremony for the Virginia-class submarine Barb (SSN 804) on Tuesday, Dec. 9. While not open to the public, credentialed U.S. media are invited to cover the event and interview NNS leadership, a shipbuilder, and the submarine's sponsor, Pamela Bove. The article provides details on media check-in, location, and RSVP requirements for the event.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245836/media-advisory-newport-news-shipbuilding-to-host-barb-ssn-804-keel-laying",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.425833,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Value Fund Dumps $10.1 Million Eastman Chemical Stake as Stock Slump Continues and EBIT Drops 43%",
+          "summary": "Atlantic Investment Management fully exited its position in Eastman Chemical Company (NYSE: EMN) during the third quarter, selling 134,710 shares worth approximately $10.1 million. This decision follows Eastman's significant stock decline of 41% over the past year and an 11% revenue decrease with a 43% drop in EBIT to $188 million. Despite strong operating cash flow and cost-cutting measures, analysts suggest the exit signals investor concerns about the company's performance amidst soft market demand.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/WFRD/pressreleases/36462867/value-fund-dumps-101-million-eastman-chemical-stake-as-stock-slump-continues-and-ebit-drops-43/",
+          "time_published": "20251204T230744",
+          "relevance": 1.0,
+          "sentiment": -0.270375,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "Why Hormel Foods (HRL) Stock Is Up Today",
+          "summary": "Hormel Foods (NYSE:HRL) stock jumped 3.2% after the company provided an optimistic financial outlook for its 2026 fiscal year, projecting adjusted earnings between $1.43 and $1.51 per share and revenues of $12.2 billion to $12.5 billion. This positive guidance overshadowed mixed third-quarter results and exceeded analyst expectations, leading to a 3.1% rise in share price, closing at $24.16. Despite recent challenges and a 23.4% decline year-to-date, investors are reacting positively to the future outlook.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246283/why-hormel-foods-hrl-stock-is-up-today",
+          "time_published": "20251204T235500",
+          "relevance": 1.0,
+          "sentiment": 0.192167,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Ulta Beauty tops Wall Street expectations for third quarter",
+          "summary": "Ulta Beauty Inc. exceeded Wall Street's revenue and earnings expectations for its third quarter, prompting the beauty retailer to raise its full-year profit and sales outlook. The company's \"Ulta Beauty Unleashed\" strategy, featuring new assortments, improved experiences, and bold marketing, drove strong sales and market share gains across all categories and channels, particularly e-commerce. Ulta also expanded its physical footprint and launched its first international stores in Mexico, alongside a third-party marketplace.",
+          "source": "Mass Market Retailers",
+          "url": "https://massmarketretailers.com/ulta-beauty-tops-wall-street-expectations-for-third-quarter/",
+          "time_published": "20251204T234447",
+          "relevance": 1.0,
+          "sentiment": 0.275493,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The one thing people are still buying? Beauty products, and Ulta just proved it.",
+          "summary": "Ulta Beauty Inc. recently exceeded Wall Street expectations with its quarterly earnings and raised its sales outlook for the year, indicating that consumers are still willing to spend on beauty products despite cutting costs elsewhere. The company's \"masstige\" strategy, offering a mix of mass-produced and prestige items, is seen as a key factor in its success. Analysts note the beauty category remains healthy, benefiting from consumers seeking quality at value prices.",
+          "source": "MarketWatch",
+          "url": "https://www.marketwatch.com/story/the-one-thing-people-are-still-buying-beauty-products-and-ulta-just-proved-it-3b7f0200?gaa_at=eafs&gaa_n=AWEtsqf1ImMHaBLUmrLR-QE7fS5UmkkPDQ9pi_hmTuvcalOZBkDku26bwHrj&gaa_ts=693233d3&gaa_sig=wemYLLbojBoq2VoSDClipI1WQ5scydvxShPw0fiZ5xx7smQFzIhPrxJP4bmvpd7cgGw6ThBcXqfBVADSbVfW6g%3D%3D",
+          "time_published": "20251204T231022",
+          "relevance": 1.0,
+          "sentiment": 0.869136,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Former Sears site in Washington state had big plans. Will it ever be developed?",
+          "summary": "The former Sears site at Overlake Plaza in Redmond, Washington, once envisioned as a mixed-use development, is now among the last assets in Seritage Growth Properties' portfolio. While a master plan was approved in 2018, construction permits have lapsed, and no new applications have been filed, leaving the future of the development uncertain. Seritage, a Sears Holdings spinoff, is selling off its remaining properties, projecting $220-310 million from its final six assets.",
+          "source": "Tacoma News Tribune",
+          "url": "https://www.thenewstribune.com/news/business/article313031305.html",
+          "time_published": "20251204T231007",
+          "relevance": 1.0,
+          "sentiment": 0.085337,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "The one thing people are still buying? Beauty products, and Ulta just proved it.",
+          "summary": "Ulta Beauty Inc. has boosted its sales outlook and reported strong quarterly earnings, demonstrating that consumers are still willing to spend on beauty products despite cutting costs in other areas. The company's \"masstige\" strategy, combining mass-produced and prestige items, is cited as a key factor in its success, catering to demand for premium quality at value prices. This trend suggests the beauty category remains resilient even in challenging economic times.",
+          "source": "MarketWatch",
+          "url": "https://www.marketwatch.com/story/the-one-thing-people-are-still-buying-beauty-products-and-ulta-just-proved-it-3b7f0200?gaa_at=eafs&gaa_n=AWEtsqc4Wnyk_JLKm6WZXYduhRgWZim20MNPxFYE2Mf-k-HaYA8WO3p_yMGH&gaa_ts=693241d1&gaa_sig=VO68vxbYdq_sSAlqAcqt14WHGFkfoShBHFbRSLzQM3s3ekTW5hA97Fdz0L4kfXvW5VicnnB1t8d_34QNNTgWBg%3D%3D",
+          "time_published": "20251204T230952",
+          "relevance": 1.0,
+          "sentiment": 0.800184,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "How Is Hershey's Stock Performance Compared to Other Consumer Staples Stocks?",
+          "summary": "The Hershey Company (HSY) has a market cap of $38.8 billion and operates in North America and internationally. Despite a recent dip from its 52-week high, HSY stock has outperformed the Consumer Staples Select Sector SPDR Fund (XLP) over the past three months and year-to-date, gaining 7.9% YTD. Although Q3 results beat expectations, the stock dipped due to unimproved full-year earnings guidance, but analysts maintain a \"Hold\" rating with modest upside potential.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-how-is-hersheys-stock-performance-compared-to-other-consumer-staples-stocks",
+          "time_published": "20251203T041300",
+          "relevance": 1.0,
+          "sentiment": 0.239492,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "XLP vs. IYK: Which is the Better Consumer Staples ETF?",
+          "summary": "This article compares two consumer staples ETFs, XLP and IYK, highlighting XLP's lower expense ratio, higher dividend yield, and pure-play focus on consumer defensive names with significant holdings in Walmart and Costco. While IYK offers broader diversification including some healthcare, the author leans towards XLP due to its cost-effectiveness, specific holdings, and potential for future outperformance. Both ETFs have underperformed the S&P 500 in recent years due to a lack of technology exposure.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36130046/xlp-vs-iyk-which-is-the-better-consumer-staples-etf/",
+          "time_published": "20251130T160906",
+          "relevance": 1.0,
+          "sentiment": 0.323822,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Why Hormel Foods (HRL) Stock Is Up Today",
+          "summary": "Hormel Foods (NYSE:HRL) stock jumped 3.2% after the company provided an optimistic financial outlook for its 2026 fiscal year, projecting adjusted earnings between $1.43 and $1.51 per share and revenues of $12.2 billion to $12.5 billion. This positive guidance overshadowed mixed third-quarter results and exceeded analyst expectations, leading to a 3.1% rise in share price, closing at $24.16. Despite recent challenges and a 23.4% decline year-to-date, investors are reacting positively to the future outlook.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246283/why-hormel-foods-hrl-stock-is-up-today",
+          "time_published": "20251204T235500",
+          "relevance": 1.0,
+          "sentiment": 0.192167,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Ulta Beauty tops Wall Street expectations for third quarter",
+          "summary": "Ulta Beauty Inc. exceeded Wall Street's revenue and earnings expectations for its third quarter, prompting the beauty retailer to raise its full-year profit and sales outlook. The company's \"Ulta Beauty Unleashed\" strategy, featuring new assortments, improved experiences, and bold marketing, drove strong sales and market share gains across all categories and channels, particularly e-commerce. Ulta also expanded its physical footprint and launched its first international stores in Mexico, alongside a third-party marketplace.",
+          "source": "Mass Market Retailers",
+          "url": "https://massmarketretailers.com/ulta-beauty-tops-wall-street-expectations-for-third-quarter/",
+          "time_published": "20251204T234447",
+          "relevance": 1.0,
+          "sentiment": 0.275493,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The one thing people are still buying? Beauty products, and Ulta just proved it.",
+          "summary": "Ulta Beauty Inc. recently exceeded Wall Street expectations with its quarterly earnings and raised its sales outlook for the year, indicating that consumers are still willing to spend on beauty products despite cutting costs elsewhere. The company's \"masstige\" strategy, offering a mix of mass-produced and prestige items, is seen as a key factor in its success. Analysts note the beauty category remains healthy, benefiting from consumers seeking quality at value prices.",
+          "source": "MarketWatch",
+          "url": "https://www.marketwatch.com/story/the-one-thing-people-are-still-buying-beauty-products-and-ulta-just-proved-it-3b7f0200?gaa_at=eafs&gaa_n=AWEtsqf1ImMHaBLUmrLR-QE7fS5UmkkPDQ9pi_hmTuvcalOZBkDku26bwHrj&gaa_ts=693233d3&gaa_sig=wemYLLbojBoq2VoSDClipI1WQ5scydvxShPw0fiZ5xx7smQFzIhPrxJP4bmvpd7cgGw6ThBcXqfBVADSbVfW6g%3D%3D",
+          "time_published": "20251204T231022",
+          "relevance": 1.0,
+          "sentiment": 0.869136,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "WEC Energy Group plans 6.7% dividend increase for Q1 2026 By Investing.com",
+          "summary": "WEC Energy Group announced its plan to increase its quarterly dividend to 95.25 cents per share in the first quarter of 2026, marking a 6.7% rise. This move aligns with the company's historical dividend growth and objective to maintain a payout ratio of 65-70% of earnings. The utility company also forecasted 2026 earnings per share between $5.51 and $5.61, affirming its consistent performance and attractive dividend yield for income-focused investors.",
+          "source": "Investing.com Nigeria",
+          "url": "https://ng.investing.com/news/company-news/wec-energy-group-plans-67-dividend-increase-for-q1-2026-93CH-2240153",
+          "time_published": "20251204T233814",
+          "relevance": 1.0,
+          "sentiment": 0.474674,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Media Advisory - Newport News Shipbuilding to Host Barb (SSN 804) Keel Laying",
+          "summary": "HII's Newport News Shipbuilding division will host the keel laying ceremony for the Virginia-class submarine Barb (SSN 804) on Tuesday, Dec. 9. While not open to the public, credentialed U.S. media are invited to cover the event and interview NNS leadership, a shipbuilder, and the submarine's sponsor, Pamela Bove. The article provides details on media check-in, location, and RSVP requirements for the event.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245836/media-advisory-newport-news-shipbuilding-to-host-barb-ssn-804-keel-laying",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.43823,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "TVA to develop America\u2019s first small modular reactor in Tennessee",
+          "summary": "The Tennessee Valley Authority (TVA) has received $400 million in federal funding to develop America's first small modular reactor (SMR) at its Clinch River site. This initiative aims to meet the exponential increase in energy demand driven by population growth and new AI data centers. Public officials, including U.S. Secretary of Energy Chris Wright and Governor Bill Lee, support this move as a significant step towards energy security, reliability, and Tennessee's leadership in nuclear energy.",
+          "source": "Action News 5",
+          "url": "https://www.actionnews5.com/2025/12/05/tva-develop-americas-first-small-modular-reactor-tennessee/",
+          "time_published": "20251204T230300",
+          "relevance": 1.0,
+          "sentiment": 0.043584,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Canadian Natural Resources Limited Prices C$1,650 Million in 3, 5 and 10 Year Medium-Term Notes",
+          "summary": "Canadian Natural Resources Limited announced it has priced C$1,650 million in medium-term notes across 3, 5, and 10-year terms, with coupons ranging from 3.30% to 4.55%. The net proceeds from this offering will be utilized for general corporate purposes, including potential repayment of indebtedness. The offering is expected to close on December 8, 2025.",
+          "source": "Newsfile",
+          "url": "https://www.newsfilecorp.com/release/277010/Canadian-Natural-Resources-Limited-Prices-C1650-Million-in-3-5-and-10-Year-MediumTerm-Notes",
+          "time_published": "20251204T225400",
+          "relevance": 1.0,
+          "sentiment": 0.40513,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Jim Cramer on Linde: \u201cThis Stock Has Just Been Nothing But Nastiness\u201d",
+          "summary": "Jim Cramer expressed concern about Linde plc (NASDAQ: LIN), noting its current underperformance despite being a strong industrial gas company. He described the stock's recent trend as \"nastiness\" and a \"free fall,\" surprising since the company hasn\u2019t addressed the decline. Linde provides industrial gases and builds processing plants across various sectors, and Cramer has previously highlighted its broad industry involvement.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/jim-cramer-on-linde-this-stock-has-just-been-nothing-but-nastiness-1654869/?amp=1",
+          "time_published": "20251204T224500",
+          "relevance": 1.0,
+          "sentiment": 0.130015,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "State Street Now Distributor for Select Sector SPDR ETFs",
+          "summary": "State Street Investment Management (SSIM) has taken over the distribution and marketing for the Select Sector SPDR ETFs, unifying 11 funds under its umbrella. This move aims to enhance the investor experience and solidify SSIM's leadership in sector-focused ETF insights, leveraging nearly 30 years of experience in the field. The affected ETFs, including well-known funds like XLK and XLU, have been rebranded to reflect their association with State Street.",
+          "source": "ETF Trends",
+          "url": "https://www.etftrends.com/state-street-now-distributor-select-sector-spdr-etfs/",
+          "time_published": "20251129T210906",
+          "relevance": 1.0,
+          "sentiment": 0.350708,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "WEC Energy Group plans 6.7% dividend increase for Q1 2026 By Investing.com",
+          "summary": "WEC Energy Group announced its plan to increase its quarterly dividend to 95.25 cents per share in the first quarter of 2026, marking a 6.7% rise. This move aligns with the company's historical dividend growth and objective to maintain a payout ratio of 65-70% of earnings. The utility company also forecasted 2026 earnings per share between $5.51 and $5.61, affirming its consistent performance and attractive dividend yield for income-focused investors.",
+          "source": "Investing.com Nigeria",
+          "url": "https://ng.investing.com/news/company-news/wec-energy-group-plans-67-dividend-increase-for-q1-2026-93CH-2240153",
+          "time_published": "20251204T233814",
+          "relevance": 1.0,
+          "sentiment": 0.474674,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Media Advisory - Newport News Shipbuilding to Host Barb (SSN 804) Keel Laying",
+          "summary": "HII's Newport News Shipbuilding division will host the keel laying ceremony for the Virginia-class submarine Barb (SSN 804) on Tuesday, Dec. 9. While not open to the public, credentialed U.S. media are invited to cover the event and interview NNS leadership, a shipbuilder, and the submarine's sponsor, Pamela Bove. The article provides details on media check-in, location, and RSVP requirements for the event.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245836/media-advisory-newport-news-shipbuilding-to-host-barb-ssn-804-keel-laying",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.43823,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "TVA to develop America\u2019s first small modular reactor in Tennessee",
+          "summary": "The Tennessee Valley Authority (TVA) has received $400 million in federal funding to develop America's first small modular reactor (SMR) at its Clinch River site. This initiative aims to meet the exponential increase in energy demand driven by population growth and new AI data centers. Public officials, including U.S. Secretary of Energy Chris Wright and Governor Bill Lee, support this move as a significant step towards energy security, reliability, and Tennessee's leadership in nuclear energy.",
+          "source": "Action News 5",
+          "url": "https://www.actionnews5.com/2025/12/05/tva-develop-americas-first-small-modular-reactor-tennessee/",
+          "time_published": "20251204T230300",
+          "relevance": 1.0,
+          "sentiment": 0.043584,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Canadian Natural Resources Limited Prices C$1,650 Million in 3, 5 and 10 Year Medium-Term Notes",
+          "summary": "Canadian Natural Resources Limited announced it has priced C$1,650 million in medium-term notes across 3, 5, and 10-year terms, with coupons ranging from 3.30% to 4.55%. The net proceeds from this offering will be utilized for general corporate purposes, including potential repayment of indebtedness. The offering is expected to close on December 8, 2025.",
+          "source": "Newsfile",
+          "url": "https://www.newsfilecorp.com/release/277010/Canadian-Natural-Resources-Limited-Prices-C1650-Million-in-3-5-and-10-Year-MediumTerm-Notes",
+          "time_published": "20251204T225400",
+          "relevance": 1.0,
+          "sentiment": 0.40513,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "Former Sears site in Washington state had big plans. Will it ever be developed?",
+          "summary": "The former Sears site at Overlake Plaza in Redmond, Washington, once envisioned as a mixed-use development, is now among the last assets in Seritage Growth Properties' portfolio. While a master plan was approved in 2018, construction permits have lapsed, and no new applications have been filed, leaving the future of the development uncertain. Seritage, a Sears Holdings spinoff, is selling off its remaining properties, projecting $220-310 million from its final six assets.",
+          "source": "Tacoma News Tribune",
+          "url": "https://www.thenewstribune.com/news/business/article313031305.html",
+          "time_published": "20251204T231007",
+          "relevance": 1.0,
+          "sentiment": 0.085337,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Boise Cascade CEO Nate Jorgensen to retire; Jeff Strom appointed successor",
+          "summary": "Boise Cascade announced that CEO Nate Jorgensen plans to retire on March 2, 2026, and the board has unanimously appointed Jeff Strom, currently Chief Operating Officer, as his successor. Jorgensen will remain on the Company\u2019s board of directors after his retirement. The company does not intend to fill the Chief Operating Officer role after this transition.",
+          "source": "Tree Frog creative",
+          "url": "https://treefrogcreative.ca/boise-cascade-ceo-nate-jorgensen-to-retire-jeff-strom-appointed-successor/",
+          "time_published": "20251204T231006",
+          "relevance": 1.0,
+          "sentiment": 0.046464,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "VICI Properties Inc. Declares Regular Quarterly Dividend",
+          "summary": "VICI Properties Inc. announced a regular quarterly cash dividend of $0.45 per share of common stock for the period from October 1 to December 31, 2025. The dividend is payable on January 8, 2026, to stockholders of record as of December 17, 2025. VICI Properties is an S&P 500\u00ae experiential real estate investment trust with a vast portfolio of gaming, hospitality, wellness, entertainment, and leisure destinations across the US and Canada.",
+          "source": "www.sharewise.com",
+          "url": "https://www.sharewise.com/de/news_articles/VICI_Properties_Inc_Declares_Regular_Quarterly_Dividend_VICI_Properties_BusinessWireEN_20251204_2255/amp",
+          "time_published": "20251204T225500",
+          "relevance": 1.0,
+          "sentiment": 0.301939,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Ventas (NYSE: VTR) sells $500M 5.000% senior notes due 2036 for corporate use",
+          "summary": "Ventas, Inc. (NYSE: VTR), through its subsidiary Ventas Realty, Limited Partnership, has issued $500 million in 5.000% Senior Notes due 2036. These senior unsecured notes are guaranteed by Ventas, Inc., and the proceeds will be used for general corporate purposes, including potential repayment of other debt and related expenses, offering the company financial flexibility. This issuance is part of a routine funding program under an existing shelf registration and base indenture.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/VTR/8-k-ventas-inc-reports-material-event-25e6897cfd1c.html",
+          "time_published": "20251204T221235",
+          "relevance": 1.0,
+          "sentiment": 0.03632,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Broadstone Net Lease Issues 2026 Guidance Update",
+          "summary": "Broadstone Net Lease (BNL) announced a business update and issued guidance for 2026, maintaining its 2025 AFFO guidance and projecting 4.0% growth for 2026. The company reported significant investment activities in 2025, including $696.7 million in investments. Spark (TipRanks' AI Analyst) rates BNL as Outperform due to its strong financial performance, positive earnings sentiment, efficient cash flow, and high dividend yield, despite short-term bearish technical indicators and valuation concerns.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/BNL-N/pressreleases/36405170/broadstone-net-lease-issues-2026-guidance-update/",
+          "time_published": "20251204T220839",
+          "relevance": 1.0,
+          "sentiment": 0.426322,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "3 Industrials Stocks We Approach with Caution",
+          "summary": "This article cautions investors about three industrial stocks: Tecnoglass (TGLS), 3M (MMM), and Ball (BLL), despite the sector's recent strong performance. The author highlights concerns such as slow revenue growth, shrinking free cash flow, and declining earnings per share for these companies. It suggests a cautious approach given the cyclical nature of the industrials sector and recommends exploring other high-quality stocks for better returns.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246554/3-industrials-stocks-we-approach-with-caution",
+          "time_published": "20251204T233800",
+          "relevance": 1.0,
+          "sentiment": -0.122477,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Boise Cascade CEO Nate Jorgensen to retire; Jeff Strom appointed successor",
+          "summary": "Boise Cascade announced that CEO Nate Jorgensen plans to retire on March 2, 2026, and the board has unanimously appointed Jeff Strom, currently Chief Operating Officer, as his successor. Jorgensen will remain on the Company\u2019s board of directors after his retirement. The company does not intend to fill the Chief Operating Officer role after this transition.",
+          "source": "Tree Frog creative",
+          "url": "https://treefrogcreative.ca/boise-cascade-ceo-nate-jorgensen-to-retire-jeff-strom-appointed-successor/",
+          "time_published": "20251204T231006",
+          "relevance": 1.0,
+          "sentiment": 0.048145,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "HII Partners with University of Maryland's School of Engineering to Accelerate Defense Technologies",
+          "summary": "HII's Mission Technologies division has joined the Corporate Partners Program at the University of Maryland's A. James Clark School of Engineering, fostering collaboration in defense technology. This partnership aims to bridge industry and academia, leveraging the MATRIX Lab for advancements in autonomy and uncrewed systems. HII will also establish a lecture series to convene thought leaders on emerging technologies.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246180/hii-partners-with-university-of-marylands-school-of-engineering-to-accelerate-defense-technologies",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.442396,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Media Advisory - Newport News Shipbuilding to Host Barb (SSN 804) Keel Laying",
+          "summary": "HII's Newport News Shipbuilding division will host the keel laying ceremony for the Virginia-class submarine Barb (SSN 804) on Tuesday, Dec. 9. While not open to the public, credentialed U.S. media are invited to cover the event and interview NNS leadership, a shipbuilder, and the submarine's sponsor, Pamela Bove. The article provides details on media check-in, location, and RSVP requirements for the event.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245836/media-advisory-newport-news-shipbuilding-to-host-barb-ssn-804-keel-laying",
+          "time_published": "20251204T230950",
+          "relevance": 1.0,
+          "sentiment": 0.425833,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Value Fund Dumps $10.1 Million Eastman Chemical Stake as Stock Slump Continues and EBIT Drops 43%",
+          "summary": "Atlantic Investment Management fully exited its position in Eastman Chemical Company (NYSE: EMN) during the third quarter, selling 134,710 shares worth approximately $10.1 million. This decision follows Eastman's significant stock decline of 41% over the past year and an 11% revenue decrease with a 43% drop in EBIT to $188 million. Despite strong operating cash flow and cost-cutting measures, analysts suggest the exit signals investor concerns about the company's performance amidst soft market demand.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/WFRD/pressreleases/36462867/value-fund-dumps-101-million-eastman-chemical-stake-as-stock-slump-continues-and-ebit-drops-43/",
+          "time_published": "20251204T230744",
+          "relevance": 1.0,
+          "sentiment": -0.270375,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ]
+    },
+    "sector_sentiment": {
+      "XLK": {
+        "avg_sentiment": 0.195,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": 0.238,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLF": {
+        "avg_sentiment": 0.185,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLI": {
+        "avg_sentiment": 0.045,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLY": {
+        "avg_sentiment": 0.225,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLP": {
+        "avg_sentiment": 0.234,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLE": {
+        "avg_sentiment": 0.256,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLU": {
+        "avg_sentiment": 0.265,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.183,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.0,
+        "article_count": 0,
+        "label": "No Data"
+      },
+      "XLB": {
+        "avg_sentiment": 0.045,
+        "article_count": 10,
+        "label": "Neutral"
+      }
+    },
+    "total_articles": 109,
+    "avg_sentiment": 0.187,
+    "bullish_sectors": [
+      "XLK",
+      "XLV",
+      "XLF",
+      "XLY",
+      "XLP",
+      "XLE",
+      "XLU",
+      "XLRE"
+    ],
+    "bearish_sectors": []
+  },
+  "sector_summary": "Market in EARLY_EXPANSION phase with NEUTRAL rotation bias and LOW velocity. Six sectors clustered in neutral territory (Energy, Industrials, Tech, Financials, Communication, Consumer Cyclical) while five defensive/rate-sensitive sectors underperform (Real Estate, Materials, Consumer Defensive, Healthcare, Utilities). Favor cyclical neutrals over struggling defensives. No crossover alerts indicate stable but uninspiring sector dynamics.",
+  "cycle_phase": "EARLY_EXPANSION",
+  "cycle_confidence": "MEDIUM",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 1,
+      "mrs_20": 0.05,
+      "mrs_5": 0.69,
+      "roc_3": -0.69,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range with slight positive momentum (MRS_20=0.05%, MRS_5=0.69%). Leading the pack despite being in neutral territory, showing resilience in current market conditions.",
+      "news_context": {
+        "sentiment": 0.1,
+        "article_count": 8,
+        "themes": "oil price stability, winter demand, geopolitical tensions"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 2,
+      "mrs_20": -0.22,
+      "mrs_5": 0.6,
+      "roc_3": 1.22,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range showing positive momentum recovery (MRS_20=-0.22%, MRS_5=0.60%, ROC_3=1.22%). Strong short-term improvement suggests potential for continued strength.",
+      "news_context": {
+        "sentiment": 0.2,
+        "article_count": 12,
+        "themes": "infrastructure spending, manufacturing recovery, defense contracts"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 3,
+      "mrs_20": -0.16,
+      "mrs_5": 0.42,
+      "roc_3": 0.93,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range with positive momentum building (MRS_20=-0.16%, MRS_5=0.42%, ROC_3=0.93%). Tech showing resilience despite recent volatility, with improving relative performance.",
+      "news_context": {
+        "sentiment": 0.3,
+        "article_count": 15,
+        "themes": "AI investment, cloud growth, semiconductor demand"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 4,
+      "mrs_20": -0.03,
+      "mrs_5": 0.32,
+      "roc_3": 0.13,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range near neutral with modest positive momentum (MRS_20=-0.03%, MRS_5=0.32%). Financials showing steady but unspectacular performance in current rate environment.",
+      "news_context": {
+        "sentiment": 0.1,
+        "article_count": 10,
+        "themes": "interest rate outlook, loan demand, regulatory environment"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 5,
+      "mrs_20": 0.21,
+      "mrs_5": 0.01,
+      "roc_3": -0.51,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range with momentum stalling (MRS_20=0.21%, MRS_5=0.01%). Previously strong sector showing signs of fatigue as momentum fades to near-zero.",
+      "news_context": {
+        "sentiment": -0.1,
+        "article_count": 9,
+        "themes": "streaming competition, advertising slowdown, regulatory concerns"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 6,
+      "mrs_20": 0.14,
+      "mrs_5": -0.09,
+      "roc_3": -0.23,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range with momentum turning slightly negative (MRS_20=0.14%, MRS_5=-0.09%). Consumer discretionary showing early signs of weakness as spending patterns shift.",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 11,
+        "themes": "holiday shopping, consumer debt, retail earnings"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 7,
+      "mrs_20": -2.19,
+      "mrs_5": -0.83,
+      "roc_3": -1.29,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with negative momentum (MRS_20=-2.19%, MRS_5=-0.83%). Real estate struggling with rate sensitivity and showing no signs of bottoming out yet.",
+      "news_context": {
+        "sentiment": -0.4,
+        "article_count": 7,
+        "themes": "interest rate impact, commercial real estate stress, REIT valuations"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 8,
+      "mrs_20": -0.56,
+      "mrs_5": -0.9,
+      "roc_3": -2.47,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with accelerating negative momentum (MRS_20=-0.56%, MRS_5=-0.90%, ROC_3=-2.47%). Materials showing deteriorating fundamentals with worsening relative performance.",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 6,
+        "themes": "commodity price weakness, China demand concerns, inventory buildup"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 9,
+      "mrs_20": -1.02,
+      "mrs_5": -1.06,
+      "roc_3": -2.65,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with persistent negative momentum (MRS_20=-1.02%, MRS_5=-1.06%). Defensive sectors underperforming as risk appetite remains steady, contradicting typical defensive rotation.",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 8,
+        "themes": "margin pressure, input costs, consumer behavior shifts"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 10,
+      "mrs_20": -1.48,
+      "mrs_5": -1.31,
+      "roc_3": -2.84,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with sustained negative momentum (MRS_20=-1.48%, MRS_5=-1.31%). Healthcare continuing to underperform despite defensive characteristics, facing sector-specific headwinds.",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 9,
+        "themes": "drug pricing pressure, regulatory uncertainty, Medicare negotiations"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 11,
+      "mrs_20": -3.74,
+      "mrs_5": -1.55,
+      "roc_3": -2.01,
+      "zone": "G",
+      "signal": "TOXIC",
+      "modifier": 0.25,
+      "rationale": "Zone C toxic - deep underperformance (MRS_20=-3.74%, MRS_5=-1.55%). Utilities in severe relative decline, reflecting interest rate sensitivity and lack of defensive bid in current environment.",
+      "news_context": {
+        "sentiment": -0.5,
+        "article_count": 5,
+        "themes": "rate sensitivity, dividend sustainability concerns, regulatory headwinds"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLE": 1.0,
+    "XLI": 1.0,
+    "XLK": 1.0,
+    "XLF": 1.0,
+    "XLC": 1.0,
+    "XLY": 1.0,
+    "XLRE": 0.5,
+    "XLB": 0.5,
+    "XLP": 0.5,
+    "XLV": 0.5,
+    "XLU": 0.25
+  },
+  "cycle_reasoning": "EARLY_EXPANSION phase identified based on cyclical sectors (Industrials, Technology) showing positive momentum while defensives underperform. However, the lack of strong bullish signals and clustering in neutral territory suggests this expansion phase is tentative and lacks conviction, hence MEDIUM confidence.",
+  "rotation_analysis": "Current rotation pattern shows unusual defensive weakness during a NORMAL macro regime, with traditional safe-haven sectors (Healthcare, Consumer Defensive, Utilities) all underperforming significantly. The clustering of six sectors in neutral Zone E territory suggests a market in transition, lacking clear directional conviction. Energy's leadership despite being in neutral territory indicates commodity resilience, while the broad underperformance of rate-sensitive sectors (REITs, Utilities) reflects persistent interest rate concerns. The absence of any bullish signals across all sectors suggests a market pause rather than aggressive rotation, consistent with the LOW velocity reading.",
+  "l1_alignment": "Sector rotation aligns with L1's NORMAL regime and AGGRESSIVE position bias, as cyclical sectors show relative strength over defensives. However, the absence of strong bullish signals reflects the MEDIUM confidence in the macro regime, suggesting markets are positioned for growth but without strong conviction.",
+  "key_insight": "Market shows early expansion characteristics but lacks conviction, with all sectors clustered in neutral/negative territory - suggesting a tentative recovery phase where cyclical positioning is preferred but without aggressive allocation due to uncertain momentum.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: EARLY_EXPANSION (MEDIUM confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 NORMAL regime with AGGRESSIVE bias aligns with cyclical over defensive preference. Six cyclical/growth sectors in neutral territory vs five defensive sectors in avoid/toxic territory supports risk-on positioning without strong conviction.\n\nStep 2 - Signal Validation:\nAll signals validated against v6.1 thresholds. No anomalies detected. Six NEUTRAL signals in Zone E, four AVOID signals in Zone D, one TOXIC in Zone C. No crossover alerts as no V values crossed zero in recent days.\n\nStep 3 - Zone Analysis:\nActive zones: Zone E (6 sectors) showing noise/consolidation, Zone D (4 sectors) in ignition/underperformance, Zone C (1 sector) toxic. Rotation direction is mixed with slight cyclical bias but no clear momentum.\n\nStep 4 - Conflict Resolution:\nNo L1 vs L2 conflict - both suggest cautious risk-on positioning. News themes support cyclical resilience (AI, infrastructure) while confirming defensive struggles (rate sensitivity, regulatory pressure).\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nEARLY_EXPANSION phase identified based on cyclical sectors (Industrials, Technology) showing positive momentum while defensives underperform. However, the lack of strong bullish signals and clustering in neutral territory suggests this expansion phase is tentative and lacks conviction, hence MEDIUM confidence.\n\nKey Insight: Market shows early expansion characteristics but lacks conviction, with all sectors clustered in neutral/negative territory - suggesting a tentative recovery phase where cyclical positioning is preferred but without aggressive allocation due to uncertain momentum."
+}

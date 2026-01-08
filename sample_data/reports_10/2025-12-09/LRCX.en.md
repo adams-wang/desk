@@ -1,0 +1,166 @@
+## LRCX: Lam Research Corporation - XLK: Technology
+
+### Executive Summary
+
+STRENGTH thesis confirmed: MRS_10 at 4.2% in lower entry zone (3.0-6.0%), top quartile (90th pct) cross-sectional ranking. Short-term MRS_5 (2.9%) confirms momentum alignment. Strong momentum (+1.1% 5-day acceleration). Outperforming sector by 2.9%.
+
+- **Horizon:** 5-20 days (swing)
+- **Risk Profile:** Moderate - momentum continuation
+- **Stop Type:** Fixed 2xATR ($153.23)
+- **If Wrong:** Exit if MRS_10 drops below entry zone or breaks stop
+- **Invalidation:** MRS_10 exits entry zone or MRS_5 turns negative
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 5, Bearish: 0)
+
+**1. SVB Wealth LLC Acquires Shares of 28,255 Lam Research Corporation $LRCX**
+- Source: MarketBeat | 20251209T124742 | Somewhat-Bullish | Relevance: 99%
+-  SVB Wealth LLC has acquired 28,255 shares of Lam Research Corporation, valued at approximately $2.75 million, establishing a new position in the semiconductor company. This comes as other institutional investors have also adjusted their holdings, with institutional ownership now standing at around 84.61%. Despite recent insider selling, Lam Research reported a strong quarterly performance, exceeding EPS and revenue expectations, and analysts currently rate the stock as a "Moderate Buy" with an average target price of $152.87.
+
+**2. Investment Management Corp of Ontario Increases Stock Position in Lam Research Corporation $LRCX**
+- Source: MarketBeat | 20251209T141418 | Somewhat-Bullish | Relevance: 99%
+-  Investment Management Corp of Ontario significantly increased its stake in Lam Research Corporation by 90.3% in the second quarter, now owning 108,638 shares valued at $10.575 million. Other institutional investors also adjusted their positions in the semiconductor company. Insider activity and analyst ratings are also detailed, with analysts giving Lam Research an average rating of "Moderate Buy" and a consensus target price of $152.87.
+
+**3. Why Lam Research (LRCX) Stock Is Up Today**
+- Source: Finviz | 20251208T171515 | Bullish | Relevance: 98%
+-  Shares of Lam Research (LRCX) rose after Morgan Stanley increased its price target for the semiconductor equipment maker, citing a 13% increase in its 2027 Wafer Fab Equipment market forecast. The stock's gain aligns with a broader positive trend in the chip-making sector. Lam Research has seen significant growth year-to-date, trading near its 52-week high.
+
+**4. Lam Research Corporation (NASDAQ:LRCX) Receives Consensus Rating of "Moderate Buy" from Analysts**
+- Source: MarketBeat | 20251208T040926 | Somewhat-Bullish | Relevance: 98%
+-  Lam Research Corporation (LRCX) has received a "Moderate Buy" consensus rating from 36 analysts, with an average 12-month price target of $152.87. The company recently reported strong quarterly earnings, beating EPS and revenue estimates, and provided positive Q2 FY2026 guidance. Despite significant institutional ownership, some insiders have sold shares recently.
+
+**5. Micron vs. Lam Research: Which Stock Has Better Upside Potential?**
+- Source: Yahoo! Finance Canada | 20251208T130842 | Somewhat-Bullish | Relevance: 98%
+-  Micron Technology (MU) and Lam Research (LRCX) are both benefiting from the semiconductor boom and AI demand, but Micron appears to be the better investment due to its stronger near-term growth profile and lower valuation. Micron's focus on memory chips and HBM for AI, coupled with its diversification strategy, has led to significant revenue and EPS growth. Although Lam Research provides essential tools for chip manufacturing and also benefits from AI trends, Micron's P/E multiple is lower despite higher projected earnings growth, making it a "Strong Buy" according to Zacks.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 3, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-02 | Morgan Stanley | $158 | $137 | +15% |
+| 2025-11-25 | UBS | $175 | $165 | +6% |
+| 2025-11-12 | Citigroup | $190 | $175 | +9% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-02 | Morgan Stanley | main | Equal-Weight |
+| 2025-11-25 | UBS | main | Buy |
+| 2025-11-12 | Citigroup | main | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 11 ($0.00M) |
+| Sells | 6 ($14.07M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 39.7% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 6 / 3 |
+
+**Top Holders:**
+- Vanguard Group Inc: 10.4% (+0.3%)
+- Blackrock Inc.: 9.9% (+1.7%)
+- JPMORGAN CHASE & CO: 4.8% (+47.4%)
+- State Street Corpora: 4.8% (+0.4%)
+- Geode Capital Manage: 2.7% (-0.5%)
+
+### Key Risks
+
+1. Heavy insider selling: $14M sold (6 transactions in 90 days).
+2. Market regime shift could impact high-beta names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Analyst target momentum: 3 raises (avg +10%) could attract flows.
+- Momentum building: MRS_10 improving +1.1% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 2.39 elevated, pricing in significant growth expectations. Quality metrics strong (ROE 62%, ROA 20%, margin 30%). Balance sheet: strong liquidity (2.2x), $1.6B free cash flow. Analyst sentiment positive (3 raises, avg +10%). Insider selling cluster ($14.1M in 90 days), potential headwind. Institutional flow bullish (6 buying vs 3 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $209.1B |
+| Beta | 1.78 |
+| 52W Range | $56.32 - $167.15 |
+| Short Interest | 2.9% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 2.39 |
+| Forward P/E | 29.7 |
+| Current P/E | 34.3 |
+| YoY Growth | 15.8% |
+| EPS Direction | RISING |
+
+### Technicals
+
+MRS_10 strengthening from 3.1% to 4.2% (+1.1% in 5 days), confirming momentum buildup. Currently in lower STRENGTH zone (3.0-6.0%), cross-sectional ranking at 90th percentile. MRS_5 at 2.9% confirms short-term momentum alignment. Full SMA alignment bullish (above 20/50/200 SMAs). MACD histogram positive (1.00), confirming momentum.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | 4.19% (CS: 90) | Strong |
+| RSI_14 | 62.7 | Neutral |
+| MACD Histogram | 1.00 | Bullish |
+| vs SMA20 | 1.079x | Above |
+| vs SMA50 | 1.099x | Above |
+| vs SMA200 | 1.577x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** STRENGTH
+
+### Trade Setup
+
+- **Entry:** $165.81
+- **Stop Loss:** $153.23 (7.6% risk)
+- **Target:** $184.68 (R:R method)
+- **Risk/Reward:** 1.50:1
+- **Target Reasoning:** STRENGTH thesis targets 1.5x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 95
+- **Position Value:** $15,751.95
+- **Portfolio %:** 15.75%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 100% | L2 120% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*NORMAL regime with moderate risk appetite. VIX remains in the mid-range, breadth is moderate, and yield curve is flat but not inverted—indicating standard late-cycle conditions. Upbeat earnings and positive tech momentum are offset by cautious guidance in consumer sectors, suggesting selective positioning is favored.*
+
+### Earnings
+
+**Next:** 2026-01-28 (Est: $1.16)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.22 | $1.26 | +3.3% |
+| 2025Q2 | $1.21 | $1.33 | +10.4% |
+| 2025Q1 | $1.00 | $1.04 | +4.1% |
+| 2024Q4 | $0.88 | $0.91 | +3.5% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*

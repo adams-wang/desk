@@ -1,0 +1,162 @@
+## CSX: CSX Corporation - XLI: Industrials
+
+### Executive Summary
+
+STRENGTH thesis confirmed: MRS_20 at 5.4% in lower entry zone (4.0-10.0%), top quartile (77th pct) cross-sectional ranking. Short-term MRS_5 (2.8%) confirms momentum alignment. Strong momentum (+3.5% 5-day acceleration). Outperforming sector by 3.1%. Caution: overbought RSI (72).
+
+- **Horizon:** 5-20 days (swing)
+- **Risk Profile:** Moderate - momentum continuation
+- **Stop Type:** Fixed 2xATR ($36.19)
+- **If Wrong:** Exit if MRS_20 drops below entry zone or breaks stop
+- **Invalidation:** MRS_20 exits entry zone or MRS_5 turns negative
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 3, Bearish: 1)
+
+**1. Morgan Stanley Raises CSX Price Target Amid Positive Freight Outlook**
+- Source: Finviz | 20251211T080820 | Somewhat-Bullish | Relevance: 100%
+- Morgan Stanley increased its price target on CSX Corporation (NASDAQ:CSX) to $30 from $27, maintaining an Equal Weight rating, as part of its positive 2026 outlook for the freight transportation industry. The firm upgraded the industry to Attractive, noting improved risk and reward levels since 2020. CSX's Q3 earnings showed mixed trends with a 1% YoY revenue decrease but strong operational metrics, including the fastest train velocity since early 2021.
+
+**2. CSX (CSX): Buy, Sell, or Hold Post Q3 Earnings?**
+- Source: Finviz | 20251210T230400 | Bearish | Relevance: 100%
+- This article from StockStory advises against investing in CSX following its Q3 earnings, citing weak sales volumes indicating waning demand, barely growing EPS, and a dropping free cash flow margin. The company's valuation is considered fair, but with limited upside compared to potential downside risks. Instead, the authors recommend exploring other high-quality growth stocks.
+
+**3. Morgan Stanley Raises CSX Price Target Amid Positive Freight Outlook**
+- Source: Insider Monkey | 20251211T080812 | Bullish | Relevance: 100%
+- Morgan Stanley increased its price target for CSX Corporation (NASDAQ:CSX) to $30 from $27, maintaining an Equal Weight rating, and upgraded its outlook for the overall freight transportation industry to Attractive. This comes as CSX reported mixed third-quarter earnings with a 1% YoY revenue decline to $3.59 billion, but strong operational metrics including the fastest train velocity since early 2021. The firm's positive adjustment reflects a more favorable risk and reward landscape in the freight sector.
+
+**4. Csx stock hits 52-week high at 37.26 USD**
+- Source: Investing.com | 20251210T204112 | Bullish | Relevance: 100%
+- CSX Corporation's stock has reached a new 52-week high of $37.26, reflecting investor confidence in its operational strategies and market position. The company has shown strong growth, with its stock appreciating by 10.8% over the past year and maintaining dividend payments for 45 consecutive years. Recent strategic moves include a $300 million public offering of notes and leadership changes, with Kevin Boone appointed as the new Executive Vice President and Chief Financial Officer.
+
+**5. CSX officials say CEO transition going well: ‘We’re so much aligned’**
+- Source: Jacksonville Daily Record | 20251211T090810 | Bullish | Relevance: 100%
+- CSX executives are reporting a smooth leadership transition two months after Steve Angel took over as CEO. COO Mike Cory and CFO Kevin Boone highlighted Angel's focus on service, productivity, and pricing, generating energy within the company. Meanwhile, CSX is closely observing the proposed Union Pacific-Norfolk Southern merger and its potential impact on competition.
+
+### Analyst Activity
+
+**Target Signal:** BULLISH (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-08 | Morgan Stanley | $30 | $27 | +11% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-08 | Morgan Stanley | main | Equal-Weight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 6 ($2.33M) |
+| Sells | 3 ($1.78M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 35.1% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 6 |
+
+**Top Holders:**
+- Vanguard Group Inc: 9.3% (-0.4%)
+- Blackrock Inc.: 7.6% (-0.8%)
+- State Street Corpora: 4.6% (-2.2%)
+- Bank of America Corp: 2.3% (+165.7%)
+- Geode Capital Manage: 2.3% (-0.2%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_20 improving +3.5% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 2.66 signals overvaluation risk, limited margin of safety. Quality metrics strong (ROE 23%, margin 20%). Analyst sentiment positive (1 raises, avg +11%). Institutional flow bullish (4 buying vs 6 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $69.7B |
+| Beta | 1.30 |
+| 52W Range | $26.22 - $37.39 |
+| Short Interest | 1.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 2.66 |
+| Forward P/E | 19.7 |
+| Current P/E | 23.4 |
+| YoY Growth | 18.9% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 strengthening from 1.9% to 5.4% (+3.5% in 5 days), confirming momentum buildup. Currently in lower STRENGTH zone (4.0-10.0%), cross-sectional ranking at 77th percentile. MRS_5 at 2.8% confirms short-term momentum alignment. AM_20 at 5.8% shows strong absolute momentum above own 20MA. Outperforming sector by 3.1pp, stock-specific strength. Full SMA alignment bullish (above 20/50/200 SMAs). RSI overbought at 72, risk of mean reversion. OFD pattern: +DLL (Support).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 5.39% (CS: 78) | Strong |
+| RSI_14 | 71.6 | Overbought |
+| MACD Histogram | 0.27 | Bullish |
+| vs SMA20 | 1.057x | Above |
+| vs SMA50 | 1.050x | Above |
+| vs SMA200 | 1.139x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** STRENGTH
+
+### Trade Setup
+
+- **Entry:** $37.39
+- **Stop Loss:** $36.19 (3.2% risk)
+- **Target:** $39.19 (R:R method)
+- **Risk/Reward:** 1.50:1
+- **Target Reasoning:** STRENGTH thesis targets 1.5x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 999
+- **Position Value:** $37,352.61
+- **Portfolio %:** 37.35%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 100% | L2 120% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*NORMAL regime with moderate risk appetite ahead of Fed decision. VIX remains calm at 15.74 while breadth shows modest participation at 54%, suggesting selective positioning. FOMC meeting in 4 days creates near-term uncertainty but no systemic stress evident.*
+
+### Earnings
+
+**Next:** 2026-01-22 (Est: $0.44)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.42 | $0.37 | -12.9% |
+| 2025Q2 | $0.42 | $0.44 | +5.4% |
+| 2025Q1 | $0.37 | $0.34 | -6.9% |
+| 2024Q4 | $0.42 | $0.38 | -9.4% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

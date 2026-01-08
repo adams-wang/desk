@@ -1,0 +1,920 @@
+{
+  "contract_id": "l2_2025-12-08",
+  "trading_date": "2025-12-08",
+  "generated_at": "2025-12-17T14:30:42.794043",
+  "valid_until": "2025-12-18T14:30:42.794043",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-08",
+  "sector_news": {
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "The Technology Select Sector SPDR Fund To Carry Out 2-for-1 Stock Split On December 5th, 2025",
+          "summary": "The Technology Select Sector SPDR Fund (XLK.US) is set to perform a 2-for-1 stock split, with shares trading on a split-adjusted basis starting December 5th, 2025. This stock split aims to increase the stock's liquidity without altering the company's fundamental value. On December 2nd, the fund closed at $289.3, rising 1.03%.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/65765654/the-technology-select-sector-spdr-fund-to-carry-out-2",
+          "time_published": "20251204T190922",
+          "relevance": 1.0,
+          "sentiment": 0.217424,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "BNP Paribas Exane Downgrades Newmont Corporation (NEM) to Neutral from Outperform",
+          "summary": "BNP Paribas Exane downgraded Newmont Corporation (NYSE: NEM) to Neutral from Outperform, setting a price target of $97, citing momentum in the copper sector. This downgrade comes despite other analysts from UBS reiterating Buy ratings with higher price targets, buoyed by strong gold market trends and Newmont's robust Q3 2025 performance. Newmont also announced the commercial production of its Ahafo North project, expected to significantly contribute to its gold output.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/bnp-paribas-exane-downgrades-newmont-corporation-nem-to-neutral-from-outperform-1656291/?amp=1",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.013042,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Sabre Corporation (SABR) Launches AI Chat Tool for Airlines",
+          "summary": "Sabre Corporation (NASDAQ: SABR) has launched SabreMosaic Concierge IQ, an AI chat tool designed to help airline travelers plan, book, and manage trips. This solution, built on Sabre's IQ artificial intelligence layer, goes beyond flights to include hotels, ancillaries, and third-party offers. Concierge IQ utilizes large language models to understand complex queries, personalize recommendations, and provide support throughout the travel journey across various platforms like web, airline mobile apps, and WhatsApp.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/sabre-corporation-sabr-launches-ai-chat-tool-for-airlines-1656557/",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.031161,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Rimini Street (RMNI) Launches AI-Powered ERP Solution",
+          "summary": "Rimini Street, Inc. (NASDAQ: RMNI) announced its new AI-powered user engagement layer, Rimini Agentic UX, designed to make Enterprise Resource Planning (ERP) processes faster and more cost-effective. This solution enhances productivity without costly upgrades by sitting on top of existing ERP software and offering AI-driven orchestration and automation. Alliance Global Partners analyst Brian Kinstlinger reaffirmed a Buy rating with a $6 price target on RMNI following this development.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/rimini-street-rmni-launches-ai-powered-erp-solution-1656538/?amp=1",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.333094,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Rimini Street (RMNI) Launches AI-Powered ERP Solution",
+          "summary": "Rimini Street, Inc. (NASDAQ:RMNI) has launched Rimini Agentic UX, a new AI-powered user engagement layer designed to make ERP processes faster and more cost-effective. This solution integrates AI-driven orchestration and automation with UX principles to provide a single, composable interface for managing enterprise workflows without requiring expensive ERP software upgrades. Alliance Global Partners analyst Brian Kinstlinger reaffirmed a Buy rating on RMNI with a $6 price target following this development.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/248974/rimini-street-rmni-launches-ai-powered-erp-solution",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.3874,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "XLV ETF Rises to $155.29 as LLY Stock, JNJ, and ABBV Drive Healthcare Sector Gains",
+          "summary": "The Health Care Select Sector SPDR Fund (XLV) has risen to $155.29, supported by its top holdings: Eli Lilly, Johnson & Johnson, and AbbVie. Eli Lilly's GLP-1 drugs and the stability provided by J&J and AbbVie's products are driving performance, making XLV a defensive yet growth-oriented investment for 2026. The ETF is rated a \"Buy\" with price targets between $165 and $172 for 2026, benefiting from low costs, strong dividends, and mega-cap leadership.",
+          "source": "TradingNEWS",
+          "url": "https://www.tradingnews.com/news/healthcare-xlv-etf-nysearca-xlv-hits-155-usd",
+          "time_published": "20251204T050942",
+          "relevance": 1.0,
+          "sentiment": 0.399669,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "1 Profitable Stock with Exciting Potential and 2 We Avoid",
+          "summary": "This article identifies one profitable stock, Euronet Worldwide (EEFT), as a buy due to its revenue growth, share buybacks, and high return on equity. Conversely, it advises avoiding Park-Ohio (PKOH) and Charles River Laboratories (CRL) due to issues like declining revenue, high input costs, and lack of organic growth. The analysis emphasizes that profitability alone doesn't guarantee a good investment.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/249077/1-profitable-stock-with-exciting-potential-and-2-we-avoid",
+          "time_published": "20251208T233200",
+          "relevance": 1.0,
+          "sentiment": -0.191423,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "AstraZeneca is top pharma tip for 2026, with GSK left trailing",
+          "summary": "JPMorgan has identified AstraZeneca (LSE:AZN, NASDAQ:AZN) as its top UK healthcare pick for 2026, emphasizing its catalyst-rich pipeline and high likelihood of clinical success. Conversely, GSK (LSE:GSK, NYSE:GSK) is placed at the bottom due to a \"muted\" growth outlook and limited trial results expected next year. Other companies like Novartis and Bayer are highlighted for their pipelines and potential for re-rating, respectively, while Novo Nordisk remains a favorite.",
+          "source": "Proactive financial news",
+          "url": "https://www.proactiveinvestors.com.au/companies/news/1083960/astrazeneca-is-top-pharma-tip-for-2026-with-gsk-left-trailing-1083960.html",
+          "time_published": "20251208T233000",
+          "relevance": 1.0,
+          "sentiment": 0.264225,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Edwards Lifesciences\u2019 Markowitz sells $50k in stock By Investing.com",
+          "summary": "Wayne Markowitz, CVP, JAPAC at Edwards Lifesciences Corp (NYSE:EW), sold 583 shares of common stock for $50,143. This transaction occurred as the company trades near its 52-week high, with a market capitalization of approximately $49 billion. Despite this insider selling, InvestingPro data indicates aggressive share buybacks by management, and the company maintains a \"GOOD\" financial health score.",
+          "source": "Investing.com India",
+          "url": "https://in.investing.com/news/insider-trading-news/edwards-lifesciences-markowitz-sells-50k-in-stock-93CH-5143614",
+          "time_published": "20251208T232816",
+          "relevance": 1.0,
+          "sentiment": 0.260748,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Wellgistics Health Announces Launch of Diabetes Drug Brenzavvy(R) to Wellgistics Pharmacy Network",
+          "summary": "Wellgistics Health has launched its diabetes prescription drug Brenzavvy to its network of 6,500 independent pharmacies, targeting the 33 million Americans with type II diabetes whose out-of-pocket costs for SGLT-2 drugs exceed Brenzavvy's cash price. The launch leverages Wellgistics' EinsteinRx artificial intelligence platform to educate pharmacists, providers, and patients on Brenzavvy's advantages and competitive pricing compared to other SGLT-2 inhibitors like Jardiance. This initiative aims to improve market access and patient care in rural communities, with a focus on patients who are uninsured or underinsured, and establishes a new model for next-generation reformulated drugs.",
+          "source": "Enterprise News",
+          "url": "https://www.enterprisenews.com/press-release/story/59081/wellgistics-health-announces-launch-of-diabetes-drug-brenzavvyr-to-wellgistics-pharmacy-network/",
+          "time_published": "20251208T231509",
+          "relevance": 1.0,
+          "sentiment": 0.036203,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "Bank of New York Mellon Stock: Is BK Outperforming the Financial Sector?",
+          "summary": "The Bank of New York Mellon Corporation (BK) is a large-cap financial services company whose stock has seen significant growth, outperforming the Financial Select Sector SPDR Fund (XLF) and even JPMorgan Chase (JPM) over various periods. Despite strong performance and a \"Moderate Buy\" consensus rating from analysts, the stock dipped after Q3 2025 results due to concerns over rising non-interest expenses. Analysts currently project a modest premium for BK shares.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-bank-of-new-york-mellon-stock-is-bk-outperforming-the-financial-sector",
+          "time_published": "20251203T085900",
+          "relevance": 1.0,
+          "sentiment": 0.464267,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "What Do Analysts Think About Hudbay Minerals Inc. (HBM)?",
+          "summary": "Hudbay Minerals Inc. (NYSE: HBM) has recently seen several analysts raise their price targets and maintain \"Buy\" or \"Outperform\" ratings due to strong Q3 2025 results and benefits from high copper and gold prices. BofA, BMO Capital, and RBC Capital all increased their price targets, citing the company's operational resilience, strong free cash flow generation, and potential for growth in Peru and Manitoba.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/what-do-analysts-think-about-hudbay-minerals-inc-hbm-1656289/",
+          "time_published": "20251208T235300",
+          "relevance": 1.0,
+          "sentiment": 0.505151,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Sabre Corporation (SABR) Launches AI Chat Tool for Airlines",
+          "summary": "Sabre Corporation (NASDAQ: SABR) has launched SabreMosaic Concierge IQ, an AI chat tool designed to help airline travelers plan, book, and manage trips. This solution, built on Sabre's IQ artificial intelligence layer, goes beyond flights to include hotels, ancillaries, and third-party offers. Concierge IQ utilizes large language models to understand complex queries, personalize recommendations, and provide support throughout the travel journey across various platforms like web, airline mobile apps, and WhatsApp.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/sabre-corporation-sabr-launches-ai-chat-tool-for-airlines-1656557/",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.04655,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "BNP Paribas Exane Downgrades Newmont Corporation (NEM) to Neutral from Outperform",
+          "summary": "BNP Paribas Exane downgraded Newmont Corporation (NEM) to Neutral from Outperform, setting a price target of $97, citing the copper sector's momentum and a preference switch towards aluminum and away from gold, despite continued demand for gold in 2026. This downgrade contrasts with recent Buy ratings and raised price targets from UBS analysts. Newmont reported strong Q3 2025 performance with record free cash flow and the commercial production of its Ahafo North project in Ghana.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/bnp-paribas-exane-downgrades-newmont-corporation-nem-to-neutral-from-outperform-1656291/",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.102248,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Caterpillar Expands Its DFW Footprint With New Building Near Irving HQ",
+          "summary": "Caterpillar Inc. has expanded its presence in the Dallas-Fort Worth area by purchasing a new building at 901 W. Walnut Hill Lane in Irving, near its existing headquarters. The company, which moved to Las Colinas in 2022, states this expansion accommodates continued growth and reinforces its economic and positive impact in North Texas. This move follows significant philanthropic contributions in Texas, recent sponsorship of Dig World, and a strategic focus on doubling power generation sales by 2030.",
+          "source": "Dallas Innovates",
+          "url": "https://dallasinnovates.com/caterpillar-expands-its-dfw-footprint-with-new-building-near-irving-hq/",
+          "time_published": "20251208T235100",
+          "relevance": 1.0,
+          "sentiment": 0.418909,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "How Is Fastenal's Stock Performance Compared to Other Industrial Stocks?",
+          "summary": "Fastenal Company (FAST) has seen a complex performance compared to the broader industrial market and its rival, W.W. Grainger, Inc. (GWW). While FAST has underperformed the Industrial Select Sector SPDR Fund (XLI) in recent months and over the past year, it has outperformed GWW. Analysts currently hold a cautious \"Hold\" rating on FAST stock.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/stocks/article/barchart-2025-12-5-how-is-fastenals-stock-performance-compared-to-other-industrial-stocks",
+          "time_published": "20251205T071100",
+          "relevance": 1.0,
+          "sentiment": 0.044617,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Caterpillar Expands Its DFW Footprint With New Building Near Irving HQ",
+          "summary": "Caterpillar Inc. has expanded its presence in the Dallas-Fort Worth area by purchasing a new building at 901 W. Walnut Hill Lane in Irving, near its existing headquarters. The company, which moved to Las Colinas in 2022, states this expansion accommodates continued growth and reinforces its economic and positive impact in North Texas. This move follows significant philanthropic contributions in Texas, recent sponsorship of Dig World, and a strategic focus on doubling power generation sales by 2030.",
+          "source": "Dallas Innovates",
+          "url": "https://dallasinnovates.com/caterpillar-expands-its-dfw-footprint-with-new-building-near-irving-hq/",
+          "time_published": "20251208T235100",
+          "relevance": 1.0,
+          "sentiment": 0.437807,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "1 Profitable Stock with Exciting Potential and 2 We Avoid",
+          "summary": "This article identifies one profitable stock, Euronet Worldwide (EEFT), as a buy due to its revenue growth, share buybacks, and high return on equity. Conversely, it advises avoiding Park-Ohio (PKOH) and Charles River Laboratories (CRL) due to issues like declining revenue, high input costs, and lack of organic growth. The analysis emphasizes that profitability alone doesn't guarantee a good investment.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/249077/1-profitable-stock-with-exciting-potential-and-2-we-avoid",
+          "time_published": "20251208T233200",
+          "relevance": 1.0,
+          "sentiment": -0.195131,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Baker Hughes Acquisition Puts Chart Industries on BCK Capital's Radar",
+          "summary": "BCK Capital Management has opened a new significant stake in Chart Industries (NYSE:GTLS), making it the fund's third-largest holding. This strategic move aligns with BCK Capital's focus on companies undergoing major changes like mergers and acquisitions, highlighted by the planned acquisition of Chart Industries by Baker Hughes for $210 per share. The article details BCK Capital's top holdings and provides an overview of Chart Industries' business and financial metrics.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36516518/baker-hughes-acquisition-puts-chart-industries-on-bck-capital-s-radar/",
+          "time_published": "20251208T231033",
+          "relevance": 1.0,
+          "sentiment": 0.199476,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Arrowstreet Capital Limited Partnership Takes Position in Atkore Inc. $ATKR",
+          "summary": "Arrowstreet Capital Limited Partnership initiated a new position in Atkore Inc. (NYSE:ATKR) during the second quarter, acquiring 304,085 shares valued at approximately $21.45 million. This investment now represents about 0.90% of Atkore Inc.'s stock. The company recently reported Q3 results, missing EPS estimates but exceeding revenue forecasts, and announced a quarterly dividend of $0.33 per share, yielding approximately 2.1%.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-arrowstreet-capital-limited-partnership-takes-position-in-atkore-inc-atkr-2025-12-08/",
+          "time_published": "20251208T230942",
+          "relevance": 1.0,
+          "sentiment": -0.225835,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "Could Retail Stocks Rally Into Year End? What the Charts of Marriott, On Holding, Lululemon Say.",
+          "summary": "Despite ongoing recession chatter and a lagging performance for the consumer discretionary sector, some retail stocks are showing resilience. The article examines the charts of Marriott, On Holding, and Lululemon to determine if they could rally into the year-end. This analysis comes as the Consumer Discretionary Select Sector SPDR Fund is only the ninth-best performer among S&P groups, largely due to Amazon and Tesla being below their 52-week highs.",
+          "source": "Barron's",
+          "url": "https://www.barrons.com/articles/could-retail-stocks-rally-charts-marriott-on-holding-lululemon-5ba331e5?gaa_at=eafs&gaa_n=AWEtsqenzCjvd8Bt3UZsQSBy-uKr4SsKiXTHofUm_H_ui7mQ4Yv6_92ZbQUY&gaa_ts=693c959a&gaa_sig=IDVwfh28f-53pTkSnQN_up8aK_pBhIHZLdhW3adeL0adT3sSITzh5sJ7IucVgA9ANgx_3rvAaqPuSRGAgm6Wfw%3D%3D",
+          "time_published": "20251205T220936",
+          "relevance": 1.0,
+          "sentiment": 0.07571,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Campbell Soup fires VP over 'garbage for poor people' rant in leaked audio",
+          "summary": "Campbell Soup has fired a Vice President following a leaked audio recording where the individual made disparaging remarks about the company's products being \"garbage for poor people.\" The incident highlights potential issues within the company's corporate culture and its public image.",
+          "source": "The Standard (HK)",
+          "url": "https://www.thestandard.com.hk/world-news/article/318800/Campbell-Soup-fires-VP-over-garbage-for-poor-people-rant-in-leaked-audio",
+          "time_published": "20251208T231453",
+          "relevance": 1.0,
+          "sentiment": 0.008131,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Burlington Stores (BURL) Is Up 12.1% After Strong Q3, Raised Outlook and Buybacks - What's Changed",
+          "summary": "Burlington Stores reported strong third-quarter results, including higher revenue and net income, raised full-year sales guidance, and continued share repurchases. The company also reaffirmed plans to open 104 net new stores by fiscal year-end 2025, underscoring management's confidence in its off-price model and capacity-led growth strategy. This performance has led to a significant increase in the stock price, reflecting investor optimism about its expansion and profitability prospects, although risks associated with consumer behavior and aggressive expansion remain.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/burlington-stores-burl-is-up-121-after-strong-q3-raised-outlook-and-buybacks-whats-changed-2025-12-08",
+          "time_published": "20251208T230928",
+          "relevance": 1.0,
+          "sentiment": 0.407347,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Wd-40 stock hits 52-week low at 186.74 USD",
+          "summary": "WD-40 Company's stock has dropped to a 52-week low of $186.74, representing a 29.11% decline over the past year, despite the company maintaining strong gross profit margins of 55.06% and a 1.97% dividend yield. InvestingPro data suggests the stock is slightly undervalued with a favorable PEG ratio. Amidst this decline, the company recently surpassed Q4 2025 earnings and revenue expectations, and DA Davidson reiterated a Buy rating with a $300 price target, citing growth potential and improved margins.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/wd40-stock-hits-52week-low-at-18674-usd-93CH-4396919",
+          "time_published": "20251208T230903",
+          "relevance": 1.0,
+          "sentiment": 0.109292,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Asbury CEO David Hult to step down in May; COO Dan Clara to lead dealership group",
+          "summary": "Asbury Automotive Group CEO David Hult will step down in May, with COO Dan Clara, a veteran of the company since 2002, taking over the top leadership position. The article announces this leadership transition for the major dealership group.",
+          "source": "Automotive News",
+          "url": "https://www.autonews.com/retail/an-asbury-david-hult-dan-clara-ceo-1208/",
+          "time_published": "20251208T230858",
+          "relevance": 1.0,
+          "sentiment": 0.035325,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "How Is Hershey's Stock Performance Compared to Other Consumer Staples Stocks?",
+          "summary": "The Hershey Company (HSY) has a market cap of $38.8 billion and operates in North America and internationally. Despite a recent dip from its 52-week high, HSY stock has outperformed the Consumer Staples Select Sector SPDR Fund (XLP) over the past three months and year-to-date, gaining 7.9% YTD. Although Q3 results beat expectations, the stock dipped due to unimproved full-year earnings guidance, but analysts maintain a \"Hold\" rating with modest upside potential.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-how-is-hersheys-stock-performance-compared-to-other-consumer-staples-stocks",
+          "time_published": "20251203T041300",
+          "relevance": 1.0,
+          "sentiment": 0.204149,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Campbell Soup fires VP over 'garbage for poor people' rant in leaked audio",
+          "summary": "Campbell Soup has fired a Vice President following a leaked audio recording where the individual made disparaging remarks about the company's products being \"garbage for poor people.\" The incident highlights potential issues within the company's corporate culture and its public image.",
+          "source": "The Standard (HK)",
+          "url": "https://www.thestandard.com.hk/world-news/article/318800/Campbell-Soup-fires-VP-over-garbage-for-poor-people-rant-in-leaked-audio",
+          "time_published": "20251208T231453",
+          "relevance": 1.0,
+          "sentiment": 0.008131,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Burlington Stores (BURL) Is Up 12.1% After Strong Q3, Raised Outlook and Buybacks - What's Changed",
+          "summary": "Burlington Stores reported strong third-quarter results, including higher revenue and net income, raised full-year sales guidance, and continued share repurchases. The company also reaffirmed plans to open 104 net new stores by fiscal year-end 2025, underscoring management's confidence in its off-price model and capacity-led growth strategy. This performance has led to a significant increase in the stock price, reflecting investor optimism about its expansion and profitability prospects, although risks associated with consumer behavior and aggressive expansion remain.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/burlington-stores-burl-is-up-121-after-strong-q3-raised-outlook-and-buybacks-whats-changed-2025-12-08",
+          "time_published": "20251208T230928",
+          "relevance": 1.0,
+          "sentiment": 0.407347,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Wd-40 stock hits 52-week low at 186.74 USD",
+          "summary": "WD-40 Company's stock has dropped to a 52-week low of $186.74, representing a 29.11% decline over the past year, despite the company maintaining strong gross profit margins of 55.06% and a 1.97% dividend yield. InvestingPro data suggests the stock is slightly undervalued with a favorable PEG ratio. Amidst this decline, the company recently surpassed Q4 2025 earnings and revenue expectations, and DA Davidson reiterated a Buy rating with a $300 price target, citing growth potential and improved margins.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/wd40-stock-hits-52week-low-at-18674-usd-93CH-4396919",
+          "time_published": "20251208T230903",
+          "relevance": 1.0,
+          "sentiment": 0.109292,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Asbury CEO David Hult to step down in May; COO Dan Clara to lead dealership group",
+          "summary": "Asbury Automotive Group CEO David Hult will step down in May, with COO Dan Clara, a veteran of the company since 2002, taking over the top leadership position. The article announces this leadership transition for the major dealership group.",
+          "source": "Automotive News",
+          "url": "https://www.autonews.com/retail/an-asbury-david-hult-dan-clara-ceo-1208/",
+          "time_published": "20251208T230858",
+          "relevance": 1.0,
+          "sentiment": 0.035325,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "BNP Paribas Exane Downgrades Newmont Corporation (NEM) to Neutral from Outperform",
+          "summary": "BNP Paribas Exane downgraded Newmont Corporation (NYSE: NEM) to Neutral from Outperform, setting a price target of $97, citing momentum in the copper sector. This downgrade comes despite other analysts from UBS reiterating Buy ratings with higher price targets, buoyed by strong gold market trends and Newmont's robust Q3 2025 performance. Newmont also announced the commercial production of its Ahafo North project, expected to significantly contribute to its gold output.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/bnp-paribas-exane-downgrades-newmont-corporation-nem-to-neutral-from-outperform-1656291/?amp=1",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.04249,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Caterpillar Expands Its DFW Footprint With New Building Near Irving HQ",
+          "summary": "Caterpillar Inc. has expanded its presence in the Dallas-Fort Worth area by purchasing a new building at 901 W. Walnut Hill Lane in Irving, near its existing headquarters. The company, which moved to Las Colinas in 2022, states this expansion accommodates continued growth and reinforces its economic and positive impact in North Texas. This move follows significant philanthropic contributions in Texas, recent sponsorship of Dig World, and a strategic focus on doubling power generation sales by 2030.",
+          "source": "Dallas Innovates",
+          "url": "https://dallasinnovates.com/caterpillar-expands-its-dfw-footprint-with-new-building-near-irving-hq/",
+          "time_published": "20251208T235100",
+          "relevance": 1.0,
+          "sentiment": 0.426778,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Borr Drilling stock falls after announcing $85 million share offering",
+          "summary": "Borr Drilling Limited's stock dropped 5.7% after the company announced plans for an $85 million share offering of 21 million shares. The proceeds, combined with other funding, will be used to acquire five premium jack-up rigs and for general corporate purposes. The company also initiated the process to list its shares on Euronext Growth Oslo as a step towards re-listing on the Oslo Stock Exchange, maintaining a dual listing with NYSE as its primary.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/stock-market-news/borr-drilling-stock-falls-after-announcing-85-million-share-offering-93CH-4397343",
+          "time_published": "20251208T231452",
+          "relevance": 1.0,
+          "sentiment": -0.100021,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Baker Hughes Acquisition Puts Chart Industries on BCK Capital's Radar",
+          "summary": "BCK Capital Management has opened a new significant stake in Chart Industries (NYSE:GTLS), making it the fund's third-largest holding. This strategic move aligns with BCK Capital's focus on companies undergoing major changes like mergers and acquisitions, highlighted by the planned acquisition of Chart Industries by Baker Hughes for $210 per share. The article details BCK Capital's top holdings and provides an overview of Chart Industries' business and financial metrics.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36516518/baker-hughes-acquisition-puts-chart-industries-on-bck-capital-s-radar/",
+          "time_published": "20251208T231033",
+          "relevance": 1.0,
+          "sentiment": 0.169662,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Alaska Air expected to take $32 million hit from government shutdown",
+          "summary": "Alaska Air Group anticipates a $32 million impact on its fourth-quarter earnings due to canceled flights across its Alaska, Hawaiian, and Horizon brands during a recent government shutdown. Despite the financial hit, the company's CFO noted that bookings have recovered relatively quickly following the shutdown. The airline canceled approximately 600 flights during the period.",
+          "source": "The Business Journals",
+          "url": "https://www.bizjournals.com/seattle/news/2025/12/08/alaska-air-group-federal-government-shutdown-cost.html",
+          "time_published": "20251208T230926",
+          "relevance": 1.0,
+          "sentiment": -0.332334,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "BNP Paribas Exane Downgrades Newmont Corporation (NEM) to Neutral from Outperform",
+          "summary": "BNP Paribas Exane downgraded Newmont Corporation (NYSE: NEM) to Neutral from Outperform, setting a price target of $97, citing momentum in the copper sector. This downgrade comes despite other analysts from UBS reiterating Buy ratings with higher price targets, buoyed by strong gold market trends and Newmont's robust Q3 2025 performance. Newmont also announced the commercial production of its Ahafo North project, expected to significantly contribute to its gold output.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/bnp-paribas-exane-downgrades-newmont-corporation-nem-to-neutral-from-outperform-1656291/?amp=1",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.04249,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Caterpillar Expands Its DFW Footprint With New Building Near Irving HQ",
+          "summary": "Caterpillar Inc. has expanded its presence in the Dallas-Fort Worth area by purchasing a new building at 901 W. Walnut Hill Lane in Irving, near its existing headquarters. The company, which moved to Las Colinas in 2022, states this expansion accommodates continued growth and reinforces its economic and positive impact in North Texas. This move follows significant philanthropic contributions in Texas, recent sponsorship of Dig World, and a strategic focus on doubling power generation sales by 2030.",
+          "source": "Dallas Innovates",
+          "url": "https://dallasinnovates.com/caterpillar-expands-its-dfw-footprint-with-new-building-near-irving-hq/",
+          "time_published": "20251208T235100",
+          "relevance": 1.0,
+          "sentiment": 0.426778,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Borr Drilling stock falls after announcing $85 million share offering",
+          "summary": "Borr Drilling Limited's stock dropped 5.7% after the company announced plans for an $85 million share offering of 21 million shares. The proceeds, combined with other funding, will be used to acquire five premium jack-up rigs and for general corporate purposes. The company also initiated the process to list its shares on Euronext Growth Oslo as a step towards re-listing on the Oslo Stock Exchange, maintaining a dual listing with NYSE as its primary.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/stock-market-news/borr-drilling-stock-falls-after-announcing-85-million-share-offering-93CH-4397343",
+          "time_published": "20251208T231452",
+          "relevance": 1.0,
+          "sentiment": -0.100021,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Baker Hughes Acquisition Puts Chart Industries on BCK Capital's Radar",
+          "summary": "BCK Capital Management has opened a new significant stake in Chart Industries (NYSE:GTLS), making it the fund's third-largest holding. This strategic move aligns with BCK Capital's focus on companies undergoing major changes like mergers and acquisitions, highlighted by the planned acquisition of Chart Industries by Baker Hughes for $210 per share. The article details BCK Capital's top holdings and provides an overview of Chart Industries' business and financial metrics.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36516518/baker-hughes-acquisition-puts-chart-industries-on-bck-capital-s-radar/",
+          "time_published": "20251208T231033",
+          "relevance": 1.0,
+          "sentiment": 0.169662,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Alaska Air expected to take $32 million hit from government shutdown",
+          "summary": "Alaska Air Group anticipates a $32 million impact on its fourth-quarter earnings due to canceled flights across its Alaska, Hawaiian, and Horizon brands during a recent government shutdown. Despite the financial hit, the company's CFO noted that bookings have recovered relatively quickly following the shutdown. The airline canceled approximately 600 flights during the period.",
+          "source": "The Business Journals",
+          "url": "https://www.bizjournals.com/seattle/news/2025/12/08/alaska-air-group-federal-government-shutdown-cost.html",
+          "time_published": "20251208T230926",
+          "relevance": 1.0,
+          "sentiment": -0.332334,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "How Is Vici Properties' Stock Performance Compared to Other Real Estate Stocks?",
+          "summary": "VICI Properties Inc. (VICI), a large-cap real estate investment trust specializing in experiential real estate like casinos, has significantly underperformed the broader real estate market and its rival, EPR Properties, over the past year. Despite recent positive Q3 results and an increased dividend, its stock has fallen, trading below key moving averages. However, analysts maintain a \"Strong Buy\" rating with a substantial upside potential.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/stocks/article/barchart-2025-12-8-how-is-vici-properties-stock-performance-compared-to-other-real-estate-stocks",
+          "time_published": "20251208T070200",
+          "relevance": 1.0,
+          "sentiment": 0.019998,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Caterpillar Expands Its DFW Footprint With New Building Near Irving HQ",
+          "summary": "Caterpillar Inc. has expanded its presence in the Dallas-Fort Worth area by purchasing a new building at 901 W. Walnut Hill Lane in Irving, near its existing headquarters. The company, which moved to Las Colinas in 2022, states this expansion accommodates continued growth and reinforces its economic and positive impact in North Texas. This move follows significant philanthropic contributions in Texas, recent sponsorship of Dig World, and a strategic focus on doubling power generation sales by 2030.",
+          "source": "Dallas Innovates",
+          "url": "https://dallasinnovates.com/caterpillar-expands-its-dfw-footprint-with-new-building-near-irving-hq/",
+          "time_published": "20251208T235100",
+          "relevance": 1.0,
+          "sentiment": 0.426778,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "How Ellington Residential Mortgage Reit Of Beneficial Interest (EARN) Affects Rotational Strategy Timing",
+          "summary": "This article analyzes Ellington Residential Mortgage Reit of Beneficial Interest (NASDAQ: EARN), noting neutral near-term readings and strong mid-term sentiment that may be stalling. Highlighting a 38.0:1 risk-reward setup, it provides AI-generated trading strategies including position trading, momentum breakout, and risk hedging, along with multi-timeframe signal analysis.",
+          "source": "news.stocktradersdaily.com",
+          "url": "https://news.stocktradersdaily.com/news_release/39/How_Ellington_Residential_Mortgage_Reit_Of_Beneficial_Interest_EARN_Affects_Rotational_Strategy_Timing_120825113202_1765254722.html",
+          "time_published": "20251208T233200",
+          "relevance": 1.0,
+          "sentiment": 0.335909,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Sen. John Boozman Buys iShares CMBS ETF (NYSEARCA:CMBS) Shares",
+          "summary": "Senator John Boozman (R-Arkansas) has purchased between $1,001 and $15,000 in iShares CMBS ETF (NYSEARCA:CMBS) stock on November 21st, 2025, as disclosed in a December 8th filing. This transaction is part of several recent trades by the Senator, including sales of various other ETF shares and Eli Lilly and Company stock, along with purchases in other bond and mortgage-backed securities ETFs. The iShares CMBS ETF recently traded at $49.04 and has seen significant institutional trading activity.",
+          "source": "Defense World",
+          "url": "https://www.defenseworld.net/2025/12/09/sen-john-boozman-buys-ishares-cmbs-etf-nysearcacmbs-shares.html",
+          "time_published": "20251208T230952",
+          "relevance": 1.0,
+          "sentiment": 0.133882,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Primis Financial Corp. Announces Sale-Leaseback Transaction",
+          "summary": "Primis Financial Corp. (NASDAQ: FRST), through its subsidiary Primis Bank, announced a sale-leaseback transaction involving 18 branch properties. This transaction is expected to generate a pre-tax gain of $50 million, providing a unique opportunity to restructure the balance sheet, improve operating earnings, and build capital levels to support future growth. The company anticipates an after-tax gain of $38 million or $1.54 per share.",
+          "source": "citybiz",
+          "url": "https://www.citybiz.co/article/780905/primis-financial-corp-announces-sale-leaseback-transaction/",
+          "time_published": "20251208T230905",
+          "relevance": 1.0,
+          "sentiment": 0.402712,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "BNP Paribas Exane Downgrades Newmont Corporation (NEM) to Neutral from Outperform",
+          "summary": "BNP Paribas Exane downgraded Newmont Corporation (NYSE: NEM) to Neutral from Outperform, setting a price target of $97, citing momentum in the copper sector. This downgrade comes despite other analysts from UBS reiterating Buy ratings with higher price targets, buoyed by strong gold market trends and Newmont's robust Q3 2025 performance. Newmont also announced the commercial production of its Ahafo North project, expected to significantly contribute to its gold output.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/bnp-paribas-exane-downgrades-newmont-corporation-nem-to-neutral-from-outperform-1656291/?amp=1",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.013042,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Sabre Corporation (SABR) Launches AI Chat Tool for Airlines",
+          "summary": "Sabre Corporation (NASDAQ: SABR) has launched SabreMosaic Concierge IQ, an AI chat tool designed to help airline travelers plan, book, and manage trips. This solution, built on Sabre's IQ artificial intelligence layer, goes beyond flights to include hotels, ancillaries, and third-party offers. Concierge IQ utilizes large language models to understand complex queries, personalize recommendations, and provide support throughout the travel journey across various platforms like web, airline mobile apps, and WhatsApp.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/sabre-corporation-sabr-launches-ai-chat-tool-for-airlines-1656557/",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.031161,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Rimini Street (RMNI) Launches AI-Powered ERP Solution",
+          "summary": "Rimini Street, Inc. (NASDAQ: RMNI) announced its new AI-powered user engagement layer, Rimini Agentic UX, designed to make Enterprise Resource Planning (ERP) processes faster and more cost-effective. This solution enhances productivity without costly upgrades by sitting on top of existing ERP software and offering AI-driven orchestration and automation. Alliance Global Partners analyst Brian Kinstlinger reaffirmed a Buy rating with a $6 price target on RMNI following this development.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/rimini-street-rmni-launches-ai-powered-erp-solution-1656538/?amp=1",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.333094,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Rimini Street (RMNI) Launches AI-Powered ERP Solution",
+          "summary": "Rimini Street, Inc. (NASDAQ:RMNI) has launched Rimini Agentic UX, a new AI-powered user engagement layer designed to make ERP processes faster and more cost-effective. This solution integrates AI-driven orchestration and automation with UX principles to provide a single, composable interface for managing enterprise workflows without requiring expensive ERP software upgrades. Alliance Global Partners analyst Brian Kinstlinger reaffirmed a Buy rating on RMNI with a $6 price target following this development.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/248974/rimini-street-rmni-launches-ai-powered-erp-solution",
+          "time_published": "20251208T235200",
+          "relevance": 1.0,
+          "sentiment": 0.3874,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Wellgistics Health Announces Launch of Diabetes Drug Brenzavvy(R) to Wellgistics Pharmacy Network",
+          "summary": "Wellgistics Health has launched its diabetes prescription drug Brenzavvy to its network of 6,500 independent pharmacies, targeting the 33 million Americans with type II diabetes whose out-of-pocket costs for SGLT-2 drugs exceed Brenzavvy's cash price. The launch leverages Wellgistics' EinsteinRx artificial intelligence platform to educate pharmacists, providers, and patients on Brenzavvy's advantages and competitive pricing compared to other SGLT-2 inhibitors like Jardiance. This initiative aims to improve market access and patient care in rural communities, with a focus on patients who are uninsured or underinsured, and establishes a new model for next-generation reformulated drugs.",
+          "source": "Enterprise News",
+          "url": "https://www.enterprisenews.com/press-release/story/59081/wellgistics-health-announces-launch-of-diabetes-drug-brenzavvyr-to-wellgistics-pharmacy-network/",
+          "time_published": "20251208T231509",
+          "relevance": 1.0,
+          "sentiment": 0.036203,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Caterpillar Expands Its DFW Footprint With New Building Near Irving HQ",
+          "summary": "Caterpillar Inc. has expanded its presence in the Dallas-Fort Worth area by purchasing a new building at 901 W. Walnut Hill Lane in Irving, near its existing headquarters. The company, which moved to Las Colinas in 2022, states this expansion accommodates continued growth and reinforces its economic and positive impact in North Texas. This move follows significant philanthropic contributions in Texas, recent sponsorship of Dig World, and a strategic focus on doubling power generation sales by 2030.",
+          "source": "Dallas Innovates",
+          "url": "https://dallasinnovates.com/caterpillar-expands-its-dfw-footprint-with-new-building-near-irving-hq/",
+          "time_published": "20251208T235100",
+          "relevance": 1.0,
+          "sentiment": 0.437807,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "1 Profitable Stock with Exciting Potential and 2 We Avoid",
+          "summary": "This article identifies one profitable stock, Euronet Worldwide (EEFT), as a buy due to its revenue growth, share buybacks, and high return on equity. Conversely, it advises avoiding Park-Ohio (PKOH) and Charles River Laboratories (CRL) due to issues like declining revenue, high input costs, and lack of organic growth. The analysis emphasizes that profitability alone doesn't guarantee a good investment.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/249077/1-profitable-stock-with-exciting-potential-and-2-we-avoid",
+          "time_published": "20251208T233200",
+          "relevance": 1.0,
+          "sentiment": -0.195131,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Baker Hughes Acquisition Puts Chart Industries on BCK Capital's Radar",
+          "summary": "BCK Capital Management has opened a new significant stake in Chart Industries (NYSE:GTLS), making it the fund's third-largest holding. This strategic move aligns with BCK Capital's focus on companies undergoing major changes like mergers and acquisitions, highlighted by the planned acquisition of Chart Industries by Baker Hughes for $210 per share. The article details BCK Capital's top holdings and provides an overview of Chart Industries' business and financial metrics.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36516518/baker-hughes-acquisition-puts-chart-industries-on-bck-capital-s-radar/",
+          "time_published": "20251208T231033",
+          "relevance": 1.0,
+          "sentiment": 0.199476,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Arrowstreet Capital Limited Partnership Takes Position in Atkore Inc. $ATKR",
+          "summary": "Arrowstreet Capital Limited Partnership initiated a new position in Atkore Inc. (NYSE:ATKR) during the second quarter, acquiring 304,085 shares valued at approximately $21.45 million. This investment now represents about 0.90% of Atkore Inc.'s stock. The company recently reported Q3 results, missing EPS estimates but exceeding revenue forecasts, and announced a quarterly dividend of $0.33 per share, yielding approximately 2.1%.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-arrowstreet-capital-limited-partnership-takes-position-in-atkore-inc-atkr-2025-12-08/",
+          "time_published": "20251208T230942",
+          "relevance": 1.0,
+          "sentiment": -0.225835,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Kloeckner & Co Shares Rise on Takeover Talks With Worthington Steel",
+          "summary": "Kloeckner & Co shares surged by 21% in early European trade, pushing their year-to-date gains to 64%, following the confirmation of takeover talks with U.S. metals processor Worthington Steel. The potential acquisition has significantly boosted investor confidence in the German steel distributor.",
+          "source": "The Wall Street Journal",
+          "url": "https://www.wsj.com/business/kloeckner-co-confirms-takeover-talks-with-worthington-steel-36ffe57b?gaa_at=eafs&gaa_n=AWEtsqeqNONZ7YG4UJYmGQ4I8HH0OL0gx7tk6XYxfe5pZUoIO64f1nVWYLnk&gaa_ts=6938af02&gaa_sig=ptB0JDA9nX9LOOXSNEUxY-OKszA7zr9tvffaR7qFMC6WWilxwjGe0VBbwUwHbEDeh6GzD14Us6wvRmy38tQNAA%3D%3D",
+          "time_published": "20251208T230851",
+          "relevance": 1.0,
+          "sentiment": 0.420551,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "sector_sentiment": {
+      "XLK": {
+        "avg_sentiment": 0.195,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": 0.104,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLF": {
+        "avg_sentiment": 0.182,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLI": {
+        "avg_sentiment": 0.119,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLY": {
+        "avg_sentiment": 0.1,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLP": {
+        "avg_sentiment": 0.111,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLE": {
+        "avg_sentiment": 0.103,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLU": {
+        "avg_sentiment": 0.103,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.209,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.193,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.126,
+        "article_count": 10,
+        "label": "Neutral"
+      }
+    },
+    "total_articles": 117,
+    "avg_sentiment": 0.14,
+    "bullish_sectors": [
+      "XLK",
+      "XLF",
+      "XLRE",
+      "XLC"
+    ],
+    "bearish_sectors": []
+  },
+  "sector_summary": "Market showing MID_EXPANSION characteristics with MEDIUM confidence but exhibiting unusual concentration in Technology leadership. Favor XLK (TREND signal) while avoiding broad cyclical exposure across 7 AVOID-rated sectors and toxic Utilities. No crossover alerts suggest stable but narrow rotation patterns.",
+  "cycle_phase": "MID_EXPANSION",
+  "cycle_confidence": "MEDIUM",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 1,
+      "mrs_20": 1.15,
+      "mrs_5": 1.0,
+      "roc_3": 1.52,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.15%, MRS_5=1.00%) - Technology continues to lead with positive momentum and improving relative strength trajectory",
+      "news_context": {
+        "sentiment": 0.7,
+        "article_count": 15,
+        "themes": "AI infrastructure, semiconductor demand, cloud growth"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 2,
+      "mrs_20": 0.29,
+      "mrs_5": 0.11,
+      "roc_3": 0.33,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.29%) - Communication Services showing sideways consolidation with minimal relative performance",
+      "news_context": {
+        "sentiment": 0.2,
+        "article_count": 8,
+        "themes": "streaming competition, advertising headwinds, regulatory concerns"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 3,
+      "mrs_20": -0.49,
+      "mrs_5": -0.13,
+      "roc_3": -0.57,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.49%) - Financials treading water with slight underperformance but no clear directional bias",
+      "news_context": {
+        "sentiment": 0.1,
+        "article_count": 12,
+        "themes": "rate environment uncertainty, credit concerns, regulatory changes"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 4,
+      "mrs_20": -0.67,
+      "mrs_5": -0.07,
+      "roc_3": -0.2,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with negative momentum - Industrials showing weakness despite being in potential ignition zone, MRS_5 slightly negative suggests continued underperformance",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 10,
+        "themes": "manufacturing slowdown, trade tensions, infrastructure delays"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 5,
+      "mrs_20": -2.73,
+      "mrs_5": -0.73,
+      "roc_3": -0.92,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with persistent weakness - Real Estate showing significant underperformance with negative momentum continuing to deteriorate",
+      "news_context": {
+        "sentiment": -0.4,
+        "article_count": 9,
+        "themes": "interest rate sensitivity, commercial real estate stress, REIT concerns"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 6,
+      "mrs_20": -1.66,
+      "mrs_5": -0.78,
+      "roc_3": -1.76,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with accelerating weakness - Energy sector showing deteriorating relative strength with negative momentum across all timeframes",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 11,
+        "themes": "oil price volatility, demand concerns, renewable transition"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 7,
+      "mrs_20": -0.8,
+      "mrs_5": -0.96,
+      "roc_3": -1.45,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with worsening momentum - Consumer Discretionary showing deteriorating short-term performance with MRS_5 more negative than MRS_20",
+      "news_context": {
+        "sentiment": -0.1,
+        "article_count": 13,
+        "themes": "consumer spending caution, retail headwinds, discretionary weakness"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 8,
+      "mrs_20": -2.02,
+      "mrs_5": -1.03,
+      "roc_3": -1.86,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with continued underperformance - Consumer Staples showing defensive rotation weakness with negative momentum persisting",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 7,
+        "themes": "margin pressure, input cost inflation, competitive dynamics"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 9,
+      "mrs_20": -2.45,
+      "mrs_5": -1.6,
+      "roc_3": -2.88,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with severe momentum deterioration - Materials showing significant weakness across all metrics with accelerating underperformance",
+      "news_context": {
+        "sentiment": -0.4,
+        "article_count": 6,
+        "themes": "commodity price weakness, China demand concerns, cyclical headwinds"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 10,
+      "mrs_20": -3.41,
+      "mrs_5": -1.61,
+      "roc_3": -3.16,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with significant underperformance - Healthcare showing deep relative weakness with negative momentum across all timeframes",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 14,
+        "themes": "drug pricing pressure, regulatory uncertainty, biotech weakness"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 11,
+      "mrs_20": -5.55,
+      "mrs_5": -1.98,
+      "roc_3": -2.14,
+      "zone": "G",
+      "signal": "TOXIC",
+      "modifier": 0.25,
+      "rationale": "Zone C toxic - deep underperformance (MRS_20=-5.55%) - Utilities showing severe relative weakness with toxic classification warranting avoidance",
+      "news_context": {
+        "sentiment": -0.5,
+        "article_count": 5,
+        "themes": "interest rate sensitivity, dividend yield competition, regulatory pressures"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLK": 1.2,
+    "XLC": 1.0,
+    "XLF": 1.0,
+    "XLI": 0.5,
+    "XLRE": 0.5,
+    "XLE": 0.5,
+    "XLY": 0.5,
+    "XLP": 0.5,
+    "XLB": 0.5,
+    "XLV": 0.5,
+    "XLU": 0.25
+  },
+  "cycle_reasoning": "MID_EXPANSION classification reflects Technology's continued leadership typical of mid-cycle growth phases, but the broad-based weakness across cyclical sectors (Industrials, Materials, Energy all in Zone D) suggests potential transition risks. The concentration in a single leading sector rather than broad-based cyclical strength indicates a maturing expansion phase with selective quality focus rather than broad risk appetite.",
+  "rotation_analysis": "Current rotation exhibits extreme concentration with Technology as the sole outperformer in a sea of underperformance. Seven sectors clustered in Zone D (Ignition) suggests potential for broad-based recovery, but negative momentum across most sectors indicates this recovery has not yet materialized. The stark divergence between XLK's +1.15% MRS_20 and the next best performer at +0.29% highlights unusual market leadership concentration. Utilities' toxic classification (-5.55% MRS_20) reflects severe interest rate sensitivity, while the absence of any defensive sector strength suggests this is not a typical late-cycle rotation but rather a quality-focused flight amid uncertainty.",
+  "l1_alignment": "L1's AGGRESSIVE bias appears at odds with sector rotation showing only one bullish signal, but this aligns with the NORMAL regime's emphasis on selective positioning. Technology's strong performance supports aggressive allocation to quality growth while avoiding broad cyclical exposure. The 48.3% breadth reading from L1 context validates this concentrated approach rather than broad market participation.",
+  "key_insight": "Market is experiencing an extreme concentration event with Technology as the sole outperformer while seven sectors cluster in potential ignition zones - this suggests either an imminent broad rotation or continued quality-focused leadership amid cyclical weakness.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: MID_EXPANSION (MEDIUM confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 NORMAL regime with AGGRESSIVE bias aligns well with sector rotation showing Technology leadership. Single offensive bullish signal (XLK) matches moderate risk appetite in stable conditions.\n\nStep 2 - Signal Validation:\nAll signals validate correctly - 1 TREND, 2 NEUTRAL, 7 AVOID, 1 TOXIC. No anomalies detected. Technology's Zone A position with positive MRS_5 supports TREND signal. Utilities' -5.55% MRS_20 justifies TOXIC classification.\n\nStep 3 - Zone Analysis:\nZone distribution shows concentration in D (Ignition) with 7 sectors, suggesting broad-based rotation pressure. Only XLK in Zone A (Trend), XLC/XLF in Zone E (Noise), XLU in Zone C (Toxic). Rotation direction is defensive with most sectors underperforming.\n\nStep 4 - Conflict Resolution:\nL1 AGGRESSIVE bias conflicts with predominantly defensive sector positioning (8 bearish vs 1 bullish). Resolution: Technology's strong performance and low VIX (16.66) support selective risk-taking in quality growth while avoiding broad cyclical exposure. Goldman clients' caution post-November validates defensive positioning.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nMID_EXPANSION classification reflects Technology's continued leadership typical of mid-cycle growth phases, but the broad-based weakness across cyclical sectors (Industrials, Materials, Energy all in Zone D) suggests potential transition risks. The concentration in a single leading sector rather than broad-based cyclical strength indicates a maturing expansion phase with selective quality focus rather than broad risk appetite.\n\nKey Insight: Market is experiencing an extreme concentration event with Technology as the sole outperformer while seven sectors cluster in potential ignition zones - this suggests either an imminent broad rotation or continued quality-focused leadership amid cyclical weakness."
+}

@@ -1,0 +1,153 @@
+## PSKY: Paramount Skydance Corporation - XLC: Communication Services
+
+### Executive Summary
+
+VALUE thesis: PEG 0.84 indicates fundamental undervaluation.
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($11.56)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Neutral (Bullish: 0, Bearish: 0)
+
+**1. Tesla, Paramount Back In Favor As Conservative Values ETF Rebalances**
+- Source: Benzinga | 20251217T180857 | Somewhat-Bullish | Relevance: 90%
+- The American Conservative Values ETF (ACVF) has re-added Tesla, Inc. (TSLA) and Paramount Skydance Corp. (PSKY) to its portfolio after a significant rebalance. ACVF previously exited its Tesla position due to Elon Musk's political activism impacting share performance but repurchased the stock following his distancing from activism and the company's rebound. The fund also ended its boycott of Paramount due to leadership changes, particularly at CBS News, reflecting its strategy of adjusting investments based on corporate actions and perceived shifts in values.
+
+**2. Warner Bros. Discovery Rejects Paramount $30/Share Acquisition Offer, Calling It ‘Inferior’ to Netflix Deal and Alleging Ellisons Aren’t Providing ‘Full Backstop’ for Financing**
+- Source: Variety | 20251217T120839 | Somewhat-Bearish | Relevance: 86%
+- Warner Bros. Discovery's board has unanimously rejected Paramount Skydance's $30/share acquisition offer, deeming it "inferior" to their existing Netflix merger agreement. WBD cited inadequate value, significant risks including an alleged lack of full financial backstop from the Ellison family, and unrealistic cost synergy targets as reasons for the rejection, reiterating commitment to the Netflix deal.
+
+**3. Warner Bros. Stock Endures Nightmare as Netflix and Paramount Eye the Studio’s Historic Assets & Hollywood Braces for Massive Job Losses**
+- Source: TipRanks | 20251215T111040 | Somewhat-Bearish | Relevance: 85%
+- Hollywood is facing an existential crisis as the legendary Warner Bros. studio is at the center of a historic bidding war between Netflix (NFLX) and Paramount Skydance (PSKY). The sale intensifies job-loss fears across an already battered Hollywood, with creative workers describing the situation as a "disaster" and "nightmare." Warner Bros. Discovery CEO David Zaslav is criticized for the company's financial losses and the impending sale of historic assets, leading to comparisons to Gordon Gekko.
+
+**4. Warner Bros. Discovery rejects Paramount Skydance's hostile bid, saying Netflix's offer is superior**
+- Source: CBS News | 20251217T150809 | Somewhat-Bearish | Relevance: 83%
+- Warner Bros. Discovery has advised shareholders to reject Paramount Skydance's $108.4 billion hostile takeover bid, citing "significant risks and costs." The company argues that Netflix's earlier $82.7 billion offer for parts of Warner Bros. is financially superior and poses similar regulatory risks, while also highlighting concerns about Paramount Skydance's equity commitment and credit rating. This decision follows a competing bid from Paramount Skydance after Netflix's agreement to acquire HBO and other streaming businesses.
+
+**5. Warner Bros.: Endorsement of the Netflix Bid Is Unsurprising Amid Companies’ Posturing**
+- Source: Morningstar | 20251217T182244 | Neutral | Relevance: 81%
+- Warner Bros. Discovery has urged shareholders to reject Paramount Skydance’s offer and instead support merging its streaming and studios business with Netflix. Morningstar believes the financial terms of both Netflix's and Paramount's bids are similar, making the likelihood of deal completion a key factor for shareholders. The company maintains its fair value estimates for Warner Bros., Paramount, and Netflix, and suggests Paramount is more likely to win with a potentially higher bid.
+
+### Analyst Activity
+
+**Target Signal:** VERY_BULLISH (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-12 | Freedom Capital | $14 | $0 | 0% |
+| 2025-12-09 | Morgan Stanley | $12 | $10 | +20% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-12 | Freedom Capital | init | Hold |
+| 2025-12-09 | Morgan Stanley | main | Underweight |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 24.0% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 10 / 0 |
+
+**Top Holders:**
+- Lingotto Investment : 8.8% (+100.0%)
+- Vanguard Group Inc: 3.4% (+100.0%)
+- State Street Corpora: 2.6% (+100.0%)
+- Blackrock Inc.: 1.6% (+100.0%)
+- Kohlberg Kravis Robe: 1.5% (+100.0%)
+
+### Key Risks
+
+1. Long-term trend broken: trading 5.1% below SMA200.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- M&A activity or partnership announcements may unlock value.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 0.84 indicates undervaluation relative to growth. Forward P/E 12.5x attractive for 58% earnings growth. Analyst sentiment positive (1 raises, avg +20%). Institutional flow bullish (10 buying vs 0 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $14.5B |
+| Beta | 1.18 |
+| 52W Range | $9.95 - $20.86 |
+| Short Interest | 4.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.84 |
+| Forward P/E | 12.5 |
+| Current P/E | 19.8 |
+| YoY Growth | 58.3% |
+| EPS Direction | FALLING |
+
+### Technicals
+
+MRS_20 weakening modestly (-0.5% over 5 days). Below STRENGTH zone by 14.0pp (needs >4.0% for momentum thesis). AM_20 at -11.7% indicates price below own 20MA trend. Underperforming sector by 12.7pp, stock-specific weakness. Below SMA200 (0.95x), long-term trend not supportive. OFD pattern: -MTN (Decline).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -9.96% (CS: 4) | Weak |
+| RSI_14 | 35.0 | Neutral |
+| MACD Histogram | -0.13 | Bearish |
+| vs SMA20 | 0.883x | Below |
+| vs SMA50 | 0.835x | Below |
+| vs SMA200 | 0.949x | Below |
+
+### Decision
+
+- **Verdict:** HOLD
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $13.10
+- **Stop Loss:** $11.56 (11.8% risk)
+- **Target:** $16.18 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 701
+- **Position Value:** $9,183.10
+- **Portfolio %:** 9.18%
+- **Risk Dollars:** $1,080.00
+- **Risk Per Trade:** 1.08%
+- **Modifiers:** L1 90% | L2 120% | Combined 1.08x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | RISK_OFF (HIGH) | 0.90x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*RISK_OFF regime with deteriorating conditions. VIX rising to 17.6 (+11.7% over 5 days) signals increasing anxiety, while narrow breadth at 52.6% indicates selective participation. AI infrastructure cost concerns are pressuring tech leadership, creating sector rotation challenges in a late-cycle environment.*
+
+### Earnings
+
+**Next:** 2026-02-26 (Est: $-0.03)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.41 | $-0.12 | -129.6% |
+
+---
+*RULE-based L3 | 2026-01-07 01:41 | MRS_20*

@@ -1,0 +1,166 @@
+## JBL: Jabil Inc. - XLK: Technology
+
+### Executive Summary
+
+No thesis match: MRS_10 -1.3% below STRENGTH zone (3.0-6.0%). Stock is in no-man's land without clear edge. Caution: momentum weakening (-2.9% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($197.04)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 9, Bearish: 0)
+
+**1. Why Jabil Stock Bumped Higher on a Gloomy Wednesday for the Market**
+- Source: Finviz | 20251217T220829 | Bullish | Relevance: 100%
+- Jabil (NYSE: JBL) shares rose 1.8% on a gloomy Wednesday for the market due to strong first-quarter fiscal 2026 results. The contract electronics manufacturer reported a 19% year-over-year increase in net revenue to $8.3 billion and core net income surged 36% to $2.85 per share, both exceeding analyst expectations. The company's intelligent infrastructure segment, driven by cloud and data center demand, was highlighted as a major growth engine, leading to optimistic guidance for the fiscal year.
+
+**2. Jabil raises fiscal 2026 revenue outlook to $32.4B amid 35% AI growth and Hanley Energy acquisition**
+- Source: MSN | 20251217T203404 | Bullish | Relevance: 100%
+- Jabil is raising its fiscal 2026 revenue outlook to $32.4 billion, reflecting a significant increase. This upward revision is driven by an anticipated 35% growth in its AI business and the positive impact of its recent acquisition of Hanley Energy. The company expects Hanley Energy to contribute an additional $200 million in revenue for fiscal year 2026.
+
+**3. Earnings Summary: A snapshot of Jabil’s (JBL) Q1 2026 report**
+- Source: AlphaStreet | 20251217T160812 | Bullish | Relevance: 100%
+- Jabil Inc. (NYSE: JBL) reported strong financial results for the first quarter of fiscal 2026, with net revenue increasing to $8.3 billion and per-share earnings rising to $1.35. The company also provided guidance for the second quarter, expecting net revenue between $7.5 billion and $8.0 billion and core earnings per share between $2.27 and $2.67.
+
+**4. Jabil (NYSE:JBL) Reports Strong Q4 CY2025**
+- Source: Finviz | 20251217T142937 | Bullish | Relevance: 100%
+- Jabil (NYSE:JBL) reported strong Q4 CY2025 results, with revenue of $8.31 billion beating analyst estimates by 3.8% and non-GAAP EPS of $2.85 exceeding estimates by 4.4%. The company also provided optimistic guidance for next quarter's revenue and raised its full-year revenue and Adjusted EPS guidance. This positive performance led to a 4.6% increase in stock price immediately after the report.
+
+**5. Earnings Summary: A snapshot of Jabil’s (JBL) Q1 2026 report**
+- Source: AlphaStreet | 20251217T140829 | Bullish | Relevance: 100%
+- Jabil Inc. (NYSE: JBL) announced its financial results for the first quarter of fiscal 2026, reporting a significant increase in net revenue to $8.3 billion and a sharp rise in per-share earnings to $1.35. The company also provided guidance for the second quarter, expecting net revenue between $7.5 billion and $8.0 billion and core earnings per share in the range of $2.27 to $2.67.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 4, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-18 | JP Morgan | $270 | $260 | +4% |
+| 2025-12-18 | Barclays | $283 | $267 | +6% |
+| 2025-12-18 | UBS | $244 | $239 | +2% |
+| 2025-12-10 | B of A Securiti | $262 | $255 | +3% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-18 | JP Morgan | main | Overweight |
+| 2025-12-18 | Barclays | main | Overweight |
+| 2025-12-18 | UBS | main | Neutral |
+| 2025-12-10 | B of A Securiti | main | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 7 ($0.00M) |
+| Sells | 50 ($12.50M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 48.6% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 6 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.3% (-0.1%)
+- Blackrock Inc.: 9.0% (+2.1%)
+- Texas Yale Capital C: 6.0% (-0.1%)
+- State Street Corpora: 4.9% (+0.7%)
+- Wellington Managemen: 4.1% (-30.7%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_10 falling (-2.9% 5d) with bearish MACD, trend may be turning.
+2. Heavy insider selling: $13M sold (50 transactions in 90 days).
+3. Market regime shift could impact momentum names disproportionately.
+
+### Catalysts
+
+- Analyst target momentum: 4 raises (avg +4%) could attract flows.
+- AI/machine learning initiatives could drive multiple expansion if executed.
+
+### Fundamentals
+
+PEG ratio 0.91 indicates undervaluation relative to growth. Quality metrics strong (ROE 40%). Insider selling cluster ($12.5M in 90 days), potential headwind. Institutional flow bullish (4 buying vs 6 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $23.2B |
+| Beta | 1.26 |
+| 52W Range | $108.66 - $237.14 |
+| Short Interest | 4.0% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.91 |
+| Forward P/E | 16.1 |
+| Current P/E | 18.6 |
+| YoY Growth | 15.5% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 deteriorating from 1.6% to -1.3% (-2.9% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 4.3pp (needs >3.0% for momentum thesis). Full SMA alignment bullish (above 20/50/200 SMAs). RSI neutral at 52. OFD pattern: -SLH (Support test).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | -1.30% (CS: 24) | Neutral |
+| RSI_14 | 51.5 | Neutral |
+| MACD Histogram | -0.35 | Bearish |
+| vs SMA20 | 1.012x | Above |
+| vs SMA50 | 1.028x | Above |
+| vs SMA200 | 1.134x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $217.02
+- **Stop Loss:** $197.04 (9.2% risk)
+- **Target:** $237.00 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 47
+- **Position Value:** $10,199.94
+- **Portfolio %:** 10.20%
+- **Risk Dollars:** $950.00
+- **Risk Per Trade:** 0.95%
+- **Modifiers:** L1 95% | L2 100% | Combined 0.95x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 0.95x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*NORMAL regime with cautious positioning ahead of CPI data. VIX at moderate 16.87 with positive yield curve suggesting stable growth, but narrow breadth at 51.8% indicates selective participation. Banking sector optimism and corporate resilience provide support, though AI volatility creates pockets of uncertainty.*
+
+### Earnings
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.95 | $3.29 | +11.7% |
+| 2025Q2 | $2.32 | $2.55 | +9.8% |
+| 2025Q1 | $1.83 | $1.94 | +6.2% |
+| 2024Q4 | $1.88 | $2.00 | +6.5% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*

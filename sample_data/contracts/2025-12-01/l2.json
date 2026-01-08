@@ -1,0 +1,925 @@
+{
+  "contract_id": "l2_2025-12-01",
+  "trading_date": "2025-12-01",
+  "generated_at": "2025-12-11T22:48:00.737708",
+  "valid_until": "2025-12-12T22:48:00.737708",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-01",
+  "sector_news": {
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "If You'd Invested $1,000 in the Technology Select Sector SPDR Fund (XLK) 10 Years Ago, Here's How Much You'd Have Today",
+          "summary": "This article examines the performance of the Technology Select Sector SPDR Fund (XLK) over the past decade, highlighting its significant outperformance compared to the broader S&P 500. It calculates that a $1,000 investment in XLK ten years ago would now be worth close to $6,500, driven by its holdings in major tech companies like Nvidia and Microsoft. The article also touches on the impact of \"Magnificent Seven\" stocks and artificial intelligence on market growth.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242017/if-youd-invested-1000-in-the-technology-select-sector-spdr-fund-xlk-10-years-ago-heres-how-much-youd-have-today",
+          "time_published": "20251201T081400",
+          "relevance": 1.0,
+          "sentiment": 0.012644,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Best Buy appoints Dylan Jadeja to Board of Directors",
+          "summary": "Best Buy Co., Inc. has appointed Dylan Jadeja, the chief executive officer of Riot Games, to its Board of Directors, effective immediately. Jadeja brings extensive experience in strategy, finance, operations, digital and social content, and the gaming industry. Best Buy's CEO, Corie Barry, highlighted Jadeja's expertise in consumer brands, digital commerce, and serving global player communities as critical enhancements to the Board, focusing on omnichannel experiences and new revenue streams.",
+          "source": "Best Buy",
+          "url": "https://corporate.bestbuy.com/2025/best-buy-appoints-dylan-jadeja-to-board/",
+          "time_published": "20251201T235053",
+          "relevance": 1.0,
+          "sentiment": 0.005939,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Ecolab (ECL) Stock Outlook on December 1, 2025: Earnings Momentum, AI-Driven Water Tech and Wall Street Forecasts",
+          "summary": "Ecolab (NYSE: ECL) is trading near its 52-week highs following strong Q3 2025 earnings and new AI-driven water technology product launches. The company is positioned at the intersection of water scarcity, data-center growth, and corporate sustainability, driving Wall Street's \"Moderate Buy\" consensus with modest upside predictions. Key strategic drivers include water stewardship, AI-enabled cleaning solutions like CIP IQ, and Cooling-as-a-Service for data centers.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/ecolab-ecl-stock-outlook-on-december-1-2025-earnings-momentum-ai-driven-water-tech-and-wall-street-forecasts/",
+          "time_published": "20251201T234606",
+          "relevance": 1.0,
+          "sentiment": 0.267954,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Cisco Stock on December 1, 2025: AI Momentum, Quantum Networking and Wall Street\u2019s Latest CSCO Forecasts",
+          "summary": "This article analyzes Cisco (CSCO) stock as of December 1, 2025, highlighting its position above key moving averages, its market capitalization, and year-to-date performance. Key growth drivers include AI momentum, a strategic partnership with IBM in quantum networking, and the successful integration of Splunk. Wall Street maintains a \"Moderate Buy\" consensus with price targets indicating moderate upside, while acknowledging risks such as AI transparency and competitive pressures.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/cisco-stock-on-december-1-2025-ai-momentum-quantum-networking-and-wall-streets-latest-csco-forecasts/",
+          "time_published": "20251201T233654",
+          "relevance": 1.0,
+          "sentiment": 0.21576,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "General Dynamics Stock (GD) in December 2025: Earnings Beats, Massive Backlog and a New Legal Challenge",
+          "summary": "General Dynamics (NYSE: GD) is heading into December 2025 with strong financial performance, marked by three consecutive quarters of double-digit EPS growth and a record-high $167.7 billion backlog driven by defense and aerospace demand. Despite this positive momentum, the company faces a new legal challenge regarding wage-fixing allegations, which introduces an element of uncertainty for investors. Wall Street analysts generally rate GD as a \"buy,\" forecasting mid-single-digit to low-double-digit total returns, positioning it as a steady compounder for long-term investors seeking defense exposure and dividend growth.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/general-dynamics-stock-gd-in-december-2025-earnings-beats-massive-backlog-and-a-new-legal-challenge/",
+          "time_published": "20251201T232517",
+          "relevance": 1.0,
+          "sentiment": 0.15454,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "Healthcare on track for best month since October 2022",
+          "summary": "Healthcare stocks have shown strong performance in November, leading the Health Care Select Sector SPDR Fund ETF to a 9.2% gain for the month. This puts the sector on track for its best monthly performance since October 2022. The broader market, however, has faced challenges during the same period.",
+          "source": "MarketWatch",
+          "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-industrials-s-p-500-and-nasdaq-poised-for-weakest-monthly-finish-since-spring/card/healthcare-on-track-for-best-month-since-october-2022-pS3yM9R9gXJZzaFxZTAZ?gaa_at=eafs&gaa_n=AWEtsqfUWoBPH0-5LizM7Q6xCC_VpfrqdamKpR9xaEo0vyoC3QYPnqWAJNll&gaa_ts=694c2f48&gaa_sig=gvZTYzvH7w-mjuUHYya_kbPCeTyzhFnPup6pMFWWfGTC0JAdFgdbMmlHfbEqywgUzRzb2svwZOtpchjtn6tLtw%3D%3D",
+          "time_published": "20251126T180919",
+          "relevance": 1.0,
+          "sentiment": 0.047486,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "This gold miner ETF can give a blueprint on whether the health care rally can go on. Here's why",
+          "summary": "The healthcare sector (XLV) has seen a significant rally, akin to the earlier parabolic rise and subsequent consolidation of the gold miners ETF (GDX). While XLV still needs to experience its own pullback and subsequent recovery, studying GDX's pattern of finding support and re-establishing an uptrend offers a potential blueprint for XLV to continue its strong performance towards new all-time highs.",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2025/11/26/this-gold-miner-etf-can-give-a-blueprint-on-whether-the-health-care-rally-can-go-on-heres-why.html",
+          "time_published": "20251126T133400",
+          "relevance": 1.0,
+          "sentiment": 0.106362,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Johnson & Johnson Director John G Morikis Acquires 1,250 Shares",
+          "summary": "John G Morikis, a director and 10% owner of Johnson & Johnson, purchased 1,250 shares of the company's common stock. The transaction, totaling $257,687, occurred on November 26, 2025, with shares priced at $206.15 each. Following this purchase, Morikis now directly owns 1,848 shares of Johnson & Johnson.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/tradingview:58d9b8675e9c1:0-johnson-johnson-director-john-g-morikis-acquires-1-250-shares/",
+          "time_published": "20251201T235122",
+          "relevance": 1.0,
+          "sentiment": 0.239496,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Ecolab (ECL) Stock Outlook on December 1, 2025: Earnings Momentum, AI-Driven Water Tech and Wall Street Forecasts",
+          "summary": "Ecolab (NYSE: ECL) is trading near its 52-week highs following strong Q3 2025 earnings and new AI-driven water technology product launches. The company is positioned at the intersection of water scarcity, data-center growth, and corporate sustainability, driving Wall Street's \"Moderate Buy\" consensus with modest upside predictions. Key strategic drivers include water stewardship, AI-enabled cleaning solutions like CIP IQ, and Cooling-as-a-Service for data centers.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/ecolab-ecl-stock-outlook-on-december-1-2025-earnings-momentum-ai-driven-water-tech-and-wall-street-forecasts/",
+          "time_published": "20251201T234606",
+          "relevance": 1.0,
+          "sentiment": 0.307248,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "3 High-Flying Stocks We Find Risky",
+          "summary": "This article identifies three high-flying stocks\u2014AAON, Richardson Electronics (RELL), and Bio-Techne (TECH)\u2014that are considered risky due to concerning financial metrics despite their high valuations. The author advises investors to exercise caution with these companies and suggests exploring alternative, high-quality growth stocks. StockStory provides free research reports on each of these companies to help investors make informed decisions.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242868/3-high-flying-stocks-we-find-risky",
+          "time_published": "20251201T233200",
+          "relevance": 1.0,
+          "sentiment": -0.194834,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "XLF ETF: 3 Reasons Why I Am Not A Buyer (NYSEARCA:XLF)",
+          "summary": "The Financial Select Sector SPDR Fund (XLF) offers exposure to U.S. financial services companies, but the author is not a buyer due to several factors. XLF has underperformed the S&P 500 since its inception, exhibiting higher volatility and lower risk-adjusted returns. Intense competition within the financial and insurance sectors also limits pricing power for its top holdings, making it difficult for the ETF to deliver above-market returns despite trading at a valuation discount.",
+          "source": "Seeking Alpha",
+          "url": "https://seekingalpha.com/article/4848673-xlf-3-reasons-why-i-am-not-a-buyer",
+          "time_published": "20251201T052137",
+          "relevance": 1.0,
+          "sentiment": -0.148722,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Realty Income Bets Big On Las Vegas CityCenter",
+          "summary": "Realty Income is investing $800 million in a perpetual preferred equity stake in Las Vegas\u2019s CityCenter, which includes the ARIA Resort & Casino and Vdara Hotel & Spa. This deal, expected to close on December 9th, will start with a 7.4% yield and elevates Realty Income's 2025 investment plans to over $6 billion. The investment allows Realty Income to access high-quality casino and hotel cash flows without full operating risk, reinforcing its partnership with Blackstone Real Estate and MGM Resorts International in experience-led assets.",
+          "source": "Finimize",
+          "url": "https://finimize.com/content/realty-income-bets-big-on-las-vegas-citycenter",
+          "time_published": "20251201T235134",
+          "relevance": 1.0,
+          "sentiment": 0.379011,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Johnson & Johnson Director John G Morikis Acquires 1,250 Shares",
+          "summary": "John G Morikis, a director and 10% owner of Johnson & Johnson, purchased 1,250 shares of the company's common stock. The transaction, totaling $257,687, occurred on November 26, 2025, with shares priced at $206.15 each. Following this purchase, Morikis now directly owns 1,848 shares of Johnson & Johnson.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/tradingview:58d9b8675e9c1:0-johnson-johnson-director-john-g-morikis-acquires-1-250-shares/",
+          "time_published": "20251201T235122",
+          "relevance": 1.0,
+          "sentiment": 0.239496,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "3 High-Flying Stocks We Find Risky",
+          "summary": "This article identifies three high-flying stocks\u2014AAON, Richardson Electronics (RELL), and Bio-Techne (TECH)\u2014that are considered risky due to concerning financial metrics despite their high valuations. The author advises investors to exercise caution with these companies and suggests exploring alternative, high-quality growth stocks. StockStory provides free research reports on each of these companies to help investors make informed decisions.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242868/3-high-flying-stocks-we-find-risky",
+          "time_published": "20251201T233200",
+          "relevance": 1.0,
+          "sentiment": -0.194834,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Bristol Myers must face $6.7B lawsuit over delayed cancer drug",
+          "summary": "A U.S. judge has ruled that Bristol Myers Squibb must face a $6.7 billion lawsuit alleging it cheated former Celgene shareholders by delaying federal approval for three of its drugs, including the cancer treatment Breyanzi. The lawsuit claims Bristol Myers failed to use \"diligent efforts\" to win approvals and wrongly delisted \"contingent value rights\" (CVR) from the stock exchange. The judge specified that UMB Bank, acting as a trustee, can pursue claims related to breach of contract and failure to act in good faith.",
+          "source": "Honolulu Star-Advertiser",
+          "url": "https://www.staradvertiser.com/2025/12/01/breaking-news/bristol-myers-must-face-6-7b-lawsuit-over-delayed-cancer-drug/",
+          "time_published": "20251201T232558",
+          "relevance": 1.0,
+          "sentiment": -0.464792,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Ecolab (ECL) Stock Outlook on December 1, 2025: Earnings Momentum, AI-Driven Water Tech and Wall Street Forecasts",
+          "summary": "Ecolab (NYSE: ECL) is trading near its 52-week highs following strong Q3 2025 earnings and new AI-driven water technology product launches. The company is positioned at the intersection of water scarcity, data-center growth, and corporate sustainability, driving Wall Street's \"Moderate Buy\" consensus with modest upside predictions. Key strategic drivers include water stewardship, AI-enabled cleaning solutions like CIP IQ, and Cooling-as-a-Service for data centers.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/ecolab-ecl-stock-outlook-on-december-1-2025-earnings-momentum-ai-driven-water-tech-and-wall-street-forecasts/",
+          "time_published": "20251201T234606",
+          "relevance": 1.0,
+          "sentiment": 0.267954,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "3 High-Flying Stocks We Find Risky",
+          "summary": "This article identifies three high-flying stocks\u2014AAON, Richardson Electronics (RELL), and Bio-Techne (TECH)\u2014that are considered risky due to concerning financial metrics despite their high valuations. The author advises investors to exercise caution with these companies and suggests exploring alternative, high-quality growth stocks. StockStory provides free research reports on each of these companies to help investors make informed decisions.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242868/3-high-flying-stocks-we-find-risky",
+          "time_published": "20251201T233200",
+          "relevance": 1.0,
+          "sentiment": -0.196552,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "General Dynamics Stock (GD) in December 2025: Earnings Beats, Massive Backlog and a New Legal Challenge",
+          "summary": "General Dynamics (NYSE: GD) is heading into December 2025 with strong financial performance, marked by three consecutive quarters of double-digit EPS growth and a record-high $167.7 billion backlog driven by defense and aerospace demand. Despite this positive momentum, the company faces a new legal challenge regarding wage-fixing allegations, which introduces an element of uncertainty for investors. Wall Street analysts generally rate GD as a \"buy,\" forecasting mid-single-digit to low-double-digit total returns, positioning it as a steady compounder for long-term investors seeking defense exposure and dividend growth.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/general-dynamics-stock-gd-in-december-2025-earnings-beats-massive-backlog-and-a-new-legal-challenge/",
+          "time_published": "20251201T232517",
+          "relevance": 1.0,
+          "sentiment": 0.15454,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Precision Aerospace & Defense Group, Inc. to Combine with FACT II Acquisition Corp. to Become Publicly Listed Company",
+          "summary": "Precision Aerospace & Defense Group, Inc. (PAD) and FACT II Acquisition Corp. (NASDAQ: FACT) announced a definitive business combination agreement. The merger will create a Nasdaq-listed holistic solutions provider in the aerospace, defense, and space industries, valuing PAD at up to $320 million. The combined company will retain the PAD name and is expected to be led by PAD's existing management team, utilizing the transaction proceeds to fuel growth, strategic acquisitions, and product development.",
+          "source": "Fox 59",
+          "url": "https://fox59.com/business/press-releases/globenewswire/9594798/precision-aerospace-defense-group-inc-to-combine-with-fact-ii-acquisition-corp-to-become-publicly-listed-company",
+          "time_published": "20251201T230829",
+          "relevance": 1.0,
+          "sentiment": 0.314028,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Parker-Hannifin (PH) Stock Outlook December 2025: Aerospace Strength, $9.25B Filtration Deal and a Valuation Tug of War",
+          "summary": "This article provides a comprehensive outlook on Parker-Hannifin (PH) stock as of December 2025, highlighting its strong performance driven by aerospace growth, a record-breaking fiscal Q1 2026, and the strategic $9.25 billion acquisition of Filtration Group. It delves into the ongoing debate regarding its valuation, with some models suggesting overvaluation despite general Wall Street bullishness. The analysis covers financial snapshots, performance against the S&P 500, recent headlines, acquisition details, Q1 results, analyst ratings, and the key drivers and risks for 2026.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/parker-hannifin-ph-stock-outlook-december-2025-aerospace-strength-9-25b-filtration-deal-and-a-valuation-tug-of-war/",
+          "time_published": "20251201T230446",
+          "relevance": 1.0,
+          "sentiment": 0.32222,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "Salesforce Says Global Online Cyber Monday Sales Reached $17.3 Billion (Up 5.3% YoY)",
+          "summary": "Salesforce reported that global online Cyber Monday sales reached $17.3 billion, marking a 5.3% year-over-year increase, with online orders remaining flat. U.S. online sales specifically hit $3.4 billion, up 2.6% YoY, while online orders declined by 1%. The company anticipates global online sales for Cyber Monday to ultimately reach $52.7 billion and U.S. online sales to grow to $13.3 billion.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/reuters.com,2025:newsml_FWN3X70TA:0-salesforce-says-global-online-cyber-monday-sales-reached-17-3-billion-up-5-3-yoy/",
+          "time_published": "20251201T235100",
+          "relevance": 1.0,
+          "sentiment": 0.334723,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Best Buy appoints Dylan Jadeja to Board of Directors",
+          "summary": "Best Buy Co., Inc. has appointed Dylan Jadeja, the chief executive officer of Riot Games, to its Board of Directors, effective immediately. Jadeja brings extensive experience in strategy, finance, operations, digital and social content, and the gaming industry. Best Buy's CEO, Corie Barry, highlighted Jadeja's expertise in consumer brands, digital commerce, and serving global player communities as critical enhancements to the Board, focusing on omnichannel experiences and new revenue streams.",
+          "source": "Best Buy",
+          "url": "https://corporate.bestbuy.com/2025/best-buy-appoints-dylan-jadeja-to-board/",
+          "time_published": "20251201T235053",
+          "relevance": 1.0,
+          "sentiment": 0.011944,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Phillips 66 Sells 65% Stake in Germany\u2013Austria Retail Business to Energy Equation Partners, Stonepeak",
+          "summary": "Phillips 66 has announced the sale of a 65% interest in its Germany and Austria retail marketing business to a consortium owned by subsidiaries of Energy Equation Partners and Stonepeak. The transaction, valued at approximately \u20ac2.5 billion ($2.8 billion), generated about \u20ac1.5 billion ($1.6 billion) in pre-tax proceeds for Phillips 66, which will retain a 35% non-operated interest in the new joint venture. This move is part of Phillips 66's strategy to strengthen its balance sheet and optimize its portfolio by monetizing non-core assets.",
+          "source": "citybiz",
+          "url": "https://www.citybiz.co/article/777725/phillips-66-sells-65-stake-in-germany-austria-retail-business-to-energy-equation-partners-stonepeak/?abkw=citybizhouston",
+          "time_published": "20251201T233642",
+          "relevance": 1.0,
+          "sentiment": 0.45235,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "At US$38.62, Is It Time To Put BJ's Restaurants, Inc. (NASDAQ:BJRI) On Your Watch List?",
+          "summary": "BJ's Restaurants, Inc. (NASDAQ:BJRI) has seen a significant share price rise recently but is currently trading around its fair intrinsic value. Analysts expect the company's earnings to increase by 70% in the coming years, indicating a highly optimistic future. While the positive outlook is encouraging, potential investors might want to wait for a price fluctuation due to the stock's volatility and its current fair valuation.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/consumer-services/nasdaq-bjri/bjs-restaurants/news/at-us3862-is-it-time-to-put-bjs-restaurants-inc-nasdaqbjri-o",
+          "time_published": "20251201T230939",
+          "relevance": 1.0,
+          "sentiment": 0.186206,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Earnings Preview: Will AutoZone bounce back in Q1 after a modest FY25?",
+          "summary": "AutoZone, Inc. (NYSE: AZO) is set to report its Q1 FY26 earnings next week, with analysts predicting EPS of $32.58 and revenues of $4.64 billion, following a mixed FY25 characterized by stable sales but softer earnings. The company continues to expand its store network and has shown resilient performance despite challenges like inflation and tariff-related cost escalations. AutoZone's stock has performed well this year, and analysts foresee further growth.",
+          "source": "AlphaStreet",
+          "url": "https://news.alphastreet.com/earnings-preview-will-autozone-bounce-back-in-q1-after-a-modest-fy25/",
+          "time_published": "20251201T230744",
+          "relevance": 1.0,
+          "sentiment": 0.240115,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "XLP vs. IYK: Which is the Better Consumer Staples ETF?",
+          "summary": "This article compares two consumer staples ETFs, XLP and IYK, highlighting XLP's lower expense ratio, higher dividend yield, and pure-play focus on consumer defensive names with significant holdings in Walmart and Costco. While IYK offers broader diversification including some healthcare, the author leans towards XLP due to its cost-effectiveness, specific holdings, and potential for future outperformance. Both ETFs have underperformed the S&P 500 in recent years due to a lack of technology exposure.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36130046/xlp-vs-iyk-which-is-the-better-consumer-staples-etf/",
+          "time_published": "20251130T160906",
+          "relevance": 1.0,
+          "sentiment": 0.35211,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Salesforce Says Global Online Cyber Monday Sales Reached $17.3 Billion (Up 5.3% YoY)",
+          "summary": "Salesforce reported that global online Cyber Monday sales reached $17.3 billion, marking a 5.3% year-over-year increase, with online orders remaining flat. U.S. online sales specifically hit $3.4 billion, up 2.6% YoY, while online orders declined by 1%. The company anticipates global online sales for Cyber Monday to ultimately reach $52.7 billion and U.S. online sales to grow to $13.3 billion.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/reuters.com,2025:newsml_FWN3X70TA:0-salesforce-says-global-online-cyber-monday-sales-reached-17-3-billion-up-5-3-yoy/",
+          "time_published": "20251201T235100",
+          "relevance": 1.0,
+          "sentiment": 0.334723,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Best Buy appoints Dylan Jadeja to Board of Directors",
+          "summary": "Best Buy Co., Inc. has appointed Dylan Jadeja, the chief executive officer of Riot Games, to its Board of Directors, effective immediately. Jadeja brings extensive experience in strategy, finance, operations, digital and social content, and the gaming industry. Best Buy's CEO, Corie Barry, highlighted Jadeja's expertise in consumer brands, digital commerce, and serving global player communities as critical enhancements to the Board, focusing on omnichannel experiences and new revenue streams.",
+          "source": "Best Buy",
+          "url": "https://corporate.bestbuy.com/2025/best-buy-appoints-dylan-jadeja-to-board/",
+          "time_published": "20251201T235053",
+          "relevance": 1.0,
+          "sentiment": 0.011944,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Phillips 66 Sells 65% Stake in Germany\u2013Austria Retail Business to Energy Equation Partners, Stonepeak",
+          "summary": "Phillips 66 has announced the sale of a 65% interest in its Germany and Austria retail marketing business to a consortium owned by subsidiaries of Energy Equation Partners and Stonepeak. The transaction, valued at approximately \u20ac2.5 billion ($2.8 billion), generated about \u20ac1.5 billion ($1.6 billion) in pre-tax proceeds for Phillips 66, which will retain a 35% non-operated interest in the new joint venture. This move is part of Phillips 66's strategy to strengthen its balance sheet and optimize its portfolio by monetizing non-core assets.",
+          "source": "citybiz",
+          "url": "https://www.citybiz.co/article/777725/phillips-66-sells-65-stake-in-germany-austria-retail-business-to-energy-equation-partners-stonepeak/?abkw=citybizhouston",
+          "time_published": "20251201T233642",
+          "relevance": 1.0,
+          "sentiment": 0.45235,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "At US$38.62, Is It Time To Put BJ's Restaurants, Inc. (NASDAQ:BJRI) On Your Watch List?",
+          "summary": "BJ's Restaurants, Inc. (NASDAQ:BJRI) has seen a significant share price rise recently but is currently trading around its fair intrinsic value. Analysts expect the company's earnings to increase by 70% in the coming years, indicating a highly optimistic future. While the positive outlook is encouraging, potential investors might want to wait for a price fluctuation due to the stock's volatility and its current fair valuation.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/consumer-services/nasdaq-bjri/bjs-restaurants/news/at-us3862-is-it-time-to-put-bjs-restaurants-inc-nasdaqbjri-o",
+          "time_published": "20251201T230939",
+          "relevance": 1.0,
+          "sentiment": 0.186206,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "NexGen Energy (NXE) Gained This Week. Here is Why",
+          "summary": "NexGen Energy Ltd. (NYSE: NXE) saw an 18.52% surge in its share price due to advancing its Rook 1 project to the final regulatory approval stage and a potential $2.8 billion uranium supply deal between Canada and India. The company is poised to begin construction of its Rook 1 project, which is estimated to supply up to 30 million pounds of low-cost uranium per year. These developments position NXE as a significant player in the uranium market.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242754/nexgen-energy-nxe-gained-this-week-here-is-why",
+          "time_published": "20251201T235500",
+          "relevance": 1.0,
+          "sentiment": 0.515504,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "PrimeEnergy Resources (PNRG) Shoots Up Following Third-Quarter Results",
+          "summary": "PrimeEnergy Resources Corporation (PNRG) saw a significant surge in its share price by 22.24% between November 21 and November 28, 2025, after announcing strong third-quarter results. The company's net income increased by over 231% sequentially to $10.6 million, and revenue grew by nearly 10% QoQ to approximately $46 million. Despite a year-to-date decline, the company boasts a robust balance sheet with no outstanding bank debt as of September 30, 2025.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242752/primeenergy-resources-pnrg-shoots-up-following-third-quarter-results",
+          "time_published": "20251201T235500",
+          "relevance": 1.0,
+          "sentiment": 0.528226,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Cameco Corporation (CCJ) - Among the Energy Stocks that Gained This Week",
+          "summary": "Cameco Corporation (NYSE: CCJ) saw its share price surge by 11.42% between November 21 and November 28, 2025, making it a top-gaining energy stock. This rally was partly driven by news of a potential $2.8 billion uranium export deal between Canada and India, which would position Cameco as a major supplier to India's nuclear power sector. The stock's recent gain also follows a sharp decline after a missed Q3 earnings estimate, suggesting investors may now see it as undervalued, and it traded ex-dividend on November 29.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242748/cameco-corporation-ccj-among-the-energy-stocks-that-gained-this-week",
+          "time_published": "20251201T235500",
+          "relevance": 1.0,
+          "sentiment": 0.368482,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Phillips 66 Sells 65% Stake in Germany\u2013Austria Retail Business to Energy Equation Partners, Stonepeak",
+          "summary": "Phillips 66 has announced the sale of a 65% interest in its Germany and Austria retail marketing business to a consortium owned by subsidiaries of Energy Equation Partners and Stonepeak. The transaction, valued at approximately \u20ac2.5 billion ($2.8 billion), generated about \u20ac1.5 billion ($1.6 billion) in pre-tax proceeds for Phillips 66, which will retain a 35% non-operated interest in the new joint venture. This move is part of Phillips 66's strategy to strengthen its balance sheet and optimize its portfolio by monetizing non-core assets.",
+          "source": "citybiz",
+          "url": "https://www.citybiz.co/article/777725/phillips-66-sells-65-stake-in-germany-austria-retail-business-to-energy-equation-partners-stonepeak/?abkw=citybizhouston",
+          "time_published": "20251201T233642",
+          "relevance": 1.0,
+          "sentiment": 0.450617,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Southern Company (SO) Stock on December 1, 2025: Dividend Giant in a Booming Utilities Super-Cycle",
+          "summary": "This article analyzes Southern Company (SO) stock as of December 1, 2025, positioning it as a dividend giant in a booming utilities sector driven by AI-powered demand and rate-cut expectations. It details SO's stock performance, Q3 2025 earnings beat, 78-year dividend growth, recent capital raise, institutional ownership, and a consensus \"Hold\" rating with modest upside. The piece concludes that SO is a high-quality, fairly valued utility suitable for income and conservative investors, despite slower dividend growth and capital-intensive transitions.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/southern-company-so-stock-on-december-1-2025-dividend-giant-in-a-booming-utilities-super-cycle/",
+          "time_published": "20251201T231339",
+          "relevance": 1.0,
+          "sentiment": 0.252439,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "State Street Now Distributor for Select Sector SPDR ETFs",
+          "summary": "State Street Investment Management (SSIM) has taken over the distribution and marketing for the Select Sector SPDR ETFs, unifying 11 funds under its umbrella. This move aims to enhance the investor experience and solidify SSIM's leadership in sector-focused ETF insights, leveraging nearly 30 years of experience in the field. The affected ETFs, including well-known funds like XLK and XLU, have been rebranded to reflect their association with State Street.",
+          "source": "ETF Trends",
+          "url": "https://www.etftrends.com/state-street-now-distributor-select-sector-spdr-etfs/",
+          "time_published": "20251129T210906",
+          "relevance": 1.0,
+          "sentiment": 0.367866,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "NexGen Energy (NXE) Gained This Week. Here is Why",
+          "summary": "NexGen Energy Ltd. (NYSE: NXE) saw an 18.52% surge in its share price due to advancing its Rook 1 project to the final regulatory approval stage and a potential $2.8 billion uranium supply deal between Canada and India. The company is poised to begin construction of its Rook 1 project, which is estimated to supply up to 30 million pounds of low-cost uranium per year. These developments position NXE as a significant player in the uranium market.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242754/nexgen-energy-nxe-gained-this-week-here-is-why",
+          "time_published": "20251201T235500",
+          "relevance": 1.0,
+          "sentiment": 0.515504,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "PrimeEnergy Resources (PNRG) Shoots Up Following Third-Quarter Results",
+          "summary": "PrimeEnergy Resources Corporation (PNRG) saw a significant surge in its share price by 22.24% between November 21 and November 28, 2025, after announcing strong third-quarter results. The company's net income increased by over 231% sequentially to $10.6 million, and revenue grew by nearly 10% QoQ to approximately $46 million. Despite a year-to-date decline, the company boasts a robust balance sheet with no outstanding bank debt as of September 30, 2025.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242752/primeenergy-resources-pnrg-shoots-up-following-third-quarter-results",
+          "time_published": "20251201T235500",
+          "relevance": 1.0,
+          "sentiment": 0.528226,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Cameco Corporation (CCJ) - Among the Energy Stocks that Gained This Week",
+          "summary": "Cameco Corporation (NYSE: CCJ) saw its share price surge by 11.42% between November 21 and November 28, 2025, making it a top-gaining energy stock. This rally was partly driven by news of a potential $2.8 billion uranium export deal between Canada and India, which would position Cameco as a major supplier to India's nuclear power sector. The stock's recent gain also follows a sharp decline after a missed Q3 earnings estimate, suggesting investors may now see it as undervalued, and it traded ex-dividend on November 29.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242748/cameco-corporation-ccj-among-the-energy-stocks-that-gained-this-week",
+          "time_published": "20251201T235500",
+          "relevance": 1.0,
+          "sentiment": 0.368482,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Phillips 66 Sells 65% Stake in Germany\u2013Austria Retail Business to Energy Equation Partners, Stonepeak",
+          "summary": "Phillips 66 has announced the sale of a 65% interest in its Germany and Austria retail marketing business to a consortium owned by subsidiaries of Energy Equation Partners and Stonepeak. The transaction, valued at approximately \u20ac2.5 billion ($2.8 billion), generated about \u20ac1.5 billion ($1.6 billion) in pre-tax proceeds for Phillips 66, which will retain a 35% non-operated interest in the new joint venture. This move is part of Phillips 66's strategy to strengthen its balance sheet and optimize its portfolio by monetizing non-core assets.",
+          "source": "citybiz",
+          "url": "https://www.citybiz.co/article/777725/phillips-66-sells-65-stake-in-germany-austria-retail-business-to-energy-equation-partners-stonepeak/?abkw=citybizhouston",
+          "time_published": "20251201T233642",
+          "relevance": 1.0,
+          "sentiment": 0.450617,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "Realty Income Bets Big On Las Vegas CityCenter",
+          "summary": "Realty Income is investing $800 million in a perpetual preferred equity stake in Las Vegas\u2019s CityCenter, which includes the ARIA Resort & Casino and Vdara Hotel & Spa. This deal, expected to close on December 9th, will start with a 7.4% yield and elevates Realty Income's 2025 investment plans to over $6 billion. The investment allows Realty Income to access high-quality casino and hotel cash flows without full operating risk, reinforcing its partnership with Blackstone Real Estate and MGM Resorts International in experience-led assets.",
+          "source": "Finimize",
+          "url": "https://finimize.com/content/realty-income-bets-big-on-las-vegas-citycenter",
+          "time_published": "20251201T235134",
+          "relevance": 1.0,
+          "sentiment": 0.364564,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Entergy breaks ground on power facility for giant Meta data center",
+          "summary": "Entergy Louisiana has broken ground on two natural gas-powered plants in Richland Parish, with a third planned for St. Charles Parish, to supply electricity for Meta's $27 billion data center, which will be the world's largest. The expedited project, totaling approximately 2,200 megawatts of electricity generation, aims to modernize Entergy's infrastructure and ensure reliable power for Louisiana's economic development. This massive infrastructure undertaking highlights the rapid expansion of data centers and their significant energy demands.",
+          "source": "Louisiana Illuminator",
+          "url": "https://lailluminator.com/briefs/entergy-builds-power-plant-for-data-center/",
+          "time_published": "20251201T224300",
+          "relevance": 1.0,
+          "sentiment": 0.394986,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Blackstone Scores $800M Las Vegas Investment From Realty Income To Boost CityCenter Real Estate",
+          "summary": "Realty Income is investing $800 million in Blackstone\u2019s CityCenter real estate, specifically the ARIA Resort & Casino and Vdara Hotel & Spa in Las Vegas, while Blackstone retains full ownership and MGM continues operations. This preferred equity investment provides Realty Income with a 7.4% initial return and includes provisions for redemption premiums and an 8.325% unlevered internal rate of return safeguard. This transaction marks Realty Income's second partnership with Blackstone Real Estate and has led the company to raise its 2025 investment volume guidance to over $6 billion.",
+          "source": "Stocktwits",
+          "url": "https://stocktwits.com/news-articles/markets/equity/blackstone-scores-800-m-las-vegas-investment-from-realty-income-to-boost-city-center-real-estate/cLI7YgERE0E",
+          "time_published": "20251201T223300",
+          "relevance": 1.0,
+          "sentiment": 0.021637,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Federal Realty Investment Trust Acquires $153M Retail Center in Omaha",
+          "summary": "Federal Realty Investment Trust has acquired Village Pointe, an open-air lifestyle center in Omaha, for $153.3 million. This 453,000-square-foot property is strategically located in a prominent commercial corridor, meeting Federal Realty's criteria for affluent demographics and strong retail demand. The center features a variety of national and premium retailers and benefits from access to the broader Omaha MSA and surrounding residential development and major employers.",
+          "source": "Connect CRE",
+          "url": "https://www.connectcre.com/stories/federal-realty-investment-trust-acquires-153m-retail-center-in-omaha/",
+          "time_published": "20251201T220728",
+          "relevance": 1.0,
+          "sentiment": 0.336875,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Pulte Homes Announces The Domaine at SoSo, a Boutique Townhome Community Coming to West Palm Beach",
+          "summary": "Pulte Homes announced The Domaine at SoSo, a new luxury townhome community featuring 30 three-bedroom homes in West Palm Beach's SoSo District. Homes will range from 1,933 to 2,043 square feet, priced from the low $900,000s, with construction and sales expected to begin in Q1 2026. The community offers upscale living with proximity to downtown West Palm Beach and local amenities.",
+          "source": "citybiz",
+          "url": "https://www.citybiz.co/article/777837/pulte-homes-announces-the-domaine-at-soso-a-boutique-townhome-community-coming-to-west-palm-beach/",
+          "time_published": "20251201T214659",
+          "relevance": 1.0,
+          "sentiment": 0.811846,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "Best Buy appoints Dylan Jadeja to Board of Directors",
+          "summary": "Best Buy Co., Inc. has appointed Dylan Jadeja, the chief executive officer of Riot Games, to its Board of Directors, effective immediately. Jadeja brings extensive experience in strategy, finance, operations, digital and social content, and the gaming industry. Best Buy's CEO, Corie Barry, highlighted Jadeja's expertise in consumer brands, digital commerce, and serving global player communities as critical enhancements to the Board, focusing on omnichannel experiences and new revenue streams.",
+          "source": "Best Buy",
+          "url": "https://corporate.bestbuy.com/2025/best-buy-appoints-dylan-jadeja-to-board/",
+          "time_published": "20251201T235053",
+          "relevance": 1.0,
+          "sentiment": 0.005939,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Ecolab (ECL) Stock Outlook on December 1, 2025: Earnings Momentum, AI-Driven Water Tech and Wall Street Forecasts",
+          "summary": "Ecolab (NYSE: ECL) is trading near its 52-week highs following strong Q3 2025 earnings and new AI-driven water technology product launches. The company is positioned at the intersection of water scarcity, data-center growth, and corporate sustainability, driving Wall Street's \"Moderate Buy\" consensus with modest upside predictions. Key strategic drivers include water stewardship, AI-enabled cleaning solutions like CIP IQ, and Cooling-as-a-Service for data centers.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/ecolab-ecl-stock-outlook-on-december-1-2025-earnings-momentum-ai-driven-water-tech-and-wall-street-forecasts/",
+          "time_published": "20251201T234606",
+          "relevance": 1.0,
+          "sentiment": 0.267954,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Cisco Stock on December 1, 2025: AI Momentum, Quantum Networking and Wall Street\u2019s Latest CSCO Forecasts",
+          "summary": "This article analyzes Cisco (CSCO) stock as of December 1, 2025, highlighting its position above key moving averages, its market capitalization, and year-to-date performance. Key growth drivers include AI momentum, a strategic partnership with IBM in quantum networking, and the successful integration of Splunk. Wall Street maintains a \"Moderate Buy\" consensus with price targets indicating moderate upside, while acknowledging risks such as AI transparency and competitive pressures.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/cisco-stock-on-december-1-2025-ai-momentum-quantum-networking-and-wall-streets-latest-csco-forecasts/",
+          "time_published": "20251201T233654",
+          "relevance": 1.0,
+          "sentiment": 0.21576,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "General Dynamics Stock (GD) in December 2025: Earnings Beats, Massive Backlog and a New Legal Challenge",
+          "summary": "General Dynamics (NYSE: GD) is heading into December 2025 with strong financial performance, marked by three consecutive quarters of double-digit EPS growth and a record-high $167.7 billion backlog driven by defense and aerospace demand. Despite this positive momentum, the company faces a new legal challenge regarding wage-fixing allegations, which introduces an element of uncertainty for investors. Wall Street analysts generally rate GD as a \"buy,\" forecasting mid-single-digit to low-double-digit total returns, positioning it as a steady compounder for long-term investors seeking defense exposure and dividend growth.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/general-dynamics-stock-gd-in-december-2025-earnings-beats-massive-backlog-and-a-new-legal-challenge/",
+          "time_published": "20251201T232517",
+          "relevance": 1.0,
+          "sentiment": 0.15454,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "(ZETA) Movement Within Algorithmic Entry Frameworks",
+          "summary": "This article from Stock Traders Daily analyzes Zeta Global Holdings Corp. Class A (NASDAQ: ZETA) using algorithmic entry frameworks. It highlights divergent sentiment readings, a test of support, and an exceptional risk-reward setup targeting a 24.9% gain. The analysis provides specific institutional trading strategies (Long, Momentum Breakout, Risk Hedging) with entry zones, targets, and stop losses, alongside multi-timeframe signal analysis for near-term, mid-term, and long-term horizons.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/17/ZETA_Movement_Within_Algorithmic_Entry_Frameworks_120125111401_1764648841.html",
+          "time_published": "20251201T231400",
+          "relevance": 1.0,
+          "sentiment": 0.255234,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Cleveland-Cliffs Breaks to New Highs on Earnings, More Upside?",
+          "summary": "Cleveland-Cliffs Inc. saw its shares jump over 24% after reporting earnings, reaching a new 52-week high, driven by a strategic shift towards infrastructure and automotive projects supported by tariffs. Despite lower volume and revenue, the company's strong balance sheet, multi-year OEM agreements, and institutional investment suggest potential for continued bullish performance. State Street increased its stake, and the stock now trades at a premium P/B ratio compared to the broader steel industry, reflecting market confidence in its long-term growth and profitability turnaround.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/marketbeat:8728ddb2d094b:0-cleveland-cliffs-breaks-to-new-highs-on-earnings-more-upside/",
+          "time_published": "20251126T175157",
+          "relevance": 1.0,
+          "sentiment": 0.305302,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Ecolab (ECL) Stock Outlook on December 1, 2025: Earnings Momentum, AI-Driven Water Tech and Wall Street Forecasts",
+          "summary": "Ecolab (NYSE: ECL) is trading near its 52-week highs following strong Q3 2025 earnings and new AI-driven water technology product launches. The company is positioned at the intersection of water scarcity, data-center growth, and corporate sustainability, driving Wall Street's \"Moderate Buy\" consensus with modest upside predictions. Key strategic drivers include water stewardship, AI-enabled cleaning solutions like CIP IQ, and Cooling-as-a-Service for data centers.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/ecolab-ecl-stock-outlook-on-december-1-2025-earnings-momentum-ai-driven-water-tech-and-wall-street-forecasts/",
+          "time_published": "20251201T234606",
+          "relevance": 1.0,
+          "sentiment": 0.267954,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "3 High-Flying Stocks We Find Risky",
+          "summary": "This article identifies three high-flying stocks\u2014AAON, Richardson Electronics (RELL), and Bio-Techne (TECH)\u2014that are considered risky due to concerning financial metrics despite their high valuations. The author advises investors to exercise caution with these companies and suggests exploring alternative, high-quality growth stocks. StockStory provides free research reports on each of these companies to help investors make informed decisions.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242868/3-high-flying-stocks-we-find-risky",
+          "time_published": "20251201T233200",
+          "relevance": 1.0,
+          "sentiment": -0.196552,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "General Dynamics Stock (GD) in December 2025: Earnings Beats, Massive Backlog and a New Legal Challenge",
+          "summary": "General Dynamics (NYSE: GD) is heading into December 2025 with strong financial performance, marked by three consecutive quarters of double-digit EPS growth and a record-high $167.7 billion backlog driven by defense and aerospace demand. Despite this positive momentum, the company faces a new legal challenge regarding wage-fixing allegations, which introduces an element of uncertainty for investors. Wall Street analysts generally rate GD as a \"buy,\" forecasting mid-single-digit to low-double-digit total returns, positioning it as a steady compounder for long-term investors seeking defense exposure and dividend growth.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/general-dynamics-stock-gd-in-december-2025-earnings-beats-massive-backlog-and-a-new-legal-challenge/",
+          "time_published": "20251201T232517",
+          "relevance": 1.0,
+          "sentiment": 0.15454,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Precision Aerospace & Defense Group, Inc. to Combine with FACT II Acquisition Corp. to Become Publicly Listed Company",
+          "summary": "Precision Aerospace & Defense Group, Inc. (PAD) and FACT II Acquisition Corp. (NASDAQ: FACT) announced a definitive business combination agreement. The merger will create a Nasdaq-listed holistic solutions provider in the aerospace, defense, and space industries, valuing PAD at up to $320 million. The combined company will retain the PAD name and is expected to be led by PAD's existing management team, utilizing the transaction proceeds to fuel growth, strategic acquisitions, and product development.",
+          "source": "Fox 59",
+          "url": "https://fox59.com/business/press-releases/globenewswire/9594798/precision-aerospace-defense-group-inc-to-combine-with-fact-ii-acquisition-corp-to-become-publicly-listed-company",
+          "time_published": "20251201T230829",
+          "relevance": 1.0,
+          "sentiment": 0.314028,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "sector_sentiment": {
+      "XLK": {
+        "avg_sentiment": 0.202,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": 0.144,
+        "article_count": 12,
+        "label": "Neutral"
+      },
+      "XLF": {
+        "avg_sentiment": 0.131,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLI": {
+        "avg_sentiment": 0.163,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": 0.278,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLP": {
+        "avg_sentiment": 0.285,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLE": {
+        "avg_sentiment": 0.332,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLU": {
+        "avg_sentiment": 0.335,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.38,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.221,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.176,
+        "article_count": 11,
+        "label": "Bullish"
+      }
+    },
+    "total_articles": 117,
+    "avg_sentiment": 0.241,
+    "bullish_sectors": [
+      "XLK",
+      "XLI",
+      "XLY",
+      "XLP",
+      "XLE",
+      "XLU",
+      "XLRE",
+      "XLC",
+      "XLB"
+    ],
+    "bearish_sectors": []
+  },
+  "sector_summary": "Market shows EARLY_EXPANSION characteristics with low confidence as sector leadership remains mixed. Favor Technology (ignition signal), Energy, Consumer Defensive, and Basic Materials for their trend strength. Avoid Utilities, Real Estate, and Industrials which are failing to recover from oversold levels. No major crossover alerts present.",
+  "cycle_phase": "EARLY_EXPANSION",
+  "cycle_confidence": "LOW",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 1,
+      "mrs_20": -1.09,
+      "mrs_5": 0.53,
+      "roc_3": 1.5,
+      "zone": "D",
+      "signal": "IGNITION",
+      "modifier": 1.2,
+      "rationale": "Zone D ignition with MRS_5 positive (MRS_20=-1.09%, MRS_5=0.53%) - Technology showing strong reversal momentum after recent underperformance",
+      "news_context": {
+        "sentiment": 0.3,
+        "article_count": 15,
+        "themes": "AI infrastructure spending, cloud demand, semiconductor recovery"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 2,
+      "mrs_20": 0.74,
+      "mrs_5": 1.18,
+      "roc_3": 1.23,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.74%, MRS_5=1.18%) - Energy maintaining strong relative performance with positive momentum",
+      "news_context": {
+        "sentiment": 0.4,
+        "article_count": 12,
+        "themes": "Oil price stability, winter demand, production discipline"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 3,
+      "mrs_20": 1.63,
+      "mrs_5": 0.43,
+      "roc_3": -0.34,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.63%, MRS_5=0.43%) - Consumer staples showing defensive strength with solid relative performance",
+      "news_context": {
+        "sentiment": 0.2,
+        "article_count": 8,
+        "themes": "Holiday spending patterns, pricing power, inventory management"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 4,
+      "mrs_20": 1.91,
+      "mrs_5": 0.39,
+      "roc_3": -0.31,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.91%, MRS_5=0.39%) - Materials maintaining leadership position with strong 20-day performance",
+      "news_context": {
+        "sentiment": 0.3,
+        "article_count": 10,
+        "themes": "Infrastructure spending, commodity demand, supply chain normalization"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 5,
+      "mrs_20": 0.37,
+      "mrs_5": 0.57,
+      "roc_3": 0.08,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.37%) - Consumer discretionary showing mixed signals with modest relative performance",
+      "news_context": {
+        "sentiment": 0.1,
+        "article_count": 14,
+        "themes": "Black Friday sales, consumer confidence, retail earnings"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 6,
+      "mrs_20": -0.16,
+      "mrs_5": -0.22,
+      "roc_3": -0.95,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.16%) - Financials stuck in neutral territory with weak near-term momentum",
+      "news_context": {
+        "sentiment": 0,
+        "article_count": 11,
+        "themes": "Interest rate outlook, credit quality, regulatory environment"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 7,
+      "mrs_20": 0.72,
+      "mrs_5": -0.15,
+      "roc_3": -0.88,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=0.72%, MRS_5=-0.15%) - Communication services losing momentum despite positive 20-day performance",
+      "news_context": {
+        "sentiment": -0.1,
+        "article_count": 9,
+        "themes": "Streaming competition, advertising headwinds, regulatory pressure"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 8,
+      "mrs_20": 1.37,
+      "mrs_5": -1.67,
+      "roc_3": -5.04,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=1.37%, MRS_5=-1.67%) - Healthcare showing concerning momentum deterioration despite strong 20-day performance",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 13,
+        "themes": "Drug pricing concerns, regulatory uncertainty, biotech weakness"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 9,
+      "mrs_20": -1.44,
+      "mrs_5": -0.89,
+      "roc_3": -1.46,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D avoid signal - negative MRS_5 in ignition zone (MRS_20=-1.44%, MRS_5=-0.89%) - Industrials failing to ignite despite oversold levels",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 7,
+        "themes": "Manufacturing slowdown, trade concerns, capital expenditure delays"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 10,
+      "mrs_20": -0.91,
+      "mrs_5": -1.04,
+      "roc_3": -2.08,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D avoid signal - negative MRS_5 in ignition zone (MRS_20=-0.91%, MRS_5=-1.04%) - Real estate showing continued weakness with deteriorating momentum",
+      "news_context": {
+        "sentiment": -0.4,
+        "article_count": 6,
+        "themes": "Interest rate sensitivity, commercial real estate stress, REIT valuations"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 11,
+      "mrs_20": -1.73,
+      "mrs_5": -1.55,
+      "roc_3": -1.71,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D avoid signal - negative MRS_5 in ignition zone (MRS_20=-1.73%, MRS_5=-1.55%) - Utilities showing persistent underperformance with no signs of recovery",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 5,
+        "themes": "Rate sensitivity, renewable transition costs, regulatory headwinds"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLK": 1.2,
+    "XLE": 1.2,
+    "XLP": 1.2,
+    "XLB": 1.2,
+    "XLY": 1.0,
+    "XLF": 1.0,
+    "XLC": 0.75,
+    "XLV": 0.75,
+    "XLI": 0.5,
+    "XLRE": 0.5,
+    "XLU": 0.5
+  },
+  "cycle_reasoning": "Classified as EARLY_EXPANSION based on Technology ignition signal and commodity sector strength, but confidence remains LOW due to mixed cyclical participation. Traditional early-cycle leaders like Industrials are failing to ignite, while defensive sectors maintain relative strength, suggesting an incomplete or hesitant cycle transition.",
+  "rotation_analysis": "Current rotation shows early expansion characteristics but with low conviction. Technology leading from oversold levels suggests risk appetite returning, while Energy and Materials maintaining trends indicates commodity strength. However, the failure of traditionally cyclical sectors like Industrials to participate, combined with defensive Consumer Staples outperforming, suggests market uncertainty. The weakening in Healthcare and Communication Services, despite their defensive characteristics, indicates sector-specific headwinds rather than broad risk-off sentiment.",
+  "l1_alignment": "Partial alignment with L1's AGGRESSIVE bias through Technology ignition and Energy strength, but mixed sector signals suggest more selective positioning appropriate. The presence of defensive leadership (Consumer Staples) within an aggressive regime indicates market participants remain cautious despite stable macro conditions.",
+  "key_insight": "Technology's ignition signal from deeply oversold levels represents the most compelling opportunity, as it combines technical reversal with fundamental AI infrastructure tailwinds, while rate-sensitive sectors remain structurally challenged in current environment.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: EARLY_EXPANSION (LOW confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 regime is NORMAL (STABLE) with AGGRESSIVE bias. Our sector rotation shows mixed signals with both offensive (XLK, XLE) and defensive (XLP) leadership, which partially aligns with aggressive positioning but suggests market uncertainty.\n\nStep 2 - Signal Validation:\nPre-calculated signals validated: 1 IGNITION, 3 TREND, 2 NEUTRAL, 2 WEAKENING, 3 AVOID. No anomalies detected vs empirical thresholds. Signal distribution suggests balanced but cautious market.\n\nStep 3 - Zone Analysis:\nActive zones: Zone A (3 sectors - XLE, XLP, XLB trending), Zone D (4 sectors - XLK igniting, XLI/XLRE/XLU avoiding), Zone E (2 sectors - XLY/XLF neutral), Zone B (2 sectors - XLC/XLV weakening). Mixed rotation pattern.\n\nStep 4 - Conflict Resolution:\nMinor conflict: L1 AGGRESSIVE bias vs mixed sector signals. Resolved by focusing on quality leadership in XLK ignition and energy/materials strength. News context supports selective risk-taking in technology and commodities while avoiding rate-sensitive sectors.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nClassified as EARLY_EXPANSION based on Technology ignition signal and commodity sector strength, but confidence remains LOW due to mixed cyclical participation. Traditional early-cycle leaders like Industrials are failing to ignite, while defensive sectors maintain relative strength, suggesting an incomplete or hesitant cycle transition.\n\nKey Insight: Technology's ignition signal from deeply oversold levels represents the most compelling opportunity, as it combines technical reversal with fundamental AI infrastructure tailwinds, while rate-sensitive sectors remain structurally challenged in current environment."
+}

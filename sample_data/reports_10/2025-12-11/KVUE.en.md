@@ -1,0 +1,136 @@
+## KVUE: Kenvue Inc. - XLP: Consumer Defensive
+
+### Executive Summary
+
+No thesis match: MRS_10 1.0% below STRENGTH zone (3.0-6.0%). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($16.46)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 4
+- **Sentiment:** Bullish (Bullish: 1, Bearish: 0)
+
+**1. Kenvue Inc. Stock Rises Tuesday, Outperforms Market**
+- Source: 富途牛牛 | 20251210T160815 | Bullish | Relevance: 99%
+-  Kenvue Inc. stock increased on Tuesday, outperforming the market. The article also mentions Unity Software's Q4 earnings, where revenue rose by 35% year-over-year to $609 million, exceeding analyst estimates, although the company reported a quarterly loss of 66 cents per share.
+
+**2. Natixis Buys 96,644 Shares of Kenvue Inc. $KVUE**
+- Source: MarketBeat | 20251210T110841 | Neutral | Relevance: 98%
+-  Natixis increased its stake in Kenvue Inc. by 26% in the second quarter, bringing its total holdings to 469,025 shares valued at approximately $9.82 million. Kenvue's stock has seen a 1.3% increase, and the company recently paid a quarterly dividend yielding 4.9%. Institutional investors now own about 97.64% of Kenvue.
+
+**3. Bank of Nova Scotia Buys 460,562 Shares of Kenvue Inc. $KVUE**
+- Source: MarketBeat | 20251210T100855 | Neutral | Relevance: 98%
+-  Bank of Nova Scotia significantly increased its stake in Kenvue Inc. ($KVUE) by 230.1% in Q2, acquiring 460,562 additional shares to reach a total of 660,715 shares valued at approximately $13.83 million. The article details other institutional investors' adjusted holdings in Kenvue and summarizes recent analyst ratings, which currently average a "Hold" with a consensus target price of $20.23. Kenvue's financial performance shows a 4.9% dividend yield but a payout ratio exceeding 100%, and it provided FY2025 EPS guidance after a quarterly EPS beat despite revenue weakness.
+
+**4. KMB Stock Tumbles 19% in 3 Months: Buy the Dip or Stay Cautious?**
+- Source: TradingView | 20251211T170805 | Somewhat-Bullish | Relevance: 63%
+- Kimberly-Clark Corporation (KMB) has seen its shares drop 19.4% in the last three months, underperforming its industry and the broader market due to soft global demand, inflation, currency volatility, and increased marketing spend. Despite these challenges, the company is implementing strategies like innovation-led growth, productivity improvements, and a significant acquisition of Kenvue to stabilize performance and secure long-term growth. Investors are advised to take a cautious stance, as recovery efforts are underway but not fully secured, with the stock currently holding a Zacks Rank #3 (Hold).
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 49.4% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 6 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.2% (+0.0%)
+- Blackrock Inc.: 7.6% (-1.9%)
+- Price (T.Rowe) Assoc: 6.0% (-31.5%)
+- State Street Corpora: 6.0% (-0.2%)
+- FMR, LLC: 4.7% (-9.3%)
+
+### Key Risks
+
+1. Long-term trend broken: trading 15.1% below SMA200.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Momentum building: MRS_10 improving +3.0% over 5 days suggests accumulation.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 0.86 indicates undervaluation relative to growth. Forward P/E 15.7x stretched relative to 7% growth. Institutional flow bullish (4 buying vs 6 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $33.2B |
+| Beta | 0.56 |
+| 52W Range | $14.02 - $25.17 |
+| Short Interest | 4.5% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.86 |
+| Forward P/E | 15.7 |
+| Current P/E | 16.8 |
+| YoY Growth | 7.1% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 strengthening from -2.0% to 1.0% (+3.0% in 5 days), confirming momentum buildup. Below STRENGTH zone by 2.0pp (needs >3.0% for momentum thesis). MRS_5 at 1.4% confirms short-term momentum alignment. Below SMA200 (0.85x), long-term trend not supportive.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | 1.02% (CS: 50) | Neutral |
+| RSI_14 | 60.9 | Neutral |
+| MACD Histogram | 0.02 | Bullish |
+| vs SMA20 | 1.029x | Above |
+| vs SMA50 | 1.073x | Above |
+| vs SMA200 | 0.849x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $17.32
+- **Stop Loss:** $16.46 (5.0% risk)
+- **Target:** $18.18 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 1604
+- **Position Value:** $27,781.28
+- **Portfolio %:** 27.78%
+- **Risk Dollars:** $1,380.00
+- **Risk Per Trade:** 1.38%
+- **Modifiers:** L1 115% | L2 120% | Combined 1.38x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.15x |
+| L2 Sector | IGNITION (Zone D) | 1.20x |
+
+*NORMAL regime with moderate risk appetite ahead of Fed decision. VIX at low 8th percentile signals complacency, but decent breadth and positive yield curve support selective positioning. Focus on quality names with earnings visibility.*
+
+### Earnings
+
+**Next:** 2026-02-05 (Est: $0.23)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.26 | $0.28 | +5.7% |
+| 2025Q2 | $0.28 | $0.29 | +2.2% |
+| 2025Q1 | $0.23 | $0.24 | +5.4% |
+| 2024Q4 | $0.26 | $0.26 | +1.5% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*

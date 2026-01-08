@@ -1,0 +1,142 @@
+## IONS: Ionis Pharmaceuticals, Inc. - XLV: Healthcare
+
+### Executive Summary
+
+No thesis match: MRS_10 -0.9% below STRENGTH zone (3.0-6.0%); PEG 25.70 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge. Caution: momentum weakening (-2.2% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($72.85)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### Analyst Activity
+
+**Target Signal:** VERY_BULLISH (Raises: 3, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-17 | RBC Capital | $95 | $82 | +16% |
+| 2025-12-15 | Leerink Partner | $100 | $85 | +18% |
+| 2025-12-09 | B of A Securiti | $97 | $86 | +13% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-17 | RBC Capital | main | Outperform |
+| 2025-12-15 | Leerink Partner | main | Outperform |
+| 2025-12-09 | B of A Securiti | main | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 13 ($8.92M) |
+| Sells | 20 ($5.86M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 62.1% |
+| Smart Money | **BEARISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 6 |
+
+**Top Holders:**
+- FMR, LLC: 14.6% (+0.2%)
+- Vanguard Group Inc: 10.2% (-1.4%)
+- T. Rowe Price Invest: 8.1% (-18.0%)
+- Capital World Invest: 7.8% (+1.5%)
+- Blackrock Inc.: 6.5% (-4.1%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_10 falling (-2.2% 5d) with bearish MACD, trend may be turning.
+2. Insider selling cluster: $5.9M in recent transactions.
+3. Valuation stretched: PEG 25.7x requires aggressive growth execution.
+4. Elevated short interest (12.7%): bears positioning against stock.
+
+### Catalysts
+
+- Analyst target momentum: 3 raises (avg +15%) could attract flows.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 25.70 signals overvaluation risk, limited margin of safety. Balance sheet: strong liquidity (2.8x). Analyst sentiment positive (3 raises, avg +15%). Institutional flow bearish (6 selling vs 4 buying).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $12.6B |
+| Beta | 0.30 |
+| 52W Range | $23.95 - $83.61 |
+| Short Interest | 12.7% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 25.70 |
+| Forward P/E | N/A |
+| Current P/E | N/A |
+| YoY Growth | N/A |
+| EPS Direction | None |
+
+### Technicals
+
+MRS_10 deteriorating from 1.3% to -0.9% (-2.2% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 3.9pp (needs >3.0% for momentum thesis). Long-term uptrend intact (above SMA200 at 1.56x) but short-term weakness (below SMA20). MACD histogram bearish (-0.73), momentum weakening. RSI neutral at 50. OFD pattern: +SBN (Volatile).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | -0.92% (CS: 28) | Neutral |
+| RSI_14 | 49.6 | Neutral |
+| MACD Histogram | -0.73 | Bearish |
+| vs SMA20 | 0.974x | Below |
+| vs SMA50 | 1.030x | Above |
+| vs SMA200 | 1.565x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $77.63
+- **Stop Loss:** $72.85 (6.2% risk)
+- **Target:** $82.41 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 198
+- **Position Value:** $15,370.74
+- **Portfolio %:** 15.37%
+- **Risk Dollars:** $950.00
+- **Risk Per Trade:** 0.95%
+- **Modifiers:** L1 95% | L2 100% | Combined 0.95x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 0.95x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*NORMAL regime with cautious positioning ahead of CPI data. VIX at moderate 16.87 with positive yield curve suggesting stable growth, but narrow breadth at 51.8% indicates selective participation. Banking sector optimism and corporate resilience provide support, though AI volatility creates pockets of uncertainty.*
+
+### Earnings
+
+**Next:** 2026-02-18 (Est: $-1.20)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $-1.05 | $-0.61 | +41.8% |
+| 2025Q2 | $0.16 | $0.85 | +415.1% |
+| 2025Q1 | $-1.03 | $-0.92 | +10.4% |
+| 2024Q4 | $-0.84 | $-0.43 | +49.0% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*

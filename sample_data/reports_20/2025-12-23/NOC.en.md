@@ -1,0 +1,164 @@
+## NOC: Northrop Grumman Corporation - XLI: Industrials
+
+### Executive Summary
+
+No thesis match: MRS_20 2.1% below STRENGTH zone (4.0-10.0%); PEG 3.62 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($557.65)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_20 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 4, Bearish: 0)
+
+**1. Did New Missile Warning and EW Contracts Just Shift Northrop Grumman's (NOC) Investment Narrative?**
+- Source: Simply Wall Street | 20251221T030906 | Bullish | Relevance: 100%
+- Northrop Grumman (NOC) has recently secured significant U.S. and allied defense contracts for missile warning, space, and electronic warfare systems, reinforcing its investment thesis of sustained government demand. These wins, particularly for Space Development Agency Tracking Layer satellites, are expected to strengthen backlog growth while maintaining reliance on large U.S. programs. The company's narrative projects substantial revenue and earnings growth by 2028, suggesting a significant upside to its current price despite potential risks from future budget shifts.
+
+**2. Northrop Grumman secures $149 million in defense contracts**
+- Source: Investing.com | 20251223T223352 | Bullish | Relevance: 100%
+- Northrop Grumman has been awarded three defense contracts totaling approximately $149 million for various military technology and systems development projects. These contracts involve research and development for digital beamforming transceivers, maintenance for Air and Missile Defense Workstation Block VII, and manufacturing B-2 forward duct assemblies. The work is distributed across facilities in Maryland, Virginia, and Oklahoma, with completion dates ranging from 2028 to 2031, managed by various U.S. defense agencies.
+
+**3. Northrop Grumman receives $50 million contract modification for LITENING**
+- Source: Investing.com | 20251222T224034 | Bullish | Relevance: 100%
+- Northrop Grumman Systems Corp. secured a $50 million contract modification for the LITENING CATP program, bringing the total contract value to $1.36 billion. The work will be performed at the company’s Rolling Meadows, Illinois facility, with completion expected by December 31, 2025, though delivery orders may extend to 2029. The modification, identified as P00033 to previously awarded contract FA8540-19-D-0001, does not obligate immediate funding and excludes Foreign Military Sales.
+
+**4. Northrop Grumman awarded $264.87M Defense Logistics Agency contract modification**
+- Source: MSN | 20251222T040854 | Bullish | Relevance: 100%
+- Northrop Grumman has been awarded a $264.87 million contract modification by the Defense Logistics Agency. This modification is related to the previous contract for parts and materials for the B-2 platform. The contract will run through September 30, 2029.
+
+**5. Analysts See a 19% Upside to Northrop Grumman Corporation (NOC)**
+- Source: Insider Monkey | 20251223T220120 | Somewhat-Bullish | Relevance: 97%
+- Analysts have a consensus Strong Buy rating on Northrop Grumman Corporation (NOC) with a one-year average share price target of $685.31, indicating a 19% upside. This follows recent adjustments by Morgan Stanley, Alembic Global, and Citigroup, with continued bullish sentiment on the aerospace and defense sector. Northrop Grumman is a major defense contractor involved in advanced systems.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 0, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-15 | Alembic Global | $662 | $0 | 0% |
+| 2025-12-12 | Citigroup | $654 | $0 | 0% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-15 | Alembic Global | up | Overweight |
+| 2025-12-12 | Citigroup | init | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 3 ($0.08M) |
+| Sells | 2 ($0.05M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 49.6% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 6 / 4 |
+
+**Top Holders:**
+- Vanguard Group Inc: 9.5% (+0.8%)
+- State Street Corpora: 9.3% (-1.6%)
+- Capital Internationa: 8.2% (-1.7%)
+- Blackrock Inc.: 6.9% (+1.0%)
+- JPMORGAN CHASE & CO: 3.9% (+91.5%)
+
+### Key Risks
+
+1. Valuation stretched: PEG 3.6x requires aggressive growth execution.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 3.62 signals overvaluation risk, limited margin of safety. Quality metrics strong (ROE 26%). Balance sheet: $1.3B free cash flow. Institutional flow bullish (6 buying vs 4 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $83.1B |
+| Beta | 0.05 |
+| 52W Range | $426.24 - $640.90 |
+| Short Interest | 1.2% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 3.62 |
+| Forward P/E | 20.1 |
+| Current P/E | 22.3 |
+| YoY Growth | 10.7% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 weakening modestly (-0.6% over 5 days). Below STRENGTH zone by 1.9pp (needs >4.0% for momentum thesis). MRS_5 (-0.1%) diverging from MRS_20 - short-term weakness emerging. AM_20 at 3.2% shows strong absolute momentum above own 20MA. Full SMA alignment bullish (above 20/50/200 SMAs). MACD histogram positive (3.42), confirming momentum. RSI neutral at 58. OFD pattern: -MLN (Support test).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 2.15% (CS: 76) | Neutral |
+| RSI_14 | 57.9 | Neutral |
+| MACD Histogram | 3.42 | Bullish |
+| vs SMA20 | 1.031x | Above |
+| vs SMA50 | 1.011x | Above |
+| vs SMA200 | 1.069x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $579.93
+- **Stop Loss:** $557.65 (3.8% risk)
+- **Target:** $602.21 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 40
+- **Position Value:** $23,197.20
+- **Portfolio %:** 23.20%
+- **Risk Dollars:** $900.00
+- **Risk Per Trade:** 0.90%
+- **Modifiers:** L1 120% | L2 75% | Combined 0.90x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | WEAKENING (Zone B) | 0.75x |
+
+*NORMAL regime with moderate risk appetite in holiday-thinned conditions. VIX at 52-week lows suggests complacency, but modest breadth improvement and stable yields indicate underlying stability. Focus on quality positioning ahead of 2026 catalysts.*
+
+### Earnings
+
+**Next:** 2026-01-29 (Est: $6.95)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $6.46 | $7.67 | +18.8% |
+| 2025Q2 | $6.80 | $8.15 | +19.9% |
+| 2025Q1 | $6.26 | $3.32 | -47.0% |
+| 2024Q4 | $6.35 | $6.39 | +0.7% |
+
+---
+*RULE-based L3 | 2026-01-06 16:38 | MRS_20*

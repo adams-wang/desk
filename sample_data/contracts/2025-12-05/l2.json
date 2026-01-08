@@ -1,0 +1,927 @@
+{
+  "contract_id": "l2_2025-12-05",
+  "trading_date": "2025-12-05",
+  "generated_at": "2025-12-17T11:05:43.401647",
+  "valid_until": "2025-12-18T11:05:43.401647",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-05",
+  "sector_news": {
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "The Technology Select Sector SPDR Fund To Carry Out 2-for-1 Stock Split On December 5th, 2025",
+          "summary": "The Technology Select Sector SPDR Fund (XLK.US) is set to perform a 2-for-1 stock split, with shares trading on a split-adjusted basis starting December 5th, 2025. This stock split aims to increase the stock's liquidity without altering the company's fundamental value. On December 2nd, the fund closed at $289.3, rising 1.03%.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/65765654/the-technology-select-sector-spdr-fund-to-carry-out-2",
+          "time_published": "20251204T190922",
+          "relevance": 1.0,
+          "sentiment": 0.198176,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "If You'd Invested $1,000 in the Technology Select Sector SPDR Fund (XLK) 10 Years Ago, Here's How Much You'd Have Today",
+          "summary": "This article examines the performance of the Technology Select Sector SPDR Fund (XLK) over the past decade, highlighting its significant outperformance compared to the broader S&P 500. It calculates that a $1,000 investment in XLK ten years ago would now be worth close to $6,500, driven by its holdings in major tech companies like Nvidia and Microsoft. The article also touches on the impact of \"Magnificent Seven\" stocks and artificial intelligence on market growth.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242017/if-youd-invested-1000-in-the-technology-select-sector-spdr-fund-xlk-10-years-ago-heres-how-much-youd-have-today",
+          "time_published": "20251201T081400",
+          "relevance": 1.0,
+          "sentiment": 0.035277,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Will Netflix subscriptions go up after Warner Bros deal? What to know",
+          "summary": "Netflix is set to acquire Warner Bros., HBO Max, and HBO from Warner Bros. Discovery Inc. in a deal valued at approximately $82.7 billion. This acquisition will expand Netflix's content library with highly acclaimed titles and is expected to attract and retain more subscribers. However, despite potential savings for Netflix, consumers may face subscription price increases due to reduced competition in the streaming market.",
+          "source": "The Asheville Citizen Times",
+          "url": "https://www.citizen-times.com/story/entertainment/2025/12/05/netflix-subscription-increase-warner-bros-deal-hbo/87629156007/",
+          "time_published": "20251205T232600",
+          "relevance": 1.0,
+          "sentiment": 0.113873,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Arm Holdings plc (ARM): A Bull Case Theory",
+          "summary": "This article summarizes a bullish thesis on Arm Holdings plc (ARM), particularly highlighting its strong competitive moat, exceptional growth outlook, and recurring revenue streams from licensing its processor designs. While acknowledging Arm's strong prospects and growth drivers in various sectors, the author also points out the demanding valuation and advises a \"Hold\" rating with an attractive entry point below $130 per share given near-term valuation concerns.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246417/arm-holdings-plc-arm-a-bull-case-theory",
+          "time_published": "20251205T231008",
+          "relevance": 1.0,
+          "sentiment": 0.149345,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Prediction: This Artificial Intelligence (AI) Stock Will Be Worth More Than SoundHound AI in 2026",
+          "summary": "This article predicts that Ambarella (AMBA) will surpass SoundHound AI's (SOUN) market cap by 2026, primarily due to SoundHound's expensive valuation and Ambarella's strong growth in the edge AI hardware market. While SoundHound AI's stock is down significantly in 2025, it still trades at a high sales multiple, whereas Ambarella, despite an anticipated growth slowdown next year, is expected to benefit from the expanding edge AI market and improved margins. The author suggests Ambarella's stock could see a substantial increase in market cap with a re-rating to the sector average sales multiple.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246335/prediction-this-artificial-intelligence-ai-stock-will-be-worth-more-than-soundhound-ai-in-2026",
+          "time_published": "20251205T230944",
+          "relevance": 1.0,
+          "sentiment": 0.450902,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "XLV ETF Rises to $155.29 as LLY Stock, JNJ, and ABBV Drive Healthcare Sector Gains",
+          "summary": "The Health Care Select Sector SPDR Fund (XLV) has risen to $155.29, supported by its top holdings: Eli Lilly, Johnson & Johnson, and AbbVie. Eli Lilly's GLP-1 drugs and the stability provided by J&J and AbbVie's products are driving performance, making XLV a defensive yet growth-oriented investment for 2026. The ETF is rated a \"Buy\" with price targets between $165 and $172 for 2026, benefiting from low costs, strong dividends, and mega-cap leadership.",
+          "source": "TradingNEWS",
+          "url": "https://www.tradingnews.com/news/healthcare-xlv-etf-nysearca-xlv-hits-155-usd",
+          "time_published": "20251204T050942",
+          "relevance": 1.0,
+          "sentiment": 0.383439,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "5 Healthcare Names to Watch as Sector Rotation Is in Full Swing",
+          "summary": "As investor capital shifts from technology to healthcare, driven by stabilizing interest rates and strong Q3 earnings, the healthcare sector is experiencing a significant rotation. This article highlights five healthcare-related investments\u2014ranging from stable options to high-growth biotech\u2014that warrant attention as the year concludes. These include established giants like Eli Lilly and Johnson & Johnson, as well as diversified options like Gilead Sciences and the Health Care Select Sector SPDR Fund and iShares Biotechnology ETF.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/JNJ/pressreleases/36412515/5-healthcare-names-to-watch-as-sector-rotation-is-in-full-swing/",
+          "time_published": "20251202T050942",
+          "relevance": 1.0,
+          "sentiment": 0.404688,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Cooper Companies (COO) Margin Decline Tests Bullish 21% Earnings Growth Narrative",
+          "summary": "Cooper Companies (COO) reported Q4 FY 2025 revenues of $1.1 billion and EPS of $0.43, with full-year revenues of $4.1 billion and EPS of $1.87. Despite strong projected earnings growth of 21.4% annually, the company's net income and margins have recently slipped, contrasting with analyst expectations for margin expansion. This disparity, coupled with a high P/E ratio and moderate revenue growth, raises questions about the sustainability of its bullish outlook.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/healthcare/nasdaq-coo/cooper-companies/news/cooper-companies-coo-margin-decline-tests-bullish-21-earning",
+          "time_published": "20251205T234210",
+          "relevance": 1.0,
+          "sentiment": -0.279281,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Capricor Therapeutics (NASDAQ: CAPR) prices 6M-share offering at $25, targeting $150M",
+          "summary": "Capricor Therapeutics announced the pricing of an underwritten public offering of 6,000,000 common shares at $25.00 per share, aiming to raise $150 million before fees. The company intends to use the net proceeds for continued product development, manufacturing, working capital, and general corporate purposes. This financing follows recent positive Phase 3 HOPE-3 results for Deramiocel and also includes a 30-day option for underwriters to purchase an additional 900,000 shares.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/CAPR/capricor-therapeutics-announces-pricing-of-150-million-public-dfcfjb61wcfd.html",
+          "time_published": "20251205T230944",
+          "relevance": 1.0,
+          "sentiment": 0.186804,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "BioCryst Pharmaceuticals (NASDAQ:BCRX) Insider Alane Barnes Sells 19,770 Shares",
+          "summary": "BioCryst Pharmaceuticals insider Alane Barnes sold 19,770 shares of the company's stock, valued at $151,240.50, reducing her position by 5.41%. This transaction occurred as the company reported a slight miss on quarterly earnings estimates, with EPS of $0.06 against an expected $0.07, and revenue of $159.4 million versus $162.9 million expected. Despite the miss, revenue grew 36.1% year-over-year, and analysts maintain a \"Moderate Buy\" consensus with a target price of $19.33.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/biocryst-pharmaceuticals-nasdaqbcrx-insider-alane-barnes-sells-19770-shares-2025-12-03/",
+          "time_published": "20251205T230904",
+          "relevance": 1.0,
+          "sentiment": 0.065649,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "Bank of New York Mellon Stock: Is BK Outperforming the Financial Sector?",
+          "summary": "The Bank of New York Mellon Corporation (BK) is a large-cap financial services company whose stock has seen significant growth, outperforming the Financial Select Sector SPDR Fund (XLF) and even JPMorgan Chase (JPM) over various periods. Despite strong performance and a \"Moderate Buy\" consensus rating from analysts, the stock dipped after Q3 2025 results due to concerns over rising non-interest expenses. Analysts currently project a modest premium for BK shares.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-bank-of-new-york-mellon-stock-is-bk-outperforming-the-financial-sector",
+          "time_published": "20251203T085900",
+          "relevance": 1.0,
+          "sentiment": 0.457845,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "XLF ETF: 3 Reasons Why I Am Not A Buyer (NYSEARCA:XLF)",
+          "summary": "The Financial Select Sector SPDR Fund (XLF) offers exposure to U.S. financial services companies, but the author is not a buyer due to several factors. XLF has underperformed the S&P 500 since its inception, exhibiting higher volatility and lower risk-adjusted returns. Intense competition within the financial and insurance sectors also limits pricing power for its top holdings, making it difficult for the ETF to deliver above-market returns despite trading at a valuation discount.",
+          "source": "Seeking Alpha",
+          "url": "https://seekingalpha.com/article/4848673-xlf-3-reasons-why-i-am-not-a-buyer",
+          "time_published": "20251201T052137",
+          "relevance": 1.0,
+          "sentiment": -0.18847,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 2
+        },
+        {
+          "title": "Prologis updates performance stock unit agreements and retirement eligibility terms",
+          "summary": "Prologis, Inc. has updated its Performance Stock Unit Agreement to include dividend equivalents on target units, payable in cash after the performance period based on criteria. The company also amended retirement eligibility terms for three executives, impacting equity awards granted from January 1, 2026. These changes, disclosed in an SEC filing, reflect ongoing adjustments to the company's long-term incentive plan and executive compensation.",
+          "source": "Investing.com",
+          "url": "https://m.investing.com/news/sec-filings/prologis-updates-performance-stock-unit-agreements-and-retirement-eligibility-terms-93CH-4394543?ampMode=1",
+          "time_published": "20251205T232553",
+          "relevance": 1.0,
+          "sentiment": 0.109036,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "American Tower completes $850 million senior notes offering due 2032",
+          "summary": "American Tower Corporation (NYSE:AMT) has successfully completed a public offering of $850 million in senior unsecured notes due 2032, with a 4.700% interest rate, expecting net proceeds of approximately $839.5 million. The company plans to use these proceeds to repay existing debt under its $4.0 billion revolving credit facility. This debt management strategy follows a strong Q3 2025 earnings report, which significantly surpassed analyst forecasts.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/sec-filings/american-tower-completes-850-million-senior-notes-offering-due-2032-93CH-4394501",
+          "time_published": "20251205T231900",
+          "relevance": 1.0,
+          "sentiment": 0.251659,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Capricor Therapeutics (NASDAQ: CAPR) prices 6M-share offering at $25, targeting $150M",
+          "summary": "Capricor Therapeutics announced the pricing of an underwritten public offering of 6,000,000 common shares at $25.00 per share, aiming to raise $150 million before fees. The company intends to use the net proceeds for continued product development, manufacturing, working capital, and general corporate purposes. This financing follows recent positive Phase 3 HOPE-3 results for Deramiocel and also includes a 30-day option for underwriters to purchase an additional 900,000 shares.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/CAPR/capricor-therapeutics-announces-pricing-of-150-million-public-dfcfjb61wcfd.html",
+          "time_published": "20251205T230944",
+          "relevance": 1.0,
+          "sentiment": 0.182051,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "How Is Fastenal's Stock Performance Compared to Other Industrial Stocks?",
+          "summary": "Fastenal Company (FAST) has seen a complex performance compared to the broader industrial market and its rival, W.W. Grainger, Inc. (GWW). While FAST has underperformed the Industrial Select Sector SPDR Fund (XLI) in recent months and over the past year, it has outperformed GWW. Analysts currently hold a cautious \"Hold\" rating on FAST stock.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/stocks/article/barchart-2025-12-5-how-is-fastenals-stock-performance-compared-to-other-industrial-stocks",
+          "time_published": "20251205T071100",
+          "relevance": 1.0,
+          "sentiment": 0.035228,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Dow Inc. (DOW): A Bull Case Theory",
+          "summary": "This article summarizes a bullish thesis on Dow Inc. (DOW) from Quipus Capital's Substack, highlighting the company's core profitability in olefins and polyolefins and its disciplined capital allocation strategy. Despite financial flexibility constraints due to an oversized dividend and limited operating cash flow, the bullish case suggests modest upside if the company achieves $4.2 billion in EBIT and $2.6 billion in net income, leading to a 6x earnings multiple. The article also notes that DOW is not among the 30 Most Popular Stocks Among Hedge Funds.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/dow-inc-dow-a-bull-case-theory-1642946/",
+          "time_published": "20251205T231415",
+          "relevance": 1.0,
+          "sentiment": 0.335746,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Lockheed Martin awarded $1.14 billion contract for F-35 fighter jets",
+          "summary": "Lockheed Martin has been awarded a $1.14 billion contract modification to procure materials for F-35 fighter jets for the U.S. military and international customers. This funding will support long lead materials, parts, and components for 65 Lot 20 production aircraft and adds scope for 133 Lot 21 production aircraft, with work expected to be completed by December 2030. The contract was not competed and involves various funding sources from the U.S. Air Force, Navy, Foreign Military Sales, and cooperative program partners.",
+          "source": "Investing.com Canada",
+          "url": "https://ca.investing.com/news/stock-market-news/lockheed-martin-awarded-114-billion-contract-for-f35-fighter-jets-93CH-4352173",
+          "time_published": "20251205T230925",
+          "relevance": 1.0,
+          "sentiment": 0.624808,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "USA Rare Earth (USAR) Stock Soars on New Supply Deal: Latest News, Forecasts and Outlook as of December 4, 2025",
+          "summary": "USA Rare Earth (USAR) stock surged approximately 25% on December 4, 2025, following the announcement of a new rare-earth metals supply agreement through its Less Common Metals (LCM) subsidiary. This deal, along with fresh analyst commentary on its Stillwater magnet facility and \"mine-to-magnet\" strategy, fueled investor optimism. The company aims to establish a vertically integrated rare-earths business outside of China, from mining to finished magnets, positioning itself as a key player in U.S. national security and technological independence.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/usa-rare-earth-usar-stock-soars-on-new-supply-deal-latest-news-forecasts-and-outlook-as-of-december-4-2025/",
+          "time_published": "20251205T230916",
+          "relevance": 1.0,
+          "sentiment": 0.021313,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "J.P. Morgan Maintains Packaging Corp of America(PKG.US) With Buy Rating, Raises Target Price to $245",
+          "summary": "J.P. Morgan analyst Detlef Winckelmann has reiterated a 'Buy' rating for Packaging Corp of America (PKG.US), increasing the target price from $238 to $245. According to TipRanks data, Winckelmann has a 45.7% success rate and an average return of 1.1% over the past year. The article clarifies that this information is for educational purposes only and does not constitute investment advice.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/65855419/jp-morgan-maintains-packaging-corp-of-america-pkgus-with-buy",
+          "time_published": "20251205T230850",
+          "relevance": 1.0,
+          "sentiment": 0.436474,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "Could Retail Stocks Rally Into Year End? What the Charts of Marriott, On Holding, Lululemon Say.",
+          "summary": "Despite ongoing recession chatter and a lagging performance for the consumer discretionary sector, some retail stocks are showing resilience. The article examines the charts of Marriott, On Holding, and Lululemon to determine if they could rally into the year-end. This analysis comes as the Consumer Discretionary Select Sector SPDR Fund is only the ninth-best performer among S&P groups, largely due to Amazon and Tesla being below their 52-week highs.",
+          "source": "Barron's",
+          "url": "https://www.barrons.com/articles/could-retail-stocks-rally-charts-marriott-on-holding-lululemon-5ba331e5?gaa_at=eafs&gaa_n=AWEtsqenzCjvd8Bt3UZsQSBy-uKr4SsKiXTHofUm_H_ui7mQ4Yv6_92ZbQUY&gaa_ts=693c959a&gaa_sig=IDVwfh28f-53pTkSnQN_up8aK_pBhIHZLdhW3adeL0adT3sSITzh5sJ7IucVgA9ANgx_3rvAaqPuSRGAgm6Wfw%3D%3D",
+          "time_published": "20251205T220936",
+          "relevance": 1.0,
+          "sentiment": 0.067237,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "BEST BUY CO INC SEC 10-Q Report",
+          "summary": "Best Buy Co Inc (BBY) has released its Q3 10-Q report, detailing revenue of $9,672 million, a 2.4% increase year-over-year, primarily driven by computing, gaming, and mobile phones. Despite revenue growth, operating income and net earnings decreased due to goodwill and intangible asset impairments. The company plans to continue optimizing its store count and enhance its Best Buy Health business for future profitability.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/tradingview:9630b33e1d3f9:0-best-buy-co-inc-sec-10-q-report/",
+          "time_published": "20251205T221500",
+          "relevance": 1.0,
+          "sentiment": -0.239353,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "General Mills, Inc. (GIS): A Bull Case Theory",
+          "summary": "This article summarizes a bullish thesis on General Mills, Inc. (GIS), highlighting its compelling contrarian value opportunity despite trading below its historical peak. The investment case is supported by stable profitability, strong cash generation, a portfolio of iconic brands, and growth catalysts like its pet food segment and cost optimization efforts. Analysts suggest a BUY rating with potential for 25-35% total returns over 2-3 years, and even 40-50% in a bull scenario.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/247389/general-mills-inc-gis-a-bull-case-theory",
+          "time_published": "20251205T213345",
+          "relevance": 1.0,
+          "sentiment": 0.316974,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Smith & Wesson\u2019s Fiscal Q2 Sales Slip 4 Percent, Eyes Return to Growth in Q3",
+          "summary": "Smith & Wesson Brands, Inc. reported a 3.9% decrease in net sales for fiscal Q2, ending October 31, 2025, reaching $124.7 million, alongside a 61.5% drop in adjusted profits. Despite this, the company saw positive retail sell-through and anticipates an 8% to 10% increase in sales for fiscal Q3. The firm remains confident due to its brand strength, product innovation, and disciplined operations, authorizing a quarterly dividend of $0.13 per share.",
+          "source": "SGB Media",
+          "url": "https://sgbonline.com/smith-wessons-fiscal-q2-sales-slip-4-percent-eyes-robust-return-to-growth-in-q3/",
+          "time_published": "20251205T210956",
+          "relevance": 1.0,
+          "sentiment": 0.191857,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Earnings call transcript: Smith & Wesson\u2019s Q2 2025 earnings show resilience",
+          "summary": "Smith & Wesson Brands, Inc. (NASDAQ:SWBI) reported mixed Q2 2025 earnings, with EPS aligning with analyst expectations at $0.04 and sales slightly exceeding forecasts at $124.7 million, despite a year-over-year decline. The company highlighted strong performance in new products, accounting for nearly 40% of sales, and significantly improved operating cash flow. While net income decreased, a modest 0.34% stock increase in after-hours trading reflected cautious optimism regarding the company's strategic initiatives and positive outlook for Q3 and Q4 sales growth.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-smith--wessons-q2-2025-earnings-show-resilience-93CH-4392363",
+          "time_published": "20251205T210919",
+          "relevance": 1.0,
+          "sentiment": 0.390852,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "How Is Hershey's Stock Performance Compared to Other Consumer Staples Stocks?",
+          "summary": "The Hershey Company (HSY) has a market cap of $38.8 billion and operates in North America and internationally. Despite a recent dip from its 52-week high, HSY stock has outperformed the Consumer Staples Select Sector SPDR Fund (XLP) over the past three months and year-to-date, gaining 7.9% YTD. Although Q3 results beat expectations, the stock dipped due to unimproved full-year earnings guidance, but analysts maintain a \"Hold\" rating with modest upside potential.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-how-is-hersheys-stock-performance-compared-to-other-consumer-staples-stocks",
+          "time_published": "20251203T041300",
+          "relevance": 1.0,
+          "sentiment": 0.211963,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "XLP vs. IYK: Which is the Better Consumer Staples ETF?",
+          "summary": "This article compares two consumer staples ETFs, XLP and IYK, highlighting XLP's lower expense ratio, higher dividend yield, and pure-play focus on consumer defensive names with significant holdings in Walmart and Costco. While IYK offers broader diversification including some healthcare, the author leans towards XLP due to its cost-effectiveness, specific holdings, and potential for future outperformance. Both ETFs have underperformed the S&P 500 in recent years due to a lack of technology exposure.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36130046/xlp-vs-iyk-which-is-the-better-consumer-staples-etf/",
+          "time_published": "20251130T160906",
+          "relevance": 1.0,
+          "sentiment": 0.336965,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "BEST BUY CO INC SEC 10-Q Report",
+          "summary": "Best Buy Co Inc (BBY) has released its Q3 10-Q report, detailing revenue of $9,672 million, a 2.4% increase year-over-year, primarily driven by computing, gaming, and mobile phones. Despite revenue growth, operating income and net earnings decreased due to goodwill and intangible asset impairments. The company plans to continue optimizing its store count and enhance its Best Buy Health business for future profitability.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/tradingview:9630b33e1d3f9:0-best-buy-co-inc-sec-10-q-report/",
+          "time_published": "20251205T221500",
+          "relevance": 1.0,
+          "sentiment": -0.239353,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "General Mills, Inc. (GIS): A Bull Case Theory",
+          "summary": "This article summarizes a bullish thesis on General Mills, Inc. (GIS), highlighting its compelling contrarian value opportunity despite trading below its historical peak. The investment case is supported by stable profitability, strong cash generation, a portfolio of iconic brands, and growth catalysts like its pet food segment and cost optimization efforts. Analysts suggest a BUY rating with potential for 25-35% total returns over 2-3 years, and even 40-50% in a bull scenario.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/247389/general-mills-inc-gis-a-bull-case-theory",
+          "time_published": "20251205T213345",
+          "relevance": 1.0,
+          "sentiment": 0.316974,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Smith & Wesson\u2019s Fiscal Q2 Sales Slip 4 Percent, Eyes Return to Growth in Q3",
+          "summary": "Smith & Wesson Brands, Inc. reported a 3.9% decrease in net sales for fiscal Q2, ending October 31, 2025, reaching $124.7 million, alongside a 61.5% drop in adjusted profits. Despite this, the company saw positive retail sell-through and anticipates an 8% to 10% increase in sales for fiscal Q3. The firm remains confident due to its brand strength, product innovation, and disciplined operations, authorizing a quarterly dividend of $0.13 per share.",
+          "source": "SGB Media",
+          "url": "https://sgbonline.com/smith-wessons-fiscal-q2-sales-slip-4-percent-eyes-robust-return-to-growth-in-q3/",
+          "time_published": "20251205T210956",
+          "relevance": 1.0,
+          "sentiment": 0.191857,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "9 Best Affordable Stocks Under $5 to Buy for the Next 3 Years",
+          "summary": "This article highlights Ultrapar Participa\u00e7\u00f5es S.A. (NYSE:UGP) as one of the best affordable stocks under $5 to buy for the next three years. The company recently received 'Buy' and 'Outperform' ratings from Scotiabank and Bradesco BBI, respectively, following strong fiscal Q3 2025 results. Ultrapar has also made strategic advancements, including expanding its storage capacity and divesting its coastal navigation operation to bolster its financial position and focus on core businesses.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/9-best-affordable-stocks-under-5-to-buy-for-the-next-3-years-1655541/3/",
+          "time_published": "20251205T235700",
+          "relevance": 1.0,
+          "sentiment": 0.491968,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Chevron updates bylaws and executive team, adds new officer roles",
+          "summary": "Chevron Corporation announced amendments to its bylaws to simplify officer roles and modernize titles, effective December 5, 2025. The company also updated its executive team, adding two new executive officers and adjusting titles to align with current industry practices. These changes are part of Chevron's effort to streamline corporate governance and enhance operational flexibility.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/sec-filings/chevron-updates-bylaws-and-executive-team-adds-new-officer-roles-93CH-4394504",
+          "time_published": "20251205T230812",
+          "relevance": 1.0,
+          "sentiment": 0.289106,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Piper Sandler Reaffirms Their Buy Rating on Coterra Energy (CTRA)",
+          "summary": "Piper Sandler analyst Mark Lear maintained a Buy rating for Coterra Energy (CTRA) with a price target of $37.00. This follows Coterra Energy's Q3 revenue of $1.82 billion and a net profit of $322 million, showing growth from the previous year. Other analysts have offered mixed ratings, with Siebert Williams Shank & Co also giving a Buy, while Morgan Stanley maintained a Hold.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/CTRA/pressreleases/36473393/piper-sandler-reaffirms-their-buy-rating-on-coterra-energy-ctra/",
+          "time_published": "20251205T230807",
+          "relevance": 1.0,
+          "sentiment": 0.337122,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "AES announces quarterly dividend of $0.17595 per share",
+          "summary": "The AES Corporation announced a quarterly common stock dividend of $0.17595 per share, payable on February 13, 2026, to shareholders of record on January 30, 2026. This announcement follows their recent Q3 2025 earnings beat and an upgrade in stock rating from Jefferies to \"Hold\" with an increased price target. The company focuses on renewables and strategic energy transitions.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/aes-announces-quarterly-dividend-of-017595-per-share-93CH-4394408",
+          "time_published": "20251205T230758",
+          "relevance": 1.0,
+          "sentiment": 0.341895,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "New Jersey American Water (NYSE: AWK) issues conservation notice after drought warning",
+          "summary": "New Jersey American Water (AWK) issued a statewide mandatory conservation notice on December 5, 2025, after the New Jersey Department of Environmental Protection upgraded the drought status to a Drought Warning. The company urges customers to limit nonessential indoor water use and provides guidelines for conservation. Despite the warning, New Jersey American Water states it does not anticipate a major threat to its water supply and is leveraging redundancies to ensure uninterrupted service.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/AWK/new-jersey-american-water-issues-statewide-mandatory-conservation-w9ftq3egldab.html",
+          "time_published": "20251205T222144",
+          "relevance": 1.0,
+          "sentiment": -0.294092,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "9 Best Affordable Stocks Under $5 to Buy for the Next 3 Years",
+          "summary": "This article highlights Ultrapar Participa\u00e7\u00f5es S.A. (NYSE:UGP) as one of the best affordable stocks under $5 to buy for the next three years. The company recently received 'Buy' and 'Outperform' ratings from Scotiabank and Bradesco BBI, respectively, following strong fiscal Q3 2025 results. Ultrapar has also made strategic advancements, including expanding its storage capacity and divesting its coastal navigation operation to bolster its financial position and focus on core businesses.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/9-best-affordable-stocks-under-5-to-buy-for-the-next-3-years-1655541/3/",
+          "time_published": "20251205T235700",
+          "relevance": 1.0,
+          "sentiment": 0.491968,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Chevron updates bylaws and executive team, adds new officer roles",
+          "summary": "Chevron Corporation announced amendments to its bylaws to simplify officer roles and modernize titles, effective December 5, 2025. The company also updated its executive team, adding two new executive officers and adjusting titles to align with current industry practices. These changes are part of Chevron's effort to streamline corporate governance and enhance operational flexibility.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/sec-filings/chevron-updates-bylaws-and-executive-team-adds-new-officer-roles-93CH-4394504",
+          "time_published": "20251205T230812",
+          "relevance": 1.0,
+          "sentiment": 0.289106,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Piper Sandler Reaffirms Their Buy Rating on Coterra Energy (CTRA)",
+          "summary": "Piper Sandler analyst Mark Lear maintained a Buy rating for Coterra Energy (CTRA) with a price target of $37.00. This follows Coterra Energy's Q3 revenue of $1.82 billion and a net profit of $322 million, showing growth from the previous year. Other analysts have offered mixed ratings, with Siebert Williams Shank & Co also giving a Buy, while Morgan Stanley maintained a Hold.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/CTRA/pressreleases/36473393/piper-sandler-reaffirms-their-buy-rating-on-coterra-energy-ctra/",
+          "time_published": "20251205T230807",
+          "relevance": 1.0,
+          "sentiment": 0.337122,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "AES announces quarterly dividend of $0.17595 per share",
+          "summary": "The AES Corporation announced a quarterly common stock dividend of $0.17595 per share, payable on February 13, 2026, to shareholders of record on January 30, 2026. This announcement follows their recent Q3 2025 earnings beat and an upgrade in stock rating from Jefferies to \"Hold\" with an increased price target. The company focuses on renewables and strategic energy transitions.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/aes-announces-quarterly-dividend-of-017595-per-share-93CH-4394408",
+          "time_published": "20251205T230758",
+          "relevance": 1.0,
+          "sentiment": 0.341895,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "New Jersey American Water (NYSE: AWK) issues conservation notice after drought warning",
+          "summary": "New Jersey American Water (AWK) issued a statewide mandatory conservation notice on December 5, 2025, after the New Jersey Department of Environmental Protection upgraded the drought status to a Drought Warning. The company urges customers to limit nonessential indoor water use and provides guidelines for conservation. Despite the warning, New Jersey American Water states it does not anticipate a major threat to its water supply and is leveraging redundancies to ensure uninterrupted service.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/AWK/new-jersey-american-water-issues-statewide-mandatory-conservation-w9ftq3egldab.html",
+          "time_published": "20251205T222144",
+          "relevance": 1.0,
+          "sentiment": -0.294092,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "Prologis updates performance stock unit agreements and retirement eligibility terms",
+          "summary": "Prologis, Inc. has updated its Performance Stock Unit Agreement to include dividend equivalents on target units, payable in cash after the performance period based on criteria. The company also amended retirement eligibility terms for three executives, impacting equity awards granted from January 1, 2026. These changes, disclosed in an SEC filing, reflect ongoing adjustments to the company's long-term incentive plan and executive compensation.",
+          "source": "Investing.com",
+          "url": "https://m.investing.com/news/sec-filings/prologis-updates-performance-stock-unit-agreements-and-retirement-eligibility-terms-93CH-4394543?ampMode=1",
+          "time_published": "20251205T232553",
+          "relevance": 1.0,
+          "sentiment": 0.109036,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Cushman & Wakefield Secures Global Contract Extension with BHP",
+          "summary": "Cushman & Wakefield's Global Occupier Services team has secured an off-market contract extension with BHP, a leading resources company, solidifying their partnership across 12 countries and 19 offices. The extended agreement includes a broader range of services such as Facilities Management, Workplace Experience, and Lease Administration, demonstrating BHP's continued trust due to Cushman & Wakefield's strong operational performance and collaborative approach. This renewal emphasizes both organizations' commitment to high-performance workplaces, productivity, and sustainability across BHP's global operations.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/CWK/cushman-wakefield-secures-global-contract-extension-with-4nvbdmrd4dbf.html",
+          "time_published": "20251205T230957",
+          "relevance": 1.0,
+          "sentiment": 0.498003,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Broadstone Net Lease Provides Business Update And Issues 2026 Guidance",
+          "summary": "Broadstone Net Lease (BNL) has provided a business update and issued guidance for 2026, alongside its upcoming Investor Day. The company is maintaining its 2025 adjusted funds from operations (AFFO) guidance of $1.49 to $1.50 per share and expects 2026 AFFO to be between $1.53 and $1.57 per diluted share.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/reuters.com,2025:newsml_TUA9C2WCH:0-broadstone-net-lease-provides-business-update-and-issues-2026-guidance/",
+          "time_published": "20251205T230927",
+          "relevance": 1.0,
+          "sentiment": 0.311271,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "DiamondRock Hospitality Company (NYSE:DRH) Declares Quarterly Dividend of $0.08",
+          "summary": "DiamondRock Hospitality Company (NYSE:DRH) has declared a quarterly dividend of $0.08 per share, payable on January 14th to shareholders of record on December 31st. This dividend represents a 3.6% annualized yield, with an ex-dividend date of December 31st. The company's dividend is well-covered by earnings, and analysts maintain a \"Hold\" rating with an average target price of $9.21.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/diamondrock-hospitality-company-nysedrh-declares-quarterly-dividend-of-008-2025-12-03/",
+          "time_published": "20251205T230917",
+          "relevance": 1.0,
+          "sentiment": 0.293534,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Essex Property Trust (NYSE: ESS) declares $2.57 quarterly dividend for Jan. 15, 2026",
+          "summary": "Essex Property Trust, Inc. (NYSE: ESS) has announced a regular quarterly cash dividend of $2.57 per common share. This dividend is payable on January 15, 2026, to shareholders of record as of January 2, 2026. The company is an S&P 500 REIT investing in multifamily residential properties on the West Coast.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/ESS/essex-property-trust-declares-quarterly-4x5a71vptreh.html",
+          "time_published": "20251205T230821",
+          "relevance": 1.0,
+          "sentiment": 0.323961,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "Will Netflix subscriptions go up after Warner Bros deal? What to know",
+          "summary": "Netflix is set to acquire Warner Bros., HBO Max, and HBO from Warner Bros. Discovery Inc. in a deal valued at approximately $82.7 billion. This acquisition will expand Netflix's content library with highly acclaimed titles and is expected to attract and retain more subscribers. However, despite potential savings for Netflix, consumers may face subscription price increases due to reduced competition in the streaming market.",
+          "source": "The Asheville Citizen Times",
+          "url": "https://www.citizen-times.com/story/entertainment/2025/12/05/netflix-subscription-increase-warner-bros-deal-hbo/87629156007/",
+          "time_published": "20251205T232600",
+          "relevance": 1.0,
+          "sentiment": 0.113873,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Arm Holdings plc (ARM): A Bull Case Theory",
+          "summary": "This article summarizes a bullish thesis on Arm Holdings plc (ARM), particularly highlighting its strong competitive moat, exceptional growth outlook, and recurring revenue streams from licensing its processor designs. While acknowledging Arm's strong prospects and growth drivers in various sectors, the author also points out the demanding valuation and advises a \"Hold\" rating with an attractive entry point below $130 per share given near-term valuation concerns.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246417/arm-holdings-plc-arm-a-bull-case-theory",
+          "time_published": "20251205T231008",
+          "relevance": 1.0,
+          "sentiment": 0.149345,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Prediction: This Artificial Intelligence (AI) Stock Will Be Worth More Than SoundHound AI in 2026",
+          "summary": "This article predicts that Ambarella (AMBA) will surpass SoundHound AI's (SOUN) market cap by 2026, primarily due to SoundHound's expensive valuation and Ambarella's strong growth in the edge AI hardware market. While SoundHound AI's stock is down significantly in 2025, it still trades at a high sales multiple, whereas Ambarella, despite an anticipated growth slowdown next year, is expected to benefit from the expanding edge AI market and improved margins. The author suggests Ambarella's stock could see a substantial increase in market cap with a re-rating to the sector average sales multiple.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/246335/prediction-this-artificial-intelligence-ai-stock-will-be-worth-more-than-soundhound-ai-in-2026",
+          "time_published": "20251205T230944",
+          "relevance": 1.0,
+          "sentiment": 0.450902,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "TD SYNNEX Launches IBM\u00ae watsonx\u2122 Gold 100 Program to Accelerate AI Opportunities for Partners",
+          "summary": "TD SYNNEX has launched the IBM\u00ae watsonx\u2122 Gold 100 program, aiming to onboard 100 partners and help them achieve IBM Gold-tier status to capitalize on AI opportunities. This initiative provides comprehensive enablement, training, and resources, including business planning, marketing support, and access to Centers of Excellence. The program addresses the challenge partners face in identifying and maximizing AI-related growth, leveraging IBM watsonx's AI and data platform for enhanced deployment and value delivery.",
+          "source": "Industry Analysts, Inc.",
+          "url": "https://industryanalysts.com/052024_tdsynnex/",
+          "time_published": "20251205T230916",
+          "relevance": 1.0,
+          "sentiment": 0.454498,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Cisco Systems, Inc. (CSCO): A Bull Case Theory",
+          "summary": "This article presents a bull case theory for Cisco Systems, Inc. (CSCO), highlighting the company's record first-quarter performance and raised full-year guidance driven by demand for AI-driven data center infrastructure. The strong results have led to broad analyst upgrades and increased investor confidence, positioning Cisco for continued market share gains in the accelerating AI-driven infrastructure cycle.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/247452/cisco-systems-inc-csco-a-bull-case-theory",
+          "time_published": "20251205T230854",
+          "relevance": 1.0,
+          "sentiment": 0.02442,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Dow Inc. (DOW): A Bull Case Theory",
+          "summary": "This article summarizes a bullish thesis on Dow Inc. (DOW) from Quipus Capital's Substack, highlighting the company's core profitability in olefins and polyolefins and its disciplined capital allocation strategy. Despite financial flexibility constraints due to an oversized dividend and limited operating cash flow, the bullish case suggests modest upside if the company achieves $4.2 billion in EBIT and $2.6 billion in net income, leading to a 6x earnings multiple. The article also notes that DOW is not among the 30 Most Popular Stocks Among Hedge Funds.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/dow-inc-dow-a-bull-case-theory-1642946/",
+          "time_published": "20251205T231415",
+          "relevance": 1.0,
+          "sentiment": 0.335746,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Lockheed Martin awarded $1.14 billion contract for F-35 fighter jets",
+          "summary": "Lockheed Martin has been awarded a $1.14 billion contract modification to procure materials for F-35 fighter jets for the U.S. military and international customers. This funding will support long lead materials, parts, and components for 65 Lot 20 production aircraft and adds scope for 133 Lot 21 production aircraft, with work expected to be completed by December 2030. The contract was not competed and involves various funding sources from the U.S. Air Force, Navy, Foreign Military Sales, and cooperative program partners.",
+          "source": "Investing.com Canada",
+          "url": "https://ca.investing.com/news/stock-market-news/lockheed-martin-awarded-114-billion-contract-for-f35-fighter-jets-93CH-4352173",
+          "time_published": "20251205T230925",
+          "relevance": 1.0,
+          "sentiment": 0.624808,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "USA Rare Earth (USAR) Stock Soars on New Supply Deal: Latest News, Forecasts and Outlook as of December 4, 2025",
+          "summary": "USA Rare Earth (USAR) stock surged approximately 25% on December 4, 2025, following the announcement of a new rare-earth metals supply agreement through its Less Common Metals (LCM) subsidiary. This deal, along with fresh analyst commentary on its Stillwater magnet facility and \"mine-to-magnet\" strategy, fueled investor optimism. The company aims to establish a vertically integrated rare-earths business outside of China, from mining to finished magnets, positioning itself as a key player in U.S. national security and technological independence.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/usa-rare-earth-usar-stock-soars-on-new-supply-deal-latest-news-forecasts-and-outlook-as-of-december-4-2025/",
+          "time_published": "20251205T230916",
+          "relevance": 1.0,
+          "sentiment": 0.021313,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "J.P. Morgan Maintains Packaging Corp of America(PKG.US) With Buy Rating, Raises Target Price to $245",
+          "summary": "J.P. Morgan analyst Detlef Winckelmann has reiterated a 'Buy' rating for Packaging Corp of America (PKG.US), increasing the target price from $238 to $245. According to TipRanks data, Winckelmann has a 45.7% success rate and an average return of 1.1% over the past year. The article clarifies that this information is for educational purposes only and does not constitute investment advice.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/65855419/jp-morgan-maintains-packaging-corp-of-america-pkgus-with-buy",
+          "time_published": "20251205T230850",
+          "relevance": 1.0,
+          "sentiment": 0.436474,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Kennedy Capital Management LLC Buys Shares of 36,738 Tennant Company $TNC",
+          "summary": "Kennedy Capital Management LLC has acquired 36,738 shares of Tennant Company, establishing a new position valued at approximately $2.85 million. This investment comes as Tennant reported slightly missed Q2 earnings and a 4% revenue decline, yet provided optimistic FY2025 guidance of $5.70-$6.20 EPS. The company also increased its quarterly dividend to $0.31, resulting in a 1.7% yield.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-kennedy-capital-management-llc-buys-shares-of-36738-tennant-company-tnc-2025-12-07/",
+          "time_published": "20251205T220852",
+          "relevance": 1.0,
+          "sentiment": 0.201612,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "sector_sentiment": {
+      "XLK": {
+        "avg_sentiment": 0.196,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": 0.224,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLF": {
+        "avg_sentiment": 0.197,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLI": {
+        "avg_sentiment": 0.311,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": 0.247,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLP": {
+        "avg_sentiment": 0.266,
+        "article_count": 12,
+        "label": "Bullish"
+      },
+      "XLE": {
+        "avg_sentiment": 0.299,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLU": {
+        "avg_sentiment": 0.299,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.231,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.212,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.339,
+        "article_count": 10,
+        "label": "Bullish"
+      }
+    },
+    "total_articles": 120,
+    "avg_sentiment": 0.256,
+    "bullish_sectors": [
+      "XLK",
+      "XLV",
+      "XLF",
+      "XLI",
+      "XLY",
+      "XLP",
+      "XLE",
+      "XLU",
+      "XLRE",
+      "XLC",
+      "XLB"
+    ],
+    "bearish_sectors": []
+  },
+  "sector_summary": "EARLY_EXPANSION cycle with OFFENSIVE rotation bias favoring cyclicals over defensives. Top sectors: Industrials (IGNITION) and Communication Services (TREND). Avoid: Energy, Real Estate, Consumer Defensive, Materials, Healthcare. Utilities showing TOXIC performance. No crossover alerts.",
+  "cycle_phase": "EARLY_EXPANSION",
+  "cycle_confidence": "HIGH",
+  "rotation_bias": "OFFENSIVE",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 1,
+      "mrs_20": -0.76,
+      "mrs_5": 0.07,
+      "roc_3": 0.44,
+      "zone": "D",
+      "signal": "IGNITION",
+      "modifier": 1.2,
+      "rationale": "Zone D ignition with MRS_5 positive (MRS_20=-0.76%, MRS_5=0.07%). Industrial sector showing classic ignition pattern with recent momentum recovery despite modest 20-day underperformance.",
+      "news_context": {
+        "sentiment": 0.3,
+        "article_count": 12,
+        "themes": "Infrastructure spending, manufacturing recovery, capital investment cycle"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 2,
+      "mrs_20": 0.96,
+      "mrs_5": 0.73,
+      "roc_3": 0.67,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.96%, MRS_5=0.73%). Communication Services maintaining strong relative performance with consistent positive momentum across both timeframes.",
+      "news_context": {
+        "sentiment": 0.4,
+        "article_count": 15,
+        "themes": "Streaming growth, digital advertising rebound, 5G deployment acceleration"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 3,
+      "mrs_20": 0.31,
+      "mrs_5": 0.54,
+      "roc_3": 0.84,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.31%). Technology showing modest relative strength but within noise threshold, despite positive recent momentum.",
+      "news_context": {
+        "sentiment": 0.2,
+        "article_count": 18,
+        "themes": "AI investment sustainability, semiconductor cycle, cloud optimization"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 4,
+      "mrs_20": -0.31,
+      "mrs_5": 0.1,
+      "roc_3": 0.68,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.31%). Financial Services in neutral territory with slight recent improvement but no clear directional bias.",
+      "news_context": {
+        "sentiment": 0.1,
+        "article_count": 14,
+        "themes": "Interest rate outlook, credit quality, regulatory environment"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 5,
+      "mrs_20": 0.41,
+      "mrs_5": 0.08,
+      "roc_3": 0.67,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.41%). Consumer Cyclical maintaining modest relative strength but recent momentum has cooled to near-neutral levels.",
+      "news_context": {
+        "sentiment": 0,
+        "article_count": 11,
+        "themes": "Holiday shopping patterns, consumer spending resilience, discretionary vs necessities"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 6,
+      "mrs_20": -0.75,
+      "mrs_5": -0.16,
+      "roc_3": 0.59,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with negative momentum despite improving ROC_3. Energy showing structural weakness with negative 5-day relative strength indicating continued underperformance.",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 13,
+        "themes": "Oil price volatility, OPEC+ production decisions, renewable energy transition"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 7,
+      "mrs_20": -2.44,
+      "mrs_5": -0.66,
+      "roc_3": -0.61,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with persistent negative momentum. Real Estate showing significant underperformance with negative trends across all timeframes indicating continued weakness.",
+      "news_context": {
+        "sentiment": -0.4,
+        "article_count": 9,
+        "themes": "Interest rate sensitivity, commercial real estate challenges, residential market cooling"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 8,
+      "mrs_20": -1.38,
+      "mrs_5": -0.95,
+      "roc_3": -1.47,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with deteriorating momentum. Consumer Defensive showing significant weakness with negative trends suggesting defensive rotation is not occurring despite market conditions.",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 8,
+        "themes": "Margin pressure, private label competition, consumer trade-down trends"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 9,
+      "mrs_20": -1.27,
+      "mrs_5": -1.08,
+      "roc_3": -1.39,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with consistent negative momentum. Basic Materials showing broad-based weakness across all timeframes indicating cyclical headwinds and demand concerns.",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 7,
+        "themes": "China demand concerns, commodity price volatility, global manufacturing slowdown"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 10,
+      "mrs_20": -2.32,
+      "mrs_5": -1.29,
+      "roc_3": -2.08,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D with accelerating negative momentum. Healthcare showing significant underperformance with deteriorating trends across all metrics indicating sector-specific headwinds.",
+      "news_context": {
+        "sentiment": -0.4,
+        "article_count": 16,
+        "themes": "Drug pricing pressures, regulatory uncertainty, Medicare negotiations"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 11,
+      "mrs_20": -4.73,
+      "mrs_5": -1.71,
+      "roc_3": -1.72,
+      "zone": "G",
+      "signal": "TOXIC",
+      "modifier": 0.25,
+      "rationale": "Zone C toxic - deep underperformance (MRS_20=-4.73%). Utilities showing severe weakness with the worst relative performance across all sectors, indicating significant sector distress.",
+      "news_context": {
+        "sentiment": -0.5,
+        "article_count": 6,
+        "themes": "Interest rate sensitivity, regulatory headwinds, infrastructure investment needs"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLI": 1.2,
+    "XLC": 1.2,
+    "XLK": 1.0,
+    "XLF": 1.0,
+    "XLY": 1.0,
+    "XLE": 0.5,
+    "XLRE": 0.5,
+    "XLP": 0.5,
+    "XLB": 0.5,
+    "XLV": 0.5,
+    "XLU": 0.25
+  },
+  "cycle_reasoning": "EARLY_EXPANSION identified based on Industrials leadership (classic early cycle behavior), Communication Services strength (growth sectors leading), and broad defensive sector weakness. This pattern typically occurs when economic growth accelerates but inflation/rate concerns remain muted, favoring cyclical growth over safety.",
+  "rotation_analysis": "Market showing classic early expansion rotation with cyclical sectors (Industrials, Communication Services) leading while defensive sectors lag significantly. The concentration of 6 sectors in AVOID/TOXIC territory indicates strong directional bias rather than broad-based strength. Industrials' ignition signal suggests infrastructure and manufacturing themes gaining traction, while Communication Services maintains established uptrend. Technology remains neutral despite AI narratives, suggesting selectivity within growth sectors. The severe underperformance of Utilities (-4.73% MRS_20) and broad defensive weakness confirms risk-on environment with investors rotating away from safety toward growth.",
+  "l1_alignment": "Perfect alignment between L1 NORMAL/AGGRESSIVE regime and L2 OFFENSIVE rotation. Both systems signal risk-on positioning with cyclical sectors favored over defensives, supporting maximum position sizing in growth-oriented sectors.",
+  "key_insight": "Market is in textbook early expansion rotation with only 2 of 11 sectors showing bullish signals, indicating highly selective leadership rather than broad-based strength - focus on Industrials ignition and Communication Services trend continuation while avoiding the 6 sectors in deterioration.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: EARLY_EXPANSION (HIGH confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 shows NORMAL regime with AGGRESSIVE bias and 100% max size. This aligns well with our OFFENSIVE rotation bias showing cyclicals (XLI, XLC) leading while defensives underperform.\n\nStep 2 - Signal Validation:\nPre-calculated signals validated: 2 bullish (IGNITION, TREND), 3 neutral, 6 bearish including 1 TOXIC. No anomalies detected vs v6.1 thresholds.\n\nStep 3 - Zone Analysis:\nActive zones: D (7 sectors), A (1), E (3), C (1). Clear rotation toward cyclicals with Industrials igniting and Communication Services trending. Defensive sectors concentrated in avoid/toxic zones.\n\nStep 4 - Conflict Resolution:\nNo L1 vs L2 conflict - both show risk-on positioning. Defensive weakness despite NORMAL regime explained by early expansion cycle phase where growth sectors outperform safety.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nEARLY_EXPANSION identified based on Industrials leadership (classic early cycle behavior), Communication Services strength (growth sectors leading), and broad defensive sector weakness. This pattern typically occurs when economic growth accelerates but inflation/rate concerns remain muted, favoring cyclical growth over safety.\n\nKey Insight: Market is in textbook early expansion rotation with only 2 of 11 sectors showing bullish signals, indicating highly selective leadership rather than broad-based strength - focus on Industrials ignition and Communication Services trend continuation while avoiding the 6 sectors in deterioration."
+}

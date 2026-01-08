@@ -1,0 +1,163 @@
+## ENPH: Enphase Energy, Inc. - XLK: Technology
+
+### Executive Summary
+
+VALUE thesis: PEG 0.89 indicates fundamental undervaluation. Quality metrics strong (ROE 20%). Consistent execution (3/4 quarters beat estimates).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($29.83)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 2, Bearish: 0)
+
+**1. Bank of Nova Scotia Grows Position in Enphase Energy, Inc. $ENPH**
+- Source: MarketBeat | 20251210T095129 | Somewhat-Bullish | Relevance: 100%
+- Bank of Nova Scotia significantly increased its stake in Enphase Energy, Inc. (NASDAQ:ENPH) by 1,743.5% during the second quarter, now owning 406,811 shares worth $16.13 million. Other institutional investors like Brooklyn Investment Group, QRG Capital Management Inc., Fermata Advisors LLC, and Harbour Investments Inc. also modified their holdings. The report also details recent insider transactions, analyst ratings, and the stock's financial performance, noting a consensus "Reduce" rating among analysts.
+
+**2. Federated Hermes Inc. Grows Stock Holdings in Enphase Energy, Inc. $ENPH**
+- Source: MarketBeat | 20251209T110822 | Neutral | Relevance: 97%
+-  Federated Hermes Inc. significantly increased its stake in Enphase Energy, Inc. by 264.7% in the second quarter, now owning 1,477,751 shares. Several other institutional investors also modified their holdings, while CEO Badrinarayanan Kothandaraman bought shares and Director Thurman J. Rodgers sold shares. Analysts have provided mixed ratings on Enphase Energy, with a consensus price target of $39.75.
+
+**3. Enphase Energy price tests main downward trend line - Forecast today - 11-12-2025**
+- Source: Economies.com | 20251211T120809 | Neutral | Relevance: 97%
+-  Enphase Energy (ENPH) recently rose, testing its primary bearish trendline and encountering resistance at its 50-day simple moving average. Overbought RSI indicators suggest a weakening of upward momentum. The forecast anticipates a decline, targeting the $25.80 support level as long as resistance at $33.30 holds.
+
+**4. Is Enphase Energy a Bargain After a 56% Share Price Slide in 2025?**
+- Source: Yahoo Finance | 20251209T091137 | Somewhat-Bullish | Relevance: 97%
+-  Enphase Energy (ENPH) stock has experienced a significant slide of 56.2% year-to-date in 2025, raising questions among investors about whether it's a bargain or a value trap. Despite the long-term decline, the stock has shown recent bounces, hinting at a potential shift in sentiment due to policy support for residential solar and expectations of installation activity stabilization. Valuation analyses, including Discounted Cash Flow and Price vs. Earnings, suggest Enphase is currently undervalued by the market.
+
+**5. Enphase Energy (ENPH) Valuation Check as IQ EV Charger 2 Rollout Expands Its Clean Energy Platform**
+- Source: Simply Wall Street | 20251209T170807 | Somewhat-Bullish | Relevance: 97%
+-  Enphase Energy has begun shipping its new IQ EV Charger 2, diversifying its portfolio beyond solar into EV charging. Despite a challenging year for the stock, this expansion, alongside other product launches, positions Enphase for long-term growth and could make it an undervalued contrarian buying opportunity, as analysts estimate its fair value to be around $38.85. However, risks like residential solar weakness still exist.
+
+### Analyst Activity
+
+**Target Signal:** BEARISH (Raises: 0, Lowers: 1)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-08 | JP Morgan | $33 | $37 | -11% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-08 | JP Morgan | main | Neutral |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 2 ($0.46M) |
+| Sells | 1 ($4.37M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 45.3% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 3 / 7 |
+
+**Top Holders:**
+- Blackrock Inc.: 14.5% (+54.2%)
+- Vanguard Group Inc: 12.3% (-2.3%)
+- State Street Corpora: 3.3% (-18.3%)
+- Shaw D.E. & Co., Inc: 2.6% (-3.0%)
+- UBS Group AG: 2.4% (+93.5%)
+
+### Key Risks
+
+1. Insider selling cluster: $4.4M in recent transactions.
+2. High short interest (31.5%, 3.4 days to cover): squeeze risk or crowded bearish bet.
+3. Long-term trend broken: trading 20.3% below SMA200.
+4. Falling knife pattern: rapid decline without stabilization, catch risk elevated.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_20 improving +5.4% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 0.89 indicates undervaluation relative to growth. Quality metrics strong (ROE 20%). Balance sheet: strong liquidity (2.0x). Revenue declining -16% YoY, concerning. Analyst sentiment negative (1 target cuts vs 0 raises). Insider selling cluster ($4.4M in 90 days), potential headwind. Institutional flow bullish (3 buying vs 7 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $4.3B |
+| Beta | 1.42 |
+| 52W Range | $25.78 - $76.90 |
+| Short Interest | 31.5% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.89 |
+| Forward P/E | 15.7 |
+| Current P/E | 11.9 |
+| YoY Growth | -24.5% |
+| EPS Direction | RISING |
+
+### Technicals
+
+MRS_20 strengthening from 5.8% to 11.2% (+5.4% in 5 days), confirming momentum buildup. Extended beyond STRENGTH zone (11.2% > 10.0%), caution on chasing. MRS_5 at 3.2% confirms short-term momentum alignment. AM_20 at 13.5% shows strong absolute momentum above own 20MA. Outperforming sector by 10.1pp, stock-specific strength. Below SMA200 (0.80x), long-term trend not supportive. MACD histogram positive (0.79), confirming momentum.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 11.22% (CS: 95) | Strong |
+| RSI_14 | 62.5 | Neutral |
+| MACD Histogram | 0.79 | Bullish |
+| vs SMA20 | 1.135x | Above |
+| vs SMA50 | 1.023x | Above |
+| vs SMA200 | 0.797x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $33.01
+- **Stop Loss:** $29.83 (9.6% risk)
+- **Target:** $39.37 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 433
+- **Position Value:** $14,293.33
+- **Portfolio %:** 14.29%
+- **Risk Dollars:** $1,380.00
+- **Risk Per Trade:** 1.38%
+- **Modifiers:** L1 115% | L2 120% | Combined 1.38x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.15x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*NORMAL regime with moderate risk appetite ahead of Fed decision. VIX at low 8th percentile signals complacency, but decent breadth and positive yield curve support selective positioning. Focus on quality names with earnings visibility.*
+
+### Earnings
+
+**Next:** 2026-02-10 (Est: $0.58)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.66 | $0.90 | +37.2% |
+| 2025Q2 | $0.62 | $0.69 | +10.8% |
+| 2025Q1 | $0.72 | $0.68 | -6.0% |
+| 2024Q4 | $0.75 | $0.94 | +24.7% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

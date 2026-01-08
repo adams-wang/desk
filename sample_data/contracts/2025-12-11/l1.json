@@ -1,0 +1,245 @@
+{
+  "contract_id": "l1_2025-12-11",
+  "trading_date": "2025-12-11",
+  "generated_at": "2025-12-12T11:09:43.504700",
+  "valid_until": "2025-12-13T11:09:43.504700",
+  "agent": "L1 Macro Strategist",
+  "model": "claude-sonnet-4-20250514",
+  "news_context": {
+    "article_count": 15,
+    "avg_sentiment": 0.183,
+    "dominant_topic": "financial_markets",
+    "key_themes": [
+      "Mixed earnings season with some corporate resilience amid headwinds",
+      "Policy uncertainty affecting trade-sensitive sectors (ADM, chip fab delays)",
+      "Data center infrastructure investment boom despite power challenges"
+    ],
+    "market_implications": "Corporate earnings showing mixed signals while policy uncertainty creates selective headwinds, supporting cautious positioning ahead of Fed decision.",
+    "headlines": [
+      {
+        "title": "Longest US Government Shutdown Impact on Firms: Revenue & Contract Delays - News and Statistics",
+        "summary": "The longest US government shutdown has begun to impact companies, causing revenue and contract delays, particularly for firms reliant on federal spending and regulatory approvals. Clearfield Inc. and Spectral AI Inc. have reported specific financial consequences due to the shutdown and related program delays. Analysts emphasize the concerns for smaller companies with limited cash flow, especially those dealing with agencies like the FDA.",
+        "url": "https://www.indexbox.io/blog/us-government-shutdown-impact-on-companies-revenue-and-contract-delays/",
+        "source": "IndexBox",
+        "time_published": "20251211T230938",
+        "sentiment": 0.029705,
+        "sentiment_label": "Neutral",
+        "relevance": 1.0,
+        "topics": [
+          "economy_fiscal",
+          "earnings",
+          "life_sciences"
+        ]
+      },
+      {
+        "title": "Interest Rate Cut Was the Right Call: Investor",
+        "summary": "William Flaig, CEO and founder of American Conservative Values ETF, believes the Fed's interest rate cut was the correct decision. He notes the stock market's strong performance, the positive impact of industry onshoring, and anticipates future economic relief for Americans, particularly in mortgages, indicating a very good overall economic position.",
+        "url": "https://www.ntd.com/interest-rate-cut-was-the-right-call-investor_1113309.html",
+        "source": "NTD News",
+        "time_published": "20251211T234033",
+        "sentiment": 0.535783,
+        "sentiment_label": "Bullish",
+        "relevance": 0.946782,
+        "topics": [
+          "economy_monetary",
+          "financial_markets",
+          "economy_macro"
+        ]
+      },
+      {
+        "title": "Darling Ingredients announces agreement to sell approximately $60 million in production tax credits",
+        "summary": "Darling Ingredients Inc. has announced an agreement to sell approximately $60 million in production tax credits. This move comes as the company navigates the current market landscape for biofuels and renewable energy incentives. The article provides this key update alongside other news related to the biodiesel industry, including import data and new initiatives for biofuels.",
+        "url": "https://biodieselmagazine.com/articles/darling-ingredients-announces-agreement-to-sell-approximately-60-million-in-production-tax-credits",
+        "source": "Biodiesel Magazine",
+        "time_published": "20251211T231029",
+        "sentiment": 0.381759,
+        "sentiment_label": "Bullish",
+        "relevance": 0.941578,
+        "topics": [
+          "earnings",
+          "economy_fiscal",
+          "energy_transportation"
+        ]
+      },
+      {
+        "title": "Earnings call transcript: Live Ventures Q4 2025 sees stock surge on profit",
+        "summary": "Live Ventures (LIVE) reported a significant turnaround in Q4 2025, moving from a net loss of $26.7 million in 2024 to a net income of $22.7 million. Despite a 5.9% decline in total revenue, strategic cost reductions and improved gross margins led to a 19.78% surge in its stock price. The company reported diluted EPS of $4.93 and an increase in Adjusted EBITDA to $33.4 million, reflecting enhanced operational efficiency and investor optimism.",
+        "url": "https://in.investing.com/news/transcripts/earnings-call-transcript-live-ventures-q4-2025-sees-stock-surge-on-profit-93CH-5150253",
+        "source": "Investing.com India",
+        "time_published": "20251211T231007",
+        "sentiment": 0.521433,
+        "sentiment_label": "Bullish",
+        "relevance": 0.728694,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "economy_macro"
+        ]
+      },
+      {
+        "title": "Arbor Realty Trust prices $400 million senior notes offering at 8.50%",
+        "summary": "Arbor Realty Trust (NYSE:ABR) announced a $400 million offering of 8.50% Senior Notes due 2028 in a private placement. The REIT plans to use the proceeds to refinance existing senior notes and for general corporate purposes. This comes as the company's stock price has fallen, and recent Q3 2025 earnings showed revenue falling short of expectations despite exceeding EPS forecasts.",
+        "url": "https://www.investing.com/news/company-news/arbor-realty-trust-prices-400-million-senior-notes-offering-at-850-93CH-4404717",
+        "source": "Investing.com",
+        "time_published": "20251211T231009",
+        "sentiment": 0.092902,
+        "sentiment_label": "Neutral",
+        "relevance": 0.631557,
+        "topics": [
+          "earnings",
+          "real_estate",
+          "finance"
+        ]
+      },
+      {
+        "title": "(SFYF) Price Dynamics and Execution-Aware Positioning",
+        "summary": "This article analyzes Sofi Social 50 Etf (SFYF), indicating a near-term neutral sentiment amidst mid and long-term strength, with an exceptional 25.7:1 risk-reward setup. It outlines specific institutional trading strategies, including position trading, momentum breakout, and risk hedging, alongside multi-timeframe signal analysis for various holding periods. The report suggests positive sentiment is currently prevailing for SFYF, offering real-time AI signals and risk parameters.",
+        "url": "https://news.stocktradersdaily.com/news_release/35/SFYF_Price_Dynamics_and_Execution-Aware_Positioning_121125103801_1765510681.html",
+        "source": "Stock Traders Daily",
+        "time_published": "20251211T230947",
+        "sentiment": 0.316981,
+        "sentiment_label": "Somewhat-Bullish",
+        "relevance": 0.619625,
+        "topics": [
+          "financial_markets",
+          "economy_macro",
+          "finance"
+        ]
+      },
+      {
+        "title": "Teamsters\u2019 Four\u2011Year Wage Deal Could Be A Game Changer For Sysco\u2019s (SYY) Labor Cost Profile",
+        "summary": "Sysco's labor costs are set to increase after the Teamsters ratified a new four-year regional collective bargaining agreement for over 1,000 drivers and warehouse workers in Northern California and Nevada. This deal includes a 34% pay rise, higher pension contributions, and enhanced healthcare. While raising labor costs, it mitigates immediate strike risks, slightly reshaping Sysco's investment narrative focused on cost discipline and operational execution.",
+        "url": "https://simplywall.st/stocks/us/consumer-retailing/nyse-syy/sysco/news/teamsters-fouryear-wage-deal-could-be-a-game-changer-for-sys",
+        "source": "Simply Wall Street",
+        "time_published": "20251211T233117",
+        "sentiment": 0.110239,
+        "sentiment_label": "Neutral",
+        "relevance": 0.616145,
+        "topics": [
+          "earnings",
+          "finance",
+          "financial_markets"
+        ]
+      },
+      {
+        "title": "2 Healthcare Stocks with Exciting Potential and 1 We Ignore",
+        "summary": "This article evaluates three healthcare stocks, highlighting two with exciting potential and one to ignore. It suggests Centene (CNC) may face challenges due to underwhelming customer growth and waning returns on capital. Conversely, Humana (HUM) and Tenet Healthcare (THC) are presented as strong contenders due to their market positions, growth, and effective management.",
+        "url": "https://finviz.com/news/252742/2-healthcare-stocks-with-exciting-potential-and-1-we-ignore",
+        "source": "Finviz",
+        "time_published": "20251211T233500",
+        "sentiment": 0.041334,
+        "sentiment_label": "Neutral",
+        "relevance": 0.612633,
+        "topics": [
+          "life_sciences",
+          "earnings",
+          "financial_markets"
+        ]
+      },
+      {
+        "title": "(SIZE) Volatility Zones as Tactical Triggers",
+        "summary": "This article provides a detailed analysis of Ishares Msci Usa Size Factor Etf (NASDAQ: SIZE), highlighting neutral near-term readings and mid-term strong sentiment that may be stalling. It outlines various AI-generated trading strategies including position, momentum breakout, and risk hedging, complete with entry zones, targets, and stop-loss levels. The report emphasizes an exceptional 12.8:1 risk-reward short setup and offers multi-timeframe signal analysis.",
+        "url": "https://news.stocktradersdaily.com/news_release/40/SIZE_Volatility_Zones_as_Tactical_Triggers_121125115401_1765515241.html",
+        "source": "Stock Traders Daily",
+        "time_published": "20251211T235400",
+        "sentiment": 0.048447,
+        "sentiment_label": "Neutral",
+        "relevance": 1.0,
+        "topics": [
+          "financial_markets"
+        ]
+      },
+      {
+        "title": "Precision Trading with Global X Silver Miners Etf (SIL) Risk Zones",
+        "summary": "This article provides a detailed analysis for precision trading of the Global X Silver Miners ETF (SIL), highlighting strong sentiment across all horizons for an overweight bias. It outlines three institutional trading strategies\u2014Position, Momentum Breakout, and Risk Hedging\u2014with specific entry zones, targets, and stop losses. The analysis also includes multi-timeframe signal analysis, identifying key support and resistance levels.",
+        "url": "https://news.stocktradersdaily.com/news_release/15/Precision_Trading_with_Global_X_Silver_Miners_Etf_SIL_Risk_Zones_121125113002_1765513802.html",
+        "source": "Stock Traders Daily",
+        "time_published": "20251211T233000",
+        "sentiment": -0.254408,
+        "sentiment_label": "Somewhat-Bearish",
+        "relevance": 1.0,
+        "topics": [
+          "financial_markets"
+        ]
+      }
+    ]
+  },
+  "macro_summary": "NORMAL regime with moderate risk appetite. VIX at 8th percentile suggests complacency, but decent breadth (58%) and steepening yield curve indicate underlying stability. Fed meeting in 5 days creates near-term uncertainty, warranting selective positioning over broad risk-taking.",
+  "regime": "NORMAL",
+  "regime_transition": "STABLE",
+  "confidence": "MEDIUM",
+  "confidence_score": 0.65,
+  "news_risk_adjustment": -5,
+  "news_risk_rationale": "Policy uncertainty building around trade (ADM guidance cut) and industrial policy (EU chip fab delays) while VIX remains complacent at 8th percentile, suggesting modest unpriced risk.",
+  "signals": {
+    "vix_value": 14.85,
+    "vix_delta_5d_pct": -5.9,
+    "vix_bucket": "CALM",
+    "vix_interpretation": "VIX at 8th percentile (14.85) suggests potential complacency, though recent decline from elevated levels indicates calming conditions",
+    "yield_spread_bps": 43.0,
+    "yield_spread_10y_3m_bps": 57.0,
+    "yield_shape": "FLAT",
+    "yield_interpretation": "43bps spread indicates healthy curve steepness, suggesting no immediate recession fears despite elevated absolute levels",
+    "breadth_pct": 57.6,
+    "breadth_delta_5d": 4.7,
+    "breadth_interpretation": "Decent participation at 57.6% above 50MA, up 4.7pp over 5 days, showing broad but not euphoric market strength",
+    "put_call_ratio": 1.047,
+    "put_call_delta_5d": 15.9,
+    "put_call_interpretation": null,
+    "fed_funds": 3.88,
+    "cpi_yoy": 2.89,
+    "unemployment": 4.4,
+    "sahm_triggered": false,
+    "fomc_days_away": 5,
+    "economic_interpretation": "Fed funds falling trend with CPI rising toward 3% creates policy complexity; unemployment stable at healthy 4.4%",
+    "gdp_yoy": 2.79,
+    "gdp_trend": "stable",
+    "retail_sales_mom": -4.67,
+    "retail_sales_trend": "stable"
+  },
+  "conflicts": [
+    "VIX complacency (8th percentile) vs put/call ratio elevated at 1.047 suggests smart money hedging",
+    "Decent breadth (57.6%) vs mixed earnings narratives indicates selective strength masking underlying caution",
+    "Falling Fed funds vs rising CPI creates policy uncertainty ahead of December 17 FOMC meeting"
+  ],
+  "position_sizing": {
+    "vix_value": 14.85,
+    "vix_bucket": "CALM",
+    "base_position_pct": 120,
+    "soft_blockers_applied": [],
+    "soft_blocker_multiplier": 1.0,
+    "after_soft_pct": 120,
+    "news_adjustment_pct": -5,
+    "news_adjustment_rationale": "Policy uncertainty building around trade (ADM guidance cut) and industrial policy (EU chip fab delays) while VIX remains complacent at 8th percentile, suggesting modest unpriced risk.",
+    "pre_cap_position_pct": 115,
+    "hard_blocks_applied": [],
+    "final_position_pct": 115
+  },
+  "guidance": {
+    "position_bias": "AGGRESSIVE",
+    "position_size_max_pct": 115,
+    "key_action": "Maintain selective positioning with modest caution ahead of Fed decision, avoiding complacency despite calm VIX."
+  },
+  "triggers": {
+    "upgrade": [
+      "VIX breaks below 13.5 (52-week low) with breadth >65% confirming risk-on momentum",
+      "Fed delivers dovish surprise at December 17 meeting with clear forward guidance",
+      "Breadth expansion above 65% with small-cap outperformance confirming broad participation"
+    ],
+    "downgrade": [
+      "VIX spikes above 20 on policy uncertainty or earnings disappointments",
+      "Breadth deteriorates below 45% indicating narrow market leadership",
+      "Put/call ratio exceeds 1.3 suggesting fear escalation",
+      "Fed delivers hawkish surprise or guidance uncertainty"
+    ]
+  },
+  "risk_factors": [
+    "Fed policy uncertainty with meeting in 5 days amid conflicting inflation/employment data",
+    "Trade policy headwinds affecting multinational corporations (ADM guidance cut example)",
+    "VIX complacency at 8th percentile may not reflect building policy risks",
+    "Mixed earnings season with corporate margin pressure from wage inflation"
+  ],
+  "full_analysis": "**REGIME ASSESSMENT: NORMAL/STABLE**\n\nCurrent market conditions reflect a NORMAL regime with STABLE transition characteristics. The VIX at 14.85 (8th percentile) suggests calm surface conditions, but this reading appears increasingly disconnected from underlying policy uncertainties and mixed corporate fundamentals.\n\n**KEY OBSERVATIONS:**\n\n*Volatility Dynamics:* VIX at 8th percentile indicates potential complacency, yet put/call ratio at 1.047 suggests institutional hedging activity. This divergence often precedes volatility expansion.\n\n*Market Breadth:* 57.6% of stocks above 50MA represents decent but not euphoric participation. The 4.7pp improvement over 5 days shows momentum without extremes.\n\n*Yield Environment:* 43bps 10Y-2Y spread maintains healthy steepness, indicating no immediate recession fears despite elevated absolute yield levels. This supports risk asset valuations.\n\n*Economic Backdrop:* Fed funds falling while CPI trends toward 3% creates policy complexity. The December 17 FOMC meeting becomes critical for direction.\n\n**NEWS SYNTHESIS:**\n\nCorporate earnings present a mixed picture - BMO showing strength while ADM cuts guidance on trade uncertainty. The stalled EU chip fab project highlights broader policy implementation challenges. Data center infrastructure investment continues but faces power grid constraints.\n\n**RISK ASSESSMENT:**\n\nThe -5% news risk adjustment reflects building policy uncertainty not yet captured in the complacent VIX. Trade tensions (ADM), industrial policy delays (EU chips), and Fed uncertainty create modest unpriced risk.\n\n**STRATEGIC POSITIONING:**\n\nThis environment favors selective positioning over broad beta exposure. Quality names with policy-insensitive business models should outperform. The combination of low VIX and elevated put/call suggests professional money is hedging while retail remains complacent - a setup that often resolves with modest volatility expansion.",
+  "markdown_report": "",
+  "hard_blocks": []
+}

@@ -1,0 +1,162 @@
+## CHRW: C.H. Robinson Worldwide, Inc. - XLI: Industrials
+
+### Executive Summary
+
+No thesis match: MRS_20 0.6% below STRENGTH zone (4.0-10.0%); PEG 2.25 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($149.11)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_20 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 5
+- **Sentiment:** Bullish (Bullish: 0, Bearish: 0)
+
+**1. C.H. Robinson Worldwide, Inc. (NASDAQ:CHRW) Given Consensus Recommendation of "Moderate Buy" by Brokerages**
+- Source: MarketBeat | 20251210T064122 | Somewhat-Bullish | Relevance: 100%
+- C.H. Robinson Worldwide, Inc. (NASDAQ:CHRW) has received a "Moderate Buy" consensus rating from 26 analysts, with an average price target of $143.35, despite some recent insider selling. The company beat EPS estimates but reported a revenue decline, though it increased its quarterly dividend. Institutional investors hold a significant portion of the stock.
+
+**2. \Balyasny Asset Management L.P. Has $100.44 Million Stake in C.H. Robinson Worldwide, Inc. $CHRW**
+- Source: MarketBeat | 20251213T090754 | Neutral | Relevance: 100%
+- Balyasny Asset Management L.P. has reduced its stake in C.H. Robinson Worldwide (NASDAQ:CHRW) by 18.6%, now owning 1,046,789 shares valued at approximately $100.44 million. The transportation company recently reported quarterly EPS of $1.40, exceeding estimates, and increased its quarterly dividend to $0.63. Analysts have a "Moderate Buy" consensus rating for CHRW with an average target price of $143.35.
+
+**3. Qube Research & Technologies Ltd Grows Position in C.H. Robinson Worldwide, Inc. $CHRW**
+- Source: MarketBeat | 20251212T130757 | Somewhat-Bullish | Relevance: 100%
+- Qube Research & Technologies Ltd significantly increased its stake in C.H. Robinson Worldwide, Inc. (NASDAQ:CHRW) by 119.6% in the second quarter, now holding 793,841 shares valued at $76.17 million. This move is part of a broader trend of increased institutional ownership, with major firms like Boston Partners and Norges Bank also adding positions. Analysts maintain a "Moderate Buy" consensus for C.H. Robinson, with a target price of $143.35, following the company's strong Q3 EPS beat and a dividend increase.
+
+**4. California Public Employees Retirement System Decreases Holdings in C.H. Robinson Worldwide, Inc. $CHRW**
+- Source: MarketBeat | 20251210T095919 | Neutral | Relevance: 100%
+- California Public Employees Retirement System (CalPERS) reduced its stake in C.H. Robinson Worldwide, Inc. (NASDAQ:CHRW) by 13.1% in the second quarter, now holding 468,119 shares worth $44.9 million. This adjustment comes amidst other institutional investors either adding to or reducing their positions in the transportation company. Separately, C.H. Robinson Worldwide recently declared a quarterly dividend of $0.63 per share, payable on January 5th.
+
+**5. Amundi Sells 186,817 Shares of C.H. Robinson Worldwide, Inc. $CHRW**
+- Source: MarketBeat | 20251210T091118 | Neutral | Relevance: 100%
+- Amundi significantly reduced its stake in C.H. Robinson Worldwide, Inc. (NASDAQ:CHRW) during the second quarter, selling 186,817 shares and decreasing its holdings by 31.9%. Despite this, several other institutional investors, including Vanguard Group Inc. and Boston Partners, increased their positions in the transportation company. C.H. Robinson Worldwide also announced an increase in its quarterly dividend and reported insider selling by two executives in early November.
+
+### Analyst Activity
+
+**Target Signal:** BULLISH (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-08 | Morgan Stanley | $85 | $77 | +10% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-08 | Morgan Stanley | main | Underweight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_BUYING** |
+| Buys | 4 ($1.86M) |
+| Sells | 2 ($0.38M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 54.3% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 5 / 5 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.0% (-3.0%)
+- First Eagle Investme: 8.9% (-0.2%)
+- Blackrock Inc.: 8.2% (-8.5%)
+- Wellington Managemen: 6.1% (+198.6%)
+- State Street Corpora: 5.8% (-7.4%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- Momentum building: MRS_20 improving +3.3% over 5 days suggests accumulation.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 2.25 elevated, pricing in significant growth expectations. Quality metrics strong (ROE 34%). Analyst sentiment positive (1 raises, avg +10%). Insider buying signal ($1.9M), management confidence. Institutional flow bullish (5 buying vs 5 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $18.6B |
+| Beta | 0.91 |
+| 52W Range | $84.68 - $162.79 |
+| Short Interest | 7.1% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 2.25 |
+| Forward P/E | 26.3 |
+| Current P/E | 31.5 |
+| YoY Growth | 19.8% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 strengthening from -2.8% to 0.6% (+3.3% in 5 days), confirming momentum buildup. Below STRENGTH zone by 3.5pp (needs >4.0% for momentum thesis). MRS_5 at 1.9% confirms short-term momentum alignment. Full SMA alignment bullish (above 20/50/200 SMAs). MACD histogram bearish (-0.72), momentum weakening. RSI neutral at 57. OFD pattern: -MTN (Decline).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 0.55% (CS: 42) | Neutral |
+| RSI_14 | 57.4 | Neutral |
+| MACD Histogram | -0.72 | Bearish |
+| vs SMA20 | 1.009x | Above |
+| vs SMA50 | 1.086x | Above |
+| vs SMA200 | 1.365x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $157.09
+- **Stop Loss:** $149.11 (5.1% risk)
+- **Target:** $165.07 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 150
+- **Position Value:** $23,563.50
+- **Portfolio %:** 23.56%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 100% | L2 120% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*NORMAL regime with moderate risk appetite ahead of Fed decision. VIX remains calm at 15.74 while breadth shows modest participation at 54%, suggesting selective positioning. FOMC meeting in 4 days creates near-term uncertainty but no systemic stress evident.*
+
+### Earnings
+
+**Next:** 2026-01-28 (Est: $1.13)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.30 | $1.40 | +7.4% |
+| 2025Q2 | $1.16 | $1.29 | +11.6% |
+| 2025Q1 | $1.05 | $1.17 | +11.4% |
+| 2024Q4 | $1.11 | $1.21 | +9.2% |
+
+---
+*RULE-based L3 | 2026-01-06 16:36 | MRS_20*

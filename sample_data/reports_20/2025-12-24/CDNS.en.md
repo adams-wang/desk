@@ -1,0 +1,164 @@
+## CDNS: Cadence Design Systems, Inc. - XLK: Technology
+
+### Executive Summary
+
+No thesis match: MRS_20 -2.7% below STRENGTH zone (4.0-10.0%); PEG 3.15 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge. Caution: declining volume (48% of avg), momentum weakening (-1.8% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($303.04)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_20 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 8
+- **Sentiment:** Bullish (Bullish: 4, Bearish: 0)
+
+**1. Seilern Investment Management Ltd Sells 214,636 Shares of Cadence Design Systems, Inc. $CDNS**
+- Source: MarketBeat | 20251222T112839 | Somewhat-Bullish | Relevance: 100%
+- Seilern Investment Management Ltd significantly reduced its stake in Cadence Design Systems (NASDAQ:CDNS) by selling 214,636 shares, an 88.6% decrease, during the third quarter, reducing its holding to 27,544 shares valued at $9.675 million. This divestment follows Cadence's strong Q3 performance, beating EPS and revenue estimates, and aligns with notable insider selling by the CFO and CEO. Despite institutional selling, Cadence maintains a "Moderate Buy" rating from analysts with a consensus target price of $379.11.
+
+**2. Swedbank AB Has $688.27 Million Position in Cadence Design Systems, Inc. $CDNS**
+- Source: MarketBeat | 20251224T135501 | Bullish | Relevance: 100%
+- Swedbank AB has maintained a significant position in Cadence Design Systems, Inc. (CDNS), holding 1,959,444 shares valued at $688.27 million, making it their 25th largest holding despite a slight trim. The software maker recently exceeded Q3 earnings estimates with $1.93 EPS and $1.34 billion in revenue and provided optimistic FY2025 guidance. Analysts generally rate the stock as a "Moderate Buy" with an average price target of $379.11, although some insider selling has been noted.
+
+**3. Looking Into Cadence Design Systems Inc's Recent Short Interest**
+- Source: Benzinga | 20251222T140829 | Neutral | Relevance: 100%
+- Cadence Design Systems Inc's short interest, representing 1.83% of its float, has increased by 6.4% since its last report, with 4.40 million shares sold short. This figure is lower than its peer group average of 3.86%, indicating relatively less bearish sentiment compared to similar companies. It would take traders an average of 2.58 days to cover their short positions.
+
+**4. Legacy Wealth Asset Management LLC Invests $1.16 Million in Cadence Design Systems, Inc. $CDNS**
+- Source: MarketBeat | 20251222T114939 | Bullish | Relevance: 100%
+- Legacy Wealth Asset Management LLC has initiated a new position in Cadence Design Systems, Inc. (NASDAQ:CDNS) during Q3, acquiring 3,308 shares valued at approximately $1.16 million. Institutional investors now hold 84.85% of the software maker's stock, which has an average analyst rating of "Moderate Buy" with a $379.11 price target. Despite recent insider selling, Cadence reported a strong Q3 with EPS and revenue beating estimates and provided optimistic FY2025 EPS guidance.
+
+**5. Cadence Design Systems (NASDAQ:CDNS) Seems To Use Debt Rather Sparingly**
+- Source: Yahoo! Finance Canada | 20251222T030000 | Bullish | Relevance: 100%
+- Cadence Design Systems (NASDAQ:CDNS) efficiently manages its debt, holding US$450.9m in net cash as of September 2025, down from US$2.83b a year prior. The company's strong free cash flow, converting 90% of its EBIT, further solidifies its financial health and ability to manage debt effectively. This robust financial position suggests that the company's use of debt does not pose a significant risk to shareholders.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 0, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-22 | Needham | $390 | $390 | 0% |
+| 2025-11-24 | Citigroup | $385 | $0 | 0% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-22 | Needham | reit | Buy |
+| 2025-11-24 | Citigroup | init | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 2 ($0.51M) |
+| Sells | 16 ($6.42M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 43.2% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 6 / 4 |
+
+**Top Holders:**
+- Blackrock Inc.: 10.6% (-3.5%)
+- Vanguard Group Inc: 9.9% (+1.2%)
+- State Street Corpora: 4.6% (+1.2%)
+- JPMORGAN CHASE & CO: 3.6% (+131.8%)
+- FMR, LLC: 3.5% (+14.0%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_20 falling (-1.8% 5d) with bearish MACD, trend may be turning.
+2. Insider selling cluster: $6.4M in recent transactions.
+3. Valuation stretched: PEG 3.2x requires aggressive growth execution.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 3.15 signals overvaluation risk, limited margin of safety. Quality metrics strong (ROE 22%, ROA 11%, margin 20%). Balance sheet: strong liquidity (3.0x). Insider selling cluster ($6.4M in 90 days), potential headwind. Institutional flow bullish (6 buying vs 4 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $86.6B |
+| Beta | 1.05 |
+| 52W Range | $221.56 - $376.45 |
+| Short Interest | 1.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 3.15 |
+| Forward P/E | 59.9 |
+| Current P/E | 45.1 |
+| YoY Growth | -24.7% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 deteriorating from -0.8% to -2.7% (-1.8% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 6.7pp (needs >4.0% for momentum thesis). Long-term uptrend intact (above SMA200 at 1.00x) but short-term weakness (below SMA20). MACD histogram bearish (-0.83), momentum weakening. RSI neutral at 46. Volume at 48% of 20MA suggests lack of conviction. OFD pattern: +MTL (Rally).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -2.66% (CS: 22) | Weak |
+| RSI_14 | 45.8 | Neutral |
+| MACD Histogram | -0.83 | Bearish |
+| vs SMA20 | 0.984x | Below |
+| vs SMA50 | 0.981x | Below |
+| vs SMA200 | 1.005x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $317.76
+- **Stop Loss:** $303.04 (4.6% risk)
+- **Target:** $332.48 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 81
+- **Position Value:** $25,738.56
+- **Portfolio %:** 25.74%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 120% | L2 100% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*NORMAL regime with moderate risk appetite supported by year-end positioning. VIX at cycle lows (13.47) and multiple sectors hitting 52-week highs indicate constructive sentiment, though breadth at 57.9% suggests selectivity remains important. Fed pause expectations and stable macro backdrop support risk assets.*
+
+### Earnings
+
+**Next:** 2026-02-17 (Est: $1.91)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.79 | $1.93 | +7.8% |
+| 2025Q2 | $1.56 | $1.65 | +6.0% |
+| 2025Q1 | $1.50 | $1.57 | +4.8% |
+| 2024Q4 | $1.82 | $1.88 | +3.2% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

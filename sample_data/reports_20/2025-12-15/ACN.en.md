@@ -1,0 +1,148 @@
+## ACN: Accenture plc - XLK: Technology
+
+### Executive Summary
+
+STRENGTH thesis confirmed: MRS_20 at 6.8% in lower entry zone (4.0-10.0%), top quartile (84th pct) cross-sectional ranking. Short-term MRS_5 (2.7%) confirms momentum alignment. Strong momentum (+2.3% 5-day acceleration). Outperforming sector by 7.2%.
+
+- **Horizon:** 5-20 days (swing)
+- **Risk Profile:** Moderate - momentum continuation
+- **Stop Type:** Fixed 2xATR ($261.66)
+- **If Wrong:** Exit if MRS_20 drops below entry zone or breaks stop
+- **Invalidation:** MRS_20 exits entry zone or MRS_5 turns negative
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 1, Bearish: 0)
+
+**1. Accenture stock rating upgraded by Morgan Stanley on AI growth outlook**
+- Source: Investing.com | 20251216T090748 | Bullish | Relevance: 100%
+- Morgan Stanley has upgraded Accenture plc (NYSE:ACN) from Equalweight to Overweight, raising its price target to $320.00 from $271.00, citing AI growth outlook. Despite a 21% year-to-date decline in Accenture's stock due to generative AI disruption concerns, Morgan Stanley believes these factors are now reflected in the valuation. The firm projects Accenture's growth at 5% for FY26 and 7% for FY27, surpassing consensus estimates, and finds the stock compelling at its current valuation.
+
+**2. Is EPAM Systems Stock Underperforming the S&P 500?**
+- Source: Markets Financial Content | 20251216T100822 | Neutral | Relevance: 75%
+- EPAM Systems, Inc. (EPAM) is a global digital engineering and IT consulting company with a market cap of $11.6 billion. While EPAM has underperformed the S&P 500 (SPX) over the past three months and year-to-date, analysts remain moderately optimistic, with a consensus rating of "Moderate Buy." The company's recent launch of AI agents on Google Cloud Marketplace is boosting investor confidence.
+
+**3. U.S. Enterprises Expand AI Use Across Public Clouds**
+- Source: Business Wire | 20251215T150848 | Somewhat-Bullish | Relevance: 73%
+- U.S. enterprises are increasingly using AI within public cloud environments to boost productivity and efficiency in core business operations, according to a new report from Information Services Group (ISG). Companies are strategically placing AI workloads, like training and inference, to optimize costs and performance across hybrid environments. While general AI adoption is growing, GenAI implementation remains focused on high-accuracy use cases with structured proof-of-concept programs to ensure measurable outcomes and controlled scaling.
+
+**4. FedEx taps Accenture for AI training across 500,000-employee workforce**
+- Source: HR Executive | 20251215T130814 | Somewhat-Bullish | Relevance: 71%
+- FedEx is collaborating with Accenture to implement an enterprise-wide AI education and literacy program for its 500,000 global employees. This initiative, part of FedEx's transformation into an "AI-powered enterprise," will utilize Accenture's LearnVantage platform to provide personalized, role-based training. The program aims to build common AI fluency and skills across the workforce, enabling employees to apply AI responsibly and effectively within their functions.
+
+**5. Assessing Aramark’s (ARMK) Valuation After Its Cheaper 2030 Term Loan B Repricing**
+- Source: Simply Wall Street | 20251214T000840 | Neutral | Relevance: 64%
+- Aramark (ARMK) has repriced its 2030 Term Loan B, lowering financing costs. While its one-year total shareholder return is slightly negative, multi-year returns are positive, suggesting long-term momentum. The company's valuation presents a mixed picture, with a narrative fair value of $44.60 due to growth investments, but a discounted cash flow model suggests it trades above fair value at $30.05.
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 50 ($3.93M) |
+| Sells | 11 ($2.42M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 35.6% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 8 / 2 |
+
+**Top Holders:**
+- Vanguard Group Inc: 9.9% (+0.1%)
+- Blackrock Inc.: 8.4% (+3.5%)
+- State Street Corpora: 4.3% (+0.4%)
+- Capital Internationa: 2.6% (+41.0%)
+- Geode Capital Manage: 2.2% (+2.8%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_20 improving +2.3% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 2.10 elevated, pricing in significant growth expectations. Forward P/E 18.4x stretched relative to 8% growth. Quality metrics strong (ROE 26%, ROA 11%). Balance sheet: $3.8B free cash flow. Institutional flow bullish (8 buying vs 2 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $171.1B |
+| Beta | 1.26 |
+| 52W Range | $229.40 - $398.35 |
+| Short Interest | 2.3% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 2.10 |
+| Forward P/E | 18.4 |
+| Current P/E | 19.9 |
+| YoY Growth | 7.9% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 strengthening from 4.5% to 6.8% (+2.3% in 5 days), confirming momentum buildup. Currently in lower STRENGTH zone (4.0-10.0%), cross-sectional ranking at 84th percentile. MRS_5 at 2.7% confirms short-term momentum alignment. AM_20 at 6.5% shows strong absolute momentum above own 20MA. Outperforming sector by 7.2pp, stock-specific strength. Below SMA200 (0.99x), long-term trend not supportive. MACD histogram positive (1.52), confirming momentum. OFD pattern: -SLN (Support test).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 6.82% (CS: 85) | Strong |
+| RSI_14 | 67.7 | Neutral |
+| MACD Histogram | 1.52 | Bullish |
+| vs SMA20 | 1.065x | Above |
+| vs SMA50 | 1.095x | Above |
+| vs SMA200 | 0.987x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** STRENGTH
+
+### Trade Setup
+
+- **Entry:** $274.66
+- **Stop Loss:** $261.66 (4.7% risk)
+- **Target:** $294.16 (R:R method)
+- **Risk/Reward:** 1.50:1
+- **Target Reasoning:** STRENGTH thesis targets 1.5x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 76
+- **Position Value:** $20,874.16
+- **Portfolio %:** 20.87%
+- **Risk Dollars:** $1,000.00
+- **Risk Per Trade:** 1.00%
+- **Modifiers:** L1 100% | L2 100% | Combined 1.00x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*NORMAL regime with moderate risk appetite and mixed signals. VIX at moderate levels (16.5) with elevated put/call ratio suggesting cautious positioning, while normal yield curve and stable breadth indicate no systemic stress. Focus on selective opportunities with defensive positioning.*
+
+### Earnings
+
+**Next:** 2025-12-18 (Est: $3.73)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.97 | $3.03 | +2.0% |
+| 2025Q2 | $3.32 | $3.49 | +5.0% |
+| 2025Q1 | $2.81 | $2.82 | +0.2% |
+| 2024Q4 | $3.42 | $3.59 | +5.1% |
+
+---
+*RULE-based L3 | 2026-01-06 16:36 | MRS_20*

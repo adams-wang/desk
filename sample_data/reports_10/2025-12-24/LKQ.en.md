@@ -1,0 +1,137 @@
+## LKQ: LKQ Corporation - XLY: Consumer Cyclical
+
+### Executive Summary
+
+No thesis match: MRS_10 -1.5% below STRENGTH zone (3.0-6.0%); PEG 1.06 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge. Caution: momentum weakening (-2.1% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($28.56)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 0, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-10 | Stephens & Co. | $39 | $0 | 0% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-10 | Stephens & Co. | init | Overweight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_BUYING** |
+| Buys | 3 ($0.31M) |
+| Sells | 0 ($0.00M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 47.9% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 5 / 5 |
+
+**Top Holders:**
+- Vanguard Group Inc: 11.9% (-0.9%)
+- Blackrock Inc.: 6.5% (-27.6%)
+- Morgan Stanley: 5.2% (-20.0%)
+- Nordea Investment Ma: 5.0% (+3.2%)
+- Massachusetts Financ: 4.5% (+5.2%)
+
+### Key Risks
+
+1. Long-term trend broken: trading 13.1% below SMA200.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 1.06 suggests fair value with growth premium. Institutional flow bullish (5 buying vs 5 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $7.8B |
+| Beta | 0.90 |
+| 52W Range | $28.13 - $44.82 |
+| Short Interest | 6.1% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 1.06 |
+| Forward P/E | 9.2 |
+| Current P/E | 9.7 |
+| YoY Growth | 6.2% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 deteriorating from 0.6% to -1.5% (-2.1% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 4.5pp (needs >3.0% for momentum thesis). Below SMA200 (0.87x), long-term trend not supportive. RSI neutral at 52. OFD pattern: +SBL (Volatile).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | -1.50% (CS: 39) | Neutral |
+| RSI_14 | 52.5 | Neutral |
+| MACD Histogram | 0.07 | Bullish |
+| vs SMA20 | 1.017x | Above |
+| vs SMA50 | 1.004x | Above |
+| vs SMA200 | 0.869x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $30.26
+- **Stop Loss:** $28.56 (5.6% risk)
+- **Target:** $31.96 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 529
+- **Position Value:** $16,007.54
+- **Portfolio %:** 16.01%
+- **Risk Dollars:** $900.00
+- **Risk Per Trade:** 0.90%
+- **Modifiers:** L1 120% | L2 75% | Combined 0.90x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | WEAKENING (Zone B) | 0.75x |
+
+*NORMAL regime with moderate risk appetite supported by year-end positioning. VIX at cycle lows (13.47) and multiple sectors hitting 52-week highs indicate constructive sentiment, though breadth at 57.9% suggests selectivity remains important. Fed pause expectations and stable macro backdrop support risk assets.*
+
+### Earnings
+
+**Next:** 2026-02-19 (Est: $0.65)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.76 | $0.84 | +11.0% |
+| 2025Q2 | $0.92 | $0.87 | -5.8% |
+| 2025Q1 | $0.78 | $0.79 | +1.5% |
+| 2024Q4 | $0.74 | $0.80 | +7.8% |
+
+---
+*RULE-based L3 | 2026-01-06 16:38 | MRS_10*

@@ -1,0 +1,136 @@
+## ADUS: Addus HomeCare Corporation - XLV: Healthcare
+
+### Executive Summary
+
+VALUE thesis: PEG 1.11 indicates fundamental undervaluation. Consistent execution (4/4 quarters beat estimates). Caution: momentum weakening (-3.3% MRS).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($106.60)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 2
+- **Sentiment:** Neutral (Bullish: 0, Bearish: 0)
+
+**1. Addus HomeCare Corporation (NASDAQ:ADUS) Given Consensus Rating of "Moderate Buy" by Analysts**
+- Source: MarketBeat | 20251217T090834 | Somewhat-Bullish | Relevance: 100%
+- Analysts have given Addus HomeCare Corporation (NASDAQ:ADUS) a consensus "Moderate Buy" rating, with an average 12-month target price of $137.11. This follows recent strong Q3 earnings where the company exceeded revenue and EPS estimates. Despite some insider selling, institutional investors have increased their stakes, reflecting confidence in the home care provider.
+
+**2. Insider Selling: Addus HomeCare (NASDAQ:ADUS) Director Sells 150 Shares of Stock**
+- Source: MarketBeat | 20251217T070834 | Somewhat-Bearish | Relevance: 100%
+- Addus HomeCare (NASDAQ:ADUS) Director Esteban Lopez sold 150 shares of the company's stock on December 15th at an average price of $115.18, totaling $17,277. This sale reduced his stake by 3.9% to 3,700 shares. The company's stock currently trades at $113.49 and analysts maintain a "Moderate Buy" rating with an average target price of $137.11.
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 0 ($0.00M) |
+| Sells | 3 ($0.03M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 54.4% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 8 / 2 |
+
+**Top Holders:**
+- Blackrock Inc.: 14.8% (-1.1%)
+- Vanguard Group Inc: 7.0% (+2.9%)
+- Capital Research Glo: 6.5% (+9.0%)
+- Wasatch Advisors LP: 5.1% (+0.8%)
+- Silvercrest Asset Ma: 4.6% (+14.2%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_20 falling (-3.3% 5d) with bearish MACD, trend may be turning.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 1.11 suggests fair value with growth premium. Balance sheet: low leverage (D/E 0.36). Institutional flow bullish (8 buying vs 2 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $2.1B |
+| Beta | 0.94 |
+| 52W Range | $88.96 - $136.72 |
+| Short Interest | 4.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 1.11 |
+| Forward P/E | 16.5 |
+| Current P/E | 18.3 |
+| YoY Growth | 11.1% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 deteriorating from 0.7% to -2.6% (-3.3% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 6.7pp (needs >4.0% for momentum thesis). Long-term uptrend intact (above SMA200 at 1.02x) but short-term weakness (below SMA20). RSI neutral at 46. OFD pattern: +MTN (Rally).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -2.65% (CS: 23) | Weak |
+| RSI_14 | 45.6 | Neutral |
+| MACD Histogram | -0.28 | Bearish |
+| vs SMA20 | 0.977x | Below |
+| vs SMA50 | 0.976x | Below |
+| vs SMA200 | 1.023x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $112.82
+- **Stop Loss:** $106.60 (5.5% risk)
+- **Target:** $125.26 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 192
+- **Position Value:** $21,661.44
+- **Portfolio %:** 21.66%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 120% | L2 100% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*NORMAL regime with improving risk appetite as VIX falls to 6th percentile and tech rally resumes on AI infrastructure demand. Fed pause expectations from cooling CPI data support equities, though elevated put/call ratio suggests cautious positioning. Focus on quality names in AI-exposed sectors.*
+
+### Earnings
+
+**Next:** 2026-02-23 (Est: $1.72)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.53 | $1.56 | +1.7% |
+| 2025Q2 | $1.46 | $1.49 | +1.8% |
+| 2025Q1 | $1.33 | $1.42 | +6.5% |
+| 2024Q4 | $1.36 | $1.38 | +1.6% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

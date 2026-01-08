@@ -1,0 +1,162 @@
+## PLD: Prologis, Inc. - XLRE: Real Estate
+
+### Executive Summary
+
+VALUE thesis: PEG 0.54 indicates fundamental undervaluation. Consistent execution (3/4 quarters beat estimates).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($123.17)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 6, Bearish: 0)
+
+**1. B. Riley Wealth Advisors Inc. Makes New $875,000 Investment in Prologis, Inc. $PLD**
+- Source: MarketBeat | 20251216T090826 | Bullish | Relevance: 100%
+- B. Riley Wealth Advisors Inc. has invested $875,000 in Prologis, Inc., acquiring 8,320 shares. This comes as analyst sentiment for Prologis remains largely positive with a "Moderate Buy" consensus and several firms raising price targets. Prologis also announced a quarterly dividend of $1.01 per share.
+
+**2. Texas Permanent School Fund Corp Cuts Holdings in Prologis, Inc. $PLD**
+- Source: MarketBeat | 20251216T120849 | Somewhat-Bullish | Relevance: 100%
+- The Texas Permanent School Fund Corp significantly reduced its stake in Prologis, Inc. ($PLD) by 31.2% in the second quarter, selling 31,254 shares to hold 68,834 shares valued at $7.24 million. Despite this, institutional ownership of PLD remains high at 93.5%, and analysts generally maintain a "Moderate Buy" rating with price targets up to $138. Prologis recently exceeded quarterly earnings expectations and announced a quarterly dividend of $1.01, representing a 3.1% yield.
+
+**3. Valeo Financial Advisors LLC Has $89.89 Million Stake in Prologis, Inc. $PLD**
+- Source: MarketBeat | 20251215T140636 | Bullish | Relevance: 100%
+- Valeo Financial Advisors LLC significantly reduced its stake in Prologis, Inc. ($PLD) by 77.9%, now holding 855,115 shares valued at $89.89 million, making it their 15th-largest holding. Despite this, Wall Street analysts maintain a "Moderate Buy" rating for Prologis, with an average price target of $126.88. The company recently exceeded quarterly earnings expectations and provided positive FY2025 EPS guidance.
+
+**4. Stance Capital LLC Acquires Shares of 11,998 Prologis, Inc. $PLD**
+- Source: MarketBeat | 20251215T120812 | Somewhat-Bullish | Relevance: 100%
+- Stance Capital LLC recently acquired 11,998 shares of Prologis, Inc. (NYSE:PLD) stock, valued at approximately $1.26 million, according to its latest SEC filing. Other institutional investors also adjusted their holdings in the real estate investment trust. Prologis reported strong quarterly earnings, exceeding analyst expectations, and announced a quarterly dividend.
+
+**5. Westwood Holdings Group Inc. Increases Position in Prologis, Inc. $PLD**
+- Source: MarketBeat | 20251214T142640 | Bullish | Relevance: 100%
+- Westwood Holdings Group Inc. increased its stake in Prologis, Inc. by 5.2% during the second quarter, bringing its total ownership to 696,705 shares valued at approximately $73.24 million. Institutional investors now own 93.5% of Prologis, while insiders hold 0.57%, with recent insider sales totaling $198,655. Prologis reported strong earnings, exceeding EPS and revenue estimates, and announced a quarterly dividend of $1.01 per share.
+
+### Analyst Activity
+
+**Target Signal:** VERY_BULLISH (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-04 | Mizuho | $138 | $118 | +17% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-04 | Mizuho | main | Outperform |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 10 ($0.00M) |
+| Sells | 5 ($0.20M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 47.3% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 5 / 5 |
+
+**Top Holders:**
+- Vanguard Group Inc: 13.1% (+0.3%)
+- Blackrock Inc.: 10.4% (+3.2%)
+- State Street Corpora: 6.2% (-0.9%)
+- JPMORGAN CHASE & CO: 4.8% (+82.6%)
+- Cohen & Steers Inc.: 2.7% (-8.4%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 0.54 indicates undervaluation relative to growth. Forward P/E 44.2x stretched relative to 9% growth. Quality metrics strong (margin 35%). Analyst sentiment positive (1 raises, avg +17%). Institutional flow bullish (5 buying vs 5 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $118.5B |
+| Beta | 1.41 |
+| 52W Range | $85.35 - $131.70 |
+| Short Interest | 1.7% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.54 |
+| Forward P/E | 44.2 |
+| Current P/E | 48.4 |
+| YoY Growth | 9.3% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 stable at 0.1% (minimal 5-day change). Below STRENGTH zone by 3.9pp (needs >4.0% for momentum thesis). MRS_5 (-0.8%) diverging from MRS_20 - short-term weakness emerging. Long-term uptrend intact (above SMA200 at 1.13x) but short-term weakness (below SMA20). RSI neutral at 52. OFD pattern: -MUN (Resistance).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 0.11% (CS: 43) | Neutral |
+| RSI_14 | 52.2 | Neutral |
+| MACD Histogram | -0.09 | Bearish |
+| vs SMA20 | 1.000x | Below |
+| vs SMA50 | 1.024x | Above |
+| vs SMA200 | 1.133x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $127.59
+- **Stop Loss:** $123.17 (3.5% risk)
+- **Target:** $136.43 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 271
+- **Position Value:** $34,576.89
+- **Portfolio %:** 34.58%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 100% | L2 120% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | IGNITION (Zone D) | 1.20x |
+
+*NORMAL regime with balanced risk positioning. VIX remains calm at 16.48 while breadth shows modest improvement to 52%, indicating neither euphoria nor distress. Mixed sectoral themes from energy weakness to AI expansion suggest stock-picking environment rather than broad directional moves.*
+
+### Earnings
+
+**Next:** 2026-01-21 (Est: $0.68)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.73 | $0.82 | +11.9% |
+| 2025Q2 | $0.73 | $0.61 | -16.6% |
+| 2025Q1 | $0.63 | $0.63 | +0.5% |
+| 2024Q4 | $0.68 | $1.37 | +100.8% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

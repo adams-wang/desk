@@ -1,0 +1,931 @@
+{
+  "contract_id": "l2_2025-12-16",
+  "trading_date": "2025-12-16",
+  "generated_at": "2026-01-01T14:13:14.172510",
+  "valid_until": "2026-01-02T14:13:14.172510",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-16",
+  "sector_news": {
+    "total_articles": 114,
+    "avg_sentiment": 0.124,
+    "bullish_sectors": [
+      "XLP",
+      "XLB",
+      "XLC",
+      "XLI",
+      "XLY",
+      "XLF",
+      "XLK"
+    ],
+    "bearish_sectors": [],
+    "sector_sentiment": {
+      "XLU": {
+        "avg_sentiment": -0.06,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.111,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLP": {
+        "avg_sentiment": 0.168,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.234,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.197,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLI": {
+        "avg_sentiment": 0.234,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": 0.168,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLF": {
+        "avg_sentiment": 0.218,
+        "article_count": 13,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": -0.048,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLK": {
+        "avg_sentiment": 0.197,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLE": {
+        "avg_sentiment": -0.06,
+        "article_count": 10,
+        "label": "Neutral"
+      }
+    },
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "'Taken for a Ride': Ohio joins multistate Uber lawsuit",
+          "summary": "Ohio has joined a multistate lawsuit against Uber USA, LLC and Uber Technologies, Inc. for alleged deceptive practices related to its Uber One subscription service. The lawsuit claims Uber misled customers with free trials that automatically converted to paid subscriptions, exaggerated savings, and made cancellation difficult. It seeks refunds, civil penalties, and a court order to prevent future deceptive practices.",
+          "source": "WFMJ.com",
+          "url": "https://www.wfmj.com/story/53319133/taken-for-a-ride-ohio-joins-multistate-uber-lawsuit?clienttype=mobile",
+          "time_published": "20251216T234601",
+          "relevance": 1.0,
+          "sentiment": -0.647051,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Major Superinvestors Increase Stakes in Fiserv (FISV)",
+          "summary": "Several prominent investors, including Cliff Asness, Ray Dalio, and Joel Greenblatt, significantly increased their holdings in Fiserv Inc. (FISV) this quarter, reflecting strong confidence in the company's financial technology, recurring revenue, and free-cash-flow profile. David Tepper's Appaloosa LP also established a new, sizable position, signaling conviction in Fiserv's scalable infrastructure and expanding merchant network. The moves highlight Fiserv's appeal as a long-term holding due to its durable competitive advantages and consistent cash generation.",
+          "source": "The Acquirer's Multiple",
+          "url": "https://acquirersmultiple.com/2025/12/major-superinvestors-increase-stakes-in-fiserv-fisv/",
+          "time_published": "20251216T231117",
+          "relevance": 1.0,
+          "sentiment": 0.405439,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Bridgeline to Report Financial Results for the Fourth Quarter of Fiscal 2025",
+          "summary": "Bridgeline Digital, Inc. (NASDAQ:BLIN) announced it will release its financial results for the fourth quarter of fiscal 2025 after market close on Thursday, December 18, 2025. President and CEO Ari Kahn, along with CFO Thomas Windhausen, will host a live conference call at 4:30 p.m. ET to discuss the results. Participants are encouraged to register in advance for the webcast and call details.",
+          "source": "ACCESS Newswire",
+          "url": "https://www.accessnewswire.com/newsroom/en/computers-technology-and-internet/bridgeline-to-report-financial-results-for-the-fourth-quarter-of-1118432",
+          "time_published": "20251216T231028",
+          "relevance": 1.0,
+          "sentiment": 0.04293,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Micron Q1 Preview: Record Quarter Predicted By Analyst \u2014 'We Recommend Owning The Stock'",
+          "summary": "Analysts predict Micron Technology (NASDAQ: MU) will report a record-breaking first-quarter revenue, potentially surpassing $12.81 billion, and strong earnings per share. Several analysts, including Rosenblatt's Kevin Cassidy and Needham's Quinn Bolton, reiterate Buy ratings and raise price targets, citing disciplined supply growth, strong demand, and increasing AI applications. Despite positive analyst sentiment, some market experts caution about potential post-earnings volatility, as the stock has historically traded lower after reporting results.",
+          "source": "Benzinga",
+          "url": "https://www.benzinga.com/trading-ideas/previews/25/12/49437890/micron-q1-preview-record-quarter-predicted-by-analyst-we-recommend-owning-the-stock",
+          "time_published": "20251216T231021",
+          "relevance": 1.0,
+          "sentiment": 0.808465,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "IAC receives non-renewal notice from Google for services agreement",
+          "summary": "IAC Inc. disclosed that Google will not renew their Services Agreement, which provides paid listings and accounts for all revenue in IAC's Search segment, set to expire on March 31, 2026. Google plans to propose revised terms for a new agreement, but discussions are ongoing. This follows recent analyst downgrades for IAC and leadership changes at Match Group's Hinge.",
+          "source": "Investing.com",
+          "url": "https://m.investing.com/news/sec-filings/iac-receives-nonrenewal-notice-from-google-for-services-agreement-93CH-4411650?ampMode=1",
+          "time_published": "20251216T230955",
+          "relevance": 1.0,
+          "sentiment": 0.035527,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "Bio-Techne Stock: Is TECH Underperforming the Healthcare Sector?",
+          "summary": "Bio-Techne Corporation (TECH) has shown signs of underperformance compared to the broader healthcare sector (XLV), with its stock decreasing 26% from its 52-week high and lagging behind XLV's gains over three months and year-to-date. This underperformance follows a Q1 2026 revenue decline attributed to cell therapy headwinds and biotech funding softness. Despite this, analysts maintain a \"Strong Buy\" consensus rating for TECH stock, anticipating a 16.9% premium to current levels.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-16-bio-techne-stock-is-tech-underperforming-the-healthcare-sector",
+          "time_published": "20251216T074000",
+          "relevance": 1.0,
+          "sentiment": -0.069838,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "2 Healthcare Stocks on Our Watchlist and 1 We Brush Off",
+          "summary": "This article evaluates three healthcare stocks, recommending two for investors' watchlists and one to avoid. Surgery Partners (SGRY) is identified as a stock to sell due to disappointing sales, low free cash flow, and high debt. ResMed (RMD) and Inspire Medical Systems (INSP) are highlighted as strong contenders because of their consistent growth, profitability, and increasing free cash flow margins.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/stockstory-2025-12-17-2-healthcare-stocks-on-our-watchlist-and-1-we-brush-off",
+          "time_published": "20251216T233500",
+          "relevance": 1.0,
+          "sentiment": 0.156198,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "1 Safe-and-Steady Stock to Consider Right Now and 2 We Turn Down",
+          "summary": "This article identifies one \"safe-and-steady\" stock, Abbott Laboratories (ABT), as a potential winner due to its strong market position, share repurchases, and free cash flow. Conversely, it advises against investing in Edgewell Personal Care (EPC) and First American Financial (FAF) due to underperforming core businesses, increased expenses, and slow growth. The analysis highlights key financial metrics and industry challenges for each company.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/stockstory-2025-12-17-1-safe-and-steady-stock-to-consider-right-now-and-2-we-turn-down",
+          "time_published": "20251216T233200",
+          "relevance": 1.0,
+          "sentiment": 0.293135,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "3 Healthcare Stocks We're Skeptical Of",
+          "summary": "This article identifies three healthcare stocks\u2014Progyny (PGNY), Royalty Pharma (RPRX), and ANI Pharmaceuticals (ANIP)\u2014that analysts are skeptical of despite the sector's recent strong performance. The concerns noted for these companies include smaller revenue bases, low returns on capital, end-market challenges, and rising costs impacting operating margins. The piece advises investors to exercise caution, highlighting specific valuation metrics and issues for each company.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/255923/3-healthcare-stocks-were-skeptical-of",
+          "time_published": "20251216T233200",
+          "relevance": 1.0,
+          "sentiment": -0.401894,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "AstraZeneca (NASDAQ: AZN) gains US 1st-line HER2+ metastatic breast cancer approval",
+          "summary": "AstraZeneca's Enhertu (trastuzumab deruxtecan) plus pertuzumab has received US FDA approval as a first-line treatment for adults with unresectable or metastatic HER2-positive breast cancer. This approval, based on the DESTINY-Breast09 trial, significantly reduced the risk of disease progression or death by 44% compared to standard therapy. The decision triggers a $150 million milestone payment from AstraZeneca to Daiichi Sankyo, with Daiichi Sankyo recognizing US sales of Enhertu.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/AZN/6-k-astrazeneca-plc-current-report-foreign-issuer-cf13d55f9f71.html",
+          "time_published": "20251216T230930",
+          "relevance": 1.0,
+          "sentiment": 0.163213,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "Financial Sector Breaks Out as Capital Rotates and Leadership Shifts",
+          "summary": "The financial sector appears to be breaking out of a multi-month consolidation, signaling renewed momentum and potential sector leadership, driven by capital rotation and improving investor sentiment. This move is prominently shown by the XLF ETF clearing a significant resistance level, and companies like JPMorgan Chase, Bank of America, Charles Schwab, and even Robinhood are positioned to benefit from these shifts. The article suggests that financials may be entering a sustained leadership phase, making them a sector investors should pay close attention to.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/BAC/pressreleases/36651037/financial-sector-breaks-out-as-capital-rotates-and-leadership-shifts/",
+          "time_published": "20251215T220838",
+          "relevance": 1.0,
+          "sentiment": 0.439748,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Financial Sector Breaks Out as Capital Rotates and Leadership Shifts",
+          "summary": "The financial sector, as represented by the XLF ETF, has broken out of a multi-month consolidation, signaling renewed momentum and potential leadership amid capital rotation. This move follows the Federal Reserve's rate cut decision and other market dynamics, making financials a sector to watch. Key holdings like JPMorgan Chase, Bank of America, Charles Schwab, and Robinhood are showing strong technical setups and fundamental performance, positioning the sector for continued growth into year-end and beyond.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/HOOD/pressreleases/36651037/financial-sector-breaks-out-as-capital-rotates-and-leadership-shifts/",
+          "time_published": "20251214T190928",
+          "relevance": 1.0,
+          "sentiment": 0.404463,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Key facts: Berkshire Hathaway shines with Treasury bills; Vanguard ETF up 15%; XLF ETF hits record high",
+          "summary": "Berkshire Hathaway continues to generate significant income from its Treasury bills. It is a component of the Vanguard Value ETF, which has seen a 15% increase this year and offers a 2.1% dividend yield, and is also part of State Street's XLF ETF, which recently reached an all-time high. This highlights increased investor interest in financial stocks and Berkshire's strong financial performance.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/tradingview:2dc2a3c08dc8d:0-key-facts-berkshire-hathaway-shines-with-treasury-bills-vanguard-etf-up-15-xlf-etf-hits-record-high/",
+          "time_published": "20251212T200906",
+          "relevance": 1.0,
+          "sentiment": 0.411976,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "'Taken for a Ride': Ohio joins multistate Uber lawsuit",
+          "summary": "Ohio has joined a multistate lawsuit against Uber USA, LLC and Uber Technologies, Inc. for alleged deceptive practices related to its Uber One subscription service. The lawsuit claims Uber misled customers with free trials that automatically converted to paid subscriptions, exaggerated savings, and made cancellation difficult. It seeks refunds, civil penalties, and a court order to prevent future deceptive practices.",
+          "source": "WFMJ.com",
+          "url": "https://www.wfmj.com/story/53319133/taken-for-a-ride-ohio-joins-multistate-uber-lawsuit?clienttype=mobile",
+          "time_published": "20251216T234601",
+          "relevance": 1.0,
+          "sentiment": -0.628648,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "3 Bank Stocks We Keep Off Our Radar",
+          "summary": "This article identifies three bank stocks\u2014Westamerica Bancorporation (WABC), Regions Financial (RF), and Republic Bancorp (RBCAA)\u2014that analysts are wary of due to concerns about their net interest income growth, net interest margins, and earnings per share trends. Despite the broader banking industry's recent growth, these specific banks exhibit characteristics that suggest potential underperformance or risks for investors. The author advises caution and offers free research reports for those considering these stocks.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/stocks/article/stockstory-2025-12-17-3-bank-stocks-we-keep-off-our-radar",
+          "time_published": "20251216T233400",
+          "relevance": 1.0,
+          "sentiment": -0.3794,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Carrier Global agrees to sell Riello heating business for $430M to Italian buyer",
+          "summary": "Carrier Global has announced an agreement to sell its Riello heating business to the Italian-based Ariston Group for $430 million. The Riello company, which is over 100 years old, is being acquired by a key player in the heating industry. This divestiture is part of Carrier's broader strategy, as it previously announced plans to sell other parts of its business for $3 billion.",
+          "source": "The Business Journals",
+          "url": "https://www.bizjournals.com/southflorida/news/2025/12/16/carrier-to-sell-subsidiary-for-430m.html",
+          "time_published": "20251216T230941",
+          "relevance": 1.0,
+          "sentiment": 0.347872,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Leonardo DRS Achieves Major Milestone with First Space-Based Test of Next-Generation Secure Data Transport Capability",
+          "summary": "Leonardo DRS (NASDAQ: DRS) successfully conducted the first on-orbit test of its next-generation multi-channel software-defined radio (SDR) with integrated advanced cryptography, named XCM3-Space. This technology aims to set a new standard for secure U.S. military satellite data transport at the tactical edge, particularly for future space-based detection and interception of ballistic and hypersonic missile threats. The successful test, performed in Low Earth Orbit aboard a Proteus Mercury satellite, validates a critical capability for secure and flexible satellite communications for various U.S. defense agencies.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251216657055/en/Leonardo-DRS-Achieves-Major-Milestone-with-First-Space-Based-Test-of-Next-Generation-Secure-Data-Transport-Capability",
+          "time_published": "20251216T230925",
+          "relevance": 1.0,
+          "sentiment": 0.032907,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Stocks in play: ZenaTech, Inc.",
+          "summary": "ZenaTech, Inc. announced an update on its ZenaDrone solutions subsidiary, highlighting accelerated efforts and increased engagement with US defense government stakeholders. The company anticipates field demonstrations and pilot agreements in 2026, with announcements planned for Q1 next year. ZenaTech's shares (N.ZENA) are currently trading up 8 cents at $2.96.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/ZENA/pressreleases/36648037/stocks-in-play-zenatech-inc/",
+          "time_published": "20251216T230907",
+          "relevance": 1.0,
+          "sentiment": 0.428938,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Constellium (NYSE:CSTM): Valuation Check After New Singen Battery Foil Investment Goes Live",
+          "summary": "Constellium (NYSE:CSTM) has completed a EUR30 million battery foil investment in Germany, strengthening its position in Europe's EV supply chain. While the company's shares have seen strong performance and are considered undervalued by analysts, potential challenges like demand softness in automotive and aerospace markets and elevated capital expenditures could impact future earnings and free cash flow. Despite a narrative fair value of $20.12, a more in-depth DCF model suggests a deeper undervaluation at $42.79, indicating significant upside potential.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/constellium-nysecstm-valuation-check-after-new-singen-battery-foil-investment-goes-live-2025-12-16",
+          "time_published": "20251216T230903",
+          "relevance": 1.0,
+          "sentiment": 0.414493,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Architectural products firm picks Jan. 7 to share latest quarter",
+          "summary": "Apogee Enterprises, Inc. (Nasdaq: APOG) announced it will report its fiscal 2026 third quarter results on Wednesday, January 7, 2026, before the market opens. The company will also host a conference call on the same day at 8:00 a.m. Central Time, with access to a live webcast available on their website. A replay and transcript will be provided after the call for those unable to listen live.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/APOG/apogee-enterprises-announces-date-for-fiscal-2026-third-quarter-n6877z26oua0.html",
+          "time_published": "20251216T230853",
+          "relevance": 1.0,
+          "sentiment": 0.024386,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "'Taken for a Ride': Ohio joins multistate Uber lawsuit",
+          "summary": "Ohio has joined a multistate lawsuit against Uber USA, LLC and Uber Technologies, Inc. for alleged deceptive practices related to its Uber One subscription service. The lawsuit claims Uber misled customers with free trials that automatically converted to paid subscriptions, exaggerated savings, and made cancellation difficult. It seeks refunds, civil penalties, and a court order to prevent future deceptive practices.",
+          "source": "WFMJ.com",
+          "url": "https://www.wfmj.com/story/53319133/taken-for-a-ride-ohio-joins-multistate-uber-lawsuit?clienttype=mobile",
+          "time_published": "20251216T234601",
+          "relevance": 1.0,
+          "sentiment": -0.628648,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Can Norwegian Cruise Line Holdings (NCLH) New CEO Pick Sharpen Its Premiumization And Efficiency Story?",
+          "summary": "Norwegian Cruise Line Holdings has appointed Marc Kazlauskas as President, a move aimed at bolstering its premiumization and efficiency strategy. Kazlauskas's extensive experience in commercial performance and customer experience is expected to align with NCLH's investments in new ships and destinations, enhancing pricing power and passenger economics. However, the company still faces challenges related to high leverage and earnings volatility, which could impact its long-term outlook.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/consumer-services/nyse-nclh/norwegian-cruise-line-holdings/news/can-norwegian-cruise-line-holdings-nclh-new-ceo-pick-sharpen",
+          "time_published": "20251216T234239",
+          "relevance": 1.0,
+          "sentiment": 0.187275,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "1 Safe-and-Steady Stock to Consider Right Now and 2 We Turn Down",
+          "summary": "This article identifies one \"safe-and-steady\" stock, Abbott Laboratories (ABT), as a potential winner due to its strong market position, share repurchases, and free cash flow. Conversely, it advises against investing in Edgewell Personal Care (EPC) and First American Financial (FAF) due to underperforming core businesses, increased expenses, and slow growth. The analysis highlights key financial metrics and industry challenges for each company.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/stockstory-2025-12-17-1-safe-and-steady-stock-to-consider-right-now-and-2-we-turn-down",
+          "time_published": "20251216T233200",
+          "relevance": 1.0,
+          "sentiment": 0.293135,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Escalade Announces Acquisition of AllCornhole, a Leading Brand in the Fast-Growing Cornhole Market",
+          "summary": "Escalade, Inc. has announced the acquisition of AllCornhole, a prominent supplier of competitive cornhole bags and equipment. This acquisition expands Escalade's presence in the tournament-level cornhole market and complements its existing Victory Tailgate brand and partnership with the American Cornhole League (ACL). The move positions Escalade to cater to all levels of cornhole players, from beginners to professionals, as the sport continues its rapid growth and national recognition.",
+          "source": "PR Newswire",
+          "url": "https://www.prnewswire.com/news-releases/escalade-announces-acquisition-of-allcornhole-a-leading-brand-in-the-fast-growing-cornhole-market-302644056.html",
+          "time_published": "20251216T230924",
+          "relevance": 1.0,
+          "sentiment": 0.485615,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Spotting Winners: Keurig Dr Pepper (NASDAQ:KDP) And Beverages, Alcohol, and Tobacco Stocks In Q3",
+          "summary": "This article reviews Q3 earnings for beverages, alcohol, and tobacco stocks, highlighting Keurig Dr Pepper (KDP) as a strong performer with revenues up 10.7% year-on-year. It also covers Celsius (CELH) as the best Q3 performer with 173% revenue growth despite a stock drop, and Altria (MO) as the weakest performer. The article discusses overall industry trends and market conditions, noting how companies that innovate to meet changing consumer preferences tend to thrive.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/256759/spotting-winners-keurig-dr-pepper-nasdaq-kdp-and-beverages-alcohol-and-tobacco-stocks-in-q3",
+          "time_published": "20251216T230830",
+          "relevance": 1.0,
+          "sentiment": 0.122962,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "'Taken for a Ride': Ohio joins multistate Uber lawsuit",
+          "summary": "Ohio has joined a multistate lawsuit against Uber USA, LLC and Uber Technologies, Inc. for alleged deceptive practices related to its Uber One subscription service. The lawsuit claims Uber misled customers with free trials that automatically converted to paid subscriptions, exaggerated savings, and made cancellation difficult. It seeks refunds, civil penalties, and a court order to prevent future deceptive practices.",
+          "source": "WFMJ.com",
+          "url": "https://www.wfmj.com/story/53319133/taken-for-a-ride-ohio-joins-multistate-uber-lawsuit?clienttype=mobile",
+          "time_published": "20251216T234601",
+          "relevance": 1.0,
+          "sentiment": -0.628648,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Can Norwegian Cruise Line Holdings (NCLH) New CEO Pick Sharpen Its Premiumization And Efficiency Story?",
+          "summary": "Norwegian Cruise Line Holdings has appointed Marc Kazlauskas as President, a move aimed at bolstering its premiumization and efficiency strategy. Kazlauskas's extensive experience in commercial performance and customer experience is expected to align with NCLH's investments in new ships and destinations, enhancing pricing power and passenger economics. However, the company still faces challenges related to high leverage and earnings volatility, which could impact its long-term outlook.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/consumer-services/nyse-nclh/norwegian-cruise-line-holdings/news/can-norwegian-cruise-line-holdings-nclh-new-ceo-pick-sharpen",
+          "time_published": "20251216T234239",
+          "relevance": 1.0,
+          "sentiment": 0.187275,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "1 Safe-and-Steady Stock to Consider Right Now and 2 We Turn Down",
+          "summary": "This article identifies one \"safe-and-steady\" stock, Abbott Laboratories (ABT), as a potential winner due to its strong market position, share repurchases, and free cash flow. Conversely, it advises against investing in Edgewell Personal Care (EPC) and First American Financial (FAF) due to underperforming core businesses, increased expenses, and slow growth. The analysis highlights key financial metrics and industry challenges for each company.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/stockstory-2025-12-17-1-safe-and-steady-stock-to-consider-right-now-and-2-we-turn-down",
+          "time_published": "20251216T233200",
+          "relevance": 1.0,
+          "sentiment": 0.293135,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Escalade Announces Acquisition of AllCornhole, a Leading Brand in the Fast-Growing Cornhole Market",
+          "summary": "Escalade, Inc. has announced the acquisition of AllCornhole, a prominent supplier of competitive cornhole bags and equipment. This acquisition expands Escalade's presence in the tournament-level cornhole market and complements its existing Victory Tailgate brand and partnership with the American Cornhole League (ACL). The move positions Escalade to cater to all levels of cornhole players, from beginners to professionals, as the sport continues its rapid growth and national recognition.",
+          "source": "PR Newswire",
+          "url": "https://www.prnewswire.com/news-releases/escalade-announces-acquisition-of-allcornhole-a-leading-brand-in-the-fast-growing-cornhole-market-302644056.html",
+          "time_published": "20251216T230924",
+          "relevance": 1.0,
+          "sentiment": 0.485615,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Spotting Winners: Keurig Dr Pepper (NASDAQ:KDP) And Beverages, Alcohol, and Tobacco Stocks In Q3",
+          "summary": "This article reviews Q3 earnings for beverages, alcohol, and tobacco stocks, highlighting Keurig Dr Pepper (KDP) as a strong performer with revenues up 10.7% year-on-year. It also covers Celsius (CELH) as the best Q3 performer with 173% revenue growth despite a stock drop, and Altria (MO) as the weakest performer. The article discusses overall industry trends and market conditions, noting how companies that innovate to meet changing consumer preferences tend to thrive.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/256759/spotting-winners-keurig-dr-pepper-nasdaq-kdp-and-beverages-alcohol-and-tobacco-stocks-in-q3",
+          "time_published": "20251216T230830",
+          "relevance": 1.0,
+          "sentiment": 0.122962,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "'Taken for a Ride': Ohio joins multistate Uber lawsuit",
+          "summary": "Ohio has joined a multistate lawsuit against Uber USA, LLC and Uber Technologies, Inc. for alleged deceptive practices related to its Uber One subscription service. The lawsuit claims Uber misled customers with free trials that automatically converted to paid subscriptions, exaggerated savings, and made cancellation difficult. It seeks refunds, civil penalties, and a court order to prevent future deceptive practices.",
+          "source": "WFMJ.com",
+          "url": "https://www.wfmj.com/story/53319133/taken-for-a-ride-ohio-joins-multistate-uber-lawsuit?clienttype=mobile",
+          "time_published": "20251216T234601",
+          "relevance": 1.0,
+          "sentiment": -0.643157,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Joby Aviation (NYSE:JOBY) Insider Sells $89,745.13 in Stock",
+          "summary": "Joby Aviation (NYSE:JOBY) insider Didier Papadopoulos sold 5,987 shares of the company's stock on December 15th, totaling $89,745.13. This transaction reduced his stake by 5.46% to 103,758 shares. The article notes that JOBY shares traded down approximately 1.0% and highlights previous sales by Papadopoulos, institutional trading activity, and mixed analyst ratings with an average \"Reduce\" recommendation.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/joby-aviation-nysejoby-insider-sells-8974513-in-stock-2025-12-16/",
+          "time_published": "20251216T230952",
+          "relevance": 1.0,
+          "sentiment": -0.398902,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Riley Exploration Permian Approves $100 Million Share Repurchase Program",
+          "summary": "Riley Exploration Permian, Inc. has announced the approval of a $100 million share repurchase program. This news comes alongside several other recent announcements, including the sale of New Mexico natural gas interests and updated production guidance. The company, an independent oil and natural gas producer, is focused on the acquisition, exploration, development, and production of oil, natural gas, and natural gas liquids in the Permian Basin.",
+          "source": "marketscreener.com",
+          "url": "https://www.marketscreener.com/news/riley-exploration-permian-approves-100-million-share-repurchase-program-ce7d50ded18cf62c",
+          "time_published": "20251216T230935",
+          "relevance": 1.0,
+          "sentiment": 0.428174,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Constellium (NYSE:CSTM): Valuation Check After New Singen Battery Foil Investment Goes Live",
+          "summary": "Constellium (NYSE:CSTM) has completed a EUR30 million battery foil investment in Germany, strengthening its position in Europe's EV supply chain. While the company's shares have seen strong performance and are considered undervalued by analysts, potential challenges like demand softness in automotive and aerospace markets and elevated capital expenditures could impact future earnings and free cash flow. Despite a narrative fair value of $20.12, a more in-depth DCF model suggests a deeper undervaluation at $42.79, indicating significant upside potential.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/constellium-nysecstm-valuation-check-after-new-singen-battery-foil-investment-goes-live-2025-12-16",
+          "time_published": "20251216T230903",
+          "relevance": 1.0,
+          "sentiment": 0.416813,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Bad River Band challenges federal approval of Enbridge Line 5 reroute",
+          "summary": "The Bad River Band of Lake Superior Chippewa has filed a federal lawsuit challenging the U.S. Army Corps of Engineers' approval of Enbridge's 41-mile Line 5 oil pipeline reroute, arguing it violates environmental acts and threatens their traditional lands and waters. The Band emphasizes the risks of potential oil spills to their Reservation, while Enbridge maintains that the project's environmental impacts will be temporary. Enbridge also stated that the permit has not been finalized and that they plan to intervene in the lawsuit.",
+          "source": "WDIO.com",
+          "url": "https://www.wdio.com/front-page/top-stories/bad-river-band-challenges-federal-approval-of-enbridge-line-5-reroute/",
+          "time_published": "20251216T230855",
+          "relevance": 1.0,
+          "sentiment": -0.412779,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "'Taken for a Ride': Ohio joins multistate Uber lawsuit",
+          "summary": "Ohio has joined a multistate lawsuit against Uber USA, LLC and Uber Technologies, Inc. for alleged deceptive practices related to its Uber One subscription service. The lawsuit claims Uber misled customers with free trials that automatically converted to paid subscriptions, exaggerated savings, and made cancellation difficult. It seeks refunds, civil penalties, and a court order to prevent future deceptive practices.",
+          "source": "WFMJ.com",
+          "url": "https://www.wfmj.com/story/53319133/taken-for-a-ride-ohio-joins-multistate-uber-lawsuit?clienttype=mobile",
+          "time_published": "20251216T234601",
+          "relevance": 1.0,
+          "sentiment": -0.643157,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Joby Aviation (NYSE:JOBY) Insider Sells $89,745.13 in Stock",
+          "summary": "Joby Aviation (NYSE:JOBY) insider Didier Papadopoulos sold 5,987 shares of the company's stock on December 15th, totaling $89,745.13. This transaction reduced his stake by 5.46% to 103,758 shares. The article notes that JOBY shares traded down approximately 1.0% and highlights previous sales by Papadopoulos, institutional trading activity, and mixed analyst ratings with an average \"Reduce\" recommendation.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/joby-aviation-nysejoby-insider-sells-8974513-in-stock-2025-12-16/",
+          "time_published": "20251216T230952",
+          "relevance": 1.0,
+          "sentiment": -0.398902,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Riley Exploration Permian Approves $100 Million Share Repurchase Program",
+          "summary": "Riley Exploration Permian, Inc. has announced the approval of a $100 million share repurchase program. This news comes alongside several other recent announcements, including the sale of New Mexico natural gas interests and updated production guidance. The company, an independent oil and natural gas producer, is focused on the acquisition, exploration, development, and production of oil, natural gas, and natural gas liquids in the Permian Basin.",
+          "source": "marketscreener.com",
+          "url": "https://www.marketscreener.com/news/riley-exploration-permian-approves-100-million-share-repurchase-program-ce7d50ded18cf62c",
+          "time_published": "20251216T230935",
+          "relevance": 1.0,
+          "sentiment": 0.428174,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Constellium (NYSE:CSTM): Valuation Check After New Singen Battery Foil Investment Goes Live",
+          "summary": "Constellium (NYSE:CSTM) has completed a EUR30 million battery foil investment in Germany, strengthening its position in Europe's EV supply chain. While the company's shares have seen strong performance and are considered undervalued by analysts, potential challenges like demand softness in automotive and aerospace markets and elevated capital expenditures could impact future earnings and free cash flow. Despite a narrative fair value of $20.12, a more in-depth DCF model suggests a deeper undervaluation at $42.79, indicating significant upside potential.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/constellium-nysecstm-valuation-check-after-new-singen-battery-foil-investment-goes-live-2025-12-16",
+          "time_published": "20251216T230903",
+          "relevance": 1.0,
+          "sentiment": 0.416813,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Bad River Band challenges federal approval of Enbridge Line 5 reroute",
+          "summary": "The Bad River Band of Lake Superior Chippewa has filed a federal lawsuit challenging the U.S. Army Corps of Engineers' approval of Enbridge's 41-mile Line 5 oil pipeline reroute, arguing it violates environmental acts and threatens their traditional lands and waters. The Band emphasizes the risks of potential oil spills to their Reservation, while Enbridge maintains that the project's environmental impacts will be temporary. Enbridge also stated that the permit has not been finalized and that they plan to intervene in the lawsuit.",
+          "source": "WDIO.com",
+          "url": "https://www.wdio.com/front-page/top-stories/bad-river-band-challenges-federal-approval-of-enbridge-line-5-reroute/",
+          "time_published": "20251216T230855",
+          "relevance": 1.0,
+          "sentiment": -0.412779,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "1 Safe-and-Steady Stock to Consider Right Now and 2 We Turn Down",
+          "summary": "This article identifies one \"safe-and-steady\" stock, Abbott Laboratories (ABT), as a potential winner due to its strong market position, share repurchases, and free cash flow. Conversely, it advises against investing in Edgewell Personal Care (EPC) and First American Financial (FAF) due to underperforming core businesses, increased expenses, and slow growth. The analysis highlights key financial metrics and industry challenges for each company.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/stockstory-2025-12-17-1-safe-and-steady-stock-to-consider-right-now-and-2-we-turn-down",
+          "time_published": "20251216T233200",
+          "relevance": 1.0,
+          "sentiment": 0.272865,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Truist Financial Maintains Essex Property Trust Inc(ESS.US) With Hold Rating, Announces Target Price $273",
+          "summary": "Truist Financial analyst Michael Lewis has reiterated a \"Hold\" rating for Essex Property Trust Inc (ESS.US) and set a target price of $273. According to TipRanks, Lewis has a 59.9% success rate and an average return of 8.8% over the past year. This rating is provided for informational purposes and is not investment advice.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66260279/truist-financial-maintains-essex-property-trust-inc-essus-with-hold",
+          "time_published": "20251216T230857",
+          "relevance": 1.0,
+          "sentiment": 0.042968,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Architectural products firm picks Jan. 7 to share latest quarter",
+          "summary": "Apogee Enterprises, Inc. (Nasdaq: APOG) announced it will report its fiscal 2026 third quarter results on Wednesday, January 7, 2026, before the market opens. The company will also host a conference call on the same day at 8:00 a.m. Central Time, with access to a live webcast available on their website. A replay and transcript will be provided after the call for those unable to listen live.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/APOG/apogee-enterprises-announces-date-for-fiscal-2026-third-quarter-n6877z26oua0.html",
+          "time_published": "20251216T230853",
+          "relevance": 1.0,
+          "sentiment": 0.038766,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Home Construction Materials Stocks Q3 Highlights: Hayward (NYSE:HAYW)",
+          "summary": "This article reviews the Q3 performance of several home construction materials stocks, highlighting Hayward (NYSE:HAYW) for its strong revenue beat and guidance raise. It also covers Quanex (NYSE:NX) as a top performer, along with American Woodmark (NASDAQ:AMWD), Fortune Brands (NYSE:FBIN), and Trex (NYSE:TREX), discussing their individual results and market reactions. The piece concludes with a brief market update touching on inflation, interest rates, and recent political impacts on the economy.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/256727/home-construction-materials-stocks-q3-highlights-hayward-nyse-hayw",
+          "time_published": "20251216T223500",
+          "relevance": 1.0,
+          "sentiment": 0.453962,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Alexandria Real Estate Equities Securities Fraud Class",
+          "summary": "Kahn Swick & Foti, LLC (KSF) has announced a securities class action lawsuit against Alexandria Real Estate Equities, Inc. (NYSE: ARE) for alleged federal securities law violations. The lawsuit follows a significant 19% stock decline after Alexandria disclosed lower-than-expected Q3 2025 financial results, including an impairment charge of $323.9 million. Investors who purchased Alexandria securities between January 27, 2025, and October 27, 2025, have until January 26, 2026, to file lead plaintiff applications.",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2025/12/17/3206691/6713/en/Alexandria-Real-Estate-Equities-Securities-Fraud-Class-Action-Result-of-Financial-Issues-and-Approximately-19-Stock-Decline-Investors-may-Contact-Lewis-Kahn-Esq-at-Kahn-Swick-Foti-.html",
+          "time_published": "20251216T223500",
+          "relevance": 1.0,
+          "sentiment": -0.645049,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "'Taken for a Ride': Ohio joins multistate Uber lawsuit",
+          "summary": "Ohio has joined a multistate lawsuit against Uber USA, LLC and Uber Technologies, Inc. for alleged deceptive practices related to its Uber One subscription service. The lawsuit claims Uber misled customers with free trials that automatically converted to paid subscriptions, exaggerated savings, and made cancellation difficult. It seeks refunds, civil penalties, and a court order to prevent future deceptive practices.",
+          "source": "WFMJ.com",
+          "url": "https://www.wfmj.com/story/53319133/taken-for-a-ride-ohio-joins-multistate-uber-lawsuit?clienttype=mobile",
+          "time_published": "20251216T234601",
+          "relevance": 1.0,
+          "sentiment": -0.647051,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Major Superinvestors Increase Stakes in Fiserv (FISV)",
+          "summary": "Several prominent investors, including Cliff Asness, Ray Dalio, and Joel Greenblatt, significantly increased their holdings in Fiserv Inc. (FISV) this quarter, reflecting strong confidence in the company's financial technology, recurring revenue, and free-cash-flow profile. David Tepper's Appaloosa LP also established a new, sizable position, signaling conviction in Fiserv's scalable infrastructure and expanding merchant network. The moves highlight Fiserv's appeal as a long-term holding due to its durable competitive advantages and consistent cash generation.",
+          "source": "The Acquirer's Multiple",
+          "url": "https://acquirersmultiple.com/2025/12/major-superinvestors-increase-stakes-in-fiserv-fisv/",
+          "time_published": "20251216T231117",
+          "relevance": 1.0,
+          "sentiment": 0.405439,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Bridgeline to Report Financial Results for the Fourth Quarter of Fiscal 2025",
+          "summary": "Bridgeline Digital, Inc. (NASDAQ:BLIN) announced it will release its financial results for the fourth quarter of fiscal 2025 after market close on Thursday, December 18, 2025. President and CEO Ari Kahn, along with CFO Thomas Windhausen, will host a live conference call at 4:30 p.m. ET to discuss the results. Participants are encouraged to register in advance for the webcast and call details.",
+          "source": "ACCESS Newswire",
+          "url": "https://www.accessnewswire.com/newsroom/en/computers-technology-and-internet/bridgeline-to-report-financial-results-for-the-fourth-quarter-of-1118432",
+          "time_published": "20251216T231028",
+          "relevance": 1.0,
+          "sentiment": 0.04293,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Micron Q1 Preview: Record Quarter Predicted By Analyst \u2014 'We Recommend Owning The Stock'",
+          "summary": "Analysts predict Micron Technology (NASDAQ: MU) will report a record-breaking first-quarter revenue, potentially surpassing $12.81 billion, and strong earnings per share. Several analysts, including Rosenblatt's Kevin Cassidy and Needham's Quinn Bolton, reiterate Buy ratings and raise price targets, citing disciplined supply growth, strong demand, and increasing AI applications. Despite positive analyst sentiment, some market experts caution about potential post-earnings volatility, as the stock has historically traded lower after reporting results.",
+          "source": "Benzinga",
+          "url": "https://www.benzinga.com/trading-ideas/previews/25/12/49437890/micron-q1-preview-record-quarter-predicted-by-analyst-we-recommend-owning-the-stock",
+          "time_published": "20251216T231021",
+          "relevance": 1.0,
+          "sentiment": 0.808465,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "IAC receives non-renewal notice from Google for services agreement",
+          "summary": "IAC Inc. disclosed that Google will not renew their Services Agreement, which provides paid listings and accounts for all revenue in IAC's Search segment, set to expire on March 31, 2026. Google plans to propose revised terms for a new agreement, but discussions are ongoing. This follows recent analyst downgrades for IAC and leadership changes at Match Group's Hinge.",
+          "source": "Investing.com",
+          "url": "https://m.investing.com/news/sec-filings/iac-receives-nonrenewal-notice-from-google-for-services-agreement-93CH-4411650?ampMode=1",
+          "time_published": "20251216T230955",
+          "relevance": 1.0,
+          "sentiment": 0.035527,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Carrier Global agrees to sell Riello heating business for $430M to Italian buyer",
+          "summary": "Carrier Global has announced an agreement to sell its Riello heating business to the Italian-based Ariston Group for $430 million. The Riello company, which is over 100 years old, is being acquired by a key player in the heating industry. This divestiture is part of Carrier's broader strategy, as it previously announced plans to sell other parts of its business for $3 billion.",
+          "source": "The Business Journals",
+          "url": "https://www.bizjournals.com/southflorida/news/2025/12/16/carrier-to-sell-subsidiary-for-430m.html",
+          "time_published": "20251216T230941",
+          "relevance": 1.0,
+          "sentiment": 0.347872,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Leonardo DRS Achieves Major Milestone with First Space-Based Test of Next-Generation Secure Data Transport Capability",
+          "summary": "Leonardo DRS (NASDAQ: DRS) successfully conducted the first on-orbit test of its next-generation multi-channel software-defined radio (SDR) with integrated advanced cryptography, named XCM3-Space. This technology aims to set a new standard for secure U.S. military satellite data transport at the tactical edge, particularly for future space-based detection and interception of ballistic and hypersonic missile threats. The successful test, performed in Low Earth Orbit aboard a Proteus Mercury satellite, validates a critical capability for secure and flexible satellite communications for various U.S. defense agencies.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251216657055/en/Leonardo-DRS-Achieves-Major-Milestone-with-First-Space-Based-Test-of-Next-Generation-Secure-Data-Transport-Capability",
+          "time_published": "20251216T230925",
+          "relevance": 1.0,
+          "sentiment": 0.032907,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Stocks in play: ZenaTech, Inc.",
+          "summary": "ZenaTech, Inc. announced an update on its ZenaDrone solutions subsidiary, highlighting accelerated efforts and increased engagement with US defense government stakeholders. The company anticipates field demonstrations and pilot agreements in 2026, with announcements planned for Q1 next year. ZenaTech's shares (N.ZENA) are currently trading up 8 cents at $2.96.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/ZENA/pressreleases/36648037/stocks-in-play-zenatech-inc/",
+          "time_published": "20251216T230907",
+          "relevance": 1.0,
+          "sentiment": 0.428938,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Constellium (NYSE:CSTM): Valuation Check After New Singen Battery Foil Investment Goes Live",
+          "summary": "Constellium (NYSE:CSTM) has completed a EUR30 million battery foil investment in Germany, strengthening its position in Europe's EV supply chain. While the company's shares have seen strong performance and are considered undervalued by analysts, potential challenges like demand softness in automotive and aerospace markets and elevated capital expenditures could impact future earnings and free cash flow. Despite a narrative fair value of $20.12, a more in-depth DCF model suggests a deeper undervaluation at $42.79, indicating significant upside potential.",
+          "source": "Sahm",
+          "url": "https://www.sahmcapital.com/news/content/constellium-nysecstm-valuation-check-after-new-singen-battery-foil-investment-goes-live-2025-12-16",
+          "time_published": "20251216T230903",
+          "relevance": 1.0,
+          "sentiment": 0.414493,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Architectural products firm picks Jan. 7 to share latest quarter",
+          "summary": "Apogee Enterprises, Inc. (Nasdaq: APOG) announced it will report its fiscal 2026 third quarter results on Wednesday, January 7, 2026, before the market opens. The company will also host a conference call on the same day at 8:00 a.m. Central Time, with access to a live webcast available on their website. A replay and transcript will be provided after the call for those unable to listen live.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/APOG/apogee-enterprises-announces-date-for-fiscal-2026-third-quarter-n6877z26oua0.html",
+          "time_published": "20251216T230853",
+          "relevance": 1.0,
+          "sentiment": 0.024386,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ]
+    },
+    "key_themes": [
+      "Financial sector breakout with XLF hitting record highs amid capital rotation",
+      "Defensive positioning strength in Consumer Staples with Abbott Labs and Keurig performance",
+      "Energy sector weakness from pipeline legal challenges and oil market headwinds",
+      "Technology mixed signals with Micron AI optimism offset by IAC Google uncertainty",
+      "Industrial strength from defense tech advances and strategic corporate actions"
+    ],
+    "sector_implications": "News supports mixed rotation with financial momentum, defensive resilience, and energy avoidance aligning with technical signals."
+  },
+  "sector_summary": "Currently in CONTRACTION phase with NEUTRAL rotation bias as markets show mixed sector leadership. Favor defensive trends in Consumer Staples (XLP) and emerging ignition signals in Utilities (XLU) and Real Estate (XLRE), while avoiding Energy (XLE) weakness. Technology and Healthcare remain neutral amid sector rotation uncertainty.",
+  "cycle_phase": "CONTRACTION",
+  "cycle_confidence": "MEDIUM",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 1,
+      "mrs_20": -1.62,
+      "mrs_5": 1.06,
+      "roc_3": 2.68,
+      "zone": "D",
+      "signal": "IGNITION",
+      "modifier": 1.2,
+      "rationale": "Zone D ignition with MRS_5 positive (MRS_20=-1.62%, MRS_5=1.06%). Despite negative headlines around Uber lawsuit and Joby insider selling, the sector shows strong technical momentum with positive 5-day relative strength and accelerating improvement (ROC_3=2.68%).",
+      "news_context": {
+        "sentiment": -0.06,
+        "article_count": 10,
+        "themes": "Uber legal challenges, Joby insider selling, Riley share buyback program"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 2,
+      "mrs_20": -0.77,
+      "mrs_5": 0.48,
+      "roc_3": 1.65,
+      "zone": "D",
+      "signal": "IGNITION",
+      "modifier": 1.2,
+      "rationale": "Zone D ignition with MRS_5 positive (MRS_20=-0.77%, MRS_5=0.48%). Real estate showing early recovery signs with positive momentum despite mixed news including Alexandria REIT legal issues. Construction materials strength supports the sector's technical improvement.",
+      "news_context": {
+        "sentiment": 0.111,
+        "article_count": 10,
+        "themes": "Construction materials strength, Alexandria REIT legal challenges, mixed earnings outlook"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 3,
+      "mrs_20": 1.29,
+      "mrs_5": 1.16,
+      "roc_3": 2.42,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.29%, MRS_5=1.16%). Consumer staples showing defensive leadership with strong technical momentum and positive news sentiment. Abbott Labs strength and Keurig Dr Pepper performance highlight sector resilience in uncertain environment.",
+      "news_context": {
+        "sentiment": 0.168,
+        "article_count": 10,
+        "themes": "Abbott Labs strength, Keurig Dr Pepper performance, defensive positioning"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 4,
+      "mrs_20": 2.33,
+      "mrs_5": 1.06,
+      "roc_3": 1.4,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=2.33%, MRS_5=1.06%). Materials sector benefiting from Carrier divestiture activity, Constellium EV battery investments, and ZenaTech defense engagement. Strong fundamental positioning supports continued outperformance.",
+      "news_context": {
+        "sentiment": 0.234,
+        "article_count": 10,
+        "themes": "Carrier divestiture activity, Constellium EV investments, defense technology growth"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 5,
+      "mrs_20": 1.71,
+      "mrs_5": 0.83,
+      "roc_3": 1.46,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.71%, MRS_5=0.83%). Communications showing solid momentum despite Uber legal headwinds. Fiserv institutional buying and Micron AI-driven optimism offset IAC Google agreement concerns, supporting sector trend continuation.",
+      "news_context": {
+        "sentiment": 0.197,
+        "article_count": 10,
+        "themes": "Fiserv institutional buying, Micron AI optimism, IAC Google agreement uncertainty"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 6,
+      "mrs_20": 1.93,
+      "mrs_5": 0.48,
+      "roc_3": 0.71,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=1.93%, MRS_5=0.48%). Industrials maintaining trend status with positive 20-day performance. Carrier strategic divestitures, Leonardo DRS defense milestones, and ZenaTech government engagement demonstrate sector strength across multiple verticals.",
+      "news_context": {
+        "sentiment": 0.234,
+        "article_count": 10,
+        "themes": "Carrier strategic moves, Leonardo DRS defense tech, ZenaTech government contracts"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 7,
+      "mrs_20": 3.92,
+      "mrs_5": 1.8,
+      "roc_3": 2.98,
+      "zone": "F",
+      "signal": "MOMENTUM",
+      "modifier": 1.2,
+      "rationale": "Zone F strong momentum (MRS_20=3.92%, MRS_5=1.80%). Consumer discretionary leading with highest 20-day relative strength. Norwegian Cruise Line leadership changes and Escalade acquisitions show sector dynamism, despite Uber legal challenges weighing on sentiment.",
+      "news_context": {
+        "sentiment": 0.168,
+        "article_count": 10,
+        "themes": "Norwegian Cruise Line leadership, Escalade acquisitions, Uber legal challenges"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 8,
+      "mrs_20": 2.91,
+      "mrs_5": 0.84,
+      "roc_3": 1.14,
+      "zone": "F",
+      "signal": "MOMENTUM",
+      "modifier": 1.2,
+      "rationale": "Zone F strong momentum (MRS_20=2.91%, MRS_5=0.84%). Financials showing technical breakout momentum with XLF hitting record highs. Strong sector leadership amid capital rotation, though some individual bank concerns create selective opportunities rather than broad-based strength.",
+      "news_context": {
+        "sentiment": 0.218,
+        "article_count": 13,
+        "themes": "XLF record highs, financial sector breakout, selective bank performance"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 9,
+      "mrs_20": -0.01,
+      "mrs_5": 0.95,
+      "roc_3": 2.29,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.01%). Healthcare in neutral territory despite positive 5-day momentum. AstraZeneca FDA approval positive, but Bio-Techne underperformance and mixed sector sentiment create offsetting forces. Sector lacks clear directional bias.",
+      "news_context": {
+        "sentiment": -0.048,
+        "article_count": 11,
+        "themes": "AstraZeneca FDA approval, Bio-Techne underperformance, mixed sector sentiment"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 10,
+      "mrs_20": -0.31,
+      "mrs_5": -0.81,
+      "roc_3": -1.45,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.31%). Technology showing mixed signals with negative 5-day momentum offsetting Micron's strong AI outlook. IAC Google agreement uncertainty and broader tech rotation create neutral positioning despite positive individual stories.",
+      "news_context": {
+        "sentiment": 0.197,
+        "article_count": 10,
+        "themes": "Micron AI optimism, IAC Google uncertainty, tech sector rotation"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 11,
+      "mrs_20": -3.07,
+      "mrs_5": -2.47,
+      "roc_3": -2.27,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D but AVOID signal due to persistent negative momentum (MRS_20=-3.07%, MRS_5=-2.47%). Energy showing deep underperformance with negative 5-day trend and deteriorating 3-day change. Pipeline legal challenges and sector weakness suggest continued avoidance despite oversold levels.",
+      "news_context": {
+        "sentiment": -0.06,
+        "article_count": 10,
+        "themes": "Pipeline legal challenges, sector underperformance, oil market weakness"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLU": 1.2,
+    "XLRE": 1.2,
+    "XLP": 1.2,
+    "XLB": 1.2,
+    "XLC": 1.2,
+    "XLI": 1.2,
+    "XLY": 1.2,
+    "XLF": 1.2,
+    "XLV": 1.0,
+    "XLK": 1.0,
+    "XLE": 0.5
+  },
+  "cycle_reasoning": "CONTRACTION phase identified due to defensive sector leadership (Consumer Staples trending), Utilities showing ignition (typical late-cycle), and Energy weakness. The mixed offensive/defensive rotation with no clear cyclical leadership pattern supports late-cycle/early contraction positioning.",
+  "rotation_analysis": "The current rotation pattern shows a mixed environment with 8 bullish sectors spanning both offensive and defensive categories. Consumer Cyclicals (XLY) and Financials (XLF) lead in momentum territory, while defensive Consumer Staples (XLP) maintain strong trends. Utilities (XLU) and Real Estate (XLRE) show ignition signals suggesting potential leadership rotation. Technology and Healthcare remain in neutral noise ranges, while Energy shows clear avoidance signals. This pattern suggests late-cycle dynamics where investors are hedging between growth and defensive positioning.",
+  "l1_alignment": "L1's NORMAL regime with AGGRESSIVE positioning aligns well with our mixed sector rotation showing 8 bullish signals. The balanced breadth at 52% supports our NEUTRAL rotation bias, suggesting neither extreme risk-on nor risk-off positioning is warranted.",
+  "key_insight": "The market is in a transitional phase where defensive sectors (Consumer Staples) are trending while traditional early-cycle sectors (Utilities, Real Estate) show ignition signals, suggesting investors are positioning for potential economic deceleration while maintaining exposure to momentum areas like Financials.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: CONTRACTION (MEDIUM confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 shows NORMAL regime with AGGRESSIVE positioning, which aligns with our mixed rotation showing 8 bullish sectors. The balanced 52% breadth supports our NEUTRAL rotation bias rather than extreme positioning.\n\nStep 2 - Signal Validation:\nAll signals validated against v6.1 thresholds. IGNITION signals (XLU, XLRE) show positive MRS_5 in Zone D. TREND signals (XLP, XLB, XLC, XLI) show positive MRS_20 in Zone A. MOMENTUM signals (XLY, XLF) show strong MRS_20 in Zone F. No anomalies detected.\n\nStep 3 - Zone Analysis:\nActive zones: D (3 sectors: XLU, XLRE, XLE), A (4 sectors: XLP, XLB, XLC, XLI), F (2 sectors: XLY, XLF), E (2 sectors: XLV, XLK). Rotation shows mixed offensive/defensive with no clear directional bias.\n\nStep 4 - Conflict Resolution:\nNo L1 vs L2 conflict - NORMAL regime supports mixed sector performance. News context shows energy weakness, financial strength, and tech uncertainty aligning with technical signals. Defensive leadership (XLP) consistent with late-cycle positioning.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nCONTRACTION phase identified due to defensive sector leadership (Consumer Staples trending), Utilities showing ignition (typical late-cycle), and Energy weakness. The mixed offensive/defensive rotation with no clear cyclical leadership pattern supports late-cycle/early contraction positioning.\n\nKey Insight: The market is in a transitional phase where defensive sectors (Consumer Staples) are trending while traditional early-cycle sectors (Utilities, Real Estate) show ignition signals, suggesting investors are positioning for potential economic deceleration while maintaining exposure to momentum areas like Financials."
+}

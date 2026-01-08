@@ -1,0 +1,156 @@
+## CTSH: Cognizant Technology Solutions  - XLK: Technology
+
+### Executive Summary
+
+STRENGTH thesis confirmed: MRS_10 at 4.3% in lower entry zone (3.0-6.0%), top quartile (76th pct) cross-sectional ranking. Short-term MRS_5 (1.7%) confirms momentum alignment. Outperforming sector by 5.0%. Caution: overbought RSI (78).
+
+- **Horizon:** 5-20 days (swing)
+- **Risk Profile:** Moderate - momentum continuation
+- **Stop Type:** Fixed 2xATR ($80.09)
+- **If Wrong:** Exit if MRS_10 drops below entry zone or breaks stop
+- **Invalidation:** MRS_10 exits entry zone or MRS_5 turns negative
+
+### News
+
+- **Articles:** 3
+- **Sentiment:** Neutral (Bullish: 0, Bearish: 0)
+
+**1. Trump’s H-1B visa crackdown: Why $100,000 fee will hit TCS, Infosys - explained**
+- Source: Times of India | 20251217T070947 | Somewhat-Bearish | Relevance: 93%
+- US President Donald Trump's proposed $100,000 fee for H-1B visas is expected to significantly impact Indian IT giants like TCS and Infosys, potentially costing them hundreds of millions of dollars. The substantial levy aims to reduce reliance on foreign workers and could lead to a shift towards offshore recruitment and fewer visa applications. Analysts anticipate a significant reduction in visa applications and increased overseas staff deployment as companies adapt to these new regulations.
+
+**2. Novanta (Nasdaq: NOVT) to present at J.P. Morgan 44th healthcare conf.**
+- Source: Stock Titan | 20251215T160852 | Neutral | Relevance: 63%
+- Novanta Inc. (Nasdaq: NOVT) announced that its Chair & Chief Executive Officer, Matthijs Glastra, and Chief Financial Officer, Robert Buckley, are scheduled to present at the J.P. Morgan 44th Annual Healthcare Conference on Wednesday, January 14, 2026, in San Francisco, California. Novanta is a global supplier of core technology solutions for medical and advanced industrial original equipment manufacturers. The company's shares are traded on Nasdaq under the symbol “NOVT.”
+
+**3. Is It Too Late to Consider IBM After Its Big Hybrid Cloud and AI Driven Rally?**
+- Source: Simply Wall Street | 20251217T023022 | Neutral | Relevance: 62%
+- IBM has seen significant gains, up 37.8% year to date and 215.8% over five years, driven by its hybrid cloud and AI strategy. Despite this rally, traditional valuation metrics suggest IBM is not broadly undervalued, with its DCF indicating it's slightly overvalued. However, a "Fair Ratio" analysis based on P/E suggests it might still be undervalued compared to its fundamentals, presenting a nuanced picture for potential investors.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-08 | UBS | $82 | $78 | +5% |
+| 2025-11-21 | William Blair | $0 | $0 | 0% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-08 | UBS | main | Neutral |
+| 2025-11-21 | William Blair | up | Outperform |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 18 ($0.00M) |
+| Sells | 18 ($2.20M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 52.8% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 6 / 4 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.5% (+0.8%)
+- Blackrock Inc.: 10.5% (-0.2%)
+- JPMORGAN CHASE & CO: 8.2% (+108.3%)
+- State Street Corpora: 5.2% (-0.9%)
+- Pzena Investment Man: 3.7% (+1.5%)
+
+### Key Risks
+
+1. Elevated short interest (8.1%): bears positioning against stock.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 1.48 suggests fair value with growth premium. Forward P/E 14.9x stretched relative to 7% growth. Quality metrics strong (ROA 10%). Balance sheet: strong liquidity (2.4x), low leverage (D/E 0.35), $1.2B free cash flow. Analyst sentiment positive (1 raises, avg +5%). Insider selling cluster ($2.2M in 90 days), potential headwind. Institutional flow bullish (6 buying vs 4 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $40.8B |
+| Beta | 0.97 |
+| 52W Range | $65.15 - $90.82 |
+| Short Interest | 8.1% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 1.48 |
+| Forward P/E | 14.9 |
+| Current P/E | 15.9 |
+| YoY Growth | 6.9% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 stable at 4.3% (minimal 5-day change). Currently in lower STRENGTH zone (3.0-6.0%), cross-sectional ranking at 76th percentile. MRS_5 at 1.7% confirms short-term momentum alignment. Outperforming sector by 5.0pp, stock-specific strength. Full SMA alignment bullish (above 20/50/200 SMAs). RSI overbought at 78, risk of mean reversion. OFD pattern: +DUH (Resistance).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | 4.29% (CS: 77) | Strong |
+| RSI_14 | 78.3 | Overbought |
+| MACD Histogram | 0.25 | Bullish |
+| vs SMA20 | 1.055x | Above |
+| vs SMA50 | 1.134x | Above |
+| vs SMA200 | 1.121x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** STRENGTH
+
+### Trade Setup
+
+- **Entry:** $83.63
+- **Stop Loss:** $80.09 (4.2% risk)
+- **Target:** $88.94 (R:R method)
+- **Risk/Reward:** 1.50:1
+- **Target Reasoning:** STRENGTH thesis targets 1.5x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 127
+- **Position Value:** $10,621.01
+- **Portfolio %:** 10.62%
+- **Risk Dollars:** $450.00
+- **Risk Per Trade:** 0.45%
+- **Modifiers:** L1 90% | L2 50% | Combined 0.45x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | RISK_OFF (HIGH) | 0.90x |
+| L2 Sector | AVOID (Zone C) | 0.50x |
+
+*RISK_OFF regime with deteriorating conditions. VIX rising to 17.6 (+11.7% over 5 days) signals increasing anxiety, while narrow breadth at 52.6% indicates selective participation. AI infrastructure cost concerns are pressuring tech leadership, creating sector rotation challenges in a late-cycle environment.*
+
+### Earnings
+
+**Next:** 2026-02-04 (Est: $1.32)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.30 | $1.39 | +6.7% |
+| 2025Q2 | $1.26 | $1.31 | +4.0% |
+| 2025Q1 | $1.20 | $1.23 | +2.5% |
+| 2024Q4 | $1.13 | $1.21 | +7.6% |
+
+---
+*RULE-based L3 | 2026-01-07 01:40 | MRS_10*

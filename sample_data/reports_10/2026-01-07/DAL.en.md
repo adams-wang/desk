@@ -1,0 +1,169 @@
+## DAL: Delta Air Lines, Inc. - XLI: Industrials
+
+### Executive Summary
+
+No thesis match: MRS_10 1.1% below STRENGTH zone (3.0-6.0%); PEG 39.29 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($68.07)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 6, Bearish: 0)
+
+**1. Earnings Preview: Delta Air Lines (DAL) Q4 Earnings Expected to Decline**
+- Source: Finviz | 20260106T162042 | Somewhat-Bearish | Relevance: 100%
+- Delta Air Lines (DAL) is expected to report a year-over-year decline in earnings and lower revenues for the quarter ended December 2025. The airline is projected to post quarterly earnings of $1.55 per share and revenues of $15.45 billion. While the company has a strong history of beating EPS estimates, its current Earnings ESP suggests a potential miss for the upcoming report.
+
+**2. Delta named Cirium’s Most On-Time North America airline in 2025**
+- Source: Delta News Hub | 20260106T160807 | Bullish | Relevance: 100%
+- Delta Air Lines has been recognized by Cirium as the top on-time airline in North America for the fifth consecutive year, demonstrating its commitment to safety, reliability, and service. The airline achieved 80.9% of its 1.8 million flights arriving within 15 minutes of schedule in 2025, outperforming its closest competitor by a significant margin. Delta is also the only U.S. carrier to rank in Cirium’s Top 10 Global Airlines for on-time performance.
+
+**3. Delta Air Lines to Report Q4 Earnings: What's in the Offing?**
+- Source: Finviz | 20260106T151423 | Somewhat-Bearish | Relevance: 100%
+- Delta Air Lines (DAL) is projected to report its fourth-quarter 2025 earnings on Jan. 13, with analysts expecting a year-over-year decrease in both earnings per share and revenues. Despite a history of beating Zacks Consensus Estimates, the company's Q4 performance may be negatively impacted by a prolonged government shutdown and high labor costs, although upbeat passenger volumes during the holiday season are expected to partially offset these challenges. The Zacks model does not conclusively predict an earnings beat for DAL this quarter, highlighting a negative Earnings ESP.
+
+**4. Inside Delta's new lounge-style club at Las Vegas's massive Sphere venue**
+- Source: Stock Titan | 20260105T170209 | Bullish | Relevance: 100%
+- Delta Air Lines has been named the Official Airline Partner of Sphere, marking its entry into the immersive entertainment venue with the Delta SKY360° Club. This partnership highlights a shared commitment to innovation and technology, offering guests an elevated lounge experience at live events and Sphere Experiences. Delta SkyMiles members will also gain access to exclusive packages, and Delta will feature branded content on the Exosphere.
+
+**5. Delta Air Lines Insiders Sold US$11m Of Shares Suggesting Hesitancy**
+- Source: Simply Wall Street | 20260105T102903 | Somewhat-Bearish | Relevance: 100%
+- Over the last year, insiders at Delta Air Lines (NYSE: DAL) sold US$11 million worth of shares, significantly more than the US$601k in shares purchased. The Executive VP, Alain Bellemare, made the largest individual sale of US$2.5 million shares at US$56.32, below the current price of US$69.06. This pattern of selling, while not definitively negative, suggests a potential hesitancy among insiders regarding the stock's valuation.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 3, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2026-01-07 | TD Cowen | $82 | $77 | +6% |
+| 2026-01-06 | Goldman Sachs | $77 | $68 | +13% |
+| 2026-01-06 | B of A Securiti | $80 | $74 | +8% |
+| 2025-12-18 | Wells Fargo | $87 | $0 | 0% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2026-01-07 | TD Cowen | main | Buy |
+| 2026-01-06 | Goldman Sachs | main | Buy |
+| 2026-01-06 | B of A Securiti | main | Buy |
+| 2025-12-18 | Wells Fargo | init | Overweight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 0 ($0.00M) |
+| Sells | 2 ($1.45M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 42.7% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 3 / 7 |
+
+**Top Holders:**
+- Vanguard Group Inc: 11.4% (-0.3%)
+- Blackrock Inc.: 6.9% (-2.2%)
+- Sanders Capital, LLC: 4.5% (-2.8%)
+- Capital Internationa: 3.5% (-7.0%)
+- State Street Corpora: 3.5% (-0.3%)
+
+### Key Risks
+
+1. Valuation stretched: PEG 39.3x requires aggressive growth execution.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Analyst target momentum: 3 raises (avg +9%) could attract flows.
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_10 improving +2.1% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 39.29 signals overvaluation risk, limited margin of safety. Forward P/E 9.8x attractive for 24% earnings growth. Quality metrics strong (ROE 28%). Analyst sentiment positive (3 raises, avg +9%, $80 target (+12%)). Insider selling cluster ($1.5M in 90 days), potential headwind. Institutional flow bullish (3 buying vs 7 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $46.8B |
+| Beta | 1.38 |
+| 52W Range | $34.74 - $73.16 |
+| Short Interest | 3.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 39.29 |
+| Forward P/E | 9.8 |
+| Current P/E | 12.2 |
+| YoY Growth | 24.5% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 strengthening from -1.0% to 1.1% (+2.1% in 5 days), confirming momentum buildup. Below STRENGTH zone by 1.9pp (needs >3.0% for momentum thesis). MRS_5 at 0.4% confirms short-term momentum alignment. Full SMA alignment bullish (above 20/50/200 SMAs). OFD pattern: -MUN (Resistance).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | 1.08% (CS: 64) | Neutral |
+| RSI_14 | 63.0 | Neutral |
+| MACD Histogram | -0.25 | Bearish |
+| vs SMA20 | 1.017x | Above |
+| vs SMA50 | 1.113x | Above |
+| vs SMA200 | 1.295x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $71.65
+- **Stop Loss:** $68.07 (5.0% risk)
+- **Target:** $75.23 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 209
+- **Position Value:** $14,974.85
+- **Portfolio %:** 14.97%
+- **Risk Dollars:** $750.00
+- **Risk Per Trade:** 0.75%
+- **Modifiers:** L1 100% | L2 75% | Combined 0.75x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | WEAKENING (Zone B) | 0.75x |
+
+*NORMAL regime with balanced risk appetite. VIX at 15.38 sits in the normal range (18th percentile of 52-week) with modest upward drift, while yield curve remains positively sloped (+62bps 10Y-3M) supporting risk assets. Breadth at 59.5% shows healthy participation, though elevated put/call ratio (1.12) suggests some hedging activity. FOMC 20 days out provides runway for current conditions to persist.*
+
+### Earnings
+
+**Next:** 2026-01-09 (Est: $1.60)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.53 | $1.71 | +11.9% |
+| 2025Q2 | $2.04 | $2.10 | +2.7% |
+| 2025Q1 | $0.39 | $0.46 | +19.1% |
+| 2024Q4 | $1.74 | $1.85 | +6.2% |
+
+---
+*RULE-based L3 | 2026-01-08 08:02 | MRS_10*

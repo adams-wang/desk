@@ -1,0 +1,148 @@
+## DIS: The Walt Disney Company - XLC: Communication Services
+
+### Executive Summary
+
+No thesis match: MRS_20 1.7% below STRENGTH zone (4.0-10.0%); PEG 5.36 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge. Caution: momentum weakening (-2.5% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($110.29)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_20 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 4, Bearish: 0)
+
+**1. ‘Avatar: Fire and Ash’ Surpasses $1 Billion at the Global Box Office**
+- Source: The Walt Disney Company | 20260104T170752 | Bullish | Relevance: 100%
+- The Walt Disney Studios announced that 20th Century Studios’ Avatar: Fire and Ash has officially surpassed $1 billion at the global box office. This achievement makes it the third film in the franchise to reach this milestone, underscoring its significant global appeal and theatrical staying power. The movie has garnered $1.083 billion globally to date, with strong performances in international markets.
+
+**2. Tokyo Disneyland and Tokyo DisneySea Welcome Their 900 Millionth Guest**
+- Source: The Walt Disney Company | 20260106T164843 | Bullish | Relevance: 100%
+- Tokyo Disneyland and Tokyo DisneySea celebrated welcoming their 900 millionth guest on January 6, 2026, marking a significant milestone after 42 years and 266 days since Tokyo Disneyland's opening. This achievement precedes the 25th anniversary of Tokyo DisneySea and future developments like a new Wreck-It Ralph attraction and Space Mountain renovation at Tokyo Disneyland. Leadership from Oriental Land Co., Ltd. and The Walt Disney Company expressed gratitude to guests and cast members for their continuous support and dedication to creating magical experiences.
+
+**3. Autumn Glory Partners LLC Trims Holdings in The Walt Disney Company $DIS**
+- Source: MarketBeat | 20260106T080833 | Neutral | Relevance: 100%
+- Autumn Glory Partners LLC reduced its stake in The Walt Disney Company ($DIS) by 18.1% in Q3 2025, selling 5,745 shares, with remaining holdings valued at approximately $2.97 million. Despite this, Walt Disney remains the fund's 19th largest position. The company reported an EPS beat for its last quarter, though revenue slightly missed estimates, and analysts generally maintain a "Moderate Buy" rating with a target price of $135.94.
+
+**4. Disney Highlights Robust Orlando Visitor Numbers Over Holiday Season**
+- Source: Bitget | 20260106T020841 | Bullish | Relevance: 100%
+- Analysts from Goldman Sachs and BofA Securities have maintained Buy recommendations for Walt Disney Co (NYSE: DIS), citing robust and accelerating growth in Orlando's tourism sector and positive trends in Lake Buena Vista. Expectations include a 1% increase in domestic attendance for Disney's fiscal first quarter. While box office success for "Zootopia 2" is positive, challenges in attracting international visitors and some live-action releases may temper results, with a new cruise ship debuting in March 2026.
+
+**5. D.A. Davidson & CO. Sells 28,229 Shares of The Walt Disney Company $DIS**
+- Source: MarketBeat | 20260105T141559 | Neutral | Relevance: 100%
+- D.A. Davidson & CO. reduced its stake in The Walt Disney Company by 9.2% in the third quarter, selling 28,229 shares and ending the period with 278,210 shares valued at approximately $31.86 million. Despite beating EPS estimates, Disney missed revenue expectations; the stock currently trades around $111.84 with a market capitalization near $199.7 billion. Institutional ownership is robust at 65.7%, and analysts maintain a "Moderate Buy" consensus with a price target of $134.41.
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_BUYING** |
+| Buys | 10 ($2.01M) |
+| Sells | 2 ($0.28M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 37.0% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 5 |
+
+**Top Holders:**
+- Vanguard Group Inc: 8.9% (+0.4%)
+- JPMORGAN CHASE & CO: 7.6% (+144.5%)
+- Blackrock Inc.: 7.1% (-0.8%)
+- State Street Corpora: 4.6% (+3.0%)
+- Geode Capital Manage: 2.2% (-1.9%)
+
+### Key Risks
+
+1. Valuation stretched: PEG 5.4x requires aggressive growth execution.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 5.36 signals overvaluation risk, limited margin of safety. Balance sheet: $2.6B free cash flow. Insider buying signal ($2.0M), management confidence. Institutional flow bullish (4 buying vs 5 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $206.0B |
+| Beta | 1.44 |
+| 52W Range | $80.10 - $124.69 |
+| Short Interest | 1.2% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 5.36 |
+| Forward P/E | 15.6 |
+| Current P/E | 17.3 |
+| YoY Growth | 11.4% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 deteriorating from 4.2% to 1.7% (-2.5% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 2.3pp (needs >4.0% for momentum thesis). MRS_5 (-0.1%) diverging from MRS_20 - short-term weakness emerging. Full SMA alignment bullish (above 20/50/200 SMAs). OFD pattern: +SLL (Support).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 1.68% (CS: 56) | Neutral |
+| RSI_14 | 60.1 | Neutral |
+| MACD Histogram | 0.17 | Bullish |
+| vs SMA20 | 1.023x | Above |
+| vs SMA50 | 1.044x | Above |
+| vs SMA200 | 1.038x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $114.57
+- **Stop Loss:** $110.29 (3.7% risk)
+- **Target:** $118.85 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 257
+- **Position Value:** $29,444.49
+- **Portfolio %:** 29.44%
+- **Risk Dollars:** $1,100.00
+- **Risk Per Trade:** 1.10%
+- **Modifiers:** L1 110% | L2 100% | Combined 1.10x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | RISK_ON (MEDIUM) | 1.10x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*RISK_ON regime with strong participation and low volatility. VIX at 14.75 (6th percentile) with breadth at 63.5% signals healthy risk appetite. Fed dovish expectations and AI/semiconductor momentum are primary drivers, though elevated put/call ratio suggests smart money hedging. Focus on quality growth with awareness of potential complacency.*
+
+### Earnings
+
+**Next:** 2026-02-04 (Est: $1.58)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.02 | $1.11 | +8.4% |
+| 2025Q2 | $1.45 | $1.61 | +11.3% |
+| 2025Q1 | $1.21 | $1.45 | +19.8% |
+| 2024Q4 | $1.43 | $1.76 | +22.9% |
+
+---
+*RULE-based L3 | 2026-01-07 08:25 | MRS_20*

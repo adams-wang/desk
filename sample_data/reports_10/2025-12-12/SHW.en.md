@@ -1,0 +1,148 @@
+## SHW: Sherwin-Williams Company (The) - XLB: Basic Materials
+
+### Executive Summary
+
+No thesis match: MRS_10 0.2% below STRENGTH zone (3.0-6.0%); PEG 3.17 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($315.95)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 4, Bearish: 0)
+
+**1. First Trust Advisors LP Acquires 3,076 Shares of The Sherwin-Williams Company $SHW**
+- Source: MarketBeat | 20251212T080840 | Bullish | Relevance: 100%
+- First Trust Advisors LP increased its stake in The Sherwin-Williams Company (NYSE:SHW) by 4.6% in the second quarter, acquiring an additional 3,076 shares for a total of 69,288 shares valued at $23.79 million. Other institutional investors like Vanguard Group Inc., Price T Rowe Associates Inc. MD, and Norges Bank significantly adjusted their holdings, with institutional investors now owning 77.67% of the company's stock. Sherwin-Williams reported strong quarterly earnings, beating analyst estimates, and has a consensus "Moderate Buy" rating with an average target price of $390.87.
+
+**2. B. Riley Wealth Advisors Inc. Acquires New Position in The Sherwin-Williams Company $SHW**
+- Source: MarketBeat | 20251215T090850 | Neutral | Relevance: 100%
+- B. Riley Wealth Advisors Inc. has acquired a new position in The Sherwin-Williams Company, purchasing 5,363 shares worth approximately $1.84 million. This move is amidst positive analyst sentiment, with a consensus "Moderate Buy" rating and a target price of $390.87 for the stock. Sherwin-Williams recently reported strong quarterly earnings and provided optimistic FY2025 guidance, alongside paying a quarterly dividend.
+
+**3. MASTERINVEST Kapitalanlage GmbH Makes New Investment in The Sherwin-Williams Company $SHW**
+- Source: MarketBeat | 20251214T140840 | Somewhat-Bearish | Relevance: 100%
+- MASTERINVEST Kapitalanlage GmbH has initiated a new investment in The Sherwin-Williams Company (NYSE:SHW), acquiring 8,240 shares valued at approximately $2.829 million during the second quarter. Sherwin-Williams reported strong quarterly earnings, beating expectations with an EPS of $3.59 and revenue of $6.36 billion. The company holds a "Moderate Buy" consensus rating from analysts, with an average target price of $390.87.
+
+**4. Stance Capital LLC Buys New Shares in The Sherwin-Williams Company $SHW**
+- Source: MarketBeat | 20251214T125149 | Bullish | Relevance: 100%
+- Stance Capital LLC recently acquired a new stake of 4,314 shares, valued at approximately $1.48 million, in The Sherwin-Williams Company (NYSE:SHW) during the second quarter. Other institutional investors also adjusted their positions, resulting in institutional ownership of 77.67% of the stock. Sherwin-Williams exceeded quarterly earnings and revenue estimates and provides a quarterly dividend of $0.79.
+
+**5. Liontrust Investment Partners LLP Buys 5,585 Shares of The Sherwin-Williams Company $SHW**
+- Source: MarketBeat | 20251214T120824 | Somewhat-Bullish | Relevance: 100%
+- Liontrust Investment Partners LLP increased its stake in The Sherwin-Williams Company ($SHW) by 17.4% in Q2, acquiring 5,585 shares for a total holding of 37,610 shares valued at approximately $12.91 million. Sherwin-Williams recently surpassed earnings estimates and provided optimistic FY2025 guidance, contributing to a "Moderate Buy" consensus rating from analysts with an average target price of $390.87. The company's stock currently trades at $328.64, has a market cap of $81.47 billion, and offers an annualized dividend of $3.16.
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_BUYING** |
+| Buys | 16 ($0.21M) |
+| Sells | 0 ($0.00M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 36.8% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 5 |
+
+**Top Holders:**
+- Vanguard Group Inc: 9.1% (+1.4%)
+- Blackrock Inc.: 7.1% (-0.7%)
+- State Street Corpora: 6.2% (-0.9%)
+- Price (T.Rowe) Assoc: 3.6% (-1.7%)
+- Morgan Stanley: 2.9% (+1.8%)
+
+### Key Risks
+
+1. Valuation stretched: PEG 3.2x requires aggressive growth execution.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Momentum building: MRS_10 improving +4.4% over 5 days suggests accumulation.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 3.17 signals overvaluation risk, limited margin of safety. Forward P/E 26.0x stretched relative to 11% growth. Quality metrics strong (ROE 60%). Balance sheet: $1.1B free cash flow. Institutional flow bullish (4 buying vs 5 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $82.0B |
+| Beta | 1.24 |
+| 52W Range | $308.84 - $379.65 |
+| Short Interest | 1.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 3.17 |
+| Forward P/E | 26.0 |
+| Current P/E | 28.9 |
+| YoY Growth | 11.0% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 strengthening from -4.2% to 0.2% (+4.4% in 5 days), confirming momentum buildup. Below STRENGTH zone by 2.8pp (needs >3.0% for momentum thesis). MRS_5 at 2.0% confirms short-term momentum alignment. Below SMA200 (0.95x), long-term trend not supportive. MACD histogram bearish (-0.95), momentum weakening. RSI neutral at 44. OFD pattern: -SLL (Support test).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | 0.23% (CS: 31) | Neutral |
+| RSI_14 | 43.7 | Neutral |
+| MACD Histogram | -0.95 | Bearish |
+| vs SMA20 | 0.986x | Below |
+| vs SMA50 | 0.977x | Below |
+| vs SMA200 | 0.950x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $328.69
+- **Stop Loss:** $315.95 (3.9% risk)
+- **Target:** $341.43 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 94
+- **Position Value:** $30,896.86
+- **Portfolio %:** 30.90%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 100% | L2 120% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*NORMAL regime with moderate risk appetite ahead of Fed decision. VIX remains calm at 15.74 while breadth shows modest participation at 54%, suggesting selective positioning. FOMC meeting in 4 days creates near-term uncertainty but no systemic stress evident.*
+
+### Earnings
+
+**Next:** 2026-02-03 (Est: $2.16)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $3.44 | $3.59 | +4.4% |
+| 2025Q2 | $3.81 | $3.38 | -11.2% |
+| 2025Q1 | $2.16 | $2.25 | +4.1% |
+| 2024Q4 | $2.06 | $2.09 | +1.6% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*

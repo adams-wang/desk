@@ -1,0 +1,160 @@
+## EIX: Edison International - XLU: Utilities
+
+### Executive Summary
+
+VALUE thesis: PEG 0.57 indicates fundamental undervaluation. Quality metrics strong (ROE 16%). Consistent execution (3/4 quarters beat estimates). Caution: momentum weakening (-5.1% MRS).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($55.47)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 4, Bearish: 0)
+
+**1. Edison International (NYSE:EIX) Upgraded to "Buy" at Wall Street Zen**
+- Source: MarketBeat | 20251130T060610 | Bullish | Relevance: 99%
+- Edison International (NYSE:EIX) was upgraded to a "buy" rating by Wall Street Zen, though MarketBeat's consensus remains a "Hold" with a target price of $64.10. The company reported strong Q3 earnings, beating analyst estimates, and provided positive FY2025 guidance. Insider selling and institutional investor activity were also noted.
+
+**2. A Look at Edison International’s Valuation Following Strong Q3 Results and Operational Gains**
+- Source: Simply Wall Street | 20251130T214218 | Bullish | Relevance: 99%
+-  Edison International (EIX) posted strong Q3 earnings, exceeding expectations and showing year-over-year revenue growth due to operational gains. Despite a challenging year-to-date, the stock has climbed 5.8% recently, prompting a re-evaluation of its valuation. Analysts suggest EIX is 12.6% undervalued, with a fair value of $67.37, driven by long-term upgrades, cash flow growth, and state and federal investments in decarbonization, though wildfire liabilities and regulatory uncertainty remain risks.
+
+**3. Edison International Mourns Bob Foster, Clean Energy Leader | EIX Stock News**
+- Source: Stock Titan | 20251201T180600 | Neutral | Relevance: 98%
+- Edison International, Southern California Edison, and Trio are mourning the loss of Bob Foster, a respected leader in energy policy and politics. Foster played a crucial role in guiding Southern California Edison through the early 2000s energy crisis and developing the nation's largest portfolio of renewable energy programs. He also served as mayor of Long Beach for two terms and chairman of the California Independent System Operator.
+
+**4. Russell Investments Group Ltd. Lowers Stock Holdings in Edison International $EIX**
+- Source: MarketBeat | 20251129T114514 | Neutral | Relevance: 98%
+- Russell Investments Group Ltd. reduced its stake in Edison International (NYSE:EIX) by 4.5% in the second quarter of 2025, selling 44,905 shares and owning 948,291 shares valued at approximately $48.8 million. Other institutional investors also adjusted their positions in EIX. The company reported strong Q2 earnings, beating analyst expectations, and announced a quarterly dividend.
+
+**5. XTX Topco Ltd Takes $1.56 Million Position in Edison International $EIX**
+- Source: MarketBeat | 20251130T132058 | Bullish | Relevance: 98%
+- XTX Topco Ltd has taken a new position of 30,177 shares, valued at approximately $1.56 million, in Edison International (EIX) during Q2. Edison International reported strong Q2 earnings, beating analyst estimates, and announced a quarterly dividend. The company maintains a "Hold" consensus rating from analysts with an average price target of $64.10.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-02 | UBS | $70 | $66 | +6% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-02 | UBS | main | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 0 ($0.00M) |
+| Sells | 1 ($0.10M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 46.5% |
+| Smart Money | **BEARISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 7 / 2 |
+
+**Top Holders:**
+- Vanguard Group Inc: 13.5% (+0.5%)
+- Blackrock Inc.: 13.1% (+5.2%)
+- State Street Corpora: 8.4% (+0.1%)
+- Geode Capital Manage: 3.3% (+4.1%)
+- AQR Capital Manageme: 2.8% (+8.0%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_20 falling (-5.1% 5d) with bearish MACD, trend may be turning.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 0.57 indicates undervaluation relative to growth. Forward P/E 9.4x stretched relative to 1% growth. Quality metrics strong (margin 16%). Analyst sentiment positive (1 raises, avg +6%). Institutional flow bearish (2 selling vs 7 buying).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $22.1B |
+| Beta | 0.83 |
+| 52W Range | $47.73 - $83.05 |
+| Short Interest | 2.6% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.57 |
+| Forward P/E | 9.4 |
+| Current P/E | 9.6 |
+| YoY Growth | 1.5% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 deteriorating from 4.6% to -0.6% (-5.1% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 4.5pp (needs >4.0% for momentum thesis). Full SMA alignment bullish (above 20/50/200 SMAs). RSI neutral at 53.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -0.55% (CS: 44) | Neutral |
+| RSI_14 | 53.0 | Neutral |
+| MACD Histogram | -0.02 | Bearish |
+| vs SMA20 | 1.005x | Above |
+| vs SMA50 | 1.030x | Above |
+| vs SMA200 | 1.056x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $58.13
+- **Stop Loss:** $55.47 (4.6% risk)
+- **Target:** $63.45 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 187
+- **Position Value:** $10,870.31
+- **Portfolio %:** 10.87%
+- **Risk Dollars:** $500.00
+- **Risk Per Trade:** 0.50%
+- **Modifiers:** L1 100% | L2 50% | Combined 0.50x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | AVOID (Zone C) | 0.50x |
+
+### Earnings
+
+**Next:** 2026-02-26 (Est: $1.46)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.18 | $2.34 | +7.3% |
+| 2025Q2 | $0.88 | $0.97 | +10.1% |
+| 2025Q1 | $1.21 | $1.37 | +13.3% |
+| 2024Q4 | $1.10 | $1.05 | -4.4% |
+
+---
+*RULE-based L3 | 2026-01-06 16:36 | MRS_20*

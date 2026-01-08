@@ -1,0 +1,923 @@
+{
+  "contract_id": "l2_2025-12-03",
+  "trading_date": "2025-12-03",
+  "generated_at": "2025-12-17T11:03:09.269219",
+  "valid_until": "2025-12-18T11:03:09.269219",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-03",
+  "sector_news": {
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "If You'd Invested $1,000 in the Technology Select Sector SPDR Fund (XLK) 10 Years Ago, Here's How Much You'd Have Today",
+          "summary": "This article examines the performance of the Technology Select Sector SPDR Fund (XLK) over the past decade, highlighting its significant outperformance compared to the broader S&P 500. It calculates that a $1,000 investment in XLK ten years ago would now be worth close to $6,500, driven by its holdings in major tech companies like Nvidia and Microsoft. The article also touches on the impact of \"Magnificent Seven\" stocks and artificial intelligence on market growth.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/242017/if-youd-invested-1000-in-the-technology-select-sector-spdr-fund-xlk-10-years-ago-heres-how-much-youd-have-today",
+          "time_published": "20251201T081400",
+          "relevance": 1.0,
+          "sentiment": 0.012644,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Kodiak AI (KDK) Earns Strong Buy Consensus as Analysts See Up to 140% Upside",
+          "summary": "Kodiak AI (KDK) has received a Strong Buy consensus from analysts, with an average price target that suggests a potential upside of nearly 140% from its recent share price. Analysts highlighted the company's strong performance in autonomous trucking, including millions of autonomous miles logged and its pioneering rollout of customer-owned driverless trucks. Kodiak AI specializes in autonomous driving technology and services for the trucking industry, with its Kodiak Driver system and Kodiak OnTime tools enabling automated fleets and freight transportation.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245039/kodiak-ai-kdk-earns-strong-buy-consensus-as-analysts-see-up-to-140-upside",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.533342,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "PAR Technology (PAR) Advances Cloud-Native Strategy, Earning Analyst Confidence",
+          "summary": "PAR Technology (NYSE:PAR) is seen as a strong buy by Wall Street analysts due to its transition to a unified cloud-native platform for restaurants and convenience stores, targeting mid-teens annual recurring revenue growth. The company is actively integrating AI into its products, like Coach AI, and forming strategic partnerships, with the average price target suggesting a significant upside. Despite this confidence, some believe other AI stocks may offer greater promise and appeal.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/par-technology-par-advances-cloud-native-strategy-earning-analyst-confidence-1653176/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.485365,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Enphase Energy (ENPH) Outlook Gains Attention Amid Mixed Analyst Views",
+          "summary": "Enphase Energy (ENPH) is drawing attention due to its mixed analyst views, with a consensus Hold rating despite a recent $68 million safe harbor agreement for its IQ9 Microinverters. While the company is expanding internationally and strengthening its product lineup, it faces challenges from competition and policy changes in the US residential market. Analysts anticipate a slow recovery with significant growth not expected until fiscal 2026.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245024/enphase-energy-enph-outlook-gains-attention-amid-mixed-analyst-views",
+          "time_published": "20251203T232900",
+          "relevance": 1.0,
+          "sentiment": 0.006279,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "NXP Semiconductors (NXPI) Stock Jumps Again on December 3, 2025: Dividend Rush, AI Tailwinds and Auto Rebound Fuel Rally",
+          "summary": "NXP Semiconductors (NXPI) stock surged over 5% on December 3, 2025, continuing a two-day rally, driven by an upcoming ex-dividend date, strong Q3 2025 earnings, and optimistic Q4 guidance. The company's strategic acquisitions in in-vehicle connectivity and edge AI, along with new EV battery management chipsets, are positioning it for long-term growth in automotive and industrial markets. Wall Street analysts maintain a \"Moderate to Strong Buy\" consensus with price targets in the mid-$250s, while fundamental analysis points to solid profitability and growth potential despite short-term overbought conditions and cyclical risks.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/nxp-semiconductors-nxpi-stock-jumps-again-on-december-3-2025-dividend-rush-ai-tailwinds-and-auto-rebound-fuel-rally/",
+          "time_published": "20251203T232231",
+          "relevance": 1.0,
+          "sentiment": 0.471764,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "5 Healthcare Names to Watch as Sector Rotation Is in Full Swing",
+          "summary": "As investor capital shifts from technology to healthcare, driven by stabilizing interest rates and strong Q3 earnings, the healthcare sector is experiencing a significant rotation. This article highlights five healthcare-related investments\u2014ranging from stable options to high-growth biotech\u2014that warrant attention as the year concludes. These include established giants like Eli Lilly and Johnson & Johnson, as well as diversified options like Gilead Sciences and the Health Care Select Sector SPDR Fund and iShares Biotechnology ETF.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/stocks/JNJ/pressreleases/36412515/5-healthcare-names-to-watch-as-sector-rotation-is-in-full-swing/",
+          "time_published": "20251202T050942",
+          "relevance": 1.0,
+          "sentiment": 0.411964,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Boston Scientific Stock (BSX) on December 3, 2025: Insider Sales, EU Device Win and Strong 2026 Price Targets",
+          "summary": "This article provides a detailed snapshot of Boston Scientific (BSX) stock on December 3, 2025, highlighting recent insider sales, a significant EU device approval for its Farapoint pulsed field ablation catheter, and strong analyst price targets for 2026. It also recaps the company's Q3 2025 earnings, growth drivers, valuation, and risks, indicating a premium-valued medtech leader with bullish prospects tempered by insider selling and high valuation.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/boston-scientific-stock-bsx-on-december-3-2025-insider-sales-eu-device-win-and-strong-2026-price-targets/",
+          "time_published": "20251203T233558",
+          "relevance": 1.0,
+          "sentiment": 0.205199,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Agilent Technologies Director Sells 2,600 Shares",
+          "summary": "Mikael Dolsten, a Director at Agilent Technologies, sold 2,600 shares of common stock for a total of $389,511 on December 1, 2025. The sale occurred at a weighted average price of $149.812 per share, and Dolsten now directly owns 4,973 shares in the company. This transaction was disclosed in an SEC Form 4 filing.",
+          "source": "TradingView",
+          "url": "https://www.tradingview.com/news/tradingview:eca4dd15d30a2:0-agilent-technologies-director-sells-2-600-shares/",
+          "time_published": "20251203T232030",
+          "relevance": 1.0,
+          "sentiment": 0.143418,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Eisai Presents New Data on the Continued and Expanding Benefit of LEQEMBI\u00ae (lecanemab-irmb) Maintenance Treatment in Early Alzheimer\u2019s Disease at the Clinical Trials on Alzheimer\u2019s Disease (CTAD) Conference 2025",
+          "summary": "Eisai and Biogen presented new data at the CTAD 2025 conference highlighting the long-term benefits of LEQEMBI (lecanemab-irmb) maintenance treatment in early Alzheimer's disease, suggesting a potential to delay disease progression by up to 8.3 years in low-amyloid patients. The presentations also included new safety and efficacy data for the subcutaneous formulation of LEQEMBI for initiation treatment, which showed comparable efficacy and safety to the intravenous administration. These findings support earlier initiation of LEQEMBI to further delay disease progression and provide a convenient new treatment option for patients and care partners.",
+          "source": "Biogen",
+          "url": "https://investors.biogen.com/news-releases/news-release-details/eisai-presents-new-data-continued-and-expanding-benefit-leqembir",
+          "time_published": "20251203T231637",
+          "relevance": 1.0,
+          "sentiment": 0.417464,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Capital Fund Management S.A. Boosts Position in Ardelyx, Inc. $ARDX",
+          "summary": "Capital Fund Management S.A. significantly increased its stake in Ardelyx, Inc. (NASDAQ:ARDX) by 225.9% in Q2, bringing its total holdings to 716,122 shares valued at $2.81 million. Despite recent insider selling, institutional investors and hedge funds generally increased their positions in the biopharmaceutical company. Analysts have a \"Moderate Buy\" consensus rating with an average price target of $11.73, while Ardelyx reported better-than-expected earnings for the last quarter.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-capital-fund-management-sa-boosts-position-in-ardelyx-inc-ardx-2025-12-03/",
+          "time_published": "20251203T231012",
+          "relevance": 1.0,
+          "sentiment": 0.250186,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "Bank of New York Mellon Stock: Is BK Outperforming the Financial Sector?",
+          "summary": "The Bank of New York Mellon Corporation (BK) is a large-cap financial services company whose stock has seen significant growth, outperforming the Financial Select Sector SPDR Fund (XLF) and even JPMorgan Chase (JPM) over various periods. Despite strong performance and a \"Moderate Buy\" consensus rating from analysts, the stock dipped after Q3 2025 results due to concerns over rising non-interest expenses. Analysts currently project a modest premium for BK shares.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-bank-of-new-york-mellon-stock-is-bk-outperforming-the-financial-sector",
+          "time_published": "20251203T085900",
+          "relevance": 1.0,
+          "sentiment": 0.468836,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "XLF ETF: 3 Reasons Why I Am Not A Buyer (NYSEARCA:XLF)",
+          "summary": "The Financial Select Sector SPDR Fund (XLF) offers exposure to U.S. financial services companies, but the author is not a buyer due to several factors. XLF has underperformed the S&P 500 since its inception, exhibiting higher volatility and lower risk-adjusted returns. Intense competition within the financial and insurance sectors also limits pricing power for its top holdings, making it difficult for the ETF to deliver above-market returns despite trading at a valuation discount.",
+          "source": "Seeking Alpha",
+          "url": "https://seekingalpha.com/article/4848673-xlf-3-reasons-why-i-am-not-a-buyer",
+          "time_published": "20251201T052137",
+          "relevance": 1.0,
+          "sentiment": -0.148722,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "How Flexshares Esg & Climate Investment Grade Corporate Core Index Fund (FEIG) Affects Rotational Strategy Timing",
+          "summary": "This article analyzes Flexshares ESG & Climate Investment Grade Corporate Core Index Fund (FEIG) and its impact on rotational strategy timing. It identifies a neutral sentiment across all time horizons, suggesting sideways trading action, and presents institutional trading strategies for various risk profiles. Key findings include a 3.9:1 risk-reward setup targeting a 1.1% gain versus a 0.3% risk.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/1/How_Flexshares_Esg_Climate_Investment_Grade_Corporate_Core_Index_Fund_FEIG_Affects_Rotational_Strategy_Timing_120325115602_1764824162.html",
+          "time_published": "20251203T235600",
+          "relevance": 1.0,
+          "sentiment": 0.028922,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "3 Bank Stocks We Approach with Caution",
+          "summary": "Despite the banking industry's recent returns, investors need to be cautious due to sensitivity to interest rate fluctuations and economic cycles. This article highlights three bank stocks\u2014Preferred Bank (PFBC), Comerica (CMA), and Ladder Capital (LADR)\u2014that exhibit concerning financial trends such as declining profitability, slower growth, or stagnating tangible book value, suggesting potential challenges ahead.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245135/3-bank-stocks-we-approach-with-caution",
+          "time_published": "20251203T233600",
+          "relevance": 1.0,
+          "sentiment": -0.393045,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Raymond James Financial raises quarterly dividend by 8%, ups buyback",
+          "summary": "Raymond James Financial, Inc. announced an 8% increase in its quarterly cash dividend to $0.54 per share and authorized a new $2 billion share repurchase program. The company also declared a dividend for its Series B Preferred Stock and confirmed plans to redeem all outstanding shares of this preferred stock. These actions follow robust earnings results and positive analyst revisions to price targets.",
+          "source": "Investing.com South Africa",
+          "url": "https://za.investing.com/news/company-news/raymond-james-financial-raises-quarterly-dividend-by-8-ups-buyback-93CH-4011784",
+          "time_published": "20251203T233400",
+          "relevance": 1.0,
+          "sentiment": 0.337487,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Smurfit Westrock (SW) Raises $1.3 Billion in Notes Amid Positive Analyst Outlook",
+          "summary": "Smurfit Westrock Plc (NYSE: SW) recently raised $1.3 billion through senior notes to refinance existing debt, following positive ratings from Wall Street analysts. The company holds a Strong Buy consensus with an average price target implying a significant upside. Smurfit Westrock specializes in sustainable paper-based packaging solutions.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/smurfit-westrock-sw-raises-1-3-billion-in-notes-amid-positive-analyst-outlook-1653041/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.015334,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "NXP Semiconductors (NXPI) Stock Jumps Again on December 3, 2025: Dividend Rush, AI Tailwinds and Auto Rebound Fuel Rally",
+          "summary": "NXP Semiconductors (NXPI) stock surged over 5% on December 3, 2025, continuing a two-day rally, driven by an upcoming ex-dividend date, strong Q3 2025 earnings, and optimistic Q4 guidance. The company's strategic acquisitions in in-vehicle connectivity and edge AI, along with new EV battery management chipsets, are positioning it for long-term growth in automotive and industrial markets. Wall Street analysts maintain a \"Moderate to Strong Buy\" consensus with price targets in the mid-$250s, while fundamental analysis points to solid profitability and growth potential despite short-term overbought conditions and cyclical risks.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/nxp-semiconductors-nxpi-stock-jumps-again-on-december-3-2025-dividend-rush-ai-tailwinds-and-auto-rebound-fuel-rally/",
+          "time_published": "20251203T232231",
+          "relevance": 1.0,
+          "sentiment": 0.488805,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Intel (INTC) Stock Surges on Apple Chip Rumors and $208M Malaysia Expansion: 2025 Rally, Analyst Forecasts and What\u2019s Next",
+          "summary": "Intel (INTC) stock has surged due to rumors of Apple becoming an Intel Foundry customer and a new $208 million expansion in Malaysia. While analysts remain cautious with \"Hold\" ratings and price targets below current levels, the news validates Intel's 18A process and strengthens its position in global manufacturing and U.S. industrial policy. The company's Q3 2025 results showed early improvements, but challenges remain in foundry execution and competition.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/intel-intc-stock-surges-on-apple-chip-rumors-and-208m-malaysia-expansion-2025-rally-analyst-forecasts-and-whats-next/",
+          "time_published": "20251203T232100",
+          "relevance": 1.0,
+          "sentiment": 0.260707,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "New York State Common Retirement Fund Purchases 8,891 Shares of UFP Technologies, Inc. $UFPT",
+          "summary": "The New York State Common Retirement Fund increased its stake in UFP Technologies, Inc. by 9.5% in the second quarter, bringing its total to 102,888 shares valued at $25.12 million. This comes as other institutional investors have also adjusted their positions in the industrial products company. Analyst ratings for UFP Technologies are currently mixed, with a consensus \"Hold\" and a price target of $289.00.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-new-york-state-common-retirement-fund-purchases-8891-shares-of-ufp-technologies-inc-ufpt-2025-12-02/",
+          "time_published": "20251203T230927",
+          "relevance": 1.0,
+          "sentiment": 0.169897,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "EquipmentShare secures $2.8B credit facility led by Wells Fargo",
+          "summary": "EquipmentShare has secured a $2.8 billion asset-based senior secured credit facility led by Wells Fargo, extending its borrowing capacity through 2030. This financing will support the company's long-term growth strategy and investment in its T3 technology platform. Wells Fargo, Citibank, Truist Bank, Citizens Bank, Fifth Third Bank, and SMBC acted as joint lead arrangers and joint bookrunners for the deal.",
+          "source": "Equipment Finance News",
+          "url": "https://equipmentfinancenews.com/news/rentals/equipmentshare-secures-2-8b-credit-facility-led-by-wells-fargo/",
+          "time_published": "20251203T230134",
+          "relevance": 1.0,
+          "sentiment": 0.272082,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "PAR Technology (PAR) Advances Cloud-Native Strategy, Earning Analyst Confidence",
+          "summary": "PAR Technology (NYSE:PAR) is seen as a strong buy by Wall Street analysts due to its transition to a unified cloud-native platform for restaurants and convenience stores, targeting mid-teens annual recurring revenue growth. The company is actively integrating AI into its products, like Coach AI, and forming strategic partnerships, with the average price target suggesting a significant upside. Despite this confidence, some believe other AI stocks may offer greater promise and appeal.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/par-technology-par-advances-cloud-native-strategy-earning-analyst-confidence-1653176/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.4819,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "KMX INVESTORS: Contact Kirby McInerney LLP About Securities Class Action Lawsuit On Behalf of CarMax, Inc.",
+          "summary": "Kirby McInerney LLP reminds CarMax, Inc. investors of a securities class action lawsuit deadline on January 2, 2026. The lawsuit alleges CarMax overstated growth prospects, as evidenced by a significant drop in retail and wholesale unit sales and net earnings per share in Q2 Fiscal Year 2026. This news led to an approximate 20.07% decline in CarMax's stock price.",
+          "source": "The AI Journal",
+          "url": "https://aijourn.com/kmx-investors-contact-kirby-mcinerney-llp-about-securities-class-action-lawsuit-on-behalf-of-carmax-inc/",
+          "time_published": "20251203T232104",
+          "relevance": 1.0,
+          "sentiment": -0.413718,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Levi & Korsinsky Helps Retail Investors SueWallSt Over Alleged Fraud by CarMax, Inc.",
+          "summary": "Levi & Korsinsky is assisting retail investors in a class-action lawsuit against CarMax, Inc., alleging securities fraud between June 20, 2025, and November 5, 2025. Investors who suffered losses during this period are encouraged to contact the firm. The firm, known for securing significant sums for aggrieved shareholders, specializes in complex securities litigation.",
+          "source": "KTSM 9 News",
+          "url": "https://www.ktsm.com/business/press-releases/accesswire/1114476/levi-korsinsky-helps-retail-investors-suewallst-over-alleged-fraud-by-carmax-inc",
+          "time_published": "20251203T231005",
+          "relevance": 1.0,
+          "sentiment": -0.72457,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "KMX INVESTORS: Contact Kirby McInerney LLP About Securities Class Action Lawsuit On Behalf of CarMax, Inc.",
+          "summary": "Kirby McInerney LLP reminds investors of the January 2, 2026 deadline to seek lead plaintiff appointment in a class action lawsuit against CarMax, Inc. The lawsuit alleges CarMax overstated its growth prospects, claiming that earlier growth in fiscal year 2026 was a temporary benefit from tariff-speculation-driven car purchases. This led to a significant decline in CarMax's share price after the company reported decreased retail and wholesale unit sales and lower net earnings per diluted share.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251203257181/en/KMX-INVESTORS-Contact-Kirby-McInerney-LLP-About-Securities-Class-Action-Lawsuit-On-Behalf-of-CarMax-Inc.",
+          "time_published": "20251203T230607",
+          "relevance": 1.0,
+          "sentiment": -0.44068,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Home Depot (HD) Stock Today: Q3 2025 Earnings Miss, Dividend Deadline and December 2025 Outlook",
+          "summary": "Home Depot's stock closed at $357.91 on December 3, 2025, following a Q3 2025 earnings report that missed profit estimates, cut full-year guidance, and led to a 6% stock drop. The company announced a $2.30 quarterly dividend with an ex-dividend date of December 4, 2025, and is facing shareholder fraud investigations. Despite immediate headwinds from a sluggish housing market and consumer uncertainty, analysts largely maintain a \"Moderate Buy\" rating, focusing on long-term recovery and the company's upcoming Investor & Analyst Day on December 9.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/home-depot-hd-stock-today-q3-2025-earnings-miss-dividend-deadline-and-december-2025-outlook/",
+          "time_published": "20251203T225816",
+          "relevance": 1.0,
+          "sentiment": -0.07513,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "How Is Hershey's Stock Performance Compared to Other Consumer Staples Stocks?",
+          "summary": "The Hershey Company (HSY) has a market cap of $38.8 billion and operates in North America and internationally. Despite a recent dip from its 52-week high, HSY stock has outperformed the Consumer Staples Select Sector SPDR Fund (XLP) over the past three months and year-to-date, gaining 7.9% YTD. Although Q3 results beat expectations, the stock dipped due to unimproved full-year earnings guidance, but analysts maintain a \"Hold\" rating with modest upside potential.",
+          "source": "Markets Financial Content",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-3-how-is-hersheys-stock-performance-compared-to-other-consumer-staples-stocks",
+          "time_published": "20251203T041300",
+          "relevance": 1.0,
+          "sentiment": 0.213292,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "XLP vs. IYK: Which is the Better Consumer Staples ETF?",
+          "summary": "This article compares two consumer staples ETFs, XLP and IYK, highlighting XLP's lower expense ratio, higher dividend yield, and pure-play focus on consumer defensive names with significant holdings in Walmart and Costco. While IYK offers broader diversification including some healthcare, the author leans towards XLP due to its cost-effectiveness, specific holdings, and potential for future outperformance. Both ETFs have underperformed the S&P 500 in recent years due to a lack of technology exposure.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36130046/xlp-vs-iyk-which-is-the-better-consumer-staples-etf/",
+          "time_published": "20251130T160906",
+          "relevance": 1.0,
+          "sentiment": 0.331848,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "PAR Technology (PAR) Advances Cloud-Native Strategy, Earning Analyst Confidence",
+          "summary": "PAR Technology (NYSE:PAR) is seen as a strong buy by Wall Street analysts due to its transition to a unified cloud-native platform for restaurants and convenience stores, targeting mid-teens annual recurring revenue growth. The company is actively integrating AI into its products, like Coach AI, and forming strategic partnerships, with the average price target suggesting a significant upside. Despite this confidence, some believe other AI stocks may offer greater promise and appeal.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/par-technology-par-advances-cloud-native-strategy-earning-analyst-confidence-1653176/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.4819,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "KMX INVESTORS: Contact Kirby McInerney LLP About Securities Class Action Lawsuit On Behalf of CarMax, Inc.",
+          "summary": "Kirby McInerney LLP reminds CarMax, Inc. investors of a securities class action lawsuit deadline on January 2, 2026. The lawsuit alleges CarMax overstated growth prospects, as evidenced by a significant drop in retail and wholesale unit sales and net earnings per share in Q2 Fiscal Year 2026. This news led to an approximate 20.07% decline in CarMax's stock price.",
+          "source": "The AI Journal",
+          "url": "https://aijourn.com/kmx-investors-contact-kirby-mcinerney-llp-about-securities-class-action-lawsuit-on-behalf-of-carmax-inc/",
+          "time_published": "20251203T232104",
+          "relevance": 1.0,
+          "sentiment": -0.413718,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Levi & Korsinsky Helps Retail Investors SueWallSt Over Alleged Fraud by CarMax, Inc.",
+          "summary": "Levi & Korsinsky is assisting retail investors in a class-action lawsuit against CarMax, Inc., alleging securities fraud between June 20, 2025, and November 5, 2025. Investors who suffered losses during this period are encouraged to contact the firm. The firm, known for securing significant sums for aggrieved shareholders, specializes in complex securities litigation.",
+          "source": "KTSM 9 News",
+          "url": "https://www.ktsm.com/business/press-releases/accesswire/1114476/levi-korsinsky-helps-retail-investors-suewallst-over-alleged-fraud-by-carmax-inc",
+          "time_published": "20251203T231005",
+          "relevance": 1.0,
+          "sentiment": -0.72457,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "Analysts See Nearly 70% Upside for SM Energy (SM) Amid $12.8 Billion Civitas Merger Plans",
+          "summary": "Wall Street analysts project a nearly 70% upside for SM Energy (SM) following its anticipated $12.8 billion merger with Civitas Resources. The merger is expected to create significant synergies, generating $200-$300 million and accelerating debt reduction through free cash flow and divestitures, ultimately enhancing shareholder value and market capitalization.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/analysts-see-nearly-70-upside-for-sm-energy-sm-amid-12-8-billion-civitas-merger-plans-1653181/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.493449,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Kodiak AI (KDK) Earns Strong Buy Consensus as Analysts See Up to 140% Upside",
+          "summary": "Kodiak AI (KDK) has received a Strong Buy consensus from analysts, with an average price target that suggests a potential upside of nearly 140% from its recent share price. Analysts highlighted the company's strong performance in autonomous trucking, including millions of autonomous miles logged and its pioneering rollout of customer-owned driverless trucks. Kodiak AI specializes in autonomous driving technology and services for the trucking industry, with its Kodiak Driver system and Kodiak OnTime tools enabling automated fleets and freight transportation.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245039/kodiak-ai-kdk-earns-strong-buy-consensus-as-analysts-see-up-to-140-upside",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.523713,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Enphase Energy (ENPH) Outlook Gains Attention Amid Mixed Analyst Views",
+          "summary": "Enphase Energy (ENPH) is drawing attention due to its mixed analyst views, with a consensus Hold rating despite a recent $68 million safe harbor agreement for its IQ9 Microinverters. While the company is expanding internationally and strengthening its product lineup, it faces challenges from competition and policy changes in the US residential market. Analysts anticipate a slow recovery with significant growth not expected until fiscal 2026.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245024/enphase-energy-enph-outlook-gains-attention-amid-mixed-analyst-views",
+          "time_published": "20251203T232900",
+          "relevance": 1.0,
+          "sentiment": 0.027693,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "BW LPG Ltd (0QIX) Gets a Buy from Kepler Capital",
+          "summary": "Kepler Capital's Axel Styrman maintained a Buy rating on BW LPG Ltd with a price target of NOK192.00, following the company's Q2 earnings report. Clarksons also upgraded the stock to a Buy, with the analyst consensus for BW LPG Ltd currently being a Moderate Buy with an average price target of NOK171.00.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/36467847/bw-lpg-ltd-0qix-gets-a-buy-from-kepler-capital/",
+          "time_published": "20251203T230905",
+          "relevance": 1.0,
+          "sentiment": 0.481409,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Fed rate-cut odds climb on softer-than-expected ADP data",
+          "summary": "Odds for a Federal Reserve rate cut increased after the ADP report showed an unexpected contraction of 32,000 private non-farm jobs in November, below the consensus of +10,000. This contrasted with a resilient ISM services PMI, which indicated continued expansion. The article also notes Australia's GDP deceleration and a slight build in US crude inventories, though WTI prices rose.",
+          "source": "www.equiti.com",
+          "url": "https://www.equiti.com/sc-en/news/market-news/fed-rate-cut-odds-climb-on-softer-than-expected-adp-data/",
+          "time_published": "20251203T230534",
+          "relevance": 1.0,
+          "sentiment": -0.339683,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "State Street Now Distributor for Select Sector SPDR ETFs",
+          "summary": "State Street Investment Management (SSIM) has taken over the distribution and marketing for the Select Sector SPDR ETFs, unifying 11 funds under its umbrella. This move aims to enhance the investor experience and solidify SSIM's leadership in sector-focused ETF insights, leveraging nearly 30 years of experience in the field. The affected ETFs, including well-known funds like XLK and XLU, have been rebranded to reflect their association with State Street.",
+          "source": "ETF Trends",
+          "url": "https://www.etftrends.com/state-street-now-distributor-select-sector-spdr-etfs/",
+          "time_published": "20251129T210906",
+          "relevance": 1.0,
+          "sentiment": 0.362806,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Analysts See Nearly 70% Upside for SM Energy (SM) Amid $12.8 Billion Civitas Merger Plans",
+          "summary": "Wall Street analysts project a nearly 70% upside for SM Energy (SM) following its anticipated $12.8 billion merger with Civitas Resources. The merger is expected to create significant synergies, generating $200-$300 million and accelerating debt reduction through free cash flow and divestitures, ultimately enhancing shareholder value and market capitalization.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/analysts-see-nearly-70-upside-for-sm-energy-sm-amid-12-8-billion-civitas-merger-plans-1653181/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.493449,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Kodiak AI (KDK) Earns Strong Buy Consensus as Analysts See Up to 140% Upside",
+          "summary": "Kodiak AI (KDK) has received a Strong Buy consensus from analysts, with an average price target that suggests a potential upside of nearly 140% from its recent share price. Analysts highlighted the company's strong performance in autonomous trucking, including millions of autonomous miles logged and its pioneering rollout of customer-owned driverless trucks. Kodiak AI specializes in autonomous driving technology and services for the trucking industry, with its Kodiak Driver system and Kodiak OnTime tools enabling automated fleets and freight transportation.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245039/kodiak-ai-kdk-earns-strong-buy-consensus-as-analysts-see-up-to-140-upside",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.523713,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Enphase Energy (ENPH) Outlook Gains Attention Amid Mixed Analyst Views",
+          "summary": "Enphase Energy (ENPH) is drawing attention due to its mixed analyst views, with a consensus Hold rating despite a recent $68 million safe harbor agreement for its IQ9 Microinverters. While the company is expanding internationally and strengthening its product lineup, it faces challenges from competition and policy changes in the US residential market. Analysts anticipate a slow recovery with significant growth not expected until fiscal 2026.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245024/enphase-energy-enph-outlook-gains-attention-amid-mixed-analyst-views",
+          "time_published": "20251203T232900",
+          "relevance": 1.0,
+          "sentiment": 0.027693,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "BW LPG Ltd (0QIX) Gets a Buy from Kepler Capital",
+          "summary": "Kepler Capital's Axel Styrman maintained a Buy rating on BW LPG Ltd with a price target of NOK192.00, following the company's Q2 earnings report. Clarksons also upgraded the stock to a Buy, with the analyst consensus for BW LPG Ltd currently being a Moderate Buy with an average price target of NOK171.00.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/36467847/bw-lpg-ltd-0qix-gets-a-buy-from-kepler-capital/",
+          "time_published": "20251203T230905",
+          "relevance": 1.0,
+          "sentiment": 0.481409,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "3 Bank Stocks We Approach with Caution",
+          "summary": "Despite the banking industry's recent returns, investors need to be cautious due to sensitivity to interest rate fluctuations and economic cycles. This article highlights three bank stocks\u2014Preferred Bank (PFBC), Comerica (CMA), and Ladder Capital (LADR)\u2014that exhibit concerning financial trends such as declining profitability, slower growth, or stagnating tangible book value, suggesting potential challenges ahead.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245135/3-bank-stocks-we-approach-with-caution",
+          "time_published": "20251203T233600",
+          "relevance": 1.0,
+          "sentiment": -0.424262,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Home Depot (HD) Stock Today: Q3 2025 Earnings Miss, Dividend Deadline and December 2025 Outlook",
+          "summary": "Home Depot's stock closed at $357.91 on December 3, 2025, following a Q3 2025 earnings report that missed profit estimates, cut full-year guidance, and led to a 6% stock drop. The company announced a $2.30 quarterly dividend with an ex-dividend date of December 4, 2025, and is facing shareholder fraud investigations. Despite immediate headwinds from a sluggish housing market and consumer uncertainty, analysts largely maintain a \"Moderate Buy\" rating, focusing on long-term recovery and the company's upcoming Investor & Analyst Day on December 9.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/home-depot-hd-stock-today-q3-2025-earnings-miss-dividend-deadline-and-december-2025-outlook/",
+          "time_published": "20251203T225816",
+          "relevance": 1.0,
+          "sentiment": -0.052416,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "VICI Properties (NYSE:VICI) Stock Price",
+          "summary": "This article provides a comprehensive overview of VICI Properties (NYSE:VICI), highlighting its current stock price, fair value, and performance metrics. It also includes key financial details, recent news, and a description of the company's real estate portfolio and business strategy, emphasizing its focus on experiential assets.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stock/nyse/vici",
+          "time_published": "20251203T225137",
+          "relevance": 1.0,
+          "sentiment": 0.290616,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Liquidity Mapping Around (VGSR) Price Events",
+          "summary": "This article provides a liquidity mapping analysis for Vert Global Sustainable Real Estate Etf (NASDAQ: VGSR), identifying a neutral sentiment and a mid-channel oscillation pattern. It highlights an exceptional risk-reward short setup and offers three distinct AI-generated trading strategies tailored to different risk profiles. The analysis includes multi-timeframe signal analysis with support and resistance levels.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/150/Liquidity_Mapping_Around_VGSR_Price_Events_120325104402_1764819842.html",
+          "time_published": "20251203T224400",
+          "relevance": 1.0,
+          "sentiment": 0.048921,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Citi Maintains Kimco Realty Corp(KIM.US) With Hold Rating, Cuts Target Price to $21",
+          "summary": "Citi analyst Nicholas Joseph has maintained a Hold rating for Kimco Realty Corp (KIM.US) but has reduced the target price from $24 to $21. The analyst has a 60.8% success rate and an average return of 0.7% over the past year, according to TipRanks data. This adjustment reflects an updated outlook on the company's valuation.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/65750211/citi-maintains-kimco-realty-corp-kimus-with-hold-rating-cuts",
+          "time_published": "20251203T223300",
+          "relevance": 1.0,
+          "sentiment": -0.164097,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "Kodiak AI (KDK) Earns Strong Buy Consensus as Analysts See Up to 140% Upside",
+          "summary": "Kodiak AI (KDK) has received a Strong Buy consensus from analysts, with an average price target that suggests a potential upside of nearly 140% from its recent share price. Analysts highlighted the company's strong performance in autonomous trucking, including millions of autonomous miles logged and its pioneering rollout of customer-owned driverless trucks. Kodiak AI specializes in autonomous driving technology and services for the trucking industry, with its Kodiak Driver system and Kodiak OnTime tools enabling automated fleets and freight transportation.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245039/kodiak-ai-kdk-earns-strong-buy-consensus-as-analysts-see-up-to-140-upside",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.533342,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "PAR Technology (PAR) Advances Cloud-Native Strategy, Earning Analyst Confidence",
+          "summary": "PAR Technology (NYSE:PAR) is seen as a strong buy by Wall Street analysts due to its transition to a unified cloud-native platform for restaurants and convenience stores, targeting mid-teens annual recurring revenue growth. The company is actively integrating AI into its products, like Coach AI, and forming strategic partnerships, with the average price target suggesting a significant upside. Despite this confidence, some believe other AI stocks may offer greater promise and appeal.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/par-technology-par-advances-cloud-native-strategy-earning-analyst-confidence-1653176/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.485365,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Enphase Energy (ENPH) Outlook Gains Attention Amid Mixed Analyst Views",
+          "summary": "Enphase Energy (ENPH) is drawing attention due to its mixed analyst views, with a consensus Hold rating despite a recent $68 million safe harbor agreement for its IQ9 Microinverters. While the company is expanding internationally and strengthening its product lineup, it faces challenges from competition and policy changes in the US residential market. Analysts anticipate a slow recovery with significant growth not expected until fiscal 2026.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/245024/enphase-energy-enph-outlook-gains-attention-amid-mixed-analyst-views",
+          "time_published": "20251203T232900",
+          "relevance": 1.0,
+          "sentiment": 0.006279,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "NXP Semiconductors (NXPI) Stock Jumps Again on December 3, 2025: Dividend Rush, AI Tailwinds and Auto Rebound Fuel Rally",
+          "summary": "NXP Semiconductors (NXPI) stock surged over 5% on December 3, 2025, continuing a two-day rally, driven by an upcoming ex-dividend date, strong Q3 2025 earnings, and optimistic Q4 guidance. The company's strategic acquisitions in in-vehicle connectivity and edge AI, along with new EV battery management chipsets, are positioning it for long-term growth in automotive and industrial markets. Wall Street analysts maintain a \"Moderate to Strong Buy\" consensus with price targets in the mid-$250s, while fundamental analysis points to solid profitability and growth potential despite short-term overbought conditions and cyclical risks.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/nxp-semiconductors-nxpi-stock-jumps-again-on-december-3-2025-dividend-rush-ai-tailwinds-and-auto-rebound-fuel-rally/",
+          "time_published": "20251203T232231",
+          "relevance": 1.0,
+          "sentiment": 0.471764,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Intel (INTC) Stock Surges on Apple Chip Rumors and $208M Malaysia Expansion: 2025 Rally, Analyst Forecasts and What\u2019s Next",
+          "summary": "Intel (INTC) stock has surged due to rumors of Apple becoming an Intel Foundry customer and a new $208 million expansion in Malaysia. While analysts remain cautious with \"Hold\" ratings and price targets below current levels, the news validates Intel's 18A process and strengthens its position in global manufacturing and U.S. industrial policy. The company's Q3 2025 results showed early improvements, but challenges remain in foundry execution and competition.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/intel-intc-stock-surges-on-apple-chip-rumors-and-208m-malaysia-expansion-2025-rally-analyst-forecasts-and-whats-next/",
+          "time_published": "20251203T232100",
+          "relevance": 1.0,
+          "sentiment": 0.244881,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Smurfit Westrock (SW) Raises $1.3 Billion in Notes Amid Positive Analyst Outlook",
+          "summary": "Smurfit Westrock Plc (NYSE: SW) recently raised $1.3 billion through senior notes to refinance existing debt, following positive ratings from Wall Street analysts. The company holds a Strong Buy consensus with an average price target implying a significant upside. Smurfit Westrock specializes in sustainable paper-based packaging solutions.",
+          "source": "Insider Monkey",
+          "url": "https://www.insidermonkey.com/blog/smurfit-westrock-sw-raises-1-3-billion-in-notes-amid-positive-analyst-outlook-1653041/",
+          "time_published": "20251203T233100",
+          "relevance": 1.0,
+          "sentiment": 0.015334,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "NXP Semiconductors (NXPI) Stock Jumps Again on December 3, 2025: Dividend Rush, AI Tailwinds and Auto Rebound Fuel Rally",
+          "summary": "NXP Semiconductors (NXPI) stock surged over 5% on December 3, 2025, continuing a two-day rally, driven by an upcoming ex-dividend date, strong Q3 2025 earnings, and optimistic Q4 guidance. The company's strategic acquisitions in in-vehicle connectivity and edge AI, along with new EV battery management chipsets, are positioning it for long-term growth in automotive and industrial markets. Wall Street analysts maintain a \"Moderate to Strong Buy\" consensus with price targets in the mid-$250s, while fundamental analysis points to solid profitability and growth potential despite short-term overbought conditions and cyclical risks.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/nxp-semiconductors-nxpi-stock-jumps-again-on-december-3-2025-dividend-rush-ai-tailwinds-and-auto-rebound-fuel-rally/",
+          "time_published": "20251203T232231",
+          "relevance": 1.0,
+          "sentiment": 0.488805,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Intel (INTC) Stock Surges on Apple Chip Rumors and $208M Malaysia Expansion: 2025 Rally, Analyst Forecasts and What\u2019s Next",
+          "summary": "Intel (INTC) stock has surged due to rumors of Apple becoming an Intel Foundry customer and a new $208 million expansion in Malaysia. While analysts remain cautious with \"Hold\" ratings and price targets below current levels, the news validates Intel's 18A process and strengthens its position in global manufacturing and U.S. industrial policy. The company's Q3 2025 results showed early improvements, but challenges remain in foundry execution and competition.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/intel-intc-stock-surges-on-apple-chip-rumors-and-208m-malaysia-expansion-2025-rally-analyst-forecasts-and-whats-next/",
+          "time_published": "20251203T232100",
+          "relevance": 1.0,
+          "sentiment": 0.260707,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "New York State Common Retirement Fund Purchases 8,891 Shares of UFP Technologies, Inc. $UFPT",
+          "summary": "The New York State Common Retirement Fund increased its stake in UFP Technologies, Inc. by 9.5% in the second quarter, bringing its total to 102,888 shares valued at $25.12 million. This comes as other institutional investors have also adjusted their positions in the industrial products company. Analyst ratings for UFP Technologies are currently mixed, with a consensus \"Hold\" and a price target of $289.00.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/filing-new-york-state-common-retirement-fund-purchases-8891-shares-of-ufp-technologies-inc-ufpt-2025-12-02/",
+          "time_published": "20251203T230927",
+          "relevance": 1.0,
+          "sentiment": 0.169897,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "EquipmentShare secures $2.8B credit facility led by Wells Fargo",
+          "summary": "EquipmentShare has secured a $2.8 billion asset-based senior secured credit facility led by Wells Fargo, extending its borrowing capacity through 2030. This financing will support the company's long-term growth strategy and investment in its T3 technology platform. Wells Fargo, Citibank, Truist Bank, Citizens Bank, Fifth Third Bank, and SMBC acted as joint lead arrangers and joint bookrunners for the deal.",
+          "source": "Equipment Finance News",
+          "url": "https://equipmentfinancenews.com/news/rentals/equipmentshare-secures-2-8b-credit-facility-led-by-wells-fargo/",
+          "time_published": "20251203T230134",
+          "relevance": 1.0,
+          "sentiment": 0.272082,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "sector_sentiment": {
+      "XLK": {
+        "avg_sentiment": 0.223,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLV": {
+        "avg_sentiment": 0.176,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLF": {
+        "avg_sentiment": 0.044,
+        "article_count": 12,
+        "label": "Neutral"
+      },
+      "XLI": {
+        "avg_sentiment": 0.262,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": -0.075,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLP": {
+        "avg_sentiment": -0.017,
+        "article_count": 12,
+        "label": "Neutral"
+      },
+      "XLE": {
+        "avg_sentiment": 0.234,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLU": {
+        "avg_sentiment": 0.246,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.049,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLC": {
+        "avg_sentiment": 0.244,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.262,
+        "article_count": 10,
+        "label": "Bullish"
+      }
+    },
+    "total_articles": 117,
+    "avg_sentiment": 0.15,
+    "bullish_sectors": [
+      "XLK",
+      "XLV",
+      "XLI",
+      "XLE",
+      "XLU",
+      "XLC",
+      "XLB"
+    ],
+    "bearish_sectors": []
+  },
+  "sector_summary": "EARLY_EXPANSION cycle phase with NEUTRAL rotation bias and LOW velocity indicates stable market conditions. Consumer Cyclical (XLY) leads with TREND signal, benefiting from Fed dovish expectations. Eight sectors remain NEUTRAL in noise range, while Real Estate (XLRE) and Utilities (XLU) should be avoided due to rate sensitivity and defensive rotation fade. No crossover alerts suggest stable capital flows.",
+  "cycle_phase": "EARLY_EXPANSION",
+  "cycle_confidence": "HIGH",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 1,
+      "mrs_20": 0.65,
+      "mrs_5": 0.5,
+      "roc_3": 0.7,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=0.65%, MRS_5=0.50%) with positive momentum across all timeframes, benefiting from Fed dovish pivot expectations and improving consumer sentiment",
+      "news_context": {
+        "sentiment": 0.3,
+        "article_count": 15,
+        "themes": "Holiday shopping optimism, rate cut expectations, discretionary spending recovery"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 2,
+      "mrs_20": 0.1,
+      "mrs_5": 0.88,
+      "roc_3": 0.44,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.10%) but showing strong 5-day momentum (MRS_5=0.88%) as oil prices stabilize and geopolitical tensions support crude",
+      "news_context": {
+        "sentiment": 0.1,
+        "article_count": 12,
+        "themes": "Oil price stabilization, OPEC+ production decisions, geopolitical tensions"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 3,
+      "mrs_20": -0.38,
+      "mrs_5": 0.53,
+      "roc_3": 1.28,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.38%) but positive 5-day momentum (MRS_5=0.53%) as AI infrastructure spending continues and rate cut expectations benefit growth stocks",
+      "news_context": {
+        "sentiment": 0.2,
+        "article_count": 25,
+        "themes": "AI infrastructure investment, cloud growth, semiconductor demand, rate sensitivity"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 4,
+      "mrs_20": 0.08,
+      "mrs_5": 0.35,
+      "roc_3": -0.34,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.08%) with modest positive momentum (MRS_5=0.35%) as banks balance rate cut expectations with credit quality concerns",
+      "news_context": {
+        "sentiment": 0,
+        "article_count": 18,
+        "themes": "Net interest margin pressure, credit quality monitoring, rate cut impact"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 5,
+      "mrs_20": -0.47,
+      "mrs_5": 0.33,
+      "roc_3": -0.08,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.47%) with positive short-term momentum (MRS_5=0.33%) as infrastructure spending and manufacturing data show mixed signals",
+      "news_context": {
+        "sentiment": -0.1,
+        "article_count": 14,
+        "themes": "Manufacturing data mixed, infrastructure spending, supply chain normalization"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 6,
+      "mrs_20": -0.04,
+      "mrs_5": -0.36,
+      "roc_3": -0.94,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.04%) but showing weakness with negative momentum (MRS_5=-0.36%) as ad spending concerns weigh on the sector",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 16,
+        "themes": "Ad spending uncertainty, streaming competition, regulatory concerns"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 7,
+      "mrs_20": 0.43,
+      "mrs_5": -0.44,
+      "roc_3": -1.64,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=0.43%) but negative momentum (MRS_5=-0.44%) as commodity prices face headwinds from China demand concerns",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 10,
+        "themes": "China demand concerns, commodity price volatility, industrial metals weakness"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 8,
+      "mrs_20": -0.17,
+      "mrs_5": -0.72,
+      "roc_3": -1.8,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.17%) with negative momentum (MRS_5=-0.72%) as defensive rotation loses favor in improving risk environment",
+      "news_context": {
+        "sentiment": -0.1,
+        "article_count": 11,
+        "themes": "Margin pressure, consumer spending shift, defensive rotation fade"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 9,
+      "mrs_20": -0.24,
+      "mrs_5": -1.16,
+      "roc_3": -3.22,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.24%) with significant negative momentum (MRS_5=-1.16%) as defensive characteristics lose appeal in risk-on environment",
+      "news_context": {
+        "sentiment": -0.2,
+        "article_count": 13,
+        "themes": "Drug pricing concerns, defensive rotation fade, regulatory uncertainty"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 10,
+      "mrs_20": -1.81,
+      "mrs_5": -0.92,
+      "roc_3": -2.03,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition territory (MRS_20=-1.81%) with continued negative momentum (MRS_5=-0.92%) as high rates and commercial real estate concerns persist despite rate cut expectations",
+      "news_context": {
+        "sentiment": -0.4,
+        "article_count": 8,
+        "themes": "Commercial real estate stress, interest rate sensitivity, REIT underperformance"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 11,
+      "mrs_20": -3.41,
+      "mrs_5": -1.95,
+      "roc_3": -3.71,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition territory (MRS_20=-3.41%) with persistent negative momentum (MRS_5=-1.95%) as defensive utilities face headwinds from improving risk appetite and rate sensitivity",
+      "news_context": {
+        "sentiment": -0.3,
+        "article_count": 7,
+        "themes": "Rate sensitivity, defensive rotation fade, regulatory pressures"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLY": 1.2,
+    "XLE": 1.0,
+    "XLK": 1.0,
+    "XLF": 1.0,
+    "XLI": 1.0,
+    "XLC": 1.0,
+    "XLB": 1.0,
+    "XLP": 1.0,
+    "XLV": 1.0,
+    "XLRE": 0.5,
+    "XLU": 0.5
+  },
+  "cycle_reasoning": "EARLY_EXPANSION classification is supported by Consumer Cyclical leadership, moderate risk appetite, and the beginning of defensive sector underperformance. The pattern shows initial economic optimism with selective sector participation, typical of early cycle phases where growth expectations improve but haven't yet reached full momentum.",
+  "rotation_analysis": "The sector rotation pattern reveals a cautious risk-on environment with Consumer Cyclical (XLY) emerging as the sole leader in Zone A with TREND signal. The concentration of 8 sectors in Zone E (noise range) suggests a consolidation phase rather than aggressive rotation. Energy (XLE) shows promising short-term momentum despite neutral positioning, while Technology (XLK) benefits from AI themes and rate cut expectations. The weakness in rate-sensitive sectors (XLRE, XLU) confirms the market's anticipation of Fed policy shifts. The absence of strong defensive leadership indicates investors are moving away from safety trades but not yet fully embracing high-beta cyclicals.",
+  "l1_alignment": "Sector rotation aligns well with L1's NORMAL (IMPROVING) regime. The Consumer Cyclical leadership and defensive sector weakness support the moderately constructive macro conditions. The NEUTRAL rotation bias matches L1's cautious optimism, while the concentration in noise range reflects the selective participation noted in L1's 51% breadth reading.",
+  "key_insight": "The market is in a selective risk-on transition with Consumer Cyclical leading while most sectors consolidate in noise range, suggesting early-stage economic optimism that hasn't yet broadened into full cyclical momentum - a classic early expansion setup that favors quality growth over defensive positioning.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: EARLY_EXPANSION (HIGH confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 shows NORMAL (IMPROVING) regime with moderately constructive conditions. Sector rotation aligns with Consumer Cyclical leadership and defensive weakness supporting the improving risk appetite narrative.\n\nStep 2 - Signal Validation:\nAll pre-calculated signals validated against thresholds. XLY in Zone A with positive momentum generates TREND signal. XLRE and XLU in Zone D with negative momentum generate AVOID signals. Eight sectors in Zone E generate NEUTRAL signals as expected.\n\nStep 3 - Zone Analysis:\nZone distribution: A(1), E(8), D(2). Single Zone A leader (XLY) with broad Zone E consolidation and two Zone D laggards (XLRE, XLU). Rotation direction is mildly risk-on with rate-sensitive sectors underperforming.\n\nStep 4 - Conflict Resolution:\nNo L1 vs L2 conflicts. Both levels indicate improving but cautious conditions. News themes of Fed dovish pivot, consumer strength, and defensive fade support the rotation pattern and align with macro regime assessment.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nEARLY_EXPANSION classification is supported by Consumer Cyclical leadership, moderate risk appetite, and the beginning of defensive sector underperformance. The pattern shows initial economic optimism with selective sector participation, typical of early cycle phases where growth expectations improve but haven't yet reached full momentum.\n\nKey Insight: The market is in a selective risk-on transition with Consumer Cyclical leading while most sectors consolidate in noise range, suggesting early-stage economic optimism that hasn't yet broadened into full cyclical momentum - a classic early expansion setup that favors quality growth over defensive positioning."
+}

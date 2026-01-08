@@ -1,0 +1,932 @@
+{
+  "contract_id": "l2_2026-01-06",
+  "trading_date": "2026-01-06",
+  "generated_at": "2026-01-07T07:57:34.205039",
+  "valid_until": "2026-01-08T07:57:34.205039",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-5-20250929",
+  "l1_contract_id": "l1_2026-01-06",
+  "sector_news": {
+    "total_articles": 116,
+    "avg_sentiment": 0.184,
+    "bullish_sectors": [
+      "XLB",
+      "XLI",
+      "XLK",
+      "XLY",
+      "XLU",
+      "XLC",
+      "XLE",
+      "XLP"
+    ],
+    "bearish_sectors": [],
+    "sector_sentiment": {
+      "XLF": {
+        "avg_sentiment": 0.108,
+        "article_count": 10,
+        "label": "Neutral"
+      },
+      "XLV": {
+        "avg_sentiment": 0.014,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLB": {
+        "avg_sentiment": 0.194,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLI": {
+        "avg_sentiment": 0.236,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLK": {
+        "avg_sentiment": 0.17,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLY": {
+        "avg_sentiment": 0.324,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.093,
+        "article_count": 12,
+        "label": "Neutral"
+      },
+      "XLU": {
+        "avg_sentiment": 0.185,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.17,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLE": {
+        "avg_sentiment": 0.22,
+        "article_count": 11,
+        "label": "Bullish"
+      },
+      "XLP": {
+        "avg_sentiment": 0.31,
+        "article_count": 11,
+        "label": "Bullish"
+      }
+    },
+    "top_headlines": {
+      "XLF": [
+        {
+          "title": "Can Chubb Benefits\u2019 Brand Unification Deepen Chubb\u2019s (CB) Edge In Workplace Benefits Distribution?",
+          "summary": "Chubb, a global multiline insurer, has unified its supplemental and workplace benefits operations in North America under the new \"Chubb Benefits\" brand. This strategic move aims to create brand cohesion, enhancing customer recognition and distribution effectiveness within the workplace benefits market. While incremental, the unification is expected to strengthen Chubb\u2019s investment narrative, alongside other company developments like leadership appointments.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/insurance/nyse-cb/chubb/news/can-chubb-benefits-brand-unification-deepen-chubbs-cb-edge-i",
+          "time_published": "20260106T223843",
+          "relevance": 1.0,
+          "sentiment": -0.058067,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "3 Top Buffett Stocks to Buy and Hold for the Long Haul",
+          "summary": "This article identifies three top Warren Buffett stocks\u2014Coca-Cola, American Express, and Moody's\u2014as ideal long-term investments, especially after Buffett's retirement from Berkshire Hathaway. It details why each company, with its stable business model, dividend history, or market position, continues to be a strong buy and hold for investors.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/268865/3-top-buffett-stocks-to-buy-and-hold-for-the-long-haul",
+          "time_published": "20260106T223115",
+          "relevance": 1.0,
+          "sentiment": 0.239505,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Ravi Raghu Sells 13,450 Shares of Capital One Financial (NYSE:COF) Stock",
+          "summary": "Ravi Raghu, an insider at Capital One Financial (NYSE:COF), sold 13,450 shares for $3,362,500 on January 5th, reducing his stake by over 30%. Despite this insider sale, Capital One's stock saw a 2.9% increase, and analysts have largely maintained \"Buy\" ratings with an average price target of approximately $274.80. The company also recently increased its quarterly dividend to $0.80 per share, yielding 1.2%, although its payout ratio is high at 135.02%.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/ravi-raghu-sells-13450-shares-of-capital-one-financial-nysecof-stock-2026-01-06/",
+          "time_published": "20260106T223046",
+          "relevance": 1.0,
+          "sentiment": 0.191093,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Venezuela in Flux: Commercial Implications",
+          "summary": "FTI Consulting is closely monitoring the rapidly evolving situation in Venezuela following a U.S. military operation and President Trump's stated intention to temporarily govern the country. This article, the first in a series, examines the commercial implications for multinational companies and investors, highlighting potential economic revival but also significant risks during a transition period. FTI Consulting offers various services, including market entry strategies, risk management, and compliance reviews, to assist clients navigating this complex environment.",
+          "source": "FTI Consulting",
+          "url": "https://www.fticonsulting.com/insights/articles/venezuela-flux-commercial-implications",
+          "time_published": "20260106T222157",
+          "relevance": 1.0,
+          "sentiment": 0.006495,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Royal Bank Of Canada Cuts Agree Realty (NYSE:ADC) Price Target to $79.00",
+          "summary": "Royal Bank of Canada has adjusted its price target for Agree Realty (NYSE:ADC) to $79.00, down from $80.00, while maintaining an \"outperform\" rating. This adjustment still suggests a potential upside of approximately 12.6% for the real estate investment trust. Market analysts generally hold a \"Moderate Buy\" consensus for ADC, with an average target price of $80.23, reflecting continued positive sentiment despite the slight target reduction.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/royal-bank-of-canada-cuts-agree-realty-nyseadc-price-target-to-7900-2026-01-06/",
+          "time_published": "20260106T221511",
+          "relevance": 1.0,
+          "sentiment": 0.046413,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "What You Need to Know Ahead of ResMed's Earnings Release",
+          "summary": "ResMed Inc. (RMD) is set to announce its fiscal Q2 2026 earnings, with analysts expecting a 10.3% rise in profit to $2.68 per share. Despite consistently beating EPS estimates, RMD stock has underperformed the S&P 500 and the Health Care Select Sector SPDR Fund over the past year. Analysts largely maintain a \"Moderate Buy\" rating for ResMed, with an average price target suggesting an 18.2% upside.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/stocks/article/barchart-2026-1-5-what-you-need-to-know-ahead-of-resmeds-earnings-release",
+          "time_published": "20260105T035700",
+          "relevance": 1.0,
+          "sentiment": 0.09273,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Why GE HealthCare is warning investors about this share offer",
+          "summary": "GE HealthCare is urging its shareholders to reject an unsolicited \"mini-tender\" offer from Potemkin Limited, citing a significantly-below-market price of $54.20 per share compared to GEHC's $83.09 closing price. The company warns that mini-tender offers typically lack the full disclosure and procedural protections of larger tender offers and advises investors to exercise caution. GE HealthCare is not affiliated with Potemkin Limited and recommends shareholders consult with financial advisors.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/GEHC/ge-health-care-recommends-shareholders-reject-mini-tender-offer-by-5g6i23y34u0r.html",
+          "time_published": "20260106T220631",
+          "relevance": 1.0,
+          "sentiment": -0.236327,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Bragar Eagel & Squire, P.C. Reminds Investors That Class Action Lawsuits Have Been Filed Against Blue Owl, Gauzy, and Alexandria Real Estate and Encourages Investors to Contact the Firm",
+          "summary": "Bragar Eagel & Squire, P.C., a shareholder rights law firm, reminds investors that class action lawsuits have been filed against Blue Owl Capital, Inc. (NYSE:OWL), Gauzy Ltd (NASDAQ:GAUZ), and Alexandria Real Estate Equities, Inc. (NYSE:ARE). The firm encourages investors in these companies to contact them to potentially serve as lead plaintiff. The lawsuits allege that the respective companies made materially false and/or misleading statements regarding their business operations and prospects.",
+          "source": "GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/01/06/3214163/0/en/Bragar-Eagel-Squire-P-C-Reminds-Investors-That-Class-Action-Lawsuits-Have-Been-Filed-Against-Blue-Owl-Gauzy-and-Alexandria-Real-Estate-and-Encourages-Investors-to-Contact-the-Firm.html",
+          "time_published": "20260106T213954",
+          "relevance": 1.0,
+          "sentiment": -0.614152,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Assessing McKesson (MCK) Valuation After Fresh Analyst Commentary On Growth And Industry Fundamentals",
+          "summary": "Fresh analyst commentary has highlighted McKesson's 2025 performance, earnings potential, and supportive industry trends, placing the stock back in focus. Trading at $824.92, below an average analyst target of $939.33 and an indicated 41% intrinsic discount, the company appears undervalued with expectations of compounding earnings and a richer mix in the future. However, risks such as drug pricing pressures or vertical integration by manufacturers could impact its thinly-sliced margins.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/healthcare/nyse-mck/mckesson/news/assessing-mckesson-mck-valuation-after-fresh-analyst-comment",
+          "time_published": "20260106T213851",
+          "relevance": 1.0,
+          "sentiment": 0.276995,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Exelixis to Present at the J.P. Morgan 2026 Healthcare Conference on January 12, 2026",
+          "summary": "Exelixis, Inc. announced that its President and CEO, Michael M. Morrissey, Ph.D., will provide a corporate overview at the J.P. Morgan 2026 Healthcare Conference on January 12, 2026, at 5:15 p.m. PT / 8:15 p.m. ET. The presentation will be webcast live and a replay will be available on the company's website for at least 30 days. Exelixis is an oncology company focused on developing next-generation cancer treatments.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20260106984784/en/Exelixis-to-Present-at-the-J.P.-Morgan-2026-Healthcare-Conference-on-January-12-2026",
+          "time_published": "20260106T212255",
+          "relevance": 1.0,
+          "sentiment": 0.149809,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "Basic materials stocks today: XLB ends 2025 lower as silver slumps, China PMI surprise in focus",
+          "summary": "Basic materials stocks, represented by XLB and IYM ETFs, ended 2025 lower as precious metals like silver and gold pulled back. Investors took profits ahead of the New Year holiday, despite strong annual gains in some commodities and a promising China PMI rebound. Traders are now focusing on upcoming U.S. economic data, interest rate narratives, and January earnings catalysts to gauge the sector's direction in 2026.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/basic-materials-stocks-today-xlb-ends-2025-lower-as-silver-slumps-china-pmi-surprise-in-focus/",
+          "time_published": "20260101T135400",
+          "relevance": 1.0,
+          "sentiment": -0.225863,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 2
+        },
+        {
+          "title": "Nio flags potential cost pressures from memory chips",
+          "summary": "Nio's CEO, William Li, has warned of \"significant\" cost pressures in 2026 due to surging memory chip prices, which are impacting the entire automotive sector. These chips are crucial for Nio's own Shenji chips, as well as Nvidia and cockpit chips used in its vehicles, with demand from AI players and computing centers driving up costs. Despite the rising expenses, Nio currently has no plans to pass these costs on to vehicle prices, affirming its ability to manage the situation through its gross margin.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2026/01/06/nio-flags-cost-pressures-memory-chips/",
+          "time_published": "20260106T231800",
+          "relevance": 1.0,
+          "sentiment": -0.042867,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "A.O. Smith acquires Leonard Valve for $470 million in cash deal",
+          "summary": "A.O. Smith Corporation has completed the acquisition of Leonard Valve for $470 million in an all-cash transaction, expanding its presence in the water management market. The deal, valued at approximately $412 million after tax benefits, was funded through a new credit agreement. Leonard Valve specializes in water temperature control valves and mixing systems for institutional and commercial settings.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/ao-smith-acquires-leonard-valve-for-470-million-in-cash-deal-93CH-4433604",
+          "time_published": "20260106T221737",
+          "relevance": 1.0,
+          "sentiment": 0.448236,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Caterpillar (NYSE: CAT) CEO Joseph Creed to become board chair as Umpleby departs",
+          "summary": "Caterpillar Inc. has announced a leadership transition where D. James Umpleby III will resign from the Board effective April 1, 2026, after 45 years with the company. Joseph E. Creed, the current CEO, will assume the additional title of Chairman of the Board, combining the CEO and Chair roles. The Board also approved amending its bylaws to change the \"Presiding Director\" title to \"Lead Independent Director\" and reduced its size from ten to nine directors.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/CAT/8-k-caterpillar-inc-reports-material-event-244ae2be76f4.html",
+          "time_published": "20260106T214118",
+          "relevance": 1.0,
+          "sentiment": 0.011515,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Hot water safety pioneer Leonard Valve is now part of A. O. Smith",
+          "summary": "Bessemer Investors has completed the sale of Leonard Valve Company to A. O. Smith (NYSE: AOS) following a definitive agreement signed in November 2025. Under Bessemer's ownership since 2019, Leonard Valve expanded its digital and thermostatic mixing products, acquired Heat-Timer Corporation, and tripled its digital and connected offerings. This acquisition further strengthens A. O. Smith's position in water temperature and flow control solutions.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/AOS/bessemer-investors-announces-sale-of-leonard-valve-company-to-a-o-6uz7d9b9egx3.html",
+          "time_published": "20260106T213814",
+          "relevance": 1.0,
+          "sentiment": 0.814273,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Nio flags potential cost pressures from memory chips",
+          "summary": "Nio's CEO, William Li, has warned of \"significant\" cost pressures in 2026 due to surging memory chip prices, which are impacting the entire automotive sector. These chips are crucial for Nio's own Shenji chips, as well as Nvidia and cockpit chips used in its vehicles, with demand from AI players and computing centers driving up costs. Despite the rising expenses, Nio currently has no plans to pass these costs on to vehicle prices, affirming its ability to manage the situation through its gross margin.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2026/01/06/nio-flags-cost-pressures-memory-chips/",
+          "time_published": "20260106T231800",
+          "relevance": 1.0,
+          "sentiment": -0.042867,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "A.O. Smith acquires Leonard Valve for $470 million in cash deal",
+          "summary": "A.O. Smith Corporation has completed the acquisition of Leonard Valve for $470 million in an all-cash transaction, expanding its presence in the water management market. The deal, valued at approximately $412 million after tax benefits, was funded through a new credit agreement. Leonard Valve specializes in water temperature control valves and mixing systems for institutional and commercial settings.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/company-news/ao-smith-acquires-leonard-valve-for-470-million-in-cash-deal-93CH-4433604",
+          "time_published": "20260106T221737",
+          "relevance": 1.0,
+          "sentiment": 0.448236,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Caterpillar (NYSE: CAT) CEO Joseph Creed to become board chair as Umpleby departs",
+          "summary": "Caterpillar Inc. has announced a leadership transition where D. James Umpleby III will resign from the Board effective April 1, 2026, after 45 years with the company. Joseph E. Creed, the current CEO, will assume the additional title of Chairman of the Board, combining the CEO and Chair roles. The Board also approved amending its bylaws to change the \"Presiding Director\" title to \"Lead Independent Director\" and reduced its size from ten to nine directors.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/CAT/8-k-caterpillar-inc-reports-material-event-244ae2be76f4.html",
+          "time_published": "20260106T214118",
+          "relevance": 1.0,
+          "sentiment": 0.011515,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Hot water safety pioneer Leonard Valve is now part of A. O. Smith",
+          "summary": "Bessemer Investors has completed the sale of Leonard Valve Company to A. O. Smith (NYSE: AOS) following a definitive agreement signed in November 2025. Under Bessemer's ownership since 2019, Leonard Valve expanded its digital and thermostatic mixing products, acquired Heat-Timer Corporation, and tripled its digital and connected offerings. This acquisition further strengthens A. O. Smith's position in water temperature and flow control solutions.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/AOS/bessemer-investors-announces-sale-of-leonard-valve-company-to-a-o-6uz7d9b9egx3.html",
+          "time_published": "20260106T213814",
+          "relevance": 1.0,
+          "sentiment": 0.814273,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Company behind police and military safety gear heads to investor event",
+          "summary": "Cadre Holdings, Inc. (NYSE: CDRE), a global leader in safety equipment manufacturing for law enforcement, military, and nuclear markets, announced its participation in the CJS Securities 26th Annual New Ideas for the New Year Conference. President Brad Williams and CFO Blaine Browers will present on January 14, 2026, and conduct investor meetings. A live webcast of the presentation will be available on Cadre's investor relations website.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/CDRE/cadre-holdings-to-participate-in-cjs-securities-26th-annual-new-mws80ro75h14.html",
+          "time_published": "20260106T212237",
+          "relevance": 1.0,
+          "sentiment": 0.225035,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLK": [
+        {
+          "title": "Nio flags potential cost pressures from memory chips",
+          "summary": "Nio's CEO, William Li, has warned of \"significant\" cost pressures in 2026 due to surging memory chip prices, which are impacting the entire automotive sector. These chips are crucial for Nio's own Shenji chips, as well as Nvidia and cockpit chips used in its vehicles, with demand from AI players and computing centers driving up costs. Despite the rising expenses, Nio currently has no plans to pass these costs on to vehicle prices, affirming its ability to manage the situation through its gross margin.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2026/01/06/nio-flags-cost-pressures-memory-chips/",
+          "time_published": "20260106T231800",
+          "relevance": 1.0,
+          "sentiment": -0.044474,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Western Digital (WDC) stock jumps 17% after Nvidia CES storage talk sparks AI-driven rally",
+          "summary": "Western Digital (WDC) shares surged 17%, trading above $219 after Nvidia CEO Jensen Huang's CES remarks about \"context memory storage\" sparked an AI-driven rally among storage and memory companies. This jump reflects investor optimism about demand for data storage tied to AI data centers, with other companies like SanDisk, Seagate Technology, and Micron also experiencing significant gains. However, analysts caution that current high prices might not be sustainable long-term, and upcoming U.S. labor data could influence market expectations and tech trades.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/western-digital-wdc-stock-jumps-17-after-nvidia-ces-storage-talk-sparks-ai-driven-rallynew-york-january-6-2026-1658-est-after-hours/",
+          "time_published": "20260106T221719",
+          "relevance": 1.0,
+          "sentiment": 0.334964,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "T-Mobile US Signs Credit Agreement With JPMorgan Chase Bank",
+          "summary": "T-Mobile US has signed an amended and restated credit agreement to expand and extend its unsecured revolving credit facility with JPMorgan Chase Bank and other lenders. The facility increases to $10.0 billion from $7.5 billion and extends maturity to January 5, 2031, enhancing the company's liquidity and financial flexibility. Borrowings will bear interest based on benchmark rates plus a margin tied to T-Mobile's debt rating.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/tradingview:3ff8792e175ed:0-t-mobile-us-signs-credit-agreement-with-jpmorgan-chase-bank/",
+          "time_published": "20260106T220834",
+          "relevance": 1.0,
+          "sentiment": 0.326429,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "NetApp\u2019s Strategic Appointment Targets Growth in the Indian Market",
+          "summary": "NetApp has appointed Premalakshmi Ramakrishnan as the new Area Vice President for India and the SAARC region to drive growth in the burgeoning Indian market. This strategic move coincides with NetApp surpassing Q2 FY2026 earnings and revenue estimates, and the company is banking on India's strong focus on digital and generative AI projects to fuel demand for its data management solutions. Investors are watching closely as institutional investors show divergent interest in the stock, with the next earnings report due in February 2026.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/netapp-s-strategic-appointment-targets-growth-in-the-indian-market/68465015",
+          "time_published": "20260106T214945",
+          "relevance": 1.0,
+          "sentiment": 0.488969,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "T-Mobile expands credit facility to $10 billion, extends maturity to 2031",
+          "summary": "T-Mobile USA has increased its revolving credit facility from $7.5 billion to $10 billion and extended its maturity date to January 5, 2031, through a new credit agreement with JPMorgan Chase Bank. The agreement outlines interest rates based on benchmark rates plus margins and includes a $1.5 billion letter of credit sub-facility and a $500 million swingline loan sub-facility. T-Mobile US, the parent company, guarantees these obligations, and the agreement incorporates standard restrictions and a leverage ratio requirement.",
+          "source": "StreetInsider",
+          "url": "https://www.streetinsider.com/Corporate+News/T-Mobile+expands+credit+facility+to+%2410+billion%2C+extends+maturity+to+2031/25814139.html",
+          "time_published": "20260106T214656",
+          "relevance": 1.0,
+          "sentiment": 0.472508,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "How Cinemark packed theaters in 2025, from Minecraft to Demon Slayer",
+          "summary": "Cinemark Holdings, Inc. celebrated its highest-grossing domestic box office year since the pandemic in 2025, surpassing its 2023 performance and broader North American industry trends. The company achieved several record-breaking milestones, including its biggest PG-rated opening with \"A Minecraft Movie\" and its largest anime film success with \"Demon Slayer: Infinity Castle.\" This success is attributed to strategic initiatives, enhanced guest experiences, and impactful marketing efforts that led to strong market share gains.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/CNK/cinemark-celebrates-record-breaking-achievements-in-2025-including-5ogmffb5gcah.html",
+          "time_published": "20260106T224726",
+          "relevance": 1.0,
+          "sentiment": 0.854291,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Shoppers beware! Five changes hitting all Dollar Tree stores in 2026",
+          "summary": "Dollar Tree is implementing five significant changes across its approximately 9,000 stores in 2026, transitioning from a true dollar store to a multi-price, technology-enabled retailer. These changes include the full integration of higher price points and expanded product selections, continued price increases on key items, and a cleanup of its store footprint by closing underperforming locations while actively opening new multi-price stores. Shoppers can also anticipate a wider range of seasonal and new product drops, including viral dupes in beauty and skincare.",
+          "source": "The US Sun",
+          "url": "https://www.the-sun.com/money/15741275/shoppers-dollar-tree-changes-price-increase/",
+          "time_published": "20260106T215525",
+          "relevance": 1.0,
+          "sentiment": 0.038143,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Vistra Adds More Gas Plants To Support Retail Growth",
+          "summary": "Vistra Corp, a large power plant operator, is expanding its gas plant holdings to support growth in its retail energy business. This move is strategic, aligning with rising electricity demands driven by data centers, manufacturing, and electric vehicles. The company's diverse asset mix and substantial retail presence are key to its future success.",
+          "source": "Morningstar",
+          "url": "https://www.morningstar.com/company-reports/1416957-vistra-adds-more-gas-plants-to-support-retail-growth",
+          "time_published": "20260106T213604",
+          "relevance": 1.0,
+          "sentiment": 0.315756,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Regency Centers Corporation Scheduled to Announce Fourth Quarter 2025 Earnings Results on February 5, 2026",
+          "summary": "Regency Centers Corporation (NASDAQ: REG) will announce its fourth quarter 2025 earnings results on February 5, 2026, after market close, with a conference call scheduled for February 6, 2026, at 11:00 a.m. ET. The company, a leading owner and developer of shopping centers and an S&P 500 Index member, will post its earnings release and supplemental information on its Investor Relations website. This announcement includes details on how to access the information and participate in the conference call.",
+          "source": "Quiver Quantitative",
+          "url": "https://www.quiverquant.com/news/Regency+Centers+Corporation+Scheduled+to+Announce+Fourth+Quarter+2025+Earnings+Results+on+February+5%2C+2026",
+          "time_published": "20260106T212705",
+          "relevance": 1.0,
+          "sentiment": 0.153716,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Why Are Norwegian Cruise Line (NCLH) Shares Soaring Today",
+          "summary": "Norwegian Cruise Line (NCLH) shares jumped 5% today after a federal appeals court blocked Hawaii's \"green fee\" tax on cruise passengers, a tax that would have significantly increased passenger costs. Additionally, the company's Oceania Cruises brand unveiled new suite accommodations for its upcoming Oceania Sonata ship, contributing to the positive sentiment. This news follows a period of volatility and a recent analyst downgrade, showing the market views these developments as significant for NCLH.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/268763/why-are-norwegian-cruise-line-nclh-shares-soaring-today",
+          "time_published": "20260106T212155",
+          "relevance": 1.0,
+          "sentiment": 0.253292,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "Real estate stocks today: REITs slip into 2026 as yields rise; XLRE ends 2025 lower",
+          "summary": "U.S. real estate stocks concluded 2025 on a negative note, with the Real Estate Select Sector SPDR Fund (XLRE) and Vanguard Real Estate ETF (VNQ) both declining as rising government yields made dividend-heavy REITs less attractive. Investors are now looking to 2026, concerned about how interest rates will shape real estate valuations, particularly with bond investors anticipating a bumpier ride ahead. The article notes that a combination of falling short-term rates and firm long-term rates could create a challenging environment for REITs.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/real-estate-stocks-today-reits-slip-into-2026-as-yields-rise-xlre-ends-2025-lower/",
+          "time_published": "20260101T135500",
+          "relevance": 1.0,
+          "sentiment": 0.030669,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Real estate stocks edge up amid strong start to earnings season",
+          "summary": "This article is primarily an empty shell with a title indicating that real estate stocks are performing well at the beginning of the earnings season. No further content is provided to elaborate on this point.",
+          "source": "MSN",
+          "url": "https://www.msn.com/en-us/money/realestate/real-estate-stocks-edge-up-amid-strong-start-to-earnings-season/ar-AA1JlzKw?ocid=finance-verthp-feeds&apiversion=v2&noservercache=1&domshim=1&renderwebcomponents=1&wcseo=1&batchservertelemetry=1&noservertelemetry=1",
+          "time_published": "20260103T020922",
+          "relevance": 1.0,
+          "sentiment": 0.47206,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Venezuela in Flux: Commercial Implications",
+          "summary": "FTI Consulting is closely monitoring the rapidly evolving situation in Venezuela following a U.S. military operation and President Trump's stated intention to temporarily govern the country. This article, the first in a series, examines the commercial implications for multinational companies and investors, highlighting potential economic revival but also significant risks during a transition period. FTI Consulting offers various services, including market entry strategies, risk management, and compliance reviews, to assist clients navigating this complex environment.",
+          "source": "FTI Consulting",
+          "url": "https://www.fticonsulting.com/insights/articles/venezuela-flux-commercial-implications",
+          "time_published": "20260106T222157",
+          "relevance": 1.0,
+          "sentiment": 0.012941,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Royal Bank Of Canada Cuts Agree Realty (NYSE:ADC) Price Target to $79.00",
+          "summary": "Royal Bank of Canada has adjusted its price target for Agree Realty (NYSE:ADC) to $79.00, down from $80.00, while maintaining an \"outperform\" rating. This adjustment still suggests a potential upside of approximately 12.6% for the real estate investment trust. Market analysts generally hold a \"Moderate Buy\" consensus for ADC, with an average target price of $80.23, reflecting continued positive sentiment despite the slight target reduction.",
+          "source": "MarketBeat",
+          "url": "https://www.marketbeat.com/instant-alerts/royal-bank-of-canada-cuts-agree-realty-nyseadc-price-target-to-7900-2026-01-06/",
+          "time_published": "20260106T221511",
+          "relevance": 1.0,
+          "sentiment": 0.049569,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Duke's Growth Supported by Strong Residential and Commercial Growth",
+          "summary": "Duke Energy, a major regulated utility in the United States, is experiencing growth driven by strong residential and commercial development. The company benefits from significant regulatory clarity across its subsidiaries, with investments largely recovered through customer ratemaking mechanisms that minimize regulatory lag. This supportive environment helps ensure consistent growth for Duke Energy.",
+          "source": "Morningstar",
+          "url": "https://www.morningstar.com/company-reports/1416855-dukes-growth-supported-by-strong-residential-and-commercial-growth",
+          "time_published": "20260106T221052",
+          "relevance": 1.0,
+          "sentiment": 0.334739,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "Nio flags potential cost pressures from memory chips",
+          "summary": "Nio's CEO, William Li, has warned of \"significant\" cost pressures in 2026 due to surging memory chip prices, which are impacting the entire automotive sector. These chips are crucial for Nio's own Shenji chips, as well as Nvidia and cockpit chips used in its vehicles, with demand from AI players and computing centers driving up costs. Despite the rising expenses, Nio currently has no plans to pass these costs on to vehicle prices, affirming its ability to manage the situation through its gross margin.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2026/01/06/nio-flags-cost-pressures-memory-chips/",
+          "time_published": "20260106T231800",
+          "relevance": 1.0,
+          "sentiment": -0.065189,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Duke Energy seeks permit for new nuclear development in North Carolina",
+          "summary": "Duke Energy has submitted an early site permit application to the U.S. Nuclear Regulatory Commission for a new nuclear development near its Belews Creek Steam Station in Stokes County, N.C. This application, Duke Energy's first, is a risk-mitigation strategy to allow for future development of new nuclear generation options, including small modular reactors. The permit is technology-neutral, allowing Duke Energy to decide on specific reactor technology later, with a potential target of adding 600 megawatts of advanced nuclear by 2037.",
+          "source": "Power Engineering Magazine",
+          "url": "https://www.power-eng.com/nuclear/duke-energy-seeks-permit-for-new-nuclear-development-in-north-carolina/",
+          "time_published": "20260106T224952",
+          "relevance": 1.0,
+          "sentiment": 0.371941,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Venezuela in Flux: Commercial Implications",
+          "summary": "FTI Consulting is closely monitoring the rapidly evolving situation in Venezuela following a U.S. military operation and President Trump's stated intention to temporarily govern the country. This article, the first in a series, examines the commercial implications for multinational companies and investors, highlighting potential economic revival but also significant risks during a transition period. FTI Consulting offers various services, including market entry strategies, risk management, and compliance reviews, to assist clients navigating this complex environment.",
+          "source": "FTI Consulting",
+          "url": "https://www.fticonsulting.com/insights/articles/venezuela-flux-commercial-implications",
+          "time_published": "20260106T222157",
+          "relevance": 1.0,
+          "sentiment": 0.015764,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Duke's Growth Supported by Strong Residential and Commercial Growth",
+          "summary": "Duke Energy, a major regulated utility in the United States, is experiencing growth driven by strong residential and commercial development. The company benefits from significant regulatory clarity across its subsidiaries, with investments largely recovered through customer ratemaking mechanisms that minimize regulatory lag. This supportive environment helps ensure consistent growth for Duke Energy.",
+          "source": "Morningstar",
+          "url": "https://www.morningstar.com/company-reports/1416855-dukes-growth-supported-by-strong-residential-and-commercial-growth",
+          "time_published": "20260106T221052",
+          "relevance": 1.0,
+          "sentiment": 0.327565,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Vistra to buy Cogentrix Energy in $4 billion deal",
+          "summary": "Irving-based electricity provider Vistra Corp. announced plans to acquire Cogentrix Energy from Quantum Capital Group for $4 billion. The deal includes 10 modern natural gas generation facilities totaling roughly 5,500 megawatts of capacity across several electric grids. This acquisition aims to help Vistra meet growing power demand and expand its operations.",
+          "source": "WFAA",
+          "url": "https://www.wfaa.com/article/money/business/vistra-to-buy-cogentrix-energy-4-billion-deal/287-800dd239-82a1-4fce-82ae-0108ddae5d27",
+          "time_published": "20260106T220004",
+          "relevance": 1.0,
+          "sentiment": 0.444772,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "Nio flags potential cost pressures from memory chips",
+          "summary": "Nio's CEO, William Li, has warned of \"significant\" cost pressures in 2026 due to surging memory chip prices, which are impacting the entire automotive sector. These chips are crucial for Nio's own Shenji chips, as well as Nvidia and cockpit chips used in its vehicles, with demand from AI players and computing centers driving up costs. Despite the rising expenses, Nio currently has no plans to pass these costs on to vehicle prices, affirming its ability to manage the situation through its gross margin.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2026/01/06/nio-flags-cost-pressures-memory-chips/",
+          "time_published": "20260106T231800",
+          "relevance": 1.0,
+          "sentiment": -0.044474,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Western Digital (WDC) stock jumps 17% after Nvidia CES storage talk sparks AI-driven rally",
+          "summary": "Western Digital (WDC) shares surged 17%, trading above $219 after Nvidia CEO Jensen Huang's CES remarks about \"context memory storage\" sparked an AI-driven rally among storage and memory companies. This jump reflects investor optimism about demand for data storage tied to AI data centers, with other companies like SanDisk, Seagate Technology, and Micron also experiencing significant gains. However, analysts caution that current high prices might not be sustainable long-term, and upcoming U.S. labor data could influence market expectations and tech trades.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/western-digital-wdc-stock-jumps-17-after-nvidia-ces-storage-talk-sparks-ai-driven-rallynew-york-january-6-2026-1658-est-after-hours/",
+          "time_published": "20260106T221719",
+          "relevance": 1.0,
+          "sentiment": 0.334964,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "T-Mobile US Signs Credit Agreement With JPMorgan Chase Bank",
+          "summary": "T-Mobile US has signed an amended and restated credit agreement to expand and extend its unsecured revolving credit facility with JPMorgan Chase Bank and other lenders. The facility increases to $10.0 billion from $7.5 billion and extends maturity to January 5, 2031, enhancing the company's liquidity and financial flexibility. Borrowings will bear interest based on benchmark rates plus a margin tied to T-Mobile's debt rating.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/tradingview:3ff8792e175ed:0-t-mobile-us-signs-credit-agreement-with-jpmorgan-chase-bank/",
+          "time_published": "20260106T220834",
+          "relevance": 1.0,
+          "sentiment": 0.326429,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "NetApp\u2019s Strategic Appointment Targets Growth in the Indian Market",
+          "summary": "NetApp has appointed Premalakshmi Ramakrishnan as the new Area Vice President for India and the SAARC region to drive growth in the burgeoning Indian market. This strategic move coincides with NetApp surpassing Q2 FY2026 earnings and revenue estimates, and the company is banking on India's strong focus on digital and generative AI projects to fuel demand for its data management solutions. Investors are watching closely as institutional investors show divergent interest in the stock, with the next earnings report due in February 2026.",
+          "source": "AD HOC NEWS",
+          "url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/netapp-s-strategic-appointment-targets-growth-in-the-indian-market/68465015",
+          "time_published": "20260106T214945",
+          "relevance": 1.0,
+          "sentiment": 0.488969,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "T-Mobile expands credit facility to $10 billion, extends maturity to 2031",
+          "summary": "T-Mobile USA has increased its revolving credit facility from $7.5 billion to $10 billion and extended its maturity date to January 5, 2031, through a new credit agreement with JPMorgan Chase Bank. The agreement outlines interest rates based on benchmark rates plus margins and includes a $1.5 billion letter of credit sub-facility and a $500 million swingline loan sub-facility. T-Mobile US, the parent company, guarantees these obligations, and the agreement incorporates standard restrictions and a leverage ratio requirement.",
+          "source": "StreetInsider",
+          "url": "https://www.streetinsider.com/Corporate+News/T-Mobile+expands+credit+facility+to+%2410+billion%2C+extends+maturity+to+2031/25814139.html",
+          "time_published": "20260106T214656",
+          "relevance": 1.0,
+          "sentiment": 0.472508,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "Energy Sector Ignites 2026 Market Rally as Supply Constraints and AI Power Demand Fuel Gains",
+          "summary": "The US stock market began 2026 with an unexpected rally led by the energy sector, driven by geopolitical risk, maintained OPEC+ production cuts, and surging electricity demand for AI. This \"Great Rotation\" signals a shift towards tangible assets and energy security, with integrated majors and natural gas providers benefitting significantly. The market is re-evaluating the energy value chain, moving from an \"Energy Transition\" focus to an \"Energy Security\" and \"Energy Reliability\" agenda where physical economy assets are now seen as a growth engine.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/wral/article/marketminute-2026-1-2-energy-sector-ignites-2026-market-rally-as-supply-constraints-and-ai-power-demand-fuel-gains",
+          "time_published": "20260102T173000",
+          "relevance": 1.0,
+          "sentiment": 0.570024,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Nio flags potential cost pressures from memory chips",
+          "summary": "Nio's CEO, William Li, has warned of \"significant\" cost pressures in 2026 due to surging memory chip prices, which are impacting the entire automotive sector. These chips are crucial for Nio's own Shenji chips, as well as Nvidia and cockpit chips used in its vehicles, with demand from AI players and computing centers driving up costs. Despite the rising expenses, Nio currently has no plans to pass these costs on to vehicle prices, affirming its ability to manage the situation through its gross margin.",
+          "source": "CnEVPost",
+          "url": "https://cnevpost.com/2026/01/06/nio-flags-cost-pressures-memory-chips/",
+          "time_published": "20260106T231800",
+          "relevance": 1.0,
+          "sentiment": -0.065189,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Duke Energy seeks permit for new nuclear development in North Carolina",
+          "summary": "Duke Energy has submitted an early site permit application to the U.S. Nuclear Regulatory Commission for a new nuclear development near its Belews Creek Steam Station in Stokes County, N.C. This application, Duke Energy's first, is a risk-mitigation strategy to allow for future development of new nuclear generation options, including small modular reactors. The permit is technology-neutral, allowing Duke Energy to decide on specific reactor technology later, with a potential target of adding 600 megawatts of advanced nuclear by 2037.",
+          "source": "Power Engineering Magazine",
+          "url": "https://www.power-eng.com/nuclear/duke-energy-seeks-permit-for-new-nuclear-development-in-north-carolina/",
+          "time_published": "20260106T224952",
+          "relevance": 1.0,
+          "sentiment": 0.371941,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Venezuela in Flux: Commercial Implications",
+          "summary": "FTI Consulting is closely monitoring the rapidly evolving situation in Venezuela following a U.S. military operation and President Trump's stated intention to temporarily govern the country. This article, the first in a series, examines the commercial implications for multinational companies and investors, highlighting potential economic revival but also significant risks during a transition period. FTI Consulting offers various services, including market entry strategies, risk management, and compliance reviews, to assist clients navigating this complex environment.",
+          "source": "FTI Consulting",
+          "url": "https://www.fticonsulting.com/insights/articles/venezuela-flux-commercial-implications",
+          "time_published": "20260106T222157",
+          "relevance": 1.0,
+          "sentiment": 0.015764,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Duke's Growth Supported by Strong Residential and Commercial Growth",
+          "summary": "Duke Energy, a major regulated utility in the United States, is experiencing growth driven by strong residential and commercial development. The company benefits from significant regulatory clarity across its subsidiaries, with investments largely recovered through customer ratemaking mechanisms that minimize regulatory lag. This supportive environment helps ensure consistent growth for Duke Energy.",
+          "source": "Morningstar",
+          "url": "https://www.morningstar.com/company-reports/1416855-dukes-growth-supported-by-strong-residential-and-commercial-growth",
+          "time_published": "20260106T221052",
+          "relevance": 1.0,
+          "sentiment": 0.327565,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "The XLP ETF Offers Lower Fees and a Larger Size Than the IYK ETF",
+          "summary": "This article compares two U.S. consumer staples ETFs, XLP and IYK, highlighting their differences in expense ratios, assets under management, holdings, and performance. While XLP offers significantly lower fees and a more concentrated focus on consumer staples, IYK has shown slightly better recent returns and a shallower maximum drawdown. The analysis aims to help investors choose between these two prominent options based on cost, risk, and sector exposure preferences.",
+          "source": "The Globe and Mail",
+          "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/36872151/the-xlp-etf-offers-lower-fees-and-a-larger-size-than-the-iyk-etf/",
+          "time_published": "20260103T124000",
+          "relevance": 1.0,
+          "sentiment": 0.166931,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "How Cinemark packed theaters in 2025, from Minecraft to Demon Slayer",
+          "summary": "Cinemark Holdings, Inc. celebrated its highest-grossing domestic box office year since the pandemic in 2025, surpassing its 2023 performance and broader North American industry trends. The company achieved several record-breaking milestones, including its biggest PG-rated opening with \"A Minecraft Movie\" and its largest anime film success with \"Demon Slayer: Infinity Castle.\" This success is attributed to strategic initiatives, enhanced guest experiences, and impactful marketing efforts that led to strong market share gains.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/news/CNK/cinemark-celebrates-record-breaking-achievements-in-2025-including-5ogmffb5gcah.html",
+          "time_published": "20260106T224726",
+          "relevance": 1.0,
+          "sentiment": 0.854291,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Shoppers beware! Five changes hitting all Dollar Tree stores in 2026",
+          "summary": "Dollar Tree is implementing five significant changes across its approximately 9,000 stores in 2026, transitioning from a true dollar store to a multi-price, technology-enabled retailer. These changes include the full integration of higher price points and expanded product selections, continued price increases on key items, and a cleanup of its store footprint by closing underperforming locations while actively opening new multi-price stores. Shoppers can also anticipate a wider range of seasonal and new product drops, including viral dupes in beauty and skincare.",
+          "source": "The US Sun",
+          "url": "https://www.the-sun.com/money/15741275/shoppers-dollar-tree-changes-price-increase/",
+          "time_published": "20260106T215525",
+          "relevance": 1.0,
+          "sentiment": 0.038143,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Vistra Adds More Gas Plants To Support Retail Growth",
+          "summary": "Vistra Corp, a large power plant operator, is expanding its gas plant holdings to support growth in its retail energy business. This move is strategic, aligning with rising electricity demands driven by data centers, manufacturing, and electric vehicles. The company's diverse asset mix and substantial retail presence are key to its future success.",
+          "source": "Morningstar",
+          "url": "https://www.morningstar.com/company-reports/1416957-vistra-adds-more-gas-plants-to-support-retail-growth",
+          "time_published": "20260106T213604",
+          "relevance": 1.0,
+          "sentiment": 0.315756,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Regency Centers Corporation Scheduled to Announce Fourth Quarter 2025 Earnings Results on February 5, 2026",
+          "summary": "Regency Centers Corporation (NASDAQ: REG) will announce its fourth quarter 2025 earnings results on February 5, 2026, after market close, with a conference call scheduled for February 6, 2026, at 11:00 a.m. ET. The company, a leading owner and developer of shopping centers and an S&P 500 Index member, will post its earnings release and supplemental information on its Investor Relations website. This announcement includes details on how to access the information and participate in the conference call.",
+          "source": "Quiver Quantitative",
+          "url": "https://www.quiverquant.com/news/Regency+Centers+Corporation+Scheduled+to+Announce+Fourth+Quarter+2025+Earnings+Results+on+February+5%2C+2026",
+          "time_published": "20260106T212705",
+          "relevance": 1.0,
+          "sentiment": 0.153716,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "key_themes": [
+      "AI infrastructure driving capex across Tech/Industrials (Western Digital +17% on Nvidia storage comments, memory chip demand surge)",
+      "Early-cycle M&A acceleration (A.O. Smith $470M acquisition, Vistra $4B Cogentrix deal for AI power)",
+      "Cyclical sector strength (Materials/Industrials momentum, Consumer Discretionary entertainment/cruise wins)",
+      "Defensive rotation out (Staples toxic, Utilities underperforming despite nuclear/power demand fundamentals)",
+      "Financial sector stability with Buffett stock focus and credit expansion (T-Mobile $10B facility)"
+    ],
+    "sector_implications": "News confirms early expansion rotation: AI/industrial capex driving Materials/Industrials momentum while defensive sectors face selling pressure despite positive fundamental developments, validating cyclical positioning in RISK_ON regime."
+  },
+  "sector_summary": "EARLY_EXPANSION cycle with HIGH confidence as Materials (XLB) and Industrials (XLI) lead in Momentum Zone F, supported by Financials (XLF) and Healthcare (XLV) in Trend Zone A. FAVOR: XLB, XLI for cyclical momentum plays; XLF, XLV for quality growth exposure. AVOID: XLP (toxic zone, -1.53% MRS_20) and reduce XLE (weakening despite positive fundamentals). No crossover alerts. Rotation velocity LOW indicates stable trend formation.",
+  "cycle_phase": "EARLY_EXPANSION",
+  "cycle_confidence": "HIGH",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "LOW",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 1,
+      "mrs_20": 2.02,
+      "mrs_5": 0.9,
+      "roc_3": 0.93,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=+2.02%, MRS_5=+0.90%). Strong positive momentum with both 20-day and 5-day metrics positive. News sentiment mildly positive (+0.108) with Buffett stock focus (AmEx), Capital One activity, and M&A themes supporting sector. Financials benefiting from RISK_ON regime and healthy credit conditions.",
+      "news_context": {
+        "sentiment": 0.108,
+        "article_count": 10,
+        "themes": "Buffett holdings spotlight, Capital One insider activity, M&A and commercial expansion themes"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 2,
+      "mrs_20": 1.67,
+      "mrs_5": 0.67,
+      "roc_3": 0.44,
+      "zone": "A",
+      "signal": "TREND",
+      "modifier": 1.2,
+      "rationale": "Zone A sustained uptrend (MRS_20=+1.67%, MRS_5=+0.67%). Consistent positive relative strength across both timeframes. News sentiment nearly neutral (+0.014) with mixed themes including ResMed earnings anticipation, McKesson valuation support, offset by mini-tender warnings. Defensive quality with growth characteristics aligns well with RISK_ON environment.",
+      "news_context": {
+        "sentiment": 0.014,
+        "article_count": 11,
+        "themes": "Earnings expectations (ResMed), valuation support (McKesson), regulatory caution (GE Healthcare mini-tender), oncology developments"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 3,
+      "mrs_20": 4.07,
+      "mrs_5": 1.89,
+      "roc_3": 2.4,
+      "zone": "F",
+      "signal": "MOMENTUM",
+      "modifier": 1.2,
+      "rationale": "Zone F strong momentum (MRS_20=+4.07%, MRS_5=+1.89%). Exceptional outperformance with accelerating ROC_3 at +2.40%. News sentiment strong (+0.194) driven by A.O. Smith's $470M Leonard Valve acquisition and Caterpillar leadership transition. Materials leading as classic early-cycle indicator with industrial capex and China PMI support.",
+      "news_context": {
+        "sentiment": 0.194,
+        "article_count": 11,
+        "themes": "M&A activity (A.O. Smith/Leonard Valve), Caterpillar leadership transition, memory chip cost pressures, China PMI rebound"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 4,
+      "mrs_20": 2.81,
+      "mrs_5": 1.58,
+      "roc_3": 2.44,
+      "zone": "F",
+      "signal": "MOMENTUM",
+      "modifier": 1.2,
+      "rationale": "Zone F strong momentum (MRS_20=+2.81%, MRS_5=+1.58%). Powerful acceleration with ROC_3 at +2.44%, highest among all sectors. News sentiment very positive (+0.236) with A.O. Smith acquisition, Caterpillar leadership, and defense sector participation (Cadre Holdings). Industrials momentum confirms early expansion cycle with capex and infrastructure themes.",
+      "news_context": {
+        "sentiment": 0.236,
+        "article_count": 10,
+        "themes": "Strategic M&A (A.O. Smith), Caterpillar leadership continuity, defense/safety equipment growth, industrial capex cycle"
+      }
+    },
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 5,
+      "mrs_20": 0.37,
+      "mrs_5": 0.36,
+      "roc_3": 0.48,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=+0.37%). Both MRS metrics barely positive, indicating consolidation after prior strength. News sentiment positive (+0.170) with AI storage rally (Western Digital +17% on Nvidia CES comments), T-Mobile credit expansion, NetApp India growth. Tech in digestion phase despite strong AI narrative\u2014watching for breakout or breakdown.",
+      "news_context": {
+        "sentiment": 0.17,
+        "article_count": 10,
+        "themes": "AI storage demand surge (Nvidia CES), memory chip pricing pressure, telecom credit expansion (T-Mobile), cloud/data center growth"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 6,
+      "mrs_20": -0.4,
+      "mrs_5": 0.22,
+      "roc_3": -0.07,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.40%). MRS_5 positive at +0.22% shows recent improvement, but 20-day still negative. News sentiment strongest of all sectors (+0.324) with Cinemark record box office, Norwegian Cruise rally on Hawaii tax block, Dollar Tree transformation. Mixed technical vs fundamental picture suggests caution despite positive catalysts.",
+      "news_context": {
+        "sentiment": 0.324,
+        "article_count": 10,
+        "themes": "Entertainment recovery (Cinemark records), cruise line regulatory wins, retail transformation (Dollar Tree), power demand growth"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 7,
+      "mrs_20": 0.13,
+      "mrs_5": -0.3,
+      "roc_3": -0.48,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=+0.13%). Recent deterioration with MRS_5 turning negative at -0.30% and ROC_3 at -0.48%. News sentiment mildly positive (+0.093) but headlines highlight yield pressure from rising rates and REIT challenges into 2026. Rate-sensitive sector struggling despite RISK_ON backdrop\u2014bond yields remain headwind.",
+      "news_context": {
+        "sentiment": 0.093,
+        "article_count": 12,
+        "themes": "Rising yield pressure on REITs, earnings season optimism, commercial real estate mixed signals, rate sensitivity concerns"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 8,
+      "mrs_20": -0.32,
+      "mrs_5": -0.75,
+      "roc_3": -0.79,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.32%). Accelerating underperformance with MRS_5 at -0.75% and ROC_3 at -0.79%. News sentiment positive (+0.185) with Duke Energy nuclear permit and Vistra's $4B Cogentrix acquisition for AI power demand. Fundamentals improving but sector rotation away from defensives in RISK_ON regime dominates price action.",
+      "news_context": {
+        "sentiment": 0.185,
+        "article_count": 10,
+        "themes": "Nuclear development (Duke Energy SMR), AI power demand driving M&A (Vistra/Cogentrix), residential/commercial growth"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 9,
+      "mrs_20": -0.4,
+      "mrs_5": -0.99,
+      "roc_3": -1.94,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range (MRS_20=-0.40%). Sharp deterioration with MRS_5 at -0.99% and ROC_3 worst among neutrals at -1.94%. News sentiment positive (+0.170) with same tech themes (AI storage, T-Mobile credit), but sector lagging badly. Communication services underperforming despite positive catalysts\u2014rotation away from mega-cap tech weighing on sector.",
+      "news_context": {
+        "sentiment": 0.17,
+        "article_count": 10,
+        "themes": "AI infrastructure (storage/memory), telecom financial strength (T-Mobile), data center demand, chip cost pressures"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 10,
+      "mrs_20": 0.96,
+      "mrs_5": -0.63,
+      "roc_3": 0.5,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=+0.96%, MRS_5=-0.63%). Classic weakening signal with 20-day still positive but 5-day momentum reversing. News sentiment strong (+0.220) with early-2026 rally narrative on AI power demand and OPEC+ cuts, but recent price action deteriorating. Energy giving back early gains despite supportive fundamentals\u2014caution warranted.",
+      "news_context": {
+        "sentiment": 0.22,
+        "article_count": 11,
+        "themes": "AI power demand, OPEC+ supply discipline, energy security shift, nuclear development, geopolitical risk premium"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 11,
+      "mrs_20": -1.53,
+      "mrs_5": -1.02,
+      "roc_3": -1.56,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone C toxic - deep underperformance (MRS_20=-1.53%). Both MRS_20 and MRS_5 deeply negative with deteriorating ROC_3 at -1.56%. News sentiment paradoxically strongest (+0.310) with Cinemark success and retail transformation stories, but these are cyclical consumer names. True defensive staples being aggressively sold in RISK_ON rotation\u2014classic early expansion pattern.",
+      "news_context": {
+        "sentiment": 0.31,
+        "article_count": 11,
+        "themes": "Entertainment sector strength (Cinemark), retail evolution (Dollar Tree), consumer spending resilience, power demand growth"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLF": 1.2,
+    "XLV": 1.2,
+    "XLB": 1.2,
+    "XLI": 1.2,
+    "XLK": 1.0,
+    "XLY": 1.0,
+    "XLRE": 1.0,
+    "XLU": 1.0,
+    "XLC": 1.0,
+    "XLE": 0.75,
+    "XLP": 0.5
+  },
+  "cycle_reasoning": "Materials (XLB) and Industrials (XLI) in Momentum Zone F signal early-cycle expansion with strong cyclical leadership. Financials (XLF) and Healthcare (XLV) in Trend Zone A provide breadth confirmation. Energy (XLE) weakening and Staples (XLP) in toxic zone further validate cyclical rotation away from defensives. This pattern matches classic early expansion characteristics with 5+ sectors aligned.",
+  "rotation_analysis": "The market is executing a textbook early expansion rotation with Materials (XLB, +4.07% MRS_20) and Industrials (XLI, +2.81% MRS_20) in Momentum Zone F, supported by Financials and Healthcare in sustained uptrends. This four-sector leadership cluster (36% of market) provides strong conviction for cycle phase classification.\n\nThe NEUTRAL rotation bias (despite RISK_ON regime) reflects a balanced mix: 2 offensive momentum leaders (XLB, XLI), 2 quality growth trends (XLF, XLV), and 5 sectors in consolidation. Energy's weakening (Zone B) despite positive news on AI power demand and OPEC+ cuts is notable\u2014suggesting profit-taking after early-2026 rally rather than fundamental deterioration.\n\nMost significant is Consumer Staples (XLP) in toxic Zone C with -1.53% MRS_20, classic early expansion behavior as investors rotate from safety to growth. The paradox of XLP's strong +0.310 news sentiment (highest of all sectors) versus worst technical performance highlights how cycle rotation trumps individual catalysts. LOW rotation velocity (\u22643 sectors transitioning) indicates this is an established trend, not a whipsaw.\n\nTechnology's consolidation in Zone E (+0.37% MRS_20) despite explosive AI storage news (WDC +17%) suggests digestion after prior leadership\u2014watching for either breakout to Zone A or breakdown. Communication Services' sharp deterioration (ROC_3 -1.94%) despite positive themes indicates mega-cap tech profit-taking within the sector.",
+  "l1_alignment": "L2 sector rotation FULLY ALIGNS with L1's RISK_ON (STABLE) regime and AGGRESSIVE bias. The offensive cyclical leadership (Materials/Industrials in Momentum) combined with defensive sector weakness (Staples toxic, Utilities/Energy underperforming) confirms healthy risk appetite. \n\nL1's VIX at 14.75 (6th percentile) and 63.5% breadth supports the cyclical rotation we're seeing. However, L1's elevated put/call ratio warning about \"smart money hedging\" is worth monitoring\u2014if we see Materials/Industrials momentum stall or Technology break down from Zone E, that would be early warning of regime shift.\n\nThe 110% max position size from L1 is appropriate given our 4 bullish sectors (XLB, XLI, XLF, XLV) all showing stable momentum with LOW rotation velocity. No conflict resolution needed\u2014macro regime and sector rotation are mutually reinforcing. The AI/semiconductor theme cited in L1 manifests in our sector data through Tech news (WDC storage rally) but interestingly drives Materials/Industrials price action more than Tech itself, validating the broadening of AI benefits beyond mega-cap.",
+  "key_insight": "The market is in a high-conviction early expansion cycle where cyclical sectors (Materials +4.07%, Industrials +2.81%) are in momentum while defensive Staples are toxic (-1.53%)\u2014but the critical insight is that Technology sits in neutral consolidation (+0.37%) despite explosive AI news, suggesting the AI theme is now driving traditional industrial capex rather than just tech stocks, which validates a sustainable broadening of the rally beyond mega-cap concentration.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: EARLY_EXPANSION (HIGH confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 regime: RISK_ON (STABLE) with AGGRESSIVE bias, VIX 6th percentile, 63.5% breadth. No hard blocks. Rotation fully aligns\u2014cyclical momentum (XLB/XLI) and defensive weakness (XLP toxic) confirm risk appetite. Elevated put/call ratio noted but not yet impacting sector flows.\n\nStep 2 - Signal Validation:\nAll pre-calculated signals validated against thresholds. Zone F (Momentum): XLB MRS_20=+4.07% (>2.8%), XLI +2.81% (>2.8%), both MRS_5 positive \u2713. Zone A (Trend): XLF +2.02%, XLV +1.67% (0.5-2.8% range), both MRS_5 positive \u2713. Zone C (Toxic): XLP -1.53% (<-3.5% threshold NOT met, but -1.53% with MRS_5 -1.02% qualifies for AVOID per v7.0 rules). Zone B (Weakening): XLE MRS_20 +0.96% but MRS_5 -0.63% \u2713. No anomalies detected.\n\nStep 3 - Zone Analysis:\nActive zones: F (XLB, XLI - offensive momentum), A (XLF, XLV - quality growth), E (XLK, XLY, XLRE, XLU, XLC - consolidation cluster), B (XLE - weakening), C (XLP - avoid). Rotation direction: OUT of defensives (XLP, XLU) INTO cyclicals (XLB, XLI) with Financials/Healthcare providing stability. Zone E cluster (5 sectors) represents digestion/decision zone\u2014watching for breakouts to A/F or breakdowns to C.\n\nStep 4 - Conflict Resolution:\nNo L1 vs L2 conflict\u2014both indicate risk-on environment. Apparent paradox: XLP has strongest news sentiment (+0.310) but worst technical performance (Zone C, -1.53%). Resolution: News articles include cyclical consumer names (Cinemark entertainment, Dollar Tree retail) not true defensive staples, while sector ETF XLP weighted to food/household products facing rotation selling. This validates cycle phase over stock-specific catalysts. Energy weakening (Zone B) despite positive AI power/OPEC+ news resolved by profit-taking after early-2026 rally mentioned in XLE news context.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nMaterials (XLB) and Industrials (XLI) in Momentum Zone F signal early-cycle expansion with strong cyclical leadership. Financials (XLF) and Healthcare (XLV) in Trend Zone A provide breadth confirmation. Energy (XLE) weakening and Staples (XLP) in toxic zone further validate cyclical rotation away from defensives. This pattern matches classic early expansion characteristics with 5+ sectors aligned.\n\nKey Insight: The market is in a high-conviction early expansion cycle where cyclical sectors (Materials +4.07%, Industrials +2.81%) are in momentum while defensive Staples are toxic (-1.53%)\u2014but the critical insight is that Technology sits in neutral consolidation (+0.37%) despite explosive AI news, suggesting the AI theme is now driving traditional industrial capex rather than just tech stocks, which validates a sustainable broadening of the rally beyond mega-cap concentration."
+}

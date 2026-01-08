@@ -1,0 +1,154 @@
+## TSM: Taiwan Semiconductor Manufacturing Company Limited - XLK: Technology
+
+### Executive Summary
+
+VALUE thesis: PEG 1.40 indicates fundamental undervaluation. Quality metrics strong (ROE 35%, ROA 17%). Consistent execution (4/4 quarters beat estimates). Caution: declining volume (45% of avg).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($282.28)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 5
+- **Sentiment:** Bullish (Bullish: 4, Bearish: 0)
+
+**1. TSMC Arizona’s 3nm Acceleration: Bringing Advanced Manufacturing to US Soil**
+- Source: FinancialContent | 20251223T140800 | Bullish | Relevance: 100%
+- TSMC has accelerated its roadmap for its Fab 21 complex in Phoenix, Arizona, with 3nm production now planned for 2027, a year ahead of schedule. The facility has achieved a 92% yield rate for 4nm chips and will soon begin the "tool-in" phase for 3nm production, significantly boosting U.S. domestic semiconductor manufacturing and safeguarding the AI hardware supply chain. This expansion, supported by the U.S. CHIPS Act, also includes advanced packaging capabilities and future plans for 2nm and 1.6nm nodes, solidifying America's role in global semiconductor production.
+
+**2. TSMC Stock in Focus: New SEC Filings Show Fresh Institutional Buying as Taiwan Semiconductor Rides the AI Wave (Dec. 22, 2025)**
+- Source: ts2.tech | 20251222T200928 | Bullish | Relevance: 100%
+- New SEC filings reveal continued institutional buying in Taiwan Semiconductor Manufacturing Company (TSMC) stock, with several firms opening or significantly increasing positions. This interest comes as TSMC, a key supplier for AI-related chips, demonstrates strong operating performance and market leadership despite some institutional trimming and short-term volatility. The activity underscores TSMC's critical role in the AI supply chain and its sustained appeal to investors.
+
+**3. Taiwan Semiconductor Manufacturing Company Ltd. $TSM Shares Sold by Hanson & Doremus Investment Management**
+- Source: MarketBeat | 20251224T140928 | Bullish | Relevance: 100%
+- Hanson & Doremus Investment Management reduced its stake in Taiwan Semiconductor Manufacturing Co. (TSM) by 5.3% in Q3, selling 4,805 shares to hold 86,091 shares worth $24.04 million. Despite the sale, institutional ownership remains high at 16.51%, and analysts maintain a consensus "Buy" rating with a $355 price target for the company. Taiwan Semiconductor reported strong Q3 earnings, high profitability, and recently increased its quarterly dividend.
+
+**4. HWG Holdings LP Acquires 16,717 Shares of Taiwan Semiconductor Manufacturing Company Ltd. $TSM**
+- Source: MarketBeat | 20251223T130930 | Bullish | Relevance: 100%
+- HWG Holdings LP significantly increased its stake in Taiwan Semiconductor Manufacturing Company (TSM) during the third quarter, purchasing 16,717 additional shares to bring its total to 30,474 shares valued at $8.51 million. This increase reflects TSM's strong performance, including exceeding EPS estimates and a 40.1% year-over-year revenue growth. Analysts maintain a bullish outlook on TSM, with several raising price targets and ratings.
+
+**5. Can the West bring chip production home?**
+- Source: IT Pro | 20251223T080930 | Somewhat-Bullish | Relevance: 100%
+- The article discusses the efforts by Western countries, specifically the US and Europe, to onshore semiconductor manufacturing to reduce reliance on Taiwan. It highlights significant investments and initiatives like the US CHIPS and Science Act and the EU Chips Act, acknowledging some progress but noting that the West still faces substantial challenges in matching Asian production scale and technological advancement. While diversification is occurring, the majority of chip production is expected to remain in Asia for the foreseeable future.
+
+### Analyst Activity
+
+**Target Signal:** BULLISH (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-08 | Bernstein | $330 | $290 | +14% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-08 | Bernstein | main | Outperform |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 5.5% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 7 / 3 |
+
+**Top Holders:**
+- FMR, LLC: 1.4% (+19.2%)
+- JPMORGAN CHASE & CO: 0.9% (+72.6%)
+- Sanders Capital, LLC: 0.6% (-15.7%)
+- Capital World Invest: 0.5% (-13.0%)
+- Capital Internationa: 0.5% (+0.1%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_20 improving +2.1% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 1.40 suggests fair value with growth premium. Quality metrics strong (ROE 35%, ROA 17%, margin 43%). Balance sheet: strong liquidity (2.7x), low leverage (D/E 0.46), $139.4B free cash flow. Revenue growth strong at 21% YoY. Analyst sentiment positive (1 raises, avg +14%). Institutional flow bullish (7 buying vs 3 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $1549.7B |
+| Beta | 1.27 |
+| 52W Range | $134.25 - $313.98 |
+| Short Interest | 0.6% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 1.40 |
+| Forward P/E | 23.5 |
+| Current P/E | 28.7 |
+| YoY Growth | 22.2% |
+| EPS Direction | RISING |
+
+### Technicals
+
+MRS_20 strengthening from -1.2% to 0.9% (+2.1% in 5 days), confirming momentum buildup. Below STRENGTH zone by 3.1pp (needs >4.0% for momentum thesis). MRS_5 at 1.2% confirms short-term momentum alignment. Full SMA alignment bullish (above 20/50/200 SMAs). RSI neutral at 56. Volume at 45% of 20MA suggests lack of conviction. OFD pattern: +SLL (Support).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 0.90% (CS: 66) | Neutral |
+| RSI_14 | 55.9 | Neutral |
+| MACD Histogram | 0.21 | Bullish |
+| vs SMA20 | 1.019x | Above |
+| vs SMA50 | 1.022x | Above |
+| vs SMA200 | 1.269x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $299.02
+- **Stop Loss:** $282.28 (5.6% risk)
+- **Target:** $332.50 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 71
+- **Position Value:** $21,230.42
+- **Portfolio %:** 21.23%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 120% | L2 100% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*NORMAL regime with moderate risk appetite supported by year-end positioning. VIX at cycle lows (13.47) and multiple sectors hitting 52-week highs indicate constructive sentiment, though breadth at 57.9% suggests selectivity remains important. Fed pause expectations and stable macro backdrop support risk assets.*
+
+### Earnings
+
+**Next:** 2026-01-15 (Est: $2.86)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.63 | $2.92 | +11.2% |
+| 2025Q2 | $2.31 | $2.47 | +6.8% |
+| 2025Q1 | $2.05 | $2.12 | +3.2% |
+| 2024Q4 | $2.22 | $2.24 | +0.7% |
+
+---
+*RULE-based L3 | 2026-01-06 16:38 | MRS_20*

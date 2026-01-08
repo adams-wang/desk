@@ -1,0 +1,168 @@
+## NUE: Nucor Corporation - XLB: Basic Materials
+
+### Executive Summary
+
+VALUE thesis: PEG 0.75 indicates fundamental undervaluation. Consistent execution (3/4 quarters beat estimates).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($156.00)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Neutral (Bullish: 2, Bearish: 0)
+
+**1. Nucor Stock Could Kick Off 2026 with More Highs**
+- Source: Finviz | 20251230T152700 | Bullish | Relevance: 100%
+- Nucor Corp (NYSE:NUE) is showing strong potential to extend its recent highs into 2026, based on historical data. Schaeffer’s Senior Quantitative Analyst Rocky White noted that similar conditions in the past have led to a 7.1% average gain for NUE within a month. With its current Schaeffer’s Volatility Index (SVI) at 28% and in the 4th percentile of its annual range, NUE could reach $177.96, a level not seen since February 2024.
+
+**2. Tariffs to set US materials up for best earnings in five years**
+- Source: The Edge Malaysia | 20251230T120827 | Bullish | Relevance: 100%
+- US materials stocks, including steelmakers and packaging manufacturers, are projected to achieve their highest earnings growth in five years, rising 20% in 2026, primarily due to tariffs and strategic volume plays. Metals and packaging industries are expected to see the most significant boost, with earnings growth over 30%, driven by trade protections strengthening steel prices and increasing demand for consumer goods packaging. While tariffs create headwinds for some, cost-cutting measures and anticipated interest rate cuts are also contributing factors across the broader materials sector.
+
+**3. Nucor EVP Batterbee sells $330k in common stock By Investing.com**
+- Source: Investing.com Nigeria | 20251230T090804 | Somewhat-Bearish | Relevance: 100%
+- Nucor Executive Vice President Thomas J. Batterbee sold 2,000 shares of common stock for over $330,000 on December 23, 2025, reducing his direct holdings to 17,951.87 shares. This transaction comes as Nucor anticipates a decline in Q4 2025 earnings due to seasonal factors, despite a recent dividend increase and an upgrade in its price target from BMO Capital. The company also announced a leadership change, with Stephen D. Laxton becoming President and COO in January 2026.
+
+**4. Nucor EVP Batterbee sells $330k in common stock**
+- Source: Investing.com | 20251229T180834 | Neutral | Relevance: 100%
+- Nucor Executive Vice President Thomas J. Batterbee sold 2,000 shares of common stock for $330,550. Nucor anticipates a decline in Q4 2025 earnings but increased its quarterly cash dividend, marking 53 consecutive years of increases. BMO Capital raised its price target for Nucor to $168, maintaining an Outperform rating.
+
+**5. Nucor EVP Batterbee sells $330k in common stock By Investing.com**
+- Source: Investing.com Nigeria | 20251230T130828 | Somewhat-Bearish | Relevance: 100%
+- Nucor Executive Vice President Thomas J. Batterbee sold 2,000 shares of common stock for $330,550 on December 23, 2025, reducing his direct ownership to 17,951.87 shares. This comes amidst Nucor's projected Q4 2025 earnings decline, an executive leadership change, and an increased quarterly dividend. BMO Capital also raised its price target for Nucor to $168 with an Outperform rating.
+
+### Analyst Activity
+
+**Target Signal:** BULLISH (Raises: 3, Lowers: 1)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-18 | Wells Fargo | $176 | $178 | -1% |
+| 2025-12-15 | Wells Fargo | $178 | $167 | +7% |
+| 2025-12-10 | Jefferies | $190 | $170 | +12% |
+| 2025-12-05 | JP Morgan | $200 | $175 | +14% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-18 | Wells Fargo | main | Overweight |
+| 2025-12-15 | Wells Fargo | main | Overweight |
+| 2025-12-10 | Jefferies | main | Buy |
+| 2025-12-05 | JP Morgan | main | Overweight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 0 ($0.00M) |
+| Sells | 7 ($4.05M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 46.2% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 2 / 7 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.4% (-3.1%)
+- State Farm Mutual Au: 10.6% (-0.7%)
+- Blackrock Inc.: 8.1% (-3.6%)
+- State Street Corpora: 5.3% (-2.7%)
+- Berkshire Hathaway, : 2.8% (-3.1%)
+
+### Key Risks
+
+1. High beta (1.86) amplifies market volatility - any risk-off move could trigger sharp selloff.
+2. Insider selling cluster: $4.1M in recent transactions.
+3. Market regime shift could impact high-beta names disproportionately.
+
+### Catalysts
+
+- Analyst target momentum: 3 raises (avg +11%) could attract flows.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 0.75 indicates undervaluation relative to growth. Forward P/E 14.0x attractive for 47% earnings growth. Balance sheet: strong liquidity (2.8x). Analyst sentiment positive (3 raises, avg +11%). Insider selling cluster ($4.1M in 90 days), potential headwind. Institutional flow bullish (2 buying vs 7 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $37.3B |
+| Beta | 1.86 |
+| 52W Range | $97.59 - $168.07 |
+| Short Interest | 2.4% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.75 |
+| Forward P/E | 14.0 |
+| Current P/E | 20.6 |
+| YoY Growth | 47.1% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 stable at 0.8% (minimal 5-day change). Below STRENGTH zone by 3.2pp (needs >4.0% for momentum thesis). MRS_5 (-0.2%) diverging from MRS_20 - short-term weakness emerging. Full SMA alignment bullish (above 20/50/200 SMAs). RSI neutral at 56. OFD pattern: -MLL (Support test).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | 0.81% (CS: 66) | Neutral |
+| RSI_14 | 56.1 | Neutral |
+| MACD Histogram | -0.39 | Bearish |
+| vs SMA20 | 1.002x | Above |
+| vs SMA50 | 1.058x | Above |
+| vs SMA200 | 1.200x | Above |
+
+### Decision
+
+- **Verdict:** HOLD
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $163.12
+- **Stop Loss:** $156.00 (4.4% risk)
+- **Target:** $177.36 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 202
+- **Position Value:** $32,950.24
+- **Portfolio %:** 32.95%
+- **Risk Dollars:** $1,440.00
+- **Risk Per Trade:** 1.44%
+- **Modifiers:** L1 120% | L2 120% | Combined 1.44x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+*NORMAL regime with mixed signals requiring caution. VIX at 14.95 suggests calm markets, but record repo borrowing and narrowing breadth (51.4%) indicate stress beneath the surface. Positive yield curve (+62bps) and stable economic data support risk assets, but year-end dynamics mask true liquidity conditions.*
+
+### Earnings
+
+**Next:** 2026-01-26 (Est: $2.09)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.16 | $2.63 | +22.0% |
+| 2025Q2 | $2.61 | $2.60 | -0.6% |
+| 2025Q1 | $0.61 | $0.67 | +9.8% |
+| 2024Q4 | $0.64 | $1.22 | +90.6% |
+
+---
+*RULE-based L3 | 2026-01-06 16:38 | MRS_20*

@@ -1,0 +1,148 @@
+## GPC: Genuine Parts Company - XLY: Consumer Cyclical
+
+### Executive Summary
+
+VALUE thesis: PEG 1.39 indicates fundamental undervaluation. Quality metrics strong (ROE 17%). Analyst consensus $142 (+14% upside). Consistent execution (3/4 quarters beat estimates).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($119.96)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 9
+- **Sentiment:** Bullish (Bullish: 4, Bearish: 0)
+
+**1. The Truth About Genuine Parts Co: Why Wall Street Sleepers Might Be Missing This Quiet Beast**
+- Source: AD HOC NEWS | 20260106T104049 | Bullish | Relevance: 100%
+- This article champions Genuine Parts Co (GPC), a seemingly boring auto and industrial parts giant, as a potential overlooked investment for long-term, income-focused investors. It highlights GPC's stable cash flow, consistent dividend payouts, and diversified business model as key strengths, contrasting it with more volatile "hype" stocks like AutoZone. The author suggests GPC is a "quiet winner" ideal for those seeking steady portfolio growth rather than quick flips.
+
+**2. Is Genuine Parts Company the Sleeper Stock Everyone’s Sleeping On?**
+- Source: AD HOC NEWS | 20260106T000852 | Bullish | Relevance: 100%
+- Genuine Parts Company (GPC) is presented as a stable, dividend-paying stock that offers resilience in changing markets, contrasting with volatile "meme stocks" or AI-driven investments. The article highlights its "boring but rich" business model in auto and industrial parts, consistent dividend increases, and pricing power, suggesting it's a strong long-term play for investors prioritizing stability and steady returns. It weighs GPC against competitors like AutoZone and O'Reilly Automotive, noting GPC's diversified business mix and institutional appeal.
+
+**3. Is Genuine Parts Company the Sleeper Stock Everyone’s Sleeping On?**
+- Source: AD HOC NEWS | 20260106T000846 | Bullish | Relevance: 100%
+- Genuine Parts Company (GPC) is presented as a potentially underrated stock for long-term investors, distinguishing itself from volatile "hype stocks." The article highlights GPC's stable business model in auto and industrial parts distribution, its consistent dividend payments, and resilience in various economic conditions. It suggests GPC could be a valuable, albeit "boring," addition to a diversified portfolio for those prioritizing stability and dividends over rapid growth.
+
+**4. The Truth About Genuine Parts Co: Is This ‘Boring’ Stock the Quiet Money Hack Everyone’s Sleep**
+- Source: AD HOC NEWS | 20260105T144411 | Somewhat-Bullish | Relevance: 100%
+- Genuine Parts Co (GPC) is presented as a "boring" but potentially lucrative investment. It's highlighted for its steady dividend payouts, long operating history in auto parts and industrial supplies, and defensive business model, contrasting it with volatile meme stocks. The article suggests GPC is suitable for investors seeking stability, long-term compounding, and income rather than short-term high-growth plays.
+
+**5. The Truth About Genuine Parts Co: Is This ‘Boring’ Stock the Sneaky Money Move Everyone’s Slee**
+- Source: AD HOC NEWS | 20260104T050753 | Bullish | Relevance: 100%
+- Genuine Parts Co (GPC) is presented as a "boring but strong" stock, often overlooked by those chasing meme stocks, but offering stable returns and a strong dividend history. The article highlights its essential business in auto and industrial parts, emphasizing recurring demand and its resilience across market cycles, making it a compelling option for long-term investors seeking stability and dividend income rather than rapid, volatile gains.
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 0 ($0.00M) |
+| Sells | 2 ($0.21M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 43.2% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 7 / 3 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.5% (+0.3%)
+- Blackrock Inc.: 9.0% (+0.7%)
+- State Street Corpora: 5.4% (-4.0%)
+- JPMORGAN CHASE & CO: 3.2% (+82.3%)
+- Geode Capital Manage: 2.7% (+5.7%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 1.39 suggests fair value with growth premium. Institutional flow bullish (7 buying vs 3 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $17.3B |
+| Beta | 0.75 |
+| 52W Range | $104.01 - $143.48 |
+| Short Interest | 3.4% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 1.39 |
+| Forward P/E | 14.8 |
+| Current P/E | 16.3 |
+| YoY Growth | 10.1% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 improving modestly (+0.5% over 5 days). Below STRENGTH zone by 6.6pp (needs >4.0% for momentum thesis). Below SMA200 (0.97x), long-term trend not supportive. RSI neutral at 44. OFD pattern: +MTN (Rally).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -2.60% (CS: 16) | Weak |
+| RSI_14 | 43.6 | Neutral |
+| MACD Histogram | -0.28 | Bearish |
+| vs SMA20 | 0.982x | Below |
+| vs SMA50 | 0.977x | Below |
+| vs SMA200 | 0.975x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $124.50
+- **Stop Loss:** $119.96 (3.6% risk)
+- **Target:** $133.58 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 242
+- **Position Value:** $30,129.00
+- **Portfolio %:** 30.13%
+- **Risk Dollars:** $1,100.00
+- **Risk Per Trade:** 1.10%
+- **Modifiers:** L1 110% | L2 100% | Combined 1.10x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | RISK_ON (MEDIUM) | 1.10x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*RISK_ON regime with strong participation and low volatility. VIX at 14.75 (6th percentile) with breadth at 63.5% signals healthy risk appetite. Fed dovish expectations and AI/semiconductor momentum are primary drivers, though elevated put/call ratio suggests smart money hedging. Focus on quality growth with awareness of potential complacency.*
+
+### Earnings
+
+**Next:** 2026-02-17 (Est: $1.81)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.99 | $1.98 | -0.5% |
+| 2025Q2 | $2.07 | $2.10 | +1.6% |
+| 2025Q1 | $1.68 | $1.75 | +4.2% |
+| 2024Q4 | $1.55 | $1.61 | +3.6% |
+
+---
+*RULE-based L3 | 2026-01-07 08:25 | MRS_20*

@@ -1,0 +1,164 @@
+## MAR: Marriott International - XLY: Consumer Cyclical
+
+### Executive Summary
+
+VALUE thesis: PEG 1.37 indicates fundamental undervaluation. Consistent execution (4/4 quarters beat estimates). Caution: momentum weakening (-8.2% MRS).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($270.68)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### News
+
+- **Articles:** 5
+- **Sentiment:** Bullish (Bullish: 0, Bearish: 0)
+
+**1. IHG’s Christophe Laure on the next era of the Intercontinental and luxury hotel growth**
+- Source: Monocle | 20251209T112151 | Somewhat-Bullish | Relevance: 66%
+-  Christophe Laure, IHG's new head of luxury and lifestyle, discusses the strategies for Intercontinental hotels to thrive in the expanding luxury hospitality market. He emphasizes attention to detail, attentive service, and adapting to local cultures for international expansion, while highlighting the importance of the human element combined with technology for guest satisfaction. The global luxury hospitality sector is projected to exceed $166 billion by the end of 2025, with France being a key player.
+
+**2. Hilton enters Hyderabad, India**
+- Source: Asian Hospitality | 20251208T112421 | Neutral | Relevance: 65%
+-  Hilton Worldwide Holdings has opened its first property in Hyderabad, Telangana, the Hilton Hyderabad Genome Valley Resort & Spa. The resort, spanning 20 acres in a biotechnology hub, features 115 accommodations including pool villas and suites. Developed with C.K.R Resorts Pvt. Ltd., this expansion marks Hilton's growing presence in South Asia, incorporating Telangana's cultural heritage in its design and sustainable practices.
+
+**3. Zach Top brings ’90s influences to the Las Vegas Strip**
+- Source: Las Vegas Magazine | 20251208T140229 | Neutral | Relevance: 64%
+-  Country artist Zach Top, heavily influenced by 1990s country music legends like George Strait, Keith Whitley, and Randy Travis, is performing on the Las Vegas Strip. His debut single, "Sounds Like the Radio," and albums "Cold Beer & Country Music" and "Ain't in It for My Health" showcase his '90s country sound. Fans can catch him at the MGM Grand, experiencing a nostalgic concert that echoes the vibes of their favorite '90s country hits.
+
+**4. Institutional Investors Increase Stakes in Hospitality Software Provider Agilysys**
+- Source: AD HOC NEWS | 20251207T142248 | Somewhat-Bullish | Relevance: 62%
+- Institutional investors are increasing their holdings in Agilysys, a hospitality software provider, following strong fiscal Q2 2026 results that surpassed market expectations, with revenue up 16.5% and subscription segment growth of 33%. Analysts have reaffirmed "Outperform" ratings and raised price targets due to expanded partnerships with Marriott and IHG. This institutional confidence contrasts with an insider's stock sale, creating a complex signal for the market, though analysts maintain a "Strong Buy" despite the company's high P/E ratio.
+
+**5. Braemar Hotels & Resorts Announces Virtual 2025 Annual Meeting, Impacting Luxury Travel Investments: All You Need To Know**
+- Source: Travel And Tour World | 20251207T035413 | Somewhat-Bullish | Relevance: 57%
+-  Braemar Hotels & Resorts, a REIT specializing in luxury hotels, has announced its 2025 Annual Meeting of Stockholders will be held virtually instead of in-person. This shift to an online format for the December 15, 2025, meeting highlights the company's embrace of digital transformation and reflects broader trends in the hospitality and investment sectors, emphasizing convenience and accessibility for stakeholders globally. The move signals Braemar's commitment to innovation and maintaining transparency in its luxury travel investments.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 1, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-04 | Truist Securiti | $283 | $278 | +2% |
+| 2025-11-18 | Wells Fargo | $329 | $0 | 0% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-04 | Truist Securiti | main | Hold |
+| 2025-11-18 | Wells Fargo | init | Overweight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 5 ($0.45M) |
+| Sells | 12 ($25.61M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 35.0% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 7 / 3 |
+
+**Top Holders:**
+- Vanguard Group Inc: 7.7% (+1.1%)
+- Blackrock Inc.: 5.7% (+0.3%)
+- JPMORGAN CHASE & CO: 5.0% (+40.6%)
+- State Street Corpora: 3.5% (-0.3%)
+- Wellington Managemen: 3.4% (+21.7%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_20 falling (-8.2% 5d) with bearish MACD, trend may be turning.
+2. Heavy insider selling: $26M sold (12 transactions in 90 days).
+3. Market regime shift could impact momentum names disproportionately.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 1.37 suggests fair value with growth premium. Quality metrics strong (margin 38%). Insider selling cluster ($25.6M in 90 days), potential headwind. Institutional flow bullish (7 buying vs 3 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $77.1B |
+| Beta | 1.16 |
+| 52W Range | $205.40 - $309.43 |
+| Short Interest | 4.0% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 1.37 |
+| Forward P/E | 24.9 |
+| Current P/E | 28.1 |
+| YoY Growth | 12.6% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 deteriorating from 2.8% to -5.3% (-8.2% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 9.3pp (needs >4.0% for momentum thesis). AM_20 at -3.2% indicates price below own 20MA trend. Underperforming sector by 4.5pp, stock-specific weakness. Long-term uptrend intact (above SMA200 at 1.08x) but short-term weakness (below SMA20). MACD histogram bearish (-2.23), momentum weakening. RSI neutral at 44.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -5.32% (CS: 15) | Weak |
+| RSI_14 | 44.3 | Neutral |
+| MACD Histogram | -2.23 | Bearish |
+| vs SMA20 | 0.967x | Below |
+| vs SMA50 | 1.019x | Above |
+| vs SMA200 | 1.076x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $283.84
+- **Stop Loss:** $270.68 (4.6% risk)
+- **Target:** $310.16 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 37
+- **Position Value:** $10,502.08
+- **Portfolio %:** 10.50%
+- **Risk Dollars:** $500.00
+- **Risk Per Trade:** 0.50%
+- **Modifiers:** L1 100% | L2 50% | Combined 0.50x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | AVOID (Zone C) | 0.50x |
+
+*NORMAL regime with moderate risk appetite. VIX remains in the mid-range, breadth is moderate, and yield curve is flat but not inverted—indicating standard late-cycle conditions. Upbeat earnings and positive tech momentum are offset by cautious guidance in consumer sectors, suggesting selective positioning is favored.*
+
+### Earnings
+
+**Next:** 2026-02-10 (Est: $2.61)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.39 | $2.47 | +3.5% |
+| 2025Q2 | $2.62 | $2.65 | +1.1% |
+| 2025Q1 | $2.25 | $2.32 | +3.0% |
+| 2024Q4 | $2.38 | $2.45 | +2.7% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

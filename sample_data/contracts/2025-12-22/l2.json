@@ -1,0 +1,931 @@
+{
+  "contract_id": "l2_2025-12-22",
+  "trading_date": "2025-12-22",
+  "generated_at": "2026-01-01T13:36:50.652760",
+  "valid_until": "2026-01-02T13:36:50.652760",
+  "agent": "Sector Rotation Agent",
+  "model": "claude-sonnet-4-20250514",
+  "l1_contract_id": "l1_2025-12-22",
+  "sector_news": {
+    "total_articles": 121,
+    "avg_sentiment": 0.148,
+    "bullish_sectors": [
+      "XLV",
+      "XLI",
+      "XLB",
+      "XLE",
+      "XLU"
+    ],
+    "bearish_sectors": [
+      "XLF"
+    ],
+    "sector_sentiment": {
+      "XLK": {
+        "avg_sentiment": 0.142,
+        "article_count": 12,
+        "label": "Neutral"
+      },
+      "XLV": {
+        "avg_sentiment": 0.354,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLC": {
+        "avg_sentiment": 0.139,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLI": {
+        "avg_sentiment": 0.302,
+        "article_count": 13,
+        "label": "Bullish"
+      },
+      "XLB": {
+        "avg_sentiment": 0.322,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLF": {
+        "avg_sentiment": -0.25,
+        "article_count": 11,
+        "label": "Bearish"
+      },
+      "XLY": {
+        "avg_sentiment": -0.04,
+        "article_count": 11,
+        "label": "Neutral"
+      },
+      "XLE": {
+        "avg_sentiment": 0.283,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLRE": {
+        "avg_sentiment": 0.131,
+        "article_count": 12,
+        "label": "Neutral"
+      },
+      "XLU": {
+        "avg_sentiment": 0.283,
+        "article_count": 10,
+        "label": "Bullish"
+      },
+      "XLP": {
+        "avg_sentiment": -0.043,
+        "article_count": 11,
+        "label": "Neutral"
+      }
+    },
+    "top_headlines": {
+      "XLK": [
+        {
+          "title": "The Technology Select Sector SPDR Fund To Go Ex-Dividend On December 22nd, 2025 With 0.21883 USD Dividend Per Share",
+          "summary": "The Technology Select Sector SPDR Fund (XLK.US) is scheduled to go ex-dividend on December 22nd, 2025, with shareholders of record on that date receiving a 0.21883 USD dividend per share on December 24th, 2025. The article also explains the differences between cash dividends and stock dividends, along with their respective tax implications.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66453625/the-technology-select-sector-spdr-fund-to-go-ex-dividend",
+          "time_published": "20251220T160952",
+          "relevance": 1.0,
+          "sentiment": 0.142795,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "XLK ETF Climbs 0.2%",
+          "summary": "The XLK ETF experienced a 0.2% climb. This news is accompanied by a report from Unity Software (U.US) which reported fourth-quarter revenue of $609 million, exceeding estimates, despite a quarterly loss of 66 cents per share. This article highlights key financial figures and notes copyright restrictions from Dow Jones preventing automatic translation.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66276187/xlk-etf-climbs-0-2",
+          "time_published": "20251217T140906",
+          "relevance": 1.0,
+          "sentiment": 0.132864,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "3 Market-Beating Stocks Worth Your Attention",
+          "summary": "This article highlights three market-beating stocks\u2014Nova (NVMI), DXP (DXPE), and Natera (NTRA)\u2014that showcase strong fundamentals such as rising sales, expanding margins, and increasing returns on capital. Each company's performance metrics and market position are detailed, suggesting they have the potential for significant investor returns. The author emphasizes that long-term earnings growth is a key indicator of successful investments.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260753/3-market-beating-stocks-worth-your-attention",
+          "time_published": "20251222T233400",
+          "relevance": 1.0,
+          "sentiment": 0.462512,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Comfort Systems USA (FIX) Stock: S&P 500 Addition, Leadership Shake-Up, Analyst Targets, and What to Watch Before the Next Market Open",
+          "summary": "Comfort Systems USA (FIX) has recently been added to the S&P 500, effective December 22, 2025, a move expected to increase its visibility and liquidity. The company also announced leadership transitions, including a new President and COO, effective January 1, 2026. With a record backlog of $9.38 billion and strong Q3 2025 results driven by technology-focused demand, analysts maintain a broadly bullish outlook despite a premium valuation.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/comfort-systems-usa-fix-stock-sp-500-addition-leadership-shake-up-analyst-targets-and-what-to-watch-before-the-next-market-open/",
+          "time_published": "20251222T230950",
+          "relevance": 1.0,
+          "sentiment": 0.444305,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "BSTZ SEC Filings - BlackRock Science and Tech Term ord 10-K, 10-Q, 8-K Forms",
+          "summary": "This page provides a comprehensive resource for investors and traders to access official regulatory documents for BlackRock Science and Tech Term ord (Ticker: BSTZ), including 10-K annual reports, 10-Q quarterly earnings, 8-K material events, and insider trading forms. It highlights how Stock Titan uses AI to summarize these complex documents, offering insights into NAV shifts, distribution policy changes, sector weightings, leverage adjustments, and insider transactions. The article also includes news of a recent insider stock sale by a director of BlackRock Science & Technology Term Trust.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/BSTZ/",
+          "time_published": "20251222T230928",
+          "relevance": 1.0,
+          "sentiment": 0.11844,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLV": [
+        {
+          "title": "Liquidity Mapping Around (SDGR) Price Events",
+          "summary": "This article provides a detailed liquidity mapping and AI-generated trading strategies for Schrodinger Inc. (NASDAQ: SDGR). It highlights mixed sentiment, a significant risk-reward setup targeting a 15.7% gain, and offers distinct trading strategies (Position, Momentum Breakout, Risk Hedging) tailored to different risk profiles and holding periods. The analysis includes multi-timeframe signal analysis with support and resistance levels.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/150/Liquidity_Mapping_Around_SDGR_Price_Events_122225113202_1766464322.html",
+          "time_published": "20251222T233200",
+          "relevance": 1.0,
+          "sentiment": 0.24931,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "AstraZeneca PLC - Enhertu granted BTD for post-neoadjuvant early BC",
+          "summary": "AstraZeneca and Daiichi Sankyo's Enhertu has received Breakthrough Therapy Designation (BTD) in the US for adult patients with HER2-positive early breast cancer who have residual invasive disease after neoadjuvant treatment and a high risk of recurrence. This marks Enhertu's tenth BTD, based on the DESTINY-Breast05 Phase III trial results which demonstrated impressive clinical benefit over the current standard of care. The designation aims to accelerate the development and regulatory review of Enhertu, potentially making it an important treatment option to reduce recurrence and prevent progression to metastatic disease for these patients.",
+          "source": "Research Tree",
+          "url": "https://www.research-tree.com/newsfeed/article/astrazeneca-plc-enhertu-granted-btd-for-post-neoadjuvant-early-bc-3113855",
+          "time_published": "20251222T231020",
+          "relevance": 1.0,
+          "sentiment": 0.443182,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "EUDA Integrates QB Utility Token to Create a Digital Health and Rewards Platform Across Its Healthcare Ecosystem",
+          "summary": "EUDA Health Holdings Limited is integrating the QB utility token into its digital health and rewards platform to enhance customer loyalty and experience across its healthcare ecosystem. This strategic move allows customers and agents to earn and redeem QB tokens for EUDA's various healthcare offerings, creating a unified digital engagement platform built on Binance Smart Chain. The initiative supports EUDA's vision of a modern, interactive healthcare ecosystem that merges wellness, technology, and user interaction.",
+          "source": "FOX 2",
+          "url": "https://fox2now.com/business/press-releases/globenewswire/9615815/euda-integrates-qb-utility-token-to-create-a-digital-health-and-rewards-platform-across-its-healthcare-ecosystem",
+          "time_published": "20251222T230905",
+          "relevance": 1.0,
+          "sentiment": 0.400971,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Celularity Announces Closing of Financing Transactions",
+          "summary": "Celularity Inc. (Nasdaq: CELU) has announced the closing of financing transactions with Philip A. Barach, securing $10.00 million in gross proceeds with potential for an additional $2.0 million. This financing, comprising a senior secured term loan and convertible notes, is aimed at bolstering Celularity's operations and strategic focus on placental-derived platforms for age-related and degenerative diseases. The company plans to articulate its refined corporate strategy, emphasizing longevity and age-related disease, in the new year.",
+          "source": "Investing News Network",
+          "url": "https://investingnews.com/celularity-announces-closing-of-financing-transactions/",
+          "time_published": "20251222T230826",
+          "relevance": 1.0,
+          "sentiment": 0.430471,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "3 Reasons to Avoid AHCO and 1 Stock to Buy Instead",
+          "summary": "This article recommends avoiding AdaptHealth (AHCO) despite its recent stock gains, citing three primary reasons: lackluster revenue growth, declining earnings per share (EPS), and unimpressive returns on invested capital. Instead, the author suggests looking into alternative high-quality growth stocks, highlighting their curated list which has historically outperformed the market.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/261281/3-reasons-to-avoid-ahco-and-1-stock-to-buy-instead",
+          "time_published": "20251222T230200",
+          "relevance": 1.0,
+          "sentiment": -0.057003,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLF": [
+        {
+          "title": "What to Expect From Bank of New York Mellon's Q4 2025 Earnings Report",
+          "summary": "Bank of New York Mellon (BK) is expected to announce its Q4 2025 earnings before the market opens on Tuesday, January 13, 2026. Analysts anticipate a profit of $1.96 per share, a 14% increase year-over-year, and predict EPS of $7.38 for the full fiscal year 2025. The company's stock has significantly outperformed the S&P 500 and the Financial Select Sector SPDR Fund over the past year, driven by growth in fee revenues, net interest income, and strategic investments in technology and AI.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-18-what-to-expect-from-bank-of-new-york-mellons-q4-2025-earnings-report",
+          "time_published": "20251218T060900",
+          "relevance": 1.0,
+          "sentiment": 0.153186,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "(SEA) Price Dynamics and Execution-Aware Positioning",
+          "summary": "This article provides an in-depth analysis of U.s. Global Sea To Sky Cargo Etf (NYSE: SEA), highlighting neutral near and mid-term readings but a positive long-term bias. It outlines key findings, identifies a prevailing neutral sentiment, and presents three distinct AI-generated institutional trading strategies tailored for different risk profiles. The analysis includes position trading, momentum breakout, and risk hedging strategies, along with multi-timeframe signal analysis for support and resistance levels.",
+          "source": "Stock Traders Daily",
+          "url": "https://news.stocktradersdaily.com/news_release/14/SEA_Price_Dynamics_and_Execution-Aware_Positioning_122225114601_1766465161.html",
+          "time_published": "20251222T234600",
+          "relevance": 1.0,
+          "sentiment": 0.026594,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "3 Cash-Producing Stocks with Open Questions",
+          "summary": "This article examines three cash-producing companies\u2014MDU Resources (MDU), Allegion (ALLE), and Insight Enterprises (NSIT)\u2014that face open questions regarding their future performance. Despite generating cash, these companies show signs of underperformance, such as declining sales, weak free cash flow margins, or slowing growth, suggesting they may not be ideal investments. The article recommends investors explore alternative high-quality stocks for better returns.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260750/3-cash-producing-stocks-with-open-questions",
+          "time_published": "20251222T233400",
+          "relevance": 1.0,
+          "sentiment": -0.5477,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "HiTek Global enters $100 million at-the-market equity offering agreement",
+          "summary": "HiTek Global Inc. announced a sales agreement with Aegis Capital Corp. for an at-the-market (ATM) equity offering program to sell up to $100 million of its Class A ordinary shares. The company, based in Xiamen, China, will pay Aegis Capital a 3.0% commission on gross proceeds and reimburse certain expenses, with no obligation to sell any shares.",
+          "source": "Investing.com",
+          "url": "https://www.investing.com/news/sec-filings/hitek-global-enters-100-million-atthemarket-equity-offering-agreement-93CH-4420408",
+          "time_published": "20251222T231020",
+          "relevance": 1.0,
+          "sentiment": -0.178162,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Will Leadership Reshuffle and India Stake Deal Change Mitsubishi UFJ Financial Group's (TSE:8306) Narrative",
+          "summary": "Mitsubishi UFJ Financial Group is undergoing a leadership reshuffle with Junichi Hanzawa set to become group CEO, and is acquiring a 20% stake in Shriram Finance in India. These changes aim to enhance lending profitability and expand overseas and digital financial platforms. The article explores how this transition might influence the company's investment narrative, emphasizing improved lending profitability and shareholder distributions, while also highlighting potential sensitivities to interest income from bond portfolios.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/jp/banks/tse-8306/mitsubishi-ufj-financial-group-shares/news/will-leadership-reshuffle-and-india-stake-deal-change-mitsub/amp",
+          "time_published": "20251222T230953",
+          "relevance": 1.0,
+          "sentiment": 0.294684,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLI": [
+        {
+          "title": "Massive Breakout in Industrials: 3 Must-Watch Stocks Now",
+          "summary": "The industrials sector is experiencing a significant breakout, signaling a potential shift in market leadership. The Industrial Select Sector SPDR Fund (XLI) has broken out of a multi-month consolidation, and investors should watch XLI, GE Vernova (GEV), and RTX Corp. (RTX) as capital rotates into the sector. These three companies are showing strong momentum and technical indicators suggest continued upside.",
+          "source": "Investing.com",
+          "url": "https://m.investing.com/analysis/massive-breakout-in-industrials-3-mustwatch-stocks-now-200671995?ampMode=1",
+          "time_published": "20251217T190923",
+          "relevance": 1.0,
+          "sentiment": 0.417712,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Generac Holdings Stock: Is GNRC Underperforming the Industrial Sector?",
+          "summary": "Generac Holdings Inc. (GNRC) is underperforming the industrial sector, with its stock declining significantly from its 52-week high and lagging behind the Industrial Select Sector SPDR Fund (XLI). This underperformance is attributed to weaker-than-expected Q3 2025 results, including a decline in residential product sales and a cut in full-year outlook due to a less severe power outage environment. Despite these challenges, analysts maintain a \"Moderate Buy\" rating for Generac, with a substantial premium to its current price target.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-18-generac-holdings-stock-is-gnrc-underperforming-the-industrial-sector",
+          "time_published": "20251218T065500",
+          "relevance": 1.0,
+          "sentiment": -0.068623,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "Earnings Preview: What to Expect From Delta Air Lines' Report",
+          "summary": "Delta Air Lines (DAL) is expected to report its fiscal fourth-quarter earnings for 2025 soon, with analysts anticipating a profit of $1.58 per share. Despite this being a decline from the previous year, DAL has consistently beaten consensus estimates and its stock has outperformed the S&P 500. The airline's success is attributed to strong demand in premium and corporate travel, effective cost management, and a robust loyalty program.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/stocks/article/barchart-2025-12-18-earnings-preview-what-to-expect-from-delta-air-lines-report",
+          "time_published": "20251218T060300",
+          "relevance": 1.0,
+          "sentiment": 0.295369,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 2
+        },
+        {
+          "title": "3 Industrials Stocks with Questionable Fundamentals",
+          "summary": "This article identifies three industrial stocks\u2014Mayville Engineering (MEC), MasTec (MTZ), and D.R. Horton (DHI)\u2014with concerning fundamentals despite general sector growth. The analysis highlights issues like declining sales and EPS for MEC, low margins and capital intensity for MTZ, and shrinking backlogs and waning returns for DHI, suggesting better investment opportunities exist elsewhere.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260659/3-industrials-stocks-with-questionable-fundamentals",
+          "time_published": "20251222T233705",
+          "relevance": 1.0,
+          "sentiment": -0.546992,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "3 Market-Beating Stocks Worth Your Attention",
+          "summary": "This article highlights three market-beating stocks\u2014Nova (NVMI), DXP (DXPE), and Natera (NTRA)\u2014that showcase strong fundamentals such as rising sales, expanding margins, and increasing returns on capital. Each company's performance metrics and market position are detailed, suggesting they have the potential for significant investor returns. The author emphasizes that long-term earnings growth is a key indicator of successful investments.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260753/3-market-beating-stocks-worth-your-attention",
+          "time_published": "20251222T233400",
+          "relevance": 1.0,
+          "sentiment": 0.459483,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ],
+      "XLY": [
+        {
+          "title": "What to Expect From NIKE's Next Quarterly Earnings Report",
+          "summary": "NIKE, Inc. (NKE) is expected to announce its fiscal Q2 2026 results after market close on Thursday, December 18, with analysts forecasting a 52.6% decline in adjusted EPS to $0.37. Despite this, NIKE has surpassed Wall Street's earnings estimates in the past four quarters. Analysts generally have a \"Moderate Buy\" rating on the stock, expecting a potential upside of 24.2% from current levels.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-17-what-to-expect-from-nikes-next-quarterly-earnings-report",
+          "time_published": "20251217T100300",
+          "relevance": 1.0,
+          "sentiment": -0.226011,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 2
+        },
+        {
+          "title": "Assessing Costco (COST) Valuation After a 10% Pullback in Shareholder Returns",
+          "summary": "Costco Wholesale (COST) has experienced a 10% pullback in shareholder returns over the past year, despite its strong long-term track record. While some analysts view the stock as undervalued with a fair value around $1,056, others point to its rich valuation multiples compared to its industry. The article explores whether this pullback presents an entry point or if the market has already factored in future growth.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/consumer-retailing/nasdaq-cost/costco-wholesale/news/assessing-costco-cost-valuation-after-a-10-pullback-in-share",
+          "time_published": "20251222T234118",
+          "relevance": 1.0,
+          "sentiment": 0.133626,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Filing Alert: FlexShopper Chapter 11",
+          "summary": "FlexShopper, Inc., a lease-to-own consumer finance platform, filed for Chapter 11 bankruptcy in the District of Delaware on December 22, 2025. The company initially reported less than $1 million in assets and $0 in liabilities for the lead case, though affiliate FlexShopper, LLC indicates liabilities between $100 million and $500 million. No funds are expected for unsecured creditors after administrative expenses.",
+          "source": "Bondoro",
+          "url": "https://bondoro.com/flexshopper-filing-alert/",
+          "time_published": "20251222T230924",
+          "relevance": 1.0,
+          "sentiment": -0.82169,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Beyond Meat Stock (BYND) News Today: Dilution Fallout, Q4 Sales Forecast, Short-Interest Reality Check, and What Could Move the Shares in 2026",
+          "summary": "Beyond Meat (NASDAQ: BYND) is grappling with significant financial challenges, including massive dilution from a debt-for-equity exchange and persistent weak demand for its plant-based products, as it approaches 2026. The company recently increased authorized shares, approved a reverse stock split option, and issued a Q4 revenue forecast below Wall Street expectations, indicating a focus on survival and liquidity rather than growth. High short-interest and volatile trading further define BYND's current market behavior, with investors weighing the success of cost-cutting measures against ongoing operational losses.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/beyond-meat-stock-bynd-news-today-dilution-fallout-q4-sales-forecast-short-interest-reality-check-and-what-could-move-the-shares-in-2026/",
+          "time_published": "20251222T230912",
+          "relevance": 1.0,
+          "sentiment": -0.092766,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Instacart shuts down dynamic AI pricing experiments following scrutiny of its tests",
+          "summary": "Instacart has halted its controversial dynamic AI pricing experiments, which used algorithms to show different prices to consumers for the same products. The decision follows a Consumer Reports study revealing significant price variations and criticism from U.S. lawmakers. Instacart, which acquired the AI pricing company Eversight for $59 million in 2022, stated that these tests \"missed the mark\" and raised concerns about trust and affordability.",
+          "source": "SiliconANGLE",
+          "url": "https://siliconangle.com/2025/12/22/instacart-shuts-dynamic-ai-pricing-experiments-following-scrutiny-tests/",
+          "time_published": "20251222T230909",
+          "relevance": 1.0,
+          "sentiment": 0.021528,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLP": [
+        {
+          "title": "What to Expect From Constellation Brands' Next Quarterly Earnings Report",
+          "summary": "Constellation Brands (STZ) is expected to announce its fiscal third-quarter earnings for 2026 on January 7, 2026. Analysts project an 18.2% decline in EPS to $2.66, with stock performance significantly underperforming the S&P 500 and Consumer Staples Select Sector SPDR Fund over the past year. Despite a \"Moderate Buy\" analyst consensus, concerns about consumer demand, fixed costs, and tariffs are impacting the company's outlook.",
+          "source": "FinancialContent",
+          "url": "https://markets.financialcontent.com/wral/article/barchart-2025-12-18-what-to-expect-from-constellation-brands-next-quarterly-earnings-report",
+          "time_published": "20251218T055700",
+          "relevance": 1.0,
+          "sentiment": -0.211762,
+          "sentiment_label": "Somewhat-Bearish",
+          "priority": 2
+        },
+        {
+          "title": "Assessing Costco (COST) Valuation After a 10% Pullback in Shareholder Returns",
+          "summary": "Costco Wholesale (COST) has experienced a 10% pullback in shareholder returns over the past year, despite its strong long-term track record. While some analysts view the stock as undervalued with a fair value around $1,056, others point to its rich valuation multiples compared to its industry. The article explores whether this pullback presents an entry point or if the market has already factored in future growth.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/consumer-retailing/nasdaq-cost/costco-wholesale/news/assessing-costco-cost-valuation-after-a-10-pullback-in-share",
+          "time_published": "20251222T234118",
+          "relevance": 1.0,
+          "sentiment": 0.133626,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Filing Alert: FlexShopper Chapter 11",
+          "summary": "FlexShopper, Inc., a lease-to-own consumer finance platform, filed for Chapter 11 bankruptcy in the District of Delaware on December 22, 2025. The company initially reported less than $1 million in assets and $0 in liabilities for the lead case, though affiliate FlexShopper, LLC indicates liabilities between $100 million and $500 million. No funds are expected for unsecured creditors after administrative expenses.",
+          "source": "Bondoro",
+          "url": "https://bondoro.com/flexshopper-filing-alert/",
+          "time_published": "20251222T230924",
+          "relevance": 1.0,
+          "sentiment": -0.82169,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Beyond Meat Stock (BYND) News Today: Dilution Fallout, Q4 Sales Forecast, Short-Interest Reality Check, and What Could Move the Shares in 2026",
+          "summary": "Beyond Meat (NASDAQ: BYND) is grappling with significant financial challenges, including massive dilution from a debt-for-equity exchange and persistent weak demand for its plant-based products, as it approaches 2026. The company recently increased authorized shares, approved a reverse stock split option, and issued a Q4 revenue forecast below Wall Street expectations, indicating a focus on survival and liquidity rather than growth. High short-interest and volatile trading further define BYND's current market behavior, with investors weighing the success of cost-cutting measures against ongoing operational losses.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/beyond-meat-stock-bynd-news-today-dilution-fallout-q4-sales-forecast-short-interest-reality-check-and-what-could-move-the-shares-in-2026/",
+          "time_published": "20251222T230912",
+          "relevance": 1.0,
+          "sentiment": -0.092766,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Instacart shuts down dynamic AI pricing experiments following scrutiny of its tests",
+          "summary": "Instacart has halted its controversial dynamic AI pricing experiments, which used algorithms to show different prices to consumers for the same products. The decision follows a Consumer Reports study revealing significant price variations and criticism from U.S. lawmakers. Instacart, which acquired the AI pricing company Eversight for $59 million in 2022, stated that these tests \"missed the mark\" and raised concerns about trust and affordability.",
+          "source": "SiliconANGLE",
+          "url": "https://siliconangle.com/2025/12/22/instacart-shuts-dynamic-ai-pricing-experiments-following-scrutiny-tests/",
+          "time_published": "20251222T230909",
+          "relevance": 1.0,
+          "sentiment": 0.021528,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        }
+      ],
+      "XLE": [
+        {
+          "title": "Union Pacific (UNP): Reassessing Valuation After a Steady Share Price Grind Higher",
+          "summary": "Union Pacific (UNP) has seen a steady increase in its share price, prompting investors to reassess its valuation. While the company is considered undervalued with a narrative fair value near $260 and analyst targets around $256.92, a more conservative DCF model suggests a limited margin of safety with a fair value of $229.74. Lingering uncertainties regarding trade policy and intermodal volumes could challenge future growth.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/transportation/nyse-unp/union-pacific/news/union-pacific-unp-reassessing-valuation-after-a-steady-share",
+          "time_published": "20251222T234105",
+          "relevance": 1.0,
+          "sentiment": 0.116062,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Powerfleet Secures South African Fleet Management Contract",
+          "summary": "Powerfleet's subsidiary has been awarded a fleet management contract by South Africa's National Treasury. The contract, which includes video, visibility, and driver management solutions, is for a sixty-month service period starting in Q2 2026. Details are still pending finalization of certain terms.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/tradingview:20cef6f9fe25b:0-powerfleet-secures-south-african-fleet-management-contract/",
+          "time_published": "20251222T230920",
+          "relevance": 1.0,
+          "sentiment": 0.436897,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The Digest\u2019s 2025 Multi-Slide Guide to Aemetis, Inc. : The Daily Digest",
+          "summary": "Aemetis, Inc. is expanding its low-carbon fuels platform, focusing on dairy Renewable Natural Gas (RNG) with a negative carbon intensity. The company aims to connect 75 dairies by 2029, producing 1,650,000 MMBtu/year. Aemetis also plans upgrades to its ethanol plant, a Sustainable Aviation Fuel plant, and a carbon sequestration project.",
+          "source": "Biofuels Digest",
+          "url": "https://www.biofuelsdigest.com/bdigest/the-digests-2025-multi-slide-guide-to-aemetis-inc/",
+          "time_published": "20251222T230917",
+          "relevance": 1.0,
+          "sentiment": 0.479469,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "NextEra Energy (NEE) Stock Outlook 2026: Google and Meta Deals Supercharge an AI\u2011Driven Utility Giant",
+          "summary": "NextEra Energy (NEE) is entering a new growth phase driven by AI data centers, nuclear restarts, and expanded partnerships with Google and Meta. The company recently secured a four-year rate agreement for Florida Power & Light and revised its long-term guidance, projecting at least 8% annual EPS growth through 2035. These developments position NextEra as a key infrastructure partner for the AI economy, despite its premium valuation and various operational and regulatory risks.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/nextera-energy-nee-stock-outlook-2026-google-and-meta-deals-supercharge-an-ai-driven-utility-giant/",
+          "time_published": "20251222T230756",
+          "relevance": 1.0,
+          "sentiment": 0.299814,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Winners And Losers Of Q3: General Motors (NYSE:GM) Vs The Rest Of The Automobile Manufacturing Stocks",
+          "summary": "This article reviews the Q3 earnings of several automobile manufacturers, highlighting General Motors (NYSE:GM), Ford (NYSE:F), Lucid (NASDAQ:LCID), Tesla (NASDAQ:TSLA), and Rivian (NASDAQ:RIVN). It examines their revenue performance against analyst expectations and the market's reaction, noting the impact of evolving EV technology on the industry. The piece also provides a brief market update on the economy and recent political events.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/261155/winners-and-losers-of-q3-general-motors-nyse-gm-vs-the-rest-of-the-automobile-manufacturing-stocks",
+          "time_published": "20251222T223400",
+          "relevance": 1.0,
+          "sentiment": 0.292916,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLU": [
+        {
+          "title": "Union Pacific (UNP): Reassessing Valuation After a Steady Share Price Grind Higher",
+          "summary": "Union Pacific (UNP) has seen a steady increase in its share price, prompting investors to reassess its valuation. While the company is considered undervalued with a narrative fair value near $260 and analyst targets around $256.92, a more conservative DCF model suggests a limited margin of safety with a fair value of $229.74. Lingering uncertainties regarding trade policy and intermodal volumes could challenge future growth.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/transportation/nyse-unp/union-pacific/news/union-pacific-unp-reassessing-valuation-after-a-steady-share",
+          "time_published": "20251222T234105",
+          "relevance": 1.0,
+          "sentiment": 0.116062,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "Powerfleet Secures South African Fleet Management Contract",
+          "summary": "Powerfleet's subsidiary has been awarded a fleet management contract by South Africa's National Treasury. The contract, which includes video, visibility, and driver management solutions, is for a sixty-month service period starting in Q2 2026. Details are still pending finalization of certain terms.",
+          "source": "TradingView \u2014 Track All Markets",
+          "url": "https://www.tradingview.com/news/tradingview:20cef6f9fe25b:0-powerfleet-secures-south-african-fleet-management-contract/",
+          "time_published": "20251222T230920",
+          "relevance": 1.0,
+          "sentiment": 0.436897,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "The Digest\u2019s 2025 Multi-Slide Guide to Aemetis, Inc. : The Daily Digest",
+          "summary": "Aemetis, Inc. is expanding its low-carbon fuels platform, focusing on dairy Renewable Natural Gas (RNG) with a negative carbon intensity. The company aims to connect 75 dairies by 2029, producing 1,650,000 MMBtu/year. Aemetis also plans upgrades to its ethanol plant, a Sustainable Aviation Fuel plant, and a carbon sequestration project.",
+          "source": "Biofuels Digest",
+          "url": "https://www.biofuelsdigest.com/bdigest/the-digests-2025-multi-slide-guide-to-aemetis-inc/",
+          "time_published": "20251222T230917",
+          "relevance": 1.0,
+          "sentiment": 0.479469,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "NextEra Energy (NEE) Stock Outlook 2026: Google and Meta Deals Supercharge an AI\u2011Driven Utility Giant",
+          "summary": "NextEra Energy (NEE) is entering a new growth phase driven by AI data centers, nuclear restarts, and expanded partnerships with Google and Meta. The company recently secured a four-year rate agreement for Florida Power & Light and revised its long-term guidance, projecting at least 8% annual EPS growth through 2035. These developments position NextEra as a key infrastructure partner for the AI economy, despite its premium valuation and various operational and regulatory risks.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/nextera-energy-nee-stock-outlook-2026-google-and-meta-deals-supercharge-an-ai-driven-utility-giant/",
+          "time_published": "20251222T230756",
+          "relevance": 1.0,
+          "sentiment": 0.299814,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Winners And Losers Of Q3: General Motors (NYSE:GM) Vs The Rest Of The Automobile Manufacturing Stocks",
+          "summary": "This article reviews the Q3 earnings of several automobile manufacturers, highlighting General Motors (NYSE:GM), Ford (NYSE:F), Lucid (NASDAQ:LCID), Tesla (NASDAQ:TSLA), and Rivian (NASDAQ:RIVN). It examines their revenue performance against analyst expectations and the market's reaction, noting the impact of evolving EV technology on the industry. The piece also provides a brief market update on the economy and recent political events.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/261155/winners-and-losers-of-q3-general-motors-nyse-gm-vs-the-rest-of-the-automobile-manufacturing-stocks",
+          "time_published": "20251222T223400",
+          "relevance": 1.0,
+          "sentiment": 0.292916,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLRE": [
+        {
+          "title": "Real Estate ETF Poised For Breakout As Treasury Yields Drop And Cap Rates Compress",
+          "summary": "The Real Estate Select Sector SPDR Fund (XLRE) is anticipated for a potential breakout in 2026, driven by declining Treasury yields and subsequent cap rate compression, which enhances property valuations. The ETF's holdings in data center REITs like Equinix and Digital Realty provide a unique advantage due to ongoing AI infrastructure spending, offering predictable contractual income. Investors should monitor the Federal Reserve's rate path and XLRE's data center exposure for signals of expansion.",
+          "source": "24/7 Wall St.",
+          "url": "https://247wallst.com/investing/2025/12/22/real-estate-etf-poised-for-breakout-as-treasury-yields-drop-and-cap-rates-compress/",
+          "time_published": "20251222T160945",
+          "relevance": 1.0,
+          "sentiment": 0.371751,
+          "sentiment_label": "Bullish",
+          "priority": 2
+        },
+        {
+          "title": "Short interest across S&P 500 real estate stocks fall slightly in March",
+          "summary": "The article states that short interest in S&P 500 real estate stocks experienced a slight decline in March. No further details are provided as the entire content is just the word \"MSN\".",
+          "source": "MSN",
+          "url": "https://www.msn.com/en-us/money/realestate/short-interest-across-s-p-500-real-estate-stocks-fall-slightly-in-march/ar-AA1D3dKW?ocid=finance-verthp-feeds&apiversion=v2&noservercache=1&domshim=1&renderwebcomponents=1&wcseo=1&batchservertelemetry=1&noservertelemetry=1",
+          "time_published": "20251217T190856",
+          "relevance": 1.0,
+          "sentiment": -0.104568,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "3 Industrials Stocks with Questionable Fundamentals",
+          "summary": "This article identifies three industrial stocks\u2014Mayville Engineering (MEC), MasTec (MTZ), and D.R. Horton (DHI)\u2014with concerning fundamentals despite general sector growth. The analysis highlights issues like declining sales and EPS for MEC, low margins and capital intensity for MTZ, and shrinking backlogs and waning returns for DHI, suggesting better investment opportunities exist elsewhere.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260659/3-industrials-stocks-with-questionable-fundamentals",
+          "time_published": "20251222T233705",
+          "relevance": 1.0,
+          "sentiment": -0.515323,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "Comfort Systems USA (FIX) Stock After Hours Today (Dec. 22, 2025): S&P 500 Inclusion, Leadership Shift, and What to Watch Before Tuesday\u2019s Open",
+          "summary": "Comfort Systems USA (NYSE: FIX) ended Monday's session in the spotlight, having joined the S&P 500 and trading around $950.79 in after-hours quotes. Key factors include the impact of S&P 500 inclusion, strong financial performance driven by data center demand, and a planned leadership transition aimed at continuity. Investors should monitor upcoming U.S. economic data and anticipate lower liquidity during the holiday week.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/comfort-systems-usa-fix-stock-after-hours-today-dec-22-2025-sp-500-inclusion-leadership-shift-and-what-to-watch-before-tuesdays-open/",
+          "time_published": "20251222T230952",
+          "relevance": 1.0,
+          "sentiment": 0.417343,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Colliers International Group (TSX:CIGI) - Stock Analysis",
+          "summary": "This report provides a stock analysis of Colliers International Group (TSX:CIGI), highlighting its current trading at 18.6% below fair value with forecasted earnings growth of 28.67% per year. The company's expansion into alternative assets and digital transformation are key drivers for future outperformance, despite risks such as significant insider selling and lower profit margins compared to the previous year. The analysis covers valuation, growth, past performance, financial health, dividends, management, and ownership, alongside recent news and competitor comparisons.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/ca/real-estate-management-and-development/tsx-cigi/colliers-international-group-shares",
+          "time_published": "20251222T230909",
+          "relevance": 1.0,
+          "sentiment": 0.207735,
+          "sentiment_label": "Somewhat-Bullish",
+          "priority": 1
+        }
+      ],
+      "XLC": [
+        {
+          "title": "The Communication Services Select Sector SPDR Fund To Go Ex-Dividend On December 22nd, 2025 With 0.37579 USD Dividend Per Share",
+          "summary": "The Communication Services Select Sector SPDR Fund (XLC.US) will trade ex-dividend on December 22nd, 2025, with shareholders of record on that date receiving a dividend of 0.37579 USD per share on December 24th, 2025. The article also provides general definitions of cash and stock dividends.",
+          "source": "\u5bcc\u9014\u725b\u725b",
+          "url": "https://news.futunn.com/en/post/66453854/the-communication-services-select-sector-spdr-fund-to-go-ex",
+          "time_published": "20251220T050857",
+          "relevance": 1.0,
+          "sentiment": 0.137152,
+          "sentiment_label": "Neutral",
+          "priority": 2
+        },
+        {
+          "title": "3 Market-Beating Stocks Worth Your Attention",
+          "summary": "This article highlights three market-beating stocks\u2014Nova (NVMI), DXP (DXPE), and Natera (NTRA)\u2014that showcase strong fundamentals such as rising sales, expanding margins, and increasing returns on capital. Each company's performance metrics and market position are detailed, suggesting they have the potential for significant investor returns. The author emphasizes that long-term earnings growth is a key indicator of successful investments.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260753/3-market-beating-stocks-worth-your-attention",
+          "time_published": "20251222T233400",
+          "relevance": 1.0,
+          "sentiment": 0.462512,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Comfort Systems USA (FIX) Stock: S&P 500 Addition, Leadership Shake-Up, Analyst Targets, and What to Watch Before the Next Market Open",
+          "summary": "Comfort Systems USA (FIX) has recently been added to the S&P 500, effective December 22, 2025, a move expected to increase its visibility and liquidity. The company also announced leadership transitions, including a new President and COO, effective January 1, 2026. With a record backlog of $9.38 billion and strong Q3 2025 results driven by technology-focused demand, analysts maintain a broadly bullish outlook despite a premium valuation.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/comfort-systems-usa-fix-stock-sp-500-addition-leadership-shake-up-analyst-targets-and-what-to-watch-before-the-next-market-open/",
+          "time_published": "20251222T230950",
+          "relevance": 1.0,
+          "sentiment": 0.444305,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "BSTZ SEC Filings - BlackRock Science and Tech Term ord 10-K, 10-Q, 8-K Forms",
+          "summary": "This page provides a comprehensive resource for investors and traders to access official regulatory documents for BlackRock Science and Tech Term ord (Ticker: BSTZ), including 10-K annual reports, 10-Q quarterly earnings, 8-K material events, and insider trading forms. It highlights how Stock Titan uses AI to summarize these complex documents, offering insights into NAV shifts, distribution policy changes, sector weightings, leverage adjustments, and insider transactions. The article also includes news of a recent insider stock sale by a director of BlackRock Science & Technology Term Trust.",
+          "source": "Stock Titan",
+          "url": "https://www.stocktitan.net/sec-filings/BSTZ/",
+          "time_published": "20251222T230928",
+          "relevance": 1.0,
+          "sentiment": 0.11844,
+          "sentiment_label": "Neutral",
+          "priority": 1
+        },
+        {
+          "title": "FFIV ALERT: Kirby McInerney LLP Announces the Filing of a Securities Class Action on Behalf of F5, Inc. Investors",
+          "summary": "Kirby McInerney LLP has filed a securities class action lawsuit against F5, Inc. (NASDAQ:FFIV) on behalf of investors who purchased securities between October 28, 2024, and October 27, 2025. The lawsuit alleges F5 made misleading statements about its cybersecurity capabilities while experiencing a significant security breach, which led to a substantial decline in its stock price. Investors who suffered losses have until February 17, 2026, to request lead plaintiff appointment.",
+          "source": "Business Wire",
+          "url": "https://www.businesswire.com/news/home/20251222569020/en/FFIV-ALERT-Kirby-McInerney-LLP-Announces-the-Filing-of-a-Securities-Class-Action-on-Behalf-of-F5-Inc.-Investors",
+          "time_published": "20251222T230927",
+          "relevance": 1.0,
+          "sentiment": -0.91277,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        }
+      ],
+      "XLB": [
+        {
+          "title": "3 Industrials Stocks with Questionable Fundamentals",
+          "summary": "This article identifies three industrial stocks\u2014Mayville Engineering (MEC), MasTec (MTZ), and D.R. Horton (DHI)\u2014with concerning fundamentals despite general sector growth. The analysis highlights issues like declining sales and EPS for MEC, low margins and capital intensity for MTZ, and shrinking backlogs and waning returns for DHI, suggesting better investment opportunities exist elsewhere.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260659/3-industrials-stocks-with-questionable-fundamentals",
+          "time_published": "20251222T233705",
+          "relevance": 1.0,
+          "sentiment": -0.546992,
+          "sentiment_label": "Bearish",
+          "priority": 1
+        },
+        {
+          "title": "3 Market-Beating Stocks Worth Your Attention",
+          "summary": "This article highlights three market-beating stocks\u2014Nova (NVMI), DXP (DXPE), and Natera (NTRA)\u2014that showcase strong fundamentals such as rising sales, expanding margins, and increasing returns on capital. Each company's performance metrics and market position are detailed, suggesting they have the potential for significant investor returns. The author emphasizes that long-term earnings growth is a key indicator of successful investments.",
+          "source": "Finviz",
+          "url": "https://finviz.com/news/260753/3-market-beating-stocks-worth-your-attention",
+          "time_published": "20251222T233400",
+          "relevance": 1.0,
+          "sentiment": 0.459483,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Comfort Systems USA (FIX) Stock After Hours Today (Dec. 22, 2025): S&P 500 Inclusion, Leadership Shift, and What to Watch Before Tuesday\u2019s Open",
+          "summary": "Comfort Systems USA (NYSE: FIX) ended Monday's session in the spotlight, having joined the S&P 500 and trading around $950.79 in after-hours quotes. Key factors include the impact of S&P 500 inclusion, strong financial performance driven by data center demand, and a planned leadership transition aimed at continuity. Investors should monitor upcoming U.S. economic data and anticipate lower liquidity during the holiday week.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/comfort-systems-usa-fix-stock-after-hours-today-dec-22-2025-sp-500-inclusion-leadership-shift-and-what-to-watch-before-tuesdays-open/",
+          "time_published": "20251222T230952",
+          "relevance": 1.0,
+          "sentiment": 0.406711,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "Comfort Systems USA (FIX) Stock: S&P 500 Addition, Leadership Shake-Up, Analyst Targets, and What to Watch Before the Next Market Open",
+          "summary": "Comfort Systems USA (FIX) has recently been added to the S&P 500, effective December 22, 2025, a move expected to increase its visibility and liquidity. The company also announced leadership transitions, including a new President and COO, effective January 1, 2026. With a record backlog of $9.38 billion and strong Q3 2025 results driven by technology-focused demand, analysts maintain a broadly bullish outlook despite a premium valuation.",
+          "source": "ts2.tech",
+          "url": "https://ts2.tech/en/comfort-systems-usa-fix-stock-sp-500-addition-leadership-shake-up-analyst-targets-and-what-to-watch-before-the-next-market-open/",
+          "time_published": "20251222T230950",
+          "relevance": 1.0,
+          "sentiment": 0.444402,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        },
+        {
+          "title": "CSW Industrials (NYSE:CSW) - Stock Analysis",
+          "summary": "This report provides a comprehensive stock analysis of CSW Industrials (NYSE:CSW), detailing its market performance, financial health, growth forecasts, and recent news. The company is involved in various industrial products and is forecast to grow earnings by 15.58% per year. The analysis also covers insider selling activities and analyst consensus targets.",
+          "source": "Simply Wall Street",
+          "url": "https://simplywall.st/stocks/us/capital-goods/nyse-csw/csw-industrials",
+          "time_published": "20251222T230913",
+          "relevance": 1.0,
+          "sentiment": 0.444245,
+          "sentiment_label": "Bullish",
+          "priority": 1
+        }
+      ]
+    },
+    "key_themes": [
+      "AI infrastructure driving selective tech and utility partnerships",
+      "Healthcare innovation with breakthrough therapy designations",
+      "Industrial sector breakout momentum facing headwinds",
+      "Financial sector losing steam despite strong YTD performance",
+      "Consumer sectors under pressure from earnings concerns"
+    ],
+    "sector_implications": "Mixed news sentiment supports neutral rotation positioning, with AI themes favoring selective tech exposure while consumer and defensive sectors face fundamental challenges."
+  },
+  "sector_summary": "Market is in EARLY_EXPANSION cycle phase with LOW confidence, showing NEUTRAL rotation bias despite L1's aggressive stance. Technology (XLK), Healthcare (XLV), and Communication Services (XLC) remain in neutral noise range. Avoid Energy (XLE), Real Estate (XLRE), Utilities (XLU), and Consumer Staples (XLP) which show persistent weakness. No crossover alerts present.",
+  "cycle_phase": "EARLY_EXPANSION",
+  "cycle_confidence": "LOW",
+  "rotation_bias": "NEUTRAL",
+  "rotation_velocity": "MODERATE",
+  "crossover_alerts": [],
+  "sector_rankings": [
+    {
+      "etf": "XLK",
+      "sector_name": "Technology",
+      "rank": 1,
+      "mrs_20": 0.32,
+      "mrs_5": 0.5,
+      "roc_3": 0.98,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range with modest positive momentum (MRS_20=0.32%, MRS_5=0.50%). Despite dividend announcements and mixed tech earnings, the sector maintains neutral positioning within the noise band. AI adoption themes and S&P 500 additions provide fundamental support.",
+      "news_context": {
+        "sentiment": 0.142,
+        "article_count": 12,
+        "themes": "Dividend distributions, S&P 500 additions, AI adoption, mixed earnings results"
+      }
+    },
+    {
+      "etf": "XLV",
+      "sector_name": "Healthcare",
+      "rank": 2,
+      "mrs_20": 0.28,
+      "mrs_5": -0.46,
+      "roc_3": -1.39,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range with slight negative momentum (MRS_20=0.28%, MRS_5=-0.46%). Healthcare shows resilience despite recent weakness, supported by breakthrough therapy designations and digital health innovations. Strong news sentiment (+0.354) suggests underlying strength.",
+      "news_context": {
+        "sentiment": 0.354,
+        "article_count": 10,
+        "themes": "Breakthrough therapy designations, digital health platforms, biotech financing, drug approvals"
+      }
+    },
+    {
+      "etf": "XLC",
+      "sector_name": "Communication Services",
+      "rank": 3,
+      "mrs_20": 0.41,
+      "mrs_5": -0.92,
+      "roc_3": -2.3,
+      "zone": "E",
+      "signal": "NEUTRAL",
+      "modifier": 1.0,
+      "rationale": "Zone E noise range with deteriorating momentum (MRS_20=0.41%, MRS_5=-0.92%). Communication services facing headwinds from cybersecurity concerns and pricing controversies, though dividend distributions provide some support.",
+      "news_context": {
+        "sentiment": 0.139,
+        "article_count": 11,
+        "themes": "Dividend distributions, cybersecurity litigation, pricing algorithm controversies, S&P 500 additions"
+      }
+    },
+    {
+      "etf": "XLI",
+      "sector_name": "Industrials",
+      "rank": 4,
+      "mrs_20": 1.43,
+      "mrs_5": -0.05,
+      "roc_3": -0.64,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=1.43%, MRS_5=-0.05%). Despite sector breakout narratives and strong earnings from some names, momentum is stalling. Mixed fundamentals across industrial stocks create uncertainty.",
+      "news_context": {
+        "sentiment": 0.302,
+        "article_count": 13,
+        "themes": "Sector breakout momentum, airline earnings previews, mixed industrial fundamentals, infrastructure demand"
+      }
+    },
+    {
+      "etf": "XLB",
+      "sector_name": "Basic Materials",
+      "rank": 5,
+      "mrs_20": 2.42,
+      "mrs_5": -0.12,
+      "roc_3": -2.0,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=2.42%, MRS_5=-0.12%). Materials showing signs of fatigue despite strong recent performance. S&P 500 additions and data center demand provide some offset to weakening momentum.",
+      "news_context": {
+        "sentiment": 0.322,
+        "article_count": 10,
+        "themes": "S&P 500 inclusions, data center infrastructure demand, mixed industrial fundamentals"
+      }
+    },
+    {
+      "etf": "XLF",
+      "sector_name": "Financial Services",
+      "rank": 6,
+      "mrs_20": 2.48,
+      "mrs_5": -0.15,
+      "roc_3": -2.03,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=2.48%, MRS_5=-0.15%). Financials losing momentum despite strong year-to-date performance. Banking earnings expectations remain positive, but negative news sentiment (-0.250) suggests caution.",
+      "news_context": {
+        "sentiment": -0.25,
+        "article_count": 11,
+        "themes": "Banking earnings expectations, leadership transitions, cash flow concerns, international expansion"
+      }
+    },
+    {
+      "etf": "XLY",
+      "sector_name": "Consumer Cyclical",
+      "rank": 7,
+      "mrs_20": 2.02,
+      "mrs_5": -0.77,
+      "roc_3": -2.28,
+      "zone": "B",
+      "signal": "WEAKENING",
+      "modifier": 0.75,
+      "rationale": "Zone B warning - MRS_5 turning negative (MRS_20=2.02%, MRS_5=-0.77%). Consumer discretionary facing headwinds from earnings disappointments and bankruptcy filings. Nike earnings concerns and retail sector stress evident.",
+      "news_context": {
+        "sentiment": -0.04,
+        "article_count": 11,
+        "themes": "Nike earnings concerns, retail bankruptcy filings, valuation assessments, consumer spending pressures"
+      }
+    },
+    {
+      "etf": "XLE",
+      "sector_name": "Energy",
+      "rank": 8,
+      "mrs_20": -1.81,
+      "mrs_5": -0.72,
+      "roc_3": -2.86,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with continued weakness (MRS_20=-1.81%, MRS_5=-0.72%). Energy sector remains under pressure despite some positive news around renewable projects and fleet management contracts. Negative momentum persists.",
+      "news_context": {
+        "sentiment": 0.283,
+        "article_count": 10,
+        "themes": "Fleet management contracts, renewable energy projects, automotive earnings, infrastructure partnerships"
+      }
+    },
+    {
+      "etf": "XLRE",
+      "sector_name": "Real Estate",
+      "rank": 9,
+      "mrs_20": -1.2,
+      "mrs_5": -1.18,
+      "roc_3": -2.78,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with persistent weakness (MRS_20=-1.20%, MRS_5=-1.18%). Real estate struggling despite positive news about potential breakouts and data center REIT exposure. Current momentum remains negative.",
+      "news_context": {
+        "sentiment": 0.131,
+        "article_count": 12,
+        "themes": "Potential breakout scenarios, data center REIT exposure, cap rate compression, short interest dynamics"
+      }
+    },
+    {
+      "etf": "XLU",
+      "sector_name": "Utilities",
+      "rank": 10,
+      "mrs_20": -2.22,
+      "mrs_5": -1.59,
+      "roc_3": -2.03,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with significant weakness (MRS_20=-2.22%, MRS_5=-1.59%). Utilities underperforming despite positive news around AI infrastructure partnerships and renewable energy projects. Defensive rotation not materializing.",
+      "news_context": {
+        "sentiment": 0.283,
+        "article_count": 10,
+        "themes": "AI infrastructure partnerships, renewable energy projects, nuclear restarts, rate agreements"
+      }
+    },
+    {
+      "etf": "XLP",
+      "sector_name": "Consumer Defensive",
+      "rank": 11,
+      "mrs_20": -0.86,
+      "mrs_5": -2.1,
+      "roc_3": -4.39,
+      "zone": "C",
+      "signal": "AVOID",
+      "modifier": 0.5,
+      "rationale": "Zone D ignition with severe momentum deterioration (MRS_20=-0.86%, MRS_5=-2.10%). Consumer staples showing significant weakness with earnings concerns and sector stress. Defensive characteristics not providing protection in current environment.",
+      "news_context": {
+        "sentiment": -0.043,
+        "article_count": 11,
+        "themes": "Earnings disappointments, valuation concerns, bankruptcy filings, pricing strategy issues"
+      }
+    }
+  ],
+  "sector_modifiers": {
+    "XLK": 1.0,
+    "XLV": 1.0,
+    "XLC": 1.0,
+    "XLI": 0.75,
+    "XLB": 0.75,
+    "XLF": 0.75,
+    "XLY": 0.75,
+    "XLE": 0.5,
+    "XLRE": 0.5,
+    "XLU": 0.5,
+    "XLP": 0.5
+  },
+  "cycle_reasoning": "EARLY_EXPANSION classification with LOW confidence reflects the market's transitional state. While L1 macro conditions suggest improving risk appetite with VIX at 52-week lows, sector rotation patterns don't show the typical early-cycle leadership from cyclicals and growth sectors. Instead, we see broad-based momentum deterioration across multiple sectors, suggesting the expansion phase is either very early or facing structural headwinds that prevent clear directional rotation.",
+  "rotation_analysis": "The rotation landscape shows a market in transition, with no clear offensive or defensive leadership emerging. Technology maintains its relative strength in the noise zone, supported by AI adoption themes and S&P 500 additions. Healthcare shows resilience despite recent weakness, buoyed by strong news sentiment around drug approvals and digital health innovations. However, previously strong sectors like Industrials, Materials, and Financials are showing early warning signs with negative 5-day momentum despite positive 20-day positioning. The defensive sectors (Utilities, Consumer Staples) are failing to attract capital despite their traditional safe-haven characteristics, while Energy and Real Estate remain in avoidance territory. This mixed rotation pattern suggests market participants are being selective rather than making broad sector bets.",
+  "l1_alignment": "L1's NORMAL regime with AGGRESSIVE bias suggests risk-on conditions, but L2's NEUTRAL rotation bias reflects the reality of narrow market participation and mixed sector momentum. The disconnect indicates that while macro conditions are supportive, sector-specific factors and selectivity are dominating rotation patterns. This aligns with L1's observation of improving but narrow breadth recovery.",
+  "key_insight": "Despite improving macro conditions and VIX at 52-week lows, sector rotation remains constrained by narrow participation and mixed fundamentals, creating a disconnect between L1's aggressive stance and L2's neutral positioning that favors selectivity over broad sector bets.",
+  "markdown_report": "",
+  "reasoning": "Cycle Phase: EARLY_EXPANSION (LOW confidence)\n\n=== 4-STEP REASONING AUDIT ===\n\nStep 1 - L1 Alignment:\nL1 shows NORMAL regime with AGGRESSIVE bias and improving risk appetite. However, L2 rotation shows NEUTRAL bias with no offensive leadership, creating a disconnect. VIX at 52-week lows supports risk-on environment but narrow participation limits sector momentum.\n\nStep 2 - Signal Validation:\nSignals validated against v6.1 thresholds: 3 NEUTRAL sectors in Zone E, 4 WEAKENING sectors in Zone B showing momentum deterioration, 4 AVOID sectors in Zone D. No bullish signals present despite improving macro backdrop.\n\nStep 3 - Zone Analysis:\nActive zones: E (3 sectors in noise), B (4 sectors weakening), D (4 sectors in ignition/avoidance). No sectors in momentum zones A or F. Rotation direction is mixed with broad-based weakness developing across previously strong sectors.\n\nStep 4 - Conflict Resolution:\nL1 AGGRESSIVE vs L2 NEUTRAL conflict resolved by recognizing narrow market participation. While macro conditions improve, sector rotation remains constrained. News sentiment mixed with healthcare and industrials positive but financials negative.\n\n=== ADDITIONAL CONTEXT ===\n\nCycle Reasoning:\nEARLY_EXPANSION classification with LOW confidence reflects the market's transitional state. While L1 macro conditions suggest improving risk appetite with VIX at 52-week lows, sector rotation patterns don't show the typical early-cycle leadership from cyclicals and growth sectors. Instead, we see broad-based momentum deterioration across multiple sectors, suggesting the expansion phase is either very early or facing structural headwinds that prevent clear directional rotation.\n\nKey Insight: Despite improving macro conditions and VIX at 52-week lows, sector rotation remains constrained by narrow participation and mixed fundamentals, creating a disconnect between L1's aggressive stance and L2's neutral positioning that favors selectivity over broad sector bets."
+}

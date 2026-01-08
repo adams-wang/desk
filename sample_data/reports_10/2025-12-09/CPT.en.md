@@ -1,0 +1,160 @@
+## CPT: Camden Property Trust - XLRE: Real Estate
+
+### Executive Summary
+
+No thesis match: MRS_10 -3.8% below STRENGTH zone (3.0-6.0%); PEG 8.96 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge. Caution: momentum weakening (-2.0% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($98.31)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 5
+- **Sentiment:** Bullish (Bullish: 2, Bearish: 0)
+
+**1. Arrowstreet Capital Limited Partnership Increases Stake in Camden Property Trust $CPT**
+- Source: MarketBeat | 20251208T084630 | Bullish | Relevance: 98%
+- Arrowstreet Capital Limited Partnership significantly increased its holdings in Camden Property Trust (NYSE:CPT) by 213.3% during the second quarter, now owning 183,517 shares valued at $20.68 million. Other hedge funds also adjusted their stakes, with institutional investors collectively owning 97.22% of the company. Analysts currently have an average "Hold" rating on CPT with a consensus price target of $117.99.
+
+**2. Invesco Ltd. Increases Stock Position in Camden Property Trust $CPT**
+- Source: MarketBeat | 20251207T104452 | Neutral | Relevance: 98%
+-  Invesco Ltd. significantly increased its stake in Camden Property Trust (NYSE:CPT) by 34.5% in Q2 2025, now owning 2.22% of the company worth $267.6 million. Despite this, analysts have mostly maintained a "Hold" rating, with some downgrades by firms like Goldman Sachs to "Sell" and an average target price of $117.99. Camden Property Trust reported a slight EPS beat and offers a 4.0% dividend yield, though with a high payout ratio.
+
+**3. Camden Property Trust Defies Market Headwinds with Robust Quarterly Performance**
+- Source: AD HOC NEWS | 20251207T150758 | Bullish | Relevance: 97%
+- Camden Property Trust reported strong Q3 2025 results, with GAAP earnings per share of $1.00 and Core FFO of $1.70 per share, exceeding analyst expectations and leading to an upward revision of full-year guidance. Despite this operational strength and confidence reflected in their dividend and outlook, the company's stock has faced recent pressure, trading below its 200-day moving average. Analysts maintain a "Hold" recommendation, with the next catalyst expected in February with the release of annual results.
+
+**4. Jump Financial LLC Has $10.62 Million Stock Holdings in Camden Property Trust $CPT**
+- Source: MarketBeat | 20251208T114506 | Somewhat-Bullish | Relevance: 97%
+-  Jump Financial LLC significantly increased its stake in Camden Property Trust (NYSE:CPT) by 210% in the second quarter, holding 94,268 shares valued at $10.62 million. The real estate investment trust recently declared a quarterly dividend of $1.05 per share, with an ex-dividend date of December 17th, and reported quarterly EPS of $1.70, beating estimates. Analysts generally hold a "Hold" rating on CPT with a consensus price target of $117.99.
+
+**5. Tangible book value per share of Camden Property Trust – GETTEX:CAL**
+- Source: TradingView | 20251208T070901 | Neutral | Relevance: 97%
+-  This article provides financial data for Camden Property Trust (GETTEX:CAL), specifically focusing on its tangible book value per share. It highlights the market status, shows links to supercharts and various financial information, and contextualizes the data with market data provided by ICE Data Services and FactSet.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 0, Lowers: 8)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-11-25 | Wells Fargo | $110 | $111 | -1% |
+| 2025-11-25 | Barclays | $118 | $127 | -7% |
+| 2025-11-24 | Mizuho | $114 | $115 | -1% |
+| 2025-11-13 | Morgan Stanley | $123 | $124 | -1% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-11-25 | Wells Fargo | main | Equal-Weight |
+| 2025-11-25 | Barclays | down | Equal-Weight |
+| 2025-11-24 | Mizuho | main | Outperform |
+| 2025-11-13 | Morgan Stanley | main | Equal-Weight |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 56.7% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 8 / 2 |
+
+**Top Holders:**
+- Vanguard Group Inc: 16.0% (-0.5%)
+- Blackrock Inc.: 10.8% (+3.2%)
+- State Street Corpora: 7.1% (+1.5%)
+- FMR, LLC: 5.1% (+17.5%)
+- Viking Global Invest: 3.6% (+41.6%)
+
+### Key Risks
+
+1. Momentum deterioration: MRS_10 falling (-2.0% 5d) with bearish MACD, trend may be turning.
+2. Valuation stretched: PEG 9.0x requires aggressive growth execution.
+3. Long-term trend broken: trading 8.7% below SMA200.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 8.96 signals overvaluation risk, limited margin of safety. Forward P/E 76.0x stretched relative to 17% growth. Quality metrics strong (margin 17%). Analyst sentiment negative (8 target cuts vs 0 raises). Institutional flow bullish (8 buying vs 2 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $10.9B |
+| Beta | 0.82 |
+| 52W Range | $97.17 - $126.55 |
+| Short Interest | 5.2% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 8.96 |
+| Forward P/E | 76.0 |
+| Current P/E | 89.3 |
+| YoY Growth | 17.4% |
+| EPS Direction | None |
+
+### Technicals
+
+MRS_10 deteriorating from -1.8% to -3.8% (-2.0% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 6.8pp (needs >3.0% for momentum thesis). Below SMA200 (0.91x), long-term trend not supportive. RSI neutral at 40.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | -3.81% (CS: 16) | Weak |
+| RSI_14 | 40.4 | Neutral |
+| MACD Histogram | -0.28 | Bearish |
+| vs SMA20 | 0.978x | Below |
+| vs SMA50 | 0.987x | Below |
+| vs SMA200 | 0.913x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $101.69
+- **Stop Loss:** $98.31 (3.3% risk)
+- **Target:** $105.07 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 147
+- **Position Value:** $14,948.43
+- **Portfolio %:** 14.95%
+- **Risk Dollars:** $500.00
+- **Risk Per Trade:** 0.50%
+- **Modifiers:** L1 100% | L2 50% | Combined 0.50x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | AVOID (Zone C) | 0.50x |
+
+*NORMAL regime with moderate risk appetite. VIX remains in the mid-range, breadth is moderate, and yield curve is flat but not inverted—indicating standard late-cycle conditions. Upbeat earnings and positive tech momentum are offset by cautious guidance in consumer sectors, suggesting selective positioning is favored.*
+
+### Earnings
+
+**Next:** 2026-02-05 (Est: $0.28)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $0.28 | $0.21 | -23.2% |
+| 2025Q2 | $0.33 | $0.31 | -6.9% |
+| 2025Q1 | $0.28 | $0.36 | +29.5% |
+| 2024Q4 | $0.42 | $0.37 | -11.9% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*

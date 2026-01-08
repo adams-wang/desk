@@ -1,0 +1,146 @@
+## UPS: United Parcel Service, Inc. - XLI: Industrials
+
+### Executive Summary
+
+No thesis match: MRS_10 -0.8% below STRENGTH zone (3.0-6.0%); PEG 1.33 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($90.72)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 6
+- **Sentiment:** Neutral (Bullish: 0, Bearish: 0)
+
+**1. Is FedEx Stock Underperforming the Nasdaq?**
+- Source: Yahoo Finance | 20251201T142100 | Neutral | Relevance: 75%
+- FedEx (FDX) stock has seen a mixed performance, outperforming the Nasdaq Composite ($NASX) in the short term but lagging on a year-to-date and 52-week basis. Despite this, analysts maintain a "Moderate Buy" rating, and the company reported solid Q1 2026 results with strong earnings growth and a positive fiscal 2026 outlook, including share repurchases and the planned spin-off of FedEx Freight.
+
+**2. Is FedEx Stock Underperforming the Nasdaq?**
+- Source: Barchart.com | 20251201T143559 | Neutral | Relevance: 74%
+- FedEx (FDX) has a market capitalization of $65 billion and has shown mixed performance compared to the Nasdaq Composite ($NASX). While FDX stock outperformed NASX over the past three months with an 18.5% gain versus 7.7%, it has lagged significantly year-to-date and over the past 52 weeks. The company's Q1 2026 results showed strong earnings growth and a positive fiscal 2026 outlook, leading to a "Moderate Buy" consensus from analysts.
+
+**3. FedEx: A Time To Take Profit, A Time To Lighten Shares (Rating Downgrade) (NYSE:FDX)**
+- Source: Seeking Alpha | 20251201T122200 | Neutral | Relevance: 64%
+- Despite fundamental resilience, FedEx (FDX) is being downgraded from Buy to Hold due to an overbought condition and emerging downside risks. While the company demonstrates stable revenue growth, efficient cost management, and adequate cash reserves, current valuation metrics and technical analysis suggest limited upside potential. This downgrade advises profit-taking after the stock's recent 20%+ increase.
+
+**4. Prologis Rides E-Commerce Trends Despite Valuation Hurdles**
+- Source: Finimize | 20251130T103708 | Somewhat-Bullish | Relevance: 64%
+- Prologis (PLD), a major player in industrial logistics real estate, is benefiting from e-commerce growth and supply chain trends, driving strong leasing activity and rental increases. Despite outperforming its real estate peers with a 22% gain year-to-date in 2025, the company faces valuation challenges with high leverage and premium pricing. Investors are advised to monitor interest rates, FFO growth, and market signals due to these risks, though long-term prospects remain strong.
+
+**5. Federal Realty Announces the Acquisition of Village Pointe in Omaha, NE**
+- Source: PR Newswire | 20251201T123000 | Neutral | Relevance: 64%
+- Federal Realty Investment Trust acquired Village Pointe, a 453,000-square-foot open-air lifestyle center in Omaha, NE, for $153.3 million. This acquisition aligns with Federal Realty's strategy of investing in market-dominant retail assets in affluent areas with growth opportunities. The company plans to enhance merchandising and tenant mix to increase value, similar to its successful approach with other properties.
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 1 ($0.00M) |
+| Sells | 0 ($0.00M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 32.7% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 7 / 2 |
+
+**Top Holders:**
+- Vanguard Group Inc: 9.1% (+0.6%)
+- Blackrock Inc.: 6.5% (-3.9%)
+- State Street Corpora: 4.2% (+0.9%)
+- Charles Schwab Inves: 3.6% (+1.9%)
+- FMR, LLC: 2.8% (+25.2%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- M&A activity or partnership announcements may unlock value.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 1.33 suggests fair value with growth premium. Forward P/E 13.3x stretched relative to 4% growth. Quality metrics strong (ROE 34%). Balance sheet: $1.5B free cash flow. Institutional flow bullish (7 buying vs 2 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $84.5B |
+| Beta | 1.09 |
+| 52W Range | $82.00 - $136.99 |
+| Short Interest | 2.4% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 1.33 |
+| Forward P/E | 13.3 |
+| Current P/E | 13.9 |
+| YoY Growth | 4.3% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 stable at -0.8% (minimal 5-day change). Below STRENGTH zone by 3.8pp (needs >3.0% for momentum thesis). Below SMA200 (0.98x), long-term trend not supportive. RSI neutral at 57.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | -0.84% (CS: 47) | Neutral |
+| RSI_14 | 56.6 | Neutral |
+| MACD Histogram | -0.15 | Bearish |
+| vs SMA20 | 1.010x | Above |
+| vs SMA50 | 1.060x | Above |
+| vs SMA200 | 0.982x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $95.22
+- **Stop Loss:** $90.72 (4.7% risk)
+- **Target:** $99.72 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 111
+- **Position Value:** $10,569.42
+- **Portfolio %:** 10.57%
+- **Risk Dollars:** $500.00
+- **Risk Per Trade:** 0.50%
+- **Modifiers:** L1 100% | L2 50% | Combined 0.50x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | AVOID (Zone C) | 0.50x |
+
+### Earnings
+
+**Next:** 2026-01-27 (Est: $2.18)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $1.30 | $1.74 | +33.9% |
+| 2025Q2 | $1.57 | $1.55 | -1.0% |
+| 2025Q1 | $1.38 | $1.49 | +7.9% |
+| 2024Q4 | $2.53 | $2.75 | +8.6% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*

@@ -1,0 +1,143 @@
+## OKTA: Okta, Inc. - XLK: Technology
+
+### Executive Summary
+
+VALUE thesis: PEG 0.43 indicates fundamental undervaluation. Consistent execution (4/4 quarters beat estimates).
+
+- **Horizon:** 20-60 days (position)
+- **Risk Profile:** Lower - fundamental undervaluation
+- **Stop Type:** Fixed 2xATR ($77.21)
+- **If Wrong:** Exit if fundamentals deteriorate or stop hit
+- **Invalidation:** PEG > 1.5 or earnings miss
+
+### Analyst Activity
+
+**Target Signal:** BEARISH (Raises: 1, Lowers: 15)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-04 | BTIG | $116 | $116 | 0% |
+| 2025-12-03 | DA Davidson | $140 | $140 | 0% |
+| 2025-12-03 | Citigroup | $100 | $110 | -9% |
+| 2025-12-03 | Goldman Sachs | $117 | $137 | -15% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-04 | BTIG | reit | Buy |
+| 2025-12-03 | DA Davidson | main | Buy |
+| 2025-12-03 | Citigroup | main | Neutral |
+| 2025-12-03 | Goldman Sachs | main | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 1 ($0.00M) |
+| Sells | 16 ($1.65M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 45.9% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 6 / 4 |
+
+**Top Holders:**
+- Vanguard Group Inc: 11.7% (+5.7%)
+- Blackrock Inc.: 10.9% (-0.1%)
+- FMR, LLC: 5.8% (-39.5%)
+- State Street Corpora: 3.5% (+0.3%)
+- First Trust Advisors: 2.8% (-4.0%)
+
+### Key Risks
+
+1. Long-term trend broken: trading 16.3% below SMA200.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 0.43 indicates undervaluation relative to growth. Forward P/E 22.2x stretched relative to 7% growth. Balance sheet: low leverage (D/E 0.34). Analyst sentiment negative (15 target cuts vs 1 raises). Insider selling cluster ($1.7M in 90 days), potential headwind. Institutional flow bullish (6 buying vs 4 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $15.9B |
+| Beta | 0.78 |
+| 52W Range | $75.05 - $127.57 |
+| Short Interest | 4.1% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.43 |
+| Forward P/E | 22.2 |
+| Current P/E | 23.8 |
+| YoY Growth | 7.4% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_20 improving modestly (+0.8% over 5 days). Below STRENGTH zone by 6.5pp (needs >4.0% for momentum thesis). MRS_5 turning positive (0.5%) - potential reversal signal. Below SMA200 (0.84x), long-term trend not supportive. RSI neutral at 43. Elevated volume (2.5x 20MA), institutional activity likely.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_20 | -2.55% (CS: 30) | Weak |
+| RSI_14 | 43.4 | Neutral |
+| MACD Histogram | 0.19 | Bullish |
+| vs SMA20 | 0.991x | Below |
+| vs SMA50 | 0.938x | Below |
+| vs SMA200 | 0.837x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** VALUE
+
+### Trade Setup
+
+- **Entry:** $81.87
+- **Stop Loss:** $77.21 (5.7% risk)
+- **Target:** $91.19 (R:R method)
+- **Risk/Reward:** 2.00:1
+- **Target Reasoning:** VALUE thesis targets 2.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 257
+- **Position Value:** $21,040.59
+- **Portfolio %:** 21.04%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 100% | L2 120% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | IGNITION (Zone D) | 1.20x |
+
+*NORMAL regime with moderate improvement trajectory. VIX compression from 20.5 to 16.6 over 5 days signals declining fear, while 47% breadth shows narrow but recovering participation. Fed meeting in 6 days creates near-term uncertainty, but AI sector momentum and improving technical setups support selective positioning.*
+
+### Earnings
+
+**Next:** 2026-03-02 (Est: $0.85)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q4 | $0.76 | $0.82 | +8.1% |
+| 2025Q3 | $0.85 | $0.91 | +7.6% |
+| 2025Q2 | $0.77 | $0.86 | +11.5% |
+| 2025Q1 | $0.74 | $0.78 | +5.9% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_20*

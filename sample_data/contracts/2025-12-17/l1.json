@@ -1,0 +1,242 @@
+{
+  "contract_id": "l1_2025-12-17",
+  "trading_date": "2025-12-17",
+  "generated_at": "2025-12-18T07:30:21.741336",
+  "valid_until": "2025-12-19T07:30:21.741336",
+  "agent": "L1 Macro Strategist",
+  "model": "claude-sonnet-4-20250514",
+  "news_context": {
+    "article_count": 15,
+    "avg_sentiment": 0.05,
+    "dominant_topic": "financial_markets",
+    "key_themes": [
+      "AI infrastructure cost concerns pressuring tech stocks",
+      "Regional banking consolidation accelerating",
+      "Mixed corporate earnings with sector divergence"
+    ],
+    "market_implications": "Tech sector weakness from AI capex concerns is driving broader risk-off sentiment despite positive developments in other sectors",
+    "headlines": [
+      {
+        "title": "Intel Stock (INTC) Slumps 3% Wednesday, Edges Up After Hours: What to Know Before the Market Opens on Dec. 18, 2025",
+        "summary": "Intel's stock (INTC) fell 3.4% on Wednesday, closing at $36.05, amid a broad tech sector downturn and new scrutiny over its use of China-linked chipmaking tools. However, the stock saw a modest after-hours bounce of about 0.5% to $36.22, partly influenced by stronger-than-expected guidance from Micron Technology. Investors are now looking ahead to Thursday's market open, with key U.S. inflation data (CPI) and other economic releases expected to drive market sentiment, potentially overshadowing Intel-specific news.",
+        "url": "https://ts2.tech/en/intel-stock-intc-slumps-3-wednesday-edges-up-after-hours-what-to-know-before-the-market-opens-on-dec-18-2025/",
+        "source": "ts2.tech",
+        "time_published": "20251217T230943",
+        "sentiment": 0.045673,
+        "sentiment_label": "Neutral",
+        "relevance": 0.828047,
+        "topics": [
+          "financial_markets",
+          "economy_monetary",
+          "technology"
+        ]
+      },
+      {
+        "title": "New Oriental\u2019s Removal From Hang Seng China Enterprises Index Might Change The Case For Investing In EDU",
+        "summary": "New Oriental Education & Technology Group Inc. (NYSE:EDU) was removed from the Hang Seng China Enterprises Index on December 5, 2025, which could impact its investor base and trading profile. The article suggests this removal is more about index composition than fundamentals, emphasizing the company's pivot towards non-academic services and its ongoing dividend and buyback programs as key factors for investors. It also highlights the company's revenue and earnings forecasts, along with various fair value estimates from the Simply Wall St Community.",
+        "url": "https://simplywall.st/stocks/us/consumer-services/nyse-edu/new-oriental-education-technology-group/news/new-orientals-removal-from-hang-seng-china-enterprises-index/amp",
+        "source": "Simply Wall Street",
+        "time_published": "20251217T231054",
+        "sentiment": 0.121075,
+        "sentiment_label": "Neutral",
+        "relevance": 0.639088,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "finance"
+        ]
+      },
+      {
+        "title": "(CSGS) Volatility Zones as Tactical Triggers",
+        "summary": "This article provides a detailed analysis of CSGS, highlighting neutral near and mid-term readings that could moderate a long-term positive bias. It identifies a mid-channel oscillation pattern and presents various AI-generated trading strategies. The analysis offers specific entry zones, targets, and stop losses for different risk profiles.",
+        "url": "https://news.stocktradersdaily.com/news_release/34/CSGS_Volatility_Zones_as_Tactical_Triggers_121725115401_1766033641.html",
+        "source": "Stock Traders Daily",
+        "time_published": "20251217T235400",
+        "sentiment": 0.032232,
+        "sentiment_label": "Neutral",
+        "relevance": 0.633761,
+        "topics": [
+          "financial_markets",
+          "economy_macro"
+        ]
+      },
+      {
+        "title": "SolarEdge Technologies to Benefit From Rising U.S. Solar Demand",
+        "summary": "SolarEdge Technologies (SEDG) is poised to benefit from increasing U.S. solar demand by expanding its domestic manufacturing capacity for optimized inverter solutions and batteries. The company has streamlined its U.S. operations, producing its full residential product suite locally, but faces risks from higher U.S. tariffs on imported subcomponents. Despite these challenges, SolarEdge's strategic focus on the U.S. market has led to significant share price growth, outperforming the industry.",
+        "url": "https://www.theglobeandmail.com/investing/markets/stocks/SEDG/pressreleases/36668783/solaredge-technologies-to-benefit-from-rising-us-solar-demand/",
+        "source": "The Globe and Mail",
+        "time_published": "20251217T230923",
+        "sentiment": 0.391925,
+        "sentiment_label": "Bullish",
+        "relevance": 0.607359,
+        "topics": [
+          "earnings",
+          "energy_transportation",
+          "manufacturing"
+        ]
+      },
+      {
+        "title": "Avoiding Lag: Real-Time Signals in (COHU) Movement",
+        "summary": "This article analyzes Cohu Inc. (NASDAQ: COHU), highlighting conflicting sentiment and a mid-channel oscillation pattern. It presents three AI-generated trading strategies\u2014Position, Momentum Breakout, and Risk Hedging\u2014tailored for different risk profiles, and provides multi-timeframe signal analysis with support and resistance levels. The piece emphasizes the importance of real-time signals for optimizing position sizing and managing risk.",
+        "url": "https://news.stocktradersdaily.com/news_release/12/Avoiding_Lag:_Real-Time_Signals_in_COHU_Movement_121725113401_1766032441.html",
+        "source": "Stock Traders Daily",
+        "time_published": "20251217T233400",
+        "sentiment": 0.134063,
+        "sentiment_label": "Neutral",
+        "relevance": 1.0,
+        "topics": [
+          "financial_markets",
+          "technology"
+        ]
+      },
+      {
+        "title": "XOVR ETF Volume Could Reach $100M Today, 20x Average, on 4% SpaceX Exposure",
+        "summary": "The XOVR ETF is projected to hit $100 million in trading volume today, a 20-fold increase over its average, driven by investor interest in its 4% exposure to SpaceX. This surge highlights how a small, high-profile component can significantly boost an ETF's trading activity, drawing parallels to speculative fervor seen in cryptocurrency markets. The unusual volume signals potential short-term trading opportunities and broader shifts in asset valuation linked to innovative sectors.",
+        "url": "https://blockchain.news/flashnews/xovr-etf-volume-could-reach-100m-today-20x-average-on-4-spacex-exposure",
+        "source": "Blockchain News",
+        "time_published": "20251217T230949",
+        "sentiment": 0.402723,
+        "sentiment_label": "Bullish",
+        "relevance": 1.0,
+        "topics": [
+          "financial_markets",
+          "technology",
+          "blockchain"
+        ]
+      },
+      {
+        "title": "Kingsway Financial Services (NYSE:KFS) Director Joseph Stilwell Sells 10,429 Shares",
+        "summary": "Kingsway Financial Services Director Joseph Stilwell recently sold 10,429 shares of the company's stock for $12.80 per share, totaling $133,491.20. This is part of a series of sales between December 8th and 16th, reducing his ownership stake by 1.91% while retaining over 534,000 shares. The stock traded down 3.4% to $12.28 after the report of a quarterly loss and negative financial metrics, leading to a consensus \"Sell\" rating from analysts.",
+        "url": "https://www.marketbeat.com/instant-alerts/kingsway-financial-services-nysekfs-director-joseph-stilwell-sells-10429-shares-2025-12-17/",
+        "source": "MarketBeat",
+        "time_published": "20251217T231123",
+        "sentiment": -0.101979,
+        "sentiment_label": "Neutral",
+        "relevance": 0.945922,
+        "topics": [
+          "financial_markets",
+          "earnings",
+          "finance"
+        ]
+      },
+      {
+        "title": "EverCommerce (NASDAQ:EVCM) CFO Sells $102,422.00 in Stock",
+        "summary": "EverCommerce (NASDAQ:EVCM) CFO Ryan Siurek sold 8,300 shares of the company's stock on December 15th for $102,422, reducing his stake by 3.53%. The transaction comes as the company's stock traded down $1.25 to $12.15 on heavy volume, with hedge funds holding a significant portion of shares and analysts issuing a \"Hold\" consensus rating.",
+        "url": "https://www.marketbeat.com/instant-alerts/evercommerce-nasdaqevcm-cfo-sells-10242200-in-stock-2025-12-17/",
+        "source": "MarketBeat",
+        "time_published": "20251217T231112",
+        "sentiment": -0.217923,
+        "sentiment_label": "Somewhat-Bearish",
+        "relevance": 0.928065,
+        "topics": [
+          "finance",
+          "financial_markets"
+        ]
+      },
+      {
+        "title": "DoubleDown Interactive Co., Ltd. Announces Pricing of $18.6 Million Secondary Offering of American Depositary Shares",
+        "summary": "DoubleDown Interactive Co., Ltd. announced the pricing of a secondary offering of 2,330,468 American Depositary Shares (ADSs) at $8.00 per ADS, which will be sold by the Selling Shareholder, STIC Special Situation Diamond Limited, for a total of $18.6 million. The company will not receive any proceeds from this offering, and it will not change the number of outstanding common shares. The transaction is expected to close around December 18, 2025, with Roth Capital Partners and Texas Capital Securities managing the offering.",
+        "url": "https://www.quiverquant.com/news/DoubleDown+Interactive+Co.%2C+Ltd.+Announces+Pricing+of+%2418.6+Million+Secondary+Offering+of+American+Depositary+Shares",
+        "source": "Quiver Quantitative",
+        "time_published": "20251217T230920",
+        "sentiment": 0.004862,
+        "sentiment_label": "Neutral",
+        "relevance": 0.923467,
+        "topics": [
+          "financial_markets",
+          "finance"
+        ]
+      },
+      {
+        "title": "Globe Life (NYSE:GL) CEO Frank Svoboda Sells 9,379 Shares",
+        "summary": "Globe Life (NYSE:GL) CEO Frank Svoboda sold 9,379 shares of the company's stock on December 16th for over $1.3 million, reducing his stake by 20.73%. This sale comes after the company beat quarterly EPS expectations and set positive FY2025-FY2026 guidance, with analysts largely maintaining a \"buy\" rating and an average target price of $164.89 for GL. The stock currently trades around $138.75 and pays a quarterly dividend of $0.27.",
+        "url": "https://www.marketbeat.com/instant-alerts/globe-life-nysegl-ceo-frank-svoboda-sells-9379-shares-2025-12-17/",
+        "source": "MarketBeat",
+        "time_published": "20251217T231026",
+        "sentiment": 0.146054,
+        "sentiment_label": "Neutral",
+        "relevance": 0.918748,
+        "topics": [
+          "earnings",
+          "financial_markets",
+          "finance"
+        ]
+      }
+    ]
+  },
+  "macro_summary": "RISK_OFF regime with deteriorating conditions. VIX rising to 17.6 (+11.7% over 5 days) signals increasing anxiety, while narrow breadth at 52.6% indicates selective participation. AI infrastructure cost concerns are pressuring tech leadership, creating sector rotation challenges in a late-cycle environment.",
+  "regime": "RISK_OFF",
+  "regime_transition": "DETERIORATING",
+  "confidence": "HIGH",
+  "confidence_score": 0.8,
+  "news_risk_adjustment": -10,
+  "news_risk_rationale": "AI bubble concerns gaining momentum with prominent investors shorting NVDA while infrastructure costs pressure entire sector - risk building but VIX still moderate at 17.6",
+  "signals": {
+    "vix_value": 17.62,
+    "vix_delta_5d_pct": 11.7,
+    "vix_bucket": "NORMAL",
+    "vix_interpretation": "VIX rising sharply from complacent levels, now in normal range but momentum concerning - 56th percentile suggests fear building",
+    "yield_spread_bps": 61.0,
+    "yield_spread_10y_3m_bps": 61.0,
+    "yield_shape": "NORMAL",
+    "yield_interpretation": "Yield curve remains normally sloped at 61bps, providing some stability amid equity volatility - no recession signal yet",
+    "breadth_pct": 52.6,
+    "breadth_delta_5d": -0.8,
+    "breadth_interpretation": "Market breadth barely above neutral at 52.6%, indicating narrow leadership and selective participation - vulnerable to rotation",
+    "put_call_ratio": 0.827,
+    "put_call_delta_5d": -32.4,
+    "put_call_interpretation": null,
+    "fed_funds": 3.88,
+    "cpi_yoy": 2.89,
+    "unemployment": 4.6,
+    "sahm_triggered": false,
+    "fomc_days_away": 41,
+    "economic_interpretation": "Economic backdrop remains stable with falling Fed funds, contained inflation, and steady unemployment - macro not the driver of current stress",
+    "gdp_yoy": 1.96,
+    "gdp_trend": "stable",
+    "retail_sales_mom": 5.51,
+    "retail_sales_trend": "stable"
+  },
+  "conflicts": [
+    "VIX rising but put/call ratio declining to 0.827 suggests institutional hedging rather than retail panic",
+    "Economic fundamentals stable but equity volatility increasing - disconnect between macro and micro stress",
+    "Yield curve normal while tech sector under pressure - sector-specific rather than systemic risk"
+  ],
+  "position_sizing": {
+    "vix_value": 17.62,
+    "vix_bucket": "NORMAL",
+    "base_position_pct": 100,
+    "soft_blockers_applied": [],
+    "soft_blocker_multiplier": 1.0,
+    "after_soft_pct": 100,
+    "news_adjustment_pct": -10,
+    "news_adjustment_rationale": "AI bubble concerns gaining momentum with prominent investors shorting NVDA while infrastructure costs pressure entire sector - risk building but VIX still moderate at 17.6",
+    "pre_cap_position_pct": 90,
+    "hard_blocks_applied": [],
+    "final_position_pct": 90
+  },
+  "guidance": {
+    "position_bias": "NORMAL",
+    "position_size_max_pct": 90,
+    "key_action": "Reduce exposure on any tech rally as AI infrastructure cost concerns build momentum"
+  },
+  "triggers": {
+    "upgrade": [
+      "VIX decline below 15 with improving breadth above 55%",
+      "Tech sector stabilization with reduced AI capex concerns"
+    ],
+    "downgrade": [
+      "VIX break above 22 with breadth falling below 45%",
+      "AI bubble narrative accelerating with more prominent short positions"
+    ]
+  },
+  "risk_factors": [
+    "AI infrastructure cost concerns spreading beyond initial tech names",
+    "Market breadth deteriorating with narrow leadership vulnerable to rotation",
+    "Rising volatility from complacent levels suggesting regime change in progress",
+    "Prominent investor short positions in AI stocks gaining attention"
+  ],
+  "full_analysis": "Market regime has shifted to RISK_OFF with deteriorating conditions as AI infrastructure cost concerns pressure tech leadership. VIX has risen sharply to 17.62 (+11.7% over 5 days) from complacent levels, signaling increasing anxiety among market participants. The 56th percentile reading suggests fear is building but not yet extreme.\n\nKey conflict emerges between rising VIX and declining put/call ratio (0.827), indicating institutional hedging rather than retail panic. This suggests smart money is positioning defensively while retail remains relatively sanguine - a concerning divergence.\n\nMarket breadth at 52.6% barely above neutral indicates narrow participation and vulnerable leadership. The tech sector faces mounting pressure from AI infrastructure cost concerns, with Oracle's data center funding issues spreading anxiety to related names like Eaton. Prominent investors including Michael Burry and Jim Chanos actively shorting NVIDIA adds credibility to AI bubble concerns.\n\nEconomic fundamentals remain stable with Fed funds falling (3.88%), contained inflation (2.89% CPI), and steady unemployment (4.6%). The normal yield curve at 61bps provides some stability, but the disconnect between stable macro and rising equity volatility suggests sector-specific stress rather than systemic risk.\n\nRegional banking shows consolidation activity (CVB/Heritage deal) while individual names face mixed results. The divergence between sectors indicates selectivity rather than broad-based weakness, but tech's leadership role makes its weakness systemically important.\n\nNews risk adjustment of -10% reflects building AI bubble concerns not yet fully reflected in VIX levels. The combination of rising volatility, narrow breadth, and sector-specific stress in market leadership creates conditions for further deterioration.",
+  "markdown_report": "",
+  "hard_blocks": []
+}

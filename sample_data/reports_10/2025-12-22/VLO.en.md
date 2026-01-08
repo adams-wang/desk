@@ -1,0 +1,164 @@
+## VLO: Valero Energy Corporation - XLE: Energy
+
+### Executive Summary
+
+No thesis match: MRS_10 -2.9% below STRENGTH zone (3.0-6.0%); PEG 2.98 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($153.94)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 5
+- **Sentiment:** Neutral (Bullish: 0, Bearish: 1)
+
+**1. Voya Investment Management LLC Sells 27,506 Shares of Valero Energy Corporation $VLO**
+- Source: MarketBeat | 20251221T123544 | Neutral | Relevance: 100%
+- Voya Investment Management LLC significantly reduced its stake in Valero Energy Corporation by selling 27,506 shares, decreasing its holdings by 12.1% to 200,490 shares worth $34.14 million. Despite this, other institutional investors have increased their positions in Valero, and Wall Street analysts generally rate the stock as a "Moderate Buy" with a consensus target price of $183.20. The company recently announced a quarterly dividend, and its stock performance shows a market cap of $49.66 billion with a P/E ratio of 33.99.
+
+**2. Here is Why Valero Energy (VLO) Fell This Week**
+- Source: Insider Monkey | 20251220T120137 | Bearish | Relevance: 100%
+- Valero Energy Corporation (NYSE:VLO) saw its share price decline by 7.44% between December 10 and December 17, 2025, largely due to analyst downgrades. Mizuho and BofA both downgraded the stock from 'Outperform'/'Buy' to 'Neutral', citing 'above peer valuation' and a 'more muted' outlook for the refining sector with potential for weaker margins in 2026. Despite the downgrades, Mizuho increased VLO's price target, suggesting an 18% upside potential.
+
+**3. Assenagon Asset Management S.A. Sells 6,476 Shares of Valero Energy Corporation $VLO**
+- Source: MarketBeat | 20251220T090827 | Neutral | Relevance: 100%
+- Assenagon Asset Management S.A. reduced its stake in Valero Energy Corporation by 5.4% during Q3, selling 6,476 shares and retaining 113,138 shares valued at approximately $19.26 million. Valero Energy reported strong Q3 earnings, surpassing analyst expectations with an EPS of $3.66 and revenue of $32.17 billion. The company maintains a "Moderate Buy" consensus rating from MarketBeat with an average target price of $183.20 and recently paid a quarterly dividend of $1.13 per share.
+
+**4. Institutional Retreat: Alta Fundamental Advisers Exits Calumet and Trims Lucky Strike Amid Sector Volatility**
+- Source: FinancialContent | 20251222T142000 | Somewhat-Bullish | Relevance: 70%
+- Alta Fundamental Advisers has liquidated its position in Calumet, Inc. (NASDAQ: CLMT) and significantly reduced its stake in Lucky Strike Entertainment Corp. (NYSE: LUCK), signaling caution towards capital-intensive businesses. These strategic moves, revealed in recent regulatory filings, reflect a growing institutional sentiment favoring stable cash-flow generators amidst market volatility and rising interest rates. The article highlights the challenges for mid-cap, high-leverage companies in the current economic climate, emphasizing the importance of balance sheet health and consistent profitability.
+
+**5. Is Phillips 66 Still Attractive After Big Multi Year Gains And Recent Share Price Pullback**
+- Source: Simply Wall Street | 20251221T042437 | Somewhat-Bullish | Relevance: 56%
+- Phillips 66 has seen significant multi-year gains but has experienced a recent share price pullback. A Discounted Cash Flow (DCF) analysis suggests the stock is undervalued by 71.0%, with an intrinsic value of $444.72 per share, while its current Price to Earnings (PE) ratio of 34.7x is above the industry and peer averages, indicating it's overvalued based on earnings multiples. The article encourages investors to use "Narratives" for a more personalized valuation, considering various future revenue and margin outlooks.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 1, Lowers: 1)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-12 | Mizuho | $192 | $190 | +1% |
+| 2025-12-11 | B of A Securiti | $195 | $198 | -2% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-12 | Mizuho | down | Neutral |
+| 2025-12-11 | B of A Securiti | down | Neutral |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 0 ($0.00M) |
+| Sells | 2 ($0.00M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 43.7% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 4 / 5 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.5% (-0.7%)
+- Blackrock Inc.: 8.5% (-4.5%)
+- State Street Corpora: 5.9% (-3.8%)
+- Price (T.Rowe) Assoc: 3.9% (+3.3%)
+- Charles Schwab Inves: 3.9% (+1.4%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 2.98 signals overvaluation risk, limited margin of safety. Forward P/E 13.0x attractive for 26% earnings growth. Balance sheet: $1.7B free cash flow. Revenue declining -8% YoY, concerning. Institutional flow bullish (4 buying vs 5 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $50.8B |
+| Beta | 0.76 |
+| 52W Range | $99.00 - $185.62 |
+| Short Interest | 4.8% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 2.98 |
+| Forward P/E | 13.0 |
+| Current P/E | 16.4 |
+| YoY Growth | 26.0% |
+| EPS Direction | RISING |
+
+### Technicals
+
+MRS_10 strengthening from -4.1% to -2.9% (+1.2% in 5 days), confirming momentum buildup. Below STRENGTH zone by 5.9pp (needs >3.0% for momentum thesis). Long-term uptrend intact (above SMA200 at 1.12x) but short-term weakness (below SMA20). MACD histogram bearish (-1.53), momentum weakening. OFD pattern: -SUN (Resistance).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | -2.94% (CS: 10) | Weak |
+| RSI_14 | 37.8 | Neutral |
+| MACD Histogram | -1.53 | Bearish |
+| vs SMA20 | 0.953x | Below |
+| vs SMA50 | 0.956x | Below |
+| vs SMA200 | 1.120x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $163.56
+- **Stop Loss:** $153.94 (5.9% risk)
+- **Target:** $173.18 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 62
+- **Position Value:** $10,140.72
+- **Portfolio %:** 10.14%
+- **Risk Dollars:** $600.00
+- **Risk Per Trade:** 0.60%
+- **Modifiers:** L1 120% | L2 50% | Combined 0.60x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.20x |
+| L2 Sector | AVOID (Zone C) | 0.50x |
+
+*NORMAL regime with improving risk appetite. VIX decline to 52-week lows and moderate breadth recovery suggest calming conditions, though narrow participation indicates selectivity remains key. Positive earnings momentum and AI adoption themes provide fundamental support for quality growth names.*
+
+### Earnings
+
+**Next:** 2026-01-29 (Est: $3.35)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $3.05 | $3.66 | +19.9% |
+| 2025Q2 | $1.77 | $2.28 | +29.1% |
+| 2025Q1 | $0.48 | $0.89 | +86.7% |
+| 2024Q4 | $0.06 | $0.64 | +970.8% |
+
+---
+*RULE-based L3 | 2026-01-06 16:38 | MRS_10*

@@ -1,0 +1,153 @@
+## AMBA: Ambarella, Inc. - XLK: Technology
+
+### Executive Summary
+
+No thesis match: MRS_10 -3.9% below STRENGTH zone (3.0-6.0%); PEG 4.96 fails VALUE criteria (<1.0). Stock is in no-man's land without clear edge. Caution: momentum weakening (-9.8% MRS).
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($61.16)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 1
+- **Sentiment:** Bearish (Bullish: 0, Bearish: 1)
+
+**1. Ambarella price target lowered to $85 from $92 at BofA**
+- Source: TipRanks | 20251216T150924 | Bearish | Relevance: 100%
+- BofA has lowered its price target for Ambarella (AMBA) to $85 from $92, while maintaining a Neutral rating on the shares. The firm is updating price targets for U.S. Semiconductor stocks, expecting choppiness in AI-related stocks to be offset by advancements in large language models and AI factories, anticipating an 8 to 10 year journey for IT infrastructure upgrades related to AI.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 3, Lowers: 0)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-11-26 | B of A Securiti | $92 | $90 | +2% |
+| 2025-11-26 | Rosenblatt | $115 | $100 | +15% |
+| 2025-11-26 | Stifel | $100 | $90 | +11% |
+| 2025-11-26 | Needham | $100 | $100 | 0% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-11-26 | B of A Securiti | main | Neutral |
+| 2025-11-26 | Rosenblatt | main | Buy |
+| 2025-11-26 | Stifel | reit | Buy |
+| 2025-11-26 | Needham | reit | Buy |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_SELLING** |
+| Buys | 0 ($0.00M) |
+| Sells | 3 ($1.14M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 40.6% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 8 / 2 |
+
+**Top Holders:**
+- Vanguard Group Inc: 12.0% (+0.1%)
+- Blackrock Inc.: 9.1% (+0.1%)
+- State Street Corpora: 3.9% (-9.4%)
+- Jericho Capital Asse: 2.8% (+10.5%)
+- Fuller & Thaler Asse: 2.6% (+8.9%)
+
+### Key Risks
+
+1. High beta (1.98) amplifies market volatility - any risk-off move could trigger sharp selloff.
+2. Momentum deterioration: MRS_10 falling (-9.8% 5d) with bearish MACD, trend may be turning.
+3. Valuation stretched: PEG 5.0x requires aggressive growth execution.
+4. Near-term weakness: 14.8% below SMA50 despite long-term uptrend.
+
+### Catalysts
+
+- Analyst target momentum: 3 raises (avg +9%) could attract flows.
+- Broader market risk-on sentiment could lift quality names.
+
+### Fundamentals
+
+PEG ratio 4.96 signals overvaluation risk, limited margin of safety. Forward P/E 113.2x stretched relative to 4% growth. Balance sheet: strong liquidity (2.7x), low leverage (D/E 0.27). Analyst sentiment positive (3 raises, avg +9%). Insider selling cluster ($1.1M in 90 days), potential headwind. Institutional flow bullish (8 buying vs 2 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $3.0B |
+| Beta | 1.98 |
+| 52W Range | $38.86 - $96.69 |
+| Short Interest | 7.7% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 4.96 |
+| Forward P/E | 113.2 |
+| Current P/E | 118.1 |
+| YoY Growth | 4.3% |
+| EPS Direction | RISING |
+
+### Technicals
+
+MRS_10 deteriorating from 5.9% to -3.9% (-9.8% in 5 days), indicating relative weakness vs NASDAQ. Below STRENGTH zone by 6.9pp (needs >3.0% for momentum thesis). Underperforming sector by 3.2pp, stock-specific weakness. Long-term uptrend intact (above SMA200 at 1.04x) but short-term weakness (below SMA20). OFD pattern: -MTL (Decline).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | -3.88% (CS: 11) | Weak |
+| RSI_14 | 36.7 | Neutral |
+| MACD Histogram | -0.36 | Bearish |
+| vs SMA20 | 0.905x | Below |
+| vs SMA50 | 0.852x | Below |
+| vs SMA200 | 1.038x | Above |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $69.98
+- **Stop Loss:** $61.16 (12.6% risk)
+- **Target:** $78.80 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 51
+- **Position Value:** $3,568.98
+- **Portfolio %:** 3.57%
+- **Risk Dollars:** $450.00
+- **Risk Per Trade:** 0.45%
+- **Modifiers:** L1 90% | L2 50% | Combined 0.45x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | RISK_OFF (HIGH) | 0.90x |
+| L2 Sector | AVOID (Zone C) | 0.50x |
+
+*RISK_OFF regime with deteriorating conditions. VIX rising to 17.6 (+11.7% over 5 days) signals increasing anxiety, while narrow breadth at 52.6% indicates selective participation. AI infrastructure cost concerns are pressuring tech leadership, creating sector rotation challenges in a late-cycle environment.*
+
+### Earnings
+
+**Next:** 2026-02-25 (Est: $0.10)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q4 | $0.21 | $0.27 | +29.6% |
+| 2025Q3 | $0.05 | $0.15 | +177.1% |
+| 2025Q2 | $0.04 | $0.07 | +83.1% |
+| 2025Q1 | $-0.02 | $0.11 | +651.4% |
+
+---
+*RULE-based L3 | 2026-01-07 01:40 | MRS_10*

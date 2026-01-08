@@ -1,0 +1,167 @@
+## SNPS: Synopsys, Inc. - XLK: Technology
+
+### Executive Summary
+
+PARABOLIC warning: MRS_10 at 6.5% exceeds exhaustion threshold (8.0%). Extreme momentum typically precedes mean reversion. Consider profit-taking or tight stops.
+
+- **Horizon:** 1-5 days (momentum)
+- **Risk Profile:** High - extreme momentum reversal risk
+- **Stop Type:** Fixed 2xATR ($490.18)
+- **If Wrong:** Exit on momentum reversal or stop hit
+- **Invalidation:** MRS_10 drops below exhaustion threshold
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 6, Bearish: 0)
+
+**1. Synopsys Showcases Vision For AI-Driven, Software-Defined Automotive Engineering at CES 2026**
+- Source: EEJournal | 20260106T171244 | Bullish | Relevance: 100%
+- Synopsys is presenting its AI-driven and software-defined engineering solutions at CES 2026 to address the challenge of accelerating automotive innovation while reducing costs and complexity. The company's solutions, from system-level simulation to semiconductor design, aim to virtualize silicon and software development, predict performance, and optimize reliability for automakers and suppliers. Key highlights include support for the FIA's safety standards, integration of Samsung ISOCELL Auto 1H1 into Ansys AVxcelerate Sensors, and Virtualizer Developer Kits for faster time to market.
+
+**2. Synopsys Showcases Vision For AI-Driven, Software-Defined Automotive Engineering at CES 2026**
+- Source: Investing News Network | 20260106T151445 | Bullish | Relevance: 100%
+- Synopsys (NASDAQ: SNPS) is showcasing its AI-driven and software-defined engineering solutions at CES 2026, aiming to accelerate automotive innovation while reducing costs and complexity. The company's virtualized approach enables automakers to predict system performance, optimize reliability, and shorten release cycles, supporting the shift towards software-defined mobility and new revenue streams. Highlights include partnerships with FIA for safety standards, integration of Samsung ISOCELL Auto 1H1 in Ansys AVxcelerate Sensors, and new Virtualizer Developer Kits with partners like Arm, NXP, and Texas Instruments.
+
+**3. Inside the virtual vehicle 'twins' helping build safer cars faster**
+- Source: Stock Titan | 20260106T140832 | Bullish | Relevance: 100%
+- Synopsys showcased its AI-driven and software-defined automotive engineering solutions at CES 2026, emphasizing virtualization to cut prototyping costs and accelerate vehicle time-to-market by up to 12 months. The company announced new Virtualizer Developer Kits (VDKs) and collaborations, including supporting FIA single-seater safety work and integrating Samsung ISOCELL Auto 1H1 into Ansys AVxcelerate Sensors. Synopsys aims to help automakers achieve 20-60% cost reductions in testing by leveraging virtual electronics and digital twin technologies.
+
+**4. Prediction: Synopsys Stock Will Soar Over the Next Decade. Here's 1 Nvidia-Related Reason Why.**
+- Source: The Globe and Mail | 20260106T120838 | Bullish | Relevance: 100%
+- Synopsys (NASDAQ: SNPS) is poised for significant growth over the next decade, largely due to its acquisition of Ansys, which expands its market reach and customer base. The partnership with Nvidia (NASDAQ: NVDA), involving a $2 billion investment, will further enhance Synopsys's "silicon-to-systems" offering by integrating Nvidia's powerful computing capabilities. This strategic move is expected to drive substantial growth for Synopsys in the rapidly expanding electronic design automation market.
+
+**5. Who Owns Synopsys? Top Shareholders and Recent Insider Trades**
+- Source: TIKR.com | 20260105T200853 | Somewhat-Bullish | Relevance: 100%
+- This article details the top shareholders of Synopsys, Inc. (NASDAQ: SNPS), highlighting major passive institutions like Vanguard and BlackRock that provide a stable ownership base. It also covers significant hedge fund activity, such as Gotham Asset Management and Aspex Management increasing their stakes, and analyzes recent insider trades which show modest selling alongside equity award receipts. The overall picture suggests Synopsys is viewed as a critical software platform, with institutions and insiders taking a measured approach.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 6, Lowers: 3)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-12-12 | Morgan Stanley | $550 | $510 | +8% |
+| 2025-12-11 | JP Morgan | $650 | $600 | +8% |
+| 2025-12-11 | Wells Fargo | $500 | $445 | +12% |
+| 2025-12-11 | Keybanc | $600 | $575 | +4% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-12-12 | Morgan Stanley | main | Overweight |
+| 2025-12-11 | JP Morgan | main | Overweight |
+| 2025-12-11 | Wells Fargo | main | Equal-Weight |
+| 2025-12-11 | Keybanc | main | Overweight |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **MIXED** |
+| Buys | 11 ($0.37M) |
+| Sells | 3 ($0.53M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 39.3% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 8 / 2 |
+
+**Top Holders:**
+- Vanguard Group Inc: 9.5% (+20.7%)
+- Blackrock Inc.: 7.9% (+18.5%)
+- State Street Corpora: 4.6% (+20.6%)
+- Capital World Invest: 3.9% (-3.7%)
+- FMR, LLC: 3.0% (+47.5%)
+
+### Key Risks
+
+1. Market regime shift could impact momentum names disproportionately.
+2. Sector rotation risk if leadership changes from current market theme.
+3. Earnings execution risk on next quarterly report.
+
+### Catalysts
+
+- Analyst target momentum: 6 raises (avg +8%) could attract flows.
+- AI/machine learning initiatives could drive multiple expansion if executed.
+- Momentum building: MRS_10 improving +6.3% over 5 days suggests accumulation.
+
+### Fundamentals
+
+PEG ratio 2.95 signals overvaluation risk, limited margin of safety. Quality metrics strong (margin 19%). Analyst sentiment positive (6 raises, avg +8%, $576 target (+11%)). Institutional flow bullish (8 buying vs 2 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $99.4B |
+| Beta | 1.12 |
+| 52W Range | $365.74 - $651.73 |
+| Short Interest | 2.3% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 2.95 |
+| Forward P/E | 30.7 |
+| Current P/E | 36.1 |
+| YoY Growth | 17.7% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 strengthening from 0.2% to 6.5% (+6.3% in 5 days), confirming momentum buildup. Extended beyond STRENGTH zone (6.5% > 6.0%), caution on chasing. MRS_5 at 4.3% confirms short-term momentum alignment. Outperforming sector by 6.3pp, stock-specific strength. Full SMA alignment bullish (above 20/50/200 SMAs). MACD histogram positive (3.42), confirming momentum. RSI overbought at 74, risk of mean reversion. OFD pattern: +MTN (Rally).
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | 6.52% (CS: 93) | Strong |
+| RSI_14 | 74.2 | Overbought |
+| MACD Histogram | 3.42 | Bullish |
+| vs SMA20 | 1.094x | Above |
+| vs SMA50 | 1.174x | Above |
+| vs SMA200 | 1.059x | Above |
+
+### Decision
+
+- **Verdict:** SELL
+- **Thesis:** PARABOLIC
+
+### Trade Setup
+
+- **Entry:** $519.70
+- **Stop Loss:** $490.18 (5.7% risk)
+- **Target:** $549.22 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** PARABOLIC thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 33
+- **Position Value:** $17,150.10
+- **Portfolio %:** 17.15%
+- **Risk Dollars:** $1,000.00
+- **Risk Per Trade:** 1.00%
+- **Modifiers:** L1 100% | L2 100% | Combined 1.00x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | NEUTRAL (Zone E) | 1.00x |
+
+*NORMAL regime with balanced risk appetite. VIX at 15.38 sits in the normal range (18th percentile of 52-week) with modest upward drift, while yield curve remains positively sloped (+62bps 10Y-3M) supporting risk assets. Breadth at 59.5% shows healthy participation, though elevated put/call ratio (1.12) suggests some hedging activity. FOMC 20 days out provides runway for current conditions to persist.*
+
+### Earnings
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q4 | $2.88 | $2.90 | +0.7% |
+| 2025Q3 | $3.75 | $3.39 | -9.5% |
+| 2025Q2 | $3.40 | $3.67 | +8.0% |
+| 2025Q1 | $2.79 | $3.03 | +8.6% |
+
+---
+*RULE-based L3 | 2026-01-08 08:02 | MRS_10*

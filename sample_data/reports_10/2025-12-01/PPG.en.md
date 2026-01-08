@@ -1,0 +1,162 @@
+## PPG: PPG Industries, Inc. - XLB: Basic Materials
+
+### Executive Summary
+
+No thesis match: MRS_10 0.2% below STRENGTH zone (3.0-6.0%). Stock is in no-man's land without clear edge.
+
+- **Horizon:** N/A - no position
+- **Risk Profile:** N/A - avoiding
+- **Stop Type:** Fixed 2xATR ($95.42)
+- **If Wrong:** N/A - wait for clearer setup
+- **Invalidation:** MRS_10 falling below -5% or breaking key support
+
+### News
+
+- **Articles:** 10
+- **Sentiment:** Bullish (Bullish: 2, Bearish: 0)
+
+**1. Ceredex Value Advisors LLC Lowers Position in PPG Industries, Inc. $PPG**
+- Source: MarketBeat | 20251129T090602 | Neutral | Relevance: 99%
+- Ceredex Value Advisors LLC significantly reduced its stake in PPG Industries, selling 317,145 shares and leaving it with 264,200 shares valued at approximately $30.05 million. Despite this, PPG Industries slightly exceeded quarterly EPS estimates and provided positive FY2025 guidance, alongside announcing a quarterly dividend. Wall Street analysts maintain a mixed sentiment, with a consensus "Hold" rating and an average price target of $123.64.
+
+**2. PPG Stock Prediction: Where Analysts See the Stock Going by 2027**
+- Source: TIKR.com | 20251201T215142 | Somewhat-Bullish | Relevance: 99%
+- Analysts predict PPG Industries Inc. (NYSE: PPG) stock could reach $120/share by 2027, representing about 20% upside from its current $100/share. This forecast is based on sustained margins, a strong product portfolio, and effective pricing strategies, with growth driven by aerospace and automotive coatings. Despite slow growth and cyclical pressures in some segments, PPG is viewed as a reliable industrial compounder with stable returns.
+
+**3. PPG Industries, Inc. $PPG Stake Lessened by Grantham Mayo Van Otterloo & Co. LLC**
+- Source: MarketBeat | 20251201T095349 | Neutral | Relevance: 99%
+- Grantham Mayo Van Otterloo & Co. LLC significantly reduced its stake in PPG Industries during the second quarter, selling 35.5% of its shares. Despite this, other institutional investors, including Price T Rowe Associates Inc. MD and First Eagle Investment Management LLC, increased their holdings in PPG Industries. The article also provides an overview of recent analyst ratings, stock performance, and dividend information for PPG Industries.
+
+**4. PPG: To Navigate Road Ahead, Suppliers and Customers Must Drive Digital Together**
+- Source: The Wall Street Journal | 20251201T200000 | Bullish | Relevance: 99%
+- Alisha Bellezza, SVP of Automotive and Packaging Coatings at PPG, discusses how collaborating with customers and suppliers through a digital ecosystem is crucial for navigating the rapid transformation in the automotive industry. PPG is using digital tools and AI to streamline collaboration, accelerate development cycles, optimize paint shop processes, and manage supply chain uncertainties for both established OEMs and agile start-up brands. The company focuses on data-driven decision-making, risk mitigation, and balancing short-term market demands with long-term strategic goals, including sustainability targets.
+
+**5. Choreo LLC Acquires 4,120 Shares of PPG Industries, Inc. $PPG**
+- Source: MarketBeat | 20251201T095349 | Somewhat-Bullish | Relevance: 99%
+- Choreo LLC significantly increased its stake in PPG Industries (NYSE:PPG) by 97.0% in Q2, acquiring an additional 4,120 shares and bringing its total holdings to 8,367 shares valued at $952,000. Other institutional investors like Brighton Jones LLC, Cetera Investment Advisers, and Jefferies Financial Group Inc. also made notable changes to their positions in PPG, which recently reported strong quarterly earnings and issued positive FY 2025 guidance. The stock maintains a consensus "Hold" rating from analysts with an average target price of $123.58 and offers a quarterly dividend.
+
+### Analyst Activity
+
+**Target Signal:** NEUTRAL (Raises: 1, Lowers: 1)
+
+| Date | Firm | Target | Prior | Change |
+|------|------|--------|-------|--------|
+| 2025-11-21 | JP Morgan | $117 | $112 | +4% |
+| 2025-11-11 | Evercore ISI Gr | $112 | $145 | -23% |
+
+**Rating Changes:**
+
+| Date | Firm | Action | Grade |
+|------|------|--------|-------|
+| 2025-11-21 | JP Morgan | main | Overweight |
+| 2025-11-11 | Evercore ISI Gr | main | In-Line |
+
+### Insider Activity (90 days)
+
+| Metric | Value |
+|--------|-------|
+| Direction | **NET_BUYING** |
+| Buys | 75 ($0.25M) |
+| Sells | 0 ($0.00M) |
+
+### Institutional Ownership
+
+| Metric | Value |
+|--------|-------|
+| Total Ownership | 49.3% |
+| Smart Money | **BULLISH** |
+| Net Flow | 0.0% |
+| Buying/Selling | 7 / 2 |
+
+**Top Holders:**
+- Vanguard Group Inc: 13.0% (0.0%)
+- Blackrock Inc.: 10.4% (+3.1%)
+- Wellington Managemen: 6.8% (+20.0%)
+- State Street Corpora: 5.5% (-2.9%)
+- First Eagle Investme: 2.8% (+12.7%)
+
+### Key Risks
+
+1. Long-term trend broken: trading 7.6% below SMA200.
+2. Market regime shift could impact momentum names disproportionately.
+3. Sector rotation risk if leadership changes from current market theme.
+
+### Catalysts
+
+- Broader market risk-on sentiment could lift quality names.
+- Year-end positioning and window dressing may support price.
+
+### Fundamentals
+
+PEG ratio 0.68 indicates undervaluation relative to growth. Institutional flow bullish (7 buying vs 2 selling).
+
+| Metric | Value |
+|--------|-------|
+| Market Cap | $22.7B |
+| Beta | 1.16 |
+| 52W Range | $90.24 - $125.71 |
+| Short Interest | 2.2% |
+
+| Valuation | Value |
+|-----------|-------|
+| PEG Ratio | 0.68 |
+| Forward P/E | 12.3 |
+| Current P/E | 13.0 |
+| YoY Growth | 6.4% |
+| EPS Direction | STABLE |
+
+### Technicals
+
+MRS_10 stable at 0.2% (minimal 5-day change). Below STRENGTH zone by 2.8pp (needs >3.0% for momentum thesis). MRS_5 at 0.0% confirms short-term momentum alignment. Below SMA200 (0.92x), long-term trend not supportive. MACD histogram positive (0.76), confirming momentum. RSI neutral at 54.
+
+| Metric | Value | Signal |
+|--------|-------|--------|
+| MRS_10 | 0.24% (CS: 64) | Neutral |
+| RSI_14 | 54.2 | Neutral |
+| MACD Histogram | 0.76 | Bullish |
+| vs SMA20 | 1.031x | Above |
+| vs SMA50 | 0.996x | Below |
+| vs SMA200 | 0.924x | Below |
+
+### Decision
+
+- **Verdict:** AVOID
+- **Thesis:** NEUTRAL
+
+### Trade Setup
+
+- **Entry:** $99.86
+- **Stop Loss:** $95.42 (4.4% risk)
+- **Target:** $104.30 (R:R method)
+- **Risk/Reward:** 1.00:1
+- **Target Reasoning:** NEUTRAL thesis targets 1.0x risk/reward based on historical edge
+
+### Position Sizing
+
+- **Shares:** 270
+- **Position Value:** $26,962.20
+- **Portfolio %:** 26.96%
+- **Risk Dollars:** $1,200.00
+- **Risk Per Trade:** 1.20%
+- **Modifiers:** L1 100% | L2 120% | Combined 1.20x
+
+### Market Context
+
+| Layer | Signal | Modifier |
+|-------|--------|----------|
+| L1 Macro | NORMAL (MEDIUM) | 1.00x |
+| L2 Sector | TREND (Zone A) | 1.20x |
+
+### Earnings
+
+**Next:** 2026-01-29 (Est: $1.61)
+
+| Quarter | Est | Actual | Surprise |
+|---------|-----|--------|----------|
+| 2025Q3 | $2.08 | $2.13 | +2.3% |
+| 2025Q2 | $2.22 | $2.22 | -0.0% |
+| 2025Q1 | $1.62 | $1.72 | +6.1% |
+| 2024Q4 | $1.63 | $1.61 | -1.5% |
+
+---
+*RULE-based L3 | 2026-01-06 16:37 | MRS_10*
